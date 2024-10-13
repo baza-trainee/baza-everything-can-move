@@ -1,6 +1,7 @@
 "use client"; // Додайте це, якщо використовуєте Next.js
+
 import React from "react";
-import Marquee from "react-double-marquee";
+import Marquee from "react-double-marquee"; // Переконайтеся, що назва правильна
 
 export default function FooComponent() {
   return (
