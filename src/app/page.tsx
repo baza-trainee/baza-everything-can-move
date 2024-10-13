@@ -1,10 +1,10 @@
 import Marquee from '../components/Marquee/Marquee';
-// import Preloader from '../components/Preloader/Preloader';
+import Preloader from '../components/Preloader/Preloader';
 export default function Home() {
   return (
     <>
       <Marquee/>
-      {/* <Preloader /> */}
+      <Preloader />
       <h1>helo</h1>
     </>
   );
