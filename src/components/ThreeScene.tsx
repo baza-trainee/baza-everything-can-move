@@ -3,21 +3,21 @@
 "use client"; // Додаємо директиву для клієнтського компонента
 
 import { useEffect } from 'react';
-import * as THREE from 'three';
+import three from "three"; 
 import { gsap } from 'gsap';
 
 const ThreeScene = () => {
     useEffect(() => {
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
+        const scene = new three.Scene();
+        const camera = new three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new three.WebGLRenderer();
 
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        const geometry = new THREE.BoxGeometry();
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-        const cube = new THREE.Mesh(geometry, material);
+        const geometry = new three.BoxGeometry();
+        const material = new three.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new three.Mesh(geometry, material);
         scene.add(cube);
 
         camera.position.z = 5;
