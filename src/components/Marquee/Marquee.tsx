@@ -1,28 +1,21 @@
-"use client"; // Якщо використовуєте useEffect
-import { useEffect } from "react";
-import gsap from "gsap";
-import "./marquee.css";
+"use client"; // Додайте це, якщо використовуєте Next.js
 
-const Marquee = () => {
-  useEffect(() => {
-    const marqueeContent = document.querySelector(".marquee-content");
+import React from "react";
+import Marquee from "react-double-marquee";
 
-    gsap.to(marqueeContent, {
-      xPercent: -150, // Переміщуємо на 100% ширини
-      repeat: -1, // Нескінченне повторення
-      duration: 15, // Тривалість однієї повної анімації (15 секунд)
-      ease: "linear", // Лінійна анімація
-    });
-  }, []);
-
+export default function FooComponent() {
   return (
-    <div className="marquee">
-      <div className="marquee-content">
-        <span>Frontend animation example - Frontend animation example - </span>
-        <span>Frontend animation example - Frontend animation example - </span>
-      </div>
+    <div
+      style={{
+        width: "100%",
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+      }}>
+      <Marquee direction="left">
+        Some really really really really really long text Some really really
+        really really really long text Some really really really really really
+        long text Some really really really really really long text
+      </Marquee>
     </div>
   );
-};
-
-export default Marquee;
+}
