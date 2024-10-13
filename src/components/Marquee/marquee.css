@@ -10,7 +10,9 @@
 }
 
 .marquee-content {
+    display: flex;
+    align-items: center;
     text-align: center;
-  display: inline-block;
-  white-space: nowrap;
+  /* display: inline-block;
+  white-space: nowrap; */
 }

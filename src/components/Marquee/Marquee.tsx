@@ -19,6 +19,7 @@ const Marquee = () => {
     <div className="marquee">
       <div className="marquee-content">
         <span>Frontend animation example - Frontend animation example - </span>
+        <span>Frontend animation example - Frontend animation example - </span>
       </div>
     </div>
   );
