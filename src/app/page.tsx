@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <Marquee/>
       <Preloader />
-      <h1>helo</h1>
+      <h1 className='pt-5'>helo</h1>
     </>
   );
 }
