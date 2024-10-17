@@ -18,7 +18,7 @@ function GirlModel() {
 
   React.useEffect(() => {
     if (animations.length > 0 && mixer) {
-      const action = mixer.clipAction(animations[0]); // Предполагаем, что первая анимация нужная
+      const action = mixer.clipAction(animations[0]);
       action.play();
     }
   }, [animations, mixer]);
