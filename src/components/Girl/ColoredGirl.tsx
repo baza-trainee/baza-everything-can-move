@@ -31,12 +31,11 @@ function GirlModel() {
   return <primitive object={scene} />;
 }
 
-export default function Girl() {
+export default function ColoredGirl() {
   return (
-    <div className="h-full w-full">
-      <h1>GIRL</h1>
-      <div className="h-[900px]">
-        <h1 className="text-white text-center text-lg">I hate her !!!</h1>
+    <>
+      <div className="h-[900px] w-[500px]">
+        {/* <h1 className="text-white text-center text-lg">I hate her !!!</h1> */}
         <Canvas
           camera={{ position: [0, 1, 5], fov: 50 }}
           //   camera={{ position: [0, 300, -85], fov: 50 }}
@@ -53,6 +52,6 @@ export default function Girl() {
           <OrbitControls enabled={false} />
         </Canvas>
       </div>
-    </div>
+    </>
   );
 }
