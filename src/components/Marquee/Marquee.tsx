@@ -6,11 +6,11 @@ import "./marquee.css";
 export default function FooComponent() {
   return (
     <div className="w-full whitespace-nowrap overflow-hidden marque-item">
-      <Marquee direction="left" className="marque-item">
+      <Marquee direction="left">
         baza trainee baza trainee baza trainee baza trainee baza trainee baza
         trainee baza trainee baza trainee baza trainee
       </Marquee>
-      <Marquee direction="right" className="marque-item">
+      <Marquee direction="right">
         baza trainee baza trainee baza trainee baza trainee baza trainee baza
         trainee baza trainee baza trainee baza trainee
       </Marquee>
