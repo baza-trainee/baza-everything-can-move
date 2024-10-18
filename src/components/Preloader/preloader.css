@@ -14,15 +14,32 @@
     color: white;
     overflow: hidden !important;
 }
-.texts-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    font-size: 60px;
-    overflow: hidden;
-    font-weight: 800;
-    opacity: 0;
-    color: white;
-    letter-spacing: 10px;
+
+.circular-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Займає всю висоту екрану */
+  background-color: #000; /* Чорний фон */
+  position: relative; /* Для позиціонування тексту по колу */
 }
+
+.circular-text {
+  position: absolute;
+  width: 300px; /* Розмір кола */
+  height: 300px; /* Розмір кола */
+  border-radius: 50%; /* Робимо коло */
+}
+
+.circular-text span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px; /* Розмір шрифту */
+  color: #fff; /* Колір тексту */
+  transform-origin: center; /* Центр обертання */
+}
+

@@ -16,3 +16,9 @@
   /* display: inline-block;
   white-space: nowrap; */
 }
+
+.marque-item {
+  font-size: 40px;
+  text-transform: uppercase; 
+  word-spacing: 10px; 
+}

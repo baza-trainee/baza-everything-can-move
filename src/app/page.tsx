@@ -5,7 +5,6 @@ export default function Home() {
     <>
       <Marquee/>
       <Preloader />
-      <h1 className='pt-5'>helo</h1>
     </>
   );
 }
