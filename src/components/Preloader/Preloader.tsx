@@ -15,7 +15,7 @@ const PreLoader: React.FC = () => {
         <div className="circular-container">
           <div className="circular-text">
             <span>
-              <svg viewBox="0 0 400 400" width="400" height="400">
+              <svg viewBox="0 0 400 400" width="450" height="450">
                 {/* Внутрішній круг */}
                 <circle cx="200" cy="200" r="50" fill="white" />
                 <text
