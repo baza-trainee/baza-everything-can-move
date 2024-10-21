@@ -1,0 +1,59 @@
+.marquee {
+  width: 100%;
+  margin: 0 auto;
+  /* overflow: hidden; */
+  /* white-space: nowrap; */
+  background-color: #000;
+  padding: 10px 0;
+  font-size: 2rem;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  /* display: inline-block;
+  white-space: nowrap; */
+}
+
+.marque-item {
+  font-size: 40px;
+  text-transform: uppercase;
+  word-spacing: 10px;
+  color: #a1a1a1;
+  font-weight: 300;
+  position: relative;
+}
+.marque-item::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+  background: url("../../../../../public/assets/images/HomeImg/background.png") center no-repeat;
+}
+
+.relative {
+  position: relative;
+}
+
+
+.absolute-highlight {
+  position: absolute;
+  top: 15%;
+  /* left: 50%; */
+  height: .1px; /* Тонка лінія */
+  width: 50px; /* Довжина лінії */
+  background-color: yellow; /* Колір лінії */
+  transform: translateY(-50%); /* Центрування по вертикалі */
+  animation: blink 2s infinite; /* Анімація для ефекту */
+}
+.absolute-highlight:last-child(1){
+  top: 0;
+}
+.absolute-highlight:last-child(2) {
+  top: 90%; /* Позиціонування від низу */
+  width: 70px; /* Інша довжина для другого елемента */
+}
+
