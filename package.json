@@ -12,6 +12,7 @@
     "@react-three/drei": "^9.114.4",
     "@react-three/fiber": "^8.17.10",
     "@types/three": "^0.169.0",
+    "clsx": "^2.1.1",
     "gsap": "^3.12.5",
     "next": "14.2.14",
     "react": "^18",
