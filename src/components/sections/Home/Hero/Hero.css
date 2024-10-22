@@ -1,0 +1,62 @@
+.hero h1{
+
+}
+.hero span {
+    color: #d3fd50;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate {
+    position: absolute;
+    animation: rotate 15s linear infinite; /* 3s — тривалість анімації, infinite — безкінечно */
+    bottom: -10%;
+    left: 80%;
+    height: 30%;
+}
+
+/* Анімація для зображення еліпса */
+.ellipse-animation {
+    position: absolute;
+    /* width: 100%; */
+    /* height: 100%; */
+    left: 0;
+    /* top: 0; */
+    bottom: 0;
+    width: 500px; /* Встановіть потрібний розмір */
+    animation: drawEllipse 9s ease-in-out forwards;
+    /* Для цього прикладу будемо використовувати clip-path */
+    clip-path: inset(0 100% 0 0); /* Приховуємо праву частину */
+}
+
+@keyframes drawEllipse {
+    from {
+        clip-path: inset(0 100% 0 0); /* Весь еліпс прихований */
+    }
+    to {
+        clip-path: inset(0 0 0 0); /* Весь еліпс видимий */
+    }
+}
+
+.text-animation {
+    opacity: 0; /* Спочатку текст невидимий */
+    transform: translateY(20px); /* Зсув тексту вниз */
+    animation: fadeIn 15s ease forwards; /* Запуск анімації */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Невидимий */
+        transform: translateY(20px); /* Зсув вниз */
+    }
+    to {
+        opacity: 1; /* Видимий */
+        transform: translateY(0); /* Повернення на місце */
+    }
+}
