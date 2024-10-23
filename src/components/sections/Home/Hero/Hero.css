@@ -13,8 +13,8 @@
 .rotate {
     position: absolute;
     animation: rotate 15s linear infinite;
-    bottom: -25%;
-    left: 70%;
+    bottom: -33%;
+    left: 72%;
     height: 39%;
 }
 
