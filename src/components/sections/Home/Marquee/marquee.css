@@ -34,26 +34,24 @@
   background: url("../../../../../public/assets/images/HomeImg/background.png") center no-repeat;
 }
 
-.relative {
+Marquee {
   position: relative;
 }
 
-
-.absolute-highlight {
+.line-dekor {
   position: absolute;
   top: 15%;
-  /* left: 50%; */
-  height: .1px; /* Тонка лінія */
+  left: 50%;
+  height: 10px; /* Тонка лінія */
   width: 50px; /* Довжина лінії */
-  background-color: yellow; /* Колір лінії */
+  /* background-color: yellow; Колір лінії */
+  background: url("../../../../../public/assets/images/HomeImg/line.svg") center no-repeat;
   transform: translateY(-50%); /* Центрування по вертикалі */
   animation: blink 2s infinite; /* Анімація для ефекту */
 }
-.absolute-highlight:last-child(1){
-  top: 0;
+.line-dekor_2 {
+  top: auto;
+  bottom: 0;
+  left: 50%; /* Залишаємо посередині */
+  transform: translateX(-50%); /* Вирівнюємо по центру по горизонталі */
 }
-.absolute-highlight:last-child(2) {
-  top: 90%; /* Позиціонування від низу */
-  width: 70px; /* Інша довжина для другого елемента */
-}
-
