@@ -8,16 +8,16 @@ export default function FooComponent() {
   return (
     <div className="relative w-full whitespace-nowrap overflow-hidden marque-item">
       <Marquee direction="left">
-        <span className="absolute-highlight"></span>
+        <span className="line-dekor"></span>
         baza trainee baza trainee
         baza trainee baza trainee baza trainee baza trainee baza trainee baza
         trainee baza trainee
       </Marquee>
       <Marquee direction="right">
+        <span className="line-dekor line-dekor_2"></span>
         baza trainee baza trainee
         baza trainee baza trainee baza trainee baza
         trainee baza trainee baza trainee baza trainee
-        <span className="absolute-highlight"></span>
       </Marquee>
     </div>
   );

@@ -28,15 +28,15 @@ function GirlModel() {
     return null;
   }
 
-  return <primitive object={scene} />;
+  return <primitive object={scene} position={[0, -3, 0]} scale={[3, 3, 3]} />;
 }
 
 export default function ColoredGirl() {
   return (
     <>
-      <div className="">
+      <div className="h-auto">
         {/* <h1 className="text-white text-center text-lg">I hate her !!!</h1> */}
-        <Canvas className="h-[800px] w-[400px]"
+        <Canvas className="h-[900px] w-[400px]"
           camera={{ position: [0, 3, 5], fov: 50 }}
           //   camera={{ position: [0, 300, -85], fov: 50 }}
           gl={{ antialias: true }}

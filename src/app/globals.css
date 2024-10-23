@@ -21,7 +21,7 @@ body {
   position: relative;
   
   color: var(--foreground);
-  font-family: RobotoMono, sans-serif;
+  font-family: "Roboto Mono", sans-serif;
 }
 
 @layer utilities {
