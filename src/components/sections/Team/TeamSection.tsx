@@ -2,9 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-type Props = {};
-
-function TeamSection({}: Props) {
+function TeamSection() {
   return (
     <section className=" py-16">
       <div className=" container text-white relative">

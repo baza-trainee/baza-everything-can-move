@@ -1,9 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-type Props = {};
-
-function PageTeam({}: Props) {
+function PageTeam() {
   return (
     <section className="py-16">
       <div className=" container flex flex-col gap-8 items-center justify-center text-white">
