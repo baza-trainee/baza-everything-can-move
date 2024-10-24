@@ -41,7 +41,7 @@
     width: 45%;
     height: 85px;
     animation: 7s linear infinite rotate3d;
-    border-style: dashed;
+    /* border-style: dashed; */
     border-width: 2px;
     border-color: #d3fd50;
     box-shadow: none;
@@ -70,10 +70,14 @@
 .orbit-circle.small-orbit._2 {
     transform: rotate3d(1, 2, 0.5, 90deg);
 }
-.orbit-circle.small-orbit._3 {
+.orbit-circle.small-orbit._3,
+.orbit-circle.small-orbit._4 {
     transform: rotate3d(0.5, 1, 2, 90deg);
 }
-
+.orbit-circle.small-orbit._4{
+    border-color: #d3fd50;
+    transform: rotate3d(2, 3, 2, 140deg);
+}
 @keyframes rotate3d {
     0% {
         transform: rotate3d(1, 1, 1, 0deg);

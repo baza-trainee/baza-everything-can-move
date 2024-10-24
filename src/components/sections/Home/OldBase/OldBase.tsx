@@ -13,8 +13,9 @@ export default function OldBase() {
             <div className="orbit-circle middle-orbit"></div>
             <div className="orbit-circle small-orbit _1"></div>
             <div className="orbit-circle middle-orbit-2"></div>
-            <div className="orbit-circle small-orbit _2"></div>
             <div className="orbit-circle small-orbit _3"></div>
+            {/* <div className="orbit-circle small-orbit _2"></div> */}
+            <div className="orbit-circle small-orbit _4"></div>
           </div>
           <div className="w-[400px]">
             <p>
