@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import teamImages from "../../../../public/assets/images/TemSection/ArrayTeamImages";
 import FotoSwiper from "./FotoSwiper";
 
 function TeamSection() {
@@ -16,7 +15,7 @@ function TeamSection() {
           src={"/assets/images/TemSection/corner.svg"}
         />
         <Image
-          className=" absolute right-0 rotate-180          top-0"
+          className=" absolute right-0 rotate-180 top-0"
           alt="Низ"
           width={16}
           height={16}
