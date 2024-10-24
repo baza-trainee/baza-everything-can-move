@@ -5,9 +5,11 @@ import SectionTitle from '@/components/ui/SectionTitle';
 
 export default function ProjectsSection() {
   return (
-    <section className="tablet:pb-20 desktop:pb-[100px] pb-[60px]">
-      <SectionTitle className="mb-3">Проєкти</SectionTitle>
-      {/* <h1 className="text-white">KUKUKU</h1> */}
-    </section>
+    <div className="container">
+      <section className="pt-10">
+        <SectionTitle className="mb-3">Проєкти</SectionTitle>
+        {/* <h1 className="text-white">KUKUKU</h1> */}
+      </section>
+    </div>
   );
 }

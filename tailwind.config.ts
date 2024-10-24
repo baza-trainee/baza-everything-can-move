@@ -7,6 +7,18 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '16px',
+        // not forget to change for small screens
+        sm: '8px',
+        md: '16px',
+        lg: '32px',
+        xl: '64px',
+        '2xl': '120px',
+      },
+    },
     colors: {
       black: '#000',
       white: '#fff',
@@ -42,15 +54,15 @@ const config: Config = {
         font10: ['Neucha', 'ui-sans-serif', 'sans-serif'],
       },
       screens: {
-        smallMobile: '320px',
+        sm: '320px',
         // => @media (min-width: 320px) { ... }
-        mobile: '375px',
+        md: '375px',
         // => @media (min-width: 375px) { ... }
-        tablet: '744px',
+        lg: '744px',
         // => @media (min-width: 744px) { ... }
-        laptop: '1024px',
+        xl: '1024px',
         // => @media (min-width: 1024px) { ... }
-        desktop: '1440px',
+        '2xl': '1440px',
         // => @media (min-width: 1440px) { ... }
       },
       colors: {

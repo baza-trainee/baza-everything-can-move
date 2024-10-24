@@ -9,12 +9,12 @@ import React from 'react';
 
 const Page = (): JSX.Element => {
   return (
-    <div className="flex flex-col lg:flex-row">
+    <>
       {/* <ColoredGirl />
       <WhiteTrGirl />
       <WhiteGirl /> */}
       <ProjectsSection />
-    </div>
+    </>
   );
 };
 
