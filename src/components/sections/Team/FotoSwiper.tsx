@@ -1,8 +1,9 @@
-"use client";
-import Image from "next/image";
-import { useRef, useEffect, useState } from "react";
-import { gsap } from "gsap";
-import teamImages from "./ArrayTeamImages";
+'use client';
+import Image from 'next/image';
+import { useRef, useEffect, useState } from 'react';
+import { gsap } from 'gsap';
+import teamImages from './ArrayTeamImages';
+import clsx from 'clsx';
 
 const FotoSwiper = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -13,21 +14,31 @@ const FotoSwiper = () => {
     gsap.fromTo(
       imageRef.current,
       { opacity: 0, scale: 0.5 },
-      { opacity: 1, scale: 1, duration: 1, ease: "power3.out" }
+      { opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }
     );
 
-    // thumbnailsRef.current.forEach((thumbnail, index) => {
-    //   if (thumbnail) {
-    //     if (index === currentIndex) {
-    //       gsap.to(thumbnail, { border: "2px solid yellow", duration: 0.5 });
-    //     } else {
-    //       gsap.to(thumbnail, {
-    //         border: "2px solid transparent",
-    //         duration: 0.5,
-    //       });
-    //     }
-    //   }
-    // });
+    thumbnailsRef.current.forEach((thumbnail, index) => {
+      if (thumbnail) {
+        // console.log(thumbnail.id);
+
+        if (index === currentIndex) {
+          gsap.to(thumbnail, { border: '2px solid yellow', duration: 0.5 });
+        } else {
+          gsap.to(thumbnail, {
+            border: '2px solid transparent',
+            duration: 0.5,
+          });
+        }
+        if (index === (currentIndex + 1) % teamImages.length) {
+          gsap.to(thumbnail, {
+            width: 64,
+            height: 64,
+          });
+        } else {
+          gsap.to(thumbnail, { width: 40, height: 40 });
+        }
+      }
+    });
   }, [currentIndex]);
 
   useEffect(() => {
@@ -48,29 +59,26 @@ const FotoSwiper = () => {
       (prevIndex) => (prevIndex - 1 + teamImages.length) % teamImages.length
     );
   };
-  const getThreeImages = () => {
-    return [
-      teamImages[currentIndex],
-      teamImages[(currentIndex + 1) % teamImages.length],
-      teamImages[(currentIndex + 2) % teamImages.length],
-    ];
-  };
+
   return (
     <div className="flex gap-14">
-      <div className="flex flex-col gap-12 justify-center">
-        <ul className="flex flex-col items-center gap-3 ">
-          {getThreeImages().map((foto, index) => (
+      <div className="flex flex-col justify-center gap-12">
+        <ul className="flex flex-col items-center gap-3">
+          {teamImages.map((foto, index) => (
             <li
+              id={`${index}`}
               key={index}
               ref={(el) => {
                 thumbnailsRef.current[index] = el;
               }}
-              className={`cursor-pointer w-[44px] h-[44px] rounded-full overflow-hidden ${
-                index === 0 ? "border-solid border-2 border-yellow-300" : ""
-              }`}
+              className={clsx(
+                'h-[40px] w-[40px] cursor-pointer overflow-hidden rounded-full',
+                index === 0 && 'border-2 border-solid border-olga-green-extra'
+              )}
               onClick={() => setCurrentIndex(index)}
             >
               <Image
+                className="h-auto"
                 width={64}
                 height={64}
                 alt={`фото учасника команди ${foto.name}`}
@@ -83,10 +91,11 @@ const FotoSwiper = () => {
         <div className="flex flex-col">
           <button type="button" className="mb-3" onClick={prevSlide}>
             <Image
+              className="h-auto"
               width={64}
               height={33}
               alt="Кнопка вліво"
-              src={"/assets/images/TemSection/IconRow.svg"}
+              src={'/assets/images/TemSection/IconRow.svg'}
             />
           </button>
           <button type="button" onClick={nextSlide}>
@@ -94,7 +103,7 @@ const FotoSwiper = () => {
               width={64}
               height={33}
               alt="Кнопка вправо"
-              src={"/assets/images/TemSection/IconRow.svg"}
+              src={'/assets/images/TemSection/IconRow.svg'}
               className="rotate-180"
             />
           </button>
@@ -106,8 +115,8 @@ const FotoSwiper = () => {
           src={teamImages[(currentIndex + 1) % teamImages.length].url}
           width={365}
           height={389}
+          className="mb-4 h-auto"
           alt={teamImages[(currentIndex + 1) % teamImages.length].name}
-          className="mb-4"
         />
         <p className="text-center text-sm">
           {teamImages[(currentIndex + 1) % teamImages.length].name}

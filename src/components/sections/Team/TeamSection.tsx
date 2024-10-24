@@ -26,7 +26,7 @@ function TeamSection() {
           <FotoSwiper />
 
           <div className=" max-w-[346px] flex flex-col gap-6 justify-center">
-            <p className=" text-lg/snug ">
+            <p className=" text-sm">
               На старті розвитку Бази на проєктах було залучено по 20-25 осіб до
               команди. <br />
               {""} <br /> Наразі наш оптимальний склад — до 10 учасників, це —
