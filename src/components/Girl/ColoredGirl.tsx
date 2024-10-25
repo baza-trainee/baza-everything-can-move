@@ -27,8 +27,14 @@ function GirlModel() {
     console.log("No scene");
     return null;
   }
-
-  return <primitive object={scene} position={[0, -3, 0]} scale={[3, 3, 3]} />;
+  return (
+    <primitive
+      object={scene}
+      rotation={[-Math.PI / 20, 0, 0]}
+      position={[0, -3, 0]}
+      scale={[3, 3, 3]}
+    />
+  );
 }
 
 export default function ColoredGirl() {
