@@ -1,13 +1,13 @@
-import Link from "next/link";
-import React from "react";
+import TeamPage from '@/components/PageTeam/TeamPage';
+import Link from 'next/link';
 
 function PageTeam() {
   return (
-    <section className="py-16">
-      <div className=" container flex flex-col gap-8 items-center justify-center text-white">
-        <Link href={"/"}>Головна</Link>
-        <h1 className=" text-[48] font-medium uppercase">Команди</h1>
-      </div>
+    <section className="text-white">
+      <Link href={'/'} className="cursor-pointer text-olga-green-extra">
+        Головна
+      </Link>
+      <TeamPage />
     </section>
   );
 }
