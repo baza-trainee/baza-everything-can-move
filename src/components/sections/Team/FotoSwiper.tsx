@@ -8,7 +8,6 @@ import clsx from 'clsx';
 import IconRow from '../../../../public/assets/images/TemSection/IconRow.svg';
 import Circle from '../../../../public/assets/images/TemSection/circle.svg';
 import styles from './styles.module.css';
-import { div } from 'framer-motion/client';
 
 const variants = {
   enter: (direction: number) => {
