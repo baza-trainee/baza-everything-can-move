@@ -1,0 +1,11 @@
+.icon path {
+  stroke-dasharray: 1350;
+  stroke-dashoffset: 1350;
+  animation: animateEllips 10s infinite alternate;
+}
+
+@keyframes animateEllips {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
