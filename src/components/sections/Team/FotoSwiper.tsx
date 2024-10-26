@@ -41,7 +41,7 @@ const FotoSwiper = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setPage(([prevPage, prevDirection]) => [prevPage - 1, -1]);
+      setPage(([prevPage]) => [prevPage - 1, -1]);
     }, 5000);
 
     return () => clearInterval(intervalId);
