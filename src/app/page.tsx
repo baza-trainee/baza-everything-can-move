@@ -8,12 +8,12 @@ import TeamSection from '@/components/sections/Team/TeamSection';
 export default function Home() {
   return (
     <>
-      <Hero />
-      <Marquee />
+      {/* <Hero /> */}
+      {/* <Marquee /> */}
       {/* <Preloader /> */}
-      <ScrollButton/>
-      <TeamSection/>
-      <OldBase/>
+      {/* <ScrollButton/> */}
+      <TeamSection />
+      {/* <OldBase/> */}
     </>
   );
 }

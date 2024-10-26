@@ -11,10 +11,10 @@
                       width="63"
                       height="31"
                       rx="15.5"
-                      stroke="#D3FD50"
+                      stroke="none"
                     />
                     <path
                       d="M40 16.5435L24 16.4565M24 16.4565L26.8284 13.5M24 16.4565L26.8284 19.5"
-                      stroke="#D3FD50"
+                      stroke="none"
                     />
 </svg>
