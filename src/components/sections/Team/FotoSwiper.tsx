@@ -146,19 +146,26 @@ const FotoSwiper = () => {
         </div>
       </div>
       <div className="mt-4 flex items-center justify-between xl:hidden">
-        <button type="button" className="" onClick={() => paginate(-1)}>
+        <button
+          type="button"
+          className=""
+          aria-label="Кнопка вліво"
+          onClick={() => paginate(-1)}
+        >
           <IconRow
             width={64}
             height={33}
-            alt="Кнопка вліво"
             className="transition-srtoke transition-fill stroke-olga-green-extra duration-1000 ease-in-out hover:fill-olga-green-extra hover:stroke-black"
           />
         </button>
-        <button type="button" onClick={() => paginate(1)}>
+        <button
+          type="button"
+          aria-label="Кнопка вправо"
+          onClick={() => paginate(1)}
+        >
           <IconRow
             width={64}
             height={33}
-            alt="Кнопка вправо"
             className="transition-srtoke transition-fill rotate-180 stroke-olga-green-extra duration-1000 ease-in-out hover:fill-olga-green-extra hover:stroke-black"
           />
         </button>
