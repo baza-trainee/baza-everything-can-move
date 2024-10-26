@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import teamImages from './ArrayTeamImages';
 import { wrap } from 'popmotion';
 import clsx from 'clsx';
-import IconRow from '/assets/images/TemSection/IconRow.svg';
 
 const variants = {
   enter: (direction: number) => {
