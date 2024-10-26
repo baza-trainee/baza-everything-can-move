@@ -74,7 +74,7 @@ const config: Config = {
         'custom-tight': '0.02em',
       },
       lineHeight: {
-        //leading-custom-24
+        //leading-o-120
         's-24': '24px',
         's-27': '27px',
         's-30': '30px',
@@ -82,6 +82,7 @@ const config: Config = {
         's-48': '48px',
         's-120': '120px',
         's-129': '129px',
+        'o-120': '120%',
         'o-130': '130%',
         'o-150': '150%',
       },

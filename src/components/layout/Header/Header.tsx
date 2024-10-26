@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 // import clsx from 'clsx';
 import OpenMenuIcon from '@/assets/icons/header/open-menu-icon.svg';
-import Navigation from './Navigation';
+import HeaderNavigation from './HeaderNavigation';
 import { NAV_LINKS } from '@/constans/navlinks';
 
 const Header = () => {
@@ -29,7 +29,7 @@ const Header = () => {
         )}
       </div>
       {openMenu && (
-        <Navigation
+        <HeaderNavigation
           headerNav={NAV_LINKS}
           handleMenuClick={handleMenuClick}
           openMenu={openMenu}
