@@ -106,18 +106,6 @@ const config: Config = {
         '4xl': '86px',
       },
     },
-    screens: {
-      sm: '320px',
-      // => @media (min-width: 320px) { ... }
-      md: '375px',
-      // => @media (min-width: 375px) { ... }
-      lg: '744px',
-      // => @media (min-width: 744px) { ... }
-      xl: '1024px',
-      // => @media (min-width: 1024px) { ... }
-      '2xl': '1440px',
-      // => @media (min-width: 1440px) { ... }
-    },
   },
   plugins: [],
 };
