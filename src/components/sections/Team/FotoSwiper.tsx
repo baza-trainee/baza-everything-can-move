@@ -3,11 +3,11 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import teamImages from './ArrayTeamImages';
-import { wrap } from 'popmotion';
 import clsx from 'clsx';
-import IconRow from '../../../../public/assets/images/TemSection/IconRow.svg';
-import Circle from '../../../../public/assets/images/TemSection/circle.svg';
+import IconRow from '../../../../public/assets/icons/IconArrow.svg';
+import Circle from '../../../../public/assets/icons/circle.svg';
 import styles from './styles.module.css';
+import { scrollWrap } from '@/components/ui/ScrollWrap';
 
 const variants = {
   enter: (direction: number) => {
@@ -33,7 +33,7 @@ const variants = {
 const FotoSwiper = () => {
   const [[page, direction], setPage] = useState([0, 0]);
 
-  const imageIndex = wrap(0, teamImages.length, page);
+  const imageIndex = scrollWrap(0, teamImages.length, page);
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
@@ -55,7 +55,7 @@ const FotoSwiper = () => {
             <AnimatePresence initial={false} custom={direction}>
               {[imageIndex - 1, imageIndex, imageIndex + 1].map(
                 (index, position) => {
-                  const wrappedIndex = wrap(0, teamImages.length, index);
+                  const wrappedIndex = scrollWrap(0, teamImages.length, index);
                   return (
                     <motion.li
                       variants={variants}
