@@ -65,6 +65,7 @@
     border-style: dashed;
 }
 .orbit-circle.small-orbit._4{
+    
     width: 34%;
     transform: rotate3d(0, 3, 2, 230deg);
 }
