@@ -107,15 +107,15 @@ const config: Config = {
       },
     },
     screens: {
-      smallMobile: "320px",
+      sm: '320px',
       // => @media (min-width: 320px) { ... }
-      mobile: "375px",
+      md: '375px',
       // => @media (min-width: 375px) { ... }
-      tablet: "744px",
+      lg: '744px',
       // => @media (min-width: 744px) { ... }
-      laptop: "1024px",
+      xl: '1024px',
       // => @media (min-width: 1024px) { ... }
-      desktop: "1440px",
+      '2xl': '1440px',
       // => @media (min-width: 1440px) { ... }
     },
   },
