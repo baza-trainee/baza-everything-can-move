@@ -1,0 +1,20 @@
+<svg
+           width="64"
+                    height="33"
+                    viewBox="0 0 64 33"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      x="0.5"
+                      y="1"
+                      width="63"
+                      height="31"
+                      rx="15.5"
+                      stroke="none"
+                    />
+                    <path
+                      d="M40 16.5435L24 16.4565M24 16.4565L26.8284 13.5M24 16.4565L26.8284 19.5"
+                      stroke="none"
+                    />
+</svg>
