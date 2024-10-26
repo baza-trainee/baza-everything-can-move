@@ -1,95 +1,83 @@
 'use client';
 import Image from 'next/image';
-import { useRef, useEffect, useState } from 'react';
-import { gsap } from 'gsap';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import teamImages from './ArrayTeamImages';
+import { wrap } from 'popmotion';
 import clsx from 'clsx';
+import IconRow from '/assets/images/TemSection/IconRow.svg';
+
+const variants = {
+  enter: (direction: number) => {
+    return {
+      y: direction > 0 ? 100 : -100,
+      opacity: 0,
+    };
+  },
+  center: {
+    zIndex: 1,
+    y: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => {
+    return {
+      zIndex: 0,
+      y: direction < 0 ? 100 : -100,
+      opacity: 0,
+    };
+  },
+};
 
 const FotoSwiper = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const imageRef = useRef<HTMLDivElement>(null);
-  const thumbnailsRef = useRef<(HTMLLIElement | null)[]>([]);
+  const [[page, direction], setPage] = useState([0, 0]);
 
-  useEffect(() => {
-    gsap.fromTo(
-      imageRef.current,
-      { opacity: 0, scale: 0.5 },
-      { opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }
-    );
+  const imageIndex = wrap(0, teamImages.length, page);
 
-    thumbnailsRef.current.forEach((thumbnail, index) => {
-      if (thumbnail) {
-        // console.log(thumbnail.id);
-
-        if (index === currentIndex) {
-          gsap.to(thumbnail, { border: '2px solid yellow', duration: 0.5 });
-        } else {
-          gsap.to(thumbnail, {
-            border: '2px solid transparent',
-            duration: 0.5,
-          });
-        }
-        if (index === (currentIndex + 1) % teamImages.length) {
-          gsap.to(thumbnail, {
-            width: 64,
-            height: 64,
-          });
-        } else {
-          gsap.to(thumbnail, { width: 40, height: 40 });
-        }
-      }
-    });
-  }, [currentIndex]);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % teamImages.length);
-    }, 5000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % teamImages.length);
-    console.log(currentIndex);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + teamImages.length) % teamImages.length
-    );
+  const paginate = (newDirection: number) => {
+    setPage([page + newDirection, newDirection]);
   };
 
   return (
     <div className="flex gap-14">
       <div className="flex flex-col justify-center gap-12">
-        <ul className="flex flex-col items-center gap-3">
-          {teamImages.map((foto, index) => (
-            <li
-              id={`${index}`}
-              key={index}
-              ref={(el) => {
-                thumbnailsRef.current[index] = el;
-              }}
-              className={clsx(
-                'h-[40px] w-[40px] cursor-pointer overflow-hidden rounded-full',
-                index === 0 && 'border-2 border-solid border-olga-green-extra'
-              )}
-              onClick={() => setCurrentIndex(index)}
-            >
-              <Image
-                className="h-auto"
-                width={64}
-                height={64}
-                alt={`фото учасника команди ${foto.name}`}
-                src={foto.url}
-              />
-            </li>
-          ))}
-        </ul>
-
+        <motion.ul className="relative flex h-full max-h-[172px] flex-col items-center">
+          <AnimatePresence initial={false} custom={direction}>
+            {[imageIndex - 1, imageIndex, imageIndex + 1].map(
+              (index, position) => {
+                const wrappedIndex = wrap(0, teamImages.length, index);
+                return (
+                  <motion.li
+                    variants={variants}
+                    key={wrappedIndex}
+                    custom={direction}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    className={clsx(
+                      'absolute',
+                      position === 0 && 'top-0',
+                      position === 1 && 'top-[calc(50%-32px)]',
+                      position === 2 && 'bottom-0'
+                    )}
+                  >
+                    <Image
+                      width={64}
+                      height={64}
+                      src={teamImages[wrappedIndex].url}
+                      className={clsx(
+                        'h-[40px] w-[40px] cursor-pointer overflow-hidden rounded-full',
+                        position === 1 && 'h-[64px] w-[64px]'
+                      )}
+                      alt={`фото учасника команди ${teamImages[wrappedIndex].name}`}
+                    />
+                  </motion.li>
+                );
+              }
+            )}
+          </AnimatePresence>
+        </motion.ul>
         <div className="flex flex-col">
-          <button type="button" className="mb-3" onClick={prevSlide}>
+          <button type="button" className="mb-3" onClick={() => paginate(-1)}>
             <Image
               className="h-auto"
               width={64}
@@ -98,29 +86,33 @@ const FotoSwiper = () => {
               src={'/assets/images/TemSection/IconRow.svg'}
             />
           </button>
-          <button type="button" onClick={nextSlide}>
+          <button type="button" onClick={() => paginate(1)}>
             <Image
               width={64}
               height={33}
               alt="Кнопка вправо"
               src={'/assets/images/TemSection/IconRow.svg'}
-              className="rotate-180"
+              className="rotate-180 stroke-white"
             />
           </button>
         </div>
       </div>
-
-      <div ref={imageRef}>
-        <Image
-          src={teamImages[(currentIndex + 1) % teamImages.length].url}
-          width={365}
-          height={389}
-          className="mb-4 h-auto"
-          alt={teamImages[(currentIndex + 1) % teamImages.length].name}
-        />
-        <p className="text-center text-sm">
-          {teamImages[(currentIndex + 1) % teamImages.length].name}
-        </p>
+      <div className="flex flex-col gap-1">
+        <motion.div
+          key={imageIndex}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image
+            width={365}
+            height={364}
+            src={teamImages[imageIndex].url}
+            alt={teamImages[imageIndex].name}
+          />
+          <p className="text-center text-sm">{teamImages[imageIndex].name}</p>
+        </motion.div>
       </div>
     </div>
   );

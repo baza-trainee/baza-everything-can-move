@@ -12,16 +12,16 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #FFFFFF;
+    --foreground: #ffffff;
   }
 }
 
 body {
   background: #171616;
   position: relative;
-  
+
   color: var(--foreground);
-  font-family: "Roboto Mono", sans-serif;
+  font-family: 'Roboto Mono', sans-serif;
 }
 
 @layer utilities {
@@ -29,7 +29,7 @@ body {
     text-wrap: balance;
   }
 }
-.container{
+.container {
   max-width: 1230px;
   padding: 0 15px;
   margin: 0 auto;
