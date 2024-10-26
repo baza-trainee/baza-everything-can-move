@@ -4,8 +4,7 @@ import Marquee from "../components/sections/Home/Marquee/Marquee";
 import ScrollButton from "../components/ui/ScrollButton/ScrollButton";
 import OldBase from "../components/sections/Home/OldBase/OldBase";
 import Today from "../components/sections/Home/Today/Today";
-import ScrollButton from '../components/ui/ScrollButton/ScrollButton';
-import OldBase from '../components/sections/Home/OldBase/OldBase';
+
 import TeamSection from '@/components/sections/Team/TeamSection';
 
 export default function Home() {
@@ -19,7 +18,7 @@ export default function Home() {
       <Today />
 
       <TeamSection />
-      <OldBase />
+      
     </>
   );
 }
