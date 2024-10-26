@@ -1,6 +1,4 @@
-.hero span {
-    color: #d3fd50;
-}
+
 @keyframes rotate {
     from {
         transform: rotate(0deg);
@@ -13,8 +11,6 @@
 .rotate {
     position: absolute;
     animation: rotate 15s linear infinite;
-    bottom: -33%;
-    left: 72%;
     height: 39%;
 }
 
