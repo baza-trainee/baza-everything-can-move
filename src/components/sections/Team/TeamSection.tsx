@@ -7,15 +7,19 @@ function TeamSection() {
   return (
     <section className="py-16">
       <div className="container relative text-white">
+        {/* sm: '8px',
+        md: '16px',
+        lg: '32px',
+        xl: '64px', */}
         <Image
-          className="absolute bottom-0 left-0"
+          className="absolute bottom-0 left-[8px] md:left-[16px] lg:left-[32px] xl:left-[64px] 2xl:left-[120px]"
           alt="Низ"
           width={16}
           height={16}
           src={'/assets/images/TemSection/corner.svg'}
         />
         <Image
-          className="absolute right-0 top-0 rotate-180"
+          className="absolute -right-[8px] top-0 rotate-180 md:-right-[16px] lg:-right-[32px] xl:-right-[64px] 2xl:right-[120px]"
           alt="Низ"
           width={16}
           height={16}
