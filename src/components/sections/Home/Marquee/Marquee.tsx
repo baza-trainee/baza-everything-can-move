@@ -1,24 +1,48 @@
-"use client"; // Додайте це, якщо використовуєте Next.js
+'use client'; // Додайте це, якщо використовуєте Next.js
+import React from 'react';
+import Image from 'next/image';
+import './marquee.css';
 
-import React from "react";
-import Marquee from "react-double-marquee";
-import "./marquee.css";
-
-export default function FooComponent() {
+const Marquee: React.FC = () => {
   return (
-    <div className="relative w-full whitespace-nowrap overflow-hidden marque-item">
-      <Marquee direction="left">
-        <span className="line-dekor"></span>
-        baza trainee baza trainee
-        baza trainee baza trainee baza trainee baza trainee baza trainee baza
-        trainee baza trainee
-      </Marquee>
-      <Marquee direction="right">
-        <span className="line-dekor line-dekor_2"></span>
-        baza trainee baza trainee
-        baza trainee baza trainee baza trainee baza
-        trainee baza trainee baza trainee baza trainee
-      </Marquee>
+    <div className="overflow-hidden">
+      {/* Рядок рухається вліво */}
+      <div className="animate-marquee-reverse relative inline-block whitespace-nowrap w-[100%]">
+        <Image
+          src="/assets/images/HomeImg/line.svg"
+          alt="Line Image"
+          width={100}
+          height={20}
+        />
+      </div>
+
+      {/* Рядок рухається вправо */}
+      <div className="animate-marquee inline-block whitespace-nowrap text-[40px]">
+        BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA
+        TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE
+        BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA
+        TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE
+      </div>
+
+      {/* Ще один рядок рухається вліво */}
+      <div className="animate-marquee-reverse inline-block whitespace-nowrap text-[40px]">
+        BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA
+        TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE
+        BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA
+        TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE
+      </div>
+
+      {/* Ще один рядок рухається вправо */}
+      <div className="animate-marquee w-[100%] inline-block whitespace-nowrap">
+        <Image
+          src="/assets/images/HomeImg/line.svg"
+          alt="Line Image"
+          width={100}
+          height={20}
+        />
+      </div>
     </div>
   );
-}
+};
+
+export default Marquee;
