@@ -27,11 +27,11 @@ function MainImage() {
             strokeWidth="2"
           />
         </motion.svg>
-        <Label text={'FRONT-END 48%'} className="left-1 top-1/4" />
-        <Label text={'BACK-END 8%'} className="bottom-0 right-0" />
-        <Label text={'DESIGN 12%'} className="left-1/3 top-1/2" />
-        <Label text={'QA 32%'} className="bottom-1/4 left-0" />
-        <Label text={'PM 5%'} className="right-9 top-0" />
+        <Label text="FRONT-END 48%" className="left-1 top-1/4" />
+        <Label text="BACK-END 8%" className="bottom-0 right-0" />
+        <Label text="DESIGN 12%" className="left-1/3 top-1/2" />
+        <Label text="QA 32%" className="bottom-1/4 left-0" />
+        <Label text="PM 5%" className="right-9 top-0" />
       </motion.div>
     </div>
   );
