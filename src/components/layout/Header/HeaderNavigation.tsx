@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+
+import Image from 'next/image';
 
 import clsx from 'clsx';
 import CloseMenuIcon from '@/assets/icons/header/close-menu-icon.svg';
@@ -24,13 +25,19 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
   return (
     <div
       className={clsx(
-        'bg-olga-bg left-0 top-0 w-full transform text-white transition-transform duration-300 ease-in-out',
+        'bg-olga-bg w-full transform text-white transition-transform duration-300 ease-in-out',
         openMenu ? 'translate-y-0' : '-translate-y-full'
       )}
     >
       <div className="flex items-center justify-between pl-10 pr-5">
         <div>
-          <p className="text-white">Logo</p>
+          <Image
+            src="/assets/images/Logo/Logo.png"
+            alt="Logo Baza Trainee Ukraine"
+            width={80}
+            height={80}
+            priority
+          />
         </div>
         <button
           className="hover:text-olga-green h--[100px] w-[100px] p-[18px] text-white"
@@ -39,7 +46,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           <CloseMenuIcon className="w-16 fill-current" />
         </button>
       </div>
-      <NavigationLinks headerNav={headerNav} />
+      <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
     </div>
   );
 };
