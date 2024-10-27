@@ -1,5 +1,5 @@
 function SectionJoin() {
-  return <div>SectionJoin</div>;
+  return <div className="container">SectionJoin</div>;
 }
 
 export default SectionJoin;

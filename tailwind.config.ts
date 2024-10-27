@@ -101,7 +101,7 @@ const config: Config = {
         l: '24px',
         lg: '32px',
         xl: '48px',
-        ' 2xl': '64px',
+        '2xl': '64px',
         '3xl': '80px',
         '4xl': '86px',
       },

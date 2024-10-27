@@ -1,5 +1,5 @@
 function SectionGeografy() {
-  return <div>SectionGeografy</div>;
+  return <div className="container">SectionGeografy</div>;
 }
 
 export default SectionGeografy;
