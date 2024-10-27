@@ -4,6 +4,7 @@ import {ICONS} from '@/constants/icons/icons';
 import Image from 'next/image';
 import Marquee from './Marquee/Marquee';
 import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
 
 
@@ -49,10 +50,10 @@ const Footer: React.FC = () => {
                 </div>
 
                 <ul className='text-l leading-[36px] font-regular list-none'>
-                    <li className='pb-2'>Команди</li>
-                    <li className='pb-2'>Досвід</li>
-                    <li className='pb-2'>Проєкти</li>
-                    <li>Майбутнє</li>
+                    <li className='pb-2'><Link href='/team'>Команди</Link></li>
+                    <li className='pb-2'><Link href='/experience'>Досвід</Link></li>
+                    <li className='pb-2'><Link href='/projects'>Проєкти</Link></li>
+                    <li><Link href='/future'>Майбутнє</Link></li>
                 </ul>
                 <div className='flex flex-col'>
                     <Button disabled={false} className='mb-4'>Telegram</Button>
