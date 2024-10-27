@@ -1,9 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { pathStatisticD } from './pathIconStatistic';
+// import { motion } from 'framer-motion';
+// import { pathStatisticD } from './pathIconStatistic';
 import Label from './Label';
-import styles from './styles.module.css';
 import clsx from 'clsx';
 
 function SectionStatistic() {
