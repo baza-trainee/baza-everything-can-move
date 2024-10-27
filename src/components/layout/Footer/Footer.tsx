@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Marquee from './Marquee/Marquee';
 import Button from '@/components/ui/Button';
 
-import "./footer.css";
 
 
 

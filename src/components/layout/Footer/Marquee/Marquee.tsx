@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import {ICONS} from '@/constants/icons/icons';
-import { twMerge } from "tailwind-merge";
 import "./marquee.css";
 
 
