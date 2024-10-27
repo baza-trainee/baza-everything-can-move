@@ -32,7 +32,8 @@ const Marquee = () => {
                 </div>
             </motion.div>
             <motion.div animate={marqueeAnimation}>
-              <div className='flex shrink-0 grow-0 basis-auto items-center gap-x-6 min-w-min ml-12'>
+              <div className='flex shrink-0 grow-0 basis-auto items-center gap-x-6 min-w-min'>
+                <p className='w-[24px]'></p>
                 <p id='stroke' className='text-[40px] leading-s-48 font-font3 font-regular inline-block'>BAZA TRAINEE UKRAINE</p>
                 <ICONS.EMPTY_STAR/>
                 <p className='text-[40px] leading-s-48 font-font3 font-regular text-white inline-block'>BAZA TRAINEE UKRAINE</p>
