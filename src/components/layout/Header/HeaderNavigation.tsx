@@ -5,6 +5,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import CloseMenuIcon from '@/assets/icons/header/close-menu-icon.svg';
 import NavigationLinks from './NavigationLinks';
+import Link from 'next/link';
 
 type NavLink = {
   name: string;
@@ -30,7 +31,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
       )}
     >
       <div className="flex items-center justify-between pl-10 pr-5">
-        <div>
+        <Link href="/" onClick={handleMenuClick}>
           <Image
             src="/assets/images/Logo/Logo.png"
             alt="Logo Baza Trainee Ukraine"
@@ -38,9 +39,9 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
             height={80}
             priority
           />
-        </div>
+        </Link>
         <button
-          className="hover:text-olga-green h--[100px] w-[100px] p-[18px] text-white"
+          className="hover:text-olga-green h-[100px] w-[100px] p-[18px] text-white transition-colors duration-300 ease-linear"
           onClick={handleMenuClick}
         >
           <CloseMenuIcon className="w-16 fill-current" />
