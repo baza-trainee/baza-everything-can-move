@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 // import clsx from 'clsx';
-import { ICONS_APP } from '@/constants/icons/iconsApp';
+import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 // import OpenMenuIcon from '@/assets/icons/header/open-menu-icon.svg';
 import HeaderNavigation from './HeaderNavigation';
 import { NAV_LINKS } from '@/constants/navlinks';
@@ -21,7 +21,7 @@ const Header = () => {
           onClick={handleMenuClick}
           className="bg-olga-btn-menu hover:bg-olga-green hover:text-olga-bg h-[130px] w-[150px] cursor-pointer px-3 pb-3 pt-6 text-white transition-colors duration-300 ease-linear lg:h-[160px] lg:w-[236px]"
         >
-          <ICONS_APP.OPEN_MENU_ICON className="mb-[50px] ml-auto w-16 fill-current transition-colors duration-300 ease-linear hover:fill-black lg:mb-[77px]" />
+          <ICONS_SRC.OPEN_MENU_ICON className="mb-[50px] ml-auto w-16 fill-current transition-colors duration-300 ease-linear hover:fill-black lg:mb-[77px]" />
           {/* <OpenMenuIcon className="mb-[77px] ml-auto w-16 fill-current transition-colors duration-300 ease-linear hover:fill-black" /> */}
           <p className="ml-auto transition-colors duration-300 ease-linear">
             МЕНЮ

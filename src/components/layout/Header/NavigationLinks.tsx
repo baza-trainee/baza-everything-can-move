@@ -20,7 +20,7 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
   const pathname = usePathname();
   return (
     <nav>
-      <ul className="flex flex-col items-center gap-4 px-[45px]">
+      <ul className="flex flex-col items-center gap-4 px-2 lg:px-[45px]">
         {headerNav.map((item, index) => (
           <li key={index} className="flex w-full justify-center py-[10px]">
             <Link
