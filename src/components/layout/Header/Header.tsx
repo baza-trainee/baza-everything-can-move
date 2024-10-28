@@ -36,21 +36,21 @@ const Header = () => {
   return (
     <header>
       {!openMenu && (
-        <div className="text-l leading-o-120 flex justify-end uppercase">
-          <div className="text-olga-green-extra bg-olga-btn-menu flex h-[80px] w-[174px] items-end p-3">
+        <div className="text:md lg:text-l leading-o-120 flex justify-end uppercase">
+          <div className="text-olga-green-extra bg-olga-btn-menu flex h-[50px] w-[100px] items-end p-3 lg:h-[80px] lg:w-[174px]">
             {indexOfCurrentPage >= 0
               ? NAV_LINKS[indexOfCurrentPage].name
               : 'UPS'}
           </div>
           <Link
             href={NAV_LINKS[indexOfNextPage].link}
-            className="hover:text-olga-green/90 bg-olga-btn-menu flex h-[120px] w-[344px] items-end p-3 text-white transition-colors duration-300 ease-linear"
+            className="hover:text-olga-green/90  bg-olga-btn-menu flex h-[90px] w-[139px] items-end p-3 text-white transition-colors duration-300 ease-linear lg:h-[120px] lg:w-[344px]"
           >
             {indexOfNextPage >= 0 ? NAV_LINKS[indexOfNextPage].name : 'UPS'}
           </Link>
           <div
             onClick={handleMenuClick}
-            className="bg-olga-btn-menu hover:bg-olga-green hover:text-olga-bg h-[130px] w-[150px] cursor-pointer px-3 pb-3 pt-6 text-white transition-colors duration-300 ease-linear lg:h-[160px] lg:w-[236px]"
+            className="bg-olga-btn-menu hover:bg-olga-green hover:text-olga-bg h-[130px] w-[125px] cursor-pointer px-3 pb-3 pt-6 text-white transition-colors duration-300 ease-linear lg:h-[160px] lg:w-[236px]"
           >
             <ICONS_SRC.OPEN_MENU_ICON className="mb-[50px] ml-auto w-16 fill-current transition-colors duration-300 ease-linear hover:fill-black lg:mb-[77px]" />
             {/* <OpenMenuIcon className="mb-[77px] ml-auto w-16 fill-current transition-colors duration-300 ease-linear hover:fill-black" /> */}
