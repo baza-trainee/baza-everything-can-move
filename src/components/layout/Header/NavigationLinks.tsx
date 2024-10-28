@@ -20,7 +20,7 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
   const pathname = usePathname();
   return (
     <nav>
-      <ul className="flex flex-col items-center gap-4 px-[45px]">
+      <ul className="flex flex-col items-center gap-4 px-2 lg:px-[45px]">
         {headerNav.map((item, index) => (
           <li key={index} className="flex w-full justify-center py-[10px]">
             <Link
@@ -28,7 +28,7 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
               onClick={onClickLink}
               className={clsx(
                 pathname === item.link ? 'text-olga-green-extra' : 'text-white',
-                'leading-o-120 hover:text-olga-green block text-4xl uppercase transition-colors duration-300 ease-linear'
+                'leading-o-120 hover:text-olga-green block text-2xl uppercase transition-colors duration-300 ease-linear lg:text-4xl'
               )}
             >
               {item.name}
