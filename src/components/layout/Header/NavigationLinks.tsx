@@ -28,7 +28,7 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
               onClick={onClickLink}
               className={clsx(
                 pathname === item.link ? 'text-olga-green-extra' : 'text-white',
-                'leading-o-120 hover:text-olga-green block text-4xl uppercase transition-colors duration-300 ease-linear'
+                'leading-o-120 hover:text-olga-green block text-2xl uppercase transition-colors duration-300 ease-linear lg:text-4xl'
               )}
             >
               {item.name}

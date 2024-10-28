@@ -31,7 +31,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
         openMenu ? 'translate-y-0' : '-translate-y-full'
       )}
     >
-      <div className="flex items-center justify-between pl-10 pr-5">
+      <div className="flex items-center justify-between pl-5 lg:pl-10">
         <Link href="/" onClick={handleMenuClick}>
           <Image
             src="/assets/images/Logo/logo_baza.png"
@@ -42,10 +42,10 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           />
         </Link>
         <button
-          className="hover:text-olga-green h-[100px] w-[100px] p-[18px] text-white transition-colors duration-300 ease-linear"
+          className="hover:text-olga-green h-20 w-20 p-2 text-white transition-colors duration-300 ease-linear lg:h-[100px] lg:w-[100px] lg:p-[18px]"
           onClick={handleMenuClick}
         >
-          <ICONS_APP.CLOSE_MENU_ICON className="w-16 fill-current" />
+          <ICONS_APP.CLOSE_MENU_ICON className="w-full fill-current lg:w-16" />
           {/* <CloseMenuIcon className="w-16 fill-current" /> */}
         </button>
       </div>
