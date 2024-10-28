@@ -3,7 +3,8 @@
 import Image from 'next/image';
 
 import clsx from 'clsx';
-import CloseMenuIcon from '@/assets/icons/header/close-menu-icon.svg';
+import { ICONS_APP } from '@/constants/icons/iconsApp';
+// import CloseMenuIcon from '@/assets/icons/header/close-menu-icon.svg';
 import NavigationLinks from './NavigationLinks';
 import Link from 'next/link';
 
@@ -33,7 +34,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
       <div className="flex items-center justify-between pl-10 pr-5">
         <Link href="/" onClick={handleMenuClick}>
           <Image
-            src="/assets/images/Logo/Logo.png"
+            src="/assets/images/Logo/logo_baza.png"
             alt="Logo Baza Trainee Ukraine"
             width={80}
             height={80}
@@ -44,7 +45,8 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           className="hover:text-olga-green h-[100px] w-[100px] p-[18px] text-white transition-colors duration-300 ease-linear"
           onClick={handleMenuClick}
         >
-          <CloseMenuIcon className="w-16 fill-current" />
+          <ICONS_APP.CLOSE_MENU_ICON className="w-16 fill-current" />
+          {/* <CloseMenuIcon className="w-16 fill-current" /> */}
         </button>
       </div>
       <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
