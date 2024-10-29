@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import clsx from 'clsx';
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
-// import CloseMenuIcon from '@/assets/icons/header/close-menu-icon.svg';
+
 import NavigationLinks from './NavigationLinks';
 import Link from 'next/link';
 import SocialMedia from './SocialMedia';
@@ -54,7 +54,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           onClick={handleMenuClick}
         >
           <ICONS_SRC.CLOSE_MENU_ICON className="w-10 fill-current lg:w-16" />
-          {/* <CloseMenuIcon className="w-16 fill-current" /> */}
+         
         </button>
       </div>
       {/* end of  upper line */}
