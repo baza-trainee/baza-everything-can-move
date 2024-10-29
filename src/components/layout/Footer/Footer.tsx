@@ -15,12 +15,12 @@ const Footer: React.FC = () => {
     return (
       <footer className="bg-black">
 
-        <div className='w-full whitespace-nowrap pt-[18px] pb-4 overflow-hidden border-b border-white'>
+        <div className='w-full whitespace-nowrap pt-[18px] pb-4 overflow-hidden border-b border-white border-opacity-10'>
             <Marquee />
         </div>
 
         <div className="container">
-            <div className='flex flex-row justify-between py-[60px] border-b border-white'>
+            <div className='flex flex-row justify-between py-[60px] border-b border-white border-opacity-10'>
                 <div className='flex flex-row justify-start'>
                     <Image
                       src="/assets/images/Logo/logo_baza.jpg"
@@ -38,10 +38,10 @@ const Footer: React.FC = () => {
                             <ICONS.PHONE/> 
                             <a href="tel:+380956621073">+380 95 662 10 73</a>
                         </div>
-                        <div className='flex flex-row items-center gap-2 text-l leading-[36px] font-regular pb-2'>
+                        {/* <div className='flex flex-row items-center gap-2 text-l leading-[36px] font-regular pb-2'>
                             <ICONS.EMAIL/>
                             <a href="mailto:cv@baza-skill.com.ua">cv@baza-skill.com.ua</a>
-                        </div>
+                        </div> */}
                         <div className='flex flex-row items-center gap-2 text-l leading-[36px] font-regular pb-2'>
                             <ICONS.EMAIL/>
                             <a href="mailto:info@baza-trainee.tech">info@baza-trainee.tech</a>
@@ -50,15 +50,15 @@ const Footer: React.FC = () => {
                 </div>
 
                 <ul className='text-l leading-[36px] font-regular list-none'>
-                    <li className='pb-2'><Link href='/team'>Команди</Link></li>
-                    <li className='pb-2'><Link href='/experience'>Досвід</Link></li>
-                    <li className='pb-2'><Link href='/projects'>Проєкти</Link></li>
-                    <li><Link href='/future'>Майбутнє</Link></li>
+                    <li className='pb-2 uppercase'><Link href='/team'>Команди</Link></li>
+                    <li className='pb-2 uppercase'><Link href='/experience'>Досвід</Link></li>
+                    <li className='pb-2 uppercase'><Link href='/projects'>Проєкти</Link></li>
+                    <li className='uppercase'><Link href='/future'>Майбутнє</Link></li>
                 </ul>
                 <div className='flex flex-col'>
-                    <Button disabled={false} className='mb-4'>Telegram</Button>
-                    <Button disabled={false} className='mb-4'>LinkedIn</Button>
-                    <Button disabled={false}>Facebook</Button>
+                    <Button disabled={false} className='mb-4 border-olga-green-extra hover:bg-olga-green-extra'>Telegram</Button>
+                    <Button disabled={false} className='mb-4 border-olga-green-extra hover:bg-olga-green-extra'>LinkedIn</Button>
+                    <Button disabled={false} className='border-olga-green-extra hover:bg-olga-green-extra'>Facebook</Button>
                 </div>
 
             </div>
