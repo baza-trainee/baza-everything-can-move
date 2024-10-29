@@ -27,14 +27,21 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
 }) => {
   return (
     <div
+      // overflow-y-auto
       className={clsx(
-        'bg-olga-bg w-full transform pb-[18px] text-white transition-transform duration-300 ease-in-out',
+        'bg-olga-bg fixed inset-0 z-50 h-dvh w-full transform overflow-y-auto pb-[18px] text-white transition-transform duration-300 ease-in-out',
         openMenu ? 'translate-y-0' : '-translate-y-full'
       )}
     >
-      <div className="flex items-center justify-between pl-5 lg:pl-10">
-        <Link href="/" onClick={handleMenuClick}>
+      {/* upper line */}
+      <div className="flex items-center justify-between px-4 lg:pl-10 lg:pr-6 2xl:pr-5">
+        <Link
+          href="/"
+          onClick={handleMenuClick}
+          className="py-[18px] lg:py-[10px]"
+        >
           <Image
+            className="h-16 w-16 lg:h-20 lg:w-20"
             src="/assets/images/Logo/logo_baza.png"
             alt="Logo Baza Trainee Ukraine"
             width={80}
@@ -43,36 +50,28 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           />
         </Link>
         <button
-          className="hover:text-olga-green h-20 w-20 p-2 text-white transition-colors duration-300 ease-linear lg:h-[100px] lg:w-[100px] lg:p-[18px]"
+          className="hover:text-olga-green flex h-11 w-11 items-center justify-center text-white transition-colors duration-300 ease-linear lg:h-[100px] lg:w-[100px]"
           onClick={handleMenuClick}
         >
-          <ICONS_SRC.CLOSE_MENU_ICON className="w-full fill-current lg:w-16" />
+          <ICONS_SRC.CLOSE_MENU_ICON className="w-10 fill-current lg:w-16" />
           {/* <CloseMenuIcon className="w-16 fill-current" /> */}
         </button>
       </div>
-      <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
-      <div>
-        <p className="leading-o-130 text-center text-sm text-white">
-          Слідкуй за нами
-        </p>
-        {/* <ul className="flex justify-center gap-[18px]">
-          <li className="flex h-10 w-10 cursor-pointer items-center justify-center">
-            <Link
-              href="https://www.linkedin.com/company/baza-trainee-ukraine/posts/?feedView=all"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ICONS_SRC.TELEGRAM className="w-[18px] transition-transform duration-300 ease-in-out hover:scale-150" />
-            </Link>
-          </li>
-          <li className="flex h-10 w-10 items-center justify-center">
-            <ICONS_SRC.FACEBOOK className="w-[18px]" />
-          </li>
-          <li className="flex h-10 w-10 items-center justify-center">
-            <ICONS_SRC.LINKEDIN className="w-[18px]" />
-          </li>
-        </ul> */}
-        <SocialMedia />
+      {/* end of  upper line */}
+      <div className='flex flex-col justify-between'>
+       
+        {/* nav links section*/}
+        <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
+        {/* end of nav links section*/}
+        {/* soc media section*/}
+        <div className="pb-6 2xl:pb-[14px]">
+          <p className="leading-o-130 text-s lg:text-m mb-1 text-center text-white 2xl:text-sm">
+            Слідкуй за нами
+          </p>
+
+          <SocialMedia />
+        </div>
+        {/* end of soc media section*/}
       </div>
     </div>
   );

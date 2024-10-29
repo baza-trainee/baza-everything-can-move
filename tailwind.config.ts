@@ -58,8 +58,8 @@ const config: Config = {
         // => @media (min-width: 320px) { ... }
         md: '375px',
         // => @media (min-width: 375px) { ... }
-        lg: '744px',
-        // => @media (min-width: 744px) { ... }
+        lg: '768px',
+        // => @media (min-width: 768px) { ... }
         xl: '1024px',
         // => @media (min-width: 1024px) { ... }
         '2xl': '1440px',
