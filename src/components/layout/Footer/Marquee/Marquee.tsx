@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion';
-import {ICONS} from '@/constants/icons/icons';
+// import {ICONS} from '@/constants/icons/icons';
 import "./marquee.css";
 
 
