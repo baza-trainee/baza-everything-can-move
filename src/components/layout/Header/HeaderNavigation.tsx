@@ -56,9 +56,10 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           {/* <CloseMenuIcon className="w-16 fill-current" /> */}
         </button>
       </div>
-
       {/* end of  upper line */}
+      {/* nav links section*/}
       <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
+      {/* end of nav links section*/}
       <div>
         <p className="leading-o-130 text-center text-sm text-white">
           Слідкуй за нами
