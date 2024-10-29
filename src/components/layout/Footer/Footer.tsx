@@ -38,10 +38,6 @@ const Footer: React.FC = () => {
                             <ICONS.PHONE/> 
                             <a href="tel:+380956621073">+380 95 662 10 73</a>
                         </div>
-                        {/* <div className='flex flex-row items-center gap-2 text-l leading-[36px] font-regular pb-2'>
-                            <ICONS.EMAIL/>
-                            <a href="mailto:cv@baza-skill.com.ua">cv@baza-skill.com.ua</a>
-                        </div> */}
                         <div className='flex flex-row items-center gap-2 text-l leading-[36px] font-regular pb-2'>
                             <ICONS.EMAIL/>
                             <a href="mailto:info@baza-trainee.tech">info@baza-trainee.tech</a>
