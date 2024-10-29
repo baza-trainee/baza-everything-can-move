@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -12,6 +12,17 @@ const Header = () => {
   const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState(false);
 
+  useEffect(() => {
+    if (openMenu) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [openMenu]);
   //define indexes of current and next pages
   function headerNav() {
     const indexOfCurrentPage = NAV_LINKS.findIndex(
