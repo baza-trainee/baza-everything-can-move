@@ -29,7 +29,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
     <div
       // overflow-y-auto
       className={clsx(
-        'bg-olga-bg overflow-y-auto transform fixed inset-0 z-50 h-dvh w-full  pb-[18px] text-white transition-transform duration-300 ease-in-out',
+        'bg-olga-bg fixed inset-0 z-50 h-dvh w-full transform overflow-y-auto pb-[18px] text-white transition-transform duration-300 ease-in-out',
         openMenu ? 'translate-y-0' : '-translate-y-full'
       )}
     >
@@ -58,34 +58,21 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
         </button>
       </div>
       {/* end of  upper line */}
-      {/* nav links section*/}
-      <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
-      {/* end of nav links section*/}
-      {/* soc media section*/}
-      <div className="pb-6 2xl:pb-[14px]">
-        <p className="leading-o-130 text-s lg:text-m mb-1 text-center text-white 2xl:text-sm">
-          Слідкуй за нами
-        </p>
-        {/* <ul className="flex justify-center gap-[18px]">
-          <li className="flex h-10 w-10 cursor-pointer items-center justify-center">
-            <Link
-              href="https://www.linkedin.com/company/baza-trainee-ukraine/posts/?feedView=all"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ICONS_SRC.TELEGRAM className="w-[18px] transition-transform duration-300 ease-in-out hover:scale-150" />
-            </Link>
-          </li>
-          <li className="flex h-10 w-10 items-center justify-center">
-            <ICONS_SRC.FACEBOOK className="w-[18px]" />
-          </li>
-          <li className="flex h-10 w-10 items-center justify-center">
-            <ICONS_SRC.LINKEDIN className="w-[18px]" />
-          </li>
-        </ul> */}
-        <SocialMedia />
+      <div className='flex flex-col justify-between'>
+       
+        {/* nav links section*/}
+        <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
+        {/* end of nav links section*/}
+        {/* soc media section*/}
+        <div className="pb-6 2xl:pb-[14px]">
+          <p className="leading-o-130 text-s lg:text-m mb-1 text-center text-white 2xl:text-sm">
+            Слідкуй за нами
+          </p>
+
+          <SocialMedia />
+        </div>
+        {/* end of soc media section*/}
       </div>
-      {/* end of soc media section*/}
     </div>
   );
 };
