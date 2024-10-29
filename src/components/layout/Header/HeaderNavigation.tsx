@@ -3,9 +3,11 @@
 import Image from 'next/image';
 
 import clsx from 'clsx';
-import CloseMenuIcon from '@/assets/icons/header/close-menu-icon.svg';
+import { ICONS_SRC } from '@/constants/icons/iconsSrc';
+// import CloseMenuIcon from '@/assets/icons/header/close-menu-icon.svg';
 import NavigationLinks from './NavigationLinks';
 import Link from 'next/link';
+import SocialMedia from './SocialMedia';
 
 type NavLink = {
   name: string;
@@ -25,15 +27,22 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
 }) => {
   return (
     <div
+      // overflow-y-auto
       className={clsx(
-        'bg-olga-bg w-full transform text-white transition-transform duration-300 ease-in-out',
+        'bg-olga-bg fixed inset-0 z-50 h-dvh w-full transform overflow-y-auto pb-[18px] text-white transition-transform duration-300 ease-in-out',
         openMenu ? 'translate-y-0' : '-translate-y-full'
       )}
     >
-      <div className="flex items-center justify-between pl-10 pr-5">
-        <Link href="/" onClick={handleMenuClick}>
+      {/* upper line */}
+      <div className="flex items-center justify-between px-4 lg:pl-10 lg:pr-6 2xl:pr-5">
+        <Link
+          href="/"
+          onClick={handleMenuClick}
+          className="py-[18px] lg:py-[10px]"
+        >
           <Image
-            src="/assets/images/Logo/Logo.png"
+            className="h-16 w-16 lg:h-20 lg:w-20"
+            src="/assets/images/Logo/logo_baza.png"
             alt="Logo Baza Trainee Ukraine"
             width={80}
             height={80}
@@ -41,13 +50,29 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           />
         </Link>
         <button
-          className="hover:text-olga-green h-[100px] w-[100px] p-[18px] text-white transition-colors duration-300 ease-linear"
+          className="hover:text-olga-green flex h-11 w-11 items-center justify-center text-white transition-colors duration-300 ease-linear lg:h-[100px] lg:w-[100px]"
           onClick={handleMenuClick}
         >
-          <CloseMenuIcon className="w-16 fill-current" />
+          <ICONS_SRC.CLOSE_MENU_ICON className="w-10 fill-current lg:w-16" />
+          {/* <CloseMenuIcon className="w-16 fill-current" /> */}
         </button>
       </div>
-      <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
+      {/* end of  upper line */}
+      <div className='flex flex-col justify-between'>
+       
+        {/* nav links section*/}
+        <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
+        {/* end of nav links section*/}
+        {/* soc media section*/}
+        <div className="pb-6 2xl:pb-[14px]">
+          <p className="leading-o-130 text-s lg:text-m mb-1 text-center text-white 2xl:text-sm">
+            Слідкуй за нами
+          </p>
+
+          <SocialMedia />
+        </div>
+        {/* end of soc media section*/}
+      </div>
     </div>
   );
 };
