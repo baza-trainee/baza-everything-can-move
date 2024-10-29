@@ -60,8 +60,9 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
       {/* nav links section*/}
       <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
       {/* end of nav links section*/}
-      <div>
-        <p className="leading-o-130 text-center text-sm text-white">
+      {/* soc media section*/}
+      <div className="pb-6 2xl:pb-[14px]">
+        <p className="leading-o-130 text-s lg:text-m mb-1 text-center text-white 2xl:text-sm">
           Слідкуй за нами
         </p>
         {/* <ul className="flex justify-center gap-[18px]">
@@ -83,6 +84,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
         </ul> */}
         <SocialMedia />
       </div>
+      {/* end of soc media section*/}
     </div>
   );
 };
