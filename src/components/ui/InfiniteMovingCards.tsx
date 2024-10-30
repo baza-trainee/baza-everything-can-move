@@ -23,9 +23,8 @@ export const InfiniteMovingCards = ({
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLDivElement>(null);
 
- 
-
   const [start, setStart] = useState(false);
+
   const getDirection = useCallback(() => {
     if (containerRef.current) {
       if (direction === 'left') {
@@ -70,12 +69,11 @@ export const InfiniteMovingCards = ({
       setStart(true);
     }
   }, [getDirection, getSpeed]);
-    
- useEffect(() => {
-   addAnimation();
- }, [addAnimation]);
-    
-    
+
+  useEffect(() => {
+    addAnimation();
+  }, [addAnimation]);
+
   return (
     <div
       ref={containerRef}
@@ -85,7 +83,7 @@ export const InfiniteMovingCards = ({
       <div
         ref={scrollerRef}
         className={cn(
-          'mb-8 flex h-16 w-max min-w-full shrink-0 grow-0 flex-nowrap gap-9',
+          'mb-8 flex h-16 w-full shrink-0 grow-0 flex-nowrap gap-9',
           start && 'animate-marquee', //'animate-scroll',
           pauseOnHover && 'hover:[animation-play-state:paused]'
         )}
