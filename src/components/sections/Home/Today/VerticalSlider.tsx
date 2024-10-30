@@ -18,7 +18,7 @@ const VerticalSlider: React.FC = () => {
   const [scrolling, setScrolling] = useState(false);
 
   const handleScroll = (event: React.WheelEvent) => {
-    event.preventDefault(); // Запобігаємо прокрутці сторінки
+    event.preventDefault(); // Prevent page scrolling
 
     if (scrolling) return;
 
@@ -34,7 +34,7 @@ const VerticalSlider: React.FC = () => {
     setTimeout(() => setScrolling(false), 500);
   };
 
-  const getStyle = (index: number) => {
+  const getStyle = (index: number): React.CSSProperties => {
     const position = index - currentSlide;
     const isCenter = position === 0;
     const isAdjacent = Math.abs(position) === 1;
@@ -45,7 +45,7 @@ const VerticalSlider: React.FC = () => {
       fontSize: isCenter ? '2rem' : '1rem',
       color: isCenter ? 'white' : 'gray',
       transition: 'transform 0.5s, opacity 0.5s, font-size 0.5s, color 0.5s',
-      position: 'absolute',
+      position: 'absolute', // Ensure TypeScript understands the type
     };
   };
 
