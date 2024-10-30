@@ -1,7 +1,5 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
-import ScrollText from "./ScrolText";
-import './style.css';
-
+import VerticalSlider from "./VerticalSlider";
 function Today() {
   return (
     <section className="taday">
@@ -24,9 +22,9 @@ function Today() {
               І доволі успішно пробуємо себе у складних проєктах для бізнесу.
             </p>
           </div>
-
-          <div className="h-[300px] w-[900px] overflow-y-auto flex justify-center items-center h-[35vh] overflow-hidden bg-black text-white">
-            <ScrollText/>
+          <div className="h-[300px] w-[900px] overflow-y-auto flex justify-center items-center text-white">
+           <VerticalSlider/>
+            
           </div>
         </div>
       </div>
