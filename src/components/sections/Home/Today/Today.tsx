@@ -22,7 +22,7 @@ function Today() {
               І доволі успішно пробуємо себе у складних проєктах для бізнесу.
             </p>
           </div>
-          <div className="h-[300px] w-[900px] overflow-y-auto flex justify-center items-center text-white">
+          <div className=" w-[900px] overflow-auto flex justify-center items-center text-white">
            <VerticalSlider/>
             
           </div>
