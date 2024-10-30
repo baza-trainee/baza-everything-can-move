@@ -2,15 +2,16 @@ import clsx from 'clsx';
 
 interface LabelProps {
   textTop: string;
-  percentNumber: number;
-  textNumber?: string,
+  number: number; // Використовуємо "number" замість "percentNumber"
+  showPercentage?: boolean; // Додаємо прапорець для відсотків
   textBottom: string;
   className?: string;
 }
 
 function Label({
   textTop = 'чоловіків',
-  percentNumber = 100,
+  number = 100,
+  showPercentage = true, // Встановлюємо показ відсотка за замовчуванням
   textBottom = 'в складі',
   className,
 }: LabelProps) {
@@ -23,7 +24,8 @@ function Label({
     >
       <p className="">{textTop}</p>
       <span className="text-lg font-medium leading-o-130 text-olga-green xl:text-2xl">
-        {percentNumber}%
+        {number}
+        {showPercentage ? '%' : ''} {/* Додаємо % тільки якщо showPercentage = true */}
       </span>
       <p className="max-w-40 lg:max-w-60">{textBottom}</p>
     </div>
