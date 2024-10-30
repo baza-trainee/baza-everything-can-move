@@ -1,4 +1,4 @@
-import SectionSubtitle from '@/components/ui/SectionSubtitle/SectionSubtitle';
+import SectionSubtitle from '@/components/ui/SectionSubtitle';
 import SectionTitle from '@/components/ui/SectionTitle';
 import React from 'react'
 export interface FutureSectionProps {
@@ -10,8 +10,8 @@ export interface FutureSectionProps {
 
 function FutureSection({ title, subtitle, children }: FutureSectionProps) {
   return (
-    <div className='py-4'>
-      <SectionTitle>{title}</SectionTitle>
+    <div className='pb-4'>
+      <SectionTitle className='text-xl'>{title}</SectionTitle>
       <SectionSubtitle>{subtitle}</SectionSubtitle>      
       <div className='flex my-[32px]'>
         <div className='grow'>

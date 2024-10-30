@@ -1,7 +1,0 @@
-.subtitle::before {
-  position: absolute;
-  content: url('/assets/icons/circle-green.svg');
-  left: 0;
-  width: 8px;
-  height: 8px;
-}
