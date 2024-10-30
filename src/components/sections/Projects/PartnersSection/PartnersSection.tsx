@@ -14,7 +14,7 @@ const PartnersSection: React.FC = () => {
         <SectionTitle className="mb-1"> Наші партнери</SectionTitle>
         <h2 className="mb-8 text-white">долучайтесь</h2>
 
-        <InfiniteMovingCards items={PARTNERS_ARR} speed="slow" />
+        <InfiniteMovingCards items={PARTNERS_ARR} speed="normal" />
 
         <div className="text-white">corner</div>
       </section>
