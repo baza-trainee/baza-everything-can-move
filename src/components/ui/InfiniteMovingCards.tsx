@@ -1,24 +1,25 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
+
 import React, { useEffect, useState, useCallback } from 'react';
 
 export const InfiniteMovingCards = ({
-  items,
+ 
   direction = 'right',
   speed = 'normal',
   pauseOnHover = true,
   className,
+  children,
+  addClass,
 }: {
-  items: {
-    name: string;
-    imgSrc: string;
-  }[];
+  
   direction?: 'left' | 'right';
   speed?: 'fast' | 'normal' | 'slow';
   pauseOnHover?: boolean;
   className?: string;
+  children: React.ReactNode;
+  addClass?: string;
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLDivElement>(null);
@@ -77,30 +78,39 @@ export const InfiniteMovingCards = ({
   return (
     <div
       ref={containerRef}
-      //scroller
+  
       className={cn('relative z-20 w-full overflow-hidden', className)}
     >
       <div
         ref={scrollerRef}
         className={cn(
-          'mb-8 flex h-16 w-max shrink-0 grow-0 flex-nowrap gap-9',
+          'flex w-max shrink-0 grow-0 flex-nowrap gap-9',
           start && 'animate-marquee', //'animate-scroll',
-          pauseOnHover && 'hover:[animation-play-state:paused]'
+          pauseOnHover && 'hover:[animation-play-state:paused]',
+          addClass
         )}
       >
-        {items.map((item, index) => (
-          <div className="relative shrink-0 grow-0" key={item.name + index}>
-            <Image
-              src={item.imgSrc}
-              alt={`Logo of ${item.name}`}
-              width={150}
-              height={64}
-              quality={100}
-              className="h-[64px] w-auto"
-            />
-          </div>
-        ))}
+        {children}
       </div>
     </div>
   );
 };
+// Example!!!!  how to use  in PartnersSection
+//  <MovingPartnersCards items={PARTNERS_ARR} speed="normal" />
+// then in MovingPartnersCards
+{/* <InfiniteMovingCards speed="normal" addClass={divClass}>
+  <>
+    {items.map((item, index) => (
+      <div className="relative shrink-0 grow-0" key={item.name + index}>
+        <Image
+          src={item.imgSrc}
+          alt={`Logo of ${item.name}`}
+          width={150}
+          height={64}
+          quality={100}
+          className="h-[64px] w-auto"
+        />
+      </div>
+    ))}
+  </>
+</InfiniteMovingCards>; */}

@@ -4,7 +4,8 @@ import React from 'react';
 import SectionTitle from '@/components/ui/SectionTitle';
 
 import { PARTNERS_ARR } from '@/constants/partnersArr';
-import { InfiniteMovingCards } from '@/components/ui/InfiniteMovingCards';
+
+import MovingPartnersCards from './MovingPartnersCards';
 
 const PartnersSection: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const PartnersSection: React.FC = () => {
         <SectionTitle className="mb-1"> Наші партнери</SectionTitle>
         <h2 className="mb-8 text-white">долучайтесь</h2>
 
-        <InfiniteMovingCards items={PARTNERS_ARR} speed="normal" />
+        <MovingPartnersCards items={PARTNERS_ARR} speed="normal" />
 
         <div className="text-white">corner</div>
       </section>
