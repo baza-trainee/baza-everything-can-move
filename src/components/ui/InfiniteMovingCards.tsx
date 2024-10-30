@@ -5,7 +5,6 @@ import { cn } from '@/lib/utils';
 import React, { useEffect, useState, useCallback } from 'react';
 
 export const InfiniteMovingCards = ({
- 
   direction = 'right',
   speed = 'normal',
   pauseOnHover = true,
@@ -13,7 +12,6 @@ export const InfiniteMovingCards = ({
   children,
   addClass,
 }: {
-  
   direction?: 'left' | 'right';
   speed?: 'fast' | 'normal' | 'slow';
   pauseOnHover?: boolean;
@@ -78,7 +76,6 @@ export const InfiniteMovingCards = ({
   return (
     <div
       ref={containerRef}
-  
       className={cn('relative z-20 w-full overflow-hidden', className)}
     >
       <div
@@ -95,10 +92,12 @@ export const InfiniteMovingCards = ({
     </div>
   );
 };
+
 // Example!!!!  how to use  in PartnersSection
 //  <MovingPartnersCards items={PARTNERS_ARR} speed="normal" />
 // then in MovingPartnersCards
-{/* <InfiniteMovingCards speed="normal" addClass={divClass}>
+{
+  /* <InfiniteMovingCards speed="normal" addClass={divClass}>
   <>
     {items.map((item, index) => (
       <div className="relative shrink-0 grow-0" key={item.name + index}>
@@ -113,4 +112,5 @@ export const InfiniteMovingCards = ({
       </div>
     ))}
   </>
-</InfiniteMovingCards>; */}
+</InfiniteMovingCards>; */
+}
