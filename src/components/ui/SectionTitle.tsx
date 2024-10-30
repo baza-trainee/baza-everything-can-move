@@ -13,7 +13,7 @@ export default function SectionTitle({
   return (
     <h2
       className={clsx(
-        'font-main-family leading-o-150 font-medium uppercase text-white',
+        'font-main-family leading-o-150 font-medium uppercase text-white ',
         className
       )}
     >
