@@ -107,14 +107,13 @@ const config: Config = {
         '4xl': '86px',
       },
       animation: {
-        scroll:
-          'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+        marquee:
+          'marquee var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
       },
       keyframes: {
-        scroll: {
-          to: {
-            transform: 'translate(calc(-50% - 0.5rem))',
-          },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
         },
       },
     },
