@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface Slide {
   id: number;
@@ -22,17 +22,20 @@ const VerticalSlider: React.FC = () => {
 
     if (scrolling) return;
 
-    if (event.deltaY > 0) {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    } else {
-      setCurrentSlide((prevSlide) =>
-        prevSlide === 0 ? slides.length - 1 : prevSlide - 1
-      );
-    }
+    // Only allow scrolling forward
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
 
     setScrolling(true);
     setTimeout(() => setScrolling(false), 500);
   };
+
+  useEffect(() => {
+    const autoScroll = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+    }, 3000); // Change slide every 3 seconds
+
+    return () => clearInterval(autoScroll); // Clear interval on unmount
+  }, []);
 
   const getStyle = (index: number): React.CSSProperties => {
     const position = index - currentSlide;
@@ -40,12 +43,12 @@ const VerticalSlider: React.FC = () => {
     const isAdjacent = Math.abs(position) === 1;
 
     return {
-      transform: `translateY(${position * 60}px)`,
+      transform: `translateY(${position * 60}px)`, // Adjust distance based on slide height
       opacity: isCenter ? 1 : isAdjacent ? 0.6 : 0,
       fontSize: isCenter ? '2rem' : '1rem',
       color: isCenter ? 'white' : 'gray',
       transition: 'transform 0.5s, opacity 0.5s, font-size 0.5s, color 0.5s',
-      position: 'absolute', // Ensure TypeScript understands the type
+      position: 'absolute',
     };
   };
 
@@ -64,6 +67,10 @@ const VerticalSlider: React.FC = () => {
           <h2>{slide.content}</h2>
         </div>
       ))}
+      {/* Cloning the first slide for seamless infinite effect */}
+      <div className="flex items-center justify-center" style={getStyle(slides.length)}>
+        <h2>{slides[0].content}</h2>
+      </div>
     </div>
   );
 };

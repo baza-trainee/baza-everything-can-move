@@ -1,5 +1,5 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
-import VerticalSlider from "./VerticalSlider";
+import VerticalSlider from './VerticalSlider';
 function Today() {
   return (
     <section className="taday">
@@ -12,7 +12,7 @@ function Today() {
           ></span>
           2024
         </p>
-        <div className="flex items-center">
+        <div className="flex lg:flex-nowrap flex-wrap items-center">
           <div className="text max-w-80">
             <p className="mb-[20px]">
               Зараз ми реалізовуємо внутрішні та зовінішнк проєкти як для себе,
@@ -22,9 +22,8 @@ function Today() {
               І доволі успішно пробуємо себе у складних проєктах для бізнесу.
             </p>
           </div>
-          <div className=" w-[900px] overflow-auto flex justify-center items-center text-white">
-           <VerticalSlider/>
-            
+          <div className="w-[900px] overflow-auto">
+            <VerticalSlider />
           </div>
         </div>
       </div>
