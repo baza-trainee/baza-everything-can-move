@@ -10,7 +10,9 @@ import Partner_4 from '@/assets/icons/projects/partners/partner_4.svg';
 import Partner_5 from '@/assets/icons/projects/partners/partner_5.svg';
 import Partner_6 from '@/assets/icons/projects/partners/partner_6.svg';
 import Partner_7 from '@/assets/icons/projects/partners/partner_7.svg';
-import Partner_8 from '@/assets/icons/projects/partners/partner_8.svg';
+import Partner_8 from '@/assets/icons/projects/partners/logo_advocato.svg';
+import Partner_9 from '@/assets/icons/projects/partners/logo_baza.svg';
+import Partner_10 from '@/assets/icons/projects/partners/logo_host.svg';
 
 export const ICONS_SRC = {
   CLOSE_MENU_ICON: CloseMenuIcon,
@@ -28,4 +30,6 @@ export const ICONS_PARTNERS = {
   PARTNER_6: Partner_6,
   PARTNER_7: Partner_7,
   PARTNER_8: Partner_8,
+  PARTNER_9: Partner_9,
+  PARTNER_10: Partner_10,
 };
