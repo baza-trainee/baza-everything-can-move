@@ -3,8 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 import FotoSwiper from '../../ui/SwiperFoto/FotoSwiper';
 import SectionTitle from '@/components/ui/SectionTitle';
-import SubTitle from '@/components/ui/SubTitle';
 import { teamImages } from './ArrayTeamImages';
+// import SubTitle from '@/components/ui/SubTitle';
 
 function TeamSection() {
   return (
@@ -29,7 +29,7 @@ function TeamSection() {
             <SectionTitle className="pb-1 text-lg lg:text-[2.25rem] 2xl:text-[48px]">
               Команди
             </SectionTitle>
-            <SubTitle>{'квітень 2023'}</SubTitle>
+            {/* <SubTitle>{'квітень 2023'}</SubTitle> */}
           </div>
           <div className="flex flex-col items-center gap-[100px] lg:flex-row lg:justify-between lg:gap-0">
             <div className="w-full lg:max-w-[336px] 2xl:max-w-[486px]">
