@@ -106,6 +106,16 @@ const config: Config = {
         '3xl': '80px',
         '4xl': '86px',
       },
+      animation: {
+        marquee:
+          'marquee var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+      },
     },
   },
   plugins: [],
