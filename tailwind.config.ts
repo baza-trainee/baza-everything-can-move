@@ -94,7 +94,7 @@ const config: Config = {
         bold: '700',
       },
       fontSize: {
-        // xs: '12px',
+        xs: '12px',
         s: '14px',
         m: '16px',
         sm: '18px',

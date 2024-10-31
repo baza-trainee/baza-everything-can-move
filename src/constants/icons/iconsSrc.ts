@@ -15,6 +15,7 @@ import Partner_9 from '@/assets/icons/projects/partners/logo_baza.svg';
 import Partner_10 from '@/assets/icons/projects/partners/logo_host.svg';
 import CornerTop from '@/assets/icons/shared/corner_top.svg';
 import CornerBottom from '@/assets/icons/shared/corner_bottom.svg';
+import Elipse_SubTitle from '@/assets/icons/shared/ellipse_SubTitle.svg';
 
 export const ICONS_SRC = {
   CLOSE_MENU_ICON: CloseMenuIcon,
@@ -39,4 +40,5 @@ export const ICONS_PARTNERS = {
 export const ICONS_SHARED = {
   CORNER_TOP: CornerTop,
   CORNER_BOTTOM: CornerBottom,
+  ELIPSE_SUB_TITLE:Elipse_SubTitle 
 };

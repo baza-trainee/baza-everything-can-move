@@ -3,7 +3,6 @@ import clsx from 'clsx';
 export interface SectionTitleProps {
   children: React.ReactNode;
   className?: string;
-  modal?: boolean;
 }
 
 export default function SectionTitle({
