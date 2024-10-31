@@ -7,7 +7,7 @@ import './Hero.css';
 export default function Hero() {
   return (
     <section className="hero pb-[200px] pt-[60px]">
-      <div className="items-top container relative text-[50px] flex flex-wrap lg:flex-nowrap xl:text-[86px]">
+      <div className="items-top container relative text-[40px] flex flex-wrap lg:flex-nowrap xl:text-[86px]">
         <div className="relative uppercase leading-[120%]">
           <h1 className="text-animation">
             створювали ми <br />{' '}
