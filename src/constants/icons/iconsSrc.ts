@@ -13,6 +13,8 @@ import Partner_7 from '@/assets/icons/projects/partners/partner_7.svg';
 import Partner_8 from '@/assets/icons/projects/partners/logo_advocato.svg';
 import Partner_9 from '@/assets/icons/projects/partners/logo_baza.svg';
 import Partner_10 from '@/assets/icons/projects/partners/logo_host.svg';
+import CornerTop from '@/assets/icons/shared/corner_top.svg';
+import CornerBottom from '@/assets/icons/shared/corner_bottom.svg';
 
 export const ICONS_SRC = {
   CLOSE_MENU_ICON: CloseMenuIcon,
@@ -32,4 +34,9 @@ export const ICONS_PARTNERS = {
   PARTNER_8: Partner_8,
   PARTNER_9: Partner_9,
   PARTNER_10: Partner_10,
+};
+
+export const ICONS_SHARED = {
+  CORNER_TOP: CornerTop,
+  CORNER_BOTTOM: CornerBottom,
 };

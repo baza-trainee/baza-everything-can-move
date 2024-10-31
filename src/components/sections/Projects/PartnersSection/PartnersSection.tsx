@@ -9,8 +9,8 @@ import MovingPartnersCards from './MovingPartnersCards';
 
 const PartnersSection: React.FC = () => {
   return (
-    <div className="container">
-      <section className="pb-[100px] lg:pb-20">
+    <section className="pb-[100px] lg:pb-20">
+      <div className="container">
         <div className="mb-8 text-white 2xl:mb-0">corner</div>
         <SectionTitle className="mb-1"> Наші партнери</SectionTitle>
         <h2 className="mb-8 text-white">долучайтесь</h2>
@@ -18,8 +18,8 @@ const PartnersSection: React.FC = () => {
         <MovingPartnersCards items={PARTNERS_ARR} speed="slow" />
 
         <div className="text-white">corner</div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 
