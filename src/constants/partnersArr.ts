@@ -33,4 +33,12 @@ export const PARTNERS_ARR = [
     name: 'Partner 8',
     Icon: ICONS_PARTNERS.PARTNER_8,
   },
+  {
+    name: 'Partner 9',
+    Icon: ICONS_PARTNERS.PARTNER_9,
+  },
+  {
+    name: 'Partner 10',
+    Icon: ICONS_PARTNERS.PARTNER_10,
+  },
 ];

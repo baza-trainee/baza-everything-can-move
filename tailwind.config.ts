@@ -14,8 +14,8 @@ const config: Config = {
         // not forget to change for small screens
         sm: '8px',
         md: '16px',
-        lg: '32px',
-        xl: '64px',
+        lg: '24px',
+        xl: '24px',
         '2xl': '120px',
       },
     },
@@ -94,7 +94,7 @@ const config: Config = {
         bold: '700',
       },
       fontSize: {
-        // xs: '12px',
+        xs: '12px',
         s: '14px',
         m: '16px',
         sm: '18px',

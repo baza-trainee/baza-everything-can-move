@@ -51,7 +51,7 @@ const Header = () => {
         <>
           <Link
             href="/"
-            onClick={handleMenuClick}
+            // onClick={handleMenuClick}
             className="pl-4 pt-10 lg:pb-[30px] lg:pl-6 lg:pt-[30px] 2xl:pb-10 2xl:pl-10 2xl:pt-10"
           >
             <Image
@@ -64,9 +64,9 @@ const Header = () => {
             />
           </Link>
           {/* right side */}
-          <div className="lg:text-md 2xl:text-l leading-o-130 flex uppercase">
+          <div className="flex uppercase leading-o-130 lg:text-md 2xl:text-l">
             {/* b1  current page */}
-            <div className="text-olga-green-extra bg-olga-btn-menu hidden items-end p-3 lg:flex lg:h-16 lg:w-[120px] 2xl:h-[80px] 2xl:w-[174px]">
+            <div className="hidden items-end bg-olga-btn-menu p-3 text-olga-green-extra lg:flex lg:h-16 lg:w-[120px] 2xl:h-[80px] 2xl:w-[174px]">
               {indexOfCurrentPage >= 0
                 ? NAV_LINKS[indexOfCurrentPage].name
                 : 'UPS'}
@@ -74,18 +74,18 @@ const Header = () => {
             {/* b2 next page */}
             <Link
               href={NAV_LINKS[indexOfNextPage].link}
-              className="hover:text-olga-green/90 bg-olga-btn-menu hidden items-end p-3 text-white transition-colors duration-300 ease-linear lg:flex lg:h-[100px] lg:w-[180px] 2xl:h-[120px] 2xl:w-[344px]"
+              className="hidden items-end bg-olga-btn-menu p-3 text-white transition-colors duration-300 ease-linear hover:text-olga-green/90 lg:flex lg:h-[100px] lg:w-[180px] 2xl:h-[120px] 2xl:w-[344px]"
             >
               {indexOfNextPage >= 0 ? NAV_LINKS[indexOfNextPage].name : 'UPS'}
             </Link>
             {/* b3 menu */}
             <div
               onClick={handleMenuClick}
-              className="bg-olga-btn-menu hover:bg-olga-green hover:text-olga-bg h-[104px] w-[112px] cursor-pointer pb-6 pl-8 pr-[16px] pt-16 text-white transition-colors duration-300 ease-linear lg:h-[140px] lg:w-[200px] lg:px-3 lg:pb-3 lg:pt-6 2xl:h-[160px] 2xl:w-[236px]"
+              className="h-[104px] w-[112px] cursor-pointer bg-olga-btn-menu pb-6 pl-8 pr-[16px] pt-16 text-white transition-colors duration-300 ease-linear hover:bg-olga-green hover:text-olga-bg lg:h-[140px] lg:w-[200px] lg:px-3 lg:pb-3 lg:pt-6 2xl:h-[160px] 2xl:w-[236px]"
             >
-              <ICONS_SRC.OPEN_MENU_ICON className="ml-auto w-16 fill-current transition-colors duration-300 ease-linear hover:fill-black lg:mb-[62px] 2xl:mb-[77px]" />
+              <ICONS_SRC.OPEN_MENU_ICON className="fill-current ml-auto w-16 transition-colors duration-300 ease-linear hover:fill-black lg:mb-[62px] 2xl:mb-[77px]" />
 
-              <p className="lg:text-md 2xl:text-l leading-o-130 ml-auto hidden transition-colors duration-300 ease-linear lg:block">
+              <p className="ml-auto hidden leading-o-130 transition-colors duration-300 ease-linear lg:block lg:text-md 2xl:text-l">
                 Меню
               </p>
             </div>
