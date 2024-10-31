@@ -13,16 +13,14 @@ interface MovingPartnersCardsProps {
 }
 
 const MovingPartnersCards: React.FC<MovingPartnersCardsProps> = ({ items }) => {
-  const divClass = 'mb-8 h-16';
+  const divClass = 'mb-8 h-16 ';
   return (
     <InfiniteMovingCards speed="normal" addClass={divClass}>
-      <>
-        {items.map((item, index) => (
-          <div className="relative shrink-0 grow-0" key={item.name + index}>
-            <item.Icon />
-          </div>
-        ))}
-      </>
+      {items.map((item, index) => (
+        <div className="relative mr-9 shrink-0 grow-0" key={item.name + index}>
+          <item.Icon />
+        </div>
+      ))}
     </InfiniteMovingCards>
   );
 };

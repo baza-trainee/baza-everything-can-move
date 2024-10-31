@@ -19,8 +19,8 @@ export const InfiniteMovingCards = ({
   children: React.ReactNode;
   addClass?: string;
 }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement | null>(null);
+  const scrollerRef = React.useRef<HTMLDivElement | null>(null);
 
   const [start, setStart] = useState(false);
 
@@ -56,18 +56,22 @@ export const InfiniteMovingCards = ({
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
+      const childrenCount = React.Children.count(children);
+
+      if (scrollerContent.length < childrenCount * 2) {
+        scrollerContent.forEach((item) => {
+          const duplicatedItem = item.cloneNode(true);
+          if (scrollerRef.current) {
+            scrollerRef.current.appendChild(duplicatedItem);
+          }
+        });
+      }
 
       getDirection();
       getSpeed();
       setStart(true);
     }
-  }, [getDirection, getSpeed]);
+  }, [getDirection, getSpeed, children]);
 
   useEffect(() => {
     addAnimation();
@@ -81,7 +85,7 @@ export const InfiniteMovingCards = ({
       <div
         ref={scrollerRef}
         className={cn(
-          'flex w-max shrink-0 grow-0 flex-nowrap gap-9',
+          'flex w-max shrink-0 grow-0 flex-nowrap',
           start && 'animate-marquee', //'animate-scroll',
           pauseOnHover && 'hover:[animation-play-state:paused]',
           addClass
