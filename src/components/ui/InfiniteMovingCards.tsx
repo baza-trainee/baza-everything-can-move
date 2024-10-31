@@ -86,7 +86,7 @@ export const InfiniteMovingCards = ({
         ref={scrollerRef}
         className={cn(
           'flex w-max shrink-0 grow-0 flex-nowrap',
-          start && 'animate-marquee', //'animate-scroll',
+          start && 'animate-marqueeCustom', //'animate-scroll',
           pauseOnHover && 'hover:[animation-play-state:paused]',
           addClass
         )}

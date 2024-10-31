@@ -107,11 +107,11 @@ const config: Config = {
         '4xl': '86px',
       },
       animation: {
-        marquee:
+        marqueeCustom:
           'marquee var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
       },
       keyframes: {
-        marquee: {
+        marqueeCustom: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
