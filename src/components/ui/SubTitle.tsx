@@ -20,3 +20,5 @@ export default function SubTitle({ children, className }: SubTitleProps) {
     </div>
   );
 }
+// Example how to use
+// <SubTitle className="mb-8"> Долучайтесь</SubTitle>
