@@ -41,7 +41,7 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        'main-family': ['Roboto', 'ui-sans-serif', 'sans-serif'],
+        'main-family': ['Roboto-Mono', 'ui-sans-serif', 'sans-serif'],
         'second-family': ['IBM Plex Mono', 'sans-serif'],
         'third-family': ['Inter', 'ui-sans-serif', 'sans-serif'],
         font3: ['VG5000', 'ui-sans-serif', 'sans-serif'],
