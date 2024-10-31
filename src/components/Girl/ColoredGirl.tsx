@@ -42,7 +42,7 @@ export default function ColoredGirl() {
     <>
       <div className="h-auto">
         {/* <h1 className="text-white text-center text-lg">I hate her !!!</h1> */}
-        <Canvas className="h-[900px] w-[400px]"
+        <Canvas className="h-[655px] xl:!w-[500px] !w-[150px] transform translate-x-[-20%] translate-y-0"
           camera={{ position: [0, 3, 5], fov: 50 }}
           //   camera={{ position: [0, 300, -85], fov: 50 }}
           gl={{ antialias: true }}
