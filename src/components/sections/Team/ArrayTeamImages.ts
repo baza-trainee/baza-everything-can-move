@@ -1,32 +1,56 @@
-const teamImages = [
+export const teamImages = [
   {
-    url: "/assets/images/TemSection/TeamMemberImage.jpg",
-    name: "TeamMemberImage",
+    url: '/assets/images/TemSection/TeamMemberImage.jpg',
+    name: 'Андрій Добрий QA Engineer',
   },
   {
-    url: "/assets/images/TemSection/TeamMemberImage1.jpg",
-    name: "TeamMemberImage1",
+    url: '/assets/images/TemSection/TeamMemberImage1.jpg',
+    name: 'QA Engineer',
   },
   {
-    url: "/assets/images/TemSection/TeamMemberImage2.jpg",
-    name: "TeamMemberImage2",
+    url: '/assets/images/TemSection/TeamMemberImage2.jpg',
+    name: 'Front-end Developer',
   },
   {
-    url: "/assets/images/TemSection/TeamMemberImage3.jpg",
-    name: "TeamMemberImage3",
+    url: '/assets/images/TemSection/TeamMemberImage3.jpg',
+    name: 'Back-end Developer',
   },
   {
-    url: "/assets/images/TemSection/TeamMemberImage4.jpg",
-    name: "TeamMemberImage4",
+    url: '/assets/images/TemSection/TeamMemberImage4.jpg',
+    name: 'UX UI Designer',
   },
   {
-    url: "/assets/images/TemSection/TeamMemberImage5.jpg",
-    name: "TeamMemberImage5",
+    url: '/assets/images/TemSection/TeamMemberImage5.jpg',
+    name: 'Front-End Developer',
   },
   {
-    url: "/assets/images/TemSection/TeamMemberImage6.jpg",
-    name: "TeamMemberImage6",
+    url: '/assets/images/TemSection/TeamMemberImage6.jpg',
+    name: 'Back-End Developer',
   },
 ];
-
-export default teamImages;
+export const teamImagesLarge = [
+  {
+    url: '/assets/images/TemSection/1foto.jpeg',
+    name: 'Андрій Добрий QA Engineer',
+  },
+  {
+    url: '/assets/images/TemSection/2foto.jpeg',
+    name: 'QA Engineer',
+  },
+  {
+    url: '/assets/images/TemSection/3foto.jpeg',
+    name: 'Front-end Developer',
+  },
+  {
+    url: '/assets/images/TemSection/4foto.jpeg',
+    name: 'Back-end Developer',
+  },
+  {
+    url: '/assets/images/TemSection/5foto.jpeg',
+    name: 'UX UI Designer',
+  },
+  {
+    url: '/assets/images/TemSection/6foto.jpeg',
+    name: 'Front-End Developer',
+  },
+];

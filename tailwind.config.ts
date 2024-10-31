@@ -14,7 +14,7 @@ const config: Config = {
         // not forget to change for small screens
         sm: '8px',
         md: '16px',
-        lg: '32px',
+        lg: '24px',
         xl: '64px',
         '2xl': '120px',
       },
