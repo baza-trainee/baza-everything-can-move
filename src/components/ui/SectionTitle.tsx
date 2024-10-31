@@ -3,7 +3,6 @@ import clsx from 'clsx';
 export interface SectionTitleProps {
   children: React.ReactNode;
   className?: string;
-  modal?: boolean;
 }
 
 export default function SectionTitle({
@@ -13,7 +12,8 @@ export default function SectionTitle({
   return (
     <h2
       className={clsx(
-        'font-main-family leading-o-150 font-medium uppercase text-white',
+        'font-main-family text-lg font-medium uppercase leading-o-150 text-white lg:text-[36px] 2xl:text-xl',
+        // 'leading-o-150 font-medium uppercase text-white ',
         className
       )}
     >

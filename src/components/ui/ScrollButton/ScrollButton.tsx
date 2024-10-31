@@ -5,7 +5,7 @@ export default function ScrollButton() {
     <button
       // onClick={openModal}
       type="button"
-      className="fixed right-[100px] btn-support mr-[24px] h-[132px] w-[132px] bottom-8 animate-pulse rounded-full bg-accent text-center text-m font-medium uppercase text-white custom-shadow transition-all duration-300 hover:bg-hover flex items-center justify-center z-10">
+      className="absolute right-[20px] btn-support mr-[24px] xl:h-[132px] xl:w-[132px] h-[88px] w-[88px]  xl:bottom-[-40%] bottom-[-20%] animate-pulse rounded-full bg-accent text-center text-m font-medium uppercase text-white custom-shadow transition-all duration-300 hover:bg-hover flex items-center justify-center z-10">
       contact
     </button>
   );

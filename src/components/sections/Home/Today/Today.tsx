@@ -1,7 +1,5 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
-import ScrollText from "./ScrolText";
-import './style.css';
-
+import VerticalSlider from './VerticalSlider';
 function Today() {
   return (
     <section className="taday">
@@ -14,7 +12,7 @@ function Today() {
           ></span>
           2024
         </p>
-        <div className="flex items-center">
+        <div className="flex lg:flex-nowrap flex-wrap items-center">
           <div className="text max-w-80">
             <p className="mb-[20px]">
               Зараз ми реалізовуємо внутрішні та зовінішнк проєкти як для себе,
@@ -24,9 +22,8 @@ function Today() {
               І доволі успішно пробуємо себе у складних проєктах для бізнесу.
             </p>
           </div>
-
-          <div className="h-[300px] w-[900px] overflow-y-auto flex justify-center items-center h-[35vh] overflow-hidden bg-black text-white">
-            <ScrollText/>
+          <div className="w-[900px] overflow-auto">
+            <VerticalSlider />
           </div>
         </div>
       </div>

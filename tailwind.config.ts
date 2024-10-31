@@ -15,7 +15,7 @@ const config: Config = {
         sm: '8px',
         md: '16px',
         lg: '24px',
-        xl: '64px',
+        xl: '24px',
         '2xl': '120px',
       },
     },
@@ -41,7 +41,7 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        'main-family': ['Roboto', 'ui-sans-serif', 'sans-serif'],
+        'main-family': ['Roboto-Mono', 'ui-sans-serif', 'sans-serif'],
         'second-family': ['IBM Plex Mono', 'sans-serif'],
         'third-family': ['Inter', 'ui-sans-serif', 'sans-serif'],
         font3: ['VG5000', 'ui-sans-serif', 'sans-serif'],
@@ -94,7 +94,7 @@ const config: Config = {
         bold: '700',
       },
       fontSize: {
-        // xs: '12px',
+        xs: '12px',
         s: '14px',
         m: '16px',
         sm: '18px',
@@ -105,6 +105,16 @@ const config: Config = {
         '2xl': '64px',
         '3xl': '80px',
         '4xl': '86px',
+      },
+      animation: {
+        marqueeCustom:
+          'marqueeCustom var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+      },
+      keyframes: {
+        marqueeCustom: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
       },
     },
   },
