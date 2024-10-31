@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import SectionTitle from '../../ui/SectionTitle';
 import MainImage from './MainImage';
-import SubTitle from '@/components/ui/SubTitle';
+// import SubTitle from '@/components/ui/SubTitle';
 
 function SectionTeam() {
   return (
@@ -24,7 +24,7 @@ function SectionTeam() {
           />
           <div className="">
             <SectionTitle className="text-xl">команди</SectionTitle>
-            <SubTitle className="mt-1">{'Об`єднані ідеєю'}</SubTitle>
+            {/* <SubTitle className="mt-1">{'Об`єднані ідеєю'}</SubTitle> */}
           </div>
           <div className="mt-8 flex flex-col items-center justify-between xl:flex-row">
             <MainImage />
