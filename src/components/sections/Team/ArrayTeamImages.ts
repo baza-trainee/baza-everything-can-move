@@ -1,32 +1,32 @@
-const teamImages = [
+import { ObjectArrayFoto } from '@/components/ui/SwiperFoto/types';
+
+export const teamImages: ObjectArrayFoto[] = [
   {
-    url: "/assets/images/TemSection/TeamMemberImage.jpg",
-    name: "TeamMemberImage",
+    urlImage: '/assets/images/TemSection/6foto.jpg',
+    name: 'Андрій Добрий QA Engineer',
   },
   {
-    url: "/assets/images/TemSection/TeamMemberImage1.jpg",
-    name: "TeamMemberImage1",
+    urlImage: '/assets/images/TemSection/1foto.jpeg',
+    name: 'QA Engineer',
   },
   {
-    url: "/assets/images/TemSection/TeamMemberImage2.jpg",
-    name: "TeamMemberImage2",
+    urlImage: '/assets/images/TemSection/2foto.jpeg',
+    name: 'Front-end Developer',
   },
   {
-    url: "/assets/images/TemSection/TeamMemberImage3.jpg",
-    name: "TeamMemberImage3",
+    urlImage: '/assets/images/TemSection/3foto.jpeg',
+    name: 'Back-end Developer',
   },
   {
-    url: "/assets/images/TemSection/TeamMemberImage4.jpg",
-    name: "TeamMemberImage4",
+    urlImage: '/assets/images/TemSection/4foto.jpeg',
+    name: 'UX UI Designer',
   },
   {
-    url: "/assets/images/TemSection/TeamMemberImage5.jpg",
-    name: "TeamMemberImage5",
+    urlImage: '/assets/images/TemSection/5foto.jpeg',
+    name: 'Front-End Developer',
   },
   {
-    url: "/assets/images/TemSection/TeamMemberImage6.jpg",
-    name: "TeamMemberImage6",
+    urlImage: '/assets/images/TemSection/6foto.jpeg',
+    name: 'Back-End Developer',
   },
 ];
-
-export default teamImages;

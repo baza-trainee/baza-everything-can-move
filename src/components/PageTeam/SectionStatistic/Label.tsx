@@ -3,7 +3,7 @@ import clsx from 'clsx';
 interface LabelProps {
   textTop: string;
   percentNumber: number;
-  textNumber?: string,
+  textNumber?: string;
   textBottom: string;
   className?: string;
 }

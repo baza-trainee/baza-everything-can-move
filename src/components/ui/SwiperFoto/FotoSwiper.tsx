@@ -2,12 +2,12 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import teamImages from './ArrayTeamImages';
 import clsx from 'clsx';
-import IconRow from '../../../../public/assets/icons/IconArrow.svg';
 import Circle from '../../../../public/assets/icons/circle.svg';
 import styles from './styles.module.css';
-import { scrollWrap } from '@/components/ui/ScrollWrap';
+import { scrollWrap } from '@/components/ui/SwiperFoto/ScrollWrap';
+import { ButtonSlide } from './ButtonSlider';
+import { ObjectArrayFoto } from './types';
 
 const variants = {
   enter: (direction: number) => {
@@ -30,10 +30,10 @@ const variants = {
   },
 };
 
-const FotoSwiper = () => {
+const FotoSwiper = ({ arrayImages }: { arrayImages: ObjectArrayFoto[] }) => {
   const [[page, direction], setPage] = useState([0, 0]);
 
-  const imageIndex = scrollWrap(0, teamImages.length, page);
+  const imageIndex = scrollWrap(0, arrayImages.length, page);
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
@@ -48,14 +48,14 @@ const FotoSwiper = () => {
   }, []);
 
   return (
-    <div>
-      <div className="flex gap-14">
-        <div className="flex w-full max-w-16 flex-col justify-center gap-12">
+    <>
+      <div className="flex w-full justify-between">
+        <div className="flex w-full max-w-16 flex-col justify-center gap-6">
           <motion.ul className="relative flex h-full max-h-[172px] flex-col items-center">
             <AnimatePresence initial={false} custom={direction}>
               {[imageIndex - 1, imageIndex, imageIndex + 1].map(
                 (index, position) => {
-                  const wrappedIndex = scrollWrap(0, teamImages.length, index);
+                  const wrappedIndex = scrollWrap(0, arrayImages.length, index);
                   return (
                     <motion.li
                       variants={variants}
@@ -85,14 +85,15 @@ const FotoSwiper = () => {
                           </div>
                         )}
                         <Image
+                          priority
                           width={64}
                           height={64}
-                          src={teamImages[wrappedIndex].url}
+                          src={arrayImages[wrappedIndex].urlImage}
                           className={clsx(
-                            'h-[40px] w-[40px] overflow-hidden rounded-full',
+                            'h-[40px] w-[40px] overflow-hidden rounded-full object-cover',
                             position === 1 && 'h-[64px] w-[64px]'
                           )}
-                          alt={`фото учасника команди ${teamImages[wrappedIndex].name}`}
+                          alt={`фото учасника команди ${arrayImages[wrappedIndex].name}`}
                         />
                       </div>
                     </motion.li>
@@ -101,30 +102,16 @@ const FotoSwiper = () => {
               )}
             </AnimatePresence>
           </motion.ul>
-          <div className="hidden flex-col xl:flex">
-            <button
-              type="button"
-              className="mb-3"
-              aria-label="Кнопка вліво"
-              onClick={() => paginate(-1)}
-            >
-              <IconRow
-                width={64}
-                height={33}
-                className="transition-srtoke transition-fill stroke-olga-green-extra duration-1000 ease-in-out hover:fill-olga-green-extra hover:stroke-black"
-              />
-            </button>
-            <button
-              type="button"
-              aria-label="Кнопка вправо"
+          <div className="flex flex-col gap-3">
+            <ButtonSlide
               onClick={() => paginate(1)}
-            >
-              <IconRow
-                width={64}
-                height={33}
-                className="transition-srtoke transition-fill rotate-180 stroke-olga-green-extra duration-1000 ease-in-out hover:fill-olga-green-extra hover:stroke-black"
-              />
-            </button>
+              ariaLabel="кнопка попереднє фото"
+            />
+            <ButtonSlide
+              className="rotate-180"
+              onClick={() => paginate(1)}
+              ariaLabel="кнопка наступне фото"
+            />
           </div>
         </div>
         <div className="flex flex-col gap-1">
@@ -135,42 +122,23 @@ const FotoSwiper = () => {
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.5 }}
           >
-            <Image
-              width={365}
-              height={364}
-              src={teamImages[imageIndex].url}
-              alt={teamImages[imageIndex].name}
-            />
-            <p className="text-center text-sm">{teamImages[imageIndex].name}</p>
+            <div className="flex h-[300px] w-[255px] justify-center lg:h-[300px] lg:w-[240px] 2xl:h-[364px] 2xl:w-[365px]">
+              <Image
+                width={365}
+                height={364}
+                src={arrayImages[imageIndex].urlImage}
+                alt={arrayImages[imageIndex].name}
+                className="object-cover"
+                priority
+              />
+            </div>
+            <p className="mt-1 text-center text-[14px] text-olga-light-grey">
+              {arrayImages[imageIndex].name}
+            </p>
           </motion.div>
         </div>
       </div>
-      <div className="mt-4 flex items-center justify-between xl:hidden">
-        <button
-          type="button"
-          className=""
-          aria-label="Кнопка вліво"
-          onClick={() => paginate(-1)}
-        >
-          <IconRow
-            width={64}
-            height={33}
-            className="transition-srtoke transition-fill stroke-olga-green-extra duration-1000 ease-in-out hover:fill-olga-green-extra hover:stroke-black"
-          />
-        </button>
-        <button
-          type="button"
-          aria-label="Кнопка вправо"
-          onClick={() => paginate(1)}
-        >
-          <IconRow
-            width={64}
-            height={33}
-            className="transition-srtoke transition-fill rotate-180 stroke-olga-green-extra duration-1000 ease-in-out hover:fill-olga-green-extra hover:stroke-black"
-          />
-        </button>
-      </div>
-    </div>
+    </>
   );
 };
 

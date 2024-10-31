@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import SectionTitle from '../../ui/SectionTitle';
 import MainImage from './MainImage';
+// import SubTitle from '@/components/ui/SubTitle';
 
 function SectionTeam() {
   return (
@@ -23,10 +24,7 @@ function SectionTeam() {
           />
           <div className="">
             <SectionTitle className="text-xl">команди</SectionTitle>
-            <p className="mt-1 flex items-center gap-2 text-s font-normal leading-normal">
-              <span className="h-2 w-2 rounded-full bg-olga-green"></span>
-              <span>Об&#39;єднані ідеєю</span>
-            </p>
+            {/* <SubTitle className="mt-1">{'Об`єднані ідеєю'}</SubTitle> */}
           </div>
           <div className="mt-8 flex flex-col items-center justify-between xl:flex-row">
             <MainImage />
@@ -46,3 +44,28 @@ function SectionTeam() {
 }
 
 export default SectionTeam;
+
+// import clsx from 'clsx';
+// import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
+
+// interface SubTitleProps {
+//   children: React.ReactNode;
+//   className?: string;
+// }
+
+// export default function SubTitle({ children, className }: SubTitleProps) {
+//   return (
+//     <div
+//       className={clsx(
+//         'flex items-center font-main-family text-xs font-regular leading-o-150 text-white lg:text-s',
+
+//         className
+//       )}
+//     >
+//       <ICONS_SHARED.ELIPSE_SUB_TITLE className="mr-1 2xl:mr-[6px]" />
+//       <span>{children}</span>
+//     </div>
+//   );
+// }
+// Example how to use
+// <SubTitle className="mb-8"> Долучайтесь</SubTitle>
