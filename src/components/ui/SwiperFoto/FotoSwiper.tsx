@@ -2,12 +2,12 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { teamImagesLarge } from './ArrayTeamImages';
 import clsx from 'clsx';
 import Circle from '../../../../public/assets/icons/circle.svg';
 import styles from './styles.module.css';
-import { scrollWrap } from '@/components/ui/ScrollWrap';
+import { scrollWrap } from '@/components/ui/SwiperFoto/ScrollWrap';
 import { ButtonSlide } from './ButtonSlider';
+import { ObjectArrayFoto } from './types';
 
 const variants = {
   enter: (direction: number) => {
@@ -30,10 +30,10 @@ const variants = {
   },
 };
 
-const FotoSwiper = () => {
+const FotoSwiper = ({ arrayImages }: { arrayImages: ObjectArrayFoto[] }) => {
   const [[page, direction], setPage] = useState([0, 0]);
 
-  const imageIndex = scrollWrap(0, teamImagesLarge.length, page);
+  const imageIndex = scrollWrap(0, arrayImages.length, page);
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
@@ -55,11 +55,7 @@ const FotoSwiper = () => {
             <AnimatePresence initial={false} custom={direction}>
               {[imageIndex - 1, imageIndex, imageIndex + 1].map(
                 (index, position) => {
-                  const wrappedIndex = scrollWrap(
-                    0,
-                    teamImagesLarge.length,
-                    index
-                  );
+                  const wrappedIndex = scrollWrap(0, arrayImages.length, index);
                   return (
                     <motion.li
                       variants={variants}
@@ -89,14 +85,15 @@ const FotoSwiper = () => {
                           </div>
                         )}
                         <Image
+                          priority
                           width={64}
                           height={64}
-                          src={teamImagesLarge[wrappedIndex].url}
+                          src={arrayImages[wrappedIndex].urlImage}
                           className={clsx(
-                            'h-[40px] w-[40px] overflow-hidden rounded-full',
+                            'h-[40px] w-[40px] overflow-hidden rounded-full object-cover',
                             position === 1 && 'h-[64px] w-[64px]'
                           )}
-                          alt={`фото учасника команди ${teamImagesLarge[wrappedIndex].name}`}
+                          alt={`фото учасника команди ${arrayImages[wrappedIndex].name}`}
                         />
                       </div>
                     </motion.li>
@@ -129,14 +126,14 @@ const FotoSwiper = () => {
               <Image
                 width={365}
                 height={364}
-                src={teamImagesLarge[imageIndex].url}
-                alt={teamImagesLarge[imageIndex].name}
+                src={arrayImages[imageIndex].urlImage}
+                alt={arrayImages[imageIndex].name}
                 className="object-cover"
-                layout="responsive"
+                priority
               />
             </div>
             <p className="mt-1 text-center text-[14px] text-olga-light-grey">
-              {teamImagesLarge[imageIndex].name}
+              {arrayImages[imageIndex].name}
             </p>
           </motion.div>
         </div>
