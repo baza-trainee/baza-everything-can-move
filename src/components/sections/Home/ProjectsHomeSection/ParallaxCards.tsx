@@ -3,10 +3,13 @@ import React from 'react';
 import Image from 'next/image';
 
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 // export interface ParallaxCardsProps {}
-
+// const images = [
+//   { src: '/path/to/image1.jpg', width: 800, height: 600 },
+//   { src: '/path/to/image2.jpg', width: 1024, height: 768 },
+// ];
 const ParallaxCards: React.FC = () => {
   //   const cards = [
   //     {
@@ -29,18 +32,20 @@ const ParallaxCards: React.FC = () => {
   return (
     <CardContainer>
       <CardBody className="relative h-auto w-auto">
-        <CardItem translateZ="100" className="mt-4 w-full">
+        <CardItem
+          translateZ="200"
+          className="w-full overflow-hidden rounded-md"
+        >
           <Image
-            className="h-auto"
+            className="h-auto w-auto"
             src="/assets/images/HomeProjects/organik.png"
             alt="Logo Baza Trainee Ukraine"
             priority
-            width="500"
-            height="500"
+            width="400"
+            height="400"
             quality={100}
             // className="h-60 w-full rounded-xl object-cover group-hover/card:shadow-xl"
           />
-          ;
         </CardItem>
         <div className="mt-20 flex items-center justify-between">
           {/* <CardItem
@@ -59,13 +64,10 @@ const ParallaxCards: React.FC = () => {
 };
 
 export default ParallaxCards;
-
-{
-  /* <Image
-  src="/assets/images/HomeProjects/organik.png"
-  alt="Logo Baza Trainee Ukraine"
-  priority
-  width={100}
-  height={100}
-/>; */
-}
+// width={500}
+//   height={300}
+//   intrinsic
+/////
+// fill;
+// objectFit = 'cover';
+/////

@@ -1,7 +1,6 @@
 import SectionTitle from '@/components/ui/SectionTitle';
 import React from 'react';
 import ParallaxCards from './ParallaxCards';
-import Image from 'next/image';
 
 // interface ProjectsHomeSectionProps {}
 
