@@ -60,7 +60,7 @@ function Galaxy() {
 
 export default function GalaxyAnimation() {
   return (
-    <div className="h-[100%] w-[100%] px-[10%]">
+    <div className="h-[340px] w-[100%] lg:px-[10%]">
       <Canvas dpr={0.8} camera={{ position: [0, 10, 4], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[4, 4, 4]} intensity={1.5} />
