@@ -5,26 +5,13 @@ import FotoSwiper from '../../ui/SwiperFoto/FotoSwiper';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { teamImages } from './ArrayTeamImages';
 import SubTitle from '@/components/ui/SubTitle';
+import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
 
 function TeamSection() {
   return (
     <section className="pb-[6.25rem]">
       <div className="container text-white">
-        <div className="relative flex flex-col gap-8 pb-12">
-          <Image
-            className="absolute bottom-0 left-0"
-            alt="Низ"
-            width={16}
-            height={16}
-            src={'/assets/icons/corner.svg'}
-          />
-          <Image
-            className="absolute right-0 top-0 rotate-180"
-            alt="Низ"
-            width={16}
-            height={16}
-            src={'/assets/icons/corner.svg'}
-          />
+        <ContainerWithCorners className="relative flex flex-col gap-8 pb-12">
           <div className="pt-10">
             <SectionTitle className="pb-1 text-lg lg:text-[2.25rem] 2xl:text-[48px]">
               Команди
@@ -59,7 +46,7 @@ function TeamSection() {
               </Link>
             </div>
           </div>
-        </div>
+        </ContainerWithCorners>
       </div>
     </section>
   );

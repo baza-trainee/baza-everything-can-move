@@ -1,0 +1,8 @@
+.iconMidle {
+  box-shadow: 0 4px 4px 0 rgba(255, 255, 255, 0.25);
+  background: var(--olga-green);
+  opacity: 0.6;
+  width: 158px;
+  height: 158px;
+  color: #68753f;
+}

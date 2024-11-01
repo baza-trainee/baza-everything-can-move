@@ -64,8 +64,6 @@ const FotoSwiper = ({ arrayImages }: { arrayImages: ObjectArrayFoto[] }) => {
                       initial="enter"
                       animate="center"
                       exit="exit"
-                      drag="y"
-                      dragElastic={1}
                       className={clsx(
                         'absolute',
                         position === 0 && 'top-0',
