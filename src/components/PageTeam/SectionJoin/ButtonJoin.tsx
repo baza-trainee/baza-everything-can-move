@@ -14,8 +14,6 @@ function ButtonJoin() {
         <motion.svg
           className={clsx(
             'h-[200px] w-[200px] rounded-full stroke-olga-green-extra shadow-xl 2xl:h-[232px] 2xl:w-[232px]'
-
-            // '[box-shadow:0px_4px_4px_0px_rgba(255,255,255,0.25),0px_4px_4px_0px_rgba(0,0,0,0.25)]'
           )}
           style={{ transformOrigin: 'center' }}
           initial={{
