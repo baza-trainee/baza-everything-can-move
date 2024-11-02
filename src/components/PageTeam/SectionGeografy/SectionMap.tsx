@@ -13,18 +13,18 @@ function SectionMap({ rowCounties }: Props) {
   const isInView = useInView(ref);
 
   return (
-    <motion.div
+    <div
       ref={ref}
       className={clsx(
         "relative flex h-[160px] flex-col items-center justify-center overflow-hidden bg-[url('/assets/images/PageTeam/mapbaseMobile.svg')] bg-cover bg-no-repeat lg:h-[320px] lg:bg-[url('/assets/images/PageTeam/mapbaseTablet.svg')] 2xl:h-[454px] 2xl:bg-[url('/assets/images/PageTeam/mapbaseDesktop.svg')]"
       )}
     >
       {isInView && (
-        <motion.ul className="hidden flex-wrap justify-center gap-3 lg:flex">
+        <ul className="hidden flex-wrap justify-center gap-3 lg:flex">
           {arrayCountries.map((item, index) => (
             <CountrieTitle key={index} text={item} />
           ))}
-        </motion.ul>
+        </ul>
       )}
 
       {isInView && (
@@ -70,7 +70,7 @@ function SectionMap({ rowCounties }: Props) {
           </motion.ul>
         </>
       )}
-    </motion.div>
+    </div>
   );
 }
 

@@ -11,7 +11,7 @@ export function CountrieTitle({ text }: CountrieProps) {
   return (
     <>
       <motion.li
-        initial={{ opacity: 0.5 }}
+        initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
         }}
