@@ -92,7 +92,7 @@ export const FollowPointer = ({
 }) => {
   return (
     <motion.div
-      className="absolute z-50 h-12 w-12 rounded-full bg-olga-green text-olga-white-40"
+      className="absolute z-50 flex h-12 w-12 items-center justify-center rounded-full border bg-olga-green/30 border-olga-green-extra "
       style={{
         top: y,
         left: x,
@@ -112,7 +112,7 @@ export const FollowPointer = ({
         opacity: 0,
       }}
     >
-      <svg
+      {/* <svg
         stroke="currentColor"
         fill="currentColor"
         strokeWidth="1"
@@ -123,7 +123,7 @@ export const FollowPointer = ({
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"></path>
-      </svg>
+      </svg> */}
       {/*  <span className="absolute left-0 top-full text-xs text-white">
         x: {x.get().toFixed(2)}, y: {y.get().toFixed(2)}
       </span> */}
