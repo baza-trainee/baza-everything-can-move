@@ -33,7 +33,7 @@ export const CardContainer = ({
       containerRef.current.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / 18;
     const y = (e.clientY - top - height / 2) / 18;
-    containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${-y}deg) z-10`;
+    containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${-y}deg) `;
   };
 
   const handleMouseEnter = () => {
@@ -53,13 +53,12 @@ export const CardContainer = ({
       <div
         // add ' transition duration-200 ease-linear [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]',
         className={cn(
-          'transition duration-200 ease-linear [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]',
+          'transition duration-200 ease-linear',
           containerClassName
         )}
-
-        // style={{
-        //   perspective: '800px', //the less the closer. was 1000
-        // }}
+        style={{
+          perspective: '800px', //the less the closer. was 1000
+        }}
       >
         <div
           ref={containerRef}
@@ -129,9 +128,11 @@ export const CardItem = ({
   const handleAnimations = useCallback(() => {
     if (!ref.current) return;
     if (isMouseEntered) {
-      ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`;
+      ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1) rotateZ(${rotateZ}deg)`;
+      ref.current.style.zIndex = '10';
     } else {
-      ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
+      ref.current.style.transform = `translateX(0px) scale(1) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
+      ref.current.style.zIndex = '1';
     }
   }, [
     isMouseEntered,
@@ -152,8 +153,9 @@ export const CardItem = ({
       ref={ref}
       /*  add [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d] */
       className={cn(
-        'w-fit transition duration-200 ease-linear [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]',
-        className
+        'w-fit transition duration-200 ease-linear',
+        className,
+        'transform-style-preserve-3d'
       )}
       {...rest}
     >

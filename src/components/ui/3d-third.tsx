@@ -33,17 +33,15 @@ export const CardContainer = ({
       containerRef.current.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / 18;
     const y = (e.clientY - top - height / 2) / 18;
-    containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${-y}deg) z-10`;
+    containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
   };
 
   const handleMouseEnter = () => {
-    //e: React.MouseEvent<HTMLDivElement>
     setIsMouseEntered(true);
     if (!containerRef.current) return;
   };
 
   const handleMouseLeave = () => {
-    //e: React.MouseEvent<HTMLDivElement>
     if (!containerRef.current) return;
     setIsMouseEntered(false);
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
@@ -51,15 +49,10 @@ export const CardContainer = ({
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
-        // add ' transition duration-200 ease-linear [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]',
-        className={cn(
-          'transition duration-200 ease-linear [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]',
-          containerClassName
-        )}
-
-        // style={{
-        //   perspective: '800px', //the less the closer. was 1000
-        // }}
+        className={cn(containerClassName, 'w-fit')}
+        style={{
+          perspective: '1000px',
+        }}
       >
         <div
           ref={containerRef}
@@ -67,7 +60,7 @@ export const CardContainer = ({
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className={cn(
-            'relative transition-all duration-200 ease-linear',
+            'flex items-center justify-center transition-all duration-200 ease-linear',
             className
           )}
           style={{
@@ -91,7 +84,7 @@ export const CardBody = ({
   return (
     <div
       className={cn(
-        'w-full [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]',
+        'h-96 w-96 [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]',
         className
       )}
     >
@@ -135,12 +128,12 @@ export const CardItem = ({
     }
   }, [
     isMouseEntered,
-    translateX,
-    translateY,
-    translateZ,
     rotateX,
     rotateY,
     rotateZ,
+    translateX,
+    translateY,
+    translateZ,
   ]);
 
   useEffect(() => {
@@ -150,11 +143,7 @@ export const CardItem = ({
   return (
     <Tag
       ref={ref}
-      /*  add [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d] */
-      className={cn(
-        'w-fit transition duration-200 ease-linear [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]',
-        className
-      )}
+      className={cn('w-fit transition duration-200 ease-linear', className)}
       {...rest}
     >
       {children}
@@ -162,7 +151,7 @@ export const CardItem = ({
   );
 };
 
-//  hook to use the context
+// Create a hook to use the context
 export const useMouseEnter = () => {
   const context = useContext(MouseEnterContext);
   if (context === undefined) {
