@@ -1,13 +1,14 @@
 import Label from './Label';
 import clsx from 'clsx';
-import BackgroundSvg from './BackgroundSvg';
 
 function SectionStatistic() {
   return (
     <section className="py-5">
-      <div className={clsx('relative')}>
-        <BackgroundSvg className="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-fill" />
-
+      <div
+        className={clsx(
+          'relative bg-[url("/assets/images/TemSection/VectorMobile.svg")] bg-cover bg-center bg-no-repeat lg:bg-[url("/assets/images/TemSection/VectorTablet.svg")] 2xl:bg-[url("/assets/images/TemSection/VectorDesctop.svg")]'
+        )}
+      >
         <div className="container z-10">
           <ul className="grid h-[636px] grid-cols-2 xl:grid-cols-3">
             <li className="relative">

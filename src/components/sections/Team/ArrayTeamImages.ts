@@ -25,8 +25,8 @@ export const teamImages: ObjectArrayFoto[] = [
     urlImage: '/assets/images/TemSection/6foto.webp',
     name: 'Back-End Developer',
   },
-  {
-    urlImage: '/assets/images/TemSection/7foto.webp',
-    name: 'Андрій Добрий QA Engineer',
-  },
+  // {
+  //   urlImage: '/assets/images/TemSection/7foto.webp',
+  //   name: 'Андрій Добрий QA Engineer',
+  // },
 ];
