@@ -3,140 +3,166 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
-import Circle from '../../../../public/assets/icons/circle.svg';
-import styles from './styles.module.css';
-import { scrollWrap } from '@/components/ui/SwiperFoto/ScrollWrap';
 import { ButtonSlide } from './ButtonSlider';
 import { ObjectArrayFoto } from './types';
+import { generatePositions, generateVariants } from './ui';
 
-const variants = {
-  enter: (direction: number) => {
-    return {
-      y: direction > 0 ? 100 : -100,
-      opacity: 0,
-    };
-  },
-  center: {
-    zIndex: 1,
-    y: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => {
-    return {
-      zIndex: 0,
-      y: direction < 0 ? 100 : -100,
-      opacity: 0,
-    };
-  },
-};
+const MotionImage = motion.create(Image);
 
 const FotoSwiper = ({ arrayImages }: { arrayImages: ObjectArrayFoto[] }) => {
-  const [[page, direction], setPage] = useState([0, 0]);
+  if (!arrayImages.length) return null;
 
-  const imageIndex = scrollWrap(0, arrayImages.length, page);
+  const [positionIndexes, setPositionIndexes] = useState(
+    arrayImages.map((_, index) => index)
+  );
+  const [indexBigFoto, setIndexBigFoto] = useState(
+    Math.floor(positionIndexes.length / 2)
+  );
+  const arrayReverse = arrayImages.toReversed();
 
-  const paginate = (newDirection: number) => {
-    setPage([page + newDirection, newDirection]);
+  const handleNext = () => {
+    setPositionIndexes((prevPosition) =>
+      prevPosition.map((prevIndex) => (prevIndex + 1) % arrayImages.length)
+    );
+  };
+
+  const handlePrev = () => {
+    setPositionIndexes((prevPosition) =>
+      prevPosition.map(
+        (prevIndex) => (prevIndex - 1 + arrayImages.length) % arrayImages.length
+      )
+    );
   };
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setPage(([prevPage]) => [prevPage - 1, -1]);
-    }, 5000);
+    const centerIdx = Math.floor(positionIndexes.length / 2);
+    const newIndexBigFoto = positionIndexes[centerIdx];
+    setIndexBigFoto(newIndexBigFoto);
+  }, [positionIndexes]);
 
+  const position = generatePositions(arrayImages.length);
+  const newVariants = generateVariants(arrayImages.length);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleNext();
+    }, 5000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [handleNext]);
 
   return (
-    <>
-      <div className="flex w-full justify-between">
-        <div className="flex w-full max-w-16 flex-col justify-center gap-6">
-          <motion.ul className="relative flex h-full max-h-[172px] flex-col items-center">
-            <AnimatePresence initial={false} custom={direction}>
-              {[imageIndex - 1, imageIndex, imageIndex + 1].map(
-                (index, position) => {
-                  const wrappedIndex = scrollWrap(0, arrayImages.length, index);
-                  return (
-                    <motion.li
-                      variants={variants}
-                      key={wrappedIndex}
-                      custom={direction}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      className={clsx(
-                        'absolute',
-                        position === 0 && 'top-0',
-                        position === 1 && 'top-[calc(50%-32px)]',
-                        position === 2 && 'bottom-0'
-                      )}
-                    >
-                      <div className="relative">
-                        {position === 0 && (
-                          <div
-                            className={clsx(
-                              'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2',
-                              styles.icon
-                            )}
-                          >
-                            <Circle width={60} height={60} />
-                          </div>
-                        )}
-                        <Image
-                          priority
-                          width={64}
-                          height={64}
-                          src={arrayImages[wrappedIndex].urlImage}
-                          className={clsx(
-                            'h-[40px] w-[40px] overflow-hidden rounded-full object-cover',
-                            position === 1 && 'h-[64px] w-[64px]'
-                          )}
-                          alt={`фото учасника команди ${arrayImages[wrappedIndex].name}`}
-                        />
-                      </div>
-                    </motion.li>
-                  );
-                }
-              )}
-            </AnimatePresence>
-          </motion.ul>
-          <div className="flex flex-col gap-3">
-            <ButtonSlide
-              onClick={() => paginate(1)}
-              ariaLabel="кнопка попереднє фото"
-            />
-            <ButtonSlide
-              className="rotate-180"
-              onClick={() => paginate(1)}
-              ariaLabel="кнопка наступне фото"
-            />
-          </div>
+    <div className="flex w-full justify-between">
+      <div className="flex w-full max-w-16 flex-col justify-center gap-6">
+        <ul className="relative flex h-full max-h-[172px] flex-col items-center">
+          <AnimatePresence>
+            <motion.li
+              initial={{ scale: 0, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              exit={{
+                scale: 0,
+                y: 20,
+              }}
+              key={indexBigFoto}
+              className={'absolute top-[-8%]'}
+            >
+              <motion.svg
+                width="62px"
+                height="62px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <motion.path
+                  initial={{
+                    pathLength: 1,
+                    opacity: 1,
+                  }}
+                  animate={{ pathLength: 0, opacity: 0.8 }}
+                  transition={{
+                    duration: 5,
+                    ease: 'linear',
+                  }}
+                  d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  stroke="#ffffff"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </motion.svg>
+            </motion.li>
+          </AnimatePresence>
+          {arrayImages.map((image, index) => {
+            return (
+              <motion.li
+                className="absolute"
+                key={index}
+                variants={newVariants}
+                transition={{ duration: 1 }}
+                initial="center"
+                animate={position[positionIndexes[index]]}
+              >
+                <div className="relative">
+                  <Image
+                    priority
+                    width={64}
+                    height={64}
+                    src={image.urlImage}
+                    className={clsx(
+                      'h-[40px] w-[40px] overflow-hidden rounded-full object-cover'
+                    )}
+                    alt={`фото учасника команди ${image.name}`}
+                  />
+                </div>
+              </motion.li>
+            );
+          })}
+        </ul>
+        <div className="flex flex-col gap-3">
+          <ButtonSlide onClick={handlePrev} ariaLabel="кнопка попереднє фото" />
+          <ButtonSlide
+            className="rotate-180"
+            onClick={handleNext}
+            ariaLabel="кнопка наступне фото"
+          />
         </div>
-        <div className="flex flex-col gap-1">
-          <motion.div
-            key={imageIndex}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.5 }}
-          >
+      </div>
+      <div className="flex flex-col gap-1">
+        <AnimatePresence>
+          <motion.div>
             <div className="flex h-[300px] w-[255px] justify-center lg:h-[300px] lg:w-[240px] 2xl:h-[364px] 2xl:w-[365px]">
-              <Image
+              <MotionImage
+                key={indexBigFoto}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0 }}
+                transition={{ duration: 1 }}
                 width={365}
                 height={364}
-                src={arrayImages[imageIndex].urlImage}
-                alt={arrayImages[imageIndex].name}
+                src={arrayReverse[indexBigFoto]?.urlImage}
+                alt={arrayReverse[indexBigFoto]?.name}
                 className="object-cover"
                 priority
               />
             </div>
-            <p className="mt-1 text-center text-[14px] text-olga-light-grey">
-              {arrayImages[imageIndex].name}
-            </p>
+            <motion.p
+              key={indexBigFoto}
+              initial={{
+                y: '100px',
+                opacity: 0,
+              }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 1,
+              }}
+              className="mt-1 text-center text-[14px] text-olga-light-grey"
+            >
+              {arrayReverse[indexBigFoto]?.name}
+            </motion.p>
           </motion.div>
-        </div>
+        </AnimatePresence>
       </div>
-    </>
+    </div>
   );
 };
 
