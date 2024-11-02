@@ -10,29 +10,12 @@ import { generatePositions, generateVariants } from './ui';
 const MotionImage = motion.create(Image);
 
 const FotoSwiper = ({ arrayImages }: { arrayImages: ObjectArrayFoto[] }) => {
-  if (!arrayImages.length) return null;
-
   const [positionIndexes, setPositionIndexes] = useState(
     arrayImages.map((_, index) => index)
   );
   const [indexBigFoto, setIndexBigFoto] = useState(
     Math.floor(positionIndexes.length / 2)
   );
-  const arrayReverse = arrayImages.toReversed();
-
-  const handleNext = () => {
-    setPositionIndexes((prevPosition) =>
-      prevPosition.map((prevIndex) => (prevIndex + 1) % arrayImages.length)
-    );
-  };
-
-  const handlePrev = () => {
-    setPositionIndexes((prevPosition) =>
-      prevPosition.map(
-        (prevIndex) => (prevIndex - 1 + arrayImages.length) % arrayImages.length
-      )
-    );
-  };
 
   useEffect(() => {
     const centerIdx = Math.floor(positionIndexes.length / 2);
@@ -40,15 +23,33 @@ const FotoSwiper = ({ arrayImages }: { arrayImages: ObjectArrayFoto[] }) => {
     setIndexBigFoto(newIndexBigFoto);
   }, [positionIndexes]);
 
-  const position = generatePositions(arrayImages.length);
-  const newVariants = generateVariants(arrayImages.length);
-
   useEffect(() => {
     const intervalId = setInterval(() => {
       handleNext();
     }, 5000);
     return () => clearInterval(intervalId);
   }, [handleNext]);
+
+  if (!arrayImages.length) return null;
+
+  const arrayReverse = arrayImages.toReversed();
+
+  function handleNext() {
+    setPositionIndexes((prevPosition) =>
+      prevPosition.map((prevIndex) => (prevIndex + 1) % arrayImages.length)
+    );
+  }
+
+  function handlePrev() {
+    setPositionIndexes((prevPosition) =>
+      prevPosition.map(
+        (prevIndex) => (prevIndex - 1 + arrayImages.length) % arrayImages.length
+      )
+    );
+  }
+
+  const position = generatePositions(arrayImages.length);
+  const newVariants = generateVariants(arrayImages.length);
 
   return (
     <div className="flex w-full justify-between">
