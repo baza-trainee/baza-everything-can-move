@@ -19,10 +19,12 @@ export const CardContainer = ({
   children,
   className,
   containerClassName,
+  style,
 }: {
   children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
+  style?: React.CSSProperties;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
@@ -33,7 +35,9 @@ export const CardContainer = ({
       containerRef.current.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / 18;
     const y = (e.clientY - top - height / 2) / 18;
-    containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+
+    containerRef.current.style.transform = `translateZ(160px) rotateY(${x}deg) rotateX(${-y}deg) `;
+    containerRef.current.style.willChange = 'transform';
   };
 
   const handleMouseEnter = () => {
@@ -49,9 +53,10 @@ export const CardContainer = ({
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
-        className={cn(containerClassName, 'w-fit')}
+        className={cn(containerClassName, className)}
         style={{
           perspective: '1000px',
+          ...style,
         }}
       >
         <div
@@ -60,8 +65,8 @@ export const CardContainer = ({
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className={cn(
-            'flex items-center justify-center transition-all duration-200 ease-linear',
-            className
+            'flex items-center justify-center transition-all duration-200 ease-linear'
+            // className
           )}
           style={{
             transformStyle: 'preserve-3d',

@@ -3,11 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 // import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card';
-import {
-  CardBody,
-  CardContainer,
-  CardItem,
-} from '@/components/ui/3d-card-second';
+import { CardContainer, CardItem } from '@/components/ui/3d-card-second';
 // import Link from 'next/link';
 
 // export interface ParallaxCardsProps {}

@@ -11,7 +11,7 @@ const images = [
     width: 500,
     height: 271,
     name: 'kolyskova',
-    top: '146px',
+    top: 146,
     left: '56px',
     translateZ: 200,
   },
@@ -21,7 +21,7 @@ const images = [
     width: 350,
     height: 167,
     name: 'balakun',
-    top: '36px',
+    top: 36,
     left: '0px',
     translateZ: 100,
   },
@@ -39,15 +39,23 @@ const images = [
 export function PCardsThird() {
   return (
     <div
-      className="relative h-[513px] w-full"
+      className="relative h-[613px] w-full"
       //   style={{
       //     perspective: '800px',
       //   }}
     >
       {images.map((image, ind) => (
-        <CardContainer className="absolute w-fit" key={image.name + ind}>
+        <CardContainer
+          className="absolute w-fit"
+          key={image.name + ind}
+          style={{
+            top: `${image.top + 200}px`,
+            left: image.left,
+            width: `${image.width}px`,
+          }}
+        >
           <CardBody className="bg-gray-50 group/card h-auto w-auto rounded-xl border border-black/[0.1] p-6 sm:w-[30rem]">
-            <CardItem
+            {/* <CardItem
               translateZ="50"
               className="text-neutral-600 text-xl font-bold"
             >
@@ -59,7 +67,7 @@ export function PCardsThird() {
               className="text-neutral-500 mb-2 mt-2 max-w-sm text-sm"
             >
               Hover over this card
-            </CardItem>
+            </CardItem> */}
             <CardItem translateZ="100" className="w-full">
               <Image
                 src={image.src}
