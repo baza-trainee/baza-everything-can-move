@@ -9,9 +9,9 @@ function Page() {
   return (
     <section className="text-white">
       <div className="container">
-        {/* <FutureSection title='Майбутнє' subtitle='Плануй з нами'  AnimationComponent={GalaxyAnimation}>
+         <FutureSection title='Майбутнє' subtitle='Плануй з нами'  AnimationComponent={GalaxyAnimation}>
           <FutureHeroText />
-        </FutureSection> */}
+        </FutureSection> 
         <FutureSection title='Розвиток' subtitle='Розвивайся з Базою'  AnimationComponent={BrainAnimation}>
           <FutureHeroText />
         </FutureSection>
