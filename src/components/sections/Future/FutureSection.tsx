@@ -18,7 +18,7 @@ function FutureSection({ title, subtitle, AnimationComponent, children }: Future
       <SectionTitle>{title}</SectionTitle>
       <SubTitle>{subtitle}</SubTitle>
       <div className='flex flex-col lg:flex-row py-[32px] justify-items-center lg:items-center'>
-        <div className='grow' ref={animationRef} >
+        <div className='grow ' ref={animationRef} >
           <AnimationComponent animationRef={animationRef} />
         </div>
         <div>
