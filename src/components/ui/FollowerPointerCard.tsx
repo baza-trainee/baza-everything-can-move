@@ -21,47 +21,33 @@ export const FollowerPointerCard = ({
   const y = useMotionValue(0);
   const ref = React.useRef<HTMLDivElement>(null);
   const [rect, setRect] = useState<DOMRect | null>(null);
-  const [isInside, setIsInside] = useState<boolean>(false); // Add this line
+  const [isInside, setIsInside] = useState<boolean>(false);
   console.log('inside', isInside);
   useEffect(() => {
     if (typeof window !== 'undefined' && ref.current) {
       const rect = ref.current.getBoundingClientRect();
       console.log(
-        `Bounding rect - left: ${rect.left}, top: ${rect.top}, width: ${rect.width}, height: ${rect.height}`
+        'top',
+        rect.top,
+        'bottom',
+        rect.bottom,
+        'width',
+        rect.width,
+        'height',
+        rect.height
       );
+
       setRect(rect);
     }
-    // if (ref.current) {
-    //   const rect = ref.current.getBoundingClientRect();
-    //   // console.log(
-    //   //   `Bounding rect - left: ${rect.left}, top: ${rect.top}, width: ${rect.width}, height: ${rect.height}`
-    //   // );
-    //   setRect(rect);
-    // }
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (rect) {
-      // const scrollX = window.scrollX;
-      // const scrollY = window.scrollY;
-      // const newX = e.clientX - rect.left + scrollX;
-      // const newY = e.clientY - rect.top + scrollY;
-      //var 2 so so
       const newX = e.clientX - rect.left;
       const newY = e.clientY - rect.top - 15;
-      //var 3 bad
-      // const newX = e.pageX - rect.left;
-      // const newY = e.pageY - rect.top;
-      // var 5
-      // const newX = Math.min(Math.max(0, e.pageX - rect.left), rect.width);
-      // const newY = Math.min(Math.max(0, e.pageY - rect.top), rect.height);
-
       x.set(newX);
       y.set(newY);
-
-      console.log(`clientX: ${e.clientX}, clientY: ${e.clientY}`);
-      console.log(`newX: ${newX}, newY: ${newY}`);
-      console.log(`rect.width: ${rect.width}, rect.height: ${rect.height}`);
+      console.log('newX', newX, 'newY', newY);
     }
   };
   const handleMouseLeave = () => {
@@ -101,7 +87,7 @@ export const FollowPointer = ({
 }) => {
   return (
     <motion.div
-      className="absolute z-50 flex h-12 w-12 items-center justify-center rounded-full border border-olga-green-extra bg-olga-green/30"
+      className="absolute z-[100] flex h-12 w-12 items-center justify-center rounded-full border border-olga-green-extra bg-olga-green/30"
       style={{
         top: y,
         left: x,
@@ -122,9 +108,6 @@ export const FollowPointer = ({
       }}
     >
       <motion.div
-        // style={{
-        //   backgroundColor: colors[Math.floor(Math.random() * colors.length)],
-        // }}
         initial={{
           scale: 0.5,
           opacity: 0,

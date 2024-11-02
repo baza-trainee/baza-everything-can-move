@@ -40,12 +40,7 @@ const images = [
 ];
 export function PCardsThird() {
   return (
-    <div
-      className="hidden lg:relative lg:block lg:h-[417px] lg:w-full"
-      //   style={{
-      //     perspective: '800px',
-      //   }}
-    >
+    <div className="hidden lg:relative lg:block lg:h-[417px] lg:w-full">
       <FollowerPointerCard>
         {images.map((image, ind) => (
           <CardContainer
