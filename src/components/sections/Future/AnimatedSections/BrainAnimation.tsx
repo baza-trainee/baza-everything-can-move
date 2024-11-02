@@ -5,13 +5,13 @@ import { gsap } from 'gsap';
 function BrainAnimation() {
 
   useEffect(() => {
-    const circles = document.querySelectorAll('.circle');
+    const circles = document.querySelectorAll('.circle') as NodeListOf<SVGElement>;
     const totalCircles = circles.length;
     const batchSize = 6; 
     const mainTimeline = gsap.timeline({ repeat: -1, paused: true }); 
 
     const createRandomBatchAnimation = () => {
-      const randomIndices = new Set(); 
+      const randomIndices = new Set<number>(); 
 
       while (randomIndices.size < batchSize) {
         const randomIndex = Math.floor(Math.random() * totalCircles);
@@ -145,30 +145,30 @@ function BrainAnimation() {
       <path className='circle' stroke="#C3FF0A" strokeWidth="0.5" d="M179.733 183.628C181.56 184.254 183.545 183.273 184.168 181.436 184.79 179.598 183.814 177.601 181.988 176.975 180.161 176.349 178.176 177.331 177.553 179.168 176.931 181.005 177.907 183.002 179.733 183.628Z" />
       <path className='circle' stroke="#C3FF0A" strokeWidth="0.5" d="M176.821 199.291C178.647 199.917 180.632 198.935 181.255 197.098 181.878 195.261 180.902 193.264 179.075 192.638 177.249 192.012 175.263 192.993 174.641 194.831 174.018 196.668 174.994 198.665 176.821 199.291Z" />
       <g filter="url(#filter0_f_1818_7584)">
-        <rect x="0" y="0" width="300" height="274" fill="url(#paint0_radial_1818_7584)" fill-opacity="0.35" />
+        <rect x="0" y="0" width="300" height="274" fill="url(#paint0_radial_1818_7584)" fillOpacity="0.35" />
       </g>
       <g filter="url(#filter6_f_1818_7584)">
-        <path d="M0 0H300V334H0V0Z" fill="url(#paint1_radial_1818_7584)" fill-opacity="0.35" />
+        <path d="M0 0H300V334H0V0Z" fill="url(#paint1_radial_1818_7584)" fillOpacity="0.35" />
       </g>
 
       <defs>
-        <filter id="filter0_f_1818_7584" x="0" y="0" width="300" height="300" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <filter id="filter0_f_1818_7584" x="0" y="0" width="300" height="300" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_1818_7584" />
         </filter>
-        <filter id="filter6_f_1818_7584" x="0" y="0" width="300" height="300" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <filter id="filter6_f_1818_7584" x="0" y="0" width="300" height="300" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_1818_7584" />
         </filter>
         <radialGradient id="paint0_radial_1818_7584" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
-          <stop offset="0%" stop-color="#D3FD50" stop-opacity="0.64" />
-          <stop offset="100%" stop-color="transparent" />
+          <stop offset="0%" stopColor="#D3FD50" stopOpacity="0.64" />
+          <stop offset="100%" stopColor="transparent" />
         </radialGradient>
         <radialGradient id="paint1_radial_1818_7584" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
-          <stop offset="0%" stop-color="#D3FD50" stop-opacity="0.64" />
-          <stop offset="100%" stop-color="transparent" />
+          <stop offset="0%" stopColor="#D3FD50" stopOpacity="0.64" />
+          <stop offset="100%" stopColor="transparent" />
         </radialGradient>
       </defs>
 

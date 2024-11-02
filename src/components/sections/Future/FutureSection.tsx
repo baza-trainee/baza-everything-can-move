@@ -14,10 +14,10 @@ function FutureSection({ title, subtitle, AnimationComponent, children }: Future
   const animationRef = useRef<HTMLDivElement>(null);
 
   return (
-    <ContainerWithCorners className='mt-[54px] lg:mt-[80px]xl:mt-[40px]'>
+    <ContainerWithCorners className='mt-[54px] lg:mt-[80px] xl:mt-[40px]'>
       <SectionTitle>{title}</SectionTitle>
       <SubTitle>{subtitle}</SubTitle>
-      <div className='flex flex-col lg:flex-row py-[32px] justify-items-center lg:items-center'>
+      <div className='flex flex-col lg:flex-row py-[32px] justify-items-center lg:items-center xl:items-start'>
         <div className='grow ' ref={animationRef} >
           <AnimationComponent animationRef={animationRef} />
         </div>
