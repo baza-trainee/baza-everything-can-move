@@ -38,6 +38,7 @@ export const CardContainer = ({
 
     containerRef.current.style.transform = `translateZ(120px) rotateY(${x}deg) rotateX(${-y}deg) `;
     containerRef.current.style.willChange = 'transform';
+    containerRef.current.style.zIndex = '40';
   };
 
   const handleMouseEnter = () => {
@@ -49,6 +50,7 @@ export const CardContainer = ({
     if (!containerRef.current) return;
     setIsMouseEntered(false);
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    containerRef.current.style.zIndex = '';
   };
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
@@ -57,6 +59,7 @@ export const CardContainer = ({
         style={{
           perspective: '1000px',
           ...style,
+          zIndex: isMouseEntered ? 40 : 1,
         }}
       >
         <div

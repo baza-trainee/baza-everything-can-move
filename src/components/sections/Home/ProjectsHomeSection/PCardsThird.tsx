@@ -26,6 +26,7 @@ const images = [
     left: '0px',
     translateZ: 100,
   },
+
   //   {
   //     pos: '3.4',
   //     src: '/assets/images/HomeProjects/organik.png',
