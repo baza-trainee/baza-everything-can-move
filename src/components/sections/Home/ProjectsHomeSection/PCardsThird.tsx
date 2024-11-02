@@ -59,19 +59,6 @@ export function PCardsThird() {
             }}
           >
             <CardBody className="group/card h-auto w-auto rounded-xl">
-              {/* <CardItem
-              translateZ="50"
-              className="text-neutral-600 text-xl font-bold"
-            >
-              Make things
-            </CardItem>
-            <CardItem
-              as="p"
-              translateZ="60"
-              className="text-neutral-500 mb-2 mt-2 max-w-sm text-sm"
-            >
-              Hover over this card
-            </CardItem> */}
               <CardItem translateZ="100" className="w-full">
                 <Image
                   src={image.src}

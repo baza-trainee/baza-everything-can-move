@@ -26,6 +26,9 @@ export const FollowerPointerCard = ({
   useEffect(() => {
     if (typeof window !== 'undefined' && ref.current) {
       const rect = ref.current.getBoundingClientRect();
+      console.log(
+        `Bounding rect - left: ${rect.left}, top: ${rect.top}, width: ${rect.width}, height: ${rect.height}`
+      );
       setRect(rect);
     }
     // if (ref.current) {
@@ -45,19 +48,20 @@ export const FollowerPointerCard = ({
       // const newY = e.clientY - rect.top + scrollY;
       //var 2 so so
       const newX = e.clientX - rect.left;
-      const newY = e.clientY - rect.top;
+      const newY = e.clientY - rect.top - 15;
       //var 3 bad
       // const newX = e.pageX - rect.left;
       // const newY = e.pageY - rect.top;
       // var 5
       // const newX = Math.min(Math.max(0, e.pageX - rect.left), rect.width);
       // const newY = Math.min(Math.max(0, e.pageY - rect.top), rect.height);
+
       x.set(newX);
       y.set(newY);
 
-      // console.log(`clientX: ${e.clientX}, clientY: ${e.clientY}`);
-      // console.log(`newX: ${newX}, newY: ${newY}`);
-      // console.log(`rect.width: ${rect.width}, rect.height: ${rect.height}`);
+      console.log(`clientX: ${e.clientX}, clientY: ${e.clientY}`);
+      console.log(`newX: ${newX}, newY: ${newY}`);
+      console.log(`rect.width: ${rect.width}, rect.height: ${rect.height}`);
     }
   };
   const handleMouseLeave = () => {
