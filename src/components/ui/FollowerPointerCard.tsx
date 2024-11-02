@@ -24,7 +24,11 @@ export const FollowerPointerCard = ({
 
   useEffect(() => {
     if (ref.current) {
-      setRect(ref.current.getBoundingClientRect());
+      const rect = ref.current.getBoundingClientRect();
+      console.log(
+        `Bounding rect - left: ${rect.left}, top: ${rect.top}, width: ${rect.width}, height: ${rect.height}`
+      );
+      setRect(rect);
     }
   }, []);
 
@@ -34,13 +38,21 @@ export const FollowerPointerCard = ({
       // const scrollY = window.scrollY;
       // const newX = e.clientX - rect.left + scrollX;
       // const newY = e.clientY - rect.top + scrollY;
+      //var 2 so so
       const newX = e.clientX - rect.left;
       const newY = e.clientY - rect.top;
+      //var 3 bad
+      // const newX = e.pageX - rect.left;
+      // const newY = e.pageY - rect.top;
+      // var 5
+      // const newX = Math.min(Math.max(0, e.pageX - rect.left), rect.width);
+      // const newY = Math.min(Math.max(0, e.pageY - rect.top), rect.height);
       x.set(newX);
       y.set(newY);
 
-      console.log(`clientX: ${e.clientX}, clientY: ${e.clientY}`);
-      console.log(`newX: ${newX}, newY: ${newY}`);
+      // console.log(`clientX: ${e.clientX}, clientY: ${e.clientY}`);
+      // console.log(`newX: ${newX}, newY: ${newY}`);
+      // console.log(`rect.width: ${rect.width}, rect.height: ${rect.height}`);
     }
   };
   const handleMouseLeave = () => {
@@ -85,6 +97,7 @@ export const FollowPointer = ({
         top: y,
         left: x,
         pointerEvents: 'none',
+        transform: 'none',
       }}
       initial={{
         scale: 1,
@@ -111,9 +124,9 @@ export const FollowPointer = ({
       >
         <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"></path>
       </svg>
-      <span className="absolute left-0 top-full text-xs text-white">
+      {/*  <span className="absolute left-0 top-full text-xs text-white">
         x: {x.get().toFixed(2)}, y: {y.get().toFixed(2)}
-      </span>
+      </span> */}
       <motion.div
         // style={{
         //   backgroundColor: colors[Math.floor(Math.random() * colors.length)],

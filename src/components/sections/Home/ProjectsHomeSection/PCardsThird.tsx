@@ -45,9 +45,10 @@ export function PCardsThird() {
       //     perspective: '800px',
       //   }}
     >
-      {images.map((image, ind) => (
-        <FollowerPointerCard key={image.name + ind}>
+      <FollowerPointerCard>
+        {images.map((image, ind) => (
           <CardContainer
+            key={image.name + ind}
             className="absolute w-fit"
             style={{
               top: `${image.top}px`, // top: `${image.top + 200}px`,
@@ -80,8 +81,8 @@ export function PCardsThird() {
               </CardItem>
             </CardBody>
           </CardContainer>
-        </FollowerPointerCard>
-      ))}
+        ))}
+      </FollowerPointerCard>
     </div>
   );
 }
