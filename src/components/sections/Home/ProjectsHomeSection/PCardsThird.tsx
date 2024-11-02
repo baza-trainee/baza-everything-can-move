@@ -10,7 +10,7 @@ const images = [
     pos: '1.1',
     src: '/assets/images/HomeProjects/kolyskova.png',
     width: 500,
-    height: 271,
+    height: 247,
     name: 'kolyskova',
     top: 146,
     left: '56px',
@@ -20,7 +20,7 @@ const images = [
     pos: '3.1',
     src: '/assets/images/HomeProjects/balakun.png',
     width: 350,
-    height: 167,
+    height: 172,
     name: 'balakun',
     top: 36,
     left: '0px',
@@ -40,7 +40,7 @@ const images = [
 export function PCardsThird() {
   return (
     <div
-      className="relative h-[413px] w-full"
+      className="hidden lg:relative lg:block lg:h-[417px] lg:w-full"
       //   style={{
       //     perspective: '800px',
       //   }}
@@ -54,6 +54,7 @@ export function PCardsThird() {
               top: `${image.top}px`, // top: `${image.top + 200}px`,
               left: image.left,
               width: `${image.width}px`,
+              height: `${image.height}px`,
             }}
           >
             <CardBody className="group/card h-auto w-auto rounded-xl">

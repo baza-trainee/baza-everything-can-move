@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState } from 'react';
 
 import {
@@ -21,15 +22,19 @@ export const FollowerPointerCard = ({
   const ref = React.useRef<HTMLDivElement>(null);
   const [rect, setRect] = useState<DOMRect | null>(null);
   const [isInside, setIsInside] = useState<boolean>(false); // Add this line
-
+  console.log('inside', isInside);
   useEffect(() => {
-    if (ref.current) {
+    if (typeof window !== 'undefined' && ref.current) {
       const rect = ref.current.getBoundingClientRect();
-      console.log(
-        `Bounding rect - left: ${rect.left}, top: ${rect.top}, width: ${rect.width}, height: ${rect.height}`
-      );
       setRect(rect);
     }
+    // if (ref.current) {
+    //   const rect = ref.current.getBoundingClientRect();
+    //   // console.log(
+    //   //   `Bounding rect - left: ${rect.left}, top: ${rect.top}, width: ${rect.width}, height: ${rect.height}`
+    //   // );
+    //   setRect(rect);
+    // }
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -92,7 +97,7 @@ export const FollowPointer = ({
 }) => {
   return (
     <motion.div
-      className="absolute z-50 flex h-12 w-12 items-center justify-center rounded-full border bg-olga-green/30 border-olga-green-extra "
+      className="absolute z-50 flex h-12 w-12 items-center justify-center rounded-full border border-olga-green-extra bg-olga-green/30"
       style={{
         top: y,
         left: x,
@@ -112,21 +117,6 @@ export const FollowPointer = ({
         opacity: 0,
       }}
     >
-      {/* <svg
-        stroke="currentColor"
-        fill="currentColor"
-        strokeWidth="1"
-        viewBox="0 0 16 16"
-        className="text- stroke-sky-600 h-6 w-6 -translate-x-[12px] -translate-y-[10px] -rotate-[70deg] transform"
-        height="1em"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"></path>
-      </svg> */}
-      {/*  <span className="absolute left-0 top-full text-xs text-white">
-        x: {x.get().toFixed(2)}, y: {y.get().toFixed(2)}
-      </span> */}
       <motion.div
         // style={{
         //   backgroundColor: colors[Math.floor(Math.random() * colors.length)],

@@ -1,4 +1,4 @@
-'use client';
+/* 'use client';
 import React from 'react';
 import Image from 'next/image';
 
@@ -77,7 +77,7 @@ const ParallaxCards: React.FC = () => {
   );
 };
 
-export default ParallaxCards;
+export default ParallaxCards; */
 // width={500}
 //   height={300}
 //   intrinsic
