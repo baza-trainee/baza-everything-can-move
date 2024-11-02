@@ -36,7 +36,7 @@ export const CardContainer = ({
     const x = (e.clientX - left - width / 2) / 18;
     const y = (e.clientY - top - height / 2) / 18;
 
-    containerRef.current.style.transform = `translateZ(160px) rotateY(${x}deg) rotateX(${-y}deg) `;
+    containerRef.current.style.transform = `translateZ(120px) rotateY(${x}deg) rotateX(${-y}deg) `;
     containerRef.current.style.willChange = 'transform';
   };
 

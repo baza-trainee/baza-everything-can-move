@@ -1,15 +1,9 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 // import { useAnimate } from 'framer-motion/mini';
-import {
-  useScroll,
-  useSpring,
-  cubicBezier,
-  useTransform,
-  useInView,
-} from 'framer-motion';
+import { useScroll, useTransform } from 'framer-motion';
 
 const images = [
   {

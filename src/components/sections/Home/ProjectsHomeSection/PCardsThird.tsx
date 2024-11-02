@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-third';
+import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
 
 const images = [
   {
@@ -39,23 +40,23 @@ const images = [
 export function PCardsThird() {
   return (
     <div
-      className="relative h-[613px] w-full"
+      className="relative h-[413px] w-full"
       //   style={{
       //     perspective: '800px',
       //   }}
     >
       {images.map((image, ind) => (
-        <CardContainer
-          className="absolute w-fit"
-          key={image.name + ind}
-          style={{
-            top: `${image.top + 200}px`,
-            left: image.left,
-            width: `${image.width}px`,
-          }}
-        >
-          <CardBody className="bg-gray-50 group/card h-auto w-auto rounded-xl border border-black/[0.1] p-6 sm:w-[30rem]">
-            {/* <CardItem
+        <FollowerPointerCard key={image.name + ind}>
+          <CardContainer
+            className="absolute w-fit"
+            style={{
+              top: `${image.top}px`, // top: `${image.top + 200}px`,
+              left: image.left,
+              width: `${image.width}px`,
+            }}
+          >
+            <CardBody className="group/card h-auto w-auto rounded-xl">
+              {/* <CardItem
               translateZ="50"
               className="text-neutral-600 text-xl font-bold"
             >
@@ -68,17 +69,18 @@ export function PCardsThird() {
             >
               Hover over this card
             </CardItem> */}
-            <CardItem translateZ="100" className="w-full">
-              <Image
-                src={image.src}
-                width={image.width}
-                height={image.height}
-                className="rounded-xl object-cover group-hover/card:shadow-xl"
-                alt={image.name}
-              />
-            </CardItem>
-          </CardBody>
-        </CardContainer>
+              <CardItem translateZ="100" className="w-full">
+                <Image
+                  src={image.src}
+                  width={image.width}
+                  height={image.height}
+                  className="rounded-xl object-cover group-hover/card:shadow-xl"
+                  alt={image.name}
+                />
+              </CardItem>
+            </CardBody>
+          </CardContainer>
+        </FollowerPointerCard>
       ))}
     </div>
   );
