@@ -40,6 +40,17 @@ const config: Config = {
       'olga-grid': '#1a1919',
     },
     extend: {
+      backgroundImage: {
+        grid: 'linear-gradient(90deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px), linear-gradient(180deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px)',
+      },
+      backgroundSize: {
+        'grid-90': '90px 90px',
+        'grid-80': '80px 80px',
+        'grid-20': '48px 48px',
+        'grid-30': '30px 30px',
+        'grid-40': '40px 40px',
+        'grid-41': '41px 41px',
+      },
       fontFamily: {
         'main-family': ['Roboto-Mono', 'ui-sans-serif', 'sans-serif'],
         'second-family': ['IBM Plex Mono', 'sans-serif'],

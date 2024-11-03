@@ -1,13 +1,11 @@
-import Link from 'next/link';
+import ExperienceSection from '@/components/sections/Experience/ExperienceSection';
 
 function Page() {
   return (
     <section className="text-white">
       <div className="container">
-        <h1>Experience</h1>
-        <Link href={'/'} className="text-olga-green-extra cursor-pointer">
-          Головна
-        </Link>
+        <ExperienceSection title='Досвід' subtitle='Найбільша цінність'>
+        </ExperienceSection>
       </div>
     </section>
   );

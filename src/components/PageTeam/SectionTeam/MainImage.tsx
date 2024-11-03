@@ -1,11 +1,12 @@
 'use client';
-import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import styles from './styles.module.css';
+import { Label } from './Label';
+import clsx from 'clsx';
 
 function MainImage() {
   return (
-    <div className="relative flex h-[540px] w-full max-w-[836px] items-center justify-center bg-[url('/assets/images/TemSection/gradient.png')] bg-center">
+    <div className="relative flex h-[222px] w-full max-w-[836px] items-center justify-center bg-center lg:h-[340px] 2xl:h-[540px] 2xl:bg-[url('/assets/images/TemSection/gradient.png')]">
       <motion.div
         className="absolute"
         animate={{ rotate: 360 }}
@@ -14,7 +15,10 @@ function MainImage() {
         dragConstraints={{ top: -50, left: -50, right: 50, bottom: 50 }}
       >
         <motion.svg
-          className={styles.icon}
+          className={clsx(
+            styles.icon,
+            'h-[175px] w-[175px] lg:h-[280px] lg:w-[280px] 2xl:h-[428px] 2xl:w-[428px]'
+          )}
           width="428"
           height="428"
           viewBox="0 0 428 428"
@@ -38,29 +42,3 @@ function MainImage() {
 }
 
 export default MainImage;
-
-function Label({
-  text,
-  className,
-  fixed = false,
-}: {
-  className: string;
-  text: string;
-  fixed?: boolean;
-}) {
-  return (
-    <motion.div
-      drag
-      dragConstraints={{ top: -50, left: -50, right: 50, bottom: 50 }}
-      className={clsx(
-        className,
-        'absolute rounded-[40px] border-2 border-solid border-olga-green-extra bg-white px-5 py-2 text-sm uppercase leading-snug text-olga-bg',
-        fixed && 'pointer-events-none'
-      )}
-      animate={{ rotate: -360 }}
-      transition={{ duration: 120, repeat: Infinity, ease: 'linear' }}
-    >
-      {text}
-    </motion.div>
-  );
-}

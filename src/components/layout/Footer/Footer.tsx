@@ -5,12 +5,11 @@ import Image from 'next/image';
 import Marquee from './Marquee/Marquee';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
-
+import { SocialMediaData } from '@/components/data/SocialMediaData';
 
 
 
 const Footer: React.FC = () => {
-
   
     return (
       <footer className="bg-black">
@@ -52,9 +51,13 @@ const Footer: React.FC = () => {
                     <li className='uppercase'><Link href='/future'>Майбутнє</Link></li>
                 </ul>
                 <div className='flex flex-col'>
-                    <Button disabled={false} className='mb-4 border-olga-green-extra hover:bg-olga-green-extra'>Telegram</Button>
-                    <Button disabled={false} className='mb-4 border-olga-green-extra hover:bg-olga-green-extra'>LinkedIn</Button>
-                    <Button disabled={false} className='border-olga-green-extra hover:bg-olga-green-extra'>Facebook</Button>
+                    {SocialMediaData.map((social)=>{
+                        return(
+                        <Button key={social.link} disabled={false} className='mb-4 border-olga-green-extra hover:bg-olga-green-extra active:bg-olga-green-extra visited:border-olga-green-extra capitalize'>
+                            <Link href={social.link}>{social.name}</Link>
+                        </Button>
+                        )
+                    })}
                 </div>
 
             </div>
