@@ -8,7 +8,7 @@ type Props = {
   duration?: number;
   className?: string;
   direction: 'right' | 'left' | 'up' | 'down';
-  position: 'bottom' | 'top' | 'left' | 'right';
+  position: 'bottom-0' | 'top-0' | 'left-0' | 'right-0';
   repeat?: number | 'infinity';
   width?: number;
   height?: number;
@@ -21,7 +21,7 @@ function MoveLine({
   duration = 60,
   className,
   direction = 'right',
-  position = 'bottom',
+  position = 'bottom-0',
   repeat = 'infinity',
   width = 80,
   height = 11,
