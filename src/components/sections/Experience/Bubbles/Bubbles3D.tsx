@@ -1,7 +1,7 @@
 'use client'
 
 import * as THREE from 'three';
-import { CanvasHTMLAttributes, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 
 const API = {
@@ -11,7 +11,7 @@ const API = {
     ambientLightIntensity: 0.7,
 };
 
-const Bubbles3D:React.FC<{}> = () => {
+const Bubbles3D:React.FC = () => {
 
     const canvasRef = useRef<HTMLDivElement | null>(null);
 
