@@ -5,7 +5,7 @@ import MoveLine from '@/components/ui/MoveLine';
 function SectionStatistic() {
   return (
     <section className="relative overflow-hidden py-[20px] lg:py-[29px] 2xl:py-[21px]">
-      <MoveLine position="top-0" direction="right" />
+      <MoveLine position="top-0" direction="right" duration={30} />
       <div className={clsx('bg-grid bg-grid-41 lg:bg-grid-20 2xl:bg-grid-90')}>
         <div className="container z-10">
           <ul className="grid h-[698px] grid-cols-2 lg:h-[338px] lg:grid-cols-3 2xl:h-[632px]">
@@ -62,7 +62,7 @@ function SectionStatistic() {
           </ul>
         </div>
       </div>
-      <MoveLine position="bottom-0" direction="left" />
+      <MoveLine position="bottom-0" direction="left" duration={30} />
     </section>
   );
 }

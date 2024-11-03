@@ -11,14 +11,7 @@ enum DesignType {
 
 function ButtonChangeDesigne() {
   const [isOpenButton, setIsOpenButton] = useState<boolean>(false);
-  const [typeDesine, setTypeDesigne] = useState<DesignType>(
-    // (localStorage.getItem('designType') as DesignType) ||
-    DesignType.Olga
-  );
-
-  // useEffect(() => {
-  //   localStorage.setItem('designType', typeDesine);
-  // }, [typeDesine]);
+  const [typeDesine, setTypeDesigne] = useState<DesignType>(DesignType.Olga);
 
   const toggleDesign = () => {
     setTypeDesigne((prev) =>
@@ -42,7 +35,6 @@ function ButtonChangeDesigne() {
       className="fixed bottom-5 left-5 rounded-full border-[1px] border-solid border-white bg-[#363535] p-[18px]"
     >
       <div className="relative flex items-center justify-start rounded-full">
-        {/* Перша кнопка */}
         <motion.button
           onClick={toggleDesign}
           initial={{ scale: 1 }}
@@ -55,7 +47,6 @@ function ButtonChangeDesigne() {
           )}
         ></motion.button>
 
-        {/* Друга кнопка */}
         <AnimatePresence initial={false}>
           {isOpenButton && (
             <motion.button
