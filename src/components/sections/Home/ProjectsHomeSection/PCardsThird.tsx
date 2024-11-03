@@ -4,11 +4,14 @@ import Image from 'next/image';
 import React from 'react';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-third';
 import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
+import kolyskova from '@/assets/images/HomeProjects/kolyskova.png';
+import balakun from '@/assets/images/HomeProjects/balakun.png';
+import organik from '@/assets/images/HomeProjects/organik.png';
 
 const images = [
   {
     pos: '1.1',
-    src: '/assets/images/HomeProjects/kolyskova.png',
+    src: kolyskova,
     width: 500,
     height: 247,
     name: 'kolyskova',
@@ -18,7 +21,7 @@ const images = [
   },
   {
     pos: '3.1',
-    src: '/assets/images/HomeProjects/balakun.png',
+    src: balakun,
     width: 350,
     height: 172,
     name: 'balakun',
@@ -29,7 +32,7 @@ const images = [
 
   {
     pos: '3.4',
-    src: '/assets/images/HomeProjects/organik.png',
+    src: organik,
     width: 180,
     height: 120,
     name: 'organik',
@@ -53,15 +56,16 @@ export function PCardsThird() {
               height: `${image.height}px`,
             }}
           >
-            <CardBody className="group/card h-auto w-auto rounded-xl">
-              <CardItem translateZ={image.translateZ} className="w-full">
+            <CardBody className="group/card h-full w-full rounded-xl">
+              <CardItem translateZ={image.translateZ} className="h-full w-full">
                 <Image
                   src={image.src}
-                  width={image.width}
-                  height={image.height}
+                  // width={image.width}
+                  // height={image.height}
                   className="rounded-xl object-cover group-hover/card:shadow-xl"
                   alt={image.name}
-                  style={{ width: 'auto', height: 'auto' }}
+                  // style={{ width: 'auto', height: 'auto' }}
+                  style={{ width: '100%', height: '100%' }}
                 />
               </CardItem>
             </CardBody>
