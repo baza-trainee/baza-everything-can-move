@@ -4,7 +4,7 @@ import './globals.css';
 import Header from '@/components/layout/Header/Header';
 import Footer from '@/components/layout/Footer/Footer';
 import ButtonChangeDesigne from '@/components/ui/ButtonChangeDesigne';
-import ClientWrapper from './ClientWrapper';
+// import ClientWrapper from './ClientWrapper';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
