@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import FotoSwiper from '../../ui/SwiperFoto/FotoSwiper';
+import FotoSwiper from '../../../ui/SwiperFoto/FotoSwiper';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { teamImages } from './ArrayTeamImages';
 import SubTitle from '@/components/ui/SubTitle';

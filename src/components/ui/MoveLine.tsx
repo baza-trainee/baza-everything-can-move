@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -59,7 +59,7 @@ function MoveLine({
         repeat: repeat === 'infinity' ? Infinity : repeat,
         ease: 'linear',
       }}
-      className={clsx('absolute', position, className)}
+      className={cn('absolute', position, className)}
       width={width}
       height={height}
       alt="line"

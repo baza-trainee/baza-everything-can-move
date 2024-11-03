@@ -54,8 +54,8 @@ const FotoSwiper = ({ arrayImages }: { arrayImages: ObjectArrayFoto[] }) => {
   return (
     <div className="flex w-full justify-between">
       <div className="flex w-full max-w-16 flex-col justify-center gap-6">
-        <ul className="relative flex h-full max-h-[172px] flex-col items-center">
-          <AnimatePresence>
+        <AnimatePresence>
+          <ul className="relative flex h-full max-h-[172px] flex-col items-center">
             <motion.li
               initial={{ scale: 0, y: 20 }}
               animate={{ scale: 1, y: 0 }}
@@ -92,33 +92,33 @@ const FotoSwiper = ({ arrayImages }: { arrayImages: ObjectArrayFoto[] }) => {
                 />
               </motion.svg>
             </motion.li>
-          </AnimatePresence>
-          {arrayImages.map((image, index) => {
-            return (
-              <motion.li
-                className="absolute"
-                key={index}
-                variants={newVariants}
-                transition={{ duration: 1 }}
-                initial="center"
-                animate={position[positionIndexes[index]]}
-              >
-                <div className="relative">
-                  <Image
-                    priority
-                    width={64}
-                    height={64}
-                    src={image.urlImage}
-                    className={clsx(
-                      'h-[40px] w-[40px] overflow-hidden rounded-full object-cover'
-                    )}
-                    alt={`фото учасника команди ${image.name}`}
-                  />
-                </div>
-              </motion.li>
-            );
-          })}
-        </ul>
+            {arrayImages.map((image, index) => {
+              return (
+                <motion.li
+                  className="absolute"
+                  key={index}
+                  variants={newVariants}
+                  transition={{ duration: 1 }}
+                  initial="center"
+                  animate={position[positionIndexes[index]]}
+                >
+                  <div className="relative">
+                    <Image
+                      priority
+                      width={64}
+                      height={64}
+                      src={image.urlImage}
+                      className={clsx(
+                        'h-[40px] w-[40px] overflow-hidden rounded-full object-cover'
+                      )}
+                      alt={`фото учасника команди ${image.name}`}
+                    />
+                  </div>
+                </motion.li>
+              );
+            })}
+          </ul>
+        </AnimatePresence>
         <div className="flex flex-col gap-3">
           <ButtonSlide onClick={handlePrev} ariaLabel="кнопка попереднє фото" />
           <ButtonSlide

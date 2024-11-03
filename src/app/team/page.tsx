@@ -1,4 +1,4 @@
-import TeamPage from '@/components/PageTeam/TeamPage';
+import TeamPage from '@/components/sections/PageTeam/TeamPage';
 
 function PageTeam() {
   return (

@@ -1,4 +1,4 @@
-import SectionTitle from '../../ui/SectionTitle';
+import SectionTitle from '../../../ui/SectionTitle';
 import MainImage from './MainImage';
 import SubTitle from '@/components/ui/SubTitle';
 import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
