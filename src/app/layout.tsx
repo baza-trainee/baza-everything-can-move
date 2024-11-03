@@ -35,7 +35,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        <ClientWrapper>{children}</ClientWrapper>
+        {/* <ClientWrapper>{children}</ClientWrapper> */}
+        <main>{children}</main>
         <Footer />
         <ButtonChangeDesigne />
       </body>
