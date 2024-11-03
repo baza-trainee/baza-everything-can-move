@@ -1,7 +1,7 @@
 'use client'
 
 import * as THREE from 'three';
-import { useEffect, useRef } from 'react';
+import { CanvasHTMLAttributes, useEffect, useRef } from 'react';
 
 
 const API = {
@@ -11,18 +11,20 @@ const API = {
     ambientLightIntensity: 0.7,
 };
 
-function Bubbles3D() {
+const Bubbles3D:React.FC<{}> = () => {
 
-    const canvasRef = useRef();
+    const canvasRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, antialias: true  });
+        // const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, antialias: true  });
+        const renderer = new THREE.WebGLRenderer();
 		renderer.setPixelRatio( window.devicePixelRatio );
 		renderer.setSize( window.innerWidth, window.innerHeight );
         renderer.toneMapping = THREE.NoToneMapping;
         const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
 		camera.position.set( 0, 0, 30 );
+        canvasRef.current?.appendChild(renderer.domElement);
 
 		const lightProbe = new THREE.LightProbe();
 		scene.add( lightProbe )
@@ -76,7 +78,7 @@ function Bubbles3D() {
     },[])
     			
 
-    return <canvas ref={canvasRef} />;
+    return <div ref={canvasRef} />;
 
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Achievements = () => {
+const Achievements:React.FC = () => {
   return (
     <div className=''>Achievements</div>
   )

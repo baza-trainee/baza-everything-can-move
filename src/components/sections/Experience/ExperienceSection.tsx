@@ -11,7 +11,7 @@ export interface ExperienceSectionProps {
 //   AnimationComponent: React.FC<{ animationRef: React.RefObject<HTMLDivElement> }>;
 }
 
-const ExperienceSection = ({title, subtitle}) => {
+const ExperienceSection = ({title, subtitle}:ExperienceSectionProps) => {
   return (
     <div>
         <SectionTitle>{title}</SectionTitle>
