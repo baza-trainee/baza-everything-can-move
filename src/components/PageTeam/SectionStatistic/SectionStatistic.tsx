@@ -4,23 +4,16 @@ import MoveLine from '@/components/ui/MoveLine';
 
 function SectionStatistic() {
   return (
-    <section className="relative py-5">
-      <MoveLine
-        className="absolute"
-        position="top"
-        direction="right"
-        duration={60}
-      />
-      <div
-        className={clsx(
-          'relative bg-[url("/assets/images/TemSection/VectorMobile.svg")] bg-cover bg-center bg-no-repeat lg:bg-[url("/assets/images/TemSection/VectorTablet.svg")] 2xl:bg-[url("/assets/images/TemSection/VectorDesctop.svg")]'
-        )}
-      >
+    <section className="relative overflow-hidden py-[20px] lg:py-[29px] 2xl:py-[21px]">
+      <MoveLine position="top-0" direction="right" />
+      <div className={clsx('bg-grid bg-grid-41 lg:bg-grid-20 2xl:bg-grid-90')}>
         <div className="container z-10">
-          <ul className="grid h-[636px] grid-cols-2 xl:grid-cols-3">
+          <ul className="grid h-[698px] grid-cols-2 lg:h-[338px] lg:grid-cols-3 2xl:h-[632px]">
             <li className="relative">
               <Label
-                className={'transform lg:translate-x-20 lg:translate-y-28'}
+                className={
+                  'translate-x-5 translate-y-14 transform lg:translate-x-7 lg:translate-y-9 2xl:translate-x-24 2xl:translate-y-24'
+                }
                 textTop="чоловіків"
                 textBottom="в складі команд"
                 percentNumber={62}
@@ -28,7 +21,7 @@ function SectionStatistic() {
             </li>
             <li className="relative">
               <Label
-                className="translate-y-20 transform lg:translate-x-32 xl:translate-x-52"
+                className="translate-x-16 translate-y-24 transform lg:translate-x-32 2xl:translate-x-52 2xl:translate-y-20"
                 textTop="учасників"
                 textBottom="знаходяться за межами України"
                 percentNumber={32}
@@ -36,7 +29,7 @@ function SectionStatistic() {
             </li>
             <li className="relative">
               <Label
-                className="transform lg:translate-x-60 lg:translate-y-44"
+                className="translate-x-28 translate-y-2 transform lg:translate-x-24 lg:translate-y-5 2xl:translate-x-60 2xl:translate-y-44"
                 textTop="учасників"
                 textBottom="студенти ВНЗ"
                 percentNumber={46}
@@ -44,7 +37,7 @@ function SectionStatistic() {
             </li>
             <li className="relative">
               <Label
-                className="translate-x-2 translate-y-20 transform lg:translate-x-16"
+                className="translate-x-10 translate-y-36 transform lg:translate-x-20 lg:translate-y-8 2xl:translate-x-16 2xl:translate-y-20"
                 textTop="жінок"
                 textBottom="в складі команд"
                 percentNumber={38}
@@ -52,7 +45,7 @@ function SectionStatistic() {
             </li>
             <li className="relative">
               <Label
-                className="translate-x-3 translate-y-0 transform lg:translate-x-20"
+                className="-translate-y-9 translate-x-8 transform lg:translate-x-0 lg:translate-y-2 2xl:-translate-y-4 2xl:translate-x-20"
                 textTop="учасників"
                 textBottom="світчери"
                 percentNumber={40}
@@ -60,7 +53,7 @@ function SectionStatistic() {
             </li>
             <li className="relative">
               <Label
-                className="translate-x-3 translate-y-20 transform"
+                className="-translate-x-4 translate-y-20 transform lg:translate-x-8 lg:translate-y-8 2xl:translate-y-20"
                 textTop="учасників"
                 textBottom="навчаються самостійно"
                 percentNumber={32}
@@ -69,12 +62,7 @@ function SectionStatistic() {
           </ul>
         </div>
       </div>
-      <MoveLine
-        className="absolute"
-        position="bottom"
-        direction="left"
-        duration={60}
-      />
+      <MoveLine position="bottom-0" direction="left" />
     </section>
   );
 }
