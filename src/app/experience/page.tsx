@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import ExperienceSection from '@/components/sections/Experience/ExperienceSection';
 
 function Page() {
