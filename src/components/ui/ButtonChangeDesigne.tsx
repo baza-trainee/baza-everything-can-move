@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 enum DesignType {
   Olga = 'Olga',
@@ -12,12 +12,13 @@ enum DesignType {
 function ButtonChangeDesigne() {
   const [isOpenButton, setIsOpenButton] = useState<boolean>(false);
   const [typeDesine, setTypeDesigne] = useState<DesignType>(
-    (localStorage.getItem('designType') as DesignType) || DesignType.Olga
+    // (localStorage.getItem('designType') as DesignType) ||
+    DesignType.Olga
   );
 
-  useEffect(() => {
-    localStorage.setItem('designType', typeDesine);
-  }, [typeDesine]);
+  // useEffect(() => {
+  //   localStorage.setItem('designType', typeDesine);
+  // }, [typeDesine]);
 
   const toggleDesign = () => {
     setTypeDesigne((prev) =>
