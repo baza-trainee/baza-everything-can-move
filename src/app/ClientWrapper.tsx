@@ -11,7 +11,7 @@ export default function ClientWrapper({
   const pathname = usePathname();
 
   return (
-    <AnimatePresence mode="sync" initial={false}>
+    <AnimatePresence mode="wait" initial={false}>
       <motion.main
         key={pathname}
         initial={{ opacity: 0, x: '100%' }}
