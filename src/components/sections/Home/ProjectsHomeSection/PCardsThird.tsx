@@ -14,7 +14,7 @@ const images = [
     name: 'kolyskova',
     top: 146,
     left: '56px',
-    translateZ: 200,
+    translateZ: 90,
   },
   {
     pos: '3.1',
@@ -24,19 +24,19 @@ const images = [
     name: 'balakun',
     top: 36,
     left: '0px',
-    translateZ: 100,
+    translateZ: 110,
   },
 
-  //   {
-  //     pos: '3.4',
-  //     src: '/assets/images/HomeProjects/organik.png',
-  //     width: 180,
-  //     height: 120,
-  //     name: 'organik',
-  //     top: '0px',
-  //     left: '605px',
-  //     translateZ: 50,
-  //   },
+  {
+    pos: '3.4',
+    src: '/assets/images/HomeProjects/organik.png',
+    width: 180,
+    height: 120,
+    name: 'organik',
+    top: '0px',
+    left: '605px',
+    translateZ: 150,
+  },
 ];
 export function PCardsThird() {
   return (
@@ -54,13 +54,14 @@ export function PCardsThird() {
             }}
           >
             <CardBody className="group/card h-auto w-auto rounded-xl">
-              <CardItem translateZ="100" className="w-full">
+              <CardItem translateZ={image.translateZ} className="w-full">
                 <Image
                   src={image.src}
                   width={image.width}
                   height={image.height}
                   className="rounded-xl object-cover group-hover/card:shadow-xl"
                   alt={image.name}
+                  style={{ width: 'auto', height: 'auto' }}
                 />
               </CardItem>
             </CardBody>
