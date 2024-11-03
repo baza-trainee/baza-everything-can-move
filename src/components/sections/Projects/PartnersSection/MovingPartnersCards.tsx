@@ -12,10 +12,13 @@ interface MovingPartnersCardsProps {
   speed?: 'fast' | 'normal' | 'slow';
 }
 
-const MovingPartnersCards: React.FC<MovingPartnersCardsProps> = ({ items }) => {
+const MovingPartnersCards: React.FC<MovingPartnersCardsProps> = ({
+  items,
+  speed,
+}) => {
   const divClass = 'mb-8 h-16 ';
   return (
-    <InfiniteMovingCards speed="normal" addClass={divClass}>
+    <InfiniteMovingCards speed={speed} addClass={divClass}>
       {items.map((item, index) => (
         <div className="relative mr-9 shrink-0 grow-0" key={item.name + index}>
           <item.Icon />
