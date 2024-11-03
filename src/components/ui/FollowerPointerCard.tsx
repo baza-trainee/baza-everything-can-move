@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import {
   motion,
@@ -20,34 +20,17 @@ export const FollowerPointerCard = ({
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const ref = React.useRef<HTMLDivElement>(null);
-  const [rect, setRect] = useState<DOMRect | null>(null);
-  const [isInside, setIsInside] = useState<boolean>(false);
-  console.log('inside', isInside);
-  useEffect(() => {
-    if (typeof window !== 'undefined' && ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      console.log(
-        'top',
-        rect.top,
-        'bottom',
-        rect.bottom,
-        'width',
-        rect.width,
-        'height',
-        rect.height
-      );
 
-      setRect(rect);
-    }
-  }, []);
+  const [isInside, setIsInside] = useState<boolean>(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (rect) {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+
       const newX = e.clientX - rect.left;
       const newY = e.clientY - rect.top - 15;
       x.set(newX);
       y.set(newY);
-      console.log('newX', newX, 'newY', newY);
     }
   };
   const handleMouseLeave = () => {
