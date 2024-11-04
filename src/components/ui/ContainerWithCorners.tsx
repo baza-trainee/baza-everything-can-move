@@ -13,7 +13,7 @@ const ContainerWithCorners: React.FC<ContainerWithCornersProps> = ({
 }) => {
   return (
     <div className={clsx('relative w-full', className)}>
-      <ICONS_SHARED.CORNER_TOP className="absolute right-0 top-0 w-4 h-4" />
+      <ICONS_SHARED.CORNER_TOP className="absolute right-0 top-0" />
       {children}
       <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-0" />
     </div>
