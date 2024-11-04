@@ -1,0 +1,29 @@
+.button {
+  border: 1px solid var(--olga-light-grey);
+  border-radius: 80px;
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 4px 4px 0 rgba(88, 88, 88, 0.25);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgb(38, 38, 38) 76.265549659729%,
+    rgb(135, 131, 131) 100%
+  );
+}
+
+.button:hover {
+  box-shadow: 0 4px 4px 0 rgba(211, 253, 80, 0.3);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgb(42, 42, 42) 74.85451698303223%,
+    rgb(228, 255, 145) 100%
+  );
+  animation: animationButton 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes animationButton {
+  to {
+    scale: 1.1;
+  }
+}
