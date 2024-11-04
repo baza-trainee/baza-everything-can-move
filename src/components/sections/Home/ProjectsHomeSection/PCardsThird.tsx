@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-third';
 import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
 // import kolyskova from '@/assets/images/HomeProjects/kolyskova.png';
@@ -45,13 +45,17 @@ import { ButtonSlide } from '@/components/ui/SwiperFoto/ButtonSlider';
 //   },
 // ];
 export function PCardsThird() {
+  const [positionIndex, setPositionIndex] = useState(1);
   function handleNext() {
+    setPositionIndex(2);
+    console.log(positionIndex);
     // setPositionIndexes((prevPosition) =>
     //   prevPosition.map((prevIndex) => (prevIndex + 1) % arrayImages.length)
     //);
   }
 
   function handlePrev() {
+    setPositionIndex(2);
     // setPositionIndexes((prevPosition) =>
     //   prevPosition.map(
     //     (prevIndex) => (prevIndex - 1 + arrayImages.length) % arrayImages.length
