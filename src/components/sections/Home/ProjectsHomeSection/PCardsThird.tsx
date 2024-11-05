@@ -12,48 +12,17 @@ import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 import { ButtonSlide } from '@/components/ui/SwiperFoto/ButtonSlider';
 
-// const images = [
-//   {
-//     pos: '1.1',
-//     src: kolyskova,
-//     width: 500,
-//     height: 247,
-//     name: 'kolyskova',
-//     top: 146,
-//     left: '56px',
-//     translateZ: 90,
-//   },
-//   {
-//     pos: '3.1',
-//     src: balakun,
-//     width: 350,
-//     height: 172,
-//     name: 'balakun',
-//     top: 36,
-//     left: '0px',
-//     translateZ: 110,
-//   },
-
-//   {
-//     pos: '3.4',
-//     src: organik,
-//     width: 180,
-//     height: 120,
-//     name: 'organik',
-//     top: '0px',
-//     left: '605px',
-//     translateZ: 150,
-//   },
-// ];
-// enter: (direction: number) => {
-//   return {
-//     x: direction > 0 ? 1000 : -1000,
-//     opacity: 0
-//   };
-// },
 const imageVariants = {
   enter: (direction: number) => {
-    return { x: direction > 0 ? -1000 : 1000, scale: 0.5, opacity: 0 };
+    return {
+      x: direction > 0 ? -1000 : 1000,
+      scale: 0.5,
+      opacity: 0.5,
+      transition: {
+        duration: 0.5,
+        ease: 'easeOut',
+      },
+    };
   },
   center: {
     x: 0,
@@ -69,7 +38,11 @@ const imageVariants = {
     return {
       x: direction > 0 ? 1000 : -1000,
       scale: 0.5,
-      opacity: 0,
+      opacity: 0.5,
+      transition: {
+        duration: 0.5,
+        ease: 'easeIn',
+      },
     };
   },
 };
@@ -175,31 +148,23 @@ export function PCardsThird() {
                       initial="enter"
                       animate={['center', 'expand']}
                       exit="exit"
-                      transition={{
-                        x: { type: 'spring', stiffness: 300, damping: 30 },
-                        opacity: { duration: 0.2 },
-                      }}
+                      // transition={{
+                      //   x: { type: 'spring', stiffness: 300, damping: 30 },
+                      //   opacity: { duration: 0.2 },
+                      // }}
                       className="mb-2 flex h-[164px] w-full items-center justify-center overflow-hidden"
                     >
                       <Image
                         src={image.src}
-                        // width={image.width}
-                        // height={image.height}
                         className="object-cover"
                         alt={image.name}
-                        // style={{ width: 'auto', height: 'auto' }}
                         style={{ width: '100%', height: '100%' }}
                       />
                     </motion.div>
 
                     {/* title */}
-                    {/* <div className="relative w-full"> */}
 
                     <motion.div
-                      // initial={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
-                      // animate={{ x: 0, opacity: 1 }}
-                      // exit={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
-                      // transition={{ duration: 0.7, ease: 'easeInOut' }}
                       className="relative w-full"
                       custom={direction}
                       variants={titleVariants}
