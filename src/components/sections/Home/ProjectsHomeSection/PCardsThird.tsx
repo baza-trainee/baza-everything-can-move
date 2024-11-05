@@ -1,7 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence_, useAnimation } from 'framer-motion';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-third';
 import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
 // import kolyskova from '@/assets/images/HomeProjects/kolyskova.png';
@@ -45,23 +46,26 @@ import { ButtonSlide } from '@/components/ui/SwiperFoto/ButtonSlider';
 //   },
 // ];
 export function PCardsThird() {
-  const [positionIndex, setPositionIndex] = useState(1);
-  function handleNext() {
-    setPositionIndex(2);
-    console.log(positionIndex);
-    // setPositionIndexes((prevPosition) =>
-    //   prevPosition.map((prevIndex) => (prevIndex + 1) % arrayImages.length)
-    //);
-  }
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  function handlePrev() {
-    setPositionIndex(2);
-    // setPositionIndexes((prevPosition) =>
-    //   prevPosition.map(
-    //     (prevIndex) => (prevIndex - 1 + arrayImages.length) % arrayImages.length
-    //   )
-    // );
-  }
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     nextImage();
+  //   }, 15000);
+  //   return () => clearInterval(interval);
+  // }, [currentIndex]);
+
+  const nextImage = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex + 1) % IMAGES_HOME_PROJECTS.length
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? IMAGES_HOME_PROJECTS.length - 1 : prevIndex - 1
+    );
+  };
   return (
     <>
       {/* from tablet */}
@@ -102,39 +106,63 @@ export function PCardsThird() {
       {/* slider div */}
       <div className="w-full lg:hidden">
         {/* images div */}
-        <div>
-          {/*project card */}
-          <div className="shadow-olga-combined mx-auto mb-6 h-[193px] w-[320px]">
-            <div className="mb-2 h-[164px] w-full">
-              <Image
-                src={organik}
-                // width={image.width}
-                // height={image.height}
-                className="object-cover group-hover/card:shadow-xl"
-                alt="organik"
-                // style={{ width: 'auto', height: 'auto' }}
-                style={{ width: '100%', height: '100%' }}
-              />
-            </div>
-            {/* title */}
-            <div className="relative w-full">
-              <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-0" />
-              <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 right-0 rotate-[270deg]" />
-              <h3 className="text-center text-s leading-o-150 text-olga-light-grey">
-                Органік Ukraine
-              </h3>
-            </div>
-          </div>
+        <div className="relative flex h-[193px] w-full items-center justify-center overflow-hidden">
+          <AnimatePresence initial={false} custom={currentIndex}>
+            {IMAGES_HOME_PROJECTS.map(
+              (image, index) =>
+                index === currentIndex && (
+                  <motion.div
+                    key={image.pos}
+                    className="shadow-olga-combined mx-auto mb-6 flex h-[193px] w-[320px] flex-col items-center"
+                  >
+                    <motion.div
+                      initial={{ x: 300, scale: 0.5, opacity: 0 }}
+                      animate={{ x: 0, scale: 1, opacity: 1 }}
+                      exit={{ x: -300, scale: 0.5, opacity: 0 }}
+                      transition={{ duration: 0.7 }}
+                      className="flex h-[164px] w-full items-center justify-center overflow-hidden"
+                    >
+                      <Image
+                        src={image.src}
+                        // width={image.width}
+                        // height={image.height}
+                        className="object-cover group-hover/card:shadow-xl"
+                        alt={image.name}
+                        // style={{ width: 'auto', height: 'auto' }}
+                        style={{ width: '100%', height: '100%' }}
+                      />
+                    </motion.div>
+
+                    {/* title */}
+                    <div className="relative w-full">
+                      <motion.div
+                        initial={{ x: 300, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: -300, opacity: 0 }}
+                        transition={{ duration: 0.7 }}
+                      >
+                        <h3 className="text-center text-s leading-o-150 text-olga-light-grey">
+                          {image.name}
+                        </h3>
+                      </motion.div>
+                      <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-0" />
+                      <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 right-0 rotate-[270deg]" />
+                    </div>
+                  </motion.div>
+                )
+            )}
+            {/*project card */}
+          </AnimatePresence>
         </div>
         {/* buttons div */}
         <div className="flex justify-center gap-5">
           {/*onClick={handlePrev} */}
-          <ButtonSlide onClick={handlePrev} ariaLabel="кнопка попереднє фото" />
+          <ButtonSlide onClick={prevImage} ariaLabel="кнопка попереднє фото" />
           {/* onClick={handleNext} */}
           <ButtonSlide
             className="rotate-180"
             ariaLabel="кнопка наступне фото"
-            onClick={handleNext}
+            onClick={nextImage}
           />
         </div>
       </div>
