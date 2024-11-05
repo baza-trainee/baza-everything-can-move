@@ -5,8 +5,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-third';
 import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
-// import kolyskova from '@/assets/images/HomeProjects/kolyskova.png';
-// import balakun from '@/assets/images/HomeProjects/balakun.png';
 
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
@@ -19,7 +17,7 @@ const imageVariants = {
       scale: 0.5,
       opacity: 0.5,
       transition: {
-        duration: 0.5,
+        x: { duration: 0.5 },
         ease: 'easeOut',
       },
     };
@@ -32,8 +30,9 @@ const imageVariants = {
   },
   expand: {
     scale: 1,
-    transition: { duration: 0.7, delay: 2 },
+    transition: { duration: 0.7, delay: 1 },
   },
+
   exit: (direction: number) => {
     return {
       x: direction > 0 ? 1000 : -1000,
@@ -70,12 +69,12 @@ export function PCardsThird() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     nextImage();
-  //   }, 15000);
-  //   return () => clearInterval(interval);
-  // }, [currentIndex]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextImage();
+    }, 15000);
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   const nextImage = () => {
     setDirection(1);
@@ -133,7 +132,6 @@ export function PCardsThird() {
         <div className="relative mb-6 flex w-full items-center justify-center overflow-hidden">
           <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-3" />
           <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 right-3 rotate-[270deg]" />
-
           <AnimatePresence initial={false} custom={direction}>
             {IMAGES_HOME_PROJECTS.map(
               (image, index) =>
@@ -148,10 +146,7 @@ export function PCardsThird() {
                       initial="enter"
                       animate={['center', 'expand']}
                       exit="exit"
-                      // transition={{
-                      //   x: { type: 'spring', stiffness: 300, damping: 30 },
-                      //   opacity: { duration: 0.2 },
-                      // }}
+                     
                       className="mb-2 flex h-[164px] w-full items-center justify-center overflow-hidden"
                     >
                       <Image
@@ -185,8 +180,8 @@ export function PCardsThird() {
                   </motion.div>
                 )
             )}
-            {/*project card */}
           </AnimatePresence>
+          {/*project card */}
         </div>
         {/* buttons div */}
         <div className="flex justify-center gap-5">
