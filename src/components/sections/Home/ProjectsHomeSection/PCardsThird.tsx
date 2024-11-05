@@ -157,14 +157,17 @@ export function PCardsThird() {
       {/* slider div */}
       <div className="w-full lg:hidden">
         {/* images div */}
-        <div className="relative flex h-[193px] w-full items-center justify-center overflow-hidden">
+        <div className="relative mb-6 flex w-full items-center justify-center overflow-hidden">
+          <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-3" />
+          <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 right-3 rotate-[270deg]" />
+
           <AnimatePresence initial={false} custom={direction}>
             {IMAGES_HOME_PROJECTS.map(
               (image, index) =>
                 index === currentIndex && (
                   <motion.div
                     key={image.pos}
-                    className="shadow-olga-combined mx-auto mb-6 flex h-[193px] w-[320px] flex-col items-center"
+                    className="shadow-olga-combined mx-auto flex w-[320px] flex-col items-center"
                   >
                     <motion.div
                       custom={direction}
@@ -176,7 +179,7 @@ export function PCardsThird() {
                         x: { type: 'spring', stiffness: 300, damping: 30 },
                         opacity: { duration: 0.2 },
                       }}
-                      className="flex h-[164px] w-full items-center justify-center overflow-hidden"
+                      className="mb-2 flex h-[164px] w-full items-center justify-center overflow-hidden"
                     >
                       <Image
                         src={image.src}
@@ -190,29 +193,30 @@ export function PCardsThird() {
                     </motion.div>
 
                     {/* title */}
-                    <div className="relative w-full">
-                      <motion.div
-                        // initial={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
-                        // animate={{ x: 0, opacity: 1 }}
-                        // exit={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
-                        // transition={{ duration: 0.7, ease: 'easeInOut' }}
-                        custom={direction}
-                        variants={titleVariants}
-                        initial="enter"
-                        animate={['center']}
-                        exit="exit"
-                        transition={{
-                          x: { type: 'spring', stiffness: 300, damping: 30 },
-                          opacity: { duration: 0.2 },
-                        }}
-                      >
-                        <h3 className="text-center text-s leading-o-150 text-olga-light-grey">
-                          {image.name}
-                        </h3>
-                      </motion.div>
-                      <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-0" />
-                      <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 right-0 rotate-[270deg]" />
-                    </div>
+                    {/* <div className="relative w-full"> */}
+
+                    <motion.div
+                      // initial={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
+                      // animate={{ x: 0, opacity: 1 }}
+                      // exit={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
+                      // transition={{ duration: 0.7, ease: 'easeInOut' }}
+                      className="relative w-full"
+                      custom={direction}
+                      variants={titleVariants}
+                      initial="enter"
+                      animate={['center']}
+                      exit="exit"
+                      transition={{
+                        x: { type: 'spring', stiffness: 300, damping: 30 },
+                        opacity: { duration: 0.2 },
+                      }}
+                    >
+                      <h3 className="text-center text-s leading-o-150 text-olga-light-grey">
+                        {image.name}
+                      </h3>
+                    </motion.div>
+
+                    {/* </div> */}
                   </motion.div>
                 )
             )}
