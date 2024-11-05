@@ -1,11 +1,6 @@
 import React from 'react'
-import styles from './bubble2d.module.css'
+import SingleBubble2D from './SingleBubble2D'
 
-interface Bubbles2DProps {
-    number: string,
-    content: string,
-    design: boolean
-}
 
 const bubbles = [
     {
@@ -37,23 +32,14 @@ const bubbles = [
 
 
 
-const Bubbles2D:React.FC = () => {
+
+
+const Bubbles2D:React.FC = ({params}) => {
   return (
     <div className='absolute top-0'>
         {bubbles.map(bubble => (
             <SingleBubble2D key={bubble.content} number={bubble.number} content={bubble.content} design={bubble.design}/>
         ))}
-    </div>
-  )
-}
-
-const SingleBubble2D:React.FC<Bubbles2DProps> = ({number, content, design}) => {
-  return (
-    <div id={design ? styles.dottedOutline : ''} className='w-[220px] h-[220px] flex items-center justify-center'>
-        <div className='bg-[#1D1D1C] rounded-full w-[164px] h-[164px] flex flex-col items-center justify-center text-olga-green'>
-            <div className="text-xl leading-[72px] font-medium">{number}</div>
-            <div className="text-s leading-[21px] font-regular">{content}</div>
-        </div>
     </div>
   )
 }
