@@ -100,7 +100,6 @@ const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ images }) => {
   };
   useEffect(() => {
     if (isInView) {
-      console.log('isInView', isInView);
       const interval = setInterval(() => {
         nextImage();
       }, 15000);
