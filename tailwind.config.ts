@@ -97,10 +97,6 @@ const config: Config = {
         font10: ['Neucha', 'ui-sans-serif', 'sans-serif'],
       },
 
-      colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
-      },
       letterSpacing: {
         //tracking-custom-tight
         'custom-tight': '0.02em',
