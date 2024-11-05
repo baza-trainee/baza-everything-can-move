@@ -53,7 +53,7 @@ import { ButtonSlide } from '@/components/ui/SwiperFoto/ButtonSlider';
 // },
 const imageVariants = {
   enter: (direction: number) => {
-    return { x: direction > 0 ? 1000 : -1000, scale: 0.5, opacity: 0 };
+    return { x: direction > 0 ? -1000 : 1000, scale: 0.5, opacity: 0 };
   },
   center: {
     x: 0,
@@ -67,13 +67,32 @@ const imageVariants = {
   },
   exit: (direction: number) => {
     return {
-      x: direction < 0 ? 1000 : -1000,
+      x: direction > 0 ? 1000 : -1000,
       scale: 0.5,
       opacity: 0,
     };
   },
 };
 
+const titleVariants = {
+  enter: (direction: number) => {
+    return { x: direction > 0 ? -1000 : 1000, opacity: 0 };
+  },
+  center: {
+    x: 0,
+
+    opacity: 1,
+    transition: { duration: 0.5, delay: 0.5 },
+  },
+
+  exit: (direction: number) => {
+    return {
+      x: direction > 0 ? 1000 : -1000,
+
+      opacity: 0,
+    };
+  },
+};
 export function PCardsThird() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -163,7 +182,7 @@ export function PCardsThird() {
                         src={image.src}
                         // width={image.width}
                         // height={image.height}
-                        className="object-cover group-hover/card:shadow-xl"
+                        className="object-cover"
                         alt={image.name}
                         // style={{ width: 'auto', height: 'auto' }}
                         style={{ width: '100%', height: '100%' }}
@@ -173,10 +192,19 @@ export function PCardsThird() {
                     {/* title */}
                     <div className="relative w-full">
                       <motion.div
-                        initial={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
-                        transition={{ duration: 0.7, ease: 'easeInOut' }}
+                        // initial={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
+                        // animate={{ x: 0, opacity: 1 }}
+                        // exit={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
+                        // transition={{ duration: 0.7, ease: 'easeInOut' }}
+                        custom={direction}
+                        variants={titleVariants}
+                        initial="enter"
+                        animate={['center']}
+                        exit="exit"
+                        transition={{
+                          x: { type: 'spring', stiffness: 300, damping: 30 },
+                          opacity: { duration: 0.2 },
+                        }}
                       >
                         <h3 className="text-center text-s leading-o-150 text-olga-light-grey">
                           {image.name}
