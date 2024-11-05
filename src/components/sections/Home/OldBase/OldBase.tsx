@@ -1,5 +1,7 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
 import Image from 'next/image';
+import SectionTitle from '@/components/ui/SectionTitle';
+import SubTitle from '@/components/ui/SubTitle';
 import './style.css';
 
 export default function OldBase() {
@@ -20,17 +22,8 @@ export default function OldBase() {
           height={16}
           src={'/assets/images/TemSection/corner.svg'}
         />
-        <div className="oldBase-title">
-          <h2 className="text-[48px] uppercase leading-[150%]">старт бази</h2>
-          <p className="relative left-5 leading-[150%]">
-            <span
-              className="absolute left-[-2%] top-2 h-2 w-2 rounded-full"
-              style={{ backgroundColor: '#D3FD50' }}
-            ></span>
-            квітень 2023
-          </p>
-        </div>
-
+        <SectionTitle className="mb-1">старт бази</SectionTitle>
+        <SubTitle className="mb-8"> квітень 2023</SubTitle>
         <div className="lg:flex-nowrap xl:justify-end lg:gap-52 relative flex flex-wrap items-center">
           <div className="orbit relative flex h-[280px] w-[280px] items-center justify-center">
             <div className="orbit-circle big-orbit"></div>
