@@ -45,12 +45,16 @@ import { ButtonSlide } from '@/components/ui/SwiperFoto/ButtonSlider';
 //     translateZ: 150,
 //   },
 // ];
+// enter: (direction: number) => {
+//   return {
+//     x: direction > 0 ? 1000 : -1000,
+//     opacity: 0
+//   };
+// },
 const imageVariants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? 1000 : -1000,
-    scale: 0.5,
-    opacity: 0,
-  }),
+  enter: (direction: number) => {
+    return { x: direction > 0 ? 1000 : -1000, scale: 0.5, opacity: 0 };
+  },
   center: {
     x: 0,
     scale: 0.5,
@@ -59,13 +63,15 @@ const imageVariants = {
   },
   expand: {
     scale: 1,
-    transition: { duration: 0.7, delay: 2 }, // Расширение после паузы
+    transition: { duration: 0.7, delay: 2 },
   },
-  exit: (direction: number) => ({
-    x: direction < 0 ? 1000 : -1000,
-    scale: 0.5,
-    opacity: 0,
-  }),
+  exit: (direction: number) => {
+    return {
+      x: direction < 0 ? 1000 : -1000,
+      scale: 0.5,
+      opacity: 0,
+    };
+  },
 };
 
 export function PCardsThird() {
@@ -142,6 +148,7 @@ export function PCardsThird() {
                     className="shadow-olga-combined mx-auto mb-6 flex h-[193px] w-[320px] flex-col items-center"
                   >
                     <motion.div
+                      custom={direction}
                       variants={imageVariants}
                       initial="enter"
                       animate={['center', 'expand']}
