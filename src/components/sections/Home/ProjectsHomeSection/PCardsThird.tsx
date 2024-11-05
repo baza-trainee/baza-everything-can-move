@@ -2,12 +2,12 @@
 
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence_, useAnimation } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-third';
 import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
 // import kolyskova from '@/assets/images/HomeProjects/kolyskova.png';
 // import balakun from '@/assets/images/HomeProjects/balakun.png';
-import organik from '@/assets/images/HomeProjects/organik.png';
+
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 import { ButtonSlide } from '@/components/ui/SwiperFoto/ButtonSlider';
@@ -45,8 +45,32 @@ import { ButtonSlide } from '@/components/ui/SwiperFoto/ButtonSlider';
 //     translateZ: 150,
 //   },
 // ];
+const imageVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 1000 : -1000,
+    scale: 0.5,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    scale: 0.5,
+    opacity: 1,
+    transition: { duration: 0.5, delay: 0.5 },
+  },
+  expand: {
+    scale: 1,
+    transition: { duration: 0.7, delay: 2 }, // Расширение после паузы
+  },
+  exit: (direction: number) => ({
+    x: direction < 0 ? 1000 : -1000,
+    scale: 0.5,
+    opacity: 0,
+  }),
+};
+
 export function PCardsThird() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   // useEffect(() => {
   //   const interval = setInterval(() => {
@@ -56,12 +80,14 @@ export function PCardsThird() {
   // }, [currentIndex]);
 
   const nextImage = () => {
+    setDirection(1);
     setCurrentIndex(
       (prevIndex) => (prevIndex + 1) % IMAGES_HOME_PROJECTS.length
     );
   };
 
   const prevImage = () => {
+    setDirection(-1);
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? IMAGES_HOME_PROJECTS.length - 1 : prevIndex - 1
     );
@@ -107,7 +133,7 @@ export function PCardsThird() {
       <div className="w-full lg:hidden">
         {/* images div */}
         <div className="relative flex h-[193px] w-full items-center justify-center overflow-hidden">
-          <AnimatePresence initial={false} custom={currentIndex}>
+          <AnimatePresence initial={false} custom={direction}>
             {IMAGES_HOME_PROJECTS.map(
               (image, index) =>
                 index === currentIndex && (
@@ -116,10 +142,14 @@ export function PCardsThird() {
                     className="shadow-olga-combined mx-auto mb-6 flex h-[193px] w-[320px] flex-col items-center"
                   >
                     <motion.div
-                      initial={{ x: 300, scale: 0.5, opacity: 0 }}
-                      animate={{ x: 0, scale: 1, opacity: 1 }}
-                      exit={{ x: -300, scale: 0.5, opacity: 0 }}
-                      transition={{ duration: 0.7 }}
+                      variants={imageVariants}
+                      initial="enter"
+                      animate={['center', 'expand']}
+                      exit="exit"
+                      transition={{
+                        x: { type: 'spring', stiffness: 300, damping: 30 },
+                        opacity: { duration: 0.2 },
+                      }}
                       className="flex h-[164px] w-full items-center justify-center overflow-hidden"
                     >
                       <Image
@@ -136,10 +166,10 @@ export function PCardsThird() {
                     {/* title */}
                     <div className="relative w-full">
                       <motion.div
-                        initial={{ x: 300, opacity: 0 }}
+                        initial={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
-                        exit={{ x: -300, opacity: 0 }}
-                        transition={{ duration: 0.7 }}
+                        exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
+                        transition={{ duration: 0.7, ease: 'easeInOut' }}
                       >
                         <h3 className="text-center text-s leading-o-150 text-olga-light-grey">
                           {image.name}
