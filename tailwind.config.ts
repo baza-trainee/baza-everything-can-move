@@ -19,6 +19,18 @@ const config: Config = {
         '2xl': '120px',
       },
     },
+    screens: {
+      sm: '320px',
+      // => @media (min-width: 320px) { ... }
+      md: '375px',
+      // => @media (min-width: 375px) { ... }
+      lg: '768px',
+      // => @media (min-width: 768px) { ... }
+      xl: '1024px',
+      // => @media (min-width: 1024px) { ... }
+      '2xl': '1440px',
+      // => @media (min-width: 1440px) { ... }
+    },
     colors: {
       black: '#000',
       white: '#fff',
@@ -38,6 +50,26 @@ const config: Config = {
       'olga-bg': '#050706',
       'olga-btn-menu': '#1d1d1d',
       'olga-grid': '#1a1919',
+    },
+    fontWeight: {
+      //Svitlana
+      regular: '400',
+      medium: '500',
+      semibold: '600',
+      bold: '700',
+    },
+    fontSize: {
+      xs: '12px',
+      s: '14px',
+      m: '16px',
+      sm: '18px',
+      md: '20px',
+      l: '24px',
+      lg: '32px',
+      xl: '48px',
+      '2xl': '64px',
+      '3xl': '80px',
+      '4xl': '86px',
     },
     extend: {
       backgroundImage: {
@@ -64,18 +96,7 @@ const config: Config = {
         font9: ['Raleway', 'ui-sans-serif', 'sans-serif'],
         font10: ['Neucha', 'ui-sans-serif', 'sans-serif'],
       },
-      screens: {
-        sm: '320px',
-        // => @media (min-width: 320px) { ... }
-        md: '375px',
-        // => @media (min-width: 375px) { ... }
-        lg: '768px',
-        // => @media (min-width: 768px) { ... }
-        xl: '1024px',
-        // => @media (min-width: 1024px) { ... }
-        '2xl': '1440px',
-        // => @media (min-width: 1440px) { ... }
-      },
+
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
@@ -97,26 +118,7 @@ const config: Config = {
         'o-130': '130%',
         'o-150': '150%',
       },
-      fontWeight: {
-        //Svitlana
-        regular: '400',
-        medium: '500',
-        semibold: '600',
-        bold: '700',
-      },
-      fontSize: {
-        xs: '12px',
-        s: '14px',
-        m: '16px',
-        sm: '18px',
-        md: '20px',
-        l: '24px',
-        lg: '32px',
-        xl: '48px',
-        '2xl': '64px',
-        '3xl': '80px',
-        '4xl': '86px',
-      },
+
       boxShadow: {
         'olga-1': '0px 6.65px 5.32px 0px #8C898907',
         'olga-2': '0px 22.34px 17.87px 0px #8C89890B',
