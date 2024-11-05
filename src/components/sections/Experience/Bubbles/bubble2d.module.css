@@ -1,3 +1,66 @@
 #dottedOutline{
-background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='white' stroke-width='1' stroke-dasharray='1%2c45' stroke-dashoffset='100' stroke-linecap='butt'/%3e%3c/svg%3e");
+background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='lime' stroke-width='1' stroke-dasharray='1%2c45' stroke-dashoffset='100' stroke-linecap='butt'/%3e%3c/svg%3e");
+animation: spin 40s linear infinite;
 }
+
+    @-ms-keyframes spin { 
+        from { 
+            -ms-transform: rotate(0deg); 
+        } to { 
+            -ms-transform: rotate(360deg); 
+        }
+    }
+    @-moz-keyframes spin { 
+        from { 
+            -moz-transform: rotate(0deg); 
+        } to { 
+            -moz-transform: rotate(360deg); 
+        }
+    }
+    @-webkit-keyframes spin { 
+        from { 
+            -webkit-transform: rotate(0deg); 
+        } to { 
+            -webkit-transform: rotate(360deg); 
+        }
+    }
+    @keyframes spin { 
+        from { 
+            transform: rotate(0deg); 
+        } to { 
+            transform: rotate(360deg); 
+        }
+    }
+
+    #dottedOutline> div{
+        animation: anti-spin 40s linear infinite;
+    }
+
+        @-ms-keyframes anti-spin { 
+        from { 
+            -ms-transform: rotate(0deg); 
+        } to { 
+            -ms-transform: rotate(-360deg); 
+        }
+    }
+    @-moz-keyframes anti-spin { 
+        from { 
+            -moz-transform: rotate(0deg); 
+        } to { 
+            -moz-transform: rotate(-360deg); 
+        }
+    }
+    @-webkit-keyframes anti-spin { 
+        from { 
+            -webkit-transform: rotate(0deg); 
+        } to { 
+            -webkit-transform: rotate(-360deg); 
+        }
+    }
+    @keyframes anti-spin { 
+        from { 
+            transform: rotate(0deg); 
+        } to { 
+            transform: rotate(-360deg); 
+        }
+    }
