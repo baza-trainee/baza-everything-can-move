@@ -117,6 +117,13 @@ const config: Config = {
         '3xl': '80px',
         '4xl': '86px',
       },
+      boxShadow: {
+        'olga-1': '0px 6.65px 5.32px 0px #8C898907',
+        'olga-2': '0px 22.34px 17.87px 0px #8C89890B',
+        'olga-3': '0px 100px 80px 0px #8C898912',
+        'olga-combined':
+          '0px 6.65px 5.32px 0px #8C898907, 0px 22.34px 17.87px 0px #8C89890B, 0px 100px 80px 0px #8C898912',
+      },
       animation: {
         marqueeCustom:
           'marqueeCustom var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
