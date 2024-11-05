@@ -1,55 +1,71 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import { ButtonSlide } from './ButtonSlider';
-import { ObjectArrayFoto } from './types';
-import { generatePositions, generateVariants } from './ui';
-
-const MotionImage = motion.create(Image);
+import { ObjectArrayFoto } from './ui/types';
+import { cycleIndex, generatePositions, generateVariants } from './ui/ui';
+import CircleTimer from './components/CircleTimer';
+import BigFoto from './components/BigFoto';
 
 const FotoSwiper = ({ arrayImages }: { arrayImages: ObjectArrayFoto[] }) => {
   const [positionIndexes, setPositionIndexes] = useState(
     arrayImages.map((_, index) => index)
   );
-  const [indexBigFoto, setIndexBigFoto] = useState(
-    Math.floor(positionIndexes.length / 2)
-  );
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
+  const indexBigFoto = useMemo(() => {
     const centerIdx = Math.floor(positionIndexes.length / 2);
-    const newIndexBigFoto = positionIndexes[centerIdx];
-    setIndexBigFoto(newIndexBigFoto);
+    return positionIndexes[centerIdx];
   }, [positionIndexes]);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      handleNext();
-    }, 5000);
-    return () => clearInterval(intervalId);
-  }, [handleNext]);
+  const arrayReverse = useMemo(() => [...arrayImages].reverse(), [arrayImages]);
 
-  if (!arrayImages.length) return null;
-
-  const arrayReverse = arrayImages.toReversed();
-
-  function handleNext() {
+  const handleNext = useCallback(() => {
     setPositionIndexes((prevPosition) =>
-      prevPosition.map((prevIndex) => (prevIndex + 1) % arrayImages.length)
-    );
-  }
-
-  function handlePrev() {
-    setPositionIndexes((prevPosition) =>
-      prevPosition.map(
-        (prevIndex) => (prevIndex - 1 + arrayImages.length) % arrayImages.length
+      prevPosition.map((prevIndex) =>
+        cycleIndex(prevIndex, 1, arrayImages.length)
       )
     );
-  }
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(handleNext, 5000);
+  }, [cycleIndex]);
 
-  const position = generatePositions(arrayImages.length);
-  const newVariants = generateVariants(arrayImages.length);
+  const handlePrev = useCallback(() => {
+    setPositionIndexes((prevPosition) =>
+      prevPosition.map((prevIndex) =>
+        cycleIndex(prevIndex, -1, arrayImages.length)
+      )
+    );
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(handleNext, 5000);
+  }, [cycleIndex, handleNext]);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(handleNext, 5000);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [handleNext]);
+
+  const position = useMemo(
+    () => generatePositions(arrayImages.length),
+    [arrayImages.length]
+  );
+
+  const newVariants = useMemo(
+    () => generateVariants(arrayImages.length),
+    [arrayImages.length]
+  );
+
+  if (!arrayImages.length) return null;
 
   return (
     <div className="flex w-full justify-between">
@@ -67,100 +83,51 @@ const FotoSwiper = ({ arrayImages }: { arrayImages: ObjectArrayFoto[] }) => {
               key={indexBigFoto}
               className={'absolute top-[-8%]'}
             >
-              <motion.svg
-                width="62px"
-                height="62px"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <motion.path
-                  initial={{
-                    pathLength: 1,
-                    opacity: 1,
-                  }}
-                  animate={{ pathLength: 0, opacity: 0.8 }}
-                  transition={{
-                    duration: 5,
-                    ease: 'linear',
-                  }}
-                  d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                  stroke="#ffffff"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </motion.svg>
+              <CircleTimer />
             </motion.li>
-            {arrayImages.map((image, index) => {
-              return (
-                <motion.li
-                  className="absolute"
-                  key={index}
-                  variants={newVariants}
-                  transition={{ duration: 1 }}
-                  initial="center"
-                  animate={position[positionIndexes[index]]}
-                >
-                  <div className="relative">
-                    <Image
-                      priority
-                      width={64}
-                      height={64}
-                      src={image.urlImage}
-                      className={clsx(
-                        'h-[40px] w-[40px] overflow-hidden rounded-full object-cover'
-                      )}
-                      alt={`фото учасника команди ${image.name}`}
-                    />
-                  </div>
-                </motion.li>
-              );
-            })}
+            {arrayImages.map((image, index) => (
+              <motion.li
+                className="absolute"
+                key={index}
+                variants={newVariants}
+                transition={{ duration: 1 }}
+                initial="center"
+                animate={position[positionIndexes[index]]}
+              >
+                <div className="relative">
+                  <Image
+                    priority
+                    width={64}
+                    height={64}
+                    src={image.urlImage}
+                    className={clsx(
+                      'h-[40px] w-[40px] overflow-hidden rounded-full object-cover'
+                    )}
+                    alt={`фото учасника команди ${image.name}`}
+                  />
+                </div>
+              </motion.li>
+            ))}
           </ul>
         </AnimatePresence>
         <div className="flex flex-col gap-3">
-          <ButtonSlide onClick={handlePrev} ariaLabel="кнопка попереднє фото" />
+          <ButtonSlide
+            onClick={handlePrev}
+            ariaLabel="кнопка для переходу до попереднього фото"
+          />
           <ButtonSlide
             className="rotate-180"
             onClick={handleNext}
-            ariaLabel="кнопка наступне фото"
+            ariaLabel="кнопка для переходу до наступного фото"
           />
         </div>
       </div>
       <div className="flex flex-col gap-1">
         <AnimatePresence>
-          <motion.div>
-            <div className="flex h-[300px] w-[255px] justify-center lg:h-[300px] lg:w-[240px] 2xl:h-[364px] 2xl:w-[365px]">
-              <MotionImage
-                key={indexBigFoto}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0 }}
-                transition={{ duration: 1 }}
-                width={365}
-                height={364}
-                src={arrayReverse[indexBigFoto]?.urlImage}
-                alt={arrayReverse[indexBigFoto]?.name}
-                className="object-cover"
-                priority
-              />
-            </div>
-            <motion.p
-              key={indexBigFoto}
-              initial={{
-                y: '100px',
-                opacity: 0,
-              }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{
-                duration: 1,
-              }}
-              className="mt-1 text-center text-[14px] text-olga-light-grey"
-            >
-              {arrayReverse[indexBigFoto]?.name}
-            </motion.p>
-          </motion.div>
+          <BigFoto
+            imageUrl={arrayReverse[indexBigFoto]?.urlImage}
+            name={arrayReverse[indexBigFoto]?.name ?? ''}
+          />
         </AnimatePresence>
       </div>
     </div>

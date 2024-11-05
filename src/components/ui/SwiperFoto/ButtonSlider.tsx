@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import IconRow from '../../../../public/assets/icons/IconArrowWithoutBorder.svg';
+import { cn } from '@/lib/utils';
 
 export const ButtonSlide = ({
   onClick,
@@ -12,7 +12,7 @@ export const ButtonSlide = ({
 }) => {
   return (
     <button
-      className={clsx(
+      className={cn(
         className,
         'flex h-8 w-16 items-center justify-center rounded-[40px] border-[1px] border-solid border-olga-green transition-all hover:bg-olga-green'
       )}

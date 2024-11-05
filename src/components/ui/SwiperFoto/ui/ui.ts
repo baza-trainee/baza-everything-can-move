@@ -14,6 +14,11 @@ export const generatePositions = (length: number) => {
 
   return positions;
 };
+export const cycleIndex = (
+  prevIndex: number,
+  direction: number,
+  arrayLengs: number
+) => (prevIndex + direction + arrayLengs) % arrayLengs;
 
 export const generateVariants = (length: number) => {
   const variants: {
