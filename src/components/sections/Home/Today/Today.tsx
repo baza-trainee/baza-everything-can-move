@@ -1,17 +1,13 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
+import SectionTitle from '@/components/ui/SectionTitle';
+import SubTitle from '@/components/ui/SubTitle';
 import VerticalSlider from './VerticalSlider';
 function Today() {
   return (
     <section className="taday">
       <div className="container">
-        <h2 className="text-[48px] uppercase leading-[150%]">Сьогодні</h2>
-        <p className="relative left-5 mb-8 leading-[150%]">
-          <span
-            className="absolute left-[-2%] top-2 h-2 w-2 rounded-full"
-            style={{ backgroundColor: '#D3FD50' }}
-          ></span>
-          2024
-        </p>
+      <SectionTitle className="mb-1">Сьогодні</SectionTitle>
+      <SubTitle className="mb-8">2024</SubTitle>
         <div className="flex lg:flex-nowrap flex-wrap items-center">
           <div className="text max-w-80">
             <p className="mb-[20px]">

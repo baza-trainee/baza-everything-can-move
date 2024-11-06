@@ -10,22 +10,16 @@ export const SocialMediaData: SocialMediaData[] = [
   {
     name: 'telegram',
     link: 'https://t.me/+CBXkAJlsCy83ZDYy',
-    icon: (
-      <ICONS_SRC.TELEGRAM className="w-[18px] transition-transform duration-300 ease-in-out hover:scale-150" />
-    ),
+    icon: <ICONS_SRC.TELEGRAM className="fill-current w-full" />,
   },
   {
     name: 'facebook',
     link: 'https://www.facebook.com/profile.php?id=61553769122737',
-    icon: (
-      <ICONS_SRC.FACEBOOK className="w-[18px] transition-transform duration-300 ease-in-out hover:scale-150" />
-    ),
+    icon: <ICONS_SRC.FACEBOOK className="fill-current w-full" />,
   },
   {
     name: 'linkedin',
     link: 'https://www.linkedin.com/company/baza-trainee-ukraine/posts/?feedView=all',
-    icon: (
-      <ICONS_SRC.LINKEDIN className="w-[18px] transition-transform duration-300 ease-in-out hover:scale-150" />
-    ),
+    icon: <ICONS_SRC.LINKEDIN className="fill-current w-full" />,
   },
 ];

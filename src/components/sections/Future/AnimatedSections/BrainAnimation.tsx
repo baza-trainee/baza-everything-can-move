@@ -19,7 +19,7 @@ function BrainAnimation() {
       }
 
       // Create a GSAP timeline for the randomly selected circles
-      const batch = Array.from(randomIndices).map(index => circles[index]);
+      const batch = Array.from(randomIndices).map(index => circles[index as number]);
       const tl = gsap.timeline();
 
       // Fade in the current batch

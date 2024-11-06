@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-
+import GoalSectiont from "../GoalSection/GoalSection";
 import SectionTitle from '@/components/ui/SectionTitle';
 import { PARTNERS_ARR } from '@/constants/partnersArr';
 import MovingPartnersCards from './MovingPartnersCards';
@@ -11,6 +11,7 @@ const PartnersSection: React.FC = () => {
   return (
     <section className="pb-[100px] lg:pb-20">
       <div className="container">
+        <GoalSectiont/>
         <ContainerWithCorners className="pt-8 2xl:pt-0">
           <SectionTitle className="mb-1"> Наші партнери</SectionTitle>
           <SubTitle className="mb-8"> Долучайтесь</SubTitle>

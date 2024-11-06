@@ -11,7 +11,12 @@ const SocialMedia: React.FC = () => {
           key={index}
           className="flex h-10 w-10 cursor-pointer items-center justify-center"
         >
-          <Link href={social.link} target="_blank" rel="noopener noreferrer">
+          <Link
+            href={social.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="h-[18px] w-[18px] text-white transition-all duration-300 ease-in-out hover:scale-125 hover:text-olga-green-extra"
+          >
             {social.icon}
           </Link>
         </li>
