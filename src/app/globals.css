@@ -5,22 +5,22 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  background-color: #000;
+  color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ffffff;
+    background-color: #000;
+    color: #fff;
   }
 }
 
 body {
-  background: #000;
   position: relative;
 
-  color: var(--foreground);
+  background-color: #000;
+  color: #fff;
   font-family: 'Roboto Mono', sans-serif;
 }
 
