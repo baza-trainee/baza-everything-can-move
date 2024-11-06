@@ -12,13 +12,13 @@
 .animate-marquee {
   display: inline-block;
   white-space: nowrap;
-  animation: marquee 35s linear infinite;
+  animation: marquee 45s linear infinite;
 }
 
 .animate-marquee-reverse {
   display: inline-block;
   white-space: nowrap;
-  animation: marquee-reverse 35s linear infinite;
+  animation: marquee-reverse 45s linear infinite;
 }
 
 .animate-marquee Image,
