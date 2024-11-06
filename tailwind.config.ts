@@ -40,6 +40,17 @@ const config: Config = {
       'olga-grid': '#1a1919',
     },
     extend: {
+      backgroundImage: {
+        grid: 'linear-gradient(90deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px), linear-gradient(180deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px)',
+      },
+      backgroundSize: {
+        'grid-90': '90px 90px',
+        'grid-80': '80px 80px',
+        'grid-20': '48px 48px',
+        'grid-30': '30px 30px',
+        'grid-40': '40px 40px',
+        'grid-41': '41px 41px',
+      },
       fontFamily: {
         'main-family': ['Roboto-Mono', 'ui-sans-serif', 'sans-serif'],
         'second-family': ['IBM Plex Mono', 'sans-serif'],
@@ -105,6 +116,13 @@ const config: Config = {
         '2xl': '64px',
         '3xl': '80px',
         '4xl': '86px',
+      },
+      boxShadow: {
+        'olga-1': '0px 6.65px 5.32px 0px #8C898907',
+        'olga-2': '0px 22.34px 17.87px 0px #8C89890B',
+        'olga-3': '0px 100px 80px 0px #8C898912',
+        'olga-combined':
+          '0px 6.65px 5.32px 0px #8C898907, 0px 22.34px 17.87px 0px #8C89890B, 0px 100px 80px 0px #8C898912',
       },
       animation: {
         marqueeCustom:

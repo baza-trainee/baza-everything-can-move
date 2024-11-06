@@ -3,6 +3,8 @@ import localFont from 'next/font/local';
 import './globals.css';
 import Header from '@/components/layout/Header/Header';
 import Footer from '@/components/layout/Footer/Footer';
+import ButtonChangeDesigne from '@/components/ui/ButtonChangeDesigne';
+// import ClientWrapper from './ClientWrapper';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -26,15 +28,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ua">
+    <html lang="uk">
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon.svg" />
       <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        <main> {children}</main>
+        {/* <ClientWrapper>{children}</ClientWrapper> */}
+        <main>{children}</main>
         <Footer />
+        <ButtonChangeDesigne />
       </body>
     </html>
   );

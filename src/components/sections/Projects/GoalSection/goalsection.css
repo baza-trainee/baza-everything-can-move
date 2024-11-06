@@ -1,0 +1,260 @@
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee-reverse 35s linear infinite;
+}
+
+.animate-marquee Image,
+.animate-marquee-reverse Image {
+  animation: marquee-reverse 10s linear infinite;
+}
+
+.circle-container {
+  position: relative;
+  width: 600px;
+  height: 450px;
+  margin: 0 auto;
+}
+
+.circle-item {
+  position: absolute;
+  padding: 10px 20px;
+  border: 1px solid #a8ff42;
+  color: #a8ff42;
+  font-size: 18px;
+  border-radius: 20px;
+  font-weight: 400;
+  transition: transform 0.5s;
+}
+
+/*--------------------------------------------------------------------*/
+
+/* Анімації для кожного елемента */
+@keyframes move1 {
+  0%,
+  100% {
+    transform: translate(-50%, 20%);
+  }
+  50% {
+    transform: translate(-60%, 10%);
+  }
+}
+
+@keyframes move2 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-40%, -60%);
+  }
+}
+
+@keyframes move3 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-40%, -40%);
+  }
+}
+
+@keyframes move4 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-60%, -60%);
+  }
+}
+
+@keyframes move5 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-40%, -40%);
+  }
+}
+
+@keyframes move6 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-60%, -40%);
+  }
+}
+
+@keyframes move7 {
+  0%,
+  100% {
+    transform: translate(50%, -50%);
+  }
+  50% {
+    transform: translate(40%, -40%);
+  }
+}
+
+@keyframes move8 {
+  0%,
+  100% {
+    transform: translate(150%, 50%);
+  }
+  50% {
+    transform: translate(160%, 60%);
+  }
+}
+
+@keyframes move9 {
+  0%,
+  100% {
+    transform: translate(-10%, 170%);
+  }
+  50% {
+    transform: translate(0%, 160%);
+  }
+}
+
+/* Застосування анімацій до елементів */
+.item-1 {
+  top: 25%;
+  left: 20%;
+  transform: translate(-50%, 20%);
+  animation: move1 5s ease-in-out infinite alternate;
+}
+
+.item-2 {
+  top: 32%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  animation: move2 4s ease-in-out infinite alternate;
+}
+
+.item-3 {
+  top: 26%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  animation: move3 6s ease-in-out infinite alternate;
+}
+
+.item-4 {
+  top: 50%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  animation: move4 5s ease-in-out infinite alternate;
+}
+
+.item-5 {
+  top: 65%;
+  left: 18%;
+  transform: translate(-50%, -50%);
+  animation: move5 7s ease-in-out infinite alternate;
+}
+
+.item-6 {
+  top: 71%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: move6 8s ease-in-out infinite alternate;
+}
+
+.item-7 {
+  top: 67%;
+  left: 70%;
+  transform: translate(50%, -50%);
+  animation: move7 6s ease-in-out infinite alternate;
+}
+
+.item-8 {
+  top: 38%;
+  left: 17%;
+  transform: translate(150%, 50%);
+  animation: move8 5s ease-in-out infinite alternate;
+}
+
+.item-9 {
+  top: 25%;
+  left: 14%;
+  transform: translate(-10%, 170%);
+  animation: move9 4s ease-in-out infinite alternate;
+}
+/* Адаптація для екранів менше 768px */
+@media (max-width: 767px) {
+  .circle-item {
+    font-size: 14px;
+  }
+
+  .item-1 {
+    top: 24%;
+    left: 11%;
+  }
+
+  .item-2 {
+    top: 49%;
+    left: 29%;
+  }
+
+  .item-3 {
+    top: 34%;
+    left: 29%;
+  }
+
+  .item-4 {
+    top: 64%;
+    left: 46%;
+  }
+
+  .item-5 {
+    top: 64%;
+    left: 11%;
+  }
+
+  .item-6 {
+    top: 45%;
+    left: 49%;
+  }
+
+  .item-7 {
+    top: 29%;
+    left: 37%;
+  }
+
+  .item-8 {
+    top: 37%;
+    left: -21%;
+  }
+
+  .item-9 {
+    top: 44%;
+    left: 23%;
+  }
+}
