@@ -17,13 +17,13 @@ function BrainAnimation() {
       // Animate each circle one by one
       shuffledCircles.forEach((circle, idx) => {
         tl.to(circle, {
-          duration: 1.5,
+          duration: 1,
           opacity: 1,
           filter: 'url(#filter3_f_1818_7590)',
           ease: 'power1.inOut',
           delay: idx * 0.5,
         }).to(circle, {
-          duration: 1.5,
+          duration: 1,
           fill: '#d3fd50',
           scale: 1.75,
           ease: 'power1.inOut',
@@ -44,7 +44,7 @@ function BrainAnimation() {
     // Initial random highlight when component mounts
     animateCircles();
 
-    const interval = setInterval(animateCircles, 3000);
+    const interval = setInterval(animateCircles, 2000);
 
     return () => clearInterval(interval);
   }, []);
