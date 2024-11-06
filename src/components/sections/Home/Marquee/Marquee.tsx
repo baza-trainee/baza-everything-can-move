@@ -7,7 +7,7 @@ import './marquee.css';
 const Marquee: React.FC = () => {
   return (
     <section className="relative">
-      <div className="no-repeat absolute h-[100%] w-[100%] bg-[url('/assets/images/HomeImg/background.png')] bg-center bg-cover bg-no-repeat"></div>
+      <div className="no-repeat absolute h-[100%] w-[100%] bg-[url('/assets/images/HomeImg/background.png')] bg-cover bg-center bg-no-repeat"></div>
       <div className="overflow-hidden">
         {/* Рядок рухається вліво */}
         <div className="animate-marquee-reverse decor relative inline-block w-[100%] whitespace-nowrap">
@@ -21,18 +21,24 @@ const Marquee: React.FC = () => {
 
         {/* Рядок рухається вправо */}
         <div className="animate-marquee inline-block whitespace-nowrap text-[40px]">
-          BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA
-          TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA
-          TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA
-          TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE
+          BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA
+          TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE
+          UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE
+          BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA
+          TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE
+          UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE
+          BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE
         </div>
 
         {/* Ще один рядок рухається вліво */}
         <div className="animate-marquee-reverse inline-block whitespace-nowrap text-[40px]">
-          BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA
-          TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA
-          TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA
-          TRAINEE BAZA TRAINEE BAZA TRAINEE BAZA TRAINEE
+          BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA
+          TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE
+          UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE
+          BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA
+          TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE
+          UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE
+          BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE
         </div>
 
         {/* Ще один рядок рухається вправо */}
