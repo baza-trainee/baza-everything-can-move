@@ -1,69 +1,28 @@
 'use client';
 import Image from 'next/image';
-import { useCallback, useEffect, useMemo, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import { ButtonSlide } from './ButtonSlider';
 import { ObjectArrayFoto } from './ui/types';
-import { cycleIndex, generatePositions, generateVariants } from './ui/ui';
 import CircleTimer from './components/CircleTimer';
 import BigFoto from './components/BigFoto';
 
-const FotoSwiper = ({ arrayImages }: { arrayImages: ObjectArrayFoto[] }) => {
-  const [positionIndexes, setPositionIndexes] = useState(
-    arrayImages.map((_, index) => index)
-  );
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+import { useFotoSwiper } from './useFotoSwiper';
 
-  const indexBigFoto = useMemo(() => {
-    const centerIdx = Math.floor(positionIndexes.length / 2);
-    return positionIndexes[centerIdx];
-  }, [positionIndexes]);
+interface FotoSwiperProps {
+  arrayImages: ObjectArrayFoto[];
+}
 
-  const arrayReverse = useMemo(() => [...arrayImages].reverse(), [arrayImages]);
-
-  const handleNext = useCallback(() => {
-    setPositionIndexes((prevPosition) =>
-      prevPosition.map((prevIndex) =>
-        cycleIndex(prevIndex, 1, arrayImages.length)
-      )
-    );
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    intervalRef.current = setInterval(handleNext, 5000);
-  }, [cycleIndex]);
-
-  const handlePrev = useCallback(() => {
-    setPositionIndexes((prevPosition) =>
-      prevPosition.map((prevIndex) =>
-        cycleIndex(prevIndex, -1, arrayImages.length)
-      )
-    );
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    intervalRef.current = setInterval(handleNext, 5000);
-  }, [cycleIndex, handleNext]);
-
-  useEffect(() => {
-    intervalRef.current = setInterval(handleNext, 5000);
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [handleNext]);
-
-  const position = useMemo(
-    () => generatePositions(arrayImages.length),
-    [arrayImages.length]
-  );
-
-  const newVariants = useMemo(
-    () => generateVariants(arrayImages.length),
-    [arrayImages.length]
-  );
+const FotoSwiper = ({ arrayImages }: FotoSwiperProps) => {
+  const {
+    positionIndexes,
+    indexBigFoto,
+    arrayReverse,
+    handleNext,
+    handlePrev,
+    position,
+    newVariants,
+  } = useFotoSwiper(arrayImages);
 
   if (!arrayImages.length) return null;
 

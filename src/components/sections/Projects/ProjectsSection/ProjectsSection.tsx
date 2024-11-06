@@ -2,6 +2,7 @@ import React from 'react';
 import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
 import SectionTitle from '@/components/ui/SectionTitle';
 import SubTitle from '@/components/ui/SubTitle';
+import Slider from './Slider/Slider';
 
 // type ProjectsSectionProps = {};
 
@@ -12,7 +13,7 @@ export default function ProjectsSection() {
         <ContainerWithCorners className="pb-12 pt-10 lg:pb-0 2xl:pt-0">
           <SectionTitle className="mb-3">Проєкти</SectionTitle>
           <SubTitle className="mb-8"> Результати Бази</SubTitle>
-          <div>Slider</div>
+          <Slider />
         </ContainerWithCorners>
       </div>
     </section>
