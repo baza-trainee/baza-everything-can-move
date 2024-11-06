@@ -1,20 +1,5 @@
-// import React from 'react'
-
-// function DevelopmentText() {
-//   return (
-//     <div className='xl:w-[346px] lg:w-[320px] mt-8 lg:mt-0'>
-//       <h3 className='leading-o-130 lg:text-md text-sm xl:text-l lg:uppercase mb-[20px] lg:mb-[29px]'>Розширення благодійних ініціатив</h3>
-//       <p className='xl:text-sm lg:text-m text-s leading-o-130'>
-//       Розглядаємо можливість запустити нові проєкти, які допоможуть різним соціальним групам.
-//       </p>
-//     </div>
-//   )
-// }
-
-// export default DevelopmentText
-'use client'
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+'use client';
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 
@@ -42,18 +27,19 @@ const DevelopmentText = () => {
     <div className="text-block xl:w-[346px] lg:w-[320px] mt-8 lg:mt-0">
       {TEXTS.map((item, index) => {
         const { ref, inView } = useInView({
-          threshold: 0.2, // Триггер анімації, коли абзац на 20% у видимій області
+          threshold: 0.3, // Триггер анімації, коли абзац на 20% у видимій області
           triggerOnce: false, // Анімація повторюється при поверненні в зону видимості
         });
 
         return (
           <motion.div
-          className="mb-[78px]"
+          className="mb-[76px]"
             key={index}
             ref={ref} // Важливо додати реф для кожного елемента
-            initial={{ opacity: 0 }} // Початкові стилі (не видно)
+            initial={{ opacity: 0, y: 50 }} // Початкові стилі (не видно, знизу)
             animate={{
               opacity: inView ? 1 : 0, // Коли елемент у видимій області, він стає видимим
+              y: inView ? 0 : 50, // Переміщається знизу в нормальне положення
             }}
             transition={{
               delay: index === 0 ? 0 : index * 0.3, // Перший абзац з'являється без затримки, наступні з затримкою
