@@ -11,22 +11,22 @@ const API = {
     ambientLightIntensity: 0.7,
 };
 
+
 const Bubbles3D:React.FC = () => {
 
-    const canvasRef = useRef<any>(null); //which type???////////////////////////////////
-    
+    const canvasRef = useRef<HTMLDivElement | null >(null);
+    // const canvasCtxRef = useRef<WebGLRenderingContext | null>(null);
+
     useEffect(() => {
-        const renderer: any = new THREE.WebGLRenderer({ canvas: canvasRef.current, antialias: true  });
-        // console.log(canvasRef);
-        // const gl = canvasRef.current?.getContext("webgl");
-        // const renderer = new THREE.WebGLRenderer();
+        // const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, antialias: true  });
+        const renderer = new THREE.WebGLRenderer();
 		renderer.setPixelRatio( window.devicePixelRatio );
 		renderer.setSize( window.innerWidth, window.innerHeight );
         renderer.toneMapping = THREE.NoToneMapping;
         const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
 		camera.position.set( 0, 0, 30 );
-        // canvasRef.current?.appendChild(renderer.domElement);
+        canvasRef.current?.appendChild(renderer.domElement);
 
 		const lightProbe = new THREE.LightProbe();
 		scene.add( lightProbe )
@@ -62,9 +62,16 @@ const Bubbles3D:React.FC = () => {
     	//     renderer.render( scene, camera );
         // }
 
-        render();
-
         function render() {renderer.render( scene, camera );}
+
+        // console.log(canvasRef.current);
+
+        // if (canvasRef.current === null) {
+              render(); 
+        // } else {
+        //   return
+        // }
+        
 
     //     return () => {
     //         renderer.forceContextLoss();
@@ -80,8 +87,8 @@ const Bubbles3D:React.FC = () => {
     },[])
     			
 
-    // return <div ref={canvasRef} />;
-    return <canvas ref={canvasRef} />;
+    return <div ref={canvasRef} />;
+    // return <canvas ref={canvasRef} />;
 
 }
 
