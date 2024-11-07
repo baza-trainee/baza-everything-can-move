@@ -50,18 +50,21 @@ const Bubbles3D:React.FC = () => {
 		const mesh2 = new THREE.Mesh( geometry, material );
 		const mesh3 = new THREE.Mesh( geometry, material );
 		
-        mesh1.position.set(-11, 6, -1);
+        mesh1.position.set(-9, 5, -1);
         scene.add( mesh1);
-        mesh2.position.set(-2,-1, -1);
+        mesh2.position.set(-2,0, -1);
         scene.add( mesh2);
-        mesh3.position.set(4, 5, -1);
+        mesh3.position.set(4, 8, -1);
         scene.add( mesh3);
 
         // renderer.setAnimationLoop( animate );
         // function animate() {
-    	//     cube.rotation.x += 0.01;
-    	//     cube.rotation.y += 0.01;
-    	//     renderer.render( scene, camera );
+    	//     mesh1.position.x += 0.01;
+    	//    mesh1.position.x -= 0.01;
+
+
+             
+        //      renderer.render( scene, camera );
         // }
 
         function render() {renderer.render( scene, camera );}
@@ -82,12 +85,16 @@ const Bubbles3D:React.FC = () => {
     },[])
     			
 
-    return <div ref={canvasRef} />;
+    return <div ref={canvasRef} className=''/>;
     // return <canvas ref={canvasRef} />;
 
 }
 
 export default Bubbles3D;
+
+
+
+
 
 
 
