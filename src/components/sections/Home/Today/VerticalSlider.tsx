@@ -43,11 +43,11 @@ const VerticalSlider: React.FC = () => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 640) {
-        setFontSize('1.2rem'); // Small screens
+        setFontSize('32px'); // Small screens
       } else if (width < 1024) {
-        setFontSize('1.5rem'); // Medium screens
+        setFontSize('40px'); // Medium screens
       } else {
-        setFontSize('2rem'); // Large screens
+        setFontSize('44px'); // Large screens
       }
     };
 
