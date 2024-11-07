@@ -38,7 +38,7 @@ const imageVariants = {
   //     };
   //   },
   enter: (direction: number) => ({
-    x: direction > 0 ? 500 : -500,
+    x: direction > 0 ? '100%' : '-100%',
     scale: 0.5,
     opacity: 0.7,
     transition: {
@@ -54,7 +54,7 @@ const imageVariants = {
   //   },
   center: {
     x: 0,
-    // scale: 1,
+    scale: 0.5,
     opacity: 1,
     transition: {
       duration: 0.5,
@@ -87,7 +87,7 @@ const imageVariants = {
   //     };
   //   },
   exit: (direction: number) => ({
-    x: direction > 0 ? -200 : 200,
+    x: direction > 0 ? '100%' : '-100%',
     scale: 0.5,
     opacity: 0.7,
     transition: {
@@ -163,8 +163,7 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
             const isPrevious =
               index === (currentIndex - 1 + images.length) % images.length;
             const isNext = index === (currentIndex + 1) % images.length;
-            //   console.log('current', isActive);
-            //   console.log('currentIndex', currentIndex);
+
             return (
               <React.Fragment key={`fragment-${index}`}>
                 {(isActive || isPrevious || isNext) && (
@@ -172,10 +171,10 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
                     key={index}
                     style={{ transformStyle: 'preserve-3d' }}
                     className={clsx(
-                      'absolute mb-2 flex w-[120px]',
+                      'absolute mb-2 flex',
                       // w-[320px] left-3 top-0
                       isActive &&
-                        'shadow-olga-combined z-10 mx-auto flex-col items-center',
+                        'shadow-olga-combined z-10 mx-auto max-w-[320px] flex-col items-center',
                       isPrevious && 'w-120px left-0 top-[69px] h-16',
                       isNext && 'w-120px right-0 top-[69px] h-16'
                     )}
@@ -191,10 +190,10 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
                       className="object-cover"
                       alt={image.name}
                       style={{
-                        //   width: '100%',
-                        //   height: '100%',
-                        transform: 'scale(1)',
-                        transition: 'transform 0.8s ease-in-out',
+                        width: '100%',
+                        height: '100%',
+                        // transform: 'scale(1)',
+                        // transition: 'transform 0.8s ease-in-out',
                       }}
                     />
                     {/* </motion.div> */}
