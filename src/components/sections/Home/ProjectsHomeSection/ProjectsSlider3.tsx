@@ -26,75 +26,49 @@ export interface ProjectsSliderProps {
 }
 
 const imageVariants = {
-  //   enter: (direction: number) => {
-  //     return {
-  //       x: direction > 0 ? -1000 : 1000,
-  //       scale: 0.5,
-  //       opacity: 0.5,
-  //       transition: {
-  //         x: { duration: 0.5 },
-  //         ease: 'easeOut',
-  //       },
-  //     };
-  //   },
   enter: (direction: number) => ({
-    x: direction > 0 ? '100%' : '-100%',
-    scale: 0.5,
+    x: direction > 0 ? '-100%' : '100%',
+    z: 0,
+    scale: 0.1,
     opacity: 0.7,
     transition: {
-      duration: 0.6,
-      //   ease: 'ease',
+      x: { duration: 0.5 },
     },
   }),
-  //   center: {
-  //     x: 0,
-  //     scale: 0.5,
-  //     opacity: 1,
-  //     transition: { duration: 0.5, delay: 0.5 },
-  //   },
+
   center: {
     x: 0,
-    scale: 0.5,
+    scale: 0.3,
+    z: 100,
     opacity: 1,
-    transition: {
-      duration: 0.5,
-      type: 'spring',
-      stiffness: 300,
-      damping: 30,
-      delay: 1,
-    },
+    transition: { duration: 0.5, delay: 0.5 },
   },
-  //   expand: {
-  //     scale: 1,
-  //     transition: { duration: 0.7, delay: 1 },
-  //   },
+
   expand: {
     scale: 1,
-    transition: {
-      duration: 0.8,
-      //   ease: 'ease',
-    },
+    z: 200,
+    transition: { duration: 0.7, delay: 1 },
   },
-  //   exit: (direction: number) => {
-  //     return {
-  //       x: direction > 0 ? 1000 : -1000,
-  //       scale: 0.5,
-  //       opacity: 0.5,
-  //       transition: {
-  //         duration: 0.5,
-  //         ease: 'easeIn',
-  //       },
-  //     };
-  //   },
+
   exit: (direction: number) => ({
     x: direction > 0 ? '100%' : '-100%',
-    scale: 0.5,
+    scale: 0.3,
+    z: 0,
     opacity: 0.7,
     transition: {
-      duration: 0.6,
-      //   ease: 'ease',
+      duration: 0.5,
+      //   ease: 'easeIn',
     },
   }),
+  side: {
+    x: 0,
+    scale: 0.9,
+    opacity: 0.9,
+    transition: {
+      duration: 0.5,
+      delay: 0.2,
+    },
+  },
 };
 
 const titleVariants = {
@@ -103,7 +77,7 @@ const titleVariants = {
   },
   center: {
     x: 0,
-
+    scale: 1,
     opacity: 1,
     transition: { duration: 0.5, delay: 0.5 },
   },
@@ -119,8 +93,6 @@ const titleVariants = {
 
 const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-
-  const scrollerRef = React.useRef<HTMLDivElement | null>(null);
 
   const isInView = useInView(containerRef);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -138,14 +110,14 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
-  //   useEffect(() => {
-  //     if (isInView) {
-  //       const interval = setInterval(() => {
-  //         nextImage();
-  //       }, 15000);
-  //       return () => clearInterval(interval);
-  //     }
-  //   }, [isInView, nextImage]);
+  useEffect(() => {
+    if (isInView) {
+      const interval = setInterval(() => {
+        nextImage();
+      }, 15000);
+      return () => clearInterval(interval);
+    }
+  }, [isInView, nextImage]);
 
   return (
     <div
@@ -172,17 +144,16 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
                     style={{ transformStyle: 'preserve-3d' }}
                     className={clsx(
                       'absolute mb-2 flex',
-                      // w-[320px] left-3 top-0
+
                       isActive &&
-                        'shadow-olga-combined z-10 mx-auto max-w-[320px] flex-col items-center',
+                        'shadow-olga-combined z-10 mx-auto max-w-[310px] flex-col items-center',
                       isPrevious && 'w-120px left-0 top-[69px] h-16',
                       isNext && 'w-120px right-0 top-[69px] h-16'
                     )}
                     custom={direction}
                     variants={imageVariants}
                     initial="enter"
-                    animate={['center', 'expand']}
-                    //   animate={isActive ? ['center', 'expand'] : 'expand'}
+                    animate={isActive ? ['center', 'expand'] : 'side'}
                     exit="exit"
                   >
                     <Image
@@ -191,13 +162,12 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
                       alt={image.name}
                       style={{
                         width: '100%',
-                        height: '100%',
+                        // height: '100%',
                         // transform: 'scale(1)',
                         // transition: 'transform 0.8s ease-in-out',
                       }}
                     />
                     {/* </motion.div> */}
-
                     {/* title */}
 
                     {/* <motion.div
@@ -216,7 +186,6 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
                         {image.name}
                       </h3>
                     </motion.div> */}
-
                     {/* </div> */}
                   </motion.div>
                 )}
