@@ -1,5 +1,5 @@
 'use client'
-import { useEffect } from "react"
+// import { useEffect } from "react"
 import clsx from 'clsx';
 import styles from './bubble2d.module.css'
 

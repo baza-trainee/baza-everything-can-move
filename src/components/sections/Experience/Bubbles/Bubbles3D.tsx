@@ -1,7 +1,7 @@
 'use client'
 
 import * as THREE from 'three';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 
 const API = {

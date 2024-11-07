@@ -34,7 +34,7 @@ const bubbles = [
 
 
 
-const Bubbles2D:React.FC = ({params}) => {
+const Bubbles2D:React.FC = () => {
   return (
     <div className='absolute top-0'>
         {bubbles.map(bubble => (

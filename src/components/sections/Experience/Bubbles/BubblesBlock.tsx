@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useRef, useEffect} from 'react'
+import React, {useRef} from 'react'
 import Bubbles3D from './Bubbles3D'
 import Bubbles2D from './Bubbles2D'
 
@@ -14,7 +14,7 @@ const BubblesBlock:React.FC = () => {
   // },[])
 
    const bubblesBlockRef = useRef<HTMLDivElement | null >(null);
-  let params = bubblesBlockRef.current?.getBoundingClientRect();
+  // let params = bubblesBlockRef.current?.getBoundingClientRect();
 
   // console.log(params.width, params.height);
 
