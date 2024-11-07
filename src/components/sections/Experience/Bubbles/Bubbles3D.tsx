@@ -15,7 +15,6 @@ const API = {
 const Bubbles3D:React.FC = () => {
 
     const canvasRef = useRef<HTMLDivElement | null >(null);
-    // const canvasCtxRef = useRef<WebGLRenderingContext | null>(null);
 
     useEffect(() => {
         // const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, antialias: true  });
@@ -26,7 +25,10 @@ const Bubbles3D:React.FC = () => {
         const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
 		camera.position.set( 0, 0, 30 );
-        canvasRef.current?.appendChild(renderer.domElement);
+        
+        if (canvasRef.current?.childNodes[0] === undefined) {
+            canvasRef.current?.appendChild(renderer.domElement);
+        } 
 
 		const lightProbe = new THREE.LightProbe();
 		scene.add( lightProbe )
@@ -64,15 +66,8 @@ const Bubbles3D:React.FC = () => {
 
         function render() {renderer.render( scene, camera );}
 
-        // console.log(canvasRef.current);
-
-        // if (canvasRef.current === null) {
-              render(); 
-        // } else {
-        //   return
-        // }
+        render(); 
         
-
     //     return () => {
     //         renderer.forceContextLoss();
     //         renderer.dispose();
