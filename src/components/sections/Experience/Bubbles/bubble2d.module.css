@@ -1,66 +1,78 @@
-#dottedOutline{
-background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='lime' stroke-width='1' stroke-dasharray='1%2c45' stroke-dashoffset='100' stroke-linecap='butt'/%3e%3c/svg%3e");
-animation: spin 40s linear infinite;
+#wiggleBlock{
+   animation: wiggle 0.4s 0s linear infinite none running;
+}
+#wiggleBlock:nth-of-type(1)::before,
+#wiggleBlock:nth-of-type(3)::before,
+#wiggleBlock:nth-of-type(5)::before{
+    content:' ';
+    height: 220px;
+    width: 220px;
+    position: absolute;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -9999;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='lime' stroke-width='1' stroke-dasharray='1%2c45' stroke-dashoffset='100' stroke-linecap='butt'/%3e%3c/svg%3e");
+    animation: spin 40s linear infinite;
+
+}
+#wiggleBlock:nth-of-type(1){
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+     animation-direction: reverse;
+}
+#wiggleBlock:nth-of-type(2){
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+#wiggleBlock:nth-of-type(3){
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+     animation-direction: reverse;
+}
+#wiggleBlock:nth-of-type(4){
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+#wiggleBlock:nth-of-type(5){
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+     animation-direction: reverse;
 }
 
-    @-ms-keyframes spin { 
-        from { 
-            -ms-transform: rotate(0deg); 
-        } to { 
-            -ms-transform: rotate(360deg); 
-        }
+@keyframes spin { 
+    from {
+        transform: rotate(0deg)
     }
-    @-moz-keyframes spin { 
-        from { 
-            -moz-transform: rotate(0deg); 
-        } to { 
-            -moz-transform: rotate(360deg); 
-        }
+    to {
+        transform: rotate(360deg)
     }
-    @-webkit-keyframes spin { 
-        from { 
-            -webkit-transform: rotate(0deg); 
-        } to { 
-            -webkit-transform: rotate(360deg); 
-        }
-    }
-    @keyframes spin { 
-        from { 
-            transform: rotate(0deg); 
-        } to { 
-            transform: rotate(360deg); 
-        }
-    }
+}
 
-    #dottedOutline> div{
-        animation: anti-spin 40s linear infinite;
-    }
+@keyframes wiggle {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(1px, 1px) rotate(1deg);
+  }
+    50% {
 
-        @-ms-keyframes anti-spin { 
-        from { 
-            -ms-transform: rotate(0deg); 
-        } to { 
-            -ms-transform: rotate(-360deg); 
-        }
-    }
-    @-moz-keyframes anti-spin { 
-        from { 
-            -moz-transform: rotate(0deg); 
-        } to { 
-            -moz-transform: rotate(-360deg); 
-        }
-    }
-    @-webkit-keyframes anti-spin { 
-        from { 
-            -webkit-transform: rotate(0deg); 
-        } to { 
-            -webkit-transform: rotate(-360deg); 
-        }
-    }
-    @keyframes anti-spin { 
-        from { 
-            transform: rotate(0deg); 
-        } to { 
-            transform: rotate(-360deg); 
-        }
-    }
+  }
+  75% {
+    transform: translate(-1px, 1px) rotate(-1deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
