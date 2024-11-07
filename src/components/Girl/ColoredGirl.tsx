@@ -40,16 +40,16 @@ function GirlModel() {
 export default function ColoredGirl() {
   return (
     <>
-      <div className="h-auto transform translate-x-[-20%]">
+      <div className="h-[700px] xl:w-[50%] lg:w-[60%] w-[90%] transform xl:translate-x-[70%] lg:translate-x-[55%] xl:translate-y-[-18%] translate-y-[-7%] translate-x-[-10%] z-10 absolute">
         {/* <h1 className="text-white text-center text-lg">I hate her !!!</h1> */}
-        <Canvas className="h-[900px] w-[100%]"
-          camera={{ position: [0, 3, 5], fov: 50 }}
+        <Canvas className="h-[900px] w-[90%] z-10"
+          camera={{ position: [0, 3, 5], fov: 61 }}
           //   camera={{ position: [0, 300, -85], fov: 50 }}
           gl={{ antialias: true }}
         >
           <ambientLight intensity={1} />
           <directionalLight position={[5, 5, 5]} />
-          <directionalLight position={[0, 1, 1]} intensity={2} />
+          <directionalLight position={[0, 56, 1]} intensity={2} />
           <Suspense fallback={null}>
             <GirlModel />
           </Suspense>
