@@ -15,7 +15,7 @@ export const IMAGES_HOME_PROJECTS = [
     height: 58,
     name: 'song',
     top: 215,
-    left: '489px',
+    left: 489,
     translateZ: 150,
   },
   {
@@ -25,7 +25,7 @@ export const IMAGES_HOME_PROJECTS = [
     height: 58,
     name: 'bazaSkill',
     top: 77,
-    left: '522px',
+    left: 522,
     translateZ: 150,
   },
   {
@@ -35,7 +35,7 @@ export const IMAGES_HOME_PROJECTS = [
     height: 240,
     name: 'kolyskova',
     top: 146,
-    left: '56px',
+    left: 56,
     translateZ: 90,
   },
   {
@@ -45,7 +45,7 @@ export const IMAGES_HOME_PROJECTS = [
     height: 167,
     name: 'balakun',
     top: 36,
-    left: '0px',
+    left: 0,
     translateZ: 110,
   },
 
@@ -56,7 +56,7 @@ export const IMAGES_HOME_PROJECTS = [
     height: 120,
     name: 'organik',
     top: 0,
-    left: '605px',
+    left: 605,
     translateZ: 150,
   },
   {
@@ -66,7 +66,7 @@ export const IMAGES_HOME_PROJECTS = [
     height: 86,
     name: 'bazaTrainee',
     top: 34,
-    left: '325px',
+    left: 325,
     translateZ: 150,
   },
   {
@@ -76,7 +76,7 @@ export const IMAGES_HOME_PROJECTS = [
     height: 80,
     name: 'klouns',
     top: 137,
-    left: '602px',
+    left: 602,
     translateZ: 250,
   },
   {
@@ -86,7 +86,7 @@ export const IMAGES_HOME_PROJECTS = [
     height: 240,
     name: 'militari',
     top: 103,
-    left: '635px',
+    left: 635,
     translateZ: 150,
   },
 ];

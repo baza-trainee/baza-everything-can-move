@@ -20,7 +20,7 @@ export function PCardsThird() {
               key={image.name + ind}
               className="absolute w-fit"
               style={{
-                top: `${image.top}px`, // top: `${image.top + 200}px`,
+                top: image.top, // top: `${image.top + 200}px`,
                 left: image.left,
                 width: `${image.width}px`,
                 height: `${image.height}px`,
