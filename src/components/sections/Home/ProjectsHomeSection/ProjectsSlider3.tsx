@@ -26,39 +26,75 @@ export interface ProjectsSliderProps {
 }
 
 const imageVariants = {
-  enter: (direction: number) => {
-    return {
-      x: direction > 0 ? -1000 : 1000,
-      scale: 0.5,
-      opacity: 0.5,
-      transition: {
-        x: { duration: 0.5 },
-        ease: 'easeOut',
-      },
-    };
-  },
+  //   enter: (direction: number) => {
+  //     return {
+  //       x: direction > 0 ? -1000 : 1000,
+  //       scale: 0.5,
+  //       opacity: 0.5,
+  //       transition: {
+  //         x: { duration: 0.5 },
+  //         ease: 'easeOut',
+  //       },
+  //     };
+  //   },
+  enter: (direction: number) => ({
+    x: direction > 0 ? -500 : 500,
+    scale: 0.5,
+    opacity: 0.7,
+    transition: {
+      duration: 0.6,
+      ease: 'easeIn',
+    },
+  }),
+  //   center: {
+  //     x: 0,
+  //     scale: 0.5,
+  //     opacity: 1,
+  //     transition: { duration: 0.5, delay: 0.5 },
+  //   },
   center: {
     x: 0,
-    scale: 0.5,
+    // scale: 1,
     opacity: 1,
-    transition: { duration: 0.5, delay: 0.5 },
+    transition: {
+      duration: 0.5,
+      type: 'spring',
+      stiffness: 300,
+      damping: 30,
+      delay: 1,
+    },
   },
+  //   expand: {
+  //     scale: 1,
+  //     transition: { duration: 0.7, delay: 1 },
+  //   },
   expand: {
     scale: 1,
-    transition: { duration: 0.7, delay: 1 },
+    transition: {
+      duration: 0.8,
+      ease: 'easeInOut',
+    },
   },
-
-  exit: (direction: number) => {
-    return {
-      x: direction > 0 ? 1000 : -1000,
-      scale: 0.5,
-      opacity: 0.5,
-      transition: {
-        duration: 0.5,
-        ease: 'easeIn',
-      },
-    };
-  },
+  //   exit: (direction: number) => {
+  //     return {
+  //       x: direction > 0 ? 1000 : -1000,
+  //       scale: 0.5,
+  //       opacity: 0.5,
+  //       transition: {
+  //         duration: 0.5,
+  //         ease: 'easeIn',
+  //       },
+  //     };
+  //   },
+  exit: (direction: number) => ({
+    x: direction > 0 ? 200 : -200,
+    scale: 0.5,
+    opacity: 0.7,
+    transition: {
+      duration: 0.6,
+      ease: 'easeIn',
+    },
+  }),
 };
 
 const titleVariants = {
@@ -128,7 +164,7 @@ const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ images }) => {
       ref={containerRef}
     >
       {/* images div */}
-      <div className="relative mb-6 flex h-[193px] w-full items-center justify-center overflow-hidden">
+      <div className="relative mb-6 flex h-[193px] w-[343px] items-center justify-center overflow-hidden">
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-3" />
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 right-3 rotate-[270deg]" />
         {/* <div
@@ -162,6 +198,7 @@ const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ images }) => {
                   variants={imageVariants}
                   initial="enter"
                   animate={['center', 'expand']}
+                  //   animate={isActive ? ['center', 'expand'] : 'expand'}
                   exit="exit"
                 >
                   {/* <motion.div
@@ -176,7 +213,12 @@ const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ images }) => {
                     src={image.src}
                     className="object-cover"
                     alt={image.name}
-                    style={{ width: '100%', height: '100%' }}
+                    style={{
+                      //   width: '100%',
+                      //   height: '100%',
+                      transform: 'scale(1)',
+                      transition: 'transform 0.8s ease-in-out',
+                    }}
                   />
                   {/* </motion.div> */}
 
