@@ -71,25 +71,25 @@ const imageVariants = {
   },
 };
 
-const titleVariants = {
-  enter: (direction: number) => {
-    return { x: direction > 0 ? -1000 : 1000, opacity: 0 };
-  },
-  center: {
-    x: 0,
-    scale: 1,
-    opacity: 1,
-    transition: { duration: 0.5, delay: 0.5 },
-  },
+// const titleVariants = {
+//   enter: (direction: number) => {
+//     return { x: direction > 0 ? -1000 : 1000, opacity: 0 };
+//   },
+//   center: {
+//     x: 0,
+//     scale: 1,
+//     opacity: 1,
+//     transition: { duration: 0.5, delay: 0.5 },
+//   },
 
-  exit: (direction: number) => {
-    return {
-      x: direction > 0 ? 1000 : -1000,
+//   exit: (direction: number) => {
+//     return {
+//       x: direction > 0 ? 1000 : -1000,
 
-      opacity: 0,
-    };
-  },
-};
+//       opacity: 0,
+//     };
+//   },
+// };
 
 const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
