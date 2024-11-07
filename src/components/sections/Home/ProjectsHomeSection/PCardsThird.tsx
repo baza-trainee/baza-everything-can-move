@@ -1,14 +1,13 @@
 'use client';
 
-
 import React from 'react';
 import Image from 'next/image';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-third';
 import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
 
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
-
 import ProjectsSlider from './ProjectsSlider';
+import ProjectsSlider3 from './ProjectsSlider3';
 
 export function PCardsThird() {
   return (
@@ -49,6 +48,7 @@ export function PCardsThird() {
       </div>
       {/* mobile */}
       <ProjectsSlider images={IMAGES_HOME_PROJECTS} />
+      <ProjectsSlider3 images={IMAGES_HOME_PROJECTS} />
     </>
   );
 }
