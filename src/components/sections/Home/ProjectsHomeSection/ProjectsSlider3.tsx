@@ -7,7 +7,7 @@ import type { StaticImageData } from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
-import { ButtonSlide } from '@/components/ui/SwiperFoto/ButtonSlider';
+import { ButtonSlide } from '@/components/ui/SwiperFoto';
 
 interface ImageType {
   pos: string;
@@ -146,7 +146,7 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
                       'absolute mb-2 flex',
 
                       isActive &&
-                        'shadow-olga-combined z-10 mx-auto max-w-[310px] flex-col items-center',
+                        'z-10 mx-auto max-w-[310px] flex-col items-center shadow-olga-combined',
                       isPrevious && 'w-120px left-0 top-[69px] h-16',
                       isNext && 'w-120px right-0 top-[69px] h-16'
                     )}
