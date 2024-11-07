@@ -1,34 +1,38 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
-import ScrollButton from '../../../ui/ScrollButton/ScrollButton';
+import ScrollButton from '../../../ui/ContaktButton/ContaktButton';
 import ColoredGirl from '../../../Girl/ColoredGirl';
-
+import Image from 'next/image';
 import './Hero.css';
 
 export default function Hero() {
   return (
-    <section className="hero pb-[200px] pt-[60px]">
-      <div className="items-top container relative text-[40px] flex flex-wrap lg:flex-nowrap xl:text-[86px]">
-        <div className="relative uppercase leading-[120%]">
-          <h1 className="text-animation">
+    <section className="hero pb-[350px] pt-[60px] xl:pb-[280px]">
+      <div className="items-top container relative flex flex-wrap xl:flex-nowrap">
+        <div className="relative">
+          <h1 className="text-animation text-[40px] uppercase leading-[120%] lg:text-[64px] xl:text-[86px]">
             створювали ми <br />{' '}
             <span style={{ color: '#D3FD50' }}>анімацію</span>
             <br />
             на базі
-            <img
-              className="absolute left-2 ellipse-animation w-[500px] bottom-[-15px]"
+            <Image
+              className="ellipse-animation absolute bottom-[-15px] left-2 w-[70%]"
               src="/assets/images/HomeImg/ellipse_hero.png"
-              alt=""
+              alt="ellipseHero"
+              width={700} // Вкажи потрібну ширину зображення
+              height={300}
             />
           </h1>
-          <div className="elips">
-            <img
-              className="rotate absolute  right-[9%] xl:h-[118px] h-[80px] xl:left-[72%]"
+          <div className="elips absolute lg:bottom-[-24%] lg:left-[60%] right-[-10%] w-[80px] h-[80px] xl:left-[72%] xl:h-[118px]">
+            <Image
+              className="rotate"
               src="/assets/images/HomeImg/Vector.svg"
               alt="Еліпс"
+              width={100} // Вкажи потрібну ширину SVG
+              height={100} // Вкажи потрібну висоту SVG
             />
           </div>
         </div>
-          <ColoredGirl />
+        <ColoredGirl />
         <ScrollButton />
       </div>
     </section>
