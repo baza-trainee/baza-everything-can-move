@@ -1,4 +1,4 @@
-import { ObjectArrayFoto } from '@/components/ui/SwiperFoto/types';
+import { ObjectArrayFoto } from '@/components/ui/SwiperFoto/ui/types';
 
 export const teamImages: ObjectArrayFoto[] = [
   {

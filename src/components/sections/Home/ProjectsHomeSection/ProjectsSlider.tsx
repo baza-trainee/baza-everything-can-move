@@ -6,7 +6,7 @@ import type { StaticImageData } from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
-import { ButtonSlide } from '@/components/ui/SwiperFoto/ButtonSlider';
+import { ButtonSlide } from '@/components/ui/SwiperFoto/components/ButtonSlider';
 
 interface ImageType {
   pos: string;
@@ -119,7 +119,7 @@ const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ images }) => {
               index === currentIndex && (
                 <motion.div
                   key={image.pos}
-                  className="shadow-olga-combined mx-auto flex w-[320px] flex-col items-center"
+                  className="mx-auto flex w-[320px] flex-col items-center shadow-olga-combined"
                 >
                   <motion.div
                     custom={direction}
