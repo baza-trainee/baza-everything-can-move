@@ -117,7 +117,7 @@ const titleVariants = {
   },
 };
 
-const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ images }) => {
+const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const scrollerRef = React.useRef<HTMLDivElement | null>(null);
@@ -266,4 +266,4 @@ const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ images }) => {
   );
 };
 
-export default ProjectsSlider;
+export default ProjectsSlider3;
