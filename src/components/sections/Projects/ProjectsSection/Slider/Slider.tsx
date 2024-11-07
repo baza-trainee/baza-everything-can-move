@@ -1,95 +1,62 @@
 'use client';
 
 import { projectsArray } from './progectsArray';
-import ReadMore from './ReadMore';
-import DescriptionFoto from '@/components/ui/SwiperFoto/components/DescriptionFoto';
-import { AnimatePresence, motion } from 'framer-motion';
-import BigFoto from '@/components/ui/SwiperFoto/components/BigFoto';
-import { ButtonSlide } from '@/components/ui/SwiperFoto/ButtonSlider';
-import Image from 'next/image';
-import clsx from 'clsx';
-import CircleTimer from '@/components/ui/SwiperFoto/components/CircleTimer';
-import { useFotoSwiper } from '@/components/ui/SwiperFoto/useFotoSwiper';
+
+import {
+  BigFoto,
+  ButtonSlide,
+  DescriptionFoto,
+  ListFotoSlider,
+  useFotoSwiper,
+} from '@/components/ui/SwiperFoto';
 
 const Slider = () => {
   const {
     positionIndexes,
     indexBigFoto,
-    arrayReverse,
     handleNext,
     handlePrev,
     position,
     newVariants,
+    objectBigFoto,
   } = useFotoSwiper(projectsArray);
   return (
-    <div className="text-white">
-      <AnimatePresence>
-        <ul className="relative flex h-full max-h-[172px] flex-col items-center">
-          <motion.li
-            initial={{ scale: 0, y: 20 }}
-            animate={{ scale: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            exit={{
-              scale: 0,
-              y: 20,
-            }}
-            key={indexBigFoto}
-            className={'absolute top-[-8%]'}
-          >
-            <CircleTimer />
-          </motion.li>
-          {projectsArray.map((image, index) => (
-            <motion.li
-              className="absolute"
-              key={index}
-              variants={newVariants}
-              transition={{ duration: 1 }}
-              initial="center"
-              animate={position[positionIndexes[index]]}
-            >
-              <div className="relative">
-                <Image
-                  priority
-                  width={64}
-                  height={64}
-                  src={image.urlImage}
-                  className={clsx(
-                    'h-[40px] w-[40px] overflow-hidden rounded-full object-cover'
-                  )}
-                  alt={`фото учасника команди ${image.name}`}
-                />
-              </div>
-            </motion.li>
-          ))}
-        </ul>
-      </AnimatePresence>
-      <div className="flex flex-col gap-3">
-        <ButtonSlide
-          onClick={handlePrev}
-          ariaLabel="кнопка для переходу до попереднього фото"
+    <div className="flex items-center text-white">
+      <div className="flex h-[296px] flex-col justify-between 2xl:mr-14">
+        <ListFotoSlider
+          isCicleTimer={true}
+          indexBigFoto={indexBigFoto}
+          arrayImages={projectsArray}
+          position={position}
+          positionIndexes={positionIndexes}
+          newVariants={newVariants}
         />
-        <ButtonSlide
-          className="rotate-180"
-          onClick={handleNext}
-          ariaLabel="кнопка для переходу до наступного фото"
-        />
+
+        <div className="flex flex-col gap-3">
+          <ButtonSlide
+            onClick={handlePrev}
+            ariaLabel="кнопка для переходу до попереднього фото"
+          />
+          <ButtonSlide
+            className="rotate-180"
+            onClick={handleNext}
+            ariaLabel="кнопка для переходу до наступного фото"
+          />
+        </div>
       </div>
-      <AnimatePresence>
-        <BigFoto
-          imageUrl={arrayReverse[indexBigFoto]?.urlImage}
-          name={arrayReverse[indexBigFoto]?.name ?? ''}
-        />
-      </AnimatePresence>
-      <AnimatePresence>
-        <DescriptionFoto
-          key={arrayReverse[indexBigFoto].title}
-          title={arrayReverse[indexBigFoto].title ?? 'no title'}
-          description={
-            arrayReverse[indexBigFoto].description ?? 'no description'
-          }
-        />
-      </AnimatePresence>
-      <ReadMore />
+      <BigFoto
+        className="2xl:h-[256px] 2xl:w-[540px]"
+        width={540}
+        imageUrl={objectBigFoto.urlImage}
+        name={objectBigFoto.name ?? ''}
+      />
+
+      <DescriptionFoto
+        className="ml-auto max-w-[346px]"
+        key={objectBigFoto.title}
+        title={objectBigFoto.title ?? 'no title'}
+        description={objectBigFoto.description ?? 'no description'}
+      />
     </div>
   );
 };

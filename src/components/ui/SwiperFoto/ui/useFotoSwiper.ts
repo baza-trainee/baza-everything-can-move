@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { cycleIndex, generatePositions, generateVariants } from './ui/ui';
-import { ObjectArrayFoto } from './ui/types';
+import { cycleIndex, generatePositions, generateVariants } from './ui';
+import { ObjectArrayFoto } from './types';
 
 export const useFotoSwiper = (arrayImages: ObjectArrayFoto[]) => {
   const [positionIndexes, setPositionIndexes] = useState(
@@ -48,6 +48,8 @@ export const useFotoSwiper = (arrayImages: ObjectArrayFoto[]) => {
     };
   }, [handleNext]);
 
+  const objectBigFoto = arrayReverse[indexBigFoto];
+
   const position = useMemo(
     () => generatePositions(arrayImages.length),
     [arrayImages.length]
@@ -67,5 +69,6 @@ export const useFotoSwiper = (arrayImages: ObjectArrayFoto[]) => {
     handlePrev,
     position,
     newVariants,
+    objectBigFoto,
   };
 };

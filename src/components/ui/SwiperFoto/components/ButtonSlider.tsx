@@ -1,4 +1,4 @@
-import IconRow from '../../../../public/assets/icons/IconArrowWithoutBorder.svg';
+import IconRow from '../../../../../public/assets/icons/IconArrowWithoutBorder.svg';
 import { cn } from '@/lib/utils';
 
 export const ButtonSlide = ({

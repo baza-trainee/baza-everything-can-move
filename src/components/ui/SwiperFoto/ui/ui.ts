@@ -1,3 +1,5 @@
+import { Variants } from 'framer-motion';
+
 export const generatePositions = (length: number) => {
   const positions = [];
   const centerIndex = Math.floor(length / 2);
@@ -21,14 +23,7 @@ export const cycleIndex = (
 ) => (prevIndex + direction + arrayLengs) % arrayLengs;
 
 export const generateVariants = (length: number) => {
-  const variants: {
-    [key: string]: {
-      top: string;
-      scale?: number;
-      opacity?: number;
-      translateY?: string;
-    };
-  } = {};
+  const variants: Variants = {};
   const centerIndex = Math.floor(length / 2);
   const spacing = 100 / (length + 1);
 

@@ -1,11 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
-import FotoSwiper from '../../../ui/SwiperFoto/FotoSwiper';
+import FotoSwiper from '../../../ui/SwiperFoto/components/FotoSwiper';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { teamImages } from './ArrayTeamImages';
 import SubTitle from '@/components/ui/SubTitle';
 import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
+import LinkMoreInfo from '@/components/ui/SwiperFoto/components/LinkMoreInfo';
 
 function TeamSection() {
   return (
@@ -31,19 +30,7 @@ function TeamSection() {
                 до трьох дизайнерів, до трьох фронт девелоперів, до трьох
                 тестувальників та Іван.
               </p>
-              <Link href={'/team'} className="group ml-auto flex gap-2">
-                <span className="relative after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-full after:bg-white after:transition-all after:duration-500 group-hover:after:w-0">
-                  читати далі
-                </span>
-
-                <Image
-                  width={24}
-                  height={24}
-                  alt="Кнопка читати далі"
-                  src={'/assets/icons/icon_arrow.svg'}
-                  className="transition-all duration-500 ease-in-out group-hover:scale-125"
-                />
-              </Link>
+              <LinkMoreInfo title="читати далі" />
             </div>
           </div>
         </ContainerWithCorners>
