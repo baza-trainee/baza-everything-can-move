@@ -126,16 +126,6 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  //   const addAnimation = useCallback(() => {
-  //     const duplicatedImages = images.concat(images);
-
-  //     return duplicatedImages;
-  //   }, [images]);
-
-  //   useEffect(() => {
-  //     addAnimation();
-  //   }, [addAnimation]);
-
   const nextImage = useCallback(() => {
     setDirection(1);
 
@@ -181,7 +171,6 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
           //   console.log('currentIndex', currentIndex);
           return (
             <AnimatePresence initial={false} custom={direction}>
-              const isActive = index === currentIndex;
               {(isActive || isPrevious || isNext) && (
                 <motion.div
                   key={image.pos}
