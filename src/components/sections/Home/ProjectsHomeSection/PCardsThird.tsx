@@ -12,18 +12,18 @@ import ProjectsSlider3 from './ProjectsSlider3';
 export function PCardsThird() {
   return (
     <>
-      {/* from tablet */}
-      <div className="hidden lg:relative lg:block lg:h-[417px] lg:w-full">
+      {/* tablet */}
+      <div className="hidden lg:relative lg:block lg:h-[338px] lg:w-full">
         <FollowerPointerCard>
           {IMAGES_HOME_PROJECTS.map((image, ind) => (
             <CardContainer
               key={image.name + ind}
               className="absolute w-fit"
               style={{
-                top: image.top, // top: `${image.top + 200}px`,
-                left: image.left,
-                width: `${image.width}px`,
-                height: `${image.height}px`,
+                top: image.topTablet,
+                left: image.leftTablet,
+                width: `${image.widthTablet}px`,
+                height: `${image.heightTablet}px`,
               }}
             >
               <CardBody className="group/card h-full w-full rounded-xl">
@@ -33,11 +33,39 @@ export function PCardsThird() {
                 >
                   <Image
                     src={image.src}
-                    // width={image.width}
-                    // height={image.height}
                     className="rounded-xl object-cover group-hover/card:shadow-xl"
                     alt={image.name}
-                    // style={{ width: 'auto', height: 'auto' }}
+                    style={{ width: '100%', height: '100%' }}
+                  />
+                </CardItem>
+              </CardBody>
+            </CardContainer>
+          ))}
+        </FollowerPointerCard>
+      </div>
+      {/* desktop */}
+      <div className="hidden 2xl:relative 2xl:block 2xl:h-[417px] 2xl:w-full">
+        <FollowerPointerCard>
+          {IMAGES_HOME_PROJECTS.map((image, ind) => (
+            <CardContainer
+              key={image.name + ind}
+              className="absolute w-fit"
+              style={{
+                top: image.topDesktop,
+                left: image.leftDesktop,
+                width: `${image.widthDesktop}px`,
+                height: `${image.heightDesktop}px`,
+              }}
+            >
+              <CardBody className="group/card h-full w-full rounded-xl">
+                <CardItem
+                  translateZ={image.translateZ}
+                  className="h-full w-full"
+                >
+                  <Image
+                    src={image.src}
+                    className="rounded-xl object-cover group-hover/card:shadow-xl"
+                    alt={image.name}
                     style={{ width: '100%', height: '100%' }}
                   />
                 </CardItem>

@@ -14,11 +14,15 @@ interface ImageType {
   src: StaticImageData;
 
   name: string;
-  width: number;
-  height: number;
-  top: number | string;
-  left: number | string;
+  widthDesktop: number;
+  heightDesktop: number;
+  topDesktop: number | string;
+  leftDesktop: number | string;
   translateZ: number;
+  widthTablet: number;
+  heightTablet: number;
+  topTablet: number | string;
+  leftTablet: number | string;
 }
 
 export interface ProjectsSliderProps {
@@ -146,7 +150,7 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
                       'absolute mb-2 flex',
 
                       isActive &&
-                        'z-10 mx-auto max-w-[310px] flex-col items-center shadow-olga-combined',
+                        'shadow-olga-combined z-10 mx-auto max-w-[310px] flex-col items-center',
                       isPrevious && 'w-120px left-0 top-[69px] h-16',
                       isNext && 'w-120px right-0 top-[69px] h-16'
                     )}

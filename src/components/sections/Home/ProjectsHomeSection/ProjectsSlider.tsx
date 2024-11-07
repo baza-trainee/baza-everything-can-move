@@ -13,11 +13,16 @@ interface ImageType {
   src: StaticImageData;
 
   name: string;
-  width: number;
-  height: number;
-  top: number | string;
-  left: number | string;
+  widthDesktop: number;
+  heightDesktop: number;
+  topDesktop: number | string;
+  leftDesktop: number | string;
   translateZ: number;
+
+  widthTablet: number;
+  heightTablet: number;
+  topTablet: number | string;
+  leftTablet: number | string;
 }
 
 export interface ProjectsSliderProps {
@@ -119,7 +124,7 @@ const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ images }) => {
               index === currentIndex && (
                 <motion.div
                   key={image.pos}
-                  className="mx-auto flex w-[320px] flex-col items-center shadow-olga-combined"
+                  className="shadow-olga-combined mx-auto flex w-[320px] flex-col items-center"
                 >
                   <motion.div
                     custom={direction}
