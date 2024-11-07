@@ -38,12 +38,12 @@ const imageVariants = {
   //     };
   //   },
   enter: (direction: number) => ({
-    x: direction > 0 ? -500 : 500,
+    x: direction > 0 ? 500 : -500,
     scale: 0.5,
     opacity: 0.7,
     transition: {
       duration: 0.6,
-      ease: 'easeIn',
+      //   ease: 'ease',
     },
   }),
   //   center: {
@@ -72,7 +72,7 @@ const imageVariants = {
     scale: 1,
     transition: {
       duration: 0.8,
-      ease: 'easeInOut',
+      //   ease: 'ease',
     },
   },
   //   exit: (direction: number) => {
@@ -87,12 +87,12 @@ const imageVariants = {
   //     };
   //   },
   exit: (direction: number) => ({
-    x: direction > 0 ? 200 : -200,
+    x: direction > 0 ? -200 : 200,
     scale: 0.5,
     opacity: 0.7,
     transition: {
       duration: 0.6,
-      ease: 'easeIn',
+      //   ease: 'ease',
     },
   }),
 };
@@ -157,63 +157,51 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
       <div className="relative mb-6 flex h-[193px] w-[343px] items-center justify-center overflow-hidden">
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-3" />
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 right-3 rotate-[270deg]" />
-        {/* <div
-          ref={scrollerRef}
-          className="flex h-[164px] w-max flex-nowrap"
-          style={{ perspective: '1000px' }}
-        > */}
-        {images.map((image, index) => {
-          const isActive = index === currentIndex;
-          const isPrevious =
-            index === (currentIndex - 1 + images.length) % images.length;
-          const isNext = index === (currentIndex + 1) % images.length;
-          //   console.log('current', isActive);
-          //   console.log('currentIndex', currentIndex);
-          return (
-            <AnimatePresence initial={false} custom={direction}>
-              {(isActive || isPrevious || isNext) && (
-                <motion.div
-                  key={image.pos}
-                  style={{ transformStyle: 'preserve-3d' }}
-                  className={clsx(
-                    'absolute mb-2 flex w-[120px]',
+        <AnimatePresence initial={false} custom={direction}>
+          {images.map((image, index) => {
+            const isActive = index === currentIndex;
+            const isPrevious =
+              index === (currentIndex - 1 + images.length) % images.length;
+            const isNext = index === (currentIndex + 1) % images.length;
+            //   console.log('current', isActive);
+            //   console.log('currentIndex', currentIndex);
+            return (
+              <React.Fragment key={`fragment-${index}`}>
+                {(isActive || isPrevious || isNext) && (
+                  <motion.div
+                    key={index}
+                    style={{ transformStyle: 'preserve-3d' }}
+                    className={clsx(
+                      'absolute mb-2 flex w-[120px]',
+                      // w-[320px] left-3 top-0
+                      isActive &&
+                        'shadow-olga-combined z-10 mx-auto flex-col items-center',
+                      isPrevious && 'w-120px left-0 top-[69px] h-16',
+                      isNext && 'w-120px right-0 top-[69px] h-16'
+                    )}
+                    custom={direction}
+                    variants={imageVariants}
+                    initial="enter"
+                    animate={['center', 'expand']}
+                    //   animate={isActive ? ['center', 'expand'] : 'expand'}
+                    exit="exit"
+                  >
+                    <Image
+                      src={image.src}
+                      className="object-cover"
+                      alt={image.name}
+                      style={{
+                        //   width: '100%',
+                        //   height: '100%',
+                        transform: 'scale(1)',
+                        transition: 'transform 0.8s ease-in-out',
+                      }}
+                    />
+                    {/* </motion.div> */}
 
-                    isActive &&
-                      'shadow-olga-combined left-3 top-0 z-10 mx-auto w-[320px] flex-col items-center',
-                    isPrevious && 'w-120px left-0 top-[69px] h-16',
-                    isNext && 'w-120px right-0 top-[69px] h-16'
-                  )}
-                  custom={direction}
-                  variants={imageVariants}
-                  initial="enter"
-                  animate={['center', 'expand']}
-                  //   animate={isActive ? ['center', 'expand'] : 'expand'}
-                  exit="exit"
-                >
-                  {/* <motion.div
-                  custom={direction}
-                  variants={imageVariants}
-                  initial="enter"
-                  animate={['center', 'expand']}
-                  exit="exit"
-                  className="mb-2 flex h-[164px] w-full items-center justify-center overflow-hidden"
-                > */}
-                  <Image
-                    src={image.src}
-                    className="object-cover"
-                    alt={image.name}
-                    style={{
-                      //   width: '100%',
-                      //   height: '100%',
-                      transform: 'scale(1)',
-                      transition: 'transform 0.8s ease-in-out',
-                    }}
-                  />
-                  {/* </motion.div> */}
+                    {/* title */}
 
-                  {/* title */}
-
-                  {/* <motion.div
+                    {/* <motion.div
                       className="relative w-full"
                       custom={direction}
                       variants={titleVariants}
@@ -230,13 +218,13 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
                       </h3>
                     </motion.div> */}
 
-                  {/* </div> */}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          );
-        })}
-        {/* </div> */}
+                    {/* </div> */}
+                  </motion.div>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </AnimatePresence>
 
         {/*project card */}
       </div>

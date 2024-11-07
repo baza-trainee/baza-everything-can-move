@@ -47,7 +47,7 @@ export function PCardsThird() {
         </FollowerPointerCard>
       </div>
       {/* mobile */}
-      <ProjectsSlider images={IMAGES_HOME_PROJECTS} />
+      {/* <ProjectsSlider images={IMAGES_HOME_PROJECTS} /> */}
       <ProjectsSlider3 images={IMAGES_HOME_PROJECTS} />
     </>
   );
