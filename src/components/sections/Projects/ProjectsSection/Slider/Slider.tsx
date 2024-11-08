@@ -55,9 +55,9 @@ const Slider = () => {
         <AnimatePresence mode="sync">
           <motion.div
             key={`${objectBigFoto.title}-${objectBigFoto.description}`}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
+            exit={{ opacity: 0, y: 100 }}
             transition={{ duration: 1 }}
           >
             <DescriptionFoto

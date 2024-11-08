@@ -10,8 +10,12 @@ function DescriptionFoto({ title, description, className }: Props) {
         className
       )}
     >
-      <h2 className="uppercase 2xl:text-l">{title || 'no title'}</h2>
-      <p className="2xl:text-sm">{description || 'no description'}</p>
+      <h2 className="font-regular uppercase leading-o-130 2xl:text-l">
+        {title || 'no title'}
+      </h2>
+      <p className="font-regular leading-o-130 2xl:text-sm">
+        {description || 'no description'}
+      </p>
     </div>
   );
 }
