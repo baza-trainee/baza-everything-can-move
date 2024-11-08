@@ -19,8 +19,8 @@ export default function ProjectsSection() {
       />
       <div className="container">
         <ContainerWithCorners className="pb-12 pt-10 lg:pb-0 2xl:pb-12 2xl:pt-0">
-          <SectionTitle className="z-50 mb-3">Проєкти</SectionTitle>
-          <SubTitle className="z-50 mb-8"> Результати Бази</SubTitle>
+          <SectionTitle className="mb-3">Проєкти</SectionTitle>
+          <SubTitle className="mb-8"> Результати Бази</SubTitle>
           <Slider />
           <LinkMoreInfo
             className="ml-auto mt-8 w-max"
