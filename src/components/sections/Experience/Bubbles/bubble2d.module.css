@@ -1,6 +1,11 @@
 #wiggleBlock{
    animation: wiggle 0.4s 0s linear infinite none running;
 }
+
+/* #bubbleDisappear{
+   animation: disappear 1s 1s linear forwards;
+} */
+
 #wiggleBlock:nth-of-type(1)::before,
 #wiggleBlock:nth-of-type(3)::before,
 #wiggleBlock:nth-of-type(5)::before{
@@ -13,7 +18,7 @@
     align-items: center;
     z-index: -9999;
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='lime' stroke-width='1' stroke-dasharray='1%2c45' stroke-dashoffset='100' stroke-linecap='butt'/%3e%3c/svg%3e");
-    animation: spin 40s linear infinite;
+    animation: spin 30s linear infinite;
 
 }
 #wiggleBlock:nth-of-type(1){
@@ -76,3 +81,16 @@
     transform: translate(0px, 0px) rotate(0deg);
   }
 }
+/* 
+@keyframes disappear { 
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    display: none;
+    opacity: 0;
+  }
+} */
