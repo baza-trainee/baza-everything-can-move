@@ -27,10 +27,9 @@ function Galaxy() {
       const z = Math.sin(branchAngle + spinAngle) * radius + randomZ;
 
       positions.set([x, y, z], i * 3);
-
-      const insideColor = new THREE.Color(0xd3fd50);
+      const insideColor = new THREE.Color(0x00ff00);
       const outsideColor = new THREE.Color(0x311599);
-      const color = insideColor.lerp(outsideColor, radius / 2);
+      const color = insideColor.clone().lerp(outsideColor, Math.pow(radius / 5, 2)); 
       colors.set([color.r, color.g, color.b], i * 3);
     }
 
@@ -61,12 +60,12 @@ function Galaxy() {
 export default function GalaxyAnimation() {
   return (
     <div className="h-[340px] w-[100%] lg:px-[10%]">
-      <Canvas  camera={{ position: [4, 4, 4], fov: 60 }} onCreated={({ camera }) => camera.lookAt(0, 0, 0)}>
-      <ambientLight intensity={0.5} />
-        <directionalLight position={[0, 5, 5]} intensity={1.5} />
+      <Canvas 
+      camera={{ position: [4, 6, 4], fov: 75 }} >
+      <ambientLight intensity={0.7} />
+        <directionalLight position={[0, 8, 5]} intensity={1.8} />
         <Galaxy />
         <OrbitControls enableDamping={true} />
-
       </Canvas>
     </div>
   );

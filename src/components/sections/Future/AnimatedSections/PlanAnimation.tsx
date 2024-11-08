@@ -1,8 +1,8 @@
-'use client'
-import React, { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { motion } from "framer-motion";
-import * as THREE from "three";
+'use client';
+import React, { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { motion } from 'framer-motion';
+import * as THREE from 'three';
 
 function IrregularWaveMesh({ speed = 1, intensity = 1 }) {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -17,8 +17,8 @@ function IrregularWaveMesh({ speed = 1, intensity = 1 }) {
       const x = position.getX(i);
       const y = position.getY(i);
 
-      // Хвилеподібний ефект
-      const zOffset = Math.sin(x * 2 + time) * Math.cos(y * 2 + time) * intensity;
+      const zOffset =
+        Math.sin(x * 2 + time) * Math.cos(y * 2 + time) * intensity;
       const irregularity = Math.sin(x + y + time * 0.5) * 0.3;
       position.setZ(i, zOffset + irregularity);
     }
@@ -31,8 +31,8 @@ function IrregularWaveMesh({ speed = 1, intensity = 1 }) {
       <planeGeometry args={[10, 10, 64, 64]} />
       <shaderMaterial
         uniforms={{
-          color1: { value: new THREE.Color("#8f8ded") },
-          color2: { value: new THREE.Color("#d3fd50") },
+          color1: { value: new THREE.Color('#8f8ded') },
+          color2: { value: new THREE.Color('#d3fd50') },
           time: { value: 0 },
         }}
         vertexShader={`
@@ -66,14 +66,14 @@ export default function PlanAnimation() {
   return (
     <motion.div
       style={{
-        width: "100%",
-        height: "300px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "1.2rem",
-        backgroundColor: "#000",
-        borderRadius: "50%",
+        width: '100%',
+        height: '300px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '1.2rem',
+        backgroundColor: '#000',
+        borderRadius: '50%',
       }}
     >
       <Canvas camera={{ position: [0, 0, 8], fov: 75 }}>
