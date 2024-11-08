@@ -11,57 +11,57 @@ interface ProjectsSliderProps {
 }
 
 const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
-  const [positionIndexes, setPositionIndexes] = useState([
-    0, 1, 2, 3, 4, 5, 6, 7,
-  ]);
-  console.log('positionIndexes', positionIndexes);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const totalImages = images.length;
+
+  console.log('currentIndex', currentIndex);
 
   const handleNext = () => {
-    setPositionIndexes((prevIndexes) => {
-      const updatedIndexes = prevIndexes.map(
-        (prevIndex) => (prevIndex + 1) % 3
-      );
-      return updatedIndexes;
-    });
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
   };
 
   const handleBack = () => {
-    setPositionIndexes((prevIndexes) => {
-      const updatedIndexes = prevIndexes.map(
-        (prevIndex) => (prevIndex + 4) % 3
-      );
-
-      return updatedIndexes;
-    });
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
   };
 
- 
+  //   (prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1)
 
-  const positions = ['center', 'left', 'right'];
+  const positions = ['right', 'center', 'left'];
 
   const imageVariants = {
     center: { x: '0%', scale: 1, zIndex: 5 },
-  
-    left: { x: '-90%', scale: 0.5, zIndex: 2 },
-    right: { x: '90%', scale: 0.5, zIndex: 1 },
-   
+
+    left: { x: '-100%', scale: 0.5, zIndex: 2 },
+    right: { x: '100%', scale: 0.5, zIndex: 2 },
   };
+  const getPositionIndex = (baseIndex: number, offset: number) => {
+    return (baseIndex + offset + totalImages) % totalImages;
+  };
+  // const isPrevious =
+  //   index === (currentIndex - 1 + images.length) % images.length;
+  // const isNext = index === (currentIndex + 1) % images.length;
   return (
     <div className="flex h-[320px] flex-col items-center justify-center">
-      {images.map((image, index) => (
-        <motion.img
-          key={index}
-          animate={positions[positionIndexes[index]]}
-          variants={imageVariants}
-          transition={{ duration: 0.5 }}
-          className="rounded-[12px]"
-          initial="center"
-          // src={image.src}
-          src={typeof image.src === 'string' ? image.src : image.src.src}
-          alt={image.name}
-          style={{ width: '40%', position: 'absolute' }}
-        />
-      ))}
+      {positions.map((position, posIndex) => {
+        const imageIndex = getPositionIndex(currentIndex, posIndex - 1);
+        return (
+          <motion.img
+            key={imageIndex}
+            src={
+              typeof images[imageIndex].src === 'string'
+                ? images[imageIndex].src
+                : images[imageIndex].src.src
+            }
+            alt={`Image ${imageIndex}`}
+            className="rounded-[12px]"
+            initial="left"
+            animate={position}
+            variants={imageVariants}
+            transition={{ duration: 0.5 }}
+            style={{ width: '40%', position: 'absolute' }}
+          />
+        );
+      })}
 
       {/* buttons div */}
       {/* <div className="flex justify-center gap-5">
