@@ -5,13 +5,14 @@ import Image from 'next/image';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-third';
 import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
-import ProjectsSlider3 from './ProjectsSlider3';
+//import ProjectsSlider3 from './ProjectsSlider3';
+import MobileCarousel from './MobileCarousel/MobileCarousel';
 
 export function PCardsThird() {
   return (
     <>
       {/* tablet */}
-      <div className="hidden lg:relative lg:block lg:h-[338px] lg:w-full">
+      {/* <div className="hidden lg:relative lg:block lg:h-[338px] lg:w-full">
         <FollowerPointerCard>
           {IMAGES_HOME_PROJECTS.map((image, ind) => (
             <CardContainer
@@ -40,9 +41,9 @@ export function PCardsThird() {
             </CardContainer>
           ))}
         </FollowerPointerCard>
-      </div>
+      </div> */}
       {/* desktop */}
-      <div className="hidden 2xl:relative 2xl:block 2xl:h-[417px] 2xl:w-full">
+      {/* <div className="hidden 2xl:relative 2xl:block 2xl:h-[417px] 2xl:w-full">
         <FollowerPointerCard>
           {IMAGES_HOME_PROJECTS.map((image, ind) => (
             <CardContainer
@@ -71,10 +72,10 @@ export function PCardsThird() {
             </CardContainer>
           ))}
         </FollowerPointerCard>
-      </div>
+      </div> */}
       {/* mobile */}
-
-      <ProjectsSlider3 images={IMAGES_HOME_PROJECTS} />
+      {/* <ProjectsSlider3 images={IMAGES_HOME_PROJECTS} /> */}
+      <MobileCarousel images={IMAGES_HOME_PROJECTS} />
     </>
   );
 }
