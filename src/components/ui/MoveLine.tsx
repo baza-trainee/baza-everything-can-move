@@ -4,26 +4,39 @@ import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+type TypeOfMove = {
+  infinityText: 'infinityText';
+  singleLine: 'line';
+};
+
 type Props = {
   duration?: number;
   className?: string;
   direction: 'right' | 'left' | 'up' | 'down';
-  position: 'bottom-0' | 'top-0' | 'left-0' | 'right-0';
+  position?: 'bottom-0' | 'top-0' | 'left-0' | 'right-0';
   repeat?: number | 'infinity';
   width?: number;
   height?: number;
   src?: string;
+  type: keyof TypeOfMove;
+  infinityText?: string;
+  amountOfText?: number;
+  gap?: number;
 };
 
 const MotionImage = motion.create(Image);
 
 function MoveLine({
   duration = 60,
+  type = 'singleLine',
+  infinityText,
   className,
   direction = 'right',
   position = 'bottom-0',
   repeat = 'infinity',
   width = 80,
+  amountOfText = 1,
+  gap = 0,
   height = 11,
   src = '/assets/images/HomeImg/line.svg',
 }: Props) {
@@ -52,20 +65,81 @@ function MoveLine({
   }
 
   return (
-    <MotionImage
-      {...animationProps}
-      transition={{
-        duration: duration,
-        repeat: repeat === 'infinity' ? Infinity : repeat,
-        ease: 'linear',
-      }}
-      className={cn('absolute', position, className)}
-      width={width}
-      height={height}
-      alt="line"
-      src={src}
-    />
+    <>
+      {type === 'singleLine' && (
+        <MotionImage
+          {...animationProps}
+          transition={{
+            duration: duration,
+            repeat: repeat === 'infinity' ? Infinity : repeat,
+            ease: 'linear',
+          }}
+          className={cn('pointer-events-none absolute', position, className)}
+          width={width}
+          height={height}
+          alt="line"
+          src={src}
+        />
+      )}
+      {type === 'infinityText' && (
+        <div
+          className={cn(
+            'pointer-events-none absolute flex w-full overflow-x-hidden',
+            className
+          )}
+        >
+          <ListText
+            gap={gap}
+            duration={duration}
+            amountOfText={amountOfText}
+            infinityText={infinityText}
+          />
+          <ListText
+            gap={gap}
+            duration={duration}
+            amountOfText={amountOfText}
+            infinityText={infinityText}
+          />
+        </div>
+      )}
+    </>
   );
 }
 
 export default MoveLine;
+
+function ListText({
+  duration,
+  amountOfText,
+  infinityText,
+  gap = 0,
+}: Partial<Props>) {
+  return (
+    <motion.ul
+      className="flex flex-shrink-0"
+      initial={{ x: '0%' }}
+      animate={{ x: '-100%' }}
+      transition={{
+        duration: duration,
+        repeat: Infinity,
+        ease: 'linear',
+      }}
+    >
+      {Array(amountOfText)
+        .fill(infinityText?.split(' '))
+        .flat()
+        .map((item, index) => (
+          <li key={index}>
+            <span
+              style={{
+                paddingRight: gap,
+              }}
+              className="w-max text-4xl font-regular uppercase leading-s-120 opacity-10"
+            >
+              {item}
+            </span>
+          </li>
+        ))}
+    </motion.ul>
+  );
+}

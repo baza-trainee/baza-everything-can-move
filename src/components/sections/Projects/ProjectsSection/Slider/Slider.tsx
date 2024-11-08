@@ -1,5 +1,6 @@
 'use client';
 
+import { AnimatePresence, motion } from 'framer-motion';
 import { projectsArray } from './progectsArray';
 
 import {
@@ -48,15 +49,25 @@ const Slider = () => {
         className="2xl:h-[256px] 2xl:w-[540px]"
         width={540}
         imageUrl={objectBigFoto.urlImage}
-        name={objectBigFoto.name ?? ''}
+        name={objectBigFoto.name ?? 'Зображення сторінки сайту проекта'}
       />
-
-      <DescriptionFoto
-        className="ml-auto max-w-[346px]"
-        key={objectBigFoto.title}
-        title={objectBigFoto.title ?? 'no title'}
-        description={objectBigFoto.description ?? 'no description'}
-      />
+      <div className="relative ml-auto h-[256px] w-full max-w-[346px]">
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={`${objectBigFoto.title}-${objectBigFoto.description}`}
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            transition={{ duration: 1 }}
+          >
+            <DescriptionFoto
+              className="absolute left-0 top-0"
+              title={objectBigFoto.title ?? 'no title'}
+              description={objectBigFoto.description ?? 'no description'}
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
     </div>
   );
 };

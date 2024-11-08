@@ -13,7 +13,7 @@ export const useFotoSwiper = (arrayImages: ObjectArrayFoto[]) => {
     return positionIndexes[centerIdx];
   }, [positionIndexes]);
 
-  const arrayReverse = useMemo(() => [...arrayImages].reverse(), [arrayImages]);
+  const arrayReverse = [...arrayImages].toReversed();
 
   const handleNext = useCallback(() => {
     setPositionIndexes((prevPosition) =>
