@@ -114,14 +114,14 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
-  useEffect(() => {
-    if (isInView) {
-      const interval = setInterval(() => {
-        nextImage();
-      }, 15000);
-      return () => clearInterval(interval);
-    }
-  }, [isInView, nextImage]);
+  // useEffect(() => {
+  //   if (isInView) {
+  //     const interval = setInterval(() => {
+  //       nextImage();
+  //     }, 15000);
+  //     return () => clearInterval(interval);
+  //   }
+  // }, [isInView, nextImage]);
 
   return (
     <div
@@ -151,8 +151,8 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
 
                       isActive &&
                         'shadow-olga-combined z-10 mx-auto max-w-[200px] flex-col items-center',
-                      isPrevious && 'w-120px right-0 top-[69px] h-16',
-                      isNext && 'w-120px left-0 top-[69px] h-16'
+                      isPrevious && 'right-0 top-[69px] h-16 w-[120px]',
+                      isNext && 'left-0 top-[69px] h-16 w-[120px]'
                     )}
                     custom={direction}
                     variants={imageVariants}
