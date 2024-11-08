@@ -6,10 +6,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import DevelopmentText from './TextSections/DevelopmentText';
 import BrainAnimation from './AnimatedSections/BrainAnimation';
 
-
-
 function SectionDevelopment() {
-  const animationRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isScrollingInChild, setIsScrollingInChild] = useState(false);
   const [isFullyVisible, setIsFullyVisible] = useState(false);
@@ -55,18 +52,24 @@ function SectionDevelopment() {
   };
 
   return (
-    <ContainerWithCorners  className="mt-[54px] lg:mt-[80px] xl:mt-[40px]">
-      <SectionTitle>Розвиток</SectionTitle>
-      <SubTitle>Розвивайся з Базою</SubTitle>
-      <div ref={sectionRef} className="flex flex-col lg:flex-row py-[32px] justify-items-center lg:items-center">
-        <div className="grow" ref={animationRef}>
-<BrainAnimation/>        </div>
-          <DevelopmentText onScrollUpdate={handleChildScrollUpdate}/>
+    <section>
+      <div className="container">
+        <ContainerWithCorners className="mb-[100px] lg:mb-[80px] xl:mb-[64px]">
+          <SectionTitle>Розвиток</SectionTitle>
+          <SubTitle>Розвивайся з Базою</SubTitle>
+          <div
+            ref={sectionRef}
+            className="flex flex-col justify-items-center py-[32px] lg:flex-row lg:items-center"
+          >
+            <div className="grow">
+              <BrainAnimation />{' '}
+            </div>
+            <DevelopmentText onScrollUpdate={handleChildScrollUpdate} />
+          </div>
+        </ContainerWithCorners>
       </div>
-    </ContainerWithCorners>
+    </section>
   );
 }
 
 export default SectionDevelopment;
-
-

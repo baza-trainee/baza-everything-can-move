@@ -6,28 +6,29 @@ interface DevelopmentTextProps {
   onScrollUpdate?: (scrollInfo: { isTop: boolean; isBottom: boolean }) => void;
 }
 
-const DevelopmentText: React.FC<DevelopmentTextProps> = ({
-  onScrollUpdate,
-}) => {
+const DevelopmentText: React.FC<DevelopmentTextProps> = ({ onScrollUpdate }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Debounce function to limit the scroll updates
+  const debounceScrollUpdate = (callback: () => void, delay: number) => {
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+    scrollTimeoutRef.current = setTimeout(callback, delay);
+  };
 
   const handleScroll = () => {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
     const isTop = container.scrollTop === 0;
-    const isBottom =
-      container.scrollTop + container.clientHeight >= container.scrollHeight;
+    const isBottom = container.scrollTop + container.clientHeight >= container.scrollHeight;
 
-    // Дебаунсинг прокрутки за допомогою setTimeout, щоб зменшити кількість викликів
-    if (scrollTimeoutRef.current) {
-      clearTimeout(scrollTimeoutRef.current);
-    }
-
-    scrollTimeoutRef.current = setTimeout(() => {
+    // Use debounce function to limit the number of calls to onScrollUpdate
+    debounceScrollUpdate(() => {
       onScrollUpdate?.({ isTop, isBottom });
-    }, 100); // Затримка в 100мс для зменшення викликів
+    }, 100); // 100ms delay
   };
 
   useEffect(() => {
@@ -36,6 +37,11 @@ const DevelopmentText: React.FC<DevelopmentTextProps> = ({
 
     return () => {
       container?.removeEventListener('scroll', handleScroll);
+
+      // Clean up the timeout on unmount
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -45,9 +51,9 @@ const DevelopmentText: React.FC<DevelopmentTextProps> = ({
         ref={containerRef}
         style={{
           overflowY: 'scroll',
-          scrollbarWidth: 'none', // для Firefox
-          msOverflowStyle: 'none', // для Internet Explorer
-          WebkitOverflowScrolling: 'touch', // для плавної прокрутки на мобільних пристроях
+          scrollbarWidth: 'none', // Firefox
+          msOverflowStyle: 'none', // IE
+          WebkitOverflowScrolling: 'touch', // Smooth scroll on mobile
         }}
         className="scrollbar-hidden flex h-full max-h-full flex-col overflow-y-scroll"
       >

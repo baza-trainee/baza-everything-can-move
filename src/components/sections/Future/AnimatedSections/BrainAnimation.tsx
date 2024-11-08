@@ -3,53 +3,52 @@ import React, { useEffect } from 'react';
 import gsap from 'gsap';
 
 function BrainAnimation() {
- useEffect(() => {
-  const circles = document.querySelectorAll('.circle');
-  const mainTimeline = gsap.timeline({ repeat: -1, paused: true }); 
-  const highlightCircles = () => {
-    const tl = gsap.timeline();
+  useEffect(() => {
+    const circles = document.querySelectorAll('.circle');
+    const mainTimeline = gsap.timeline({ repeat: -1, paused: true });
+    const highlightCircles = () => {
+      const tl = gsap.timeline();
 
-    const shuffledCircles = Array.from(circles);
-    shuffledCircles.sort(() => Math.random() - 0.5);
+      const shuffledCircles = Array.from(circles);
+      shuffledCircles.sort(() => Math.random() - 0.5);
 
-    shuffledCircles.forEach((circle, idx) => {
-      tl.to(circle, {
-        duration: 1,
-        opacity: 1,
-        filter: 'url(#filter3_f_1818_7590)',
-        ease: 'power1.inOut',
-        delay: idx * 0.5,
-      }).to(circle, {
-        duration: 1,
-        fill: '#d3fd50',
-        scale: 1.75,
-        ease: 'power1.inOut',
+      shuffledCircles.forEach((circle, idx) => {
+        tl.to(circle, {
+          duration: 1,
+          opacity: 1,
+          filter: 'url(#filter3_f_1818_7590)',
+          ease: 'power1.inOut',
+          delay: idx * 0.5,
+        }).to(circle, {
+          duration: 1,
+          fill: '#d3fd50',
+          scale: 1.75,
+          ease: 'power1.inOut',
+        });
       });
-    });
 
-    return tl;
-  };
+      return tl;
+    };
 
-  // Функція для анімації кіл у випадковому порядку
-  const animateCircles = () => {
-    const tl = highlightCircles();
-    mainTimeline.clear(); // Очищаємо таймлайн перед додаванням нової анімації
-    mainTimeline.add(tl); // Додаємо анімацію до основного таймлайну
-    mainTimeline.play(); // Запускаємо основний таймлайн
-  };
+    // Функція для анімації кіл у випадковому порядку
+    const animateCircles = () => {
+      const tl = highlightCircles();
+      mainTimeline.clear(); // Очищаємо таймлайн перед додаванням нової анімації
+      mainTimeline.add(tl); // Додаємо анімацію до основного таймлайну
+      mainTimeline.play(); // Запускаємо основний таймлайн
+    };
 
-  // Початкова анімація при завантаженні компонента
-  animateCircles();
+    // Початкова анімація при завантаженні компонента
+    animateCircles();
 
-  // Запускаємо інтервал для повторної анімації
-  const interval = setInterval(animateCircles, 2000);
+    // Запускаємо інтервал для повторної анімації
+    const interval = setInterval(animateCircles, 2000);
 
-  return () => {
-    clearInterval(interval);
-    mainTimeline.kill(); 
-  };
-}, []);
-
+    return () => {
+      clearInterval(interval);
+      mainTimeline.kill();
+    };
+  }, []);
 
   return (
     <svg

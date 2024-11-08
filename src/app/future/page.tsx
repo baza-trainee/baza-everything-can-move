@@ -8,12 +8,10 @@ import SectionJoin from '@/components/sections/PageTeam/SectionJoin/SectionJoin'
 function Page() {
   return (
     <section className="text-white">
-      <div className="container">
         <SectionFuture/>
         <SectionPlan/>
         <SectionDevelopment/>
         <SectionJoin/>
-      </div>
     </section>
   );
 }
