@@ -14,11 +14,15 @@ interface ImageType {
   src: StaticImageData;
 
   name: string;
-  width: number;
-  height: number;
-  top: number | string;
-  left: number | string;
+  widthDesktop: number;
+  heightDesktop: number;
+  topDesktop: number | string;
+  leftDesktop: number | string;
   translateZ: number;
+  widthTablet: number;
+  heightTablet: number;
+  topTablet: number | string;
+  leftTablet: number | string;
 }
 
 export interface ProjectsSliderProps {
@@ -27,9 +31,9 @@ export interface ProjectsSliderProps {
 
 const imageVariants = {
   enter: (direction: number) => ({
-    x: direction > 0 ? '-100%' : '100%',
+    x: direction > 0 ? '-150%' : '150%',
     z: 0,
-    scale: 0.1,
+    scale: 0,
     opacity: 0.7,
     transition: {
       x: { duration: 0.5 },
@@ -45,13 +49,13 @@ const imageVariants = {
   },
 
   expand: {
-    scale: 1,
+    scale: 1.5,
     z: 200,
     transition: { duration: 0.7, delay: 1 },
   },
 
   exit: (direction: number) => ({
-    x: direction > 0 ? '100%' : '-100%',
+    x: direction > 0 ? '200%' : '-200%',
     scale: 0.3,
     z: 0,
     opacity: 0.7,
@@ -62,11 +66,11 @@ const imageVariants = {
   }),
   side: {
     x: 0,
-    scale: 0.9,
+    scale: 1,
     opacity: 0.9,
     transition: {
       duration: 0.5,
-      delay: 0.2,
+      // delay: 0.2,
     },
   },
 };
@@ -110,6 +114,7 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
+
   useEffect(() => {
     if (isInView) {
       const interval = setInterval(() => {
@@ -146,9 +151,9 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
                       'absolute mb-2 flex',
 
                       isActive &&
-                        'z-10 mx-auto max-w-[310px] flex-col items-center shadow-olga-combined',
-                      isPrevious && 'w-120px left-0 top-[69px] h-16',
-                      isNext && 'w-120px right-0 top-[69px] h-16'
+                        'shadow-olga-combined z-10 mx-auto max-w-[200px] flex-col items-center',
+                      isPrevious && 'right-0 top-[69px] h-16 w-[120px]',
+                      isNext && 'left-0 top-[69px] h-16 w-[120px]'
                     )}
                     custom={direction}
                     variants={imageVariants}
