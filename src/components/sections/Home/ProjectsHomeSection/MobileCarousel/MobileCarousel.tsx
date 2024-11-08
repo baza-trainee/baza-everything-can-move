@@ -41,8 +41,8 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
 
   const imageVariants = {
     center: { x: '0%', scale: 1, zIndex: 5 },
-    left: { x: '-100%', scale: 0.5, zIndex: 2 },
-    right: { x: '100%', scale: 0.5, zIndex: 2 },
+    left: { x: '-50%', scale: 0.4, zIndex: 2 },
+    right: { x: '50%', scale: 0.4, zIndex: 2 },
   };
   const getPositionIndex = (baseIndex: number, offset: number) => {
     return (baseIndex + offset + totalImages) % totalImages;
@@ -50,7 +50,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
 
   return (
     <div
-      className="w-full lg:hidden"
+      className="w-full flex-col items-center justify-center lg:hidden"
       style={{ perspective: '1000px' }}
       ref={containerRef}
     >
@@ -61,21 +61,26 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
         {positions.map((position, posIndex) => {
           const imageIndex = getPositionIndex(currentIndex, posIndex - 1);
           return (
-            <motion.img
+            <motion.div
               key={imageIndex}
-              src={
-                typeof images[imageIndex].src === 'string'
-                  ? images[imageIndex].src
-                  : images[imageIndex].src.src
-              }
-              alt={`Image ${imageIndex}`}
-              className="rounded-[12px]"
               initial="left"
               animate={position}
               variants={imageVariants}
               transition={{ duration: 0.5 }}
-              style={{ width: '40%', position: 'absolute' }}
-            />
+              style={{ position: 'absolute' }}
+            >
+              <Image
+                src={images[imageIndex].src}
+                // src={
+                //   typeof images[imageIndex].src === 'string'
+                //     ? images[imageIndex].src
+                //     : images[imageIndex].src.src
+                // }
+                alt={`Image ${imageIndex}`}
+                className="object-cover"
+                style={{ width: 320, height: 164 }}
+              />
+            </motion.div>
           );
         })}
       </div>
