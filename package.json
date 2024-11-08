@@ -23,7 +23,8 @@
     "react-double-marquee": "^1.1.0",
     "react-intersection-observer": "^9.13.1",
     "tailwind-merge": "^2.5.4",
-    "three": "^0.169.0"
+    "three": "^0.169.0",
+    "use-sound": "^4.0.3"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

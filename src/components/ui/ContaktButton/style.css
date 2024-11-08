@@ -1,0 +1,10 @@
+.custom-shadow {
+    box-shadow: inset 0 0 25px #A1A1A1;
+    border: 2px solid #fff;
+    transition: box-shadow, border 0.3s ease 0s;
+}
+.custom-shadow:hover{
+    box-shadow: inset 0 0 25px #E9FFA3;
+    border: 2px solid #E9FFA3;
+
+}
