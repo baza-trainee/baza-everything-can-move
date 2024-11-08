@@ -32,12 +32,13 @@ export interface ProjectsSliderProps {
 const imageVariants = {
   enter: (direction: number) => {
     return {
-      x: direction > 0 ? -1000 : 1000,
+      //x: direction > 0 ? -1000 : 1000,
+      x: direction > 0 ? '-150%' : '150%',
       scale: 0.5,
       opacity: 0.5,
       transition: {
-        x: { duration: 0.5 },
-        ease: 'easeOut',
+        x: { duration: 1 },
+        ease: 'easeIn',
       },
     };
   },
@@ -54,7 +55,8 @@ const imageVariants = {
 
   exit: (direction: number) => {
     return {
-      x: direction > 0 ? 1000 : -1000,
+      //  x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? '150%' : '-150%',
       scale: 0.5,
       opacity: 0.5,
       transition: {
