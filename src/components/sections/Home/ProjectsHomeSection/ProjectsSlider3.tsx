@@ -114,14 +114,15 @@ const ProjectsSlider3: React.FC<ProjectsSliderProps> = ({ images }) => {
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
-  // useEffect(() => {
-  //   if (isInView) {
-  //     const interval = setInterval(() => {
-  //       nextImage();
-  //     }, 15000);
-  //     return () => clearInterval(interval);
-  //   }
-  // }, [isInView, nextImage]);
+
+  useEffect(() => {
+    if (isInView) {
+      const interval = setInterval(() => {
+        nextImage();
+      }, 15000);
+      return () => clearInterval(interval);
+    }
+  }, [isInView, nextImage]);
 
   return (
     <div
