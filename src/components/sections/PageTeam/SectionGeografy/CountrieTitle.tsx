@@ -21,8 +21,9 @@ export function CountrieTitle({ text }: CountrieProps) {
       >
         <motion.p
           whileHover={{
+            cursor: 'default',
             color: '#c3ff0a',
-            scale: 1.1,
+            scale: 1.05,
           }}
           className="text-center text-md uppercase leading-[1.3] 2xl:text-[36px] 2xl:font-bold 2xl:leading-normal"
         >
