@@ -19,8 +19,6 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
 
   const totalImages = images.length;
 
-  console.log('currentIndex', currentIndex);
-
   const handleNext = useCallback(() => {
     setDirection(1);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
@@ -43,24 +41,22 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
   const positions = ['right', 'center', 'left'];
 
   const imageVariants = {
-    center: { x: '0%', scale: 0.9, zIndex: 5 },
+    center: { x: '0%', scale: 1, zIndex: 5 },
     left: { x: '-50%', scale: 0.4, zIndex: 2 },
     right: { x: '50%', scale: 0.4, zIndex: 2 },
   };
   const titleVariants = {
-    // enter: (direction: number) => {
-    //   return { x: direction > 0 ? -500 : 500, opacity: 0 };
-    // },
-    enter: {
-      center: { x: '0%', opacity: 1 },
-    },
-
-    exit: (direction: number) => {
-      return {
-        x: direction > 0 ? 500 : -500,
-
-        opacity: 0,
-      };
+    exit: (direction: number) => ({
+      x: direction > 0 ? '100%' : '-100%',
+      opacity: 0,
+    }),
+    enter: (direction: number) => ({
+      x: direction > 0 ? '-100%' : '100%',
+      opacity: 0,
+    }),
+    center: {
+      x: '0%',
+      opacity: 1,
     },
   };
   const getPositionIndex = (baseIndex: number, offset: number) => {
@@ -72,57 +68,46 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
       className="w-full flex-col items-center justify-center lg:hidden"
       ref={containerRef}
     >
-      <div
-        // style={{ perspective: '1000px' }}
-        className="relative mb-6 flex h-[193px] w-[343px] items-center justify-center overflow-hidden"
-      >
+      <div className="relative mb-6 flex h-[193px] w-[343px] items-center justify-center overflow-hidden">
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-3" />
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 right-3 rotate-[270deg]" />
-        {/* <div className="flex h-[320px] flex-col items-center justify-center"> */}
+
         <AnimatePresence initial={false} custom={direction}>
-          <motion.div
-            className="absolute bottom-0 w-full"
-            custom={direction}
-            variants={titleVariants}
-            initial="enter"
-            // animate={{ x: direction > 0 ? 500 : -500, opacity: 1 }}
-            // animate={['center']}
-            // exit="exit"
-            transition={{
-              x: { type: 'spring', stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
-            }}
-          >
-            <h3 className="text-center text-s leading-o-150 text-olga-light-grey">
-              {images[currentIndex].name}
-            </h3>
-          </motion.div>
           {positions.map((position, posIndex) => {
             const imageIndex = getPositionIndex(currentIndex, posIndex - 1);
             return (
               <React.Fragment key={`fragment-${posIndex}`}>
                 <motion.div
-                  key={imageIndex}
+                  key={`image-${imageIndex}`}
                   initial="left"
                   animate={position}
                   variants={imageVariants}
                   transition={{ duration: 0.7 }}
-                  className="absolute h-[164px] w-[320px]"
-                  // style={{ transformStyle: 'preserve-3d' }}
+                  className="absolute top-0 h-[164px] w-[320px]"
                 >
                   <Image
                     src={images[imageIndex].src}
-                    // src={
-                    //   typeof images[imageIndex].src === 'string'
-                    //     ? images[imageIndex].src
-                    //     : images[imageIndex].src.src
-                    // }
                     alt={`Image ${imageIndex}`}
                     className="object-cover"
-                    // style={{ width: 320, height: 164 }}
                     style={{ width: '100%' }}
                   />
                 </motion.div>
+                {posIndex === 1 && (
+                  <motion.div
+                    key={`title-${currentIndex}`}
+                    className="absolute bottom-0 w-full"
+                    custom={direction}
+                    variants={titleVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.5 }}
+                  >
+                    <h3 className="text-center text-s leading-o-150 text-olga-light-grey">
+                      {images[currentIndex].name}
+                    </h3>
+                  </motion.div>
+                )}
               </React.Fragment>
             );
           })}
