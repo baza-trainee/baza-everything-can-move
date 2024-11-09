@@ -67,7 +67,8 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
               animate={position}
               variants={imageVariants}
               transition={{ duration: 0.5 }}
-              style={{ position: 'absolute' }}
+              className="absolute h-[164px] w-[320px]"
+              // style={{ position: 'absolute' }}
             >
               <Image
                 src={images[imageIndex].src}
@@ -78,7 +79,8 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
                 // }
                 alt={`Image ${imageIndex}`}
                 className="object-cover"
-                style={{ width: 320, height: 164 }}
+                // style={{ width: 320, height: 164 }}
+                style={{ width: '100%' }}
               />
             </motion.div>
           );
