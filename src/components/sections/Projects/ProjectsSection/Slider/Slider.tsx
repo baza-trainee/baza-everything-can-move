@@ -6,15 +6,22 @@ import { projectsArray } from './progectsArray';
 import {
   BigFoto,
   ButtonSlide,
-  CircleTimer,
   DescriptionFoto,
   ListFotoSlider,
   useFotoSwiper,
 } from '@/components/ui/SwiperFoto';
 import { useMediaQuery } from 'react-responsive';
+import { useEffect, useState } from 'react';
 
 const Slider = () => {
+  const [isClient, setIsClient] = useState(false);
+
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const {
     positionIndexes,
     indexBigFoto,
@@ -30,57 +37,52 @@ const Slider = () => {
     <div className="flex flex-col items-center gap-[104px] text-white lg:gap-[116px] 2xl:flex-row 2xl:gap-0">
       <div className="flex w-full flex-col-reverse items-center gap-8 lg:flex-row lg:justify-between lg:gap-0 2xl:justify-normal">
         <div className="flex flex-col gap-2 lg:h-[296px] lg:justify-between lg:gap-0 2xl:mr-14">
-          {!isTabletOrMobile && (
-            <ListFotoSlider
-              className="hidden lg:flex"
-              isCicleTimer={true}
-              indexBigFoto={indexBigFoto}
-              arrayImages={projectsArray}
-              position={position}
-              positionIndexes={positionIndexes}
-              newVariants={newVariants}
-            />
+          {isClient ? (
+            <>
+              {!isTabletOrMobile && (
+                <ListFotoSlider
+                  className="hidden lg:flex"
+                  isCicleTimer={true}
+                  indexBigFoto={indexBigFoto}
+                  arrayImages={projectsArray}
+                  position={position}
+                  positionIndexes={positionIndexes}
+                  newVariants={newVariants}
+                />
+              )}
+            </>
+          ) : (
+            <div className="h-[64px]"></div>
           )}
 
-          {isTabletOrMobile && (
-            <ListFotoSlider
-              className="h-[64px] w-[186px] justify-center lg:hidden"
-              isCicleTimer={true}
-              directionHorizontal={true}
-              indexBigFoto={indexBigFoto}
-              arrayImages={projectsArray}
-              position={position}
-              positionIndexes={positionIndexes}
-              newVariants={newVariantsHorizontal}
-            />
+          {isClient && (
+            <>
+              {isTabletOrMobile && (
+                <ListFotoSlider
+                  className="h-[64px] w-[186px] justify-center lg:hidden"
+                  isCicleTimer={true}
+                  directionHorizontal={true}
+                  indexBigFoto={indexBigFoto}
+                  arrayImages={projectsArray}
+                  position={position}
+                  positionIndexes={positionIndexes}
+                  newVariants={newVariantsHorizontal}
+                />
+              )}
+            </>
           )}
 
-          {!isTabletOrMobile && (
-            <div className="gap-3 lg:flex lg:flex-col">
-              <ButtonSlide
-                onClick={handlePrev}
-                ariaLabel="кнопка для переходу до попереднього фото"
-              />
-              <ButtonSlide
-                className="rotate-180"
-                onClick={handleNext}
-                ariaLabel="кнопка для переходу до наступного фото"
-              />
-            </div>
-          )}
-          {isTabletOrMobile && (
-            <div className="flex justify-center gap-3">
-              <ButtonSlide
-                onClick={handlePrev}
-                ariaLabel="кнопка для переходу до попереднього фото"
-              />
-              <ButtonSlide
-                className="rotate-180"
-                onClick={handleNext}
-                ariaLabel="кнопка для переходу до наступного фото"
-              />
-            </div>
-          )}
+          <div className="flex justify-center gap-3 lg:flex-col">
+            <ButtonSlide
+              onClick={handlePrev}
+              ariaLabel="кнопка для переходу до попереднього фото"
+            />
+            <ButtonSlide
+              className="rotate-180"
+              onClick={handleNext}
+              ariaLabel="кнопка для переходу до наступного фото"
+            />
+          </div>
         </div>
         <BigFoto
           className="h-[184px] w-[343px] lg:h-[300px] lg:w-[600px] 2xl:h-[256px] 2xl:w-[540px]"

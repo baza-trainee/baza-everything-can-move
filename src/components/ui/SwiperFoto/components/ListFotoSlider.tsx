@@ -63,7 +63,7 @@ function ListFotoSlider({
               x: 20,
             }}
             key={indexBigFoto}
-            className={'absolute -left-[13px]'}
+            className={'absolute -left-[12px]'}
           >
             {isCicleTimer && <CircleTimer />}
           </motion.li>
