@@ -5,29 +5,49 @@ import Image from 'next/image';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-third';
 import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
-import { useMediaQuery } from 'react-responsive';
 
 import MobileCarousel from './MobileCarousel/MobileCarousel';
 
 export function PCardsThird() {
   const [isClient, setIsClient] = useState(false);
+  // const [screenType, setScreenType] = useState<
+  //   'isMobile' | 'isTablet' | 'isDesktop'
+  // >('isDesktop');
+
   const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
   const isTablet = useMediaQuery({
     query: '(min-width: 768px) and (max-width: 1439px)',
   });
   const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
 
+  // useEffect(() => {
+  //   const updateScreenType = () => {
+  //     const width = window.innerWidth;
+  //     console.log("width",width)
+  //     if (width <= 767) {
+  //       setScreenType('isMobile');
+  //     } else if (width >= 768 && width <= 1439) {
+  //       setScreenType('isTablet');
+  //     } else {
+  //       setScreenType('isDesktop');
+  //     }
+  //   };
+
+  //   updateScreenType(); //
+  //   window.addEventListener('resize', updateScreenType);
+
+  //   return () => {
+  //     window.removeEventListener('resize', updateScreenType);
+  //   };
+  // }, []);
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  if (!isClient) {
-    return null;
-  }
   return (
-    <div className="flex justify-center w-full">
+    <div className="flex w-full justify-center">
       {/* tablet */}
-      {isTablet && (
+      {screenType === 'isTablet' && (
         <div className="lg:relative lg:block lg:h-[338px] lg:w-[620px]">
           {/* hidden */}
           <FollowerPointerCard>
@@ -61,8 +81,8 @@ export function PCardsThird() {
         </div>
       )}
       {/* desktop */}
-      {isDesktop && (
-        <div className="2xl:relative 2xl:block 2xl:h-[417px] 2xl:w-full">
+      {screenType === 'isDesktop' && (
+        <div className="2xl:relative 2xl:block 2xl:h-[417px] 2xl:w-[1144px]">
           {/* hidden */}
           <FollowerPointerCard>
             {IMAGES_HOME_PROJECTS.map((image, ind) => (
@@ -96,7 +116,9 @@ export function PCardsThird() {
       )}
 
       {/* mobile */}
-      {isMobile && <MobileCarousel images={IMAGES_HOME_PROJECTS} />}
+      {screenType === 'isMobile' && (
+        <MobileCarousel images={IMAGES_HOME_PROJECTS} />
+      )}
     </div>
   );
 }
