@@ -8,7 +8,7 @@ import LinkMoreInfo from '@/components/ui/SwiperFoto/components/LinkMoreInfo';
 
 function TeamSection() {
   return (
-    <section className="pb-[6.25rem]">
+    <section className="pb-[100px] 2xl:pb-[120px]">
       <div className="container text-white">
         <ContainerWithCorners className="relative flex flex-col gap-8 pb-12">
           <div className="pt-10">

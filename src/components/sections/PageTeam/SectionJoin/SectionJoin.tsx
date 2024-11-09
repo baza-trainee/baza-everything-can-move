@@ -5,7 +5,7 @@ import Description from './Description';
 
 function SectionJoin() {
   return (
-    <section className="">
+    <section className="pb-[100px] 2xl:pb-[120px]">
       <div className="container">
         <ContainerWithCorners className="pb-[46px]">
           <SectionTitle>Долучитися</SectionTitle>
