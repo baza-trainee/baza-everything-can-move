@@ -43,7 +43,7 @@ const VerticalSlider: React.FC = () => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 640) {
-        setFontSize('32px'); // Small screens
+        setFontSize('36px'); // Small screens
       } else if (width < 1024) {
         setFontSize('40px'); // Medium screens
       } else {
@@ -75,13 +75,13 @@ const VerticalSlider: React.FC = () => {
   return (
     <div
       onWheel={handleScroll}
-      className="relative w-full h-96 overflow-hidden flex flex-col items-center justify-center bg-black"
+      className="relative w-full h-96  overflow-hidden flex leading-[45px] items-center justify-center bg-black"
       style={{ overflowY: 'hidden' }}
     >
       {slides.map((slide, index) => (
         <div
           key={slide.id}
-          className="flex items-center justify-center"
+          className="flex items-center text-center justify-center"
           style={getStyle(index)}
         >
           <h2>{slide.content}</h2>

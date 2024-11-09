@@ -2,21 +2,21 @@ import { ObjectArrayFoto } from '@/components/ui/SwiperFoto/ui/types';
 
 export const projectsArray: ObjectArrayFoto[] = [
   {
-    urlImage: '/assets/images/Projects/1001song.png',
+    urlImage: '/assets/images/Projects/1001song.webp',
     name: 'Платформа “1000 і 1 пісня”',
     title: '1000 and 1 Songs — українські пісні',
     description:
       'Збірка українських народних та сучасних пісень з текстами та акордами, що дозволяє легко співати та грати улюблені композиції. Сайт створено, щоб поширювати українську музичну культуру та зробити її доступною для всіх. ',
   },
   {
-    urlImage: '/assets/images/Projects/balakun.png',
+    urlImage: '/assets/images/Projects/balakun.webp',
     name: 'Платформа “Balakun”',
     title: 'BalakUN — вивчення української мови.',
     description:
       'Платформа для вивчення та вдосконалення української мови через спілкування, ігри та вправи. Ідеальна для тих, хто прагне покращити мовні навички або підтримати українську мову в діаспорі.',
   },
   {
-    urlImage: '/assets/images/Projects/baza_skill.png',
+    urlImage: '/assets/images/Projects/baza_skill.webp',
     name: 'Baza Skill',
     title: 'Baza Skill — БАЗА спеціалістів в ІТ',
     description:
@@ -30,28 +30,28 @@ export const projectsArray: ObjectArrayFoto[] = [
   //     'Освітня платформа, що пропонує стажування для початківців в галузі IT. Місія — допомогти початківцям здобути практичний досвід і знайти роботу у сфері технологій. Baza Trainee відкриває шлях до омріяного оферу.',
   // },
   {
-    urlImage: '/assets/images/Projects/klouns.png',
+    urlImage: '/assets/images/Projects/klouns.webp',
     name: 'Бюро лікарняних клоунів',
     title: 'БУП — Бюро усмішок і підтримки',
     description:
       'Через сміхотерапію, ігри та дружню присутність команда приносить радість у життя дітей, які проходять лікування, і підтримує їхніх батьків у непрості моменти.',
   },
   {
-    urlImage: '/assets/images/Projects/kolyskova.png',
+    urlImage: '/assets/images/Projects/kolyskova.webp',
     name: 'Платформа “Колискова”',
     title: 'Колискова — платформа українських колискових.',
     description:
       'Платформа, яка збирає українські народні та сучасні колискові пісні з різних куточків України та світу. Створена, щоб підтримати традиції та культурну спадщину України, допомагаючи малюкам засинати під ніжні українські мелодії.',
   },
   {
-    urlImage: '/assets/images/Projects/militari.png',
+    urlImage: '/assets/images/Projects/militari.webp',
     name: '“Мілітарі” платформа',
     title: 'English for UA Army — ВИВЧЕННЯ англійської.',
     description:
       'Платформа для українських військових з безкоштовними курсами англійської мови, адаптованими для військових потреб. Підтримує інтеграцію українських військових у міжнародні спільноти.',
   },
   {
-    urlImage: '/assets/images/Projects/organik.png',
+    urlImage: '/assets/images/Projects/organik.webp',
     name: 'Органік Україна',
     title: 'Organic Ukraine — органічнІ ПРОДУКТИ',
     description:

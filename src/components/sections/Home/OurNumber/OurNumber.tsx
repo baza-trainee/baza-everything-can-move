@@ -18,7 +18,7 @@ export default function OurNumber() {
       </div>
       <div
         className={clsx(
-          "relative overflow-hidden bg-[url('/assets/images/TemSection/VectorStat.png')] bg-contain bg-center"
+          "relative overflow-hidden bg-[url('/assets/images/TemSection/VectorStat.png')] w-[100%] bg-contain bg-center"
         )}
       >
         <ul className="container z-10 grid h-[632px] grid-cols-2 2xl:grid-cols-3">
