@@ -16,7 +16,7 @@ import { useEffect, useState } from 'react';
 const Slider = () => {
   const [isClient, setIsClient] = useState(false);
 
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
 
   useEffect(() => {
     setIsClient(true);
@@ -85,7 +85,7 @@ const Slider = () => {
           </div>
         </div>
         <BigFoto
-          className="h-[184px] w-[343px] lg:h-[300px] lg:w-[600px] 2xl:h-[256px] 2xl:w-[540px]"
+          className="h-[184px] w-[343px] lg:h-[300px] lg:w-[600px] 2xl:h-[268px] 2xl:w-[540px]"
           width={600}
           imageUrl={objectBigFoto.urlImage}
           name={objectBigFoto.name ?? 'Зображення сторінки сайту проекта'}

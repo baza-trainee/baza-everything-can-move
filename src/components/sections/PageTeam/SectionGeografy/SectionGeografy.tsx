@@ -8,7 +8,7 @@ function SectionGeografy() {
   const countries =
     'США УКРаїна словаччина франція нідерланди чехія Іспанія данія угорщина латвія естонія Великобританія литва ірландія грузія німеччина молдова ізраїль польща канада італія швеція туреччина';
   return (
-    <section className="py-[120px]">
+    <section className="py-[100px] 2xl:py-[120px]">
       <div className="container">
         <ContainerWithCorners className="py-[48px] lg:pt-0">
           <div>
