@@ -6,14 +6,14 @@ function DescriptionFoto({ title, description, className }: Props) {
   return (
     <div
       className={cn(
-        'flex h-[256px] flex-col items-center justify-center gap-2 font-regular leading-o-130',
+        'flex h-[256px] flex-col items-start justify-start gap-5 font-regular leading-o-130 2xl:gap-3',
         className
       )}
     >
-      <h2 className="font-regular uppercase leading-o-130 2xl:text-l">
+      <h2 className="text-md font-regular uppercase leading-o-130 2xl:text-l">
         {title || 'no title'}
       </h2>
-      <p className="font-regular leading-o-130 2xl:text-sm">
+      <p className="text-s font-regular leading-o-130 lg:text-m 2xl:text-sm">
         {description || 'no description'}
       </p>
     </div>

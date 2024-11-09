@@ -10,7 +10,7 @@ export default function ProjectsSection() {
     <section className="relative overflow-hidden pb-[100px] pt-[54px] lg:pb-20 lg:pt-20 2xl:pb-16 2xl:pt-10">
       <MoveLine
         direction="left"
-        className="absolute top-1/2 w-max -translate-y-1/2"
+        className="absolute top-[516px] w-max lg:top-[532px] 2xl:top-1/2 2xl:-translate-y-1/2"
         type="infinityText"
         infinityText="baza trainee"
         amountOfText={3}

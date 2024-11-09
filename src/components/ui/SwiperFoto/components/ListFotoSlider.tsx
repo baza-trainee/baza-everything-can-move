@@ -15,6 +15,7 @@ type Props = {
   widthFoto?: number;
   heightFoto?: number;
   isCicleTimer?: boolean;
+  directionHorizontal?: boolean;
 };
 
 function ListFotoSlider({
@@ -24,6 +25,7 @@ function ListFotoSlider({
   position,
   positionIndexes,
   newVariants,
+  directionHorizontal = false,
   widthFoto = 64,
   heightFoto = 64,
   isCicleTimer = false,
@@ -36,19 +38,36 @@ function ListFotoSlider({
           className
         )}
       >
-        <motion.li
-          initial={{ scale: 0, y: 20 }}
-          animate={{ scale: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          exit={{
-            scale: 0,
-            y: 20,
-          }}
-          key={indexBigFoto}
-          className={'absolute top-[-8%]'}
-        >
-          {isCicleTimer && <CircleTimer />}
-        </motion.li>
+        {!directionHorizontal && (
+          <motion.li
+            initial={{ scale: 0, y: 20 }}
+            animate={{ scale: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            exit={{
+              scale: 0,
+              y: 20,
+            }}
+            key={indexBigFoto}
+            className={'absolute top-[-8%]'}
+          >
+            {isCicleTimer && <CircleTimer />}
+          </motion.li>
+        )}
+        {directionHorizontal && (
+          <motion.li
+            initial={{ scale: 0, x: 20 }}
+            animate={{ scale: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            exit={{
+              scale: 0,
+              x: 20,
+            }}
+            key={indexBigFoto}
+            className={'absolute -left-[13px]'}
+          >
+            {isCicleTimer && <CircleTimer />}
+          </motion.li>
+        )}
         {arrayImages.map((image, index) => (
           <motion.li
             className="absolute"
@@ -72,7 +91,7 @@ function ListFotoSlider({
             </div>
           </motion.li>
         ))}
-      </ul>{' '}
+      </ul>
     </AnimatePresence>
   );
 }
