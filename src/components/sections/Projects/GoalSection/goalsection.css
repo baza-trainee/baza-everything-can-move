@@ -42,17 +42,17 @@
 
 .circle-item {
   position: absolute;
-  padding: 10px 20px;
+  padding: 8px 25px;
   border: 1px solid #a8ff42;
   color: #a8ff42;
   font-size: 18px;
-  border-radius: 20px;
+  border-radius: 58px;
   font-weight: 400;
   transition: transform 0.5s;
 }
 
 /*--------------------------------------------------------------------*/
-
+/* 
 /* Анімації для кожного елемента */
 @keyframes move1 {
   0%,
@@ -146,65 +146,60 @@
 
 /* Застосування анімацій до елементів */
 .item-1 {
-  top: 25%;
-  left: 20%;
-  transform: translate(-50%, 20%);
+  top: 17%;
+  left: 7%;
   animation: move1 5s ease-in-out infinite alternate;
 }
 
 .item-2 {
-  top: 32%;
-  left: 80%;
+  top: 24%;
+  left: 70%;
   transform: translate(-50%, -50%);
   animation: move2 4s ease-in-out infinite alternate;
 }
 
 .item-3 {
-  top: 26%;
-  left: 48%;
-  transform: translate(-50%, -50%);
+  top: 29%;
+  left: 40%;
   animation: move3 6s ease-in-out infinite alternate;
 }
 
 .item-4 {
-  top: 50%;
-  left: 85%;
+  top: 47%;
+  left: 90%;
   transform: translate(-50%, -50%);
   animation: move4 5s ease-in-out infinite alternate;
 }
 
 .item-5 {
-  top: 65%;
-  left: 18%;
-  transform: translate(-50%, -50%);
+  top: 76%;
+  left: 2%;
   animation: move5 7s ease-in-out infinite alternate;
 }
 
 .item-6 {
-  top: 71%;
+  top: 77%;
   left: 50%;
-  transform: translate(-50%, -50%);
   animation: move6 8s ease-in-out infinite alternate;
 }
 
 .item-7 {
-  top: 67%;
-  left: 70%;
+  top: 80%;
+  left: 75%;
   transform: translate(50%, -50%);
   animation: move7 6s ease-in-out infinite alternate;
 }
 
 .item-8 {
-  top: 38%;
-  left: 17%;
+  top: 45%;
+  left: 15%;
   transform: translate(150%, 50%);
   animation: move8 5s ease-in-out infinite alternate;
 }
 
 .item-9 {
-  top: 25%;
-  left: 14%;
-  transform: translate(-10%, 170%);
+  top: 26%;
+  left: 13%;
   animation: move9 4s ease-in-out infinite alternate;
 }
 /* Адаптація для екранів менше 768px */
@@ -214,17 +209,17 @@
   }
 
   .item-1 {
-    top: 24%;
-    left: 11%;
+    top: 23%;
+    left: 10%;
   }
 
   .item-2 {
     top: 49%;
-    left: 29%;
+    left: 11%;
   }
 
   .item-3 {
-    top: 34%;
+    top: 16%;
     left: 29%;
   }
 
@@ -244,17 +239,17 @@
   }
 
   .item-7 {
-    top: 29%;
-    left: 37%;
+    top: 28%;
+    left: 35%;
   }
 
   .item-8 {
-    top: 37%;
-    left: -21%;
+    top: 27%;
+    left: -7%;
   }
 
   .item-9 {
-    top: 44%;
-    left: 23%;
+    top: 33%;
+    left: 25%;
   }
 }

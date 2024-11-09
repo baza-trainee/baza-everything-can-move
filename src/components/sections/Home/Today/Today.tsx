@@ -8,7 +8,7 @@ function Today() {
       <div className="container">
       <SectionTitle className="mb-1">Сьогодні</SectionTitle>
       <SubTitle className="mb-8">2024</SubTitle>
-        <div className="flex lg:flex-nowrap flex-wrap items-center">
+        <div className="flex lg:flex-nowrap flex-wrap items-center justify-between">
           <div className="text max-w-80">
             <p className="mb-[20px]">
               Зараз ми реалізовуємо внутрішні та зовінішнк проєкти як для себе,
@@ -18,7 +18,7 @@ function Today() {
               І доволі успішно пробуємо себе у складних проєктах для бізнесу.
             </p>
           </div>
-          <div className="w-[900px] overflow-auto">
+          <div className="w-[420px]">
             <VerticalSlider />
           </div>
         </div>
