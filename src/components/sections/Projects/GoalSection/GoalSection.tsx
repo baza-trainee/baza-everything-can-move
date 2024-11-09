@@ -24,7 +24,7 @@ const GoalSectiont: React.FC = () => {
           height={20}
         />
       </div>
-      <div className="flex flex-wrap justify-between ">
+      <div className="flex flex-wrap items-center 2xl:flex-nowrap">
         <div className="relative bg-[url('/assets/images/HomeImg/background.png')] bg-center bg-no-repeat h-[100%]">
         <div className="circle-container h-[450px] max-w-[600px]">
             {techItems.map((item, index) => (
@@ -34,7 +34,7 @@ const GoalSectiont: React.FC = () => {
             ))}
         </div>
         </div>
-        <p className="xl:max-w-80">
+        <p className="lg:max-w-80 ml-auto">
           Проєкт створено для взаємної підтримки двох соціальних груп. <br></br>
           <br />
           Організації соціальної сфери, які готові бути лояльними замовниками і

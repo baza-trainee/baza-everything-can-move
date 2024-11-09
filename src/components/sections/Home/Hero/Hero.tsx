@@ -6,10 +6,10 @@ import './Hero.css';
 
 export default function Hero() {
   return (
-    <section className="hero pb-[350px] pt-[60px] xl:pb-[280px]">
-      <div className="items-top container relative flex flex-wrap xl:flex-nowrap">
+    <section className="hero pb-[350px] pt-[60px] 2xl:pb-[280px]">
+      <div className="items-top container relative flex flex-wrap">
         <div className="relative">
-          <h1 className="text-animation text-[40px] uppercase leading-[120%] lg:text-[64px] xl:text-[86px]">
+          <h1 className="text-animation text-[40px] uppercase leading-[120%] lg:text-[64px] 2xl:text-[86px]">
             створювали ми <br />{' '}
             <span style={{ color: '#D3FD50' }}>анімацію</span>
             <br />
@@ -22,7 +22,7 @@ export default function Hero() {
               height={300}
             />
           </h1>
-          <div className="elips absolute lg:bottom-[-24%] lg:left-[60%] right-[-10%] w-[80px] h-[80px] xl:left-[72%] xl:h-[118px]">
+          <div className="elips absolute lg:bottom-[-24%] lg:left-[60%] right-[-10%] w-[80px] h-[80px] 2xl:left-[72%] 2xl:h-[118px]">
             <Image
               className="rotate"
               src="/assets/images/HomeImg/Vector.svg"
