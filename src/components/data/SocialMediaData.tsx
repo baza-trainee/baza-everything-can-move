@@ -14,7 +14,7 @@ export const SocialMediaData: SocialMediaData[] = [
   },
   {
     name: 'facebook',
-    link: 'https://www.facebook.com/profile.php?id=61553769122737',
+    link: 'https://www.facebook.com/BazaTraineeUkraine',
     icon: <ICONS_SRC.FACEBOOK className="fill-current w-full" />,
   },
   {

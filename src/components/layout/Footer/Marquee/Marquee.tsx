@@ -10,7 +10,7 @@ const Marquee = () => {
     const marqueeAnimation = {
         x: ["0%", "-100%"],
         transition: {
-          duration: 15,
+          duration: 30,
           ease: "linear",
           repeat: Infinity,
         },
