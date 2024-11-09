@@ -9,12 +9,12 @@ import ProjectsHomeSection from '@/components/sections/Home/ProjectsHomeSection/
 export default function Home() {
   return (
     <>
-      <Hero />
+      {/* <Hero />
       <Marquee />
       <OldBase />
       <Today />
-      <OurNumber />
-      <TeamSection />
+      <OurNumber /> */}
+      {/* <TeamSection /> */}
       <ProjectsHomeSection />
     </>
   );
