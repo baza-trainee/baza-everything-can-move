@@ -18,12 +18,12 @@ function Label({
   return (
     <div
       className={clsx(
-        'w-max text-s leading-o-130 text-white xl:text-m',
+        'w-max text-s leading-o-130 text-white 2xl:text-m',
         className
       )}
     >
       <p className="">{textTop}</p>
-      <span className="text-lg font-medium leading-o-130 text-olga-green xl:text-2xl">
+      <span className="text-lg font-medium leading-o-130 text-olga-green 2xl:text-2xl">
         {number}
         {showPercentage ? '%' : ''} {/* Додаємо % тільки якщо showPercentage = true */}
       </span>
