@@ -40,7 +40,7 @@ const BigFoto = ({
           width={`${width}`}
           height={`${height}`}
           src={imageUrl}
-          alt={name ?? ''}
+          alt={name || 'Зображення сторінки сайту проекта'}
           className="object-cover"
         />
       </div>
