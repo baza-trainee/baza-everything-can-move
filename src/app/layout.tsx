@@ -37,7 +37,7 @@ export default function RootLayout({
         <Header />
         {/* <ClientWrapper>{children}</ClientWrapper> */}
         <main>{children}</main>
-        <Footer />
+        {/* <Footer /> */}
         <ButtonChangeDesigne />
       </body>
     </html>
