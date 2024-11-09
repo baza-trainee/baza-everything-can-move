@@ -16,7 +16,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
   const isInView = useInView(containerRef);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  console.log(currentIndex);
+
   const totalImages = images.length;
 
   const handleNext = useCallback(() => {
@@ -29,33 +29,27 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
   };
 
-  // useEffect(() => {
-  //   if (isInView) {
-  //     const interval = setInterval(() => {
-  //       handleNext();
-  //     }, 5000);
-  //     return () => clearInterval(interval);
-  //   }
-  // }, [isInView, handleNext]);
+  useEffect(() => {
+    if (isInView) {
+      const interval = setInterval(() => {
+        handleNext();
+      }, 15000);
+      return () => clearInterval(interval);
+    }
+  }, [isInView, handleNext]);
 
   const positions = ['right', 'center', 'left'];
-  console.log(direction);
+
   const imageVariants = {
     center: { x: '0%', scale: 1, zIndex: 5 },
-
-    left: (direction: number) => ({
-      //  x: direction > 0 ? '-50%' : '50%',
+    left: {
       x: '-50%',
       scale: 0.4,
       zIndex: 2,
-    }),
-    right: (direction: number) => ({
-      // x: direction > 0 ? '50%' : '-50%',
-      x: '50%' ,
-      scale: 0.4,
-      zIndex: 2,
-    }),
+    },
+    right: { x: '50%', scale: 0.4, zIndex: 2 },
   };
+
   const titleVariants = {
     exit: (direction: number) => ({
       x: direction > 0 ? '100%' : '-100%',

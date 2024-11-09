@@ -1,5 +1,5 @@
 'use client';
-
+// I think I don't need it any more - Good one card !
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
@@ -126,7 +126,7 @@ const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ images }) => {
               index === currentIndex && (
                 <motion.div
                   key={image.pos}
-                  className="shadow-olga-combined mx-auto flex w-[320px] flex-col items-center"
+                  className="mx-auto flex w-[320px] flex-col items-center shadow-olga-combined"
                 >
                   <motion.div
                     custom={direction}
