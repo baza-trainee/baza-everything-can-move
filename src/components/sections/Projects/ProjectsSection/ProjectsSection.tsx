@@ -7,7 +7,7 @@ import MoveLine from '@/components/ui/MoveLine';
 
 export default function ProjectsSection() {
   return (
-    <section className="relative overflow-hidden pb-[100px] pt-[54px] lg:pb-20 lg:pt-20 2xl:pb-16 2xl:pt-10">
+    <section className="relative overflow-hidden pb-[100px] pt-[54px] lg:pb-20 lg:pt-20 2xl:pb-[120px] 2xl:pt-10">
       <MoveLine
         direction="left"
         className="absolute top-[516px] w-max lg:top-[532px] 2xl:top-1/2 2xl:-translate-y-1/2"
