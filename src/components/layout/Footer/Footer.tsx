@@ -43,17 +43,18 @@ const Footer: React.FC = () => {
                         </div>
                     </div>
                 </div>
-
-                <ul className='text-sm leading-[23.4px] font-regular list-none text-center mt-[32px] mb-[24px] lg:mt-[0px] lg:text-md lg:leading-[26px] 2xl:text-l 2xl:leading-[31.2px]'>
-                    <li className='pb-2 uppercase'><Link href='/team'>Команди</Link></li>
-                    <li className='pb-2 uppercase'><Link href='/experience'>Досвід</Link></li>
-                    <li className='pb-2 uppercase'><Link href='/projects'>Проєкти</Link></li>
-                    <li className='uppercase'><Link href='/future'>Майбутнє</Link></li>
-                </ul>
+                <div className='text-center'>
+                    <ul className='text-sm leading-[23.4px] font-regular list-none mt-[32px] mb-[24px] lg:mt-[0px] lg:text-md lg:leading-[26px] 2xl:text-l 2xl:leading-[31.2px] inline-block text-left'>
+                        <li className='pb-2 uppercase'><Link href='/team'>Команди</Link></li>
+                        <li className='pb-2 uppercase'><Link href='/experience'>Досвід</Link></li>
+                        <li className='pb-2 uppercase'><Link href='/projects'>Проєкти</Link></li>
+                        <li className='uppercase'><Link href='/future'>Майбутнє</Link></li>
+                    </ul>
+                </div>
                 <div className='flex flex-col'>
                     {SocialMediaData.map((social)=>{
                         return(
-                        <Button key={social.link} disabled={false} className='mb-4 border-olga-green-extra hover:bg-olga-green-extra active:bg-olga-green-extra visited:border-olga-green-extra capitalize'>
+                        <Button key={social.link} disabled={false} className='mb-4 border-olga-green-extra hover:bg-olga-green-extra active:bg-olga-green-extra visited:border-olga-green-extra uppercase'>
                             <Link href={social.link}>{social.name}</Link>
                         </Button>
                         )
