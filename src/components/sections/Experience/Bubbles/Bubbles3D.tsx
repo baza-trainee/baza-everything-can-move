@@ -20,10 +20,10 @@ const Bubbles3D:React.FC = () => {
         // const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, antialias: true  });
         const renderer = new THREE.WebGLRenderer();
 		renderer.setPixelRatio( window.devicePixelRatio );
-		renderer.setSize( window.innerWidth, window.innerHeight );
+		renderer.setSize( 1200, 526);
         renderer.toneMapping = THREE.NoToneMapping;
         const scene = new THREE.Scene();
-		const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+		const camera = new THREE.PerspectiveCamera( 40, 1200 / 526, 1, 1000 );
 		camera.position.set( 0, 0, 30 );
         
         if (canvasRef.current?.childNodes[0] === undefined) {
@@ -39,7 +39,7 @@ const Bubbles3D:React.FC = () => {
         scene.add( ambientLight );
         
 
-        const geometry = new THREE.SphereGeometry( 1.5, 64, 32 );
+        const geometry = new THREE.SphereGeometry( 2.5, 64, 32 );
 		const material = new THREE.MeshStandardMaterial( {
 			color: 0xD3FE50,
 			metalness: 0,
@@ -50,11 +50,11 @@ const Bubbles3D:React.FC = () => {
 		const mesh2 = new THREE.Mesh( geometry, material );
 		const mesh3 = new THREE.Mesh( geometry, material );
 		
-        mesh1.position.set(-9, 5, -1);
+        mesh1.position.set(-12, 3, -1);
         scene.add( mesh1);
-        mesh2.position.set(-2,0, -1);
+        mesh2.position.set(1,-5, -1);
         scene.add( mesh2);
-        mesh3.position.set(4, 8, -1);
+        mesh3.position.set(5, 7, -1);
         scene.add( mesh3);
 
         // renderer.setAnimationLoop( animate );
@@ -85,7 +85,7 @@ const Bubbles3D:React.FC = () => {
     },[])
     			
 
-    return <div ref={canvasRef} className=''/>;
+    return <div ref={canvasRef} className='margin-0'/>;
     // return <canvas ref={canvasRef} />;
 
 }
