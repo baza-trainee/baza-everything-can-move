@@ -5,7 +5,7 @@ import { PCardsThird } from './PCardsThird';
 
 const ProjectsHomeSection: React.FC = () => {
   return (
-    <section className="pb-[100px] lg:pb-20 2xl:pb-16">
+    <section className="pb-[100px] 2xl:pb-[120px]">
       <div className="container">
         <SectionTitle className="mb-8"> проєкти бази</SectionTitle>
 
