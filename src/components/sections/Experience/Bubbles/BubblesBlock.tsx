@@ -18,8 +18,10 @@ const BubblesBlock = ({title, subtitle}:BubblesSectionProps) => {
 
   return (
       <div ref={bubblesBlockRef} className='relative pb-16'>
-        <SectionTitle>{title}</SectionTitle>
-        <SubTitle>{subtitle}</SubTitle>
+        <div className='container pb-8'>
+          <SectionTitle>{title}</SectionTitle>
+          <SubTitle>{subtitle}</SubTitle>
+        </div>
         <Bubbles3D/>
         <Bubbles2D/>
       </div>

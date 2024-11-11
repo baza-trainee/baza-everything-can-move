@@ -1,6 +1,7 @@
 import React from 'react'
 import SubTitle from '@/components/ui/SubTitle';
 import SectionTitle from '@/components/ui/SectionTitle';
+import WiresAnimationComponent from './WiresAnimation'
 
 export interface FuckUpsSectionProps {
   title: string,
@@ -10,8 +11,11 @@ export interface FuckUpsSectionProps {
 const FuckUpSection = ({title, subtitle}:FuckUpsSectionProps) => {
   return (
     <div>
-        <SectionTitle>{title}</SectionTitle>
-        <SubTitle>{subtitle}</SubTitle>
+        <div className='container'>
+            <SectionTitle>{title}</SectionTitle>
+            <SubTitle>{subtitle}</SubTitle>
+        </div>
+        <WiresAnimationComponent />
     </div>
   )
 }

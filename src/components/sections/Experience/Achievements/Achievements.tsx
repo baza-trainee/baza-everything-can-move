@@ -12,11 +12,13 @@ export interface AchievementsSectionProps {
 
 const Achievements = ({title, subtitle}:AchievementsSectionProps) => {
   return (
+    <div className='container'>
     <ContainerWithCorners>
         <SectionTitle>{title}</SectionTitle>
         <SubTitle>{subtitle}</SubTitle>
         <CardsParallax />
     </ContainerWithCorners>
+    </div>
   )
 }
 
