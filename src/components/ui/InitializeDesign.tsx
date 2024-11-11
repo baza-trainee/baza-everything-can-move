@@ -8,7 +8,7 @@ const getRandomDesignType = (): designTypes => {
 };
 
 const InitializeDesign = () => {
-  const { setDesignType, designType } = useDesignStore();
+  const { setDesignType } = useDesignStore();
 
   const [isLoading, setIsLoading] = useState(true);
 
