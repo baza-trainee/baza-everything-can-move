@@ -40,6 +40,7 @@ function GirlModel() {
 export default function ColoredGirl() {
   return (
     <>
+      <div className="h-[700px] 2xl:w-[50%] lg:w-[60%] w-[90%] transform 2xl:translate-x-[70%] lg:translate-x-[55%] 2xl:translate-y-[-25%] translate-y-[-7%] translate-x-[-10%] absolute">
       <div className="absolute z-10 h-[700px] w-[90%] translate-x-[-10%] translate-y-[-7%] transform lg:w-[60%] lg:translate-x-[55%] 2xl:w-[50%] 2xl:translate-x-[70%] 2xl:translate-y-[-25%]">
         {/* <h1 className="text-white text-center text-lg">I hate her !!!</h1> */}
         <Canvas
