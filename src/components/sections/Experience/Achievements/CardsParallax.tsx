@@ -4,48 +4,41 @@ import React from 'react'
 import { achievements } from '@/constants/achievements';
 import Card from './Card';
 import { useScroll } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import Lenis from 'lenis'
 
 
-
-// (alias) const Card: ({ title, description, src, url, color, i }: {
-//     title: any;
-//     description: any;
-//     src: any;
-//     url: any;
-//     color: any;
-//     i: any;
-// }) => React.JSX.Element
-
-export default function CardsParallax() {
+ const CardsParallax:React.FC = () => {
 
     //  const canvasRef = useRef<HTMLDivElement | null >(null);
-      const container = useRef<HTMLElement | null>(null);
+    const container = useRef<HTMLElement | null>(null);
 
-  const { scrollYProgress } = useScroll({
+    const { scrollYProgress } = useScroll({
+        target: container,
+        offset: ['start start', 'end end']
+    })
 
-    target: container,
+    useEffect( () => {
+        const lenis = new Lenis()
 
-    offset: ['start start', 'end end']
-
+        function raf(time:number) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+        requestAnimationFrame(raf)
   })
 
   return (
-
-    <main className=''>
-        <main ref={container} className=''></main>
+    <main ref={container} className='relative mt-[8vh] mb-16'>
       {
-        
         achievements.map( (achievement, i) => {
+          // console.log(i);
         const targetScale = 1 - ( (achievements.length - i) * 0.05);
           return <Card key={`p_${i}`} {...achievement} i={i} progress={scrollYProgress} range={[i * .25, 1]} targetScale={targetScale}/>
-
         })
-
       }
-
     </main>
-
   )
-
 }
+
+export default CardsParallax;
