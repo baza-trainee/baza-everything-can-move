@@ -1,12 +1,12 @@
-'use client';
-import React from 'react';
-import { Suspense } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useAnimations, useGLTF } from '@react-three/drei';//OrbitControls, 
+"use client";
+import React from "react";
+import { Suspense } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, useAnimations, useGLTF } from "@react-three/drei";
 
-useGLTF.preload('/models/Michelle.glb');
+useGLTF.preload("/models/Michelle.glb");
 function GirlModel() {
-  const { animations, scene } = useGLTF('/models/Michelle.glb');
+  const { animations, scene } = useGLTF("/models/Michelle.glb");
 
   const { mixer } = useAnimations(animations, scene);
 
@@ -24,7 +24,7 @@ function GirlModel() {
   }, [animations, mixer]);
 
   if (!scene) {
-    console.log('No scene');
+    console.log("No scene");
     return null;
   }
   return (
@@ -41,10 +41,8 @@ export default function ColoredGirl() {
   return (
     <>
       <div className="h-[700px] 2xl:w-[50%] lg:w-[60%] w-[90%] transform 2xl:translate-x-[70%] lg:translate-x-[55%] 2xl:translate-y-[-25%] translate-y-[-7%] translate-x-[-10%] absolute">
-      <div className="absolute z-10 h-[700px] w-[90%] translate-x-[-10%] translate-y-[-7%] transform lg:w-[60%] lg:translate-x-[55%] 2xl:w-[50%] 2xl:translate-x-[70%] 2xl:translate-y-[-25%]">
         {/* <h1 className="text-white text-center text-lg">I hate her !!!</h1> */}
-        <Canvas
-          className="z-10 h-[900px] w-[90%]"
+        <Canvas className="h-[900px] w-[90%] z-10"
           camera={{ position: [0, 3, 5], fov: 61 }}
           //   camera={{ position: [0, 300, -85], fov: 50 }}
           gl={{ antialias: true }}
@@ -57,7 +55,7 @@ export default function ColoredGirl() {
           </Suspense>
 
           {/* <OrbitControls /> */}
-          {/* <OrbitControls enabled={false} /> */}
+          <OrbitControls enabled={false} />
         </Canvas>
       </div>
     </>
