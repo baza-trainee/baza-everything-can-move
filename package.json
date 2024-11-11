@@ -25,7 +25,8 @@
     "react-responsive": "^10.0.0",
     "tailwind-merge": "^2.5.4",
     "three": "^0.169.0",
-    "use-sound": "^4.0.3"
+    "use-sound": "^4.0.3",
+    "zustand": "^5.0.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
