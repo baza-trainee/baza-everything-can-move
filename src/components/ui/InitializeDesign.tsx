@@ -16,7 +16,7 @@ const InitializeDesign = () => {
     setTimeout(() => {
       setDesignType(getRandomDesignType());
       setIsLoading(false);
-    }, 3000);
+    }, 300);
   }, []);
 
   if (isLoading) {
