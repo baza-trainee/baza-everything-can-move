@@ -4,8 +4,7 @@ function Page() {
   return (
     <section className="text-white">
       <div className="container">
-        <ExperienceSection title='Досвід' subtitle='Найбільша цінність'>
-        </ExperienceSection>
+        <ExperienceSection />
       </div>
     </section>
   );
