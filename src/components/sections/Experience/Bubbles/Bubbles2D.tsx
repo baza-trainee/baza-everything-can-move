@@ -11,11 +11,11 @@ const Bubbles2D:React.FC = () => {
 
     useEffect(() => {
         const wiggleBlock = document.querySelectorAll(`#${styles.wiggleBlock}`);
-        const Block2D = document.getElementById('Block2D');
-        const canvas = document.getElementsByTagName('canvas');
-        const rect = canvas[0].getBoundingClientRect();
-        const rectTop = rect.top;
-        const rectLeft = rect.left;
+        // const Block2D = document.getElementById('Block2D');
+        // const canvas = document.getElementsByTagName('canvas');
+        // const rect = canvas[0].getBoundingClientRect();
+        // const rectTop = rect.top;
+        // const rectLeft = rect.left;
         // console.log(rect.left);
         // console.log(rect.top);
 
@@ -25,8 +25,8 @@ const Bubbles2D:React.FC = () => {
             const topCoord = wiggleBlock[i].getAttribute('data-top');
             // const leftShadowCoord = (Number(leftCoord)+Number(rectLeft)).toString();
             // const topShadowCoord = (Number(topCoord)+ Number(rectTop)).toString();   
-            const leftShadowCoord = (Number(leftCoord)+60).toString();
-            const topShadowCoord = (Number(topCoord)+ 60).toString();       
+            // const leftShadowCoord = (Number(leftCoord)+60).toString();
+            // const topShadowCoord = (Number(topCoord)+ 60).toString();       
             // console.log(leftCoord);
             // console.log(topCoord);
             // console.log(leftShadowCoord);
