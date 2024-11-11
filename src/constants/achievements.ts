@@ -19,4 +19,4 @@ export const achievements = [
     textValue: 'учасників',
     text: "Вважають цілі досягнутими",
   }
-]
+];
