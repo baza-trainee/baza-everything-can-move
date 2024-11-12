@@ -19,13 +19,6 @@ type CardsProps = {
 const Card: React.FC<CardsProps> = ({i, progress, range, targetScale, text, numberValue, textValue}) => {
 
   const container = useRef<HTMLDivElement | null>(null);
-
-  // const { scrollYProgress } = useScroll({
-  //   target: container,
-  //   offset: ['start end', 'start start']
-  // })
-
-  // const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1])
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
