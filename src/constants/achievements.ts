@@ -2,12 +2,12 @@ export const achievements = [
   {
     numberValue: "99%",
     textValue: 'учасників',
-    text: "Задоволені практикою"
+    text: "Задоволені практикою",
   },
   {
-    numberValue: "4ий",
+    numberValue: '4ий',
     textValue: 'кожен',
-    text: "Знаходить роботу"
+     text: "Знаходить роботу",
   },
   {
     numberValue: "72%",
@@ -17,6 +17,6 @@ export const achievements = [
   {
     numberValue: "99%",
     textValue: 'учасників',
-    text: "Вважають цілі досягнутими"
-  },
-]
+    text: "Вважають цілі досягнутими",
+  }
+];

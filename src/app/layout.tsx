@@ -4,6 +4,8 @@ import './globals.css';
 import Header from '@/components/layout/Header/Header';
 import Footer from '@/components/layout/Footer/Footer';
 import ButtonChangeDesigne from '@/components/ui/ButtonChangeDesigne';
+import InitializeDesign from '@/components/ui/InitializeDesign';
+
 // import ClientWrapper from './ClientWrapper';
 
 const geistSans = localFont({
@@ -36,7 +38,10 @@ export default function RootLayout({
       >
         <Header />
         {/* <ClientWrapper>{children}</ClientWrapper> */}
-        <main>{children}</main>
+        <main>
+          <InitializeDesign />
+          {children}
+        </main>
         <Footer />
         <ButtonChangeDesigne />
       </body>

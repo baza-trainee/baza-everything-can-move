@@ -4,19 +4,18 @@ import React, {useEffect} from 'react'
 // import clsx from 'clsx';
 import styles from './bubble2d.module.css'
 // import useSound from 'use-sound';
-
+// import gradient from '/assets/images/Experience/gradient.png';
 // import bubble from '../../../../assets/sounds/bubble.mp3';
 
 const Bubbles2D:React.FC = () => {
 
     useEffect(() => {
         const wiggleBlock = document.querySelectorAll(`#${styles.wiggleBlock}`);
-        const Block2D = document.getElementById('Block2D');
+        // const Block2D = document.getElementById('Block2D');
         // const canvas = document.getElementsByTagName('canvas');
-
         // const rect = canvas[0].getBoundingClientRect();
         // const rectTop = rect.top;
-        // const rectLeft = canvas[0].getBoundingClientRect();
+        // const rectLeft = rect.left;
         // console.log(rect.left);
         // console.log(rect.top);
 
@@ -24,11 +23,12 @@ const Bubbles2D:React.FC = () => {
             
             const leftCoord = wiggleBlock[i].getAttribute('data-left');
             const topCoord = wiggleBlock[i].getAttribute('data-top');
-            // const leftShadowCoord = (Number(leftCoord)+113).toString();
-            // const topShadowCoord = (Number(topCoord)+ Number(rectTop)).toString();
-        
-           
-            //             console.log(leftCoord);
+            const topShadowCoord = wiggleBlock[i].getAttribute('data-shadow_top');
+            // const leftShadowCoord = (Number(leftCoord)+Number(rectLeft)).toString();
+            // const topShadowCoord = (Number(topCoord)+ Number(rectTop)).toString();   
+            // const leftShadowCoord = (Number(leftCoord)+60).toString();
+            // const topShadowCoord = (Number(topCoord)+ 60).toString();       
+            // console.log(leftCoord);
             // console.log(topCoord);
             // console.log(leftShadowCoord);
             // console.log(topShadowCoord);
@@ -37,11 +37,20 @@ const Bubbles2D:React.FC = () => {
 
             wiggleBlock[i].addEventListener('mouseenter', () => {
 
-                const shadow = document.createElement('div');
-                shadow.className = `h-[270px] w-[270px] block absolute left-[${leftCoord}px] top-[${topCoord}px] flex justify-center align-center rounded-full opacity-70 bg-radial-gradient z-0`;
-                Block2D?.appendChild(shadow);
+                // const shadow = document.createElement('div');
+                // shadow.className = `h-[270px] w-[270px] block absolute left-[${leftCoord}px] top-[${topCoord}px] flex justify-center align-center rounded-full opacity-70 bg-radial-gradient z-0`;
+                // Block2D?.appendChild(shadow);
+                // const shadowBox = document.createElement('div');
+                // shadowBox.className = `h-full w-full block relative bg-olga-green`;//covers all canvas, gets children absolute imgs
+                const shadow = document.createElement('img');
+                shadow.setAttribute('src', '/assets/images/Experience/gradient.png');
+                shadow.className = `h-[206px] w-[206px] block absolute left-[${leftCoord}px] top-[${topShadowCoord}px] flex justify-center align-center rounded-full `;
+                // Block2D?.appendChild(shadow);
+                // document.body.children[1].children[0].children[0].appendChild(shadow);
+                // console.log(canvas[0]);
+
                 setTimeout(() => wiggleBlock[i].className += ' hidden', 300);
-                setTimeout(() => Block2D?.removeChild(shadow), 5000);
+                // setTimeout(() => Block2D?.removeChild(shadow), 5000);
             });
 
              wiggleBlock[i].addEventListener('mouseleave', () => {
@@ -63,24 +72,24 @@ const Bubbles2D:React.FC = () => {
 
 
   return (
-    <div id='Block2D' className='absolute top-0 left-0'>
-         <div id={styles.wiggleBlock} data-left='0' data-top='183' className='bg-[#1D1D1C] rounded-full w-[164px] h-[164px] flex flex-col items-center justify-center text-olga-green hover:scale-150 hover:opacity-0 duration-400 absolute top-[183px] left-0'>
+    <div id='Block2D' className='absolute top-0 left-0 right-0 bottom-0 w-full'>
+         <div id={styles.wiggleBlock} data-left='120' data-top='312' data-shadow_top='172' className='bg-[#1D1D1C] rounded-full w-[164px] h-[164px] flex flex-col items-center justify-center text-olga-green hover:scale-150 hover:opacity-0 duration-400 absolute top-[312px] left-[120px]'>
             <div className="text-xl leading-[72px] font-medium hover:opacity-0 duration-200">{'812+'}</div>
             <div className="text-s leading-[21px] font-regular hover:opacity-0 duration-200">{'учасників'}</div>
         </div> 
-        <div id={styles.wiggleBlock} data-left='259' data-top='320' className='bg-[#1D1D1C] rounded-full w-[164px] h-[164px] flex flex-col items-center justify-center text-olga-green hover:scale-150 hover:opacity-0 duration-400 absolute top-[320px] left-[259px]'>
+        <div id={styles.wiggleBlock} data-left='379' data-top='449' className='bg-[#1D1D1C] rounded-full w-[164px] h-[164px] flex flex-col items-center justify-center text-olga-green hover:scale-150 hover:opacity-0 duration-400 absolute top-[449px] left-[379px]'>
             <div className="text-xl leading-[72px] font-medium hover:opacity-0 duration-200">{'47+'}</div>
             <div className="text-s leading-[21px] font-regular hover:opacity-0 duration-200">{'живих проектів'}</div>
         </div>
-        <div id={styles.wiggleBlock} data-left='414' data-top='5' className='bg-[#1D1D1C] rounded-full w-[164px] h-[164px] flex flex-col items-center justify-center text-olga-green hover:scale-150 hover:opacity-0 duration-400 absolute top-[5px] left-[414px]'>
+        <div id={styles.wiggleBlock} data-left='534' data-top='129' className='bg-[#1D1D1C] rounded-full w-[164px] h-[164px] flex flex-col items-center justify-center text-olga-green hover:scale-150 hover:opacity-0 duration-400 absolute top-[129px] left-[534px]'>
             <div className="text-xl leading-[72px] font-medium hover:opacity-0 duration-200">{'102+'}</div>
             <div className="text-s leading-[21px] font-regular hover:opacity-0 duration-200">{'працевлаштовано'}</div>
         </div>
-        <div id={styles.wiggleBlock} data-left='708' data-top='217' className='bg-[#1D1D1C] rounded-full w-[164px] h-[164px] flex flex-col items-center justify-center text-olga-green hover:scale-150 hover:opacity-0 duration-400 absolute top-[217px] left-[708px]'>
+        <div id={styles.wiggleBlock} data-left='828' data-top='346' className='bg-[#1D1D1C] rounded-full w-[164px] h-[164px] flex flex-col items-center justify-center text-olga-green hover:scale-150 hover:opacity-0 duration-400 absolute top-[346px] left-[828px]'>
             <div className="text-xl leading-[72px] font-medium hover:opacity-0 duration-200">{'14+'}</div>
             <div className="text-s leading-[21px] font-regular hover:opacity-0 duration-200">{'технологій'}</div>
         </div>
-        <div id={styles.wiggleBlock} data-left='974'data-top='210' className='bg-[#1D1D1C] rounded-full w-[164px] h-[164px] flex flex-col items-center justify-center text-olga-green hover:scale-150 hover:opacity-0 duration-400 absolute top-[210px] left-[974px]'>
+        <div id={styles.wiggleBlock} data-left='1094' data-top='339' className='bg-[#1D1D1C] rounded-full w-[164px] h-[164px] flex flex-col items-center justify-center text-olga-green hover:scale-150 hover:opacity-0 duration-400 absolute top-[339px] left-[1094px]'>
             <div className="text-xl leading-[72px] font-medium hover:opacity-0 duration-200">{'15+'}</div>
             <div className="text-s leading-[21px] font-regular hover:opacity-0 duration-200">{'бібліотек'}</div>
         </div>
