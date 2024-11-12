@@ -1,19 +1,11 @@
 @keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-10%); }
 }
 
 @keyframes marquee-reverse {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+  0% { transform: translateX(-10%); }
+  100% { transform: translateX(100%); }
 }
 
 .animate-marquee {
@@ -44,7 +36,7 @@
   position: absolute;
   padding: 8px 25px;
   border: 1px solid #a8ff42;
-  color: #a8ff42;
+  color: #fff;
   font-size: 18px;
   border-radius: 58px;
   font-weight: 400;

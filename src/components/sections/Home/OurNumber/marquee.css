@@ -1,11 +1,11 @@
 
 @keyframes marquee {
   0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  100% { transform: translateX(-10%); }
 }
 
 @keyframes marquee-reverse {
-  0% { transform: translateX(-100%); }
+  0% { transform: translateX(-10%); }
   100% { transform: translateX(100%); }
 }
 
@@ -19,9 +19,4 @@
   display: inline-block;
   white-space: nowrap;
   animation: marquee-reverse 35s linear infinite;
-}
-
-.animate-marquee Image,
-.animate-marquee-reverse Image {
-  animation: marquee-reverse 10s linear infinite;
 }

@@ -18,7 +18,7 @@ function Today() {
               І доволі успішно пробуємо себе у складних проєктах для бізнесу.
             </p>
           </div>
-          <div className="w-[420px]">
+          <div className="w-[550px]">
             <VerticalSlider />
           </div>
         </div>
