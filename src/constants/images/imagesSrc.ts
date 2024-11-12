@@ -11,13 +11,15 @@ export const IMAGES_HOME_PROJECTS = [
   {
     pos: '1.c',
     src: song,
-    name: 'song',
+    link: 'https://1000and1songs.com/',
+    name: 'Платформа “1000 і 1 пісня”',
+
     widthDesktop: 120,
     heightDesktop: 58,
     topDesktop: 215,
     leftDesktop: 489,
 
-    translateZ: 150,
+    translateZ: 90,
 
     widthTablet: 180,
     heightTablet: 92,
@@ -26,14 +28,15 @@ export const IMAGES_HOME_PROJECTS = [
   },
   {
     pos: '2.c',
-    name: 'bazaSkill',
+    name: 'Baza Skill',
+    link: 'https://baza-skill.com.ua/ua',
     src: bazaSkill,
     widthDesktop: 120,
     heightDesktop: 58,
     topDesktop: 77,
     leftDesktop: 522,
 
-    translateZ: 150,
+    translateZ: 90,
 
     widthTablet: 120,
     heightTablet: 64,
@@ -44,14 +47,15 @@ export const IMAGES_HOME_PROJECTS = [
 
   {
     pos: '2.l',
-    name: 'balakun',
+    name: 'Платформа “Balakun”',
+    link: 'https://balakach.vercel.app/',
     src: balakun,
     widthDesktop: 350,
     heightDesktop: 167,
     topDesktop: 36,
     leftDesktop: 0,
 
-    translateZ: 110,
+    translateZ: 90,
 
     widthTablet: 180,
     heightTablet: 92,
@@ -61,14 +65,15 @@ export const IMAGES_HOME_PROJECTS = [
 
   {
     pos: '3.r',
-    name: 'organik',
+    name: 'Органік Україна',
+    link: 'https://baza-trainee.github.io/organic-ukraine/',
     src: organik,
     widthDesktop: 180,
     heightDesktop: 120,
     topDesktop: 0,
     leftDesktop: 605,
 
-    translateZ: 150,
+    translateZ: 90,
 
     widthTablet: 340,
     heightTablet: 164,
@@ -77,7 +82,8 @@ export const IMAGES_HOME_PROJECTS = [
   },
   {
     pos: '3.l',
-    name: 'bazaTrainee',
+    name: 'Baza Trainee Ukraine',
+    link: 'https://baza-trainee.tech/uk',
     src: bazaTrainee,
 
     widthDesktop: 180,
@@ -85,7 +91,7 @@ export const IMAGES_HOME_PROJECTS = [
     topDesktop: 34,
     leftDesktop: 325,
 
-    translateZ: 150,
+    translateZ: 90,
 
     widthTablet: 120,
     heightTablet: 64,
@@ -94,14 +100,15 @@ export const IMAGES_HOME_PROJECTS = [
   },
   {
     pos: '2.r',
-    name: 'klouns',
+    name: 'Бюро лікарняних клоунів',
+    link: 'https://boop.in.ua/ua',
     src: klouns,
     widthDesktop: 120,
     heightDesktop: 80,
     topDesktop: 137,
     leftDesktop: 602,
 
-    translateZ: 250,
+    translateZ: 90,
 
     widthTablet: 180,
     heightTablet: 92,
@@ -110,14 +117,15 @@ export const IMAGES_HOME_PROJECTS = [
   },
   {
     pos: '1.r',
-    name: 'militari',
+    name: '“Мілітарі” платформа',
+    link: 'https://baza-trainee.tech/uk/projects',
     src: militari,
     widthDesktop: 500,
     heightDesktop: 240,
     topDesktop: 103,
     leftDesktop: 635,
 
-    translateZ: 150,
+    translateZ: 90,
 
     widthTablet: 180,
     heightTablet: 92,
@@ -126,7 +134,8 @@ export const IMAGES_HOME_PROJECTS = [
   },
   {
     pos: '1.l',
-    name: 'kolyskova',
+    name: 'Платформа “Колискова”',
+    link: 'https://www.kolyskova.com/#/map',
     src: kolyskova,
     widthDesktop: 500,
     heightDesktop: 240,

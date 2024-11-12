@@ -14,4 +14,5 @@ export interface HomeProjectsImagesType {
   heightTablet: number;
   topTablet: number | string;
   leftTablet: number | string;
+  link: string;
 }

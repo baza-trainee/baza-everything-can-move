@@ -40,18 +40,24 @@ export function PCardsThird() {
                   left: image.leftTablet,
                   width: `${image.widthTablet}px`,
                   height: `${image.heightTablet}px`,
+                  transition: 'transform 0.3s ease-in-out',
                 }}
               >
-                <CardBody className="group/card h-full w-full rounded-xl">
+                <CardBody className="group/card h-full w-full rounded-xl transition-transform duration-300 ease-in-out">
                   <CardItem
                     translateZ={image.translateZ}
-                    className="h-full w-full"
+                    className="h-full w-full transform group-hover/card:h-[164px] group-hover/card:w-[340px]"
                   >
                     <Image
                       src={image.src}
                       className="rounded-xl object-cover group-hover/card:shadow-xl"
                       alt={image.name}
-                      style={{ width: '100%', height: '100%' }}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        transition:
+                          'width 0.3s ease-in-out, height 0.3s ease-in-out',
+                      }}
                     />
                   </CardItem>
                 </CardBody>
@@ -74,18 +80,24 @@ export function PCardsThird() {
                   left: image.leftDesktop,
                   width: `${image.widthDesktop}px`,
                   height: `${image.heightDesktop}px`,
+                  transition: 'transform 0.3s ease-in-out',
                 }}
               >
-                <CardBody className="group/card h-full w-full rounded-xl">
+                <CardBody className="group/card h-full w-full rounded-xl transition-transform duration-300 ease-in-out">
                   <CardItem
                     translateZ={image.translateZ}
-                    className="h-full w-full"
+                    className="h-full w-full transform group-hover/card:h-[240px] group-hover/card:w-[480px]"
                   >
                     <Image
                       src={image.src}
                       className="rounded-xl object-cover group-hover/card:shadow-xl"
                       alt={image.name}
-                      style={{ width: '100%', height: '100%' }}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        transition:
+                          'width 0.3s ease-in-out, height 0.3s ease-in-out',
+                      }}
                     />
                   </CardItem>
                 </CardBody>
