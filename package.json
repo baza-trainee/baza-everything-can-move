@@ -22,6 +22,7 @@
     "react-dom": "^18",
     "react-double-marquee": "^1.1.0",
     "react-intersection-observer": "^9.13.1",
+    "react-use": "^17.5.1",
     "tailwind-merge": "^2.5.4",
     "three": "^0.169.0",
     "use-sound": "^4.0.3"
