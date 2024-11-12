@@ -2,7 +2,7 @@
 import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
 import SubTitle from '@/components/ui/SubTitle';
 import SectionTitle from '@/components/ui/SectionTitle';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import DevelopmentText from './TextSections/DevelopmentText';
 import BrainAnimation from './AnimatedSections/BrainAnimation';
 
