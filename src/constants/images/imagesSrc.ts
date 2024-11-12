@@ -118,7 +118,7 @@ export const IMAGES_HOME_PROJECTS = [
   {
     pos: '1.r',
     name: '“Мілітарі” платформа',
-    link: 'https://baza-trainee.tech/uk/projects',
+    link: 'https://engforuarmy.org/en',
     src: militari,
     widthDesktop: 500,
     heightDesktop: 240,
