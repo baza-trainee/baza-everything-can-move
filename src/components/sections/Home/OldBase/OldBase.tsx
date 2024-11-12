@@ -24,7 +24,7 @@ export default function OldBase() {
         />
         <SectionTitle className="mb-1">старт бази</SectionTitle>
         <SubTitle className="mb-8"> квітень 2023</SubTitle>
-        <div className="lg:flex-nowrap 2xl:justify-end lg:gap-52 relative flex flex-wrap items-center">
+        <div className="lg:flex-nowrap 2xl:justify-end lg:gap-52 gap-20  relative flex flex-wrap items-center">
           <div className="orbit relative flex h-[280px] w-[280px] items-center justify-center">
             <div className="orbit-circle big-orbit"></div>
             <div className="orbit-circle middle-orbit"></div>

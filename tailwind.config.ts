@@ -74,6 +74,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         grid: 'linear-gradient(90deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px), linear-gradient(180deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px)',
+        'radial-gradient': 'radial-gradient(circle, rgba(211,253,80,0.1) 2%, rgba(0, 0, 0, 0) 70%)',
       },
       backgroundSize: {
         'grid-90': '90px 90px',

@@ -1,5 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { cycleIndex, generatePositions, generateVariants } from './ui';
+import {
+  cycleIndex,
+  generatePositions,
+  generateVariants,
+  generateVariantsHorizontal,
+} from './ui';
 import { ObjectArrayFoto } from './types';
 
 export const useFotoSwiper = (arrayImages: ObjectArrayFoto[]) => {
@@ -59,6 +64,10 @@ export const useFotoSwiper = (arrayImages: ObjectArrayFoto[]) => {
     () => generateVariants(arrayImages.length),
     [arrayImages.length]
   );
+  const newVariantsHorizontal = useMemo(
+    () => generateVariantsHorizontal(arrayImages.length),
+    [arrayImages.length]
+  );
 
   return {
     positionIndexes,
@@ -69,6 +78,7 @@ export const useFotoSwiper = (arrayImages: ObjectArrayFoto[]) => {
     handlePrev,
     position,
     newVariants,
+    newVariantsHorizontal,
     objectBigFoto,
   };
 };

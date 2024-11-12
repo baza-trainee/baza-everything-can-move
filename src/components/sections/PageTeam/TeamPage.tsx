@@ -1,15 +1,29 @@
-import SectionGeografy from './SectionGeografy/SectionGeografy';
-import SectionJoin from './SectionJoin/SectionJoin';
-import SectionStatistic from './SectionStatistic/SectionStatistic';
-import SectionTeam from './SectionTeam/SectionTeam';
+'use client';
+
+import { useDesignStore } from '@/useDesignStore';
+import SectionGeografy from './designeByOlga/SectionGeografy/SectionGeografy';
+import SectionJoin from './designeByOlga/SectionJoin/SectionJoin';
+import SectionStatistic from './designeByOlga/SectionStatistic/SectionStatistic';
+import SectionTeam from './designeByOlga/SectionTeam/SectionTeam';
+import HeroSection from './desingeBySvitlana/HeroSection';
 
 function TeamPage() {
+  const { designType } = useDesignStore();
   return (
     <>
-      <SectionTeam />
-      <SectionStatistic />
-      <SectionGeografy />
-      <SectionJoin />
+      {designType === 'designByOlga' && (
+        <>
+          <SectionTeam />
+          <SectionStatistic />
+          <SectionGeografy />
+          <SectionJoin />
+        </>
+      )}
+      {designType === 'designBySvitlana' && (
+        <>
+          <HeroSection />
+        </>
+      )}
     </>
   );
 }
