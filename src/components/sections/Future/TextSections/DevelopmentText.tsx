@@ -1,60 +1,6 @@
 'use client';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TEXTS } from '../../../../constants/text';
-
-// interface DevelopmentTextProps {
-//   onScrollUpdate?: (scrollInfo: { isTop: boolean; isBottom: boolean }) => void;
-// }
-
-// const DevelopmentText: React.FC<DevelopmentTextProps> = ({ onScrollUpdate }) => {
-//   const containerRef = useRef<HTMLDivElement>(null);
-
-//   const handleScroll = () => {
-//     if (!containerRef.current) return;
-
-//     const container = containerRef.current;
-//     const isTop = container.scrollTop === 0;
-//     const isBottom = container.scrollTop + container.clientHeight >= container.scrollHeight;
-
-//     // Call onScrollUpdate to notify the parent about the scroll position
-//     onScrollUpdate?.({ isTop, isBottom });
-//   };
-
-//   useEffect(() => {
-//     const container = containerRef.current;
-//     container?.addEventListener('scroll', handleScroll);
-
-//     return () => {
-//       container?.removeEventListener('scroll', handleScroll);
-//     };
-//   }, []);
-
-//   return (
-//     <div className="mt-8 h-[340px] lg:mt-0 lg:w-[320px] 2xl:h-[376px]">
-//       <div
-//         ref={containerRef}
-//         style={{
-//           overflowY: 'scroll',
-//           scrollbarWidth: 'none', // Firefox
-//           msOverflowStyle: 'none', // IE
-//           WebkitOverflowScrolling: 'touch', // Smooth scroll on mobile
-//         }}
-//         className="scrollbar-hidden flex h-full max-h-full flex-col justify-items-center overflow-y-scroll"
-//       >
-//         {TEXTS.map((item, index) => (
-//           <div key={index} className="h-full flex-shrink-0">
-//             <h3 className="mb-[20px] text-sm leading-o-130 lg:mb-[29px] lg:text-md lg:uppercase 2xl:text-l">
-//               {item.title}
-//             </h3>
-//             <p className="text-s leading-o-130 lg:text-m 2xl:text-sm">
-//               {item.text}
-//             </p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
 import { motion, AnimatePresence } from 'framer-motion';
 
 const DevelopmentText: React.FC = () => {
@@ -103,41 +49,5 @@ const DevelopmentText: React.FC = () => {
   );
 };
 
-// const marqueeAnimation = {
-//   y: ["0%", "-100%"],
-//   transition: {
-//     duration: 15,
-//     ease: "linear",
-//     repeat: Infinity,
-//   },
-// };
-
-// return (
-//   <div className="mt-8 h-[340px] lg:mt-0 lg:w-[320px] 2xl:h-[376px] overflow-hidden relative">
-//     <div className="overflow-y-hidden h-full">
-//       <motion.div animate={marqueeAnimation}>
-//         {TEXTS.map((item, index) => (
-//           <motion.div
-//             className="h-[340px]"
-//             key={index}
-//             initial={{ opacity: 1 }}
-//             animate={{ opacity: [1, 0] }} // Прозорість кожного блоку поступово зменшується
-//             transition={{
-//               duration: 3, // Тривалість зникнення
-//               delay: index * 3, // Затримка для кожного блоку
-//               repeat: Infinity,
-//               repeatDelay: (TEXTS.length - 1) * 3, // Час між циклами
-//             }}
-//           >
-//             <div>
-//               <h3>{item.title}</h3>
-//               <p>{item.text}</p>
-//             </div>
-//           </motion.div>
-//         ))}
-//       </motion.div>
-//     </div>
-//   </div>
-// );
 
 export default DevelopmentText;
