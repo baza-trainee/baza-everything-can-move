@@ -5,7 +5,7 @@ import { achievements } from '@/constants/achievements';
 import Card from './Card';
 import { useScroll } from 'framer-motion';
 import { useEffect, useRef } from 'react';
-// import Lenis from 'lenis'
+import Lenis from 'lenis'
 
 
  const CardsParallax:React.FC = () => {
