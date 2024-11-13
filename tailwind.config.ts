@@ -76,9 +76,10 @@ const config: Config = {
       backgroundImage: {
         grid: 'linear-gradient(90deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px), linear-gradient(180deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px)',
 
-        'radial-gradient': 'radial-gradient(circle, rgba(211,253,80,0.2) 22%, rgba(0, 0, 0, 0) 70%)',
-
         'radial-gradient':
+          'radial-gradient(circle, rgba(211,253,80,0.2) 22%, rgba(0, 0, 0, 0) 70%)',
+
+        'radial-gradien':
           'radial-gradient(circle, rgba(211,253,80,0.1) 2%, rgba(0, 0, 0, 0) 70%)',
       },
       backgroundSize: {

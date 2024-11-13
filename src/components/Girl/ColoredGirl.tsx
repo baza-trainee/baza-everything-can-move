@@ -2,7 +2,7 @@
 import React from "react";
 import { Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, useAnimations, useGLTF } from "@react-three/drei";
+import { useAnimations, useGLTF } from "@react-three/drei";
 
 useGLTF.preload("/models/Michelle.glb");
 function GirlModel() {
@@ -55,7 +55,7 @@ export default function ColoredGirl() {
           </Suspense>
 
           {/* <OrbitControls /> */}
-          <OrbitControls enabled={false} />
+          {/* <OrbitControls enabled={false} /> */}
         </Canvas>
       </div>
     </>
