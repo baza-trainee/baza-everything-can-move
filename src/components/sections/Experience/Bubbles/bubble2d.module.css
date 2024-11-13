@@ -3,9 +3,9 @@
    transition: all 0.5s ease-in-out;
 }
 
-#wiggleBlock:nth-of-type(1)::before,
-#wiggleBlock:nth-of-type(3)::before,
-#wiggleBlock:nth-of-type(5)::before{
+#wiggleBlock:nth-of-type(6)::before,
+#wiggleBlock:nth-of-type(8)::before,
+#wiggleBlock:nth-of-type(10)::before{
     content:' ';
     height: 220px;
     width: 220px;
@@ -18,13 +18,13 @@
     animation: spin 30s linear infinite;
 
 }
-#wiggleBlock:nth-of-type(1){
+#wiggleBlock:nth-of-type(6){
      animation-direction: reverse;
 }
-#wiggleBlock:nth-of-type(3){
+#wiggleBlock:nth-of-type(8){
      animation-direction: reverse;
 }
-#wiggleBlock:nth-of-type(5){
+#wiggleBlock:nth-of-type(10){
      animation-direction: reverse;
 }
 
@@ -53,9 +53,5 @@
   100% {
     transform: translate(0px, 0px) rotate(0deg);
   }
-}
-
-#Block2D{
-   background-color: blue;
 }
 

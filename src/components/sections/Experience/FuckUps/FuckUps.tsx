@@ -11,20 +11,16 @@ export interface FuckUpsSectionProps {
 
 const FuckUpSection = ({title, subtitle}:FuckUpsSectionProps) => {
   return (
-
-    <ContainerWithCorners>
-        <div className='container pb-8'>
-            <SectionTitle>{title}</SectionTitle>
-            <SubTitle>{subtitle}</SubTitle>
-        </div>
-    <div className='container flex flex-row justify-between sticky'>
-      <p className=''>Неправильно збілдили проєкт для<br/>деплою. Папки завернули через<br/>рівень. Довго мучились...</p>
-      <p className=''>Зверстали першу сторінку сайту<br/>на bootstrap з жорсткою<br/> структурою.<br/><br/>Переписували заново фактично всю<br/> сторінку.</p>
+    <div>
+      <ContainerWithCorners>
+          <div className='container pb-8'>
+              <SectionTitle>{title}</SectionTitle>
+              <SubTitle>{subtitle}</SubTitle>
+          </div>
+          <WiresAnimationComponent />
+      </ContainerWithCorners>
+      <p className='uppercase text-l leading-[31.2px] font-regular bg-olga-btn-menu py-10 px-[124px] my-16'>Baza Trainee UKRAINE це синергія ініціативності та ентузіазму. Віримо, що найм джуніорів — це не лише інвестиція в майбутнє компанії, а й можливість ростити власних професіоналів з індивідуальним підходом та свіжим баченням.</p>
     </div>
-        <WiresAnimationComponent />
-    <p className='container absolute bottom-0 right-0 overflow-clip'>Підключили Back-end розробника<br/> на останньому етапі.<br/><br/>В результаті чого тестувальники<br/> працювали на 2 тижні довше.</p>
-    </ContainerWithCorners>
-
   )
 }
 
