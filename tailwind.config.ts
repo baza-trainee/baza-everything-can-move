@@ -35,7 +35,7 @@ const config: Config = {
       black: '#000',
       white: '#fff',
       //Svitlana
-      's-gray': '#383838',
+      's-gray': '#363535',
       's-purple': '#8f8ded',
       's-light-purple': '#bcbbf9',
       //Olga
@@ -66,6 +66,7 @@ const config: Config = {
       md: '20px',
       l: '24px',
       lg: '32px',
+      xlg: '42px',
       xl: '48px',
       '2xl': '64px',
       '3xl': '80px',
@@ -74,7 +75,11 @@ const config: Config = {
     extend: {
       backgroundImage: {
         grid: 'linear-gradient(90deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px), linear-gradient(180deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px)',
+
         'radial-gradient': 'radial-gradient(circle, rgba(211,253,80,0.2) 22%, rgba(0, 0, 0, 0) 70%)',
+
+        'radial-gradient':
+          'radial-gradient(circle, rgba(211,253,80,0.1) 2%, rgba(0, 0, 0, 0) 70%)',
       },
       backgroundSize: {
         'grid-90': '90px 90px',
@@ -89,18 +94,19 @@ const config: Config = {
         'second-family': ['IBM Plex Mono', 'sans-serif'],
         'third-family': ['Inter', 'ui-sans-serif', 'sans-serif'],
         font3: ['VG5000', 'ui-sans-serif', 'sans-serif'],
-        font4: ['Urbanist', 'ui-sans-serif', 'sans-serif'],
-        font5: ['Nunito', 'ui-sans-serif', 'sans-serif'],
-        font6: ['IBM Plex Sans', 'ui-sans-serif', 'sans-serif'],
+
+        font4: ['Nunito', 'ui-sans-serif', 'sans-serif'],
+        font5: ['IBM Plex Sans', 'ui-sans-serif', 'sans-serif'],
+        font6: ['Urbanist', 'ui-sans-serif', 'sans-serif'],
         font7: ['Poppins', 'ui-sans-serif', 'sans-serif'],
         font8: ['Playfair Display', 'ui-sans-serif', 'sans-serif'],
-        font9: ['Raleway', 'ui-sans-serif', 'sans-serif'],
-        font10: ['Neucha', 'ui-sans-serif', 'sans-serif'],
       },
 
       letterSpacing: {
         //tracking-custom-tight
         'custom-tight': '0.02em',
+        's-1': '0.01em',
+        's-2': '0.02em',
       },
       lineHeight: {
         //leading-o-120
@@ -109,6 +115,7 @@ const config: Config = {
         's-30': '30px',
         's-38': '38px',
         's-48': '48px',
+        's-100': '100%',
         's-120': '120px',
         's-129': '129px',
         'o-120': '120%',

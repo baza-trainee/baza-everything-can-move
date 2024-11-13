@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { HomeProjectsImagesType } from './types';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
@@ -107,12 +108,18 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
                 transition={{ duration: 0.7 }}
                 className="absolute top-0 h-[164px] w-[320px]"
               >
-                <Image
-                  src={images[imageIndex].src}
-                  alt={`Image ${imageIndex}`}
-                  className="object-cover"
-                  style={{ width: '100%' }}
-                />
+                <Link
+                  href={images[imageIndex].link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={images[imageIndex].src}
+                    alt={`Image ${imageIndex}`}
+                    className="object-cover"
+                    style={{ width: '100%' }}
+                  />
+                </Link>
               </motion.div>
 
               // </React.Fragment>
