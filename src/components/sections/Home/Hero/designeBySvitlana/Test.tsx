@@ -1,5 +1,4 @@
-'use client'; // Add this if using Next.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 const prefix = ' ';
 const skills = ['як ми', 'на базі', 'анімацію', 'робили'];
@@ -18,12 +17,6 @@ function getRandomChar() {
   return String.fromCharCode(Math.random() * (127 - 33) + 33);
 }
 
-function getRandomColoredString(n) {
-  return Array.from({ length: n }, (_, i) => (
-    <span key={i} style={{ color: getRandomColor() }}>{getRandomChar()}</span>
-  ));
-}
-
 export default function SkillsAnimation() {
   const [text, setText] = useState('');
   const [state, setState] = useState({
@@ -35,6 +28,12 @@ export default function SkillsAnimation() {
     delay,
     step,
   });
+
+  const randomColoredString = useMemo(() => (n: number) => {
+    return Array.from({ length: n }, (_, i) => (
+      <span key={i} style={{ color: getRandomColor() }}>{getRandomChar()}</span>
+    ));
+  }, []);
 
   useEffect(() => {
     const render = () => {
@@ -75,9 +74,9 @@ export default function SkillsAnimation() {
   }, [state]);
 
   return (
-    <p className="text-animation text-[40px] uppercase leading-[120%] lg:text-[64px] 2xl:text-[86px]">
+    <p className="text-[40px] uppercase leading-[120%] lg:text-[64px] 2xl:text-[86px]">
       {text}
-      {getRandomColoredString(
+      {randomColoredString(
         state.prefixP < prefix.length
           ? Math.min(tail, tail + state.prefixP)
           : Math.min(tail, skills[state.skillI].length - state.skillP)
