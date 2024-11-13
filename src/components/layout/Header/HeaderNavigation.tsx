@@ -29,7 +29,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
     <div
       // overflow-y-auto pb-[18px]
       className={clsx(
-        'fixed inset-0 z-50 h-dvh w-full transform bg-olga-bg pb-6 text-white transition-transform duration-300 ease-in-out lg:overflow-y-auto 2xl:pb-[18px]',
+        'fixed inset-0 z-50 flex h-dvh w-full transform flex-col justify-between  bg-olga-bg pb-6 text-white transition-transform duration-300 ease-in-out lg:overflow-y-auto 2xl:pb-[18px]',
 
         openMenu ? 'translate-y-0' : '-translate-y-full'
       )}
@@ -57,21 +57,20 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           <ICONS_SRC.CLOSE_MENU_ICON className="fill-current w-10 lg:w-16" />
         </button>
       </div>
-      {/* end of  upper line */}
-      <div className="flex flex-col justify-between">
-        {/* nav links section*/}
-        <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
-        {/* end of nav links section*/}
-        {/* soc media section*/}
-        <div>
-          {/* className="pb-6 2xl:pb-[14px]" */}
-          <p className="mb-1 text-center text-s leading-o-130 text-white lg:text-m 2xl:text-sm">
-            Слідкуй за нами
-          </p>
-          <SocialMedia />
-        </div>
-        {/* end of soc media section*/}
+      {/* end of  upper line flex flex-col justify-between*/}
+
+      {/* nav links section*/}
+      <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
+      {/* end of nav links section*/}
+      {/* soc media section*/}
+      <div>
+        {/* className="pb-6 2xl:pb-[14px]" */}
+        <p className="mb-1 text-center text-s leading-o-130 text-white lg:text-m 2xl:text-sm">
+          Слідкуй за нами
+        </p>
+        <SocialMedia />
       </div>
+      {/* end of soc media section*/}
     </div>
   );
 };
