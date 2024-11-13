@@ -10,7 +10,6 @@ import Lenis from 'lenis'
 
  const CardsParallax:React.FC = () => {
 
-    //  const canvasRef = useRef<HTMLDivElement | null >(null);
     const container = useRef<HTMLElement | null>(null);
 
     const { scrollYProgress } = useScroll({
