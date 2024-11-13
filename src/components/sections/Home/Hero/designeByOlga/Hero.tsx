@@ -1,6 +1,6 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
-import ScrollButton from '../../../ui/ContaktButton/ContaktButton';
-import ColoredGirl from '../../../Girl/ColoredGirl';
+import ScrollButton from '../../../../ui/ContaktButton/ContaktButton';
+import ColoredGirl from '../../../../Girl/ColoredGirl';
 import Image from 'next/image';
 import './Hero.css';
 
@@ -22,7 +22,7 @@ export default function Hero() {
               height={300}
             />
           </h1>
-          <div className="elips absolute lg:bottom-[-24%] lg:left-[60%] right-[-10%] w-[80px] h-[80px] 2xl:left-[70%] 2xl:w-[120px]">
+          <div className="elips absolute right-[-10%] h-[80px] w-[80px] lg:bottom-[-24%] lg:left-[60%] 2xl:left-[70%] 2xl:w-[120px]">
             <Image
               className="rotate"
               src="/assets/images/HomeImg/Vector.svg"

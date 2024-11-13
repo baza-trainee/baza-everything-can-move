@@ -47,8 +47,8 @@ function GirlModel() {
 export default function WhiteTrGirl() {
   return (
     <>
-      <div className="h-[800px]  w-[400px]">
-        <Canvas
+      <div className="h-[700px] 2xl:w-[50%] lg:w-[60%] w-[90%] transform 2xl:translate-x-[70%] lg:translate-x-[55%] 2xl:translate-y-[-25%] translate-y-[-7%] translate-x-[-10%] absolute">
+        <Canvas className="h-[900px]  w-[400px]"
           camera={{ position: [0, 1, 5], fov: 50 }}
           gl={{ antialias: true }}
         >
