@@ -29,7 +29,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
     <div
       // overflow-y-auto pb-[18px]
       className={clsx(
-        'fixed inset-0 z-50 h-dvh w-full transform overflow-y-auto bg-olga-bg pb-6 text-white transition-transform duration-300 ease-in-out 2xl:pb-[18px]',
+        'fixed inset-0 z-50 h-dvh w-full transform bg-olga-bg pb-6 text-white transition-transform duration-300 ease-in-out lg:overflow-y-auto 2xl:pb-[18px]',
 
         openMenu ? 'translate-y-0' : '-translate-y-full'
       )}
