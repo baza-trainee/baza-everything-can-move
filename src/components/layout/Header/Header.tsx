@@ -64,7 +64,7 @@ const Header = () => {
             />
           </Link>
           {/* right side */}
-          <div className="flex uppercase leading-o-130 lg:text-md 2xl:text-l">
+          <div className="z-50 flex uppercase leading-o-130 lg:text-md 2xl:text-l">
             {/* b1  current page */}
             <div className="hidden items-end bg-olga-btn-menu p-3 text-olga-green-extra lg:flex lg:h-16 lg:w-[120px] 2xl:h-[80px] 2xl:w-[174px]">
               {indexOfCurrentPage >= 0
@@ -74,7 +74,7 @@ const Header = () => {
             {/* b2 next page */}
             <Link
               href={NAV_LINKS[indexOfNextPage].link}
-              className="hidden items-end bg-olga-btn-menu p-3 text-white transition-colors duration-300 ease-linear hover:text-olga-green/90 lg:flex lg:h-[100px] lg:w-[180px] 2xl:h-[120px] 2xl:w-[344px]"
+              className="hidden items-end bg-olga-btn-menu p-3 text-white transition-colors duration-300 ease-linear hover:text-olga-green/90 lg:z-50 lg:flex lg:h-[100px] lg:w-[180px] 2xl:h-[120px] 2xl:w-[344px]"
             >
               {indexOfNextPage >= 0 ? NAV_LINKS[indexOfNextPage].name : 'UPS'}
             </Link>
