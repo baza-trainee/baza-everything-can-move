@@ -1,5 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { useDesignStore } from '@/useDesignStore';
+import clsx from 'clsx';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -11,6 +13,7 @@ import { NAV_LINKS } from '@/constants/navlinks';
 const Header = () => {
   const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState(false);
+  const { designType } = useDesignStore();
 
   useEffect(() => {
     if (openMenu) {
@@ -46,16 +49,30 @@ const Header = () => {
     setOpenMenu(!openMenu);
   };
   return (
-    <header className="flex justify-between">
+    <header
+      className={clsx(
+        'flex justify-between',
+        designType === 'designBySvitlana' && 'font-font5 font-medium'
+      )}
+    >
       {!openMenu && (
         <>
           <Link
             href="/"
-            // onClick={handleMenuClick}
-            className="pl-4 pt-10 lg:pb-[30px] lg:pl-6 lg:pt-[30px] 2xl:pb-10 2xl:pl-10 2xl:pt-10"
+            className={clsx(
+              'pl-4 lg:pl-6',
+              designType === 'designByOlga' &&
+                'pt-10 lg:pb-[30px] lg:pt-[30px] 2xl:pb-10 2xl:pl-10 2xl:pt-10',
+              designType === 'designBySvitlana' &&
+                'pb-1 pt-1 lg:pb-[26px] lg:pt-[10px] 2xl:pb-4 2xl:pl-10 2xl:pt-4'
+            )}
           >
             <Image
-              className="h-16 w-16 lg:h-20 lg:w-20"
+              className={clsx(
+                designType === 'designByOlga' && 'h-16 w-16 lg:h-20 lg:w-20',
+                designType === 'designBySvitlana' &&
+                  'w-[66px] lg:w-[53px] 2xl:w-14'
+              )}
               src="/assets/images/Logo/logo_baza.png"
               alt="Logo Baza Trainee Ukraine"
               priority
@@ -64,9 +81,23 @@ const Header = () => {
             />
           </Link>
           {/* right side */}
-          <div className="z-50 flex uppercase leading-o-130 lg:text-md 2xl:text-l">
-            {/* b1  current page */}
-            <div className="hidden items-end bg-olga-btn-menu p-3 text-olga-green-extra lg:flex lg:h-16 lg:w-[120px] 2xl:h-[80px] 2xl:w-[174px]">
+          <div
+            className={clsx(
+              'z-50 flex uppercase lg:text-md',
+              designType === 'designByOlga' && 'leading-o-130 2xl:text-l',
+              designType === 'designBySvitlana' && 'leading-s-100 tracking-s-2'
+            )}
+          >
+            {/* button 1  current page */}
+            <div
+              className={clsx(
+                'hidden items-end lg:flex',
+                designType === 'designByOlga' &&
+                  'bg-olga-btn-menu p-3 text-olga-green-extra lg:h-16 lg:w-[120px] 2xl:h-[80px] 2xl:w-[174px]',
+                designType === 'designBySvitlana' &&
+                  'bg-s-gray text-s-purple lg:h-[50px] lg:w-[140px] lg:p-4 2xl:w-[216px] 2xl:pb-3 2xl:pl-5'
+              )}
+            >
               {indexOfCurrentPage >= 0
                 ? NAV_LINKS[indexOfCurrentPage].name
                 : 'UPS'}
