@@ -20,10 +20,11 @@ const Bubbles3D:React.FC = () => {
         // const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, antialias: true  });
         const renderer = new THREE.WebGLRenderer();
 		renderer.setPixelRatio( window.devicePixelRatio );
-		renderer.setSize( 1200, 526);
+		renderer.setSize( window.innerWidth, window.innerHeight);
         renderer.toneMapping = THREE.NoToneMapping;
+        renderer.setClearColor( 0xffffff, 0);
         const scene = new THREE.Scene();
-		const camera = new THREE.PerspectiveCamera( 40, 1200 / 526, 1, 1000 );
+		const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
 		camera.position.set( 0, 0, 30 );
         
         if (canvasRef.current?.childNodes[0] === undefined) {
@@ -57,13 +58,14 @@ const Bubbles3D:React.FC = () => {
         mesh3.position.set(5, 7, -1);
         scene.add( mesh3);
 
+        
+
+        // console.log(scene.children[3].position);
+
         // renderer.setAnimationLoop( animate );
         // function animate() {
     	//     mesh1.position.x += 0.01;
     	//    mesh1.position.x -= 0.01;
-
-
-             
         //      renderer.render( scene, camera );
         // }
 
@@ -85,7 +87,7 @@ const Bubbles3D:React.FC = () => {
     },[])
     			
 
-    return <div ref={canvasRef} className='margin-0'/>;
+    return <div ref={canvasRef} className='mx-0 bg-olga-bg container'/>;
     // return <canvas ref={canvasRef} />;
 
 }
