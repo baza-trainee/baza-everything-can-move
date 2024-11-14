@@ -95,7 +95,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           <div className="w-full px-6 pb-[49px] pt-6">
             <button
               onClick={handleMenuClick}
-              className="absolute right-6 top-6 flex h-[60px] w-[60px] items-center justify-center rounded-full transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray"
+              className="ml-auto flex h-[60px] w-[60px] items-center justify-center rounded-full transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray"
             >
               <ICONS_SRC.CLOSE_MENU_ICON className="fill-current h-8 w-8 hover:fill-s-light-purple" />
             </button>
