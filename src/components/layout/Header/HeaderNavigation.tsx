@@ -27,9 +27,10 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
 }) => {
   return (
     <div
-      // overflow-y-auto
+      // overflow-y-auto pb-[18px]
       className={clsx(
-        'bg-olga-bg fixed inset-0 z-50 h-dvh w-full transform overflow-y-auto pb-[18px] text-white transition-transform duration-300 ease-in-out',
+        'fixed inset-0 z-50 flex h-dvh w-full transform flex-col justify-between  bg-olga-bg pb-6 text-white transition-transform duration-300 ease-in-out lg:overflow-y-auto 2xl:pb-[18px]',
+
         openMenu ? 'translate-y-0' : '-translate-y-full'
       )}
     >
@@ -50,29 +51,26 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           />
         </Link>
         <button
-          className="hover:text-olga-green flex h-11 w-11 items-center justify-center text-white transition-colors duration-300 ease-linear lg:h-[100px] lg:w-[100px]"
+          className="flex h-11 w-11 items-center justify-center text-white transition-colors duration-300 ease-linear hover:text-olga-green lg:h-[100px] lg:w-[100px]"
           onClick={handleMenuClick}
         >
-          <ICONS_SRC.CLOSE_MENU_ICON className="w-10 fill-current lg:w-16" />
-         
+          <ICONS_SRC.CLOSE_MENU_ICON className="fill-current w-10 lg:w-16" />
         </button>
       </div>
-      {/* end of  upper line */}
-      <div className='flex flex-col justify-between'>
-       
-        {/* nav links section*/}
-        <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
-        {/* end of nav links section*/}
-        {/* soc media section*/}
-        <div className="pb-6 2xl:pb-[14px]">
-          <p className="leading-o-130 text-s lg:text-m mb-1 text-center text-white 2xl:text-sm">
-            Слідкуй за нами
-          </p>
+      {/* end of  upper line flex flex-col justify-between*/}
 
-          <SocialMedia />
-        </div>
-        {/* end of soc media section*/}
+      {/* nav links section*/}
+      <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
+      {/* end of nav links section*/}
+      {/* soc media section*/}
+      <div>
+        {/* className="pb-6 2xl:pb-[14px]" */}
+        <p className="mb-1 text-center text-s leading-o-130 text-white lg:text-m 2xl:text-sm">
+          Слідкуй за нами
+        </p>
+        <SocialMedia />
       </div>
+      {/* end of soc media section*/}
     </div>
   );
 };
