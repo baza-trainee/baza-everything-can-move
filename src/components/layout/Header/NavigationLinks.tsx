@@ -1,7 +1,9 @@
+'use client';
 import React from 'react';
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { useDesignStore } from '@/useDesignStore';
 import clsx from 'clsx';
 
 type NavLink = {
@@ -18,25 +20,51 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
   onClickLink,
 }) => {
   const pathname = usePathname();
+  const { designType } = useDesignStore();
   return (
     <nav>
-      <ul className="flex flex-col items-center justify-between">
-        {/* py-6  2xl:py-2 xl:py-[18px] xl:gap-[18px] gap-5 2xl:gap-2 */}
-        {headerNav.map((item, index) => (
-          <li key={index} className="flex w-full justify-center py-[10px]">
-            <Link
-              href={item.link}
-              onClick={onClickLink}
-              className={clsx(
-                pathname === item.link ? 'text-olga-green-extra' : 'text-white',
-                'block text-[44px] uppercase leading-o-120 transition-colors duration-300 ease-linear hover:text-olga-green lg:text-2xl 2xl:text-4xl'
-              )}
+      {designType === 'designByOlga' && (
+        <ul className="flex flex-col items-center">
+          {/* py-6  2xl:py-2 xl:py-[18px] xl:gap-[18px] gap-5 2xl:gap-2 */}
+          {headerNav.map((item, index) => (
+            <li key={index} className="flex w-full justify-center py-[10px]">
+              <Link
+                href={item.link}
+                onClick={onClickLink}
+                className={clsx(
+                  pathname === item.link
+                    ? 'text-olga-green-extra'
+                    : 'text-white',
+                  'block text-[44px] uppercase leading-o-120 transition-colors duration-300 ease-linear hover:text-olga-green lg:text-2xl 2xl:text-4xl'
+                )}
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+      {designType === 'designBySvitlana' && (
+        <ul className="flex flex-col">
+          {headerNav.map((item, index) => (
+            <li
+              key={index}
+              className="flex w-full border-b border-white px-[47px] py-[29px]"
             >
-              {item.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+              <Link
+                href={item.link}
+                onClick={onClickLink}
+                className={clsx(
+                  pathname === item.link ? 'text-s-purple' : 'text-white',
+                  'block text-xl font-medium uppercase transition-colors duration-300 ease-linear hover:text-olga-green'
+                )}
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </nav>
   );
 };

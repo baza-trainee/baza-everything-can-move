@@ -83,13 +83,20 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
       )}
       {/* design By Svitlana */}
       {designType === 'designBySvitlana' && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-s-gray pb-[85px] text-white">
-          <button
-            onClick={handleMenuClick}
-            className="absolute right-6 top-6 flex h-[60px] w-[60px] items-center justify-center rounded-full transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray"
-          >
-            <ICONS_SRC.CLOSE_MENU_ICON className="fill-current h-8 w-8 hover:fill-s-light-purple" />
-          </button>
+        <div className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-s-gray pb-[85px] font-font5 text-white lg:hidden">
+          <div className="h-[127px] w-full">
+            <button
+              onClick={handleMenuClick}
+              className="absolute right-6 top-6 flex h-[60px] w-[60px] items-center justify-center rounded-full transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray"
+            >
+              <ICONS_SRC.CLOSE_MENU_ICON className="fill-current h-8 w-8 hover:fill-s-light-purple" />
+            </button>
+          </div>
+
+          <NavigationLinks
+            headerNav={headerNav}
+            onClickLink={handleMenuClick}
+          />
         </div>
       )}
     </>
