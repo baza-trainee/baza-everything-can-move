@@ -29,6 +29,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
   openMenu,
 }) => {
   const { designType } = useDesignStore();
+  useEffect(() => {
     if (openMenu) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -39,9 +40,9 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
     <>
       {designType === 'designByOlga' && (
         <div
-          // overflow-y-auto pb-[18px]
+          // overflow-y-auto pb-[18px] h-dvh h-svh
           className={clsx(
-            'fixed inset-0 z-50 flex h-dvh w-full transform flex-col justify-between bg-olga-bg pb-6 text-white transition-transform duration-300 ease-in-out lg:overflow-y-auto 2xl:pb-[18px]',
+            'xl:gap-2 fixed inset-0 z-50 flex h-dvh w-full transform flex-col gap-6 overflow-y-auto bg-olga-bg text-white transition-transform duration-300 ease-in-out',
 
             openMenu ? 'translate-y-0' : '-translate-y-full'
           )}
@@ -90,6 +91,11 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
       )}
       {/* design By Svitlana */}
       {designType === 'designBySvitlana' && (
+        <div className="fixed inset-0 z-50 flex w-full flex-col overflow-y-auto bg-s-gray pb-[85px] font-font5 text-white lg:hidden">
+          <div className="h-[127px] w-full bg-olga-green">
+            <button
+              onClick={handleMenuClick}
+              className="absolute right-6 top-6 flex h-[60px] w-[60px] items-center justify-center rounded-full transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray"
             >
               <ICONS_SRC.CLOSE_MENU_ICON className="fill-current h-8 w-8 hover:fill-s-light-purple" />
             </button>
