@@ -8,6 +8,7 @@ import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 import NavigationLinks from './NavigationLinks';
 import Link from 'next/link';
 import SocialMedia from './SocialMedia';
+import { useEffect } from 'react';
 
 type NavLink = {
   name: string;
@@ -25,11 +26,18 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
   handleMenuClick,
   openMenu,
 }) => {
+  useEffect(() => {
+    if (openMenu) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [openMenu]);
   return (
     <div
-      // overflow-y-auto pb-[18px]
+      // overflow-y-auto pb-[18px] h-dvh h-svh
       className={clsx(
-        'fixed inset-0 z-50 flex h-dvh w-full transform flex-col justify-between  bg-olga-bg pb-6 text-white transition-transform duration-300 ease-in-out lg:overflow-y-auto 2xl:pb-[18px]',
+        'xl:gap-2 fixed inset-0 z-50 flex h-dvh w-full transform flex-col gap-6 overflow-y-auto bg-olga-bg text-white transition-transform duration-300 ease-in-out',
 
         openMenu ? 'translate-y-0' : '-translate-y-full'
       )}
@@ -63,7 +71,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
       <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
       {/* end of nav links section*/}
       {/* soc media section*/}
-      <div>
+      <div className="xl:flex-grow-0 flex flex-grow flex-col justify-end">
         {/* className="pb-6 2xl:pb-[14px]" */}
         <p className="mb-1 text-center text-s leading-o-130 text-white lg:text-m 2xl:text-sm">
           Слідкуй за нами
