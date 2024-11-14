@@ -26,7 +26,7 @@ const config: Config = {
       // => @media (min-width: 375px) { ... }
       lg: '768px',
       // => @media (min-width: 768px) { ... }
-      //xl: '1024px',
+      xl: '1024px',
       // => @media (min-width: 1024px) { ... }
       '2xl': '1440px',
       // => @media (min-width: 1440px) { ... }

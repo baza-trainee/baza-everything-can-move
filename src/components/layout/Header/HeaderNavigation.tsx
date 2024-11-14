@@ -8,6 +8,7 @@ import clsx from 'clsx';
 
 import NavigationLinks from './NavigationLinks';
 import SocialMedia from './SocialMedia';
+import { useEffect } from 'react';
 
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 
@@ -28,6 +29,12 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
   openMenu,
 }) => {
   const { designType } = useDesignStore();
+    if (openMenu) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [openMenu]);
   return (
     <>
       {designType === 'designByOlga' && (
@@ -71,7 +78,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           />
           {/* end of nav links section*/}
           {/* soc media section*/}
-          <div>
+          <div className="xl:flex-grow-0 flex flex-grow flex-col justify-end">
             {/* className="pb-6 2xl:pb-[14px]" */}
             <p className="mb-1 text-center text-s leading-o-130 text-white lg:text-m 2xl:text-sm">
               Слідкуй за нами
@@ -83,11 +90,6 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
       )}
       {/* design By Svitlana */}
       {designType === 'designBySvitlana' && (
-        <div className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-s-gray pb-[85px] font-font5 text-white lg:hidden">
-          <div className="h-[127px] w-full">
-            <button
-              onClick={handleMenuClick}
-              className="absolute right-6 top-6 flex h-[60px] w-[60px] items-center justify-center rounded-full transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray"
             >
               <ICONS_SRC.CLOSE_MENU_ICON className="fill-current h-8 w-8 hover:fill-s-light-purple" />
             </button>
@@ -102,4 +104,5 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
     </>
   );
 };
+
 export default HeaderNavigation;
