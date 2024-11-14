@@ -91,8 +91,8 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
       )}
       {/* design By Svitlana */}
       {designType === 'designBySvitlana' && (
-        <div className="fixed inset-0 z-50 flex w-full flex-col overflow-y-auto bg-s-gray pb-[85px] font-font5 text-white lg:hidden">
-          <div className="h-[127px] w-full bg-olga-green">
+        <div className="fixed inset-0 z-50 flex w-full flex-col overflow-y-auto bg-s-gray pb-[85px] font-font5 text-white">
+          <div className="w-full px-6 pb-[49px] pt-6">
             <button
               onClick={handleMenuClick}
               className="absolute right-6 top-6 flex h-[60px] w-[60px] items-center justify-center rounded-full transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray"

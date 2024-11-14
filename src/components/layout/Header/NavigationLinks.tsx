@@ -50,15 +50,18 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
           {headerNav.map((item, index) => (
             <li
               key={index}
-              className="flex w-full border-b border-white py-[29px] pl-[47px]"
+              className={clsx(
+                'flex w-full border-b border-white py-[29px] pl-[47px] text-xl font-medium uppercase transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray',
+                pathname === item.link ? 'text-s-purple' : 'text-white'
+              )}
             >
               <Link
                 href={item.link}
                 onClick={onClickLink}
-                className={clsx(
-                  pathname === item.link ? 'text-s-purple' : 'text-white',
-                  'block text-xl font-medium uppercase transition-colors duration-300 ease-linear hover:text-olga-green'
-                )}
+                // className={clsx(
+                //   pathname === item.link ? 'text-s-purple' : 'text-white',
+                //   'block'
+                // )}
               >
                 {item.name}
               </Link>
