@@ -52,7 +52,7 @@ const config: Config = {
       'olga-grid': '#1a1919',
     },
     fontWeight: {
-      //Svitlana
+      //font-medium
       regular: '400',
       medium: '500',
       semibold: '600',
@@ -91,6 +91,7 @@ const config: Config = {
         'grid-41': '41px 41px',
       },
       fontFamily: {
+        //font-
         'main-family': ['Roboto-Mono', 'ui-sans-serif', 'sans-serif'],
         'second-family': ['IBM Plex Mono', 'sans-serif'],
         'third-family': ['Inter', 'ui-sans-serif', 'sans-serif'],

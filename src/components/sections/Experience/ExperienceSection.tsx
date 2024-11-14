@@ -6,7 +6,7 @@ import FuckUpSection from './FuckUps/FuckUps';
 
 const ExperienceSection:React.FC = () => {
   return (
-    <div>
+    <div className='bg-olga-bg'>
       <BubblesBlock title={'Досвід'} subtitle={'Найбільша цінність'}/>
       <Achievements title={'Досягнення'} subtitle={'Далі буде...'}/>
       <FuckUpSection title={'Факапи'} subtitle={'І це теж досвід'}/>
