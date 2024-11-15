@@ -1,13 +1,15 @@
+import Container from '@/components/DesignBySvitlna/Container';
 import Title from '@/components/DesignBySvitlna/Title';
+import SectionTitle from '@/components/ui/SectionTitle';
 import Image from 'next/image';
 import React from 'react';
 
 function HeroSection() {
   return (
     <section className="pb-[110px] pt-[123px]">
-      <div className="container flex gap-[130px]">
+      <Container className="flex gap-[130px]">
         <div className="max-w-[499px]">
-          <Title text="команди" />
+          <SectionTitle secondDesign={true}>команди</SectionTitle>
           <div className="mb-10 flex gap-3">
             <svg
               width="51"
@@ -39,7 +41,7 @@ function HeroSection() {
           alt="planet"
           src={'/assets/images/PageTeam/DesignSvitlna/Planet.jpg'}
         />
-      </div>
+      </Container>
     </section>
   );
 }
