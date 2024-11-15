@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/drei": "^9.114.4",
+    "@react-three/drei": "^9.116.2",
     "@react-three/fiber": "^8.17.10",
+    "@tsparticles/engine": "^3.5.0",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.5.0",
     "@types/three": "^0.169.0",
     "clsx": "^2.1.1",
     "dat.gui": "^0.7.9",
@@ -26,6 +29,7 @@
     "react-responsive": "^10.0.0",
     "tailwind-merge": "^2.5.4",
     "three": "^0.169.0",
+    "three-globe": "^2.34.4",
     "use-sound": "^4.0.3",
     "zustand": "^5.0.1"
   },
