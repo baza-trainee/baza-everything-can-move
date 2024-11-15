@@ -65,7 +65,9 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
                   onClick={onClickLink}
                   className={clsx('flex items-center gap-6')}
                 >
-                  {IconComponent && <IconComponent className="h-10 w-[29px]" />}
+                  {IconComponent && (
+                    <IconComponent className="fill-current h-10 w-[29px] hover:fill-s-gray" />
+                  )}
                   <span>{item.name}</span>
                 </Link>
               </li>
