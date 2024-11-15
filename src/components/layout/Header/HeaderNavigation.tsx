@@ -91,7 +91,12 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
       )}
       {/* design By Svitlana */}
       {designType === 'designBySvitlana' && (
-        <div className="fixed inset-0 z-50 flex w-full flex-col overflow-y-auto bg-s-gray pb-[85px] font-font5 text-white">
+        <div
+          className={clsx(
+            'fixed inset-0 z-50 flex w-full transform flex-col overflow-y-auto bg-s-gray pb-[85px] font-font5 text-white transition-transform duration-300 ease-in-out',
+            openMenu ? 'translate-y-0' : '-translate-y-full'
+          )}
+        >
           <div className="w-full px-6 pb-[49px] pt-6">
             <button
               onClick={handleMenuClick}
