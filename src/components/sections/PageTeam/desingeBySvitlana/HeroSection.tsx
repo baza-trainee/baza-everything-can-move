@@ -1,4 +1,4 @@
-import Container from '@/components/DesignBySvitlna/Container';
+import Container from '@/components/ui/DesignBySvitlna/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { SubTitle } from '@/components/ui/SubTitleSvitlana/SubTitle';
 import React from 'react';
