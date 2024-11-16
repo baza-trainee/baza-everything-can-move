@@ -1,8 +1,8 @@
 import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
 import SectionTitle from '@/components/ui/SectionTitle';
 import SubTitle from '@/components/ui/SubTitle';
-import PlanAnimation from './AnimatedSections/PlanAnimation';
-import PlanText from './TextSections/PlanText';
+import PlanAnimation from './PlanAnimation';
+import PlanText from './PlanText';
 
 function SectionPlan() {
   return (

@@ -1,8 +1,8 @@
 import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
 import SectionTitle from '@/components/ui/SectionTitle';
 import SubTitle from '@/components/ui/SubTitle';
-import GalaxyAnimation from './AnimatedSections/GalaxyAnimation';
-import FutureHeroText from './TextSections/FutureText';
+import FutureHeroText from './FutureText';
+import GalaxyOlga from '../sectionDevelopment/GalaxyOlga';
 
 function SectionFuture() {
   return (
@@ -13,7 +13,7 @@ function SectionFuture() {
           <SubTitle>Плануй з нами</SubTitle>
           <div className="flex flex-col justify-items-center py-[32px] lg:flex-row lg:items-center">
             <div className="grow">
-              <GalaxyAnimation />
+              <GalaxyOlga />
             </div>
             <FutureHeroText />
           </div>
