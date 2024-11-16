@@ -1,8 +1,4 @@
-import React from 'react';
-
-type Props = {};
-
-function Cobe({}: Props) {
+function Cobe() {
   return <div>Cobe</div>;
 }
 
