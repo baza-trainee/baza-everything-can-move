@@ -16,6 +16,7 @@
     "@tsparticles/slim": "^3.5.0",
     "@types/three": "^0.169.0",
     "clsx": "^2.1.1",
+    "cobe": "^0.6.3",
     "dat.gui": "^0.7.9",
     "framer-motion": "^11.11.11",
     "gsap": "^3.12.5",

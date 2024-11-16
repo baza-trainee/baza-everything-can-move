@@ -2,7 +2,7 @@ import Container from '@/components/DesignBySvitlna/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { SubTitle } from '@/components/ui/SubTitleSvitlana/SubTitle';
 import React from 'react';
-import { GlobeDemo } from './GlobeDemo';
+import Cobe from './Cobe';
 
 function HeroSection() {
   return (
@@ -41,7 +41,7 @@ function HeroSection() {
           </p>
         </div>
         <div className="z-0 ml-auto mr-auto h-[307px] w-[314px] overflow-visible lg:mr-0 lg:h-[455px] lg:w-[465px]">
-          <GlobeDemo />
+          <Cobe />
         </div>
       </Container>
     </section>
