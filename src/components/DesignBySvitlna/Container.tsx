@@ -5,7 +5,12 @@ type Props = { children: ReactNode; className?: string };
 
 function Container({ children, className }: Props) {
   return (
-    <div className={cn('w-full px-[20px] lg:px-6 2xl:px-20', className)}>
+    <div
+      className={cn(
+        'ml-auto mr-auto w-full max-w-[375px] px-[20px] lg:max-w-[768px] lg:px-6 2xl:max-w-[1440px] 2xl:px-20',
+        className
+      )}
+    >
       {children}
     </div>
   );

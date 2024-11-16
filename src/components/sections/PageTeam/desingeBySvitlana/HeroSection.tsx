@@ -1,15 +1,13 @@
 import Container from '@/components/DesignBySvitlna/Container';
-import Title from '@/components/DesignBySvitlna/Title';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { SubTitle } from '@/components/ui/SubTitleSvitlana/SubTitle';
-import Image from 'next/image';
 import React from 'react';
 import { GlobeDemo } from './GlobeDemo';
 
 function HeroSection() {
   return (
     <section className="pb-[110px] pt-[123px]">
-      <Container className="flex flex-col gap-10 lg:gap-0 lg:-space-y-[50px] 2xl:flex-row 2xl:gap-[130px]">
+      <Container className="flex flex-col gap-10 lg:gap-0 lg:-space-y-[50px] 2xl:flex-row 2xl:gap-[130px] 2xl:-space-y-0">
         <div className="max-w-[499px]">
           <SectionTitle secondDesign={true} className="mb-6">
             команди
@@ -42,7 +40,7 @@ function HeroSection() {
             </span>
           </p>
         </div>
-        <div className="relative z-0 ml-auto mr-auto h-[350px] w-[314px] lg:mr-0 lg:w-[465px]">
+        <div className="z-0 ml-auto mr-auto h-[307px] w-[314px] overflow-visible lg:mr-0 lg:h-[455px] lg:w-[465px]">
           <GlobeDemo />
         </div>
       </Container>

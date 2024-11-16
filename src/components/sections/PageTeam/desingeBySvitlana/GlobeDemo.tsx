@@ -32,11 +32,5 @@ export function GlobeDemo() {
     autoRotateSpeed: 0.5,
   };
 
-  return (
-    // <div className="relative">
-    <div className="absolute left-0 top-0 z-10 h-full w-full">
-      <World data={sampleArcs} globeConfig={globeConfig} />
-    </div>
-    // </div>
-  );
+  return <World data={sampleArcs} globeConfig={globeConfig} />;
 }
