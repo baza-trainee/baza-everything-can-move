@@ -1,0 +1,7 @@
+.scroll {
+  scrollbar-width: none;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none; /* Для Chrome, Safari, Opera */
+}
