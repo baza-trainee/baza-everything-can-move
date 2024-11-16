@@ -15,11 +15,12 @@ function ButtonJoin() {
           className={clsx(
             'h-[200px] w-[200px] rounded-full stroke-olga-green-extra shadow-xl 2xl:h-[232px] 2xl:w-[232px]'
           )}
-          style={{ transformOrigin: 'center' }}
+          style={{ transformOrigin: 'center',  WebkitTransformOrigin: 'center'}}
           initial={{
             rotate: 0,
+            WebkitTransform: 'rotate(0deg)'
           }}
-          animate={{ rotate: 360 }}
+          animate={{ rotate: 360, WebkitTransform: 'rotate(-360deg)'  }}
           transition={{
             duration: 60,
             repeat: Infinity,

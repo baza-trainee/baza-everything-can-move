@@ -73,6 +73,10 @@ const config: Config = {
       '4xl': '86px',
     },
     extend: {
+      spacing: {
+        'customLg':"calc(100% - 320px)",
+        'custom2xl': "calc(100% - 346px)"
+      },
       backgroundImage: {
         grid: 'linear-gradient(90deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px), linear-gradient(180deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px)',
 

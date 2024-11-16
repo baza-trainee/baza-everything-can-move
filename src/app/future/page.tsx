@@ -1,16 +1,30 @@
-import SectionFuture from '@/components/sections/Future/SectionFuture';
-import SectionDevelopment from '@/components/sections/Future/SectionDevelopment';
-import SectionPlan from '@/components/sections/Future/SectionPlan';
+'use client'
+import { useDesignStore } from '@/useDesignStore';
+import SectionFuture from '@/components/sections/Future/designedByOlga/sectionFuture/SectionFuture';
+import SectionDevelopment from '@/components/sections/Future/designedByOlga/sectionDevelopment/SectionDevelopment';
+import SectionPlan from '@/components/sections/Future/designedByOlga/sectionPlan/SectionPlan';
 import SectionJoin from '@/components/sections/PageTeam/designeByOlga/SectionJoin/SectionJoin';
+import SectionFutureHero from '@/components/sections/Future/designedBySvitlana/sectionFuture/SectionFutureHero';
 
 function Page() {
+  const { designType } = useDesignStore();
+
   return (
-    <section className="text-white">
-      <SectionFuture />
-      <SectionPlan />
-      <SectionDevelopment />
-      <SectionJoin />
-    </section>
+    <>
+      {designType === 'designByOlga' && (
+        <section className="text-white">
+          <SectionFuture />
+          <SectionPlan />
+          <SectionDevelopment />
+          <SectionJoin />
+        </section>
+      )}
+      {designType === 'designBySvitlana' && (
+        <section className="text-white">
+          <SectionFutureHero />
+        </section>
+      )}
+    </>
   );
 }
 
