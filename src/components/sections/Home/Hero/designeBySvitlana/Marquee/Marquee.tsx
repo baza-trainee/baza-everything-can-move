@@ -7,7 +7,7 @@ const Marquee = () => {
   const marqueeLeft = {
     x: ['0%', '-100%'],
     transition: {
-      duration: 30,
+      duration: 45,
       ease: 'linear',
       repeat: Infinity,
     },
@@ -16,7 +16,7 @@ const Marquee = () => {
   const marqueeRight = {
     x: ['0%', '100%'],
     transition: {
-      duration: 30,
+      duration: 45,
       ease: 'linear',
       repeat: Infinity,
     },
