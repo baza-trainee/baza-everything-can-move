@@ -93,11 +93,12 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
       {designType === 'designBySvitlana' && (
         <div
           className={clsx(
-            'fixed inset-0 z-50 flex w-full transform flex-col overflow-y-auto bg-s-gray pb-[85px] font-font5 text-white transition-transform duration-300 ease-in-out',
+            // pb-[85px]  h-dvh
+            'xl:pb-[130px] duration-600 fixed top-0 z-50 flex w-full transform flex-col overflow-y-auto bg-s-gray pb-[85px] font-font5 text-white transition-transform ease-in-out 2xl:right-0 2xl:top-0 2xl:w-[730px] 2xl:pb-[130px]',
             openMenu ? 'translate-y-0' : '-translate-y-full'
           )}
         >
-          <div className="w-full px-6 pb-[49px] pt-6">
+          <div className="w-full px-6 pb-[49px] pt-6 lg:pb-[207px] 2xl:px-20 2xl:pb-[38px] 2xl:pt-8">
             <button
               onClick={handleMenuClick}
               className="ml-auto flex h-[60px] w-[60px] items-center justify-center rounded-full transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray"
