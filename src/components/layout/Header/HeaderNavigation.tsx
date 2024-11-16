@@ -42,7 +42,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
         <div
           // overflow-y-auto pb-[18px] h-dvh h-svh
           className={clsx(
-            'xl:gap-2 fixed inset-0 z-50 flex h-dvh w-full transform flex-col gap-6 overflow-y-auto bg-olga-bg text-white transition-transform duration-300 ease-in-out',
+            'xl:gap-2 fixed inset-0 z-50 flex h-dvh w-full flex-col gap-6 overflow-y-auto bg-olga-bg text-white transition-transform duration-500 ease-in-out',
 
             openMenu ? 'translate-y-0' : '-translate-y-full'
           )}
@@ -94,7 +94,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
         <div
           className={clsx(
             // pb-[85px]  h-dvh
-            'xl:pb-[130px] duration-600 fixed top-0 z-50 flex w-full transform flex-col overflow-y-auto bg-s-gray pb-[85px] font-font5 text-white transition-transform ease-in-out 2xl:right-0 2xl:top-0 2xl:w-[730px] 2xl:pb-[130px]',
+            'xl:pb-[130px] fixed top-0 h-dvh z-50 flex w-full transform flex-col overflow-y-auto bg-s-gray pb-[85px] font-font5 text-white transition-transform duration-500 ease-in-out 2xl:right-0 2xl:top-0 2xl:w-[730px] 2xl:pb-[130px]',
             openMenu ? 'translate-y-0' : '-translate-y-full'
           )}
         >
