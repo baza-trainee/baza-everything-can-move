@@ -1,6 +1,6 @@
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
-import { SubTitle } from '@/components/ui/SubTitleSvitlana/SubTitle';
+import { SubTitle } from '@/components/ui/DesignBySvitlna/SubTitle/SubTitle';
 import React from 'react';
 import Cobe from './Cobe';
 
