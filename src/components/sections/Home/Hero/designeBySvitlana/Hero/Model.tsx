@@ -2,7 +2,7 @@
 import { useGLTF, useAnimations } from '@react-three/drei';
 import { useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Group, AnimationMixer } from 'three'; // Імпортуємо Group і AnimationMixer з 'three'
+import { Group } from 'three';
 
 // Завантаження моделі
 useGLTF.preload('/models/robot_playground.glb');
