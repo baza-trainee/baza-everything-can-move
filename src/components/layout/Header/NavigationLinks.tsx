@@ -56,12 +56,12 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
               <li
                 key={index}
                 className={clsx(
-                  'group relative flex w-full overflow-hidden border-b border-white pt-6 pb-[23px] pl-[47px] text-xl font-medium uppercase',
+                  'group relative flex w-full overflow-hidden border-b border-white pb-[28px] pl-[47px] pt-[29px] text-xl font-medium uppercase leading-[62.4px]',
                   pathname === item.link ? 'text-s-purple' : 'text-white',
                   'transition-colors duration-300 ease-linear hover:text-s-gray'
                 )}
               >
-                {/* Псевдоэлемент для фона */}
+               
                 <div
                   className={clsx(
                     'absolute inset-0 h-full w-full scale-x-0 transform bg-s-light-purple transition-transform duration-300 ease-linear',
