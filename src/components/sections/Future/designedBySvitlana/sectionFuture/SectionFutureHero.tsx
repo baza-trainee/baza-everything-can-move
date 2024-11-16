@@ -1,5 +1,5 @@
 import React from 'react'
-import GalaxySvitlana from './galaxySvitlana'
+import GalaxySvitlana from './GalaxySvitlana'
 
 
 function SectionFutureHero() {
