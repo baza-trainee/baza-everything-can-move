@@ -161,6 +161,8 @@ export function WiresAnimationComponent() {
           pathLengthFifth,
         ]}
       />
+
+       {/* <div className='sticky bottom-0 pb-[300px]'><p className=' uppercase text-l leading-[31.2px] font-regular bg-olga-btn-menu py-10 px-[124px] my-16'>Baza Trainee UKRAINE це синергія ініціативності та ентузіазму. Віримо, що найм джуніорів — це не лише інвестиція в майбутнє компанії, а й можливість ростити власних професіоналів з індивідуальним підходом та свіжим баченням.</p></div> */}
        
     </div>
   );
