@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import Galaxy from '../../common/Galaxy';
 
-export default function GalaxySvitlana() {
+function GalaxySvitlana() {
   return (
     <section>
       <div className="container">
@@ -27,3 +27,5 @@ export default function GalaxySvitlana() {
     </section>
   );
 }
+
+export default  GalaxySvitlana;
