@@ -93,15 +93,16 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
       {designType === 'designBySvitlana' && (
         <div
           className={clsx(
-            // pb-[85px]  h-dvh
-            'xl:pb-[130px] fixed top-0 h-dvh z-50 flex w-full transform flex-col overflow-y-auto bg-s-gray pb-[85px] font-font5 text-white transition-transform duration-500 ease-in-out 2xl:right-0 2xl:top-0 2xl:w-[730px] 2xl:pb-[130px]',
-            openMenu ? 'translate-y-0' : '-translate-y-full'
+            //   h-dvh??  h-[812px] lg:h-[1024px] 2xl:h-[860px]
+            'fixed top-0 z-50 flex w-full transform flex-col overflow-y-auto bg-s-gray font-font5 text-white transition-transform duration-500 ease-in-out 2xl:right-0 2xl:top-0 2xl:w-[730px]',
+            openMenu ? 'translate-y-0' : '-translate-y-full',
+            'max-h-screen pb-[85px] lg:pb-[130px] 2xl:pb-[188px]'
           )}
         >
-          <div className="w-full px-6 pb-[49px] pt-6 lg:pb-[207px] 2xl:px-20 2xl:pb-[38px] 2xl:pt-8">
+          <div className="w-full px-6 pb-[49px] pt-6 lg:pb-[134px] 2xl:px-20 2xl:pb-[38px] 2xl:pt-8">
             <button
               onClick={handleMenuClick}
-              className="ml-auto flex h-[60px] w-[60px] items-center justify-center rounded-full transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray"
+              className="ml-auto flex h-[54px] w-[54px] items-center justify-center rounded-full transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray 2xl:h-[60px] 2xl:w-[60px]"
             >
               <ICONS_SRC.CLOSE_MENU_ICON className="fill-current h-8 w-8 hover:fill-s-light-purple" />
             </button>

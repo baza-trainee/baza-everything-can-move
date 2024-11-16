@@ -56,14 +56,25 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
               <li
                 key={index}
                 className={clsx(
-                  'flex w-full border-b border-white py-[29px] pl-[47px] text-xl font-medium uppercase transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray',
-                  pathname === item.link ? 'text-s-purple' : 'text-white'
+                  'group relative flex w-full overflow-hidden border-b border-white pt-6 pb-[23px] pl-[47px] text-xl font-medium uppercase',
+                  pathname === item.link ? 'text-s-purple' : 'text-white',
+                  'transition-colors duration-300 ease-linear hover:text-s-gray'
                 )}
               >
+                {/* Псевдоэлемент для фона */}
+                <div
+                  className={clsx(
+                    'absolute inset-0 h-full w-full scale-x-0 transform bg-s-light-purple transition-transform duration-300 ease-linear',
+                    'origin-left group-hover:scale-x-100'
+                  )}
+                />
+
                 <Link
                   href={item.link}
                   onClick={onClickLink}
-                  className={clsx('flex items-center gap-6 lg:gap-[207px] 2xl:gap-[188px]')}
+                  className={clsx(
+                    'relative z-10 flex items-center gap-6 lg:gap-[207px] 2xl:gap-[188px]'
+                  )}
                 >
                   {IconComponent && (
                     <IconComponent className="fill-current h-10 w-[29px] hover:fill-s-gray" />
