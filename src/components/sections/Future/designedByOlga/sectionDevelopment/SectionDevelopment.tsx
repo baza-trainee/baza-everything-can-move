@@ -1,8 +1,8 @@
 import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
 import SubTitle from '@/components/ui/SubTitle';
 import SectionTitle from '@/components/ui/SectionTitle';
-import BrainAnimation from './AnimatedSections/BrainAnimation';
-import { TEXTS } from '../../../constants/text';
+import BrainAnimation from './BrainAnimation';
+import { TEXTS } from '../../../../../constants/text';
 import clsx from 'clsx';
 import styles from './SectionDevelopment.module.css';
 
