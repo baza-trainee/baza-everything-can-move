@@ -36,9 +36,5 @@ export function GlobeDemo() {
     autoRotateSpeed: 0.5,
   };
 
-  return (
-    <div className="h-full w-full">
-      <World data={positions} globeConfig={globeConfig} />
-    </div>
-  );
+  return <World data={positions} globeConfig={globeConfig} />;
 }

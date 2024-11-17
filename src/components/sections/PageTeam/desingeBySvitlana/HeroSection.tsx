@@ -6,8 +6,8 @@ import { GlobeDemo } from './GlobeDemo';
 
 function HeroSection() {
   return (
-    <section className="pb-[110px] pt-[123px]">
-      <Container className="flex flex-col gap-10 lg:gap-0 lg:-space-y-[50px] 2xl:flex-row 2xl:gap-[130px] 2xl:-space-y-0">
+    <section className="overflow-hidden pb-[110px] pt-[123px]">
+      <Container className="flex flex-col gap-10 lg:gap-0 lg:-space-y-[60px] 2xl:flex-row 2xl:gap-[130px] 2xl:-space-y-0">
         <div className="max-w-[499px]">
           <SectionTitle secondDesign={true} className="mb-6 2xl:mb-[31px]">
             команди
@@ -46,8 +46,10 @@ function HeroSection() {
             </p>
           </div>
         </div>
-        <div className="z-0 ml-auto mr-auto flex h-[307px] w-[314px] items-center justify-center overflow-visible lg:mr-0 lg:h-[455px] lg:w-[465px]">
-          <GlobeDemo />
+        <div className="relative z-0 ml-auto mr-auto flex h-[307px] w-[314px] items-center justify-center overflow-visible lg:mr-0 lg:h-[455px] lg:w-[465px] 2xl:ml-0">
+          <div className="absolute left-1/2 top-1/2 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 overflow-visible lg:h-[480px] lg:w-[480px] 2xl:top-0 2xl:h-[600px] 2xl:w-[600px] 2xl:translate-y-0">
+            <GlobeDemo />
+          </div>
         </div>
       </Container>
     </section>
