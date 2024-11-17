@@ -31,8 +31,10 @@ import Lenis from 'lenis'
     <main ref={container} className='relative mt-[8vh] mb-16'>
       {
         achievements.map( (achievement, i) => {
-          // console.log(i);
-        const targetScale = 1 - ( (achievements.length - i) * 0.05);
+          const targetScale = 1 - ( (achievements.length - i) * 0.05);
+          console.log('scrollYProgress: ', scrollYProgress);
+          console.log('range: ', i * .25, 1);
+          console.log('targetScale: ', targetScale);
           return <Card key={`p_${i}`} {...achievement} i={i} progress={scrollYProgress} range={[i * .25, 1]} targetScale={targetScale}/>
         })
       }

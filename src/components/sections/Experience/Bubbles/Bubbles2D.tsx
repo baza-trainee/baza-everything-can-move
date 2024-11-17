@@ -33,8 +33,6 @@ const Bubbles2D:React.FC = () => {
                 if(!Block2D){ return }
                 Block2D.children[i].classList.remove('hidden'); 
                 Block2D.children[i].classList.add('block'); 
-                // console.log(Block2D.children[i].classList);
-                // Block2D.children[i].className = shadowShownStyles[i];
             });
              wiggleBlock[i].addEventListener('click', () => {
                 if(!Block2D){ return }
