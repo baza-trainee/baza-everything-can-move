@@ -15,32 +15,28 @@
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='white' stroke-width='3' stroke-dasharray='1%2c45' stroke-dashoffset='100' stroke-linecap='butt'/%3e%3c/svg%3e");
     animation: spin 30s linear infinite;
 }
-
-@media (max-width: 1439px) {
+@media (min-width: 1440px) {
 #wiggleBlock:nth-of-type(6)::before,
 #wiggleBlock:nth-of-type(8)::before,
 #wiggleBlock:nth-of-type(10)::before{
     height: 220px;
     width: 220px;
 }}
-@media (max-width: 767px) {
+
+@media (max-width: 1440px) {
 #wiggleBlock:nth-of-type(6)::before,
 #wiggleBlock:nth-of-type(8)::before,
 #wiggleBlock:nth-of-type(10)::before{
-    height: 200px;
-    width: 200px;
+    height: 172px;
+    width: 172px;
 }}
-@media (max-width: 374px) {
+@media (max-width: 768px) {
 #wiggleBlock:nth-of-type(6)::before,
 #wiggleBlock:nth-of-type(8)::before,
 #wiggleBlock:nth-of-type(10)::before{
-    height: 180px;
-    width: 180px;
-}
-
-
-
-}
+    height: 140px;
+    width: 140px;
+}}
 
 #wiggleBlock:nth-of-type(6){
      animation-direction: reverse;
@@ -60,20 +56,6 @@
         transform: rotate(360deg)
     }
 }
-/* @keyframes bubbleClick { 
-    0% {
-        opacity: 1;
-        transform: translateY(100px);
-    }
-    50%{
-        opacity: 0;
-        transform: translateY(300px);
-    }
-    100%{
-        opacity: 1;
-        transform: translateY(-300px);
-    }
-} */
 
 @keyframes wiggle {
   0% {
@@ -93,14 +75,4 @@
   }
 }
 
-/* @keyframes sun-rise {
-  from {
-
-    transform: translateY(110vh);
-  }
-  to {
-
-    transform: translateY(0);
-  }
-} */
 
