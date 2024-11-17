@@ -2,17 +2,17 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { SubTitle } from '@/components/ui/DesignBySvitlna/SubTitle/SubTitle';
 import React from 'react';
-import Cobe from './Cobe';
+import { GlobeDemo } from './GlobeDemo';
 
 function HeroSection() {
   return (
-    <section className="pb-[110px] pt-[123px]">
-      <Container className="flex flex-col gap-10 lg:gap-0 lg:-space-y-[50px] 2xl:flex-row 2xl:gap-[130px] 2xl:-space-y-0">
+    <section className="overflow-hidden pb-[110px] pt-[123px]">
+      <Container className="flex flex-col gap-10 lg:gap-0 lg:-space-y-[60px] 2xl:flex-row 2xl:gap-[130px] 2xl:-space-y-0">
         <div className="max-w-[499px]">
-          <SectionTitle secondDesign={true} className="mb-6">
+          <SectionTitle secondDesign={true} className="mb-6 2xl:mb-[31px]">
             команди
           </SectionTitle>
-          <div className="mb-5 flex items-end gap-4 lg:mb-8 lg:gap-10">
+          <div className="mb-8 flex items-end gap-4 lg:gap-10 2xl:mb-[41px]">
             <svg
               className="h-[35px] w-[37px] lg:h-[51px] lg:w-[52px]"
               width="51"
@@ -29,19 +29,27 @@ function HeroSection() {
                 strokeLinejoin="round"
               />
             </svg>
-            <SubTitle className="mb-3 lg:mb-0" />
+            <SubTitle />
           </div>
-          <p className="z-10 max-w-[335px] text-balance font-third-family text-m font-regular leading-o-150 2xl:max-w-[500px] 2xl:text-l">
-            Ми об&apos;єднуємо спеціалістів різних напрямків, які разом працюють
-            над cоціально важливими проєктами. <br /> <br /> Наші учасники,
-            замовники і партнери розсіяні без перебільшення по всьому світу:
-            <span className="font-medium 2xl:font-semibold">
-              від Канади до Криму.
-            </span>
-          </p>
+          <div className="z-10 max-w-[320px] font-third-family text-m font-regular leading-o-150 2xl:max-w-[490px] 2xl:text-l">
+            <p className="text-balance">
+              Ми об&apos;єднуємо спеціалістів різних напрямків, які разом
+              працюють над cоціально важливими проєктами.
+            </p>
+
+            <p className="mt-4">
+              Наші учасники, замовники і партнери розсіяні без перебільшення по
+              всьому світу:{' '}
+              <span className="font-medium 2xl:font-semibold">
+                від Канади до Криму.
+              </span>
+            </p>
+          </div>
         </div>
-        <div className="z-0 ml-auto mr-auto h-[307px] w-[314px] overflow-visible lg:mr-0 lg:h-[455px] lg:w-[465px]">
-          <Cobe />
+        <div className="relative z-0 ml-auto mr-auto flex h-[307px] w-[314px] items-center justify-center overflow-visible lg:mr-0 lg:h-[455px] lg:w-[465px] 2xl:ml-0">
+          <div className="absolute left-1/2 top-1/2 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 overflow-visible lg:h-[480px] lg:w-[480px] 2xl:top-0 2xl:h-[600px] 2xl:w-[600px] 2xl:translate-y-0">
+            <GlobeDemo />
+          </div>
         </div>
       </Container>
     </section>
