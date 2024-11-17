@@ -5,7 +5,7 @@ import ThreeGlobe from 'three-globe';
 import { useThree, Object3DNode, Canvas, extend } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import countries from './globe.json';
-import { genRandomNumbers, hexToRgb } from './ui';
+import { genRandomNumbers } from './ui';
 declare module '@react-three/fiber' {
   interface ThreeElements {
     threeGlobe: Object3DNode<ThreeGlobe, typeof ThreeGlobe>;
@@ -66,7 +66,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     | {
         size: number;
         order: number;
-        color: (t: number) => string;
+        color?: string;
         lat: number;
         lng: number;
       }[]
@@ -119,18 +119,15 @@ export function Globe({ globeConfig, data }: WorldProps) {
     const points = [];
     for (let i = 0; i < arcs.length; i++) {
       const arc = arcs[i];
-      const rgb = hexToRgb(arc.color) as { r: number; g: number; b: number };
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
-        color: (t: number) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - t})`,
         lat: arc.startLat,
         lng: arc.startLng,
       });
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
-        color: (t: number) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - t})`,
         lat: arc.endLat,
         lng: arc.endLng,
       });
@@ -173,7 +170,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .arcStartLng((d) => (d as { startLng: number }).startLng * 1)
       .arcEndLat((d) => (d as { endLat: number }).endLat * 1)
       .arcEndLng((d) => (d as { endLng: number }).endLng * 1)
-      .arcColor((e) => (e as { color: string }).color)
+      .arcColor(() => '#06b6d4')
       .arcAltitude((e) => {
         return (e as { arcAlt: number }).arcAlt * 1;
       })
@@ -185,16 +182,16 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .arcDashGap(15)
       .arcDashAnimateTime(() => defaultProps.arcTime);
 
-    // globeRef.current
-    // .pointsData(data)
-    // .pointColor((e) => (e as { color: string }).color)
-    // .pointsMerge(true)
-    // .pointAltitude(0.0)
-    // .pointRadius(2);
+    globeRef.current
+      // .pointsData(data)
+      .pointColor(() => '#6366f1')
+      .pointsMerge(true)
+      .pointAltitude(0.0)
+      .pointRadius(2);
 
     globeRef.current
       .ringsData([])
-      .ringColor((e) => (t) => e.color(t))
+      .ringColor(() => '#3b82f6')
       .ringMaxRadius(defaultProps.maxRings)
       .ringPropagationSpeed(RING_PROPAGATION_SPEED)
       .ringRepeatPeriod(
