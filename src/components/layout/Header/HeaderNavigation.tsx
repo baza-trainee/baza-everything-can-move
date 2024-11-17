@@ -64,7 +64,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
               />
             </Link>
             <button
-              className="flex h-11 w-11 items-center justify-center text-white transition-colors duration-300 ease-linear hover:text-olga-green lg:h-[100px] lg:w-[100px]"
+              className="flex h-11 w-11 items-center justify-center text-white transition-colors duration-300 ease-linear lg:h-[100px] lg:w-[100px] 2xl:hover:text-olga-green"
               onClick={handleMenuClick}
             >
               <ICONS_SRC.CLOSE_MENU_ICON className="fill-current w-10 lg:w-16" />
@@ -102,9 +102,9 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           <div className="w-full px-6 pb-[49px] pt-6 lg:pb-[134px] 2xl:px-20 2xl:pb-[38px] 2xl:pt-8">
             <button
               onClick={handleMenuClick}
-              className="ml-auto flex h-[54px] w-[54px] items-center justify-center rounded-full transition-colors duration-300 ease-linear hover:bg-s-light-purple hover:text-s-gray 2xl:h-[60px] 2xl:w-[60px]"
+              className="ml-auto flex h-[54px] w-[54px] items-center justify-center rounded-full transition-colors duration-300 ease-linear 2xl:h-[60px] 2xl:w-[60px] 2xl:hover:bg-s-light-purple 2xl:hover:text-s-gray"
             >
-              <ICONS_SRC.CLOSE_MENU_ICON className="fill-current h-8 w-8 hover:fill-s-light-purple" />
+              <ICONS_SRC.CLOSE_MENU_ICON className="fill-current h-8 w-8 2xl:hover:fill-s-light-purple" />
             </button>
           </div>
 

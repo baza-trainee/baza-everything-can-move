@@ -15,7 +15,7 @@ const SocialMedia: React.FC = () => {
             href={social.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="h-[18px] w-[18px] text-white transition-all duration-300 ease-in-out hover:scale-125 hover:text-olga-green-extra"
+            className="h-[18px] w-[18px] text-white transition-all duration-300 ease-in-out 2xl:hover:scale-125 2xl:hover:text-olga-green-extra"
           >
             {social.icon}
           </Link>
