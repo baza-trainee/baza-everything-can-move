@@ -3,16 +3,13 @@ import dynamic from 'next/dynamic';
 import { positions } from './positions';
 
 const World = dynamic(
-  () => import('../../../ui/Globe/Globe').then((m) => m.World),
+  () => import('../../../../ui/Globe/Globe').then((m) => m.World),
   {
     ssr: false,
   }
 );
 
 export function GlobeDemo() {
-  if (typeof window === 'undefined') {
-    return null;
-  }
   const globeConfig = {
     pointSize: 4,
     globeColor: '#062056',

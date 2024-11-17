@@ -5,10 +5,12 @@ import SectionGeografy from './designeByOlga/SectionGeografy/SectionGeografy';
 import SectionJoin from './designeByOlga/SectionJoin/SectionJoin';
 import SectionStatistic from './designeByOlga/SectionStatistic/SectionStatistic';
 import SectionTeam from './designeByOlga/SectionTeam/SectionTeam';
-import HeroSection from './desingeBySvitlana/HeroSection';
+import HeroSection from './desingeBySvitlana/Hero/HeroSection';
+import Participant from './desingeBySvitlana/Participant/Participant';
 
 function TeamPage() {
   const { designType } = useDesignStore();
+  if (designType === 'initial') return null;
   return (
     <>
       {designType === 'designByOlga' && (
@@ -22,6 +24,7 @@ function TeamPage() {
       {designType === 'designBySvitlana' && (
         <>
           <HeroSection />
+          <Participant />
         </>
       )}
     </>
