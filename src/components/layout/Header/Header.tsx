@@ -54,7 +54,8 @@ const Header = () => {
         <header
           className={clsx(
             'flex justify-between',
-            designType === 'designBySvitlana' && 'font-font5 font-medium'
+            designType === 'designBySvitlana' &&
+              'font-second-family font-medium'
           )}
         >
           {!openMenu && (

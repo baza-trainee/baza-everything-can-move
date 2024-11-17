@@ -42,7 +42,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
         <div
           // overflow-y-auto pb-[18px] h-dvh h-svh
           className={clsx(
-            'xl:gap-2 fixed inset-0 z-50 flex h-dvh w-full flex-col gap-6 overflow-y-auto bg-olga-bg text-white transition-transform duration-500 ease-in-out',
+            'fixed inset-0 z-50 flex h-dvh w-full flex-col gap-6 overflow-y-auto bg-olga-bg text-white transition-transform duration-500 ease-in-out xl:gap-2',
 
             openMenu ? 'translate-y-0' : '-translate-y-full'
           )}
@@ -79,7 +79,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           />
           {/* end of nav links section*/}
           {/* soc media section*/}
-          <div className="xl:flex-grow-0 flex flex-grow flex-col justify-end">
+          <div className="flex flex-grow flex-col justify-end xl:flex-grow-0">
             {/* className="pb-6 2xl:pb-[14px]" */}
             <p className="mb-1 text-center text-s leading-o-130 text-white lg:text-m 2xl:text-sm">
               Слідкуй за нами
@@ -94,7 +94,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
         <div
           className={clsx(
             //   h-dvh??  h-[812px] lg:h-[1024px] 2xl:h-[860px]
-            'fixed top-0 z-50 flex w-full transform flex-col overflow-y-auto bg-s-gray font-font5 text-white transition-transform duration-500 ease-in-out 2xl:right-0 2xl:top-0 2xl:w-[730px]',
+            'fixed top-0 z-50 flex w-full transform flex-col overflow-y-auto bg-s-gray font-second-family text-white transition-transform duration-500 ease-in-out 2xl:right-0 2xl:top-0 2xl:w-[730px]',
             openMenu ? 'translate-y-0' : '-translate-y-full',
             'max-h-screen pb-[85px] lg:pb-[130px] 2xl:pb-[188px]'
           )}
