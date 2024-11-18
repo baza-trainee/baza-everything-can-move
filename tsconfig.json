@@ -28,7 +28,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/ui/Globe/Globe.tsx"
+    "src/components/ui/Globe/Globe.tsx",
+    "src/assets/Shaders/birdVertexShader.glsl",
+    "src/assets/Shaders/fragmentShaderVelocity.glsl"
   ],
   "exclude": ["node_modules"]
 }
