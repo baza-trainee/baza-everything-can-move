@@ -50,7 +50,7 @@ const NewBirdScene: React.FC = () => {
         3000
       );
       camera.position.z = 350;
-      console.log('Number of objects in scene:', scene.children.length);
+      //console.log('Number of objects in scene:', scene.children.length);
       renderer = new THREE.WebGLRenderer();
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(
@@ -171,14 +171,18 @@ const NewBirdScene: React.FC = () => {
     };
 
     const animate = () => {
-      positionUniforms['time'].value = performance.now();
+      positionUniforms['time'].value = performance.now() / 1000; //!!!!!
       gpuCompute.compute();
       birdUniforms['texturePosition'].value =
         gpuCompute.getCurrentRenderTarget(positionVariable).texture;
       birdUniforms['textureVelocity'].value =
         gpuCompute.getCurrentRenderTarget(velocityVariable).texture;
       renderer.render(scene, camera);
-      console.log('scene', scene);
+      console.log('Position texture:', birdUniforms['texturePosition'].value);
+      console.log('Velocity texture:', birdUniforms['textureVelocity'].value);
+
+      //console.log(birdUniforms);
+      //console.log('scene', scene);
       //   console.log(
       //     'Time Uniform:',
       //     positionUniforms['time'].value,
