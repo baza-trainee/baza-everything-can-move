@@ -1,13 +1,17 @@
-// import { Canvas } from '@react-three/fiber';
+//import { Canvas } from '@react-three/fiber';
 //import BirdSimulation from './Birds/Birds';
 import Container from '@/components/ui/DesignBySvitlna/Container';
-import Flocking from './Birds/Flocking';
+import NewBirdScene from './Birds/NewBirdScene';
+//import BirdSimulation from './Birds/BirdSimulation';
+//import Flocking from './Birds/Flocking';
 
 const BirdsComponent = () => {
   return (
-    <section className="pb-[110px]">
+    <section className="overflow-hidden pb-[110px] pt-[23px]">
       <Container className="h-[400px] w-full">
-        <Flocking />
+        {/* <Flocking /> */}
+
+        <NewBirdScene />
       </Container>
     </section>
   );

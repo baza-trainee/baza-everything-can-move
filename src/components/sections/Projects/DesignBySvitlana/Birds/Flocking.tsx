@@ -1,9 +1,11 @@
+//white screen
+'use client';
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { GPUComputationRenderer } from 'three/examples/jsm/misc/GPUComputationRenderer.js';
-import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min.js';
+// import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min.js';
 
-const WIDTH = 32;
+const WIDTH = 62;
 const BIRDS = WIDTH * WIDTH;
 const BOUNDS = 800;
 const BOUNDS_HALF = BOUNDS / 2;
@@ -366,7 +368,7 @@ const Flocking = () => {
     gpuComputeRef.current = gpuCompute;
 
     initComputeRenderer(gpuCompute);
-    const birdUniforms: {
+    let birdUniforms: {
       [key: string]: THREE.IUniform;
     } = {
       // Example uniform values; update based on your shader needs
@@ -389,41 +391,41 @@ const Flocking = () => {
     initBirds(scene);
 
     // GUI for adjusting parameters
-    const gui = new GUI();
-    const effectController = {
-      separation: 20.0,
-      alignment: 20.0,
-      cohesion: 20.0,
-      freedom: 0.75,
-    };
+    // const gui = new GUI();
+    // const effectController = {
+    //   separation: 20.0,
+    //   alignment: 20.0,
+    //   cohesion: 20.0,
+    //   freedom: 0.75,
+    // };
 
-    gui
-      .add(effectController, 'separation', 0.0, 100.0, 1.0)
-      .onChange(valuesChanger);
-    gui
-      .add(effectController, 'alignment', 0.0, 100, 0.001)
-      .onChange(valuesChanger);
-    gui
-      .add(effectController, 'cohesion', 0.0, 100, 0.025)
-      .onChange(valuesChanger);
-    gui.close();
+    // gui
+    //   .add(effectController, 'separation', 0.0, 100.0, 1.0)
+    //   .onChange(valuesChanger);
+    // gui
+    //   .add(effectController, 'alignment', 0.0, 100, 0.001)
+    //   .onChange(valuesChanger);
+    // gui
+    //   .add(effectController, 'cohesion', 0.0, 100, 0.025)
+    //   .onChange(valuesChanger);
+    // gui.close();
 
-    function valuesChanger() {
-      if (velocityUniforms['separationDistance']) {
-        velocityUniforms['separationDistance'].value =
-          effectController.separation;
-      }
-      if (velocityUniforms['alignmentDistance']) {
-        velocityUniforms['alignmentDistance'].value =
-          effectController.alignment;
-      }
-      if (velocityUniforms['cohesionDistance']) {
-        velocityUniforms['cohesionDistance'].value = effectController.cohesion;
-      }
-      if (velocityUniforms['freedomFactor']) {
-        velocityUniforms['freedomFactor'].value = effectController.freedom;
-      }
-    }
+    // function valuesChanger() {
+    //   if (velocityUniforms['separationDistance']) {
+    //     velocityUniforms['separationDistance'].value =
+    //       effectController.separation;
+    //   }
+    //   if (velocityUniforms['alignmentDistance']) {
+    //     velocityUniforms['alignmentDistance'].value =
+    //       effectController.alignment;
+    //   }
+    //   if (velocityUniforms['cohesionDistance']) {
+    //     velocityUniforms['cohesionDistance'].value = effectController.cohesion;
+    //   }
+    //   if (velocityUniforms['freedomFactor']) {
+    //     velocityUniforms['freedomFactor'].value = effectController.freedom;
+    //   }
+    // }
 
     // window.addEventListener('resize', onWindowResize);
     container.style.touchAction = 'none';
@@ -526,6 +528,14 @@ const Flocking = () => {
     // Bird Geometry setup
     function initBirds(scene: THREE.Scene) {
       const geometry = new BirdGeometry();
+      birdUniforms = {
+        color: { value: new THREE.Color(0xff2200) },
+        texturePosition: { value: null },
+        textureVelocity: { value: null },
+        time: { value: 1.0 },
+        delta: { value: 0.0 },
+      };
+
       const material = new THREE.ShaderMaterial({
         uniforms: birdUniforms,
         vertexShader: birdVertexShader,
