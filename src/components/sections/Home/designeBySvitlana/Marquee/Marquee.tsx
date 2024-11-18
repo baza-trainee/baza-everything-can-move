@@ -75,7 +75,7 @@ const Marquee = () => {
           width={100} // Вкажи потрібну ширину SVG
           height={100} // Вкажи потрібну висоту SVG
         />
-        <p className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
+        <p id="stroke" className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
           BAZA TRAINEE UKRAINE
         </p>
         <Image
@@ -95,7 +95,7 @@ const Marquee = () => {
           width={100} // Вкажи потрібну ширину SVG
           height={100} // Вкажи потрібну висоту SVG
         />{' '}
-        <p className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
+        <p id="stroke" className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
           BAZA TRAINEE UKRAINE
         </p>
         <Image
@@ -168,7 +168,7 @@ const Marquee = () => {
           width={100} // Вкажи потрібну ширину SVG
           height={100} // Вкажи потрібну висоту SVG
         />
-        <p className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
+        <p id="stroke" className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
           BAZA TRAINEE UKRAINE
         </p>
         <Image
@@ -187,8 +187,8 @@ const Marquee = () => {
           alt="Еліпс"
           width={100} // Вкажи потрібну ширину SVG
           height={100} // Вкажи потрібну висоту SVG
-        />{' '}
-        <p className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
+        />
+        <p id="stroke" className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
           BAZA TRAINEE UKRAINE
         </p>
         <Image
