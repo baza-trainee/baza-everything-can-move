@@ -16,9 +16,9 @@ const NewBirdScene: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const WIDTH = 32;
   const BOUNDS = 800;
-  const BOUNDS_HALF = BOUNDS / 2;
 
   useEffect(() => {
+    const BOUNDS_HALF = BOUNDS / 2;
     let scene: THREE.Scene,
       camera: THREE.PerspectiveCamera,
       renderer: THREE.WebGLRenderer;
@@ -28,11 +28,7 @@ const NewBirdScene: React.FC = () => {
 
     let positionUniforms: { [key: string]: THREE.IUniform },
       velocityUniforms: { [key: string]: THREE.IUniform };
-    // {
-    //     [key: string]: THREE.IUniform<
-    //       number | THREE.Vector3 | THREE.Color | null
-    //     >;
-    //   };
+
     let birdUniforms: {
       [key: string]: THREE.IUniform;
     };
@@ -40,7 +36,6 @@ const NewBirdScene: React.FC = () => {
     const init = () => {
       if (!containerRef.current) return;
 
-      // Создаем сцену и камеру
       scene = new THREE.Scene();
       scene.background = new THREE.Color(0x3cb371);
       camera = new THREE.PerspectiveCamera(
@@ -51,18 +46,25 @@ const NewBirdScene: React.FC = () => {
       );
       camera.position.z = 350;
       //console.log('Number of objects in scene:', scene.children.length);
-      renderer = new THREE.WebGLRenderer();
+      let canvasElement = containerRef.current.querySelector('canvas');
+      if (!canvasElement) {
+        canvasElement = document.createElement('canvas');
+        containerRef.current.appendChild(canvasElement);
+      }
+      //renderer = new THREE.WebGLRenderer();
+      renderer = new THREE.WebGLRenderer({
+        canvas: canvasElement as HTMLCanvasElement,
+      });
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(
         containerRef.current.clientWidth,
         containerRef.current.clientHeight
       );
-      containerRef.current.appendChild(renderer.domElement);
+      // containerRef.current.appendChild(renderer.domElement);
 
       initComputeRenderer();
       initBirds();
 
-      window.addEventListener('resize', onWindowResize);
       renderer.setAnimationLoop(animate);
     };
 
@@ -113,7 +115,6 @@ const NewBirdScene: React.FC = () => {
     };
 
     const initBirds = () => {
-      // Создаем геометрию птиц и материал
       const geometry = new BirdGeometry();
       birdUniforms = {
         color: { value: new THREE.Color(0xffffff) }, //0xff2200
@@ -158,17 +159,16 @@ const NewBirdScene: React.FC = () => {
       }
     };
 
-    const onWindowResize = () => {
-      if (containerRef.current) {
-        camera.aspect =
-          containerRef.current.clientWidth / containerRef.current.clientHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(
-          containerRef.current.clientWidth,
-          containerRef.current.clientHeight
-        );
-      }
-    };
+    //   if (containerRef.current) {
+    //     camera.aspect =
+    //       containerRef.current.clientWidth / containerRef.current.clientHeight;
+    //     camera.updateProjectionMatrix();
+    //     renderer.setSize(
+    //       containerRef.current.clientWidth,
+    //       containerRef.current.clientHeight
+    //     );
+    //   }
+    // };
 
     const animate = () => {
       positionUniforms['time'].value = performance.now() / 1000; //!!!!!
@@ -178,8 +178,8 @@ const NewBirdScene: React.FC = () => {
       birdUniforms['textureVelocity'].value =
         gpuCompute.getCurrentRenderTarget(velocityVariable).texture;
       renderer.render(scene, camera);
-      console.log('Position texture:', birdUniforms['texturePosition'].value);
-      console.log('Velocity texture:', birdUniforms['textureVelocity'].value);
+      //   console.log('Position texture:', birdUniforms['texturePosition'].value);
+      //   console.log('Velocity texture:', birdUniforms['textureVelocity'].value);
 
       //console.log(birdUniforms);
       //console.log('scene', scene);
@@ -192,11 +192,7 @@ const NewBirdScene: React.FC = () => {
     };
 
     init();
-
-    return () => {
-      window.removeEventListener('resize', onWindowResize);
-    };
-  }, [BOUNDS_HALF]);
+  }, []);
 
   return <div ref={containerRef} style={{ width: '100%', height: '500px' }} />;
 };

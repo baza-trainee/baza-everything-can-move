@@ -1,6 +1,11 @@
 'use client';
-import { useEffect } from 'react';
-
+import { useEffect, useRef } from 'react';
+import {
+  fragmentShaderPosition,
+  fragmentShaderVelocity,
+} from '@/assets/shaders/fragmentShader';
+import { birdVertexShader } from '@/assets/shaders/birdVertexShader';
+import { birdFragmentShader } from '@/assets/shaders/birdFragmentShader';
 import * as THREE from 'three';
 
 import {
@@ -16,7 +21,11 @@ const BOUNDS = 800;
 const BOUNDS_HALF = BOUNDS / 2;
 
 const BirdSimulation: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const newScene = useRef<THREE.Scene | null>(null);
   useEffect(() => {
+    const scene = new THREE.Scene();
+
     // Scene setup
     const container = document.createElement('div');
     document.body.appendChild(container);
@@ -29,10 +38,9 @@ const BirdSimulation: React.FC = () => {
     );
     camera.position.z = 350;
 
-    const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xffffff);
     scene.fog = new THREE.Fog(0xffffff, 100, 1000);
-
+    newScene.current = scene;
     const renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -79,13 +87,13 @@ const BirdSimulation: React.FC = () => {
 
       velocityVariable = gpuCompute.addVariable(
         'textureVelocity',
-        document.getElementById('fragmentShaderVelocity')?.textContent ?? '',
+        fragmentShaderVelocity,
         dtVelocity
       );
 
       positionVariable = gpuCompute.addVariable(
         'texturePosition',
-        document.getElementById('fragmentShaderPosition')?.textContent ?? '',
+        fragmentShaderPosition,
         dtPosition
       );
 
@@ -120,7 +128,7 @@ const BirdSimulation: React.FC = () => {
     function initBirds() {
       const geometry = new BirdGeometry();
       birdUniforms = {
-        color: { value: new THREE.Color(0xff2200) },
+        color: { value: new THREE.Color(0x3cb371) },
         texturePosition: { value: null },
         textureVelocity: { value: null },
         time: { value: 1.0 },
@@ -129,8 +137,8 @@ const BirdSimulation: React.FC = () => {
 
       const material = new THREE.ShaderMaterial({
         uniforms: birdUniforms,
-        vertexShader: document.getElementById('birdVS')?.textContent ?? '', // fallback to an empty string
-        fragmentShader: document.getElementById('birdFS')?.textContent ?? '', // fallback to an empty string
+        vertexShader: birdVertexShader,
+        fragmentShader: birdFragmentShader,
         side: THREE.DoubleSide,
       });
 
@@ -198,7 +206,7 @@ const BirdSimulation: React.FC = () => {
     initBirds();
   }, []);
 
-  return null;
+  return <primitive object={newScene} ref={containerRef} />;
 };
 
 export default BirdSimulation;

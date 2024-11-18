@@ -359,7 +359,13 @@ const Flocking = () => {
 
     const renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(container.offsetWidth, container.offsetHeight);
+
+    if (containerRef.current) {
+      renderer.setSize(
+        containerRef.current.clientWidth,
+        containerRef.current.clientHeight
+      );
+    }
     renderer.setAnimationLoop(animate);
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
@@ -389,43 +395,6 @@ const Flocking = () => {
       texture: { value: new THREE.Texture() },
     };
     initBirds(scene);
-
-    // GUI for adjusting parameters
-    // const gui = new GUI();
-    // const effectController = {
-    //   separation: 20.0,
-    //   alignment: 20.0,
-    //   cohesion: 20.0,
-    //   freedom: 0.75,
-    // };
-
-    // gui
-    //   .add(effectController, 'separation', 0.0, 100.0, 1.0)
-    //   .onChange(valuesChanger);
-    // gui
-    //   .add(effectController, 'alignment', 0.0, 100, 0.001)
-    //   .onChange(valuesChanger);
-    // gui
-    //   .add(effectController, 'cohesion', 0.0, 100, 0.025)
-    //   .onChange(valuesChanger);
-    // gui.close();
-
-    // function valuesChanger() {
-    //   if (velocityUniforms['separationDistance']) {
-    //     velocityUniforms['separationDistance'].value =
-    //       effectController.separation;
-    //   }
-    //   if (velocityUniforms['alignmentDistance']) {
-    //     velocityUniforms['alignmentDistance'].value =
-    //       effectController.alignment;
-    //   }
-    //   if (velocityUniforms['cohesionDistance']) {
-    //     velocityUniforms['cohesionDistance'].value = effectController.cohesion;
-    //   }
-    //   if (velocityUniforms['freedomFactor']) {
-    //     velocityUniforms['freedomFactor'].value = effectController.freedom;
-    //   }
-    // }
 
     // window.addEventListener('resize', onWindowResize);
     container.style.touchAction = 'none';

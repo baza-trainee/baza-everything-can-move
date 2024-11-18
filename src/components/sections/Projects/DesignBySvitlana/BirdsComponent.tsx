@@ -1,4 +1,5 @@
 //import { Canvas } from '@react-three/fiber';
+//import { Suspense } from 'react';
 //import BirdSimulation from './Birds/Birds';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import NewBirdScene from './Birds/NewBirdScene';
@@ -12,6 +13,18 @@ const BirdsComponent = () => {
         {/* <Flocking /> */}
 
         <NewBirdScene />
+        {/* <Canvas
+          camera={{ position: [0, 1, 5], fov: 50 }}
+          gl={{ antialias: true }}
+        >
+          <ambientLight intensity={1} />
+          <directionalLight position={[5, 5, 5]} />
+          <directionalLight position={[0, 1, 1]} intensity={2} />
+          <Suspense fallback={null}>
+            {' '}
+            <BirdSimulation />
+          </Suspense>
+        </Canvas> */}
       </Container>
     </section>
   );
