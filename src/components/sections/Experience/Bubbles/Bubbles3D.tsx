@@ -87,7 +87,7 @@ const Bubbles3D:React.FC = () => {
     },[])
     			
 
-    return <div ref={canvasRef} className='mx-0 bg-olga-bg container'/>;
+    return <div ref={canvasRef} className='mx-0 bg-olga-bg absolute top-0'/>;
     // return <canvas ref={canvasRef} />;
 
 }

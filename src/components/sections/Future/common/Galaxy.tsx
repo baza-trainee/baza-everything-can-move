@@ -13,7 +13,7 @@ type GalaxyProps = {
   };
   position?: [number, number, number];
   range?: number;
-  rangeY?: number
+  rangeY?: number;
 };
 
 function Galaxy({
@@ -21,8 +21,8 @@ function Galaxy({
   radius = 2.5,
   spinMultiplier = 2.5,
   colors = { insideColor: '#283001', outsideColor: '#c3ff0a' },
-  range= 1.5,
-  rangeY= 1.5
+  range = 1.5,
+  rangeY = 1.5,
 }: GalaxyProps) {
   const pointsRef = useRef<THREE.Points>(null);
 
@@ -49,7 +49,9 @@ function Galaxy({
 
       const insideColor = new THREE.Color(colors.insideColor);
       const outsideColor = new THREE.Color(colors.outsideColor);
-      const color = insideColor.clone().lerp(outsideColor, Math.pow(pointRadius / radius, 2));
+      const color = insideColor
+        .clone()
+        .lerp(outsideColor, Math.pow(pointRadius / radius, 2));
       colorsArray.set([color.r, color.g, color.b], i * 3);
     }
 
@@ -74,9 +76,7 @@ function Galaxy({
     }
   });
 
-  return <points ref={pointsRef}  />;
+  return <points ref={pointsRef} />;
 }
 
 export default Galaxy;
-
-

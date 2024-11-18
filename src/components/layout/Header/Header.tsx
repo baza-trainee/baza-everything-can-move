@@ -156,13 +156,11 @@ const Header = () => {
             </>
           )}
 
-          {openMenu && (
-            <HeaderNavigation
-              headerNav={NAV_LINKS}
-              handleMenuClick={handleMenuClick}
-              openMenu={openMenu}
-            />
-          )}
+          <HeaderNavigation
+            headerNav={NAV_LINKS}
+            handleMenuClick={handleMenuClick}
+            openMenu={openMenu}
+          />
         </header>
       )}
     </>

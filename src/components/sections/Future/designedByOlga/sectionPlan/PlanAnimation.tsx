@@ -62,7 +62,7 @@ function IrregularWaveMesh({ speed = 1, intensity = 1 }) {
   );
 }
 
-export default function PlanAnimation() {
+function PlanAnimation() {
   return (
     <motion.div
       style={{
@@ -85,3 +85,5 @@ export default function PlanAnimation() {
     </motion.div>
   );
 }
+
+export default PlanAnimation;

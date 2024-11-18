@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import Galaxy from './../../common/Galaxy';
 
-export default function GalaxyOlga() {
+function GalaxyOlga() {
   return (
     <div className="h-[340px] w-[100%] lg:px-[10%]">
       <Canvas camera={{ position: [4, 6, 4], fov: 75 }}>
@@ -18,3 +18,5 @@ export default function GalaxyOlga() {
     </div>
   );
 }
+
+export default GalaxyOlga

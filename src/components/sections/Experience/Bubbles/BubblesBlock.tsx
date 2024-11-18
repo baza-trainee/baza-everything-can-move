@@ -1,7 +1,7 @@
 'use client'
 
-import React, {useRef} from 'react'
-import Bubbles3D from './Bubbles3D'
+import React from 'react'
+// import Bubbles3D from './Bubbles3D'
 import Bubbles2D from './Bubbles2D'
 import SubTitle from '@/components/ui/SubTitle';
 import SectionTitle from '@/components/ui/SectionTitle';
@@ -14,17 +14,17 @@ export interface BubblesSectionProps {
 
 const BubblesBlock = ({title, subtitle}:BubblesSectionProps) => {
 
-  const bubblesBlockRef = useRef<HTMLDivElement | null >(null);
+  // const bubblesBlockRef = useRef<HTMLDivElement | null >(null);
 
   return (
-      <div ref={bubblesBlockRef} className='relative pb-16'>
-        <div className='container pb-8'>
-          <SectionTitle>{title}</SectionTitle>
-          <SubTitle>{subtitle}</SubTitle>
-        </div>
-        <Bubbles3D/>
+
+      <div className='container relative pb-[100px] lg:pb-20 2xl:pb-16 overflow-clip'>
+        <SectionTitle>{title}</SectionTitle>
+        <SubTitle>{subtitle}</SubTitle>
         <Bubbles2D/>
+        {/* <Bubbles3D/> */}
       </div>
+
    )
    
 }

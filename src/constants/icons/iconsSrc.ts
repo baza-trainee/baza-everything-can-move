@@ -16,6 +16,11 @@ import Partner_10 from '@/assets/icons/projects/partners/logo_host.svg';
 import CornerTop from '@/assets/icons/shared/corner_top.svg';
 import CornerBottom from '@/assets/icons/shared/corner_bottom.svg';
 import Elipse_SubTitle from '@/assets/icons/shared/ellipse_SubTitle.svg';
+import o0 from '@/assets/icons/header/designSvitlana/00.svg';
+import o1 from '@/assets/icons/header/designSvitlana/01.svg';
+import o2 from '@/assets/icons/header/designSvitlana/02.svg';
+import o3 from '@/assets/icons/header/designSvitlana/03.svg';
+import o4 from '@/assets/icons/header/designSvitlana/04.svg';
 
 export const ICONS_SRC = {
   CLOSE_MENU_ICON: CloseMenuIcon,
@@ -40,5 +45,7 @@ export const ICONS_PARTNERS = {
 export const ICONS_SHARED = {
   CORNER_TOP: CornerTop,
   CORNER_BOTTOM: CornerBottom,
-  ELIPSE_SUB_TITLE:Elipse_SubTitle 
+  ELIPSE_SUB_TITLE: Elipse_SubTitle,
 };
+
+export const ICONS_HEADER_SV = [o0, o1, o2, o3, o4];
