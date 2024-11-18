@@ -12,17 +12,17 @@ function Page() {
   return (
     <>
       {designType === 'designByOlga' && (
-        <section className="text-white">
+        <div className="text-white">
           <SectionFuture />
           <SectionPlan />
           <SectionDevelopment />
           <SectionJoin />
-        </section>
+        </div>
       )}
       {designType === 'designBySvitlana' && (
-        <section className="text-white">
+        <div className="text-white">
           <SectionFutureHero />
-        </section>
+        </div>
       )}
     </>
   );

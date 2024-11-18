@@ -4,7 +4,10 @@ import GalaxySvitlana from './GalaxySvitlana'
 
 function SectionFutureHero() {
   return (
-    <GalaxySvitlana/>
+    <section className='relative 2xl:mt-[26px] h-heightMobile lg:h-heightLg 2xl:h-height2xl'>
+      <GalaxySvitlana/>
+   
+    </section>
   )
 }
 
