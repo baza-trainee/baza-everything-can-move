@@ -1,6 +1,6 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
-import ScrollButton from '../../../../../ui/ContaktButton/ContaktButton';
-import ColoredGirl from '../../../../../Girl/ColoredGirl';
+import ScrollButton from '../../../../ui/ContaktButton/ContaktButton';
+import ColoredGirl from '../../../../Girl/ColoredGirl';
 import Image from 'next/image';
 import './Hero.css';
 
