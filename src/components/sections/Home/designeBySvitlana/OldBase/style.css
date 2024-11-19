@@ -1,0 +1,79 @@
+
+.orbit-circle.small-orbit._1 {
+    transform: rotate3d(1, 1, 1, 90deg);
+}
+.orbit-circle.small-orbit._2 {
+    transform: rotate3d(1, 2, 0.5, 90deg);
+}
+.orbit-circle.small-orbit._3 {
+    transform: rotate3d(0.5, 1, 2, 90deg);
+}
+.orbit-circle {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    width: 280px;
+    box-shadow: inset 0 0 10px 0;
+    position: absolute;
+}
+.orbit-circle.big-orbit {
+    box-shadow: inset 0 0 15px 0;
+    transform-style: preserve-3d;
+    animation: 10s linear 0.2s infinite rotate3d;
+}
+.orbit-circle.middle-orbit {
+    box-shadow: inset 0 0 33px 0;
+    opacity: 0.65;
+    width: 220px;
+    transform-style: preserve-3d;
+    animation: 13s linear infinite rotate3d;
+}
+.orbit-circle.middle-orbit-1{
+    width: 170px;
+    transform-style: preserve-3d;
+    animation: 13s linear infinite rotate3d;
+}
+.orbit-circle.middle-orbit-2 {
+    transform-style: preserve-3d;
+    width: 45%;
+    height: 85px;
+    animation: 7s linear infinite rotate3d;
+    border-width: 2px;
+    box-shadow: none;
+}
+.orbit-circle.small-orbit {
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: #cecece;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-right-color: #cecece;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #cecece;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: #cecece;
+    box-shadow: none;
+    transform-style: preserve-3d;
+    width: 25%;
+    animation: 15s linear 0.2s infinite rotate3d;
+}
+
+.orbit-circle.small-orbit._3,
+.orbit-circle.small-orbit._4 {
+    border-color: #d3fd50;
+    border-style: dashed;
+}
+.orbit-circle.small-orbit._4{
+    
+    width: 34%;
+    transform: rotate3d(0, 3, 2, 230deg);
+}
+@keyframes rotate3d {
+    0% {
+        transform: rotate3d(1, 1, 1, 0deg);
+    }
+    15% {
+        transform: rotate3d(1, 1, 1, 360deg);
+    }
+}

@@ -5,26 +5,21 @@ import Galaxy from '../../common/Galaxy';
 
 function GalaxySvitlana() {
   return (
-    <section>
-      <div className="container">
-        <div className="h-[500px] w-full">
-          <Canvas camera={{ position: [0, 10, 0], fov: 50 }}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[6, 6, 6]} intensity={1.2} />
+        <div className="absolute h-full w-[75%] right-0 bottom-0">
+          <Canvas camera={{ position: [2, 7, 2], fov: 50 }}>
+            <ambientLight  intensity={0.7} />
+            <directionalLight position={[0, 10, 0]} intensity={1.8} />
             <Galaxy
-              radius={2.5}
+              radius={4}
               colors={{ insideColor: '#ffa575', outsideColor: '#311599' }}
-              // position={[0, 10, 0]}
-              size={0.05}
-              spinMultiplier={1.5}
-              range={1.2}
-              rangeY={0.2}
+              size={0.04}
+              spinMultiplier={4}
+              range={1.5}
+              rangeY={0.5}
             />
             <OrbitControls enableDamping={true} />
           </Canvas>
         </div>
-      </div>
-    </section>
   );
 }
 

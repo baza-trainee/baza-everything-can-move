@@ -75,7 +75,10 @@ const config: Config = {
     extend: {
       spacing: {
         'customLg':"calc(100% - 320px)",
-        'custom2xl': "calc(100% - 346px)"
+        'custom2xl': "calc(100% - 346px)",
+        'height2xl': "calc(100vh - 132px)",
+        'heightLg': "calc(100vh - 100px)",
+        'heightMobile': "calc(100vh - 64px)"
       },
       backgroundImage: {
         grid: 'linear-gradient(90deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px), linear-gradient(180deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px)',
