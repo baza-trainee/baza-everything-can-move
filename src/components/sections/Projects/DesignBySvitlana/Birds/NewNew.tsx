@@ -44,7 +44,8 @@ const NewNew: React.FC = () => {
       if (!containerRef.current) return;
 
       scene = new THREE.Scene(); //!
-      scene.background = new THREE.Color(0x3cb371); //!
+      scene.background = new THREE.Color(0xffffff); //!
+      scene.fog = new THREE.Fog(0xffffff, 100, 1000);
       camera = new THREE.PerspectiveCamera( //!
         75,
         containerRef.current.clientWidth / containerRef.current.clientHeight,
@@ -170,7 +171,7 @@ const NewNew: React.FC = () => {
       // For Vertex and Fragment
       birdUniforms = {
         //!
-        color: { value: new THREE.Color(0xffffff) }, //0xff2200
+        color: { value: new THREE.Color(0xff2200) }, //0xff2200
         texturePosition: { value: null },
         textureVelocity: { value: null },
         time: { value: 1.0 },
