@@ -18,7 +18,7 @@ const BubblesBlock = ({title, subtitle}:BubblesSectionProps) => {
 
   return (
 
-      <div className='container relative pb-[100px] lg:pb-20 2xl:pb-16'>
+      <div className='container relative pb-[100px] lg:pb-20 2xl:pb-16 overflow-clip'>
         <SectionTitle>{title}</SectionTitle>
         <SubTitle>{subtitle}</SubTitle>
         <Bubbles2D/>
