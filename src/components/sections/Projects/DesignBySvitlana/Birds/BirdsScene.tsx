@@ -98,11 +98,12 @@ const BirdsScene: React.FC = () => {
         gpuCompute.getCurrentRenderTarget(positionVariable).texture;
       birdUniforms['textureVelocity'].value =
         gpuCompute.getCurrentRenderTarget(velocityVariable).texture;
-      // console.log('scene', scene);
+
       renderer.render(scene, camera);
     };
     const animate = () => {
       render();
+
       //was
       //   positionUniforms['time'].value = performance.now() / 1000;
       //   gpuCompute.compute();
@@ -273,8 +274,13 @@ const BirdsScene: React.FC = () => {
     init();
 
     return () => {
+      renderer.setAnimationLoop(null);
+      gpuCompute?.dispose();
+      // containerRef.current?.removeEventListener('pointermove', onPointerMove);
+      gpuCompute?.dispose();
       window.removeEventListener('pointermove', onPointerMove);
-      console.log('Сцена очищена');
+      renderer?.dispose();
+      scene?.clear();
     };
   }, [isInView]);
 
