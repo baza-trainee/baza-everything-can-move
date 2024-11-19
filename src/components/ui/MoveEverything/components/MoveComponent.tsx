@@ -1,8 +1,6 @@
 import React from 'react';
 
-type Props = {};
-
-function MoveComponent({}: Props) {
+function MoveComponent() {
   return <div>MoveComponent</div>;
 }
 
