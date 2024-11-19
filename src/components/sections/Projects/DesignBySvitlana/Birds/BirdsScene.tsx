@@ -22,6 +22,7 @@ const BirdsScene: React.FC = () => {
 
   useEffect(() => {
     if (!isInView) return;
+    const currentContainer = containerRef.current;
     const BOUNDS_HALF = BOUNDS / 2;
     let scene: THREE.Scene,
       camera: THREE.PerspectiveCamera,
@@ -103,15 +104,6 @@ const BirdsScene: React.FC = () => {
     };
     const animate = () => {
       render();
-
-      //was
-      //   positionUniforms['time'].value = performance.now() / 1000;
-      //   gpuCompute.compute();
-      //   birdUniforms['texturePosition'].value =
-      //     gpuCompute.getCurrentRenderTarget(positionVariable).texture;
-      //   birdUniforms['textureVelocity'].value =
-      //     gpuCompute.getCurrentRenderTarget(velocityVariable).texture;
-      //   renderer.render(scene, camera);
     };
     const onPointerMove = (event: PointerEvent) => {
       if (event.isPrimary === false) return;
@@ -218,8 +210,7 @@ const BirdsScene: React.FC = () => {
         3000
       );
       camera.position.z = 350;
-      //console.log('Number of objects in scene:', scene.children.length);
-      //WHY Width????
+
       const canvasElement = containerRef.current?.querySelector('canvas');
       renderer = new THREE.WebGLRenderer({
         canvas: canvasElement || undefined,
@@ -251,7 +242,10 @@ const BirdsScene: React.FC = () => {
       //containerRef.current.appendChild(renderer.domElement);
       initComputeRenderer();
       containerRef.current.style.touchAction = 'none';
-      containerRef.current.addEventListener('pointermove', onPointerMove);
+      // containerRef.current.addEventListener('pointermove', onPointerMove);
+      if (currentContainer) {
+        currentContainer.addEventListener('pointermove', onPointerMove);
+      }
       const effectController = {
         separation: 20.0,
         alignment: 20.0,
@@ -276,9 +270,11 @@ const BirdsScene: React.FC = () => {
     return () => {
       renderer.setAnimationLoop(null);
       gpuCompute?.dispose();
-      // containerRef.current?.removeEventListener('pointermove', onPointerMove);
+
       gpuCompute?.dispose();
-      window.removeEventListener('pointermove', onPointerMove);
+      if (currentContainer) {
+        currentContainer.removeEventListener('pointermove', onPointerMove);
+      }
       renderer?.dispose();
       scene?.clear();
     };
