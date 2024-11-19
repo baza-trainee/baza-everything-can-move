@@ -337,7 +337,7 @@ const Flocking = () => {
   const gpuComputeRef = useRef<GPUComputationRenderer | null>(null);
 
   useEffect(() => {
-    const container = containerRef.current!;
+    const container = containerRef.current;
     const camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
@@ -367,7 +367,9 @@ const Flocking = () => {
       );
     }
     renderer.setAnimationLoop(animate);
-    container.appendChild(renderer.domElement);
+    if (container) {
+      container.appendChild(renderer.domElement);
+    }
     rendererRef.current = renderer;
 
     const gpuCompute = new GPUComputationRenderer(WIDTH, WIDTH, renderer);
@@ -397,8 +399,10 @@ const Flocking = () => {
     initBirds(scene);
 
     // window.addEventListener('resize', onWindowResize);
-    container.style.touchAction = 'none';
-    container.addEventListener('pointermove', onPointerMove);
+    if (container) {
+      container.style.touchAction = 'none';
+      container.addEventListener('pointermove', onPointerMove);
+    }
 
     function onPointerMove(event: PointerEvent) {
       if (event.isPrimary === false) return;
@@ -552,7 +556,9 @@ const Flocking = () => {
     return () => {
       // Cleanup on unmount
       //   window.removeEventListener('resize', onWindowResize);
-      container.removeEventListener('pointermove', onPointerMove);
+      if (container) {
+        container.removeEventListener('pointermove', onPointerMove);
+      }
     };
   }, [last]);
 

@@ -12,9 +12,16 @@ void main() {
   gl_FragColor = vec4(position + velocity * delta * 15., phase);
 }
 `;
-
+// I added
+//uniform float BOUNDS;
+// I changed and added to main
+//float UPPER_BOUNDS = BOUNDS;
+// float LOWER_BOUNDS = -UPPER_BOUNDS;
+// was so and not in main
+//  const float UPPER_BOUNDS = BOUNDS;
+// 			const float LOWER_BOUNDS = -UPPER_BOUNDS;
 export const fragmentShaderVelocity = `
-uniform float BOUNDS;
+
 uniform float time;
 uniform float delta;
 uniform float separationDistance;
@@ -34,7 +41,8 @@ float zoneRadius = 40.0;
 			float separationThresh = 0.45;
 			float alignmentThresh = 0.65;
 
-			 
+			 const float UPPER_BOUNDS = BOUNDS;
+			const float LOWER_BOUNDS = -UPPER_BOUNDS;
 
 			const float SPEED_LIMIT = 9.0;
 
@@ -43,8 +51,7 @@ float zoneRadius = 40.0;
 			}
 
 			void main() {
-float UPPER_BOUNDS = BOUNDS;
-			 float LOWER_BOUNDS = -UPPER_BOUNDS;
+
 				zoneRadius = separationDistance + alignmentDistance + cohesionDistance;
 				separationThresh = separationDistance / zoneRadius;
 				alignmentThresh = ( separationDistance + alignmentDistance ) / zoneRadius;

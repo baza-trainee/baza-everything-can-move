@@ -2,7 +2,8 @@
 //import { Suspense } from 'react';
 //import BirdSimulation from './Birds/Birds';
 import Container from '@/components/ui/DesignBySvitlna/Container';
-import NewBirdScene from './Birds/NewBirdScene';
+import NewNew from './Birds/NewNew';
+// import NewBirdScene from './Birds/NewBirdScene';
 //import BirdSimulation from './Birds/BirdSimulation';
 //import Flocking from './Birds/Flocking';
 
@@ -12,7 +13,8 @@ const BirdsComponent = () => {
       <Container className="h-[400px] w-full">
         {/* <Flocking /> */}
 
-        <NewBirdScene />
+        {/* <NewBirdScene /> */}
+        <NewNew />
         {/* <Canvas
           camera={{ position: [0, 1, 5], fov: 50 }}
           gl={{ antialias: true }}
