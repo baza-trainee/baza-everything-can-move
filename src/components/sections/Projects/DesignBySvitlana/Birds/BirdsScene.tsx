@@ -55,21 +55,17 @@ const BirdsScene: React.FC = () => {
       camera.position.z = 350;
       //console.log('Number of objects in scene:', scene.children.length);
       //WHY Width????
-      //   let canvasElement = containerRef.current.querySelector('canvas');
+      const canvasElement = containerRef.current?.querySelector('canvas');
+      renderer = new THREE.WebGLRenderer({
+        canvas: canvasElement || undefined,
+        antialias: true,
+      });
 
-      //   renderer = new THREE.WebGLRenderer({
-      //     //!
-      //     canvas: canvasElement as HTMLCanvasElement,
-      //   });
       ///////////////////////////
-      renderer = new THREE.WebGLRenderer({ antialias: true });
+      //renderer = new THREE.WebGLRenderer({ antialias: true });
 
       //renderer.setPixelRatio(window.devicePixelRatio);
-      // renderer.setSize(
-      //   //containerRef.current.clientWidth,
-      //   window.innerWidth,
-      //   containerRef.current.clientHeight
-      // );
+
       renderer.setPixelRatio(1); // not depends from devicePixelRatio
       renderer.setSize(
         containerRef.current.clientWidth,
@@ -77,14 +73,17 @@ const BirdsScene: React.FC = () => {
         false
       );
       renderer.setAnimationLoop(animate);
+      if (!canvasElement) {
+        containerRef.current?.appendChild(renderer.domElement);
+      }
       // containerRef.current.appendChild(renderer.domElement);
       // WHY Width
       /*  if (!canvasElement) {
-        //!
+      
         canvasElement = document.createElement('canvas');
         containerRef.current.appendChild(canvasElement);
       } */
-      containerRef.current.appendChild(renderer.domElement);
+      //containerRef.current.appendChild(renderer.domElement);
       initComputeRenderer();
       containerRef.current.style.touchAction = 'none';
       containerRef.current.addEventListener('pointermove', onPointerMove);
