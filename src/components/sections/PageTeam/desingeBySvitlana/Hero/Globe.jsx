@@ -2,18 +2,26 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import Globe from 'react-globe.gl';
+import { useMediaQuery } from 'react-responsive';
 
 const Globes = () => {
   const globeEl = useRef();
+  const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
+
+  const isDesktop = useMediaQuery({ query: '(min-width: 1399.5px)' });
+
+  const dimentionsGloge = isMobile
+    ? { width: 314, height: 314 }
+    : !isDesktop
+      ? { width: 465, height: 465 }
+      : { width: 520, height: 520 };
 
   useEffect(() => {
     const globe = globeEl.current;
 
-    // Auto-rotate
     globe.controls().autoRotate = true;
     globe.controls().autoRotateSpeed = 0.35;
 
-    // Add clouds sphere
     const CLOUDS_IMG_URL = '/clouds.png';
     const CLOUDS_ALT = 0.004;
     const CLOUDS_ROTATION_SPEED = -0.006;
@@ -37,8 +45,8 @@ const Globes = () => {
   }, []);
   return (
     <Globe
-      width={500}
-      height={500}
+      width={dimentionsGloge.width}
+      height={dimentionsGloge.height}
       ref={globeEl}
       animateIn={false}
       backgroundColor="#000000"
