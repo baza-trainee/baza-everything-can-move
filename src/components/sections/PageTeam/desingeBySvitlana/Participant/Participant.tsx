@@ -19,7 +19,8 @@ function Participant() {
     <section className="py-[156px]">
       <Container className="h-[1500px]">
         <div className="sticky top-10 overflow-hidden">
-          <div className="relative">
+          <div ref={gridRef} className="">
+            {/* <span>{scaleX}</span> */}
             <motion.ul className="flex gap-10" style={{ scaleX }}>
               {data.map((item, index) => (
                 <Card

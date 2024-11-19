@@ -1,6 +1,6 @@
 'use client';
-import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { useEffect, useRef } from 'react';
 import Globe from 'react-globe.gl';
 import { useMediaQuery } from 'react-responsive';
 
@@ -18,9 +18,13 @@ const Globes = () => {
 
   useEffect(() => {
     const globe = globeEl.current;
+    if (!globe) return;
 
     globe.controls().autoRotate = true;
     globe.controls().autoRotateSpeed = 0.35;
+    globe.controls().enableZoom = false;
+    globe.controls().enableRotate = false;
+    globe.controls().enablePan = false;
 
     const CLOUDS_IMG_URL = '/clouds.png';
     const CLOUDS_ALT = 0.004;
@@ -52,6 +56,7 @@ const Globes = () => {
       backgroundColor="#000000"
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
       bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
+      enablePointerInteraction={false}
     />
   );
 };
