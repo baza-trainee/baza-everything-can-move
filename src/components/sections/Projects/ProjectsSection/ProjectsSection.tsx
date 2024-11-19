@@ -3,7 +3,7 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import SubTitle from '@/components/ui/SubTitle';
 import Slider from './Slider/Slider';
 import LinkMoreInfo from '@/components/ui/SwiperFoto/components/LinkMoreInfo';
-import MoveLine from '@/components/ui/MoveLine';
+import MoveLine from '@/components/ui/MoveEverything/MoveLine';
 
 export default function ProjectsSection() {
   return (
