@@ -48,6 +48,7 @@ const BirdsScene: React.FC = () => {
       camera = new THREE.PerspectiveCamera(
         75,
         containerRef.current.clientWidth / containerRef.current.clientHeight,
+        //window.innerWidth / containerRef.current.clientHeight,
         1,
         3000
       );
@@ -63,10 +64,17 @@ const BirdsScene: React.FC = () => {
       ///////////////////////////
       renderer = new THREE.WebGLRenderer({ antialias: true });
 
-      renderer.setPixelRatio(window.devicePixelRatio);
+      //renderer.setPixelRatio(window.devicePixelRatio);
+      // renderer.setSize(
+      //   //containerRef.current.clientWidth,
+      //   window.innerWidth,
+      //   containerRef.current.clientHeight
+      // );
+      renderer.setPixelRatio(1); // not depends from devicePixelRatio
       renderer.setSize(
         containerRef.current.clientWidth,
-        containerRef.current.clientHeight
+        containerRef.current.clientHeight,
+        false
       );
       renderer.setAnimationLoop(animate);
       // containerRef.current.appendChild(renderer.domElement);
@@ -215,6 +223,7 @@ const BirdsScene: React.FC = () => {
 
       if (containerRef.current) {
         mouseX = event.clientX - containerRef.current.clientWidth / 2;
+        //mouseX = event.clientX - window.innerWidth / 2;
         mouseY = event.clientY - containerRef.current.clientHeight / 2;
       }
     }
@@ -248,6 +257,7 @@ const BirdsScene: React.FC = () => {
       if (containerRef.current) {
         velocityUniforms['predator'].value.set(
           (0.5 * mouseX) / containerRef.current.clientWidth,
+          //(0.5 * mouseX) / window.innerWidth,
           (-0.5 * mouseY) / containerRef.current.clientHeight,
           0
         );
