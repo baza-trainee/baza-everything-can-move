@@ -1,6 +1,6 @@
 import Label from './Label';
 import clsx from 'clsx';
-import MoveLine from '@/components/ui/MoveLine';
+import MoveLine from '@/components/ui/MoveEverything/MoveLine';
 
 function SectionStatistic() {
   return (
