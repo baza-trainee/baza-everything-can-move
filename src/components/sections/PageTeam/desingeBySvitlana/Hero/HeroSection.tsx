@@ -13,8 +13,8 @@ const Globes = dynamic(() => import('./Globe.jsx'), {
 function HeroSection() {
   return (
     <section className="overflow-hidden pb-[110px] pt-[123px]">
-      <Container className="flex flex-col gap-10 lg:gap-0 lg:-space-y-[60px] 2xl:flex-row 2xl:gap-[130px] 2xl:-space-y-0">
-        <div className="max-w-[499px]">
+      <Container className="flex flex-col lg:gap-0 lg:-space-y-[60px] 2xl:flex-row 2xl:gap-[130px] 2xl:-space-y-0">
+        <div className="z-10 max-w-[499px]">
           <SectionTitle secondDesign={true} className="mb-6 2xl:mb-[31px]">
             команди
           </SectionTitle>
@@ -37,7 +37,7 @@ function HeroSection() {
             </svg>
             <SubTitle />
           </div>
-          <div className="z-10 max-w-[320px] font-third-family text-m font-regular leading-o-150 2xl:max-w-[490px] 2xl:text-l">
+          <div className="max-w-[320px] font-third-family text-m font-regular leading-o-150 2xl:max-w-[490px] 2xl:text-l">
             <p className="text-balance">
               Ми об&apos;єднуємо спеціалістів різних напрямків, які разом
               працюють над cоціально важливими проєктами.
@@ -52,8 +52,8 @@ function HeroSection() {
             </p>
           </div>
         </div>
-        <div className="relative z-0 ml-auto mr-auto flex h-[307px] w-[314px] items-center justify-center overflow-visible lg:mr-0 lg:h-[455px] lg:w-[465px] 2xl:ml-0">
-          <div className="absolute left-1/2 top-1/2 h-[350px] w-[350px] -translate-x-1/2 -translate-y-1/2 overflow-visible lg:h-[480px] lg:w-[480px] 2xl:left-0 2xl:top-0 2xl:h-[600px] 2xl:w-[600px] 2xl:translate-x-0 2xl:translate-y-0">
+        <div className="relative z-0 ml-auto mr-auto flex h-[307px] w-[314px] overflow-visible lg:mr-0 lg:h-[455px] lg:w-[465px] 2xl:ml-0">
+          <div className="absolute -top-5 left-1/2 -translate-x-1/2 overflow-visible lg:-top-24 2xl:-top-32 2xl:left-0 2xl:translate-x-0 2xl:translate-y-0">
             <Globes />
           </div>
         </div>
