@@ -2,8 +2,7 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import { data } from './data';
 import { Card } from './Card';
-import MoveLine from '@/components/ui/MoveEverything/MoveLine';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 function Participant() {
   const gridRef = useRef<HTMLDivElement>(null);
