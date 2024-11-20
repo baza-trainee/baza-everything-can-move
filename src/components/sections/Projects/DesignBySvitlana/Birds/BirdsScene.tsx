@@ -200,8 +200,8 @@ const BirdsScene: React.FC = () => {
       if (!containerRef.current) return;
 
       scene = new THREE.Scene();
-      scene.background = new THREE.Color(0xffffff);
-      scene.fog = new THREE.Fog(0xffffff, 100, 1000);
+      scene.background = new THREE.Color(0x000000); //0xffffff
+      scene.fog = new THREE.Fog(0x000000, 100, 1000);
       camera = new THREE.PerspectiveCamera(
         75,
         containerRef.current.clientWidth / containerRef.current.clientHeight,
