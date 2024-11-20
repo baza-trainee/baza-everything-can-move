@@ -2,11 +2,10 @@
 
 const nextConfig = {
   webpack(config) {
-
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.('.svg')
     );
-    
+
     config.module.rules.push(
       {
         ...fileLoaderRule,
@@ -22,6 +21,10 @@ const nextConfig = {
     );
 
     fileLoaderRule.exclude = /\.svg$/i;
+    config.module.rules.push({
+      test: /\.(glsl|vs|fs|frag|vert)$/i,
+      type: 'asset/source',
+    });
 
     return config;
   },

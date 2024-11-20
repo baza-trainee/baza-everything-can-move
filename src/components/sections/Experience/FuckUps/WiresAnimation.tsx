@@ -539,8 +539,7 @@ export function WiresAnimationComponent() {
           pathLengthFifth,
         ]}
       />
-
-       {/* <div className='sticky bottom-0 pb-[300px]'><p className=' uppercase text-l leading-[31.2px] font-regular bg-olga-btn-menu py-10 px-[124px] my-16'>Baza Trainee UKRAINE це синергія ініціативності та ентузіазму. Віримо, що найм джуніорів — це не лише інвестиція в майбутнє компанії, а й можливість ростити власних професіоналів з індивідуальним підходом та свіжим баченням.</p></div> */}
+      {/* <div className='relative xl:sticky xl:translate-y-[650px] 2xl:translate-y-[600px]'><p className='lg:uppercase text-sm 2xl:text-l leading-[23.4px] 2xl:leading-[31.2px] font-regular bg-olga-btn-menu py-10 lg:py-8 2xl:py-12 px-4 lg:px-6 2xl:px-[124px] my-16'>Baza Trainee UKRAINE це синергія ініціативності та ентузіазму. Віримо, що найм джуніорів — це не лише інвестиція в майбутнє компанії, а й можливість ростити власних професіоналів з індивідуальним підходом та свіжим баченням.</p></div> */}
        
     </div>
   );

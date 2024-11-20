@@ -37,7 +37,7 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
                     pathname === item.link
                       ? 'text-olga-green-extra'
                       : 'text-white',
-                    'text-[44px] uppercase leading-o-120 transition-colors duration-300 ease-linear hover:text-olga-green lg:text-2xl 2xl:text-4xl'
+                    'text-[44px] uppercase leading-o-120 transition-colors duration-300 ease-linear 2xl:hover:text-olga-green lg:text-2xl 2xl:text-4xl'
                   )}
                 >
                   {item.name}
@@ -58,14 +58,14 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
                 className={clsx(
                   'group relative flex w-full overflow-hidden border-b border-white pb-[28px] pl-[47px] pt-[29px] text-xl font-medium uppercase leading-[62.4px]',
                   pathname === item.link ? 'text-s-purple' : 'text-white',
-                  'transition-colors duration-300 ease-linear hover:text-s-gray'
+                  'transition-colors duration-300 ease-linear 2xl:hover:text-s-gray'
                 )}
               >
                
                 <div
                   className={clsx(
                     'absolute inset-0 h-full w-full scale-x-0 transform bg-s-light-purple transition-transform duration-300 ease-linear',
-                    'origin-left group-hover:scale-x-100'
+                    'origin-left 2xl:group-hover:scale-x-100'
                   )}
                 />
 
@@ -77,7 +77,7 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
                   )}
                 >
                   {IconComponent && (
-                    <IconComponent className="fill-current h-10 w-[29px] hover:fill-s-gray" />
+                    <IconComponent className="fill-current h-10 w-[29px] 2xl:hover:fill-s-gray" />
                   )}
                   <span>{item.name}</span>
                 </Link>
