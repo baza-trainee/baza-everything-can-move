@@ -17,7 +17,7 @@ export const data: DataCards[] = [
   },
   {
     value: 46,
-    text: 'студентів вишів',
+    text: 'студенти вишів',
     bg: 'bg-s-gray',
     textColor: 'text-white',
   },

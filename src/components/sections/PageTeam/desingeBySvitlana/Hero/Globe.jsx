@@ -11,10 +11,10 @@ const Globes = () => {
   const isDesktop = useMediaQuery({ query: '(min-width: 1399.5px)' });
 
   const dimentionsGloge = isMobile
-    ? { width: 314, height: 314 }
+    ? { width: 420, height: 420 }
     : !isDesktop
-      ? { width: 465, height: 465 }
-      : { width: 520, height: 520 };
+      ? { width: 665, height: 665 }
+      : { width: 750, height: 750 };
 
   useEffect(() => {
     const globe = globeEl.current;
