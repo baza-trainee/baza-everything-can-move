@@ -76,7 +76,7 @@ const config: Config = {
       spacing: {
         'customLg':"calc(100% - 320px)",
         'custom2xl': "calc(100% - 346px)",
-        'height2xl': "calc(100vh - 132px)",
+        'height2xl': "calc(100vh - 158px)",
         'heightLg': "calc(100vh - 100px)",
         'heightMobile': "calc(100vh - 64px)",
         'widthXl': "calc(100% - 343px)"

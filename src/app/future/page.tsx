@@ -7,7 +7,7 @@ import SectionJoin from '@/components/sections/PageTeam/designeByOlga/SectionJoi
 import SectionFutureHero from '@/components/sections/Future/designedBySvitlana/sectionFuture/SectionFutureHero';
 import SectionDev from '@/components/sections/Future/designedBySvitlana/sectionDevelopment/SectionDev';
 import SectionPlans from '@/components/sections/Future/designedBySvitlana/sectionPlan/SectionPlans';
-import SectionInitiative from '@/components/sections/Future/designedBySvitlana/sectionDevelopment/SectionDev';
+import SectionInitiative from '@/components/sections/Future/designedBySvitlana/sectionInitiative/SectionInitiative';
 
 function Page() {
   const { designType } = useDesignStore();
