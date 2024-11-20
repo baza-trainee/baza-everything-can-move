@@ -14,9 +14,11 @@ const API = {
 
 const Bubbles3D:React.FC = () => {
 
-    const canvasRef = useRef<HTMLDivElement | null >(null);
+    const canvasRefSm = useRef<HTMLDivElement | null >(null);
+    const canvasRefLg = useRef<HTMLDivElement | null >(null);
 
     useEffect(() => {
+        const screenWidth = window.innerWidth;
         // const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, antialias: true  });
         const renderer = new THREE.WebGLRenderer();
 		renderer.setPixelRatio( window.devicePixelRatio );
@@ -27,8 +29,11 @@ const Bubbles3D:React.FC = () => {
 		const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
 		camera.position.set( 0, 0, 30 );
         
-        if (canvasRef.current?.childNodes[0] === undefined) {
-            canvasRef.current?.appendChild(renderer.domElement);
+        if (canvasRefSm.current?.childNodes[0] === undefined && screenWidth < 768) {
+            canvasRefSm.current?.appendChild(renderer.domElement);
+        } 
+        if (canvasRefLg.current?.childNodes[0] === undefined && screenWidth > 768 && screenWidth < 1440) {
+            canvasRefLg.current?.appendChild(renderer.domElement);
         } 
 
 		const lightProbe = new THREE.LightProbe();
@@ -40,24 +45,33 @@ const Bubbles3D:React.FC = () => {
         scene.add( ambientLight );
         
 
-        const geometry = new THREE.SphereGeometry( 2.5, 64, 32 );
+        const geometrySm = new THREE.SphereGeometry( 1.2, 64, 32 );
+        const geometryLg = new THREE.SphereGeometry( 1.2, 64, 32 );
 		const material = new THREE.MeshStandardMaterial( {
 			color: 0xD3FE50,
 			metalness: 0,
 			roughness: 0,
 		} );
 
-		const mesh1 = new THREE.Mesh( geometry, material );
-		const mesh2 = new THREE.Mesh( geometry, material );
-		const mesh3 = new THREE.Mesh( geometry, material );
+		const meshSm1 = new THREE.Mesh( geometrySm, material );
+		const meshSm2 = new THREE.Mesh( geometrySm, material );
+		const meshSm3 = new THREE.Mesh( geometrySm, material );
+        const meshLg1 = new THREE.Mesh( geometryLg, material );
+		const meshLg2 = new THREE.Mesh( geometryLg, material );
+		const meshLg3 = new THREE.Mesh( geometryLg, material );
 		
-        mesh1.position.set(-12, 3, -1);
-        scene.add( mesh1);
-        mesh2.position.set(1,-5, -1);
-        scene.add( mesh2);
-        mesh3.position.set(5, 7, -1);
-        scene.add( mesh3);
-
+        meshSm1.position.set(-2.5, 1, -1);
+        scene.add( meshSm1);
+        meshSm2.position.set(1.5,2, -1);
+        scene.add( meshSm2);
+        meshSm3.position.set(1, 9, -1);
+        scene.add( meshSm3);
+        meshLg1.position.set(-2.5, 1, -1);
+        scene.add( meshLg1);
+        meshLg2.position.set(1.5,2, -1);
+        scene.add( meshLg2);
+        meshLg3.position.set(1, 9, -1);
+        scene.add( meshLg3);
         
 
         // console.log(scene.children[3].position);
@@ -73,21 +87,17 @@ const Bubbles3D:React.FC = () => {
 
         render(); 
         
-    //     return () => {
-    //         renderer.forceContextLoss();
-    //         renderer.dispose();
-    //         mesh1.geometry.dispose();
-    //         mesh1.material.dispose();
-    //         mesh2.geometry.dispose();
-    //         mesh2.material.dispose();
-    //         mesh3.geometry.dispose();
-    //         mesh3.material.dispose();
-    // };
 
     },[])
     			
 
-    return <div ref={canvasRef} className='mx-0 bg-olga-bg absolute top-0'/>;
+    return (
+        <>
+        <div ref={canvasRefSm} className='mx-0 bg-olga-bg absolute top-0 lg:hidden'/>;
+        <div ref={canvasRefLg} className='mx-0 bg-olga-bg absolute top-0 sm:hidden lg:block'/>;
+                
+        </>
+    )
     // return <canvas ref={canvasRef} />;
 
 }

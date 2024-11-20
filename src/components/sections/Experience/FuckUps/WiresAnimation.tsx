@@ -19,16 +19,22 @@ export const WiresAnimation = ({
 }) => {
   return (
     <div className={cn("sticky h-auto top-0 w-full pb-16 lg:pb-20 2xl:pb-[100px]", className)}>
-      <div className='container sticky h-fit'>
-        <p className='w-[220px] lg:w-[320px] 2xl:w-[346px] text-s leading-[18.2px] font-regular lg:text-m lg:leading-[20.8px] 2xl:text-sm 2xl:leading-[23.4px] mb-16 lg:mb-11 2xl:mb-5 2xl:translate-y-[158px]'>Неправильно збілдили проєкт для деплою. Папки завернули через рівень. Довго мучились...</p>
-        <p className='w-[220px] lg:w-[320px] 2xl:w-[346px] float-right text-s leading-[18.2px] font-regular lg:text-m lg:leading-[20.8px] 2xl:text-sm 2xl:leading-[23.4px] 2xl:translate-y-[-58px]'>Зверстали першу сторінку сайту на bootstrap з жорсткою структурою.<br/><br/>Переписували заново фактично всю сторінку.</p>
-      </div>
-      <div className="w-full h-[175px] top-[300px] flex items-center justify-center bg-transparent absolute">
-        <button className="bg-white rounded-full px-3 py-6 2xl:px-10 2xl:py-3 z-30 text-black w-fit mx-auto uppercase text-lg 2xl:text-[36px] leading-s-48 2xl:leading-[54px] font-medium">
+          <div className="w-full h-[175px] top-[295px] md:top-[265px] lg:top-[290px] 2xl:top-[300px] flex items-center justify-center bg-transparent absolute">
+        <button className="bg-white rounded-full py-3 px-6 2xl:px-10 2xl:py-3 z-30 text-black w-fit mx-auto uppercase text-lg 2xl:text-[36px] leading-s-48 2xl:leading-[54px] font-medium">
           Baza trainee
         </button>
       </div>
-        <svg className=" absolute top-[290px] w-full h-[175px] block md:hidden">
+      <div className='container sticky'>
+        <p className='w-[220px] lg:w-[320px] 2xl:w-[346px] text-s leading-[18.2px] font-regular lg:text-m lg:leading-[20.8px] 2xl:text-sm 2xl:leading-[23.4px] mb-16 lg:mb-11 2xl:mb-5 2xl:translate-y-[158px]'>Неправильно збілдили проєкт для деплою. Папки завернули через рівень. Довго мучились...</p>
+        <p className='w-[220px] lg:w-[320px] 2xl:w-[346px] float-right text-s leading-[18.2px] font-regular lg:text-m lg:leading-[20.8px] 2xl:text-sm 2xl:leading-[23.4px] 2xl:translate-y-[-58px]'>Зверстали першу сторінку сайту на bootstrap з жорсткою структурою.<br/><br/>Переписували заново фактично всю сторінку.</p>
+      </div>
+
+      <div className='overflow-hidden w-full h-auto mx-auto'>
+        <svg 
+          viewBox="0 0 350 175"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid meet"
+          className=" absolute top-[290px] w-full block md:hidden">
         <motion.path
           d="M 0 56.491 C 44.408 42.541 43.518 48.326 145.193 72.739 C 176.799 72.274 210.186 72.739 236.628 72.692 C 316.122 50.518 322.816 44.661 368.838 56.794"
           stroke="#c3ff0a"
@@ -122,7 +128,13 @@ export const WiresAnimation = ({
           </filter>
         </defs>
       </svg>
-      <svg className=" absolute top-[290px] left-0 right-0 w-full h-[175px] hidden md:block lg:hidden">
+      </div>
+      <div className='overflow-hidden w-full h-auto mx-auto'>
+      <svg 
+        viewBox="0 0 800 175"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid meet"
+        className=" absolute top-[290px] w-full hidden md:block lg:hidden">
         <motion.path
           d="M 0 43.386 C 74.301 39.464 220.476 43.386 270.134 64.243 C 359.518 65.134 451.095 65.799 481.679 65.236 C 545.242 43.386 737.916 42.393 807.438 43"
           stroke="#c3ff0a"
@@ -151,7 +163,7 @@ export const WiresAnimation = ({
           transition={transition}
         />
         <motion.path
-          d="M 0 121 C 120.166 123.833 137.05 121.846 270.134 106.949 C 361.506 111.915 398.253 113.901 481.679 109.928 C 608.805 122.839 667.401 125.819 788.568 121.846"
+          d="M 0 121 C 120.166 123.833 137.05 121.846 270.134 106.949 C 361.506 111.915 398.253 113.901 481.679 109.928 C 608.805 122.839 667.401 125.819 808.568 121.846"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -160,7 +172,7 @@ export const WiresAnimation = ({
           transition={transition}
         />
         <motion.path
-          d="M 0 137 C 110.234 148.662 150.954 135.751 264.175 122.839 C 354.554 123.833 403.219 123.833 484.659 124.826 C 614.764 141.71 678.326 154.621 795.52 137.737"
+          d="M 0 137 C 110.234 148.662 150.954 135.751 264.175 122.839 C 354.554 123.833 403.219 123.833 484.659 124.826 C 614.764 141.71 678.326 154.621 808.52 137.737"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -194,7 +206,7 @@ export const WiresAnimation = ({
           filter="url(#blurMe)"
         />
         <path
-          d="M 0 121 C 120.166 123.833 137.05 121.846 270.134 106.949 C 361.506 111.915 398.253 113.901 481.679 109.928 C 608.805 122.839 667.401 125.819 788.568 121.846"
+          d="M 0 121 C 120.166 123.833 137.05 121.846 270.134 106.949 C 361.506 111.915 398.253 113.901 481.679 109.928 C 608.805 122.839 667.401 125.819 808.568 121.846"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -202,7 +214,7 @@ export const WiresAnimation = ({
           filter="url(#blurMe)"
         />
         <path
-          d="M 0 137 C 110.234 148.662 150.954 135.751 264.175 122.839 C 354.554 123.833 403.219 123.833 484.659 124.826 C 614.764 141.71 678.326 154.621 795.52 137.737"
+          d="M 0 137 C 110.234 148.662 150.954 135.751 264.175 122.839 C 354.554 123.833 403.219 123.833 484.659 124.826 C 614.764 141.71 678.326 154.621 808.52 137.737"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -216,7 +228,13 @@ export const WiresAnimation = ({
           </filter>
         </defs>
       </svg>
-      <svg className=" absolute top-[290px] left-0 right-0 w-full h-[175px] hidden lg:block xl:hidden">
+      </div>
+      <div className='overflow-hidden w-full h-auto mx-auto'>
+      <svg 
+        viewBox="0 0 1024 175"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid meet"
+        className=" absolute top-[290px] w-full hidden lg:block xl:hidden">
         <motion.path
           d="M 0 49.31 C 105.026 39.173 296.356 41.707 415.461 75.919 C 464.877 75.919 516.828 75.919 571.312 75.919 C 670.144 46.776 956.505 25.235 1118.691 49"
           stroke="#c3ff0a"
@@ -310,9 +328,15 @@ export const WiresAnimation = ({
           </filter>
         </defs>
       </svg>
-      <svg className=" absolute top-[290px] left-0 right-0 w-full h-[175px] hidden xl:block 2xl:hidden">
+      </div>
+      <div className='overflow-hidden w-full h-auto mx-auto'>
+      <svg 
+          viewBox="0 0 1440 175"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid meet"
+          className=" absolute top-[290px] w-full hidden xl:block 2xl:hidden">
         <motion.path
-          d="M 0 60 C 105.798 51.555 296.356 41.707 478.147 72.674 C 683.155 72.873 771.046 71.499 937.369 75.246 C 1272.297 33.047 1347.958 57.113 1434.346 60"
+          d="M 0 60 C 105.798 51.555 296.356 41.707 478.147 72.674 C 683.155 72.873 771.046 71.499 937.369 75.246 C 1272.297 33.047 1347.958 57.113 1500.346 60"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -321,7 +345,7 @@ export const WiresAnimation = ({
           transition={transition}
         />
         <motion.path
-          d="M 0 80 C 93.071 75.306 275.362 73.553 472.288 91.434 C 682.01 87.575 741.605 89.328 929.154 91.081 C 1199.085 68.294 1314.769 70.047 1432.8 80"
+          d="M 0 80 C 93.071 75.306 275.362 73.553 472.288 91.434 C 682.01 87.575 741.605 89.328 929.154 91.081 C 1199.085 68.294 1314.769 70.047 1500.8 80"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -330,7 +354,7 @@ export const WiresAnimation = ({
           transition={transition}
         />
         <motion.path
-          d="M 0 100 C 100 100 258.338 105.406 469.095 110 C 683.799 106.788 721.096 105.406 935.346 100 C 1210.12 100 1316.772 100 1428.656 100"
+          d="M 0 100 C 100 100 258.338 105.406 469.095 110 C 683.799 106.788 721.096 105.406 935.346 100 C 1210.12 100 1316.772 100 1500.656 100"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -339,7 +363,7 @@ export const WiresAnimation = ({
           transition={transition}
         />
         <motion.path
-          d="M 0 120 C 94.513 133.29 243.662 138.714 468.414 121.13 C 679.596 119.134 709.847 119.134 927.743 117.744 C 1151.822 132.846 1295.964 138.055 1421.649 120"
+          d="M 0 120 C 94.513 133.29 243.662 138.714 468.414 121.13 C 679.596 119.134 709.847 119.134 927.743 117.744 C 1151.822 132.846 1295.964 138.055 1500.649 120"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -348,7 +372,7 @@ export const WiresAnimation = ({
           transition={transition}
         />
         <motion.path
-          d="M 0 145 C 100.907 167.428 245.197 162.149 465.15 135.755 C 681.584 135.755 702.7 135.755 920.893 128.716 C 1147.885 155.111 1299.213 158.63 1417.755 145"
+          d="M 0 145 C 100.907 167.428 245.197 162.149 465.15 135.755 C 681.584 135.755 702.7 135.755 920.893 128.716 C 1147.885 155.111 1299.213 158.63 1500.755 145"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -358,7 +382,7 @@ export const WiresAnimation = ({
         />
 
         <path
-          d="M 0 60 C 105.798 51.555 296.356 41.707 478.147 72.674 C 683.155 72.873 771.046 71.499 937.369 75.246 C 1272.297 33.047 1347.958 57.113 1434.346 60"
+          d="M 0 60 C 105.798 51.555 296.356 41.707 478.147 72.674 C 683.155 72.873 771.046 71.499 937.369 75.246 C 1272.297 33.047 1347.958 57.113 1500.346 60"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -366,7 +390,7 @@ export const WiresAnimation = ({
           filter="url(#blurMe)"
         />
         <path
-          d="M 0 80 C 93.071 75.306 275.362 73.553 472.288 91.434 C 682.01 87.575 741.605 89.328 929.154 91.081 C 1199.085 68.294 1314.769 70.047 1432.8 80"
+          d="M 0 80 C 93.071 75.306 275.362 73.553 472.288 91.434 C 682.01 87.575 741.605 89.328 929.154 91.081 C 1199.085 68.294 1314.769 70.047 1500.8 80"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -374,7 +398,7 @@ export const WiresAnimation = ({
           filter="url(#blurMe)"
         />
         <path
-          d="M 0 100 C 100 100 258.338 105.406 469.095 110 C 683.799 106.788 721.096 105.406 935.346 100 C 1210.12 100 1316.772 100 1428.656 100"
+          d="M 0 100 C 100 100 258.338 105.406 469.095 110 C 683.799 106.788 721.096 105.406 935.346 100 C 1210.12 100 1316.772 100 1500.656 100"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -382,7 +406,7 @@ export const WiresAnimation = ({
           filter="url(#blurMe)"
         />
         <path
-          d="M 0 120 C 94.513 133.29 243.662 138.714 468.414 121.13 C 679.596 119.134 709.847 119.134 927.743 117.744 C 1151.822 132.846 1295.964 138.055 1421.649 120"
+          d="M 0 120 C 94.513 133.29 243.662 138.714 468.414 121.13 C 679.596 119.134 709.847 119.134 927.743 117.744 C 1151.822 132.846 1295.964 138.055 1500.649 120"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -390,7 +414,7 @@ export const WiresAnimation = ({
           filter="url(#blurMe)"
         />
         <path
-          d="M 0 145 C 100.907 167.428 245.197 162.149 465.15 135.755 C 681.584 135.755 702.7 135.755 920.893 128.716 C 1147.885 155.111 1299.213 158.63 1417.755 145"
+          d="M 0 145 C 100.907 167.428 245.197 162.149 465.15 135.755 C 681.584 135.755 702.7 135.755 920.893 128.716 C 1147.885 155.111 1299.213 158.63 1500.755 145"
           stroke="#c3ff0a"
           strokeWidth="2"
           fill="none"
@@ -404,12 +428,16 @@ export const WiresAnimation = ({
           </filter>
         </defs>
       </svg>
+      </div>
+      <div className='overflow-hidden w-full h-auto mx-auto'>
       <svg
         // width="1440"
         // height="650"
-        // viewBox="0 0 1440 800"
-        // xmlns="http://www.w3.org/2000/svg"
-        className=" absolute top-[290px] w-full h-[175px] hidden 2xl:block"
+        viewBox="0 0 1800 175"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid meet"
+        // className=" absolute top-[290px] w-full h-[175px] hidden 2xl:block"
+        className=" absolute top-[290px] w-full hidden 2xl:block"
       >
         <motion.path
           d="M 0 20 C 261 19 347 44 477 64 C 563 85 564.969 81.553 681.525 94.041 C 1043.683 92.654 734.253 94.041 1150.526 94.041 C 1253.207 82.941 1251 91 1374 70 C 1497 49 1554 30 1926 20"
@@ -504,6 +532,7 @@ export const WiresAnimation = ({
           </filter>
         </defs>
       </svg>
+      </div>
       <div className="container sticky h-[600px] lg:h-[550px]">
           <p className='w-[220px] lg:w-[320px] 2xl:w-[346px] float-left 2xl:right-[120px] overflow-clip text-s leading-[18.2px] font-regular lg:text-m lg:leading-[20.8px] 2xl:text-sm 2xl:leading-[23.4px] absolute top-[400px]'>Підключили Back-end розробника на останньому етапі.<br/><br/>В результаті чого тестувальники працювали на 2 тижні довше.</p>
          <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0" />
