@@ -48,8 +48,9 @@ const TorusScene: React.FC = () => {
   );
 };
 
-const InitiativeAnimation: React.FC = () => (
-  <div className="lg:sticky top-0 left-0 2xl:left-[50%] 2xl:-translate-x-[50%] mx-auto lg:mx-0 w-[262px] h-[260px] 2xl:w-[390px] 2xl:h-[386px]">
+function DevAnimation () {
+  return(
+    <div className="lg:sticky top-0 left-0 2xl:left-[50%] 2xl:-translate-x-[50%] mx-auto lg:mx-0 w-[262px] h-[260px] xl:w-widthXl  2xl:w-[390px] 2xl:h-[386px]">
     <Canvas
       camera={{ position: [0, 0, 400], fov: 60 }}
       onCreated={({ gl }) => {
@@ -59,6 +60,8 @@ const InitiativeAnimation: React.FC = () => (
       <TorusScene />
     </Canvas>
   </div>
-);
+  )
+  
+};
 
-export default InitiativeAnimation;
+export default DevAnimation;

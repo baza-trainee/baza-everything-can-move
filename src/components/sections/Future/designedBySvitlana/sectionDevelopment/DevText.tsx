@@ -1,7 +1,7 @@
 import { TEXTS } from '@/constants/text'
 import React from 'react'
 
-function InitiativeText() {
+function DevText() {
   return (
     <div className='w-full flex flex-col lg:-mt-[246px]  2xl:-mt-[266px] gap-[40px] lg:gap-[80px] 2xl:gap-[120px]'>
       {TEXTS.map((item, idx)=> (
@@ -15,4 +15,4 @@ function InitiativeText() {
   )
 }
 
-export default InitiativeText
+export default DevText

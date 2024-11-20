@@ -1,19 +1,21 @@
-import React from 'react'
-import InitiativeAnimation from './InititativeAnimation'
-import InitiativeText from './InitiativeText'
+import Container from '@/components/ui/DesignBySvitlna/Container';
+import React from 'react';
 
 function SectionInitiative() {
   return (
     <section>
-      <div className="container">
-        <h2>розвиток</h2>
-        <div className='relative'>
-        <InitiativeAnimation/>
-     <InitiativeText/>
+      <Container>
+        <div>
+          <h3>Софіальні ініціативи</h3>
+          <video src="#"></video>
+          <p className='font-third-family leading-o-150 text-m 2xl:text-l'>
+          Сміливо змінюємо сучасний шлях входу в ІТ та плануємо трансформувати його  й надалі шляхом добрих справ. Благодійні проєкти, розробки та реалізації сайтів, мобільних застосунків, підтримка добрих справ.
+          Ми віримо в силу спільних зусиль для створення позитивних змін у суспільстві. </p>
+     
         </div>
-      </div>
-      </section>
-  )
+      </Container>
+    </section>
+  );
 }
 
-export default SectionInitiative
+export default SectionInitiative;
