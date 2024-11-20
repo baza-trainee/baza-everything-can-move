@@ -8,7 +8,7 @@ function Participant() {
   const gridRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: gridRef,
-    offset: ['center end', 'end 1.2'],
+    offset: ['0.18 end', 'end 1.2'],
   });
 
   const translateX = useTransform(scrollYProgress, [0, 1], [0, -3000]);
@@ -21,7 +21,7 @@ function Participant() {
   return (
     <section className="py-[156px]">
       <Container className="">
-        <div ref={gridRef} className="h-[1500px]">
+        <div ref={gridRef} className="h-[4500px]">
           <div className="sticky top-10 overflow-clip">
             {/* <span>{scaleX}</span> */}
 
