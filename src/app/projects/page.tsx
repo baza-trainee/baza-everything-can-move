@@ -1,11 +1,15 @@
 'use client';
+import React from 'react';
 
 import { useDesignStore } from '@/useDesignStore';
+
 import PartnersSection from '@/components/sections/Projects/PartnersSection/PartnersSection';
 import ProjectsSection from '@/components/sections/Projects/ProjectsSection/ProjectsSection';
-// import ProjectsSection from '@/components/sections/Projects/ProjectsSection/ProjectsSection';
-import React from 'react';
-import BirdsComponent from '@/components/sections/Projects/DesignBySvitlana/BirdsComponent';
+
+
+import BirdsComponent from '@/components/sections/Projects/DesignBySvitlana/Birds/BirdsComponent';
+import ProjectsSectionSecond from '@/components/sections/Projects/DesignBySvitlana/ProjectsSection/ProjectsSection';
+
 
 const Page = (): JSX.Element => {
   const { designType } = useDesignStore();
@@ -20,6 +24,7 @@ const Page = (): JSX.Element => {
       {designType === 'designBySvitlana' && (
         <>
           <BirdsComponent />
+          <ProjectsSectionSecond />
         </>
       )}
     </>
