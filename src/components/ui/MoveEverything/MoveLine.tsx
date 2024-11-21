@@ -32,7 +32,6 @@ export type Props = {
 const MotionImage = motion.create(Image);
 
 function MoveLine({
-  component,
   duration = 60,
   type = 'singleLine',
   infinityText,

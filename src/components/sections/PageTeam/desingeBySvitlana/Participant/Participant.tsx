@@ -3,7 +3,6 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 import { data } from './data';
 import { Card } from './Card';
 import { useRef } from 'react';
-import MoveLine from '@/components/ui/MoveEverything/MoveLine';
 import StarViolewt from '../../../../../../public/assets/icons/violet_star.svg';
 import StarEmpty from '../../../../../../public/assets/icons/empty_star.svg';
 
@@ -30,42 +29,37 @@ function Participant() {
     stiffness: 50,
     damping: 20,
   });
-
+  const translateYList = data.map((_, index) => {
+    const translateY = useTransform(
+      listScroll.scrollYProgress,
+      [0, 0.3],
+      [100 * index + 50, 0]
+    );
+    return useSpring(translateY, {
+      stiffness: 50,
+      damping: 20,
+    });
+  });
   return (
     <section className="py-[156px]">
       <Container className="">
         <div ref={gridRef} className="h-[4500px]">
           <div className="sticky top-10 overflow-clip">
-            {/* <span>{scaleX}</span> */}
-
             <motion.ul className="flex gap-10" style={{ x: smoothTranslateX }}>
-              {data.map((item, index) => {
-                const translateYList = useTransform(
-                  listScroll.scrollYProgress,
-                  [0, 0.3],
-                  [100 * index + 50, 0]
-                );
-
-                const smoothTransItemY = useSpring(translateYList, {
-                  stiffness: 50,
-                  damping: 20,
-                });
-
-                return (
-                  <motion.li
-                    key={index}
-                    style={{ paddingTop: smoothTransItemY }}
-                  >
-                    <Card
-                      value={item.value}
-                      text={item.text}
-                      bg={item.bg}
-                      border={item.border}
-                      textColor={item.textColor}
-                    />
-                  </motion.li>
-                );
-              })}
+              {data.map((item, index) => (
+                <motion.li
+                  key={index}
+                  style={{ paddingTop: translateYList[index] }}
+                >
+                  <Card
+                    value={item.value}
+                    text={item.text}
+                    bg={item.bg}
+                    border={item.border}
+                    textColor={item.textColor}
+                  />
+                </motion.li>
+              ))}
             </motion.ul>
 
             <motion.ul
@@ -85,16 +79,6 @@ function Participant() {
                 </li>
               ))}
             </motion.ul>
-
-            <MoveLine
-              type="moveComponent"
-              component={<></>}
-              direction="right"
-              infinityText="Наші учасники"
-              gap={20}
-              duration={10}
-              amountOfText={5}
-            />
 
             <h2 className="p-12">Наші учасники</h2>
           </div>
