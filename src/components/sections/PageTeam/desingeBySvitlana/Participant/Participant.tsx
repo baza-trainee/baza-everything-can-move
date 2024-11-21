@@ -6,17 +6,39 @@ import { useRef } from 'react';
 
 function Participant() {
   const gridRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
+
+  const sectionScroll = useScroll({
     target: gridRef,
     offset: ['0.18 end', 'end 1.2'],
   });
 
-  const translateX = useTransform(scrollYProgress, [0, 1], [0, -3000]);
+  const listScroll = useScroll({
+    target: gridRef,
+    offset: ['end end', 'start start'],
+  });
+
+  const translateYList = useTransform(
+    listScroll.scrollYProgress,
+    [0, 1],
+    [60, 0]
+  );
+
+  const translateX = useTransform(
+    sectionScroll.scrollYProgress,
+    [0, 1],
+    [0, -3000]
+  );
+
+  const smoothTransItemY = useSpring(translateX, {
+    stiffness: 50,
+    damping: 20,
+  });
+
   const smoothTranslateX = useSpring(translateX, {
     stiffness: 50,
     damping: 20,
   });
-  console.log(smoothTranslateX.get());
+  console.log(translateYList.get());
 
   return (
     <section className="py-[156px]">
@@ -25,16 +47,25 @@ function Participant() {
           <div className="sticky top-10 overflow-clip">
             {/* <span>{scaleX}</span> */}
 
-            <motion.ul className="flex gap-10" style={{ x: smoothTranslateX }}>
+            <motion.ul
+              className="flex gap-10"
+              // style={{ x: smoothTranslateX }}
+            >
               {data.map((item, index) => (
-                <Card
+                <motion.li
                   key={index}
-                  value={item.value}
-                  text={item.text}
-                  bg={item.bg}
-                  border={item.border}
-                  textColor={item.textColor}
-                />
+                  style={{
+                    y: smoothTransItemY,
+                  }}
+                >
+                  <Card
+                    value={item.value}
+                    text={item.text}
+                    bg={item.bg}
+                    border={item.border}
+                    textColor={item.textColor}
+                  />
+                </motion.li>
               ))}
             </motion.ul>
 

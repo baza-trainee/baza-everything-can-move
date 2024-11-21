@@ -1,11 +1,18 @@
 import { FC } from 'react';
-import { motion } from 'framer-motion';
+
 import { DataCards } from './participant.props';
 import { cn } from '@/lib/utils';
 
-export const Card: FC<DataCards> = ({ value, text, bg, textColor, border }) => {
+export const Card: FC<DataCards> = ({
+  value,
+  text,
+  bg,
+  textColor,
+  border,
+
+}) => {
   return (
-    <motion.li>
+  
       <div
         className={cn(
           'flex h-[360px] w-[320px] flex-col items-center justify-center rounded-2xl p-5 uppercase text-black',
@@ -19,6 +26,6 @@ export const Card: FC<DataCards> = ({ value, text, bg, textColor, border }) => {
         </span>
         <p className="text-l font-regular leading-o-150">{text}</p>
       </div>
-    </motion.li>
+   
   );
 };
