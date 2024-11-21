@@ -5,7 +5,7 @@ import { SvitlanaProjectsImagesType } from './types';
 
 import StarsBtnComponent from '@/components/ui/DesignBySvitlna/StarsBtnComponent';
 
-const ProjectCard = ({ src, name, link }: SvitlanaProjectsImagesType) => {
+const ProjectCard = ({ src, name }: SvitlanaProjectsImagesType) => {
   return (
     <div className="rounded-2xl border border-white">
       <div className="flex justify-between border-b border-white px-4 pb-2 pt-[14px]">
