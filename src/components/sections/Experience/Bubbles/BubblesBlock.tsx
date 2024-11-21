@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-// import Bubbles3D from './Bubbles3D'
+import Bubbles3D from './Bubbles3D'
 import Bubbles2D from './Bubbles2D'
 import SubTitle from '@/components/ui/SubTitle';
 import SectionTitle from '@/components/ui/SectionTitle';
@@ -22,7 +22,7 @@ const BubblesBlock = ({title, subtitle}:BubblesSectionProps) => {
         <SectionTitle>{title}</SectionTitle>
         <SubTitle>{subtitle}</SubTitle>
         <Bubbles2D/>
-        {/* <Bubbles3D/> */}
+        <Bubbles3D/>
       </div>
 
    )
