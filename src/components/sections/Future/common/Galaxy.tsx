@@ -32,7 +32,7 @@ function Galaxy({
     const colorsArray = new Float32Array(pointCount * 3);
 
     for (let i = 0; i < pointCount; i++) {
-      const pointRadius = Math.pow(Math.random(), 1.8) * radius;
+      const pointRadius = Math.pow(Math.random(), 1.5) * radius;
       const branch = i % 3;
       const branchAngle = branch * ((2 * Math.PI) / 3);
       const spinAngle = pointRadius * spinMultiplier;

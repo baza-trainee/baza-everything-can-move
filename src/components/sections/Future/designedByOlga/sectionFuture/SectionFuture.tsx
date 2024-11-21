@@ -2,7 +2,7 @@ import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
 import SectionTitle from '@/components/ui/SectionTitle';
 import SubTitle from '@/components/ui/SubTitle';
 import FutureHeroText from './FutureText';
-import GalaxyOlga from '../sectionDevelopment/GalaxyOlga';
+import GalaxyOlga from './GalaxyOlga';
 
 function SectionFuture() {
   return (

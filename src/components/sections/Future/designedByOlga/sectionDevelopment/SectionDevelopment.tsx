@@ -7,6 +7,8 @@ import clsx from 'clsx';
 import styles from './SectionDevelopment.module.css';
 
 function SectionDevelopment  ()  {
+  const texts = TEXTS.slice(0, 4)
+  console.log(texts)
   return (
     <section>
       <div className="container">
@@ -23,7 +25,7 @@ function SectionDevelopment  ()  {
               <div className="sticky left-0 top-0 h-[340px] w-customLg 2xl:w-custom2xl py-[18px] 2xl:h-[376px] 2xl:w-[69%] 2xl:py-[21px]">
                 <BrainAnimation />
               </div>
-              {TEXTS.map((item, index) => (
+              {texts.map((item, index) => (
                 <div
                   key={index}
                   className={`ml-auto flex min-h-full w-[320px] flex-col justify-center 2xl:w-[346px] 2xl:justify-start ${index === 0 ? '-mt-[340px] 2xl:-mt-[376px]' : ''}`}
