@@ -21,6 +21,7 @@ import o1 from '@/assets/icons/header/designSvitlana/01.svg';
 import o2 from '@/assets/icons/header/designSvitlana/02.svg';
 import o3 from '@/assets/icons/header/designSvitlana/03.svg';
 import o4 from '@/assets/icons/header/designSvitlana/04.svg';
+import Stars_btn from '@/assets/icons/shared/stars_btn.svg';
 
 export const ICONS_SRC = {
   CLOSE_MENU_ICON: CloseMenuIcon,
@@ -46,6 +47,7 @@ export const ICONS_SHARED = {
   CORNER_TOP: CornerTop,
   CORNER_BOTTOM: CornerBottom,
   ELIPSE_SUB_TITLE: Elipse_SubTitle,
+  STARS_BTN: Stars_btn,
 };
 
 export const ICONS_HEADER_SV = [o0, o1, o2, o3, o4];

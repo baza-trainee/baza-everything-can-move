@@ -54,7 +54,7 @@ class BirdGeometry extends THREE.BufferGeometry {
       const x = (birdIndex % WIDTH) / WIDTH;
       const y = ~~(birdIndex / WIDTH) / WIDTH;
 
-      const c = new THREE.Color(0x666666 + (~~(v / 9) / BIRDS) * 0x666666);
+      const c = new THREE.Color(0xffffff + (~~(v / 9) / BIRDS) * 0xffffff); // 0x666666
 
       birdColors.array[v * 3 + 0] = c.r;
       birdColors.array[v * 3 + 1] = c.g;
