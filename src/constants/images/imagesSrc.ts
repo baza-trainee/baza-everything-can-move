@@ -1,11 +1,11 @@
-import kolyskova from '@/assets/images/HomeProjects/kolyskova.png';
-import balakun from '@/assets/images/HomeProjects/balakun.png';
-import organik from '@/assets/images/HomeProjects/organik.png';
-import song from '@/assets/images/HomeProjects/1001song.png';
-import bazaSkill from '@/assets/images/HomeProjects/baza_skill.png';
-import bazaTrainee from '@/assets/images/HomeProjects/baza_trainee_ukraine.png';
-import klouns from '@/assets/images/HomeProjects/klouns.png';
-import militari from '@/assets/images/HomeProjects/militari.png';
+import kolyskova from '@/assets/images/Projects/kolyskova.png';
+import balakun from '@/assets/images/Projects/balakun.png';
+import organik from '@/assets/images/Projects/organik.png';
+import song from '@/assets/images/Projects/1001song.png';
+import bazaSkill from '@/assets/images/Projects/baza_skill.png';
+import bazaTrainee from '@/assets/images/Projects/baza_trainee_ukraine.png';
+import klouns from '@/assets/images/Projects/klouns.png';
+import militari from '@/assets/images/Projects/militari.png';
 
 export const IMAGES_HOME_PROJECTS = [
   {
