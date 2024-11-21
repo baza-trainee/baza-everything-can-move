@@ -5,6 +5,9 @@ import SectionDevelopment from '@/components/sections/Future/designedByOlga/sect
 import SectionPlan from '@/components/sections/Future/designedByOlga/sectionPlan/SectionPlan';
 import SectionJoin from '@/components/sections/PageTeam/designeByOlga/SectionJoin/SectionJoin';
 import SectionFutureHero from '@/components/sections/Future/designedBySvitlana/sectionFuture/SectionFutureHero';
+import SectionDev from '@/components/sections/Future/designedBySvitlana/sectionDevelopment/SectionDev';
+import SectionPlans from '@/components/sections/Future/designedBySvitlana/sectionPlan/SectionPlans';
+import SectionInitiative from '@/components/sections/Future/designedBySvitlana/sectionInitiative/SectionInitiative';
 
 function Page() {
   const { designType } = useDesignStore();
@@ -22,6 +25,9 @@ function Page() {
       {designType === 'designBySvitlana' && (
         <div className="text-white">
           <SectionFutureHero />
+          <SectionInitiative/>
+          <SectionDev/>
+          <SectionPlans/>
         </div>
       )}
     </>

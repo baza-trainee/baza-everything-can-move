@@ -1,7 +1,7 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import Galaxy from './../../common/Galaxy';
+import Galaxy from '../../common/Galaxy';
 
 function GalaxyOlga() {
   return (
