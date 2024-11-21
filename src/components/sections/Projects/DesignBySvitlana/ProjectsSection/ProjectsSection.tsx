@@ -5,7 +5,8 @@ import SubTitleAnimation from '@/components/ui/DesignBySvitlna/SubTitle/SubTitle
 
 const ProjectsSectionSecond: React.FC = () => {
   return (
-    <section className="py-20 lg:py-[100px]">
+    <section className="py-20 font-second-family lg:py-[100px]">
+     
       <Container className="flex flex-col items-center">
         <SectionTitle secondDesign className="mb-4 lg:mb-8">
           проєкти
@@ -13,6 +14,9 @@ const ProjectsSectionSecond: React.FC = () => {
         <SubTitleAnimation className="mb-9 text-white lg:mb-8">
           наші замовники
         </SubTitleAnimation>
+        <p className="mb-[60px] text-m font-regular leading-o-120 lg:block">
+          Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
+        </p>
       </Container>
     </section>
   );
