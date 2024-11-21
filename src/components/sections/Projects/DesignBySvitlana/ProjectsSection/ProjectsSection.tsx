@@ -15,10 +15,15 @@ const ProjectsSectionSecond: React.FC = () => {
         <SubTitleAnimation className="mb-9 text-white lg:mb-8">
           наші замовники
         </SubTitleAnimation>
-        <p className="mb-[60px] text-m font-regular leading-o-120 lg:block">
-          Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
-        </p>
+
         <SectionImagesManager images={PROJECTS_SVITLANA_IMAGES} />
+        <p className="mb-8">Pagination</p>
+        <div className="mb-10 w-[273px] text-center">
+          <p className="font-third-family text-m font-regular leading-o-120 lg:block">
+            Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
+          </p>
+        </div>
+        <button>Button</button>
       </Container>
     </section>
   );

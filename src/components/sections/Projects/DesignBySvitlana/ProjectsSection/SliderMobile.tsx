@@ -3,9 +3,8 @@ import { ProjectsImagesProps } from './types';
 import ProjectCard from './ProjectCard';
 
 const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
-  console.log('one image', images[0]);
   return (
-    <div>
+    <div className="mb-9">
       <ProjectCard {...images[0]} />
     </div>
   );
