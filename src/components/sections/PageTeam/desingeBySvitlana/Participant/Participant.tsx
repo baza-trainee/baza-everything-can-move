@@ -8,7 +8,7 @@ import {
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import { data } from './data';
 import { Card } from './Card';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import StarViolewt from '../../../../../../public/assets/icons/violet_star.svg';
 import StarEmpty from '../../../../../../public/assets/icons/empty_star.svg';
 
