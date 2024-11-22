@@ -14,17 +14,28 @@ export interface BubblesSectionProps {
 
 const BubblesBlock = ({title, subtitle}:BubblesSectionProps) => {
 
-  // const bubblesBlockRef = useRef<HTMLDivElement | null >(null);
+//   const [coordX, setCoordX] = useState<number>(0)
+//   const [coordY, setCoordY] = useState<number>(0)
+
+//  useEffect(() => {
+//   const BubblesBlock = document.getElementById('BubblesBlock');
+//   BubblesBlock?.addEventListener('click', (event: MouseEvent) => {
+//     event.preventDefault();
+//     setCoordX(event.clientX)
+//     setCoordY(event.clientY)
+//     })
+//  })
 
   return (
-
+    <>
       <div className='container relative pb-[100px] lg:pb-20 2xl:pb-16 overflow-clip'>
         <SectionTitle>{title}</SectionTitle>
         <SubTitle>{subtitle}</SubTitle>
         <Bubbles2D/>
-        <Bubbles3D/>
-      </div>
 
+      </div>
+        <Bubbles3D/>
+    </>   
    )
    
 }
