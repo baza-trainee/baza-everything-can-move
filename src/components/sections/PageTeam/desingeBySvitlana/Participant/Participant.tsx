@@ -1,12 +1,20 @@
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useSpring,
+  useTransform,
+} from 'framer-motion';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import { data } from './data';
 import { Card } from './Card';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import StarViolewt from '../../../../../../public/assets/icons/violet_star.svg';
 import StarEmpty from '../../../../../../public/assets/icons/empty_star.svg';
 
 function Participant() {
+  const [paddingTop, setPaddingTop] = useState(0);
+
   const gridRef = useRef<HTMLDivElement>(null);
 
   const sectionScroll = useScroll({
@@ -29,37 +37,47 @@ function Participant() {
     stiffness: 50,
     damping: 20,
   });
-  const translateYList = data.map((_, index) => {
-    const translateY = useTransform(
-      listScroll.scrollYProgress,
-      [0, 0.3],
-      [100 * index + 50, 0]
-    );
-    return useSpring(translateY, {
-      stiffness: 50,
-      damping: 20,
-    });
+  const translateYList = useTransform(
+    listScroll.scrollYProgress,
+    [0, 0.3],
+    [100, 0]
+  );
+
+  const smoothTransItemY = useSpring(translateYList, {
+    stiffness: 50,
+    damping: 20,
   });
+  useEffect(
+    () => translateYList.onChange((v) => setPaddingTop(v)),
+    [translateYList]
+  );
+  console.log(paddingTop);
+
   return (
     <section className="py-[156px]">
       <Container className="">
         <div ref={gridRef} className="h-[4500px]">
           <div className="sticky top-10 overflow-clip">
             <motion.ul className="flex gap-10" style={{ x: smoothTranslateX }}>
-              {data.map((item, index) => (
-                <motion.li
-                  key={index}
-                  style={{ paddingTop: translateYList[index] }}
-                >
-                  <Card
-                    value={item.value}
-                    text={item.text}
-                    bg={item.bg}
-                    border={item.border}
-                    textColor={item.textColor}
-                  />
-                </motion.li>
-              ))}
+              {data.map((item, index) => {
+                return (
+                  <motion.li
+                    key={index}
+                    style={{
+                      // y: smoothTransItemY,
+                      paddingTop: `${paddingTop * index}px`,
+                    }}
+                  >
+                    <Card
+                      value={item.value}
+                      text={item.text}
+                      bg={item.bg}
+                      border={item.border}
+                      textColor={item.textColor}
+                    />
+                  </motion.li>
+                );
+              })}
             </motion.ul>
 
             <motion.ul
