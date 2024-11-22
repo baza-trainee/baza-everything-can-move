@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ListText } from './components/ListText';
 import MoveComponent from './components/MoveComponent';
+import { ReactNode } from 'react';
 
 type TypeOfMove = {
   infinityText: 'infinityText';
@@ -25,6 +26,7 @@ export type Props = {
   infinityText?: string;
   amountOfText?: number;
   gap?: number;
+  component?: ReactNode;
 };
 
 const MotionImage = motion.create(Image);
@@ -105,7 +107,7 @@ function MoveLine({
           />
         </div>
       )}
-      {type === 'moveComponent' && <MoveComponent />}
+      {type === 'moveComponent' && <MoveComponent component />}
     </>
   );
 }

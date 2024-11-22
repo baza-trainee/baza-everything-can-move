@@ -38,6 +38,7 @@ const config: Config = {
       's-gray': '#363535',
       's-purple': '#8f8ded',
       's-light-purple': '#bcbbf9',
+      's-title-home': 'rgba(143, 141, 237, 1)',
       //Olga
       'olga-white-40': 'rgba(255, 255, 255, 0.4)',
       'olga-white-10': 'rgba(255, 255, 255, 0.1)',
@@ -128,6 +129,7 @@ const config: Config = {
         's-24': '24px',
         's-27': '27px',
         's-30': '30px',
+        's-36': '36px',
         's-38': '38px',
         's-48': '48px',
         's-100': '100%',
