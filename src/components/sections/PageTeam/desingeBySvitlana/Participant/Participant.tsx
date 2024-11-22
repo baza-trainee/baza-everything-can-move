@@ -47,11 +47,8 @@ function Participant() {
     stiffness: 50,
     damping: 20,
   });
-  useEffect(
-    () => translateYList.onChange((v) => setPaddingTop(v)),
-    [translateYList]
-  );
-  console.log(paddingTop);
+
+  useMotionValueEvent(smoothTransItemY, 'change', (v) => setPaddingTop(v));
 
   return (
     <section className="py-[156px]">
@@ -64,7 +61,6 @@ function Participant() {
                   <motion.li
                     key={index}
                     style={{
-                      // y: smoothTransItemY,
                       paddingTop: `${paddingTop * index}px`,
                     }}
                   >
