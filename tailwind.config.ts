@@ -122,6 +122,7 @@ const config: Config = {
       },
       lineHeight: {
         //leading-o-120
+        's-16': '16px',
         's-24': '24px',
         's-27': '27px',
         's-30': '30px',

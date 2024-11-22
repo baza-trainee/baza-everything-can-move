@@ -9,7 +9,9 @@ const ProjectCard = ({ src, name }: SvitlanaProjectsImagesType) => {
   return (
     <div className="rounded-2xl border border-white">
       <div className="flex justify-between border-b border-white px-4 pb-2 pt-[14px]">
-        <h4>{name.toUpperCase()}</h4>
+        <h4 className="leading-s-16 font-second-family text-m font-medium tracking-s-2">
+          {name.toUpperCase()}
+        </h4>
         <StarsBtnComponent
           classNameDiv="gap-[6px]"
           classNameIcons="h-[14px] w-[26px]"

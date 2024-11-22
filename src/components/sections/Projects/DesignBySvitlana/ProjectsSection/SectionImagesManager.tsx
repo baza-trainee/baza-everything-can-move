@@ -22,7 +22,7 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
 
   return (
     <div>
-      {/* mobile */}
+      {/* /* mobile */}
       {isMobile && <SliderMobile images={images} />}
     </div>
   );
