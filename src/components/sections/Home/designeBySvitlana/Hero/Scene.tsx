@@ -25,16 +25,15 @@ export default function Scene() {
   return (
     <>
       <div
-        className={`h-[700px] 2xl:w-[50%] lg:w-[60%] w-[100%] fixed transition-transform duration-500 ${
+        className={`h-[700px] 2xl:w-[50%] lg:w-[60%] w-[100%] transition-transform duration-[1700ms] ease-in ${
           scrolled
-            ? 'translate-x-[-20%]' // Коли прокручено на 300px
-            : '2xl:translate-x-[55%] lg:translate-x-[55%] translate-x-[-10%]' // Початкова позиція
+            ? 'translate-x-[-70%] translate-y-[180%]' // При скролі: зсув вниз і вліво
+            : '2xl:translate-x-[25%] lg:translate-x-[55%] translate-x-[-10%] translate-y-[0%]' // Початкова позиція
         }`}
       >
-        <Canvas className="w-[100%] h-[100%]  z-10">
+        <Canvas className="w-[100%] h-[100%] z-10">
           <directionalLight position={[3, 0, 1]} intensity={0} />
           <Suspense fallback={null}>
-            <Model />
             <Model />
           </Suspense>
         </Canvas>
