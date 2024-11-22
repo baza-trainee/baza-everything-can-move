@@ -4,18 +4,28 @@ import Container from '../../../../ui/DesignBySvitlna/Container';
 
 function SectionFutureHero() {
   return (
-    <section className="relative h-heightMobile lg:h-heightLg 2xl:my-[26px] 2xl:h-height2xl">
-      <GalaxySvitlana />
-      <Container className="flex h-full items-center leading-[1.2]">
-        <h2 className="max-w-[446px] text-[80px]">
+    <section className="h-heightMobile lg:h-heightLg 2xl:h-height2xl">
+    
+      <Container className='h-full relative'>
+        <div className="h-full flex flex-col 2xl:flex-row align-center justify-center lg:justify-end 2xl:justify-between 2xl:items-end h-full pt-[20px] lg:pb-[4.5%] lg:pt-0">
+       
+        <div className='max-w-[454px] text-center 2xl:max-w-[547px] 2xl:text-start mx-auto 2xl:mx-0 self-center'>
+        <h2 className="traking-s-2 text-xlg lg:text-[80px] leading-o-120 uppercase">
           <span>плани на </span>Майбутнє
         </h2>
-        <div className="absolute bottom-0 left-1/2 z-10 opacity-100 transition-opacity duration-500 xl:block">
+        <p className='font-third-family text-s lg:text-m 2xl:text-l leading-o-150 mt-2 mb-[6.4%]'>Наші плани спрямовані на створення кращого майбутнього для України через розвиток талантів у сфері ІТ. Кожен успішний проєкт і новий фахівець — це внесок у зміцнення країни та її інноваційний потенціал.</p>
+        </div>
+        <GalaxySvitlana />
+        <div className=" hidden absolute bottom-0 left-1/2 z-10 opacity-100 transition-opacity duration-500 2xl:block">
           <div className="icon-scroll scroll-to-second-section mb-6 h-10 w-6 cursor-pointer rounded-[20px] border border-white xl:mb-12">
             <span className="mx-auto my-2 block h-2 w-0.5 animate-[scroll_3s_ease_infinite] rounded-full bg-white"></span>
           </div>
         </div>
+        </div>
+     
       </Container>
+     
+  
     </section>
   );
 }

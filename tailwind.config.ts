@@ -77,10 +77,14 @@ const config: Config = {
       spacing: {
         customLg: 'calc(100% - 320px)',
         custom2xl: 'calc(100% - 346px)',
-        height2xl: 'calc(100vh - 158px)',
+        height2xl: 'calc(100vh - 107px)',
         heightLg: 'calc(100vh - 100px)',
         heightMobile: 'calc(100vh - 64px)',
         widthXl: 'calc(100% - 343px)',
+      },
+      left: {
+        125: "125px",
+        1143: "1143px",
       },
       backgroundImage: {
         grid: 'linear-gradient(90deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px), linear-gradient(180deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px)',
