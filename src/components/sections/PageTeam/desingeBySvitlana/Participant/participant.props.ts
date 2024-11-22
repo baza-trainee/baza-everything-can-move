@@ -1,4 +1,5 @@
 export type DataCards = {
+  y?: string | number;
   value: number;
   text: string;
   bg: string;
