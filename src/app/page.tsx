@@ -1,15 +1,16 @@
 'use client';
+import ProjectsHomeSection from '@/components/sections/Home/ProjectsHomeSection/ProjectsHomeSection';
+import TeamSection from '@/components/sections/Home/Team/TeamSection';
 import { useDesignStore } from '@/useDesignStore';
 import Hero from '../components/sections/Home/designeByOlga/Hero/Hero';
-import HeroSection from '../components/sections/Home/designeBySvitlana/Hero/Hero';
 import Marquee from '../components/sections/Home/designeByOlga/Marquee/Marquee';
-import MarqueeSection from '../components/sections/Home/designeBySvitlana/Marquee/Marquee';
 import OldBase from '../components/sections/Home/designeByOlga/OldBase/OldBase';
-import OldBaseSection from '../components/sections/Home/designeBySvitlana/OldBase/OldBase';
-import Today from '../components/sections/Home/Today/Today';
+import HeroSection from '../components/sections/Home/designeBySvitlana/Hero/Hero';
+import MarqueeSection from '../components/sections/Home/designeBySvitlana/Marquee/Marquee';
 import OurNumber from '../components/sections/Home/OurNumber/OurNumber';
-import TeamSection from '@/components/sections/Home/Team/TeamSection';
-import ProjectsHomeSection from '@/components/sections/Home/ProjectsHomeSection/ProjectsHomeSection';
+import Today from '../components/sections/Home/Today/Today';
+import Teams from '../components/sections/Home/designeBySvitlana/Teams/Teams';
+import OldBaseSection from '../components/sections/Home/designeBySvitlana/OldBase/OldBase';
 
 function Home() {
   const { designType } = useDesignStore();
@@ -29,8 +30,9 @@ function Home() {
       {designType === 'designBySvitlana' && (
         <>
           <HeroSection />
-          <MarqueeSection />
-          <OldBaseSection />
+          <MarqueeSection/>
+          <OldBaseSection/>
+          <Teams />
         </>
       )}
     </>

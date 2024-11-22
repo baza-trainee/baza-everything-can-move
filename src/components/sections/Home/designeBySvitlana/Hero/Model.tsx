@@ -1,7 +1,7 @@
 "use client";
 import { useGLTF, useAnimations } from '@react-three/drei';
 import { useRef, useEffect } from 'react';
-import { useFrame } from '@react-three/fiber';
+// import { useFrame } from '@react-three/fiber';
 import { Group } from 'three';
 
 // Завантаження моделі
@@ -22,15 +22,15 @@ export default function Model() {
   }, [animations, actions]);
 
   // Додаємо анімацію руху
-  useFrame((state) => {
-    if (group.current) {
-      // Рух по осі X
-      group.current.position.x = Math.sin(state.clock.elapsedTime) * 2;
-    }
-  });
+  // useFrame((state) => {
+  //   if (group.current) {
+  //     // Рух по осі X
+  //     group.current.position.x = Math.sin(state.clock.elapsedTime) * 2;
+  //   }
+  // });
 
   return (
-    <group ref={group} scale={[2, 2, 2]}>
+    <group ref={group} scale={[2, 2, 1]}>
       <primitive object={scene} />
     </group>
   );
