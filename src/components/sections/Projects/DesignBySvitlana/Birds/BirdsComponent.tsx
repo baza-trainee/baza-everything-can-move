@@ -20,10 +20,10 @@ const BirdsComponent = () => {
 
       <BirdsScene />
       <div
-        className="absolute bottom-0 h-20 w-full "
-        // style={{
-        //   background: `linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.5) 57.08%, rgba(0, 0, 0, 0.257173) 80.1%, rgba(0, 0, 0, 0) 98.1%)`,
-        // }}
+        className="absolute bottom-0 h-20 w-full"
+        style={{
+          background: `linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.5) 57.08%, rgba(0, 0, 0, 0.257173) 80.1%, rgba(0, 0, 0, 0) 98.1%)`,
+        }}
       ></div>
     </section>
   );
