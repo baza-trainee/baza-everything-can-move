@@ -22,13 +22,12 @@ const ProjectCard = ({ src, name }: SvitlanaProjectsImagesType) => {
           src={src}
           className="object-cover"
           alt={name}
-          width={302}
-          height={146}
-          //   style={{
-          //     width: '302px',
-          //     height: '146px',
-          //     transition: 'width 0.3s ease-in-out, height 0.3s ease-in-out',
-          //   }}
+          // width={302}
+          // height={146}
+          style={{
+            width: '300px',
+            height: '146px',
+          }}
         />
       </div>
     </div>

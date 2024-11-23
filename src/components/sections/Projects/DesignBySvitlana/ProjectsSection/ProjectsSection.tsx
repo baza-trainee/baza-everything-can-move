@@ -20,7 +20,7 @@ const ProjectsSectionSecond: React.FC = () => {
           наші замовники
         </SubTitleAnimation>
         {isInView && <SectionImagesManager images={PROJECTS_SVITLANA_IMAGES} />}
-        <p className="mb-8">Pagination</p>
+
         <div className="mb-10 w-[273px] text-center">
           <p className="font-third-family text-m font-regular leading-o-120 lg:block">
             Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
