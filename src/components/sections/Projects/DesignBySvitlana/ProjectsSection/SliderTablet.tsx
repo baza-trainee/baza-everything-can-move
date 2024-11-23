@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import clsx from 'clsx';
+
 import { ProjectsImagesProps } from './types';
 import ProjectCard from './ProjectCard';
 
@@ -43,20 +43,17 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const gap = 31; // Расстояние между карточками
-  const cardWidth = 334; // Ширина карточки
+  const gap = 31;
+  const cardWidth = 334;
   const totalImages = images.length;
 
-  // Вычисляем позиции для всех карточек с учетом их сдвига
   const calculatePositions = useCallback(() => {
     const positions = [];
     const halfVisibleImages = Math.floor(totalImages / 2);
 
-    // Для каждой карточки вычисляем ее позицию относительно currentIndex
     for (let i = 0; i < totalImages; i++) {
       const relativeIndex = (i - currentIndex + totalImages) % totalImages;
 
-      // Позиционирование карточек
       const offsetIndex =
         relativeIndex > halfVisibleImages
           ? relativeIndex - totalImages
@@ -73,8 +70,8 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
   console.log('currentIndex', currentIndex);
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages); // Плавная смена слайдов
-    }, 5000); // Можно настроить длительность перехода
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [totalImages]);
