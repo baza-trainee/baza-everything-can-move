@@ -14,18 +14,13 @@ const ProjectsSectionSecond: React.FC = () => {
     <section ref={ref} className="py-20 font-second-family lg:py-[100px]">
       <Container className="flex flex-col items-center">
         <SectionTitle secondDesign className="mb-4 lg:mb-8">
-          проєкти
+          категорії
         </SectionTitle>
         <SubTitleAnimation className="mb-9 text-white lg:mb-8">
           наші замовники
         </SubTitleAnimation>
         {isInView && <SectionImagesManager images={PROJECTS_SVITLANA_IMAGES} />}
 
-        <div className="mb-10 w-[273px] text-center">
-          <p className="font-third-family text-m font-regular leading-o-120 lg:block">
-            Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
-          </p>
-        </div>
         <button>Button</button>
       </Container>
     </section>
