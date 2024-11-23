@@ -16,7 +16,7 @@ export default function SectionTitle({
       className={clsx(
         'uppercase',
         secondDesign
-          ? 'tracking-s-2 lg:tracking-s-1 2xl:tracking-s-2 font-font5 text-xl font-semibold leading-o-120 text-s-purple lg:text-3xl 2xl:text-4xl 2xl:leading-o-150'
+          ? 'font-second-family text-xl font-semibold leading-o-120 tracking-s-2 text-s-purple lg:text-3xl lg:tracking-s-1 2xl:text-4xl 2xl:leading-o-150 2xl:tracking-s-2'
           : 'font-main-family text-lg font-medium leading-o-150 text-white lg:text-[36px] 2xl:text-xl',
         // 'leading-o-150 font-medium uppercase text-white ',
         className
