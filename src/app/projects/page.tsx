@@ -1,13 +1,32 @@
-import PartnersSection from '@/components/sections/Projects/PartnersSection/PartnersSection';
-import ProjectsSection from '@/components/sections/Projects/ProjectsSection/ProjectsSection';
-// import ProjectsSection from '@/components/sections/Projects/ProjectsSection/ProjectsSection';
+'use client';
 import React from 'react';
 
+import { useDesignStore } from '@/useDesignStore';
+
+import PartnersSection from '@/components/sections/Projects/PartnersSection/PartnersSection';
+import ProjectsSection from '@/components/sections/Projects/ProjectsSection/ProjectsSection';
+
+
+import BirdsComponent from '@/components/sections/Projects/DesignBySvitlana/Birds/BirdsComponent';
+import ProjectsSectionSecond from '@/components/sections/Projects/DesignBySvitlana/ProjectsSection/ProjectsSection';
+
+
 const Page = (): JSX.Element => {
+  const { designType } = useDesignStore();
   return (
     <>
-      <ProjectsSection />
-      <PartnersSection />
+      {designType === 'designByOlga' && (
+        <>
+          <ProjectsSection />
+          <PartnersSection />
+        </>
+      )}
+      {designType === 'designBySvitlana' && (
+        <>
+          <BirdsComponent />
+          <ProjectsSectionSecond />
+        </>
+      )}
     </>
   );
 };

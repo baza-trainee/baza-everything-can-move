@@ -54,7 +54,8 @@ const Header = () => {
         <header
           className={clsx(
             'flex justify-between',
-            designType === 'designBySvitlana' && 'font-font5 font-medium'
+            designType === 'designBySvitlana' &&
+              'font-second-family font-medium'
           )}
         >
           {!openMenu && (
@@ -112,9 +113,9 @@ const Header = () => {
                   className={clsx(
                     'hidden items-end text-white transition-colors duration-300 ease-linear lg:z-50 lg:flex',
                     designType === 'designByOlga' &&
-                      'bg-olga-btn-menu p-3 hover:text-olga-green/90 lg:h-[100px] lg:w-[180px] 2xl:h-[120px] 2xl:w-[344px]',
+                      'bg-olga-btn-menu p-3 lg:h-[100px] lg:w-[180px] 2xl:h-[120px] 2xl:w-[344px] 2xl:hover:text-olga-green/90',
                     designType === 'designBySvitlana' &&
-                      'bg-s-gray hover:text-s-purple lg:h-[68px] lg:w-[140px] lg:p-4 2xl:h-[78px] 2xl:w-[217px] 2xl:pb-3 2xl:pl-5'
+                      'bg-s-gray lg:h-[68px] lg:w-[140px] lg:p-4 2xl:h-[78px] 2xl:w-[217px] 2xl:pb-3 2xl:pl-5 2xl:hover:text-s-purple'
                   )}
                 >
                   {indexOfNextPage >= 0
@@ -127,18 +128,18 @@ const Header = () => {
                   className={clsx(
                     'cursor-pointer pb-6 pr-4 text-white transition-colors duration-300 ease-linear',
                     designType === 'designByOlga' &&
-                      'h-[104px] w-[112px] bg-olga-btn-menu pl-8 pt-16 hover:bg-olga-green hover:text-olga-bg lg:h-[140px] lg:w-[200px] lg:px-3 lg:pb-3 lg:pt-6 2xl:h-[160px] 2xl:w-[236px]',
+                      'h-[104px] w-[112px] bg-olga-btn-menu pl-8 pt-16 lg:h-[140px] lg:w-[200px] lg:px-3 lg:pb-3 lg:pt-6 2xl:h-[160px] 2xl:w-[236px] 2xl:hover:bg-olga-green 2xl:hover:text-olga-bg',
                     designType === 'designBySvitlana' &&
-                      'h-16 w-[107px] bg-s-gray pl-[27px] pt-6 hover:bg-s-purple hover:text-s-gray lg:h-[100px] lg:w-[180px] lg:pb-4 lg:pl-4 lg:pr-6 lg:pt-6 2xl:h-[107px] 2xl:w-[297px] 2xl:pb-3 2xl:pl-5 2xl:pr-20 2xl:pt-8'
+                      'h-16 w-[107px] bg-s-gray pl-[27px] pt-6 lg:h-[100px] lg:w-[180px] lg:pb-4 lg:pl-4 lg:pr-6 lg:pt-6 2xl:h-[107px] 2xl:w-[297px] 2xl:pb-3 2xl:pl-5 2xl:pr-20 2xl:pt-8 2xl:hover:bg-s-purple 2xl:hover:text-s-gray'
                   )}
                 >
                   <ICONS_SRC.OPEN_MENU_ICON
                     className={clsx(
                       'fill-current ml-auto w-16 transition-colors duration-300 ease-linear',
                       designType === 'designByOlga' &&
-                        'hover:fill-black lg:mb-[62px] 2xl:mb-[77px]',
+                        'lg:mb-[62px] 2xl:mb-[77px] 2xl:hover:fill-black',
                       designType === 'designBySvitlana' &&
-                        'hover:fill-s-gray lg:mb-6 2xl:mb-[26px]'
+                        'lg:mb-6 2xl:mb-[26px] 2xl:hover:fill-s-gray'
                     )}
                   />
 

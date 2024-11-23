@@ -26,12 +26,12 @@ export default function OldBase() {
   }, []);
 
   return (
-    <section className="old-base-section pt-[114px] pb-[230px]">
+    <section className="old-base-section pb-[230px] pt-[114px]">
       <div className="container relative flex justify-end">
         <div className="text lg:max-w-[500px]">
           <h2
             ref={headingRef}
-            className={`mb-10 text-3xl leading-[120%] text-s-title-home transition-all duration-700 ${
+            className={`text-s-title-home mb-10 text-3xl leading-[120%] transition-all duration-700 ${
               isVisible
                 ? 'translate-y-0 opacity-100'
                 : 'translate-y-10 opacity-0'

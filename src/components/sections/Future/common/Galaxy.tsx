@@ -27,7 +27,7 @@ function Galaxy({
   const pointsRef = useRef<THREE.Points>(null);
 
   useEffect(() => {
-    const pointCount = 20000;
+    const pointCount = 30000;
     const positions = new Float32Array(pointCount * 3);
     const colorsArray = new Float32Array(pointCount * 3);
 
