@@ -4,12 +4,13 @@ import Galaxy from '../../common/Galaxy';
 
 function GalaxySvitlana() {
   return (
-    <div className="absolute bottom-0 right-[-10%] h-[110%] w-[110%] 2xl:right-0 2xl:w-[55%]">
-      <Canvas camera={{ position: [0, 10, 0], fov: 50 }}>
+    <div className='h-[40%] w-full lg:h-[50%]  2xl:h-[560px] 2xl:w-[629px] mx-auto 2xl:mx-0'>
+  
+      <Canvas camera={{ position: [0, 8, 0], fov: 50 }}>
         <ambientLight intensity={0.7} />
         <directionalLight position={[0, 10, 0]} intensity={1.8} />
         <Galaxy
-          radius={3.5}
+          radius={3.7}
           colors={{ insideColor: '#ffa575', outsideColor: '#311599' }}
           size={0.05}
           spinMultiplier={2.3}
@@ -18,6 +19,7 @@ function GalaxySvitlana() {
         />
         <OrbitControls enableDamping={true} />
       </Canvas>
+   
     </div>
   );
 }
