@@ -42,19 +42,23 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
   //   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const paginationArr = [0, 1, 2, 3, 4];
 
   const gap = 31; // Расстояние между карточками
   const cardWidth = 334; // Ширина карточки
   const totalImages = images.length;
 
+  // Вычисляем позиции для всех карточек с учетом их сдвига
   const calculatePositions = useCallback(() => {
     const positions = [];
+    const halfVisibleImages = Math.floor(totalImages / 2);
+
+    // Для каждой карточки вычисляем ее позицию относительно currentIndex
     for (let i = 0; i < totalImages; i++) {
       const relativeIndex = (i - currentIndex + totalImages) % totalImages;
 
+      // Позиционирование карточек
       const offsetIndex =
-        relativeIndex > totalImages / 2
+        relativeIndex > halfVisibleImages
           ? relativeIndex - totalImages
           : relativeIndex;
 
@@ -65,12 +69,12 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
   }, [currentIndex, cardWidth, gap, totalImages]);
 
   const [positionIndexes, setPositionIndexes] = useState(calculatePositions);
-  console.log(positionIndexes);
-
+  console.log('positionIndexes', positionIndexes);
+  console.log('currentIndex', currentIndex);
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
-    }, 5000);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages); // Плавная смена слайдов
+    }, 5000); // Можно настроить длительность перехода
 
     return () => clearInterval(interval);
   }, [totalImages]);
@@ -79,34 +83,11 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
     setPositionIndexes(calculatePositions);
   }, [currentIndex, calculatePositions]);
 
+  const handleClick = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   return (
-    // <div className="relative mb-8 flex h-[225px] w-full justify-center overflow-hidden">
-    //   <AnimatePresence>
-    //     {images.map((image, index) => (
-    //       <motion.div
-    //         key={`card-${index}`}
-    //         initial="center"
-    //         animate={positions[positionIndexes[index]]}
-    //         variants={imageVariants}
-    //         transition={{ duration: 0.5 }}
-    //         style={{ position: 'absolute' }}
-    //         // className={clsx(
-    //         //   'absolute transition-transform duration-700 ease-in-out',
-    //         //   {
-    //         //     'z-20 opacity-100': index === currentIndex,
-    //         //     'z-10 opacity-50': index !== currentIndex,
-    //         //   }
-    //         // )}
-    //         // style={{
-    //         //   transform: `translateX(${calculatePosition(index)}px)`,
-    //         //   transition: 'transform 0.7s ease-in-out',
-    //         // }}
-    //       >
-    //         <ProjectCard {...image} />
-    //       </motion.div>
-    //     ))}
-    //   </AnimatePresence>
-    // </div>
     <>
       <div className="relative mb-8 flex h-[225px] w-full justify-center overflow-hidden">
         <AnimatePresence>
@@ -131,15 +112,13 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
           ))}
         </AnimatePresence>
       </div>
+
       <div className="mb-8 flex justify-center gap-[15px]">
-        {paginationArr.map((_, index) => (
+        {images.map((_, index) => (
           <div
             key={index}
-            className={clsx(
-              'h-3 w-3 rounded-full border border-white',
-              index === currentIndex ? 'bg-white' : 'bg-transparent'
-            )}
-            onClick={() => setCurrentIndex(index)}
+            className={`h-3 w-3 rounded-full border border-white ${index === currentIndex ? 'bg-white' : 'bg-transparent'}`}
+            onClick={() => handleClick(index)}
           />
         ))}
       </div>

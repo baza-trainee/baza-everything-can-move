@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import clsx from 'clsx';
+
 import { ProjectsImagesProps } from './types';
 import ProjectCard from './ProjectCard';
 
@@ -28,7 +28,6 @@ const imageVariants = {
 
 const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const paginationArr = [0, 1, 2, 3, 4];
 
   const nextImage = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -40,6 +39,10 @@ const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
     }, 10000);
     return () => clearInterval(interval);
   }, [nextImage]);
+
+  const handleClick = (index: number) => {
+    setCurrentIndex(index);
+  };
 
   return (
     <>
@@ -59,14 +62,11 @@ const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
         </AnimatePresence>
       </div>
       <div className="mb-8 flex justify-center gap-[15px]">
-        {paginationArr.map((_, index) => (
+        {images.map((_, index) => (
           <div
             key={index}
-            className={clsx(
-              'h-3 w-3 rounded-full border border-white',
-              index === currentIndex ? 'bg-white' : 'bg-transparent'
-            )}
-            onClick={() => setCurrentIndex(index)}
+            className={`h-3 w-3 rounded-full border border-white ${index === currentIndex ? 'bg-white' : 'bg-transparent'}`}
+            onClick={() => handleClick(index)}
           />
         ))}
       </div>
