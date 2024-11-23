@@ -27,7 +27,7 @@ const imageVariants = {
 };
 
 const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(4);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const paginationArr = [0, 1, 2, 3, 4];
 
   const nextImage = useCallback(() => {
@@ -37,7 +37,7 @@ const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextImage();
-    }, 15000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [nextImage]);
 

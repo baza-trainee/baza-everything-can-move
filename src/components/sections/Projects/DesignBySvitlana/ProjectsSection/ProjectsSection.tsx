@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import Container from '@/components/ui/DesignBySvitlna/Container';
+
 import SectionTitle from '@/components/ui/SectionTitle';
 import SubTitleAnimation from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleAnimation';
 import { PROJECTS_SVITLANA_IMAGES } from '@/constants/images/imagesSrc';
@@ -12,7 +12,8 @@ const ProjectsSectionSecond: React.FC = () => {
   console.log('isInView', isInView);
   return (
     <section ref={ref} className="py-20 font-second-family lg:py-[100px]">
-      <Container className="flex flex-col items-center">
+      <div className="ml-auto mr-auto flex w-full max-w-[375px] flex-col items-center px-[20px] lg:w-full lg:px-0 2xl:max-w-[1440px] 2xl:px-20">
+        {/* <Container className="flex flex-col items-center"> */}
         <SectionTitle secondDesign className="mb-4 lg:mb-8">
           категорії
         </SectionTitle>
@@ -22,7 +23,8 @@ const ProjectsSectionSecond: React.FC = () => {
         {isInView && <SectionImagesManager images={PROJECTS_SVITLANA_IMAGES} />}
 
         <button>Button</button>
-      </Container>
+        {/* </Container> */}
+      </div>
     </section>
   );
 };

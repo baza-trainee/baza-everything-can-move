@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import SliderMobile from './SliderMobile';
+
 import { ProjectsImagesProps } from './types';
+import SliderTablet from './SliderTablet';
 
 const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
   const [isClient, setIsClient] = useState(false);
@@ -21,13 +23,13 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
   }
 
   return (
-    <div>
+    <>
       {/* /* mobile */}
       {isMobile && (
         <>
           <SliderMobile images={images} />
           <div className="m-auto mb-10 w-[273px] text-center">
-            <p className="font-third-family text-m font-regular leading-s-24 ">
+            <p className="font-third-family text-m font-regular leading-s-24">
               Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
             </p>
           </div>
@@ -41,9 +43,10 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
               Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
             </p>
           </div>
+          <SliderTablet images={images} />
         </>
       )}
-    </div>
+    </>
   );
 };
 
