@@ -4,7 +4,7 @@ import Achievements from './Achievements/Achievements';
 import FuckUpSection from './FuckUps/FuckUps';
 
 
-const ExperienceSection:React.FC = () => {
+const ExperienceSectionOlga:React.FC = () => {
   return (
     <div className='bg-olga-bg'>
       <BubblesBlock title={'Досвід'} subtitle={'Найбільша цінність'}/>
@@ -15,4 +15,4 @@ const ExperienceSection:React.FC = () => {
   )
 }
 
-export default ExperienceSection
+export default ExperienceSectionOlga

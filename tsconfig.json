@@ -29,7 +29,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/components/ui/Globe/Globe.tsx",
-    "src/components/sections/PageTeam/desingeBySvitlana/Hero/Globe.jsx"
-  ],
+    "src/components/sections/PageTeam/desingeBySvitlana/Hero/Globe.jsx",
+     "src/components/sections/Experience/designedBySvitlana/Head/Stats.jsx",
+    "src/components/sections/Experience/designedBySvitlana/Head/Head.jsx",
+    "src/components/sections/Experience/designedBySvitlana/Head/Head.jsx"  
+    ],
   "exclude": ["node_modules"]
 }

@@ -1,12 +1,26 @@
-import ExperienceSection from '@/components/sections/Experience/ExperienceSection';
+'use client'
+
+import ExperienceSectionOlga from '@/components/sections/Experience/designedByOlga/ExperienceSectionOlga';
+import ExperienceSectionSvitlana from '@/components/sections/Experience/designedBySvitlana/ExperienceSectionSvitlana';
+import { useDesignStore } from '@/useDesignStore';
 
 function Page() {
+
+  const { designType } = useDesignStore();
+
   return (
-    <section className="text-white">
-
-        <ExperienceSection />
-
-    </section>
+    <>
+      {designType === 'designByOlga' && (
+        <div className="text-white">
+          <ExperienceSectionOlga />
+        </div>
+      )}
+      {designType === 'designBySvitlana' && (
+        <div className="text-white">
+          <ExperienceSectionSvitlana />
+        </div>
+      )}
+    </>
   );
 }
 
