@@ -1,17 +1,15 @@
 import React from 'react';
-import Container from '../../../../ui/DesignBySvitlna/Container';
 import PlanAnimation from './PlanAnimation';
+import Background from '@/components/ui/DesignBySvitlna/Background';
 
 function SectionPlans() {
   return (
-    <section>
-      <Container>
-        <div className="relative h-[828px]">
+    <Background text='Плани' bg='s-gray' >
+        <div className="relative 2xl:h-[828px]">
           <h3>Плани</h3>
-          <PlanAnimation />
           <div className="max-w-[596] 2xl:max-w-[552px]">
-            <div className="text-third-family text-l leading-o-150">
-              <p className="mb-2 italic 2xl:mb-1">
+            <div className="text-third-family text-s lg:text-l leading-o-150">
+              <p className="mb-3 italic 2xl:mb-2">
                 “Ми, прагнемо створювати позитивні зміни у світі через
                 благодійні проєкти. Наша мета — не лише допомагати рухатись далі
                 тим, хто цього потребує, але й надихати інших долучатися до
@@ -23,9 +21,9 @@ function SectionPlans() {
               </p>
             </div>
           </div>
+          <PlanAnimation />
         </div>
-      </Container>
-    </section>
+    </Background>
   );
 }
 
