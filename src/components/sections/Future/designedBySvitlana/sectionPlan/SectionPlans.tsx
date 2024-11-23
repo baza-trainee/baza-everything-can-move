@@ -1,6 +1,6 @@
 import React from 'react';
 import PlanAnimation from './PlanAnimation';
-import BackgroundComponent from '@/components/ui/DesignBySvitlna/Background/BackgroundComponent';
+import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 
 function SectionPlans() {
   return (
