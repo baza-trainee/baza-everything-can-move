@@ -42,6 +42,7 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
   //   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const paginationArr = [0, 1, 2, 3, 4];
 
   const gap = 31; // Расстояние между карточками
   const cardWidth = 334; // Ширина карточки
@@ -64,11 +65,12 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
   }, [currentIndex, cardWidth, gap, totalImages]);
 
   const [positionIndexes, setPositionIndexes] = useState(calculatePositions);
+  console.log(positionIndexes);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [totalImages]);
@@ -105,27 +107,43 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
     //     ))}
     //   </AnimatePresence>
     // </div>
-    <div className="relative mb-8 flex h-[225px] w-full justify-center overflow-hidden">
-      <AnimatePresence>
-        {images.map((image, index) => (
-          <motion.div
-            key={`card-${index}`}
-            initial={{ x: positionIndexes[index], opacity: 0.5 }}
-            animate={{
-              x: positionIndexes[index],
-              opacity: index === currentIndex ? 1 : 0.5,
-            }}
-            transition={{ duration: 0.7, ease: 'easeInOut' }}
-            style={{
-              position: 'absolute',
-              width: `${cardWidth}px`,
-            }}
-          >
-            <ProjectCard {...image} />
-          </motion.div>
+    <>
+      <div className="relative mb-8 flex h-[225px] w-full justify-center overflow-hidden">
+        <AnimatePresence>
+          {images.map((image, index) => (
+            <motion.div
+              key={`card-${index}`}
+              initial={{ x: positionIndexes[index], opacity: 0 }}
+              exit={{ opacity: 0 }}
+              animate={{
+                x: positionIndexes[index],
+                opacity: index === currentIndex ? 1 : 0.5,
+              }}
+              transition={{ duration: 0.7, ease: 'easeInOut' }}
+              style={{
+                position: 'absolute',
+                width: `${cardWidth}px`,
+                transform: `translateX(-${(cardWidth + gap) * currentIndex}px)`,
+              }}
+            >
+              <ProjectCard {...image} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+      <div className="mb-8 flex justify-center gap-[15px]">
+        {paginationArr.map((_, index) => (
+          <div
+            key={index}
+            className={clsx(
+              'h-3 w-3 rounded-full border border-white',
+              index === currentIndex ? 'bg-white' : 'bg-transparent'
+            )}
+            onClick={() => setCurrentIndex(index)}
+          />
         ))}
-      </AnimatePresence>
-    </div>
+      </div>
+    </>
   );
 };
 
