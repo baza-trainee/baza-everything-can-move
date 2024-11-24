@@ -6,8 +6,8 @@ import Head from './Head/Head'
 
 const ExperienceSectionSvitlana:React.FC = () => {
   return (
-    <div className=''>
-      <Head className=''/>
+    <div>
+      <Head/>
       {/* <Achievements title={'Досягнення'} subtitle={'Далі буде...'}/>
       <FuckUpSection title={'Факапи'} subtitle={'І це теж досвід'}/> */}
     </div>
