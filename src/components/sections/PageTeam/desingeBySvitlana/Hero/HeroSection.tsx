@@ -53,7 +53,7 @@ function HeroSection() {
           </div>
         </div>
         <div className="relative z-0 ml-auto mr-auto flex h-[307px] w-[314px] overflow-visible lg:mr-0 lg:h-[455px] lg:w-[465px] 2xl:ml-0">
-          <div className="absolute -top-5 left-1/2 -translate-x-1/2 overflow-visible lg:-top-24 2xl:-top-32 2xl:left-0 2xl:translate-x-0 2xl:translate-y-0">
+          <div className="absolute -top-5 left-1/2 -translate-x-1/2 overflow-visible lg:-top-24 2xl:-top-32 2xl:left-0 2xl:-translate-x-12 2xl:translate-y-0">
             <Globes />
           </div>
         </div>

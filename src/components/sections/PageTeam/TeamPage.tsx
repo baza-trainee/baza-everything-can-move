@@ -7,7 +7,7 @@ import SectionStatistic from './designeByOlga/SectionStatistic/SectionStatistic'
 import SectionTeam from './designeByOlga/SectionTeam/SectionTeam';
 import HeroSection from './desingeBySvitlana/Hero/HeroSection';
 import Participant from './desingeBySvitlana/Participant/Participant';
-import TeamSectionSV from './desingeBySvitlana/TeamSectionSV';
+import TeamSectionSV from './desingeBySvitlana/TeamSection/TeamSectionSV';
 
 function TeamPage() {
   const { designType } = useDesignStore();

@@ -1,4 +1,4 @@
-import { DataCards } from './participant.props';
+import { DataCards } from '../../participant.props';
 
 export const data: DataCards[] = [
   { value: 68, text: 'в україні', bg: 'bg-white', textColor: 'text-black' },
