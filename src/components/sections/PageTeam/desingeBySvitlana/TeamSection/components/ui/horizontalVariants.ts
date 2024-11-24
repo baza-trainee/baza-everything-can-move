@@ -5,11 +5,7 @@ interface VariantsProps {
   gap?: number;
 }
 
-export const generateVariantsHorizontal = ({
-  length,
-  elementWidth,
-  gap,
-}: VariantsProps) => {
+export const generateVariantsHorizontal = ({ length }: VariantsProps) => {
   const variants: Variants = {};
   const centerIndex = Math.floor(length / 2);
   const spacing = 14;
