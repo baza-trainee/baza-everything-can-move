@@ -78,10 +78,14 @@ const config: Config = {
       spacing: {
         customLg: 'calc(100% - 320px)',
         custom2xl: 'calc(100% - 346px)',
-        height2xl: 'calc(100vh - 158px)',
+        height2xl: 'calc(100vh - 107px)',
         heightLg: 'calc(100vh - 100px)',
         heightMobile: 'calc(100vh - 64px)',
         widthXl: 'calc(100% - 343px)',
+      },
+      left: {
+        125: "125px",
+        1143: "1143px",
       },
       backgroundImage: {
         grid: 'linear-gradient(90deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px), linear-gradient(180deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px)',
@@ -142,6 +146,7 @@ const config: Config = {
         'olga-3': '0px 100px 80px 0px #8C898912',
         'olga-combined':
           '0px 6.65px 5.32px 0px #8C898907, 0px 22.34px 17.87px 0px #8C89890B, 0px 100px 80px 0px #8C898912',
+          '3xl': 'inset 0 10px 10px -10px rgba(0, 0, 0, 0.3)',
       },
       animation: {
         marqueeCustom:
