@@ -26,7 +26,7 @@ export function SubTitle({
   );
 }
 
-function Rectangle({ className }: { className: string }) {
+export function Rectangle({ className }: { className: string }) {
   return (
     <div
       className={cn(

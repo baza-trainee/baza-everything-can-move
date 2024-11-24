@@ -1,10 +1,10 @@
 import React from 'react';
 import PlanAnimation from './PlanAnimation';
-import Background from '@/components/ui/DesignBySvitlna/Background';
+import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 
 function SectionPlans() {
   return (
-    <Background text='Плани' bg='s-gray' >
+    <BackgroundComponent text='Плани' bg='s-gray' >
         <div className="relative 2xl:h-[828px]">
           <h3>Плани</h3>
           <div className="max-w-[596] 2xl:max-w-[552px]">
@@ -23,7 +23,7 @@ function SectionPlans() {
           </div>
           <PlanAnimation />
         </div>
-    </Background>
+    </BackgroundComponent>
   );
 }
 

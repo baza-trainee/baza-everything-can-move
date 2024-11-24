@@ -146,6 +146,7 @@ const config: Config = {
         'olga-3': '0px 100px 80px 0px #8C898912',
         'olga-combined':
           '0px 6.65px 5.32px 0px #8C898907, 0px 22.34px 17.87px 0px #8C89890B, 0px 100px 80px 0px #8C898912',
+          '3xl': 'inset 0 10px 10px -10px rgba(0, 0, 0, 0.3)',
       },
       animation: {
         marqueeCustom:
