@@ -13,9 +13,12 @@ function MobileLayout() {
 
   const refs = [ref1, ref2, ref3, ref4];
 
-  const inViewStates = refs.map((ref) =>
-    useInView(ref, { margin: '-10% 0px' })
-  );
+  const inView1 = useInView(ref1, { margin: '-10% 0px' });
+  const inView2 = useInView(ref2, { margin: '-10% 0px' });
+  const inView3 = useInView(ref3, { margin: '-10% 0px' });
+  const inView4 = useInView(ref4, { margin: '-10% 0px' });
+
+  const inViewStates = [inView1, inView2, inView3, inView4];
 
   const renderList = (
     startIndex: number,
