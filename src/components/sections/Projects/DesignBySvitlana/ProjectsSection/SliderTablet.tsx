@@ -1,78 +1,92 @@
 'use client';
-// i see it
-import React, { useState, useEffect, useCallback } from 'react';
+//THIS ONE!
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { ProjectsImagesProps } from './types';
 import ProjectCard from './ProjectCard';
 
 const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(2);
 
+  const newImgArr = [...images, ...images];
+
+  const positions = [
+    'left5',
+    'left4',
+    'left3',
+    'left2',
+    'left1',
+    'center',
+    'right1',
+    'right2',
+    'right3',
+    'right4',
+  ];
   const gap = 31;
   const cardWidth = 332;
-  const totalImages = images.length;
-
-  const calculatePositions = useCallback(() => {
-    const positions = [];
-    const halfVisibleImages = Math.floor(totalImages / 2);
-
-    for (let i = 0; i < totalImages; i++) {
-      const relativeIndex = (i - currentIndex + totalImages) % totalImages;
-
-      const offsetIndex =
-        relativeIndex > halfVisibleImages
-          ? relativeIndex - totalImages
-          : relativeIndex;
-
-      const xPosition = offsetIndex * (cardWidth + gap);
-      positions.push(xPosition);
-    }
-    return positions;
-  }, [currentIndex, cardWidth, gap, totalImages]);
-
-  const [positionIndexes, setPositionIndexes] = useState(calculatePositions);
-  //   console.log('positionIndexes', positionIndexes);
-  //   console.log('currentIndex', currentIndex);
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
-  //   }, 5000);
-
-  //   return () => clearInterval(interval);
-  // }, [totalImages]);
-
-  useEffect(() => {
-    setPositionIndexes(calculatePositions);
-  }, [currentIndex, calculatePositions]);
+  const dif = cardWidth + gap;
+  const totalImages = images.length * 2;
 
   const handleClick = (index: number) => {
-    setCurrentIndex(index);
+    const newIndex =
+      currentIndex >= images.length - 1 && currentIndex <= totalImages - 1
+        ? index + images.length
+        : index;
+
+    setCurrentIndex(newIndex);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
+    }, 15000);
+    return () => clearInterval(interval);
+  }, [totalImages]);
+
+  const imageVariants = {
+    center: { x: '0px', opacity: 1 },
+    left5: { x: `${-5 * dif}px`, opacity: 0 },
+    left4: { x: `${-4 * dif}px`, opacity: 0 },
+    left3: { x: `${-3 * dif}px`, opacity: 0 },
+    left2: { x: `${-2 * dif}px`, opacity: 0.5 },
+    left1: { x: `${-dif}px`, opacity: 0.5 },
+
+    right1: { x: `${dif}px`, opacity: 0.5 },
+    right2: { x: `${2 * dif}px`, opacity: 0.5 },
+    right3: { x: `${3 * dif}px`, opacity: 0 },
+
+    right4: { x: `${4 * dif}px`, opacity: 0 },
+  };
+  const getPositionIndex = (baseIndex: number, offset: number) => {
+    return (baseIndex + offset + totalImages) % totalImages;
   };
 
   return (
     <>
       <div className="relative mb-8 flex h-[225px] w-full justify-center overflow-hidden">
         <AnimatePresence>
-          {images.map((image, index) => (
-            <motion.div
-              key={`card-${index}`}
-              initial={{ x: positionIndexes[index], opacity: 0 }}
-              exit={{ opacity: 0 }}
-              animate={{
-                x: positionIndexes[index],
-                opacity: index === currentIndex ? 1 : 0.5,
-              }}
-              transition={{ duration: 0.7, ease: 'easeInOut' }}
-              style={{
-                position: 'absolute',
-                width: `${cardWidth}px`,
-                // transform: `translateX(-${(cardWidth + gap) * currentIndex}px)`,
-              }}
-            >
-              <ProjectCard {...image} />
-            </motion.div>
-          ))}
+          {positions.map((position, posIndex) => {
+            const imageIndex = getPositionIndex(currentIndex, posIndex - 1);
+
+            return (
+              <motion.div
+                key={`image-${imageIndex}`}
+                variants={imageVariants}
+                initial="center"
+                animate={position}
+                transition={{ duration: 0.7 }}
+                style={{
+                  position: 'absolute',
+                  width: `${cardWidth}px`,
+
+                  // transform: `translateX(-${(cardWidth + gap) * currentIndex}px)`,
+                }}
+              >
+                <ProjectCard {...newImgArr[imageIndex]} />
+              </motion.div>
+            );
+          })}
         </AnimatePresence>
       </div>
 
@@ -80,7 +94,7 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
         {images.map((_, index) => (
           <div
             key={index}
-            className={`h-3 w-3 rounded-full border border-white ${index === currentIndex ? 'bg-white' : 'bg-transparent'}`}
+            className={`h-3 w-3 rounded-full border border-white ${index === currentIndex % (totalImages / 2) ? 'bg-white' : 'bg-transparent'}`}
             onClick={() => handleClick(index)}
           />
         ))}

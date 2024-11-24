@@ -9,7 +9,7 @@ const ProjectCard = ({ src, name }: SvitlanaProjectsImagesType) => {
   return (
     <div className="rounded-2xl border border-white">
       <div className="flex justify-between border-b border-white px-4 pb-2 pt-[14px]">
-        <h4 className="leading-s-16 font-second-family text-m font-medium tracking-s-2">
+        <h4 className="font-second-family text-m font-medium leading-s-16 tracking-s-2">
           {name.toUpperCase()}
         </h4>
         <StarsBtnComponent
