@@ -3,10 +3,12 @@ import React from 'react';
 
 function SectionInitiative() {
   return (
-    <section>
+    <section className='py-[80px]'>
       <Container>
         <div>
-          <h3>Софіальні ініціативи</h3>
+        <h2 className="traking-s-2 text-xlg lg:text-[80px] leading-o-120 uppercase text-center">
+        Соціальні ініціативи
+        </h2>
           <video src="#"></video>
           <div className="font-third-family text-m leading-o-150 2xl:text-l">
           <p className='mb-2'  >

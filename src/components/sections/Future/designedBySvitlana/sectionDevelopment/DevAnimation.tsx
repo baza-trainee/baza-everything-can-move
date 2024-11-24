@@ -51,7 +51,7 @@ const TorusScene: React.FC = () => {
 
 function DevAnimation() {
   return (
-    <div className="left-0 top-0 mx-auto h-[260px] w-[262px] lg:sticky lg:mx-0 xl:w-widthXl 2xl:left-[50%] 2xl:h-[386px] 2xl:w-[390px] 2xl:-translate-x-[50%]">
+    <div className="left-0 top-0 mx-auto my-[80px] lg:my-0 h-[260px] w-[262px] lg:sticky lg:mx-0 xl:w-widthXl 2xl:left-[50%] 2xl:h-[386px] 2xl:w-[390px] 2xl:-translate-x-[50%]">
       <Canvas
         camera={{ position: [0, 0, 400], fov: 60 }}
         onCreated={({ gl }) => {
