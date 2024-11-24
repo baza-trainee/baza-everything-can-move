@@ -9,7 +9,16 @@ function Participant() {
 
   return (
     <section className="py-[80px] lg:py-[220px] 2xl:py-[156px]">
-      <Container>{isMobile ? <MobileLayout /> : <DesctopLyout />}</Container>
+      {isMobile && (
+        <Container>
+          <MobileLayout />
+        </Container>
+      )}
+      {!isMobile && (
+        <Container className="lg:max-w-[1440px] lg:px-0 lg:pl-6 2xl:max-w-[1920px] 2xl:px-0 2xl:pl-20">
+          <DesctopLyout />
+        </Container>
+      )}
     </section>
   );
 }
