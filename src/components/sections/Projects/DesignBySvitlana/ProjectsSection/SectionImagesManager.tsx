@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import SliderMobile from './SliderMobile';
 
 import { ProjectsImagesProps } from './types';
-import SliderTablet3 from './SliderTablet3';
+import SliderTablet4 from './SliderTablet4';
 import SliderTablet from './SliderTablet';
 import SliderTablet2 from './SliderTablet2';
 
@@ -45,9 +45,9 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
               Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
             </p>
           </div>
-          <SliderTablet3 images={images} />
-          <SliderTablet2 images={images} />
-          <SliderTablet images={images} />
+          <SliderTablet4 images={images} />
+          {/* <SliderTablet2 images={images} />
+          <SliderTablet images={images} /> */}
         </>
       )}
     </>

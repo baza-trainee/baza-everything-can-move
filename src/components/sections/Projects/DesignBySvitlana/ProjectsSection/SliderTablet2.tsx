@@ -1,5 +1,5 @@
 'use client';
-
+//infinity
 import React, { useState } from 'react';
 
 import { ProjectsImagesProps } from './types';
