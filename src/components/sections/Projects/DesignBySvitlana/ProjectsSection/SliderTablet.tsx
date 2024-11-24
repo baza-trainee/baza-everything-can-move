@@ -44,7 +44,7 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const gap = 31;
-  const cardWidth = 334;
+  const cardWidth = 332;
   const totalImages = images.length;
 
   const calculatePositions = useCallback(() => {
@@ -66,8 +66,8 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
   }, [currentIndex, cardWidth, gap, totalImages]);
 
   const [positionIndexes, setPositionIndexes] = useState(calculatePositions);
-  console.log('positionIndexes', positionIndexes);
-  console.log('currentIndex', currentIndex);
+  //   console.log('positionIndexes', positionIndexes);
+  //   console.log('currentIndex', currentIndex);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
@@ -101,7 +101,7 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
               style={{
                 position: 'absolute',
                 width: `${cardWidth}px`,
-                transform: `translateX(-${(cardWidth + gap) * currentIndex}px)`,
+                // transform: `translateX(-${(cardWidth + gap) * currentIndex}px)`,
               }}
             >
               <ProjectCard {...image} />
