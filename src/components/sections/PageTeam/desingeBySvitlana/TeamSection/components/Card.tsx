@@ -18,12 +18,12 @@ function CardTeam({ name, urlFoto, role }: TeamsFotoType) {
         width={100}
         height={100}
       />
-      <h2 className="mb-4 flex flex-col text-center text-md font-medium leading-o-120 tracking-custom-tight">
+      <h2 className="pointer-events-none mb-4 flex flex-col text-center text-md font-medium leading-o-120 tracking-custom-tight">
         {[...name.split(' ')].map((item, inex) => (
           <span key={inex}>{item}</span>
         ))}
       </h2>
-      <p className="text-s font-semibold leading-s-100 tracking-custom-tight text-s-purple">
+      <p className="pointer-events-none text-s font-semibold leading-s-100 tracking-custom-tight text-s-purple">
         {role}
       </p>
     </div>

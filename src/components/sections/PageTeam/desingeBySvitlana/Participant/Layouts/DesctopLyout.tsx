@@ -28,7 +28,7 @@ function DesctopLyout() {
   const translateX = useTransform(
     sectionScroll.scrollYProgress,
     [0, 1],
-    [0, -3200]
+    [0, -3020]
   );
 
   const smoothTranslateX = useSpring(translateX, {
