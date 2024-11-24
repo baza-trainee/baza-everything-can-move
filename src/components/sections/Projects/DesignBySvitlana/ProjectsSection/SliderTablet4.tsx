@@ -1,5 +1,5 @@
 'use client';
-//three new one
+//THIS ONE!
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -8,43 +8,52 @@ import ProjectCard from './ProjectCard';
 
 const SliderTablet4: React.FC<ProjectsImagesProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(2);
-  console.log('index', currentIndex);
+
   const newImgArr = [...images, ...images];
 
   const [positions, setPositions] = useState<string[]>([
-    // 'left5',
-    // 'left4',
-    // 'left3',
+    'left5',
+    'left4',
+    'left3',
     'left2',
     'left1',
     'center',
     'right1',
     'right2',
-    // 'right3',
-    // 'right4',
+    'right3',
+    'right4',
   ]);
-
-  const handleClick = (index: number) => {
-    // setPositionIndexes(() => {
-    //   const updatedIndexes = [];
-    //   for (let i = 0; i < images.length; i++) {
-    //     updatedIndexes.push((index + i) % images.length);
-    //   }
-    //   console.log('updInd', updatedIndexes);
-    //   return updatedIndexes;
-    // });
-
-    setCurrentIndex(index);
-  };
   const gap = 31;
   const cardWidth = 332;
-  const totalImages = images.length;
+  const totalImages = images.length * 2;
+
+  const handleClick = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
     }, 5000);
     return () => clearInterval(interval);
   }, [totalImages]);
+  const imageVariants = {
+    center: { x: '0px', opacity: 1 },
+    left5: { x: '-1926px', opacity: 0 },
+    left4: { x: '-1563px', opacity: 0 },
+    left3: { x: '-1163px', opacity: 0 },
+    left2: { x: '-726px', opacity: 0.5 },
+    left1: { x: '-363px', opacity: 0.5 },
+
+    right1: { x: '363px', opacity: 0.5 },
+    right2: { x: '726px', opacity: 0.5 },
+    right3: { x: '1163px', opacity: 0 },
+
+    right4: { x: '1563px', opacity: 0 },
+  };
+  const getPositionIndex = (baseIndex: number, offset: number) => {
+    return (baseIndex + offset + totalImages) % totalImages;
+  };
 
   const [positionIndexes, setPositionIndexes] = useState([
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -97,28 +106,10 @@ const SliderTablet4: React.FC<ProjectsImagesProps> = ({ images }) => {
   //     setPositionIndexes(calculatePositions);
   //   }, [currentIndex, calculatePositions]);
 
-  const imageVariants = {
-    center: { x: '0px', opacity: 1 },
-    // left5: { x: '-1926px', opacity: 0 },
-    // left4: { x: '-1563px', opacity: 0 },
-    // left3: { x: '-1163px', opacity: 0 },
-    left2: { x: '-726px', opacity: 0 },
-    left1: { x: '-363px', opacity: 0.5 },
-
-    right1: { x: '363px', opacity: 0.5 },
-    right2: { x: '726px', opacity: 0 },
-    // right3: { x: '1163px', opacity: 0 },
-
-    // right4: { x: '1563px', opacity: 0 },
-  };
-
   const generateVariants = (length: number) => {
     const variants: Variants = {};
   };
 
-  const getPositionIndex = (baseIndex: number, offset: number) => {
-    return (baseIndex + offset + totalImages) % totalImages;
-  };
   return (
     <>
       <div className="relative mb-8 flex h-[225px] w-full justify-center overflow-hidden">
@@ -139,7 +130,7 @@ const SliderTablet4: React.FC<ProjectsImagesProps> = ({ images }) => {
                   // transform: `translateX(-${(cardWidth + gap) * currentIndex}px)`,
                 }}
               >
-                <ProjectCard {...images[imageIndex]} />
+                <ProjectCard {...newImgArr[imageIndex]} />
               </motion.div>
             );
           })}
@@ -150,7 +141,7 @@ const SliderTablet4: React.FC<ProjectsImagesProps> = ({ images }) => {
         {images.map((_, index) => (
           <div
             key={index}
-            className={`h-3 w-3 rounded-full border border-white ${index === currentIndex ? 'bg-white' : 'bg-transparent'}`}
+            className={`h-3 w-3 rounded-full border border-white ${index === currentIndex % (totalImages / 2) ? 'bg-white' : 'bg-transparent'}`}
             onClick={() => handleClick(index)}
           />
         ))}
