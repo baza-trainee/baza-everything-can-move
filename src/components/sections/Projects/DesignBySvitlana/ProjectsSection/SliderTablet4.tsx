@@ -7,7 +7,8 @@ import { ProjectsImagesProps } from './types';
 import ProjectCard from './ProjectCard';
 
 const SliderTablet4: React.FC<ProjectsImagesProps> = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(2);
+  console.log('index', currentIndex);
   const newImgArr = [...images, ...images];
 
   const [positions, setPositions] = useState<string[]>([
@@ -22,34 +23,33 @@ const SliderTablet4: React.FC<ProjectsImagesProps> = ({ images }) => {
     // 'right3',
     // 'right4',
   ]);
-    
-    const handleClick = (index: number) => {
-      setPositionIndexes(() => {
-        const updatedIndexes = [];
-        for (let i = 0; i < images.length; i++) {
-          updatedIndexes.push((index + i) % newImgArr.length);
-        }
-        console.log('updInd', updatedIndexes);
-        return updatedIndexes;
-      });
-      setCurrentIndex(index);
-    };
 
+  const handleClick = (index: number) => {
+    // setPositionIndexes(() => {
+    //   const updatedIndexes = [];
+    //   for (let i = 0; i < images.length; i++) {
+    //     updatedIndexes.push((index + i) % images.length);
+    //   }
+    //   console.log('updInd', updatedIndexes);
+    //   return updatedIndexes;
+    // });
+
+    setCurrentIndex(index);
+  };
+  const gap = 31;
+  const cardWidth = 332;
+  const totalImages = images.length;
   useEffect(() => {
     const interval = setInterval(() => {
-      handleClick(index);
-    }, 15000);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [handleClick]);
+  }, [totalImages]);
 
-  
   const [positionIndexes, setPositionIndexes] = useState([
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
   ]);
   const [visibleCount, setVisibleCount] = useState(3);
-  const gap = 31;
-  const cardWidth = 332;
-  const totalImages = images.length;
 
   //   useEffect(() => {
   //     const handleResize = () => {
@@ -125,7 +125,7 @@ const SliderTablet4: React.FC<ProjectsImagesProps> = ({ images }) => {
         <AnimatePresence>
           {positions.map((position, posIndex) => {
             const imageIndex = getPositionIndex(currentIndex, posIndex - 1);
-            console.log('current', currentIndex, 'imageIndex', imageIndex);
+
             return (
               <motion.div
                 key={`image-${imageIndex}`}
