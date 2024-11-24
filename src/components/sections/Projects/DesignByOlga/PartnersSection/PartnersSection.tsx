@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import GoalSectiont from '../GoalSection/GoalSection';
+import GoalSectiont from '../../GoalSection/GoalSection';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { PARTNERS_ARR } from '@/constants/partnersArr';
 import MovingPartnersCards from './MovingPartnersCards';
