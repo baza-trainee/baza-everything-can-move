@@ -9,33 +9,54 @@ import ProjectCard from './ProjectCard';
 const SliderTablet3: React.FC<ProjectsImagesProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const positions = ['left2', 'left1', 'center', 'right1', 'right2'];
+  const [positions, setPositions] = useState<string[]>([]);
   const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4]);
-
+  const [visibleCount, setVisibleCount] = useState(3);
   const gap = 31;
   const cardWidth = 332;
   const totalImages = images.length;
 
-  // const calculatePositions = useCallback(() => {
-  //   const positions = [];
-  //   const halfVisibleImages = Math.floor(totalImages / 2);
+  useEffect(() => {
+    const handleResize = () => {
+      const containerWidth = window.innerWidth;
+      const count = containerWidth < 1122 ? 3 : 5;
 
-  //   for (let i = 0; i < totalImages; i++) {
-  //     const relativeIndex = (i - currentIndex + totalImages) % totalImages;
+      setVisibleCount(count);
 
-  //     const offsetIndex =
-  //       relativeIndex > halfVisibleImages
-  //         ? relativeIndex - totalImages
-  //         : relativeIndex;
+      const newPositions = ['center'];
+      for (let i = 1; i <= Math.floor(count / 2); i++) {
+        newPositions.unshift(`left${i}`);
+        newPositions.push(`right${i}`);
+      }
 
-  //     const xPosition = offsetIndex * (cardWidth + gap);
-  //     positions.push(xPosition);
-  //   }
-  //   return positions;
-  // }, [currentIndex, cardWidth, gap, totalImages]);
+      setPositions(newPositions);
+    };
 
-  console.log('positionIndexes', positionIndexes);
-  console.log('currentIndex', currentIndex);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [cardWidth, gap]);
+
+  const calculatePositions = useCallback(() => {
+    const positionsArray = [];
+
+    for (let i = 0; i < visibleCount; i++) {
+      const relativeIndex = (i - currentIndex + visibleCount) % visibleCount;
+
+      const offsetIndex =
+        relativeIndex > visibleCount / 2
+          ? relativeIndex - visibleCount
+          : relativeIndex;
+
+      const xPosition = offsetIndex * (cardWidth + gap);
+      positionsArray.push(xPosition);
+    }
+    const sortedPositions = positionsArray.sort((a, b) => a - b);
+
+    return sortedPositions;
+  }, [images.length, currentIndex, totalImages]);
+
+  const [positionImage, setPositionImage] = useState(calculatePositions);
 
   // useEffect(() => {
   //   setPositionIndexes(calculatePositions);
@@ -44,9 +65,9 @@ const SliderTablet3: React.FC<ProjectsImagesProps> = ({ images }) => {
   const imageVariants = {
     center: { x: '0px', opacity: 1, zIndex: 10 },
 
-    left2: { x: '-726px', opacity: 0.5, zIndex: 0 },
+    left2: { x: '-726px', opacity: 0, zIndex: 0 },
     left1: { x: '-363px', opacity: 0.5, zIndex: 10 },
-    right2: { x: '726px', opacity: 0.5, zIndex: 0 },
+    right2: { x: '726px', opacity: 0, zIndex: 0 },
 
     right1: { x: '363px', opacity: 0.5, zIndex: 10 },
   };
@@ -72,7 +93,7 @@ const SliderTablet3: React.FC<ProjectsImagesProps> = ({ images }) => {
             <motion.div
               key={index}
               variants={imageVariants}
-              initial="left2"
+              initial="center"
               animate={positions[positionIndexes[index]]}
               transition={{ duration: 0.7 }}
               style={{

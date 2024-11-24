@@ -7,40 +7,6 @@ import { ProjectsImagesProps } from './types';
 import ProjectCard from './ProjectCard';
 
 const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
-  //   const [currentIndex, setCurrentIndex] = useState(0);
-
-  //   const [positionIndexes, setPositionIndexes] = useState([0, 1, 2, 3, 4]);
-
-  //   const totalImages = images.length;
-  //   const gap = 31;
-  //   const cardWidth = 334;
-
-  //   const handleNext = useCallback(() => {
-  //     setPositionIndexes((prevIndexes) => {
-  //       const updatedIndexes = prevIndexes.map(
-  //         (prevIndex) => (prevIndex + 1) % 5
-  //       );
-  //       return updatedIndexes;
-  //     });
-  //   }, []);
-
-  //   const positions = ['center', 'left1', 'left', 'right', 'right1'];
-
-  //   useEffect(() => {
-  //     const interval = setInterval(() => {
-  //       handleNext();
-  //     }, 300000);
-  //     return () => clearInterval(interval);
-  //   }, [handleNext]);
-
-  //   const imageVariants = {
-  //     center: { x: '0%', scale: 1, zIndex: 5 },
-  //     left1: { x: '-50%', scale: 0.7, zIndex: 3 },
-  //     left: { x: '-90%', scale: 0.5, zIndex: 2 },
-  //     right: { x: '90%', scale: 0.5, zIndex: 1 },
-  //     right1: { x: '50%', scale: 0.7, zIndex: 3 },
-  //   };
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const gap = 31;
@@ -68,13 +34,13 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
   const [positionIndexes, setPositionIndexes] = useState(calculatePositions);
   //   console.log('positionIndexes', positionIndexes);
   //   console.log('currentIndex', currentIndex);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
-    }, 5000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
+  //   }, 5000);
 
-    return () => clearInterval(interval);
-  }, [totalImages]);
+  //   return () => clearInterval(interval);
+  // }, [totalImages]);
 
   useEffect(() => {
     setPositionIndexes(calculatePositions);
