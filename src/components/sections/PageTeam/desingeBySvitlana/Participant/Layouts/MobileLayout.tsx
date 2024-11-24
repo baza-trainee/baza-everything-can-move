@@ -6,7 +6,13 @@ import { cn } from '@/lib/utils';
 import { useRef } from 'react';
 
 function MobileLayout() {
-  const refs = Array.from({ length: 4 }, () => useRef(null));
+  const ref1 = useRef<HTMLUListElement>(null);
+  const ref2 = useRef<HTMLUListElement>(null);
+  const ref3 = useRef<HTMLUListElement>(null);
+  const ref4 = useRef<HTMLUListElement>(null);
+
+  const refs = [ref1, ref2, ref3, ref4];
+
   const inViewStates = refs.map((ref) =>
     useInView(ref, { margin: '-10% 0px' })
   );
