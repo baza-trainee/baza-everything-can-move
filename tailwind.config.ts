@@ -155,6 +155,19 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: Record<string, Record<string, string>>) => void;
+    }) {
+      addUtilities({
+        '.text-stroke': {
+          '-webkit-text-fill-color': 'black',
+          '-webkit-text-stroke': '1px #ffffff',
+        },
+      });
+    },
+  ],
 };
 export default config;

@@ -7,7 +7,6 @@ import { useDesignStore } from '@/useDesignStore';
 function ButtonChangeDesigne() {
   const [isOpenButton, setIsOpenButton] = useState<boolean>(false);
   const { designType, toggleDesignType } = useDesignStore();
-  console.log(designType);
 
   return (
     <motion.div
