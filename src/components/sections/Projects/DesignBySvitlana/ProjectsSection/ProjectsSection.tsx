@@ -9,7 +9,7 @@ import { useInView } from 'framer-motion';
 const ProjectsSectionSecond: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
-  console.log('isInView', isInView);
+
   return (
     <section ref={ref} className="py-20 font-second-family lg:py-[100px]">
       <div className="ml-auto mr-auto flex w-full flex-col items-center px-[20px] lg:w-full lg:px-0 2xl:max-w-[1440px] 2xl:px-20">

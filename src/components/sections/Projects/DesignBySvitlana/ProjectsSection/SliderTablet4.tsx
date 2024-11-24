@@ -1,6 +1,6 @@
 'use client';
 //THIS ONE!
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { ProjectsImagesProps } from './types';
@@ -8,10 +8,10 @@ import ProjectCard from './ProjectCard';
 
 const SliderTablet4: React.FC<ProjectsImagesProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(2);
-
+  console.log('current', currentIndex);
   const newImgArr = [...images, ...images];
 
-  const [positions, setPositions] = useState<string[]>([
+  const positions = [
     'left5',
     'left4',
     'left3',
@@ -22,92 +22,43 @@ const SliderTablet4: React.FC<ProjectsImagesProps> = ({ images }) => {
     'right2',
     'right3',
     'right4',
-  ]);
+  ];
   const gap = 31;
   const cardWidth = 332;
+  const dif = cardWidth + gap;
   const totalImages = images.length * 2;
 
   const handleClick = (index: number) => {
-    setCurrentIndex(index);
+    const newIndex =
+      currentIndex > images.length - 1 && currentIndex <= totalImages - 1
+        ? index + images.length
+        : index;
+
+    setCurrentIndex(newIndex);
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
-    }, 5000);
+    }, 15000);
     return () => clearInterval(interval);
   }, [totalImages]);
   const imageVariants = {
     center: { x: '0px', opacity: 1 },
-    left5: { x: '-1926px', opacity: 0 },
-    left4: { x: '-1563px', opacity: 0 },
-    left3: { x: '-1163px', opacity: 0 },
-    left2: { x: '-726px', opacity: 0.5 },
-    left1: { x: '-363px', opacity: 0.5 },
+    left5: { x: `${-5 * dif}px`, opacity: 0 },
+    left4: { x: `${-4 * dif}px`, opacity: 0 },
+    left3: { x: `${3 * dif}px`, opacity: 0 },
+    left2: { x: `${-2 * dif}px`, opacity: 0.5 },
+    left1: { x: `${-dif}px`, opacity: 0.5 },
 
-    right1: { x: '363px', opacity: 0.5 },
-    right2: { x: '726px', opacity: 0.5 },
-    right3: { x: '1163px', opacity: 0 },
+    right1: { x: `${dif}px`, opacity: 0.5 },
+    right2: { x: `${2 * dif}px`, opacity: 0.5 },
+    right3: { x: `${3 * dif}px`, opacity: 0 },
 
-    right4: { x: '1563px', opacity: 0 },
+    right4: { x: `${4 * dif}px`, opacity: 0 },
   };
   const getPositionIndex = (baseIndex: number, offset: number) => {
     return (baseIndex + offset + totalImages) % totalImages;
-  };
-
-  const [positionIndexes, setPositionIndexes] = useState([
-    0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
-  ]);
-  const [visibleCount, setVisibleCount] = useState(3);
-
-  //   useEffect(() => {
-  //     const handleResize = () => {
-  //       const containerWidth = window.innerWidth;
-  //       const count = containerWidth < 1122 ? 3 : 5;
-
-  //       setVisibleCount(count);
-  //       //left right and so on
-  //       const newPositions = ['center'];
-  //       for (let i = 1; i <= Math.floor(count / 2); i++) {
-  //         newPositions.unshift(`left${i}`);
-  //         newPositions.push(`right${i}`);
-  //       }
-  //       console.log('newPositions', newPositions);
-  //       setPositions(newPositions);
-  //     };
-
-  //     handleResize();
-  //     window.addEventListener('resize', handleResize);
-  //     return () => window.removeEventListener('resize', handleResize);
-  //   }, [cardWidth, gap]);
-
-  //   const calculatePositions = useCallback(() => {
-  //     const positionsArray = [];
-
-  //     for (let i = 0; i < visibleCount; i++) {
-  //       const relativeIndex = (i - currentIndex + visibleCount) % visibleCount;
-
-  //       const offsetIndex =
-  //         relativeIndex > visibleCount / 2
-  //           ? relativeIndex - visibleCount
-  //           : relativeIndex;
-
-  //       const xPosition = offsetIndex * (cardWidth + gap);
-  //       positionsArray.push(xPosition);
-  //     }
-  //     const sortedPositions = positionsArray.sort((a, b) => a - b);
-
-  //     return sortedPositions;
-  //   }, [positions, visibleCount, currentIndex]);
-
-  //const [positionImage, setPositionImage] = useState(calculatePositions);
-
-  //   useEffect(() => {
-  //     setPositionIndexes(calculatePositions);
-  //   }, [currentIndex, calculatePositions]);
-
-  const generateVariants = (length: number) => {
-    const variants: Variants = {};
   };
 
   return (
