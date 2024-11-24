@@ -11,9 +11,10 @@ const TorusScene: React.FC = () => {
   const composerRef = useRef<EffectComposer | null>(null);
   const { scene, gl, camera, size } = useThree();
 
-  const dampValue = 0.96;
+  const dampValue = 0.86;
 
   useEffect(() => {
+    gl.autoClear = false; // Вимикаємо автоматичне очищення
     const composer = new EffectComposer(gl);
     composer.addPass(new RenderPass(scene, camera));
 
