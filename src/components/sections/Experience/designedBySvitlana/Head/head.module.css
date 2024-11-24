@@ -1,0 +1,27 @@
+#snowflakes::after{
+    content: '';
+    position: relative;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    z-index: -10;
+}
+
+@media (min-width: 1440px) {
+#snowflakes::after{
+    top: 1484px;
+    height: 742px;
+}}
+
+@media (min-width: 768px) {
+#snowflakes::after{
+    top: 1848px;
+    height: 924px;
+}}
+
+@media (min-width: 375px) {
+#snowflakes::after{
+    top: 1484px;
+    height: 742px;
+}}
+
