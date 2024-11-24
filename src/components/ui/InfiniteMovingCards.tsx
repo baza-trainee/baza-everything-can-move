@@ -104,7 +104,7 @@ export const InfiniteMovingCards = ({
   /* <InfiniteMovingCards speed="normal" addClass={divClass}>
   <>
     {items.map((item, index) => (
-      <div className="relative shrink-0 grow-0" key={item.name + index}>
+      <div className="relative mr-9 shrink-0 grow-0" key={item.name + index}>
         <Image
           src={item.imgSrc}
           alt={`Logo of ${item.name}`}
