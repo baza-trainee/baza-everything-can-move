@@ -126,6 +126,7 @@ const config: Config = {
       },
       lineHeight: {
         //leading-o-120
+        's-16': '16px',
         's-24': '24px',
         's-27': '27px',
         's-30': '30px',
@@ -160,6 +161,19 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: Record<string, Record<string, string>>) => void;
+    }) {
+      addUtilities({
+        '.text-stroke': {
+          '-webkit-text-fill-color': 'black',
+          '-webkit-text-stroke': '1px #ffffff',
+        },
+      });
+    },
+  ],
 };
 export default config;

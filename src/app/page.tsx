@@ -1,5 +1,5 @@
 'use client';
-import ProjectsHomeSection from '@/components/sections/Home/ProjectsHomeSection/ProjectsHomeSection';
+import ProjectsHomeSection from '@/components/sections/Home/designeByOlga/ProjectsHomeSection/ProjectsHomeSection';
 import TeamSection from '@/components/sections/Home/Team/TeamSection';
 import { useDesignStore } from '@/useDesignStore';
 import Hero from '../components/sections/Home/designeByOlga/Hero/Hero';
@@ -30,8 +30,8 @@ function Home() {
       {designType === 'designBySvitlana' && (
         <>
           <HeroSection />
-          <MarqueeSection/>
-          <OldBaseSection/>
+          <MarqueeSection />
+          <OldBaseSection />
           <Teams />
         </>
       )}

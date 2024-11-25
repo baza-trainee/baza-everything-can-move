@@ -5,4 +5,5 @@ export type DataCards = {
   bg: string;
   textColor: 'text-white' | 'text-black';
   border?: boolean;
+  className?: string;
 };
