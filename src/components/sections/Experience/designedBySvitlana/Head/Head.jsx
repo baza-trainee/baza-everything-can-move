@@ -67,6 +67,8 @@ const Head = () => {
 		renderer.setAnimationLoop( animate );
 		canvasSnow.current?.appendChild( renderer.domElement );
 		renderer.domElement.style.position = 'absolute';
+		renderer.domElement.style.width = '100%';
+		// console.log(renderer.domElement.style);
 		if (screenWidth < 768) {
 			renderer.domElement.style.height = '742px';
         }
@@ -122,8 +124,8 @@ const Head = () => {
   return (
     <div id={styles.snowflakes} className='h-[796px] pt-[54px] lg:h-[924px] lg:pt-0 2xl:h-[742px]'>
 	    <div ref={canvasSnow}/>
-		<SectionTitle className='absolute z-100 top-[200px] lg:top-[260px] 2xl:top-[132px] inset-x-0 text-center 2xl:container 2xl:text-left' secondDesign={true}>досвід</SectionTitle>
-		<p className='absolute z-100 top-[253px] lg:top-[364px] 2xl:top-[245px] inset-x-0 text-center 2xl:text-left text-m leading-6 font-regular font-sans 2xl:container'>Досвід — це шлях, яким проходять наші <br className='block lg:hidden'/>трейні, <br className='hidden lg:block' /> здобуваючи практичні навички та <br className='block lg:hidden'/> впевненість у <br className='hidden lg:block' />  своїх силах. Це можливість <br className='block lg:hidden'/> втілювати знання в <br className='hidden lg:block' />  реальні проєкти,<br className='block lg:hidden'/> працювати в команді й <br className='hidden lg:block' /> відкривати для <br className='block lg:hidden'/> себе нові горизонти в ІТ-сфері.</p>
+		{/* <SectionTitle className='absolute z-100 top-[200px] lg:top-[260px] 2xl:top-[132px] inset-x-0 text-center 2xl:container 2xl:text-left' secondDesign={true}>досвід</SectionTitle> */}
+		{/* <p className='absolute z-100 top-[253px] lg:top-[364px] 2xl:top-[245px] inset-x-0 text-center 2xl:text-left text-m leading-6 font-regular font-sans 2xl:container'>Досвід — це шлях, яким проходять наші <br className='block lg:hidden'/>трейні, <br className='hidden lg:block' /> здобуваючи практичні навички та <br className='block lg:hidden'/> впевненість у <br className='hidden lg:block' />  своїх силах. Це можливість <br className='block lg:hidden'/> втілювати знання в <br className='hidden lg:block' />  реальні проєкти,<br className='block lg:hidden'/> працювати в команді й <br className='hidden lg:block' /> відкривати для <br className='block lg:hidden'/> себе нові горизонти в ІТ-сфері.</p> */}
 	</div>
   )
 
