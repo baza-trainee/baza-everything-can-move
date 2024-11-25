@@ -69,7 +69,6 @@ function BackgroundComponent({
           </div>
         </motion.div>
 
-        {/* Відображення дочірнього контенту */}
         <motion.div
           initial={{ height: 0 }}
           animate={{
@@ -90,6 +89,6 @@ export default BackgroundComponent;
 // how to use
 // all number of position left for lg and 2xl are in xlClassMap
 
-{
+
   /* <Background text='Плани' bg='s-gray' lg={125} xl={503}> */
-}
+
