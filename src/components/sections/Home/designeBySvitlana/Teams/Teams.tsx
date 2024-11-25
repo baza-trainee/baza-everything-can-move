@@ -119,6 +119,7 @@ export default function Teams() {
                   strokeColor="#5898b8"
                   strokeWidth={0.1}
                   rotation={[0, 0, 0]}
+                  scale={[1, 1, 1]}
                 />
               </Canvas>
             </div>
