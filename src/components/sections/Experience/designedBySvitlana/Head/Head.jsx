@@ -3,7 +3,7 @@ import React, {useEffect, useRef} from 'react'
 import * as THREE from 'three';
 import styles from './head.module.css'
 import SectionTitle from '@/components/ui/SectionTitle';
-import clsx from 'clsx';
+// import clsx from 'clsx';
 
 const Head = () => {
   	let camera, scene, renderer, parameters;
