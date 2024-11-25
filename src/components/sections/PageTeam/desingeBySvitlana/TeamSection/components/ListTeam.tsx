@@ -52,12 +52,12 @@ function ListTeam() {
   };
   return (
     <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 lg:bottom-[200px] 2xl:bottom-[130px]">
-      <div className="flex w-full items-center justify-center overflow-hidden">
+      <div className="flex h-[400px] w-full items-end justify-center overflow-hidden">
         <motion.ul
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={handleDragEnd}
-          className="relative flex h-[280px] min-w-[1400px] items-center justify-center"
+          className="relative flex h-[280px] w-full items-center justify-center"
         >
           {teamsFoto.map((item, index) => (
             <motion.li
