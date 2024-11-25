@@ -34,6 +34,7 @@ const Bubbles3D = () => {
 		renderer.setSize( window.innerWidth, window.innerHeight);
         renderer.toneMapping = THREE.NoToneMapping;
         renderer.setClearColor( 0xffffff, 0);
+        renderer.domElement.style.width = '100%';
         const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
 		camera.position.set( 0, 0, 30 );
