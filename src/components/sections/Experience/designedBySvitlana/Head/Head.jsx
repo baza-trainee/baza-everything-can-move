@@ -2,7 +2,7 @@
 import React, {useEffect, useRef} from 'react'
 import * as THREE from 'three';
 import styles from './head.module.css'
-import SectionTitle from '@/components/ui/SectionTitle';
+// import SectionTitle from '@/components/ui/SectionTitle';
 // import clsx from 'clsx';
 
 const Head = () => {
@@ -79,7 +79,7 @@ const Head = () => {
 			renderer.domElement.style.height = '742px';
         }    
 
-		document.body.style.touchAction = 'none';
+		// document.body.style.touchAction = 'none';
 		canvasSnow.current?.addEventListener( 'pointermove', onPointerMove );
 		window.addEventListener( 'resize', onWindowResize );
 	    function onWindowResize() {
