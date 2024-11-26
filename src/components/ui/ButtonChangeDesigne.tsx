@@ -21,7 +21,7 @@ function ButtonChangeDesigne() {
         ease: 'easeInOut',
         when: 'beforeChildren',
       }}
-      className="fixed bottom-5 left-5 rounded-full border-[1px] border-solid border-white bg-[#363535] p-[18px]"
+      className="fixed bottom-5 left-5 rounded-full border-[1px] border-solid border-white bg-[#363535] p-[18px] z-[9999]"
     >
       <div className="relative flex items-center justify-start rounded-full">
         <motion.button

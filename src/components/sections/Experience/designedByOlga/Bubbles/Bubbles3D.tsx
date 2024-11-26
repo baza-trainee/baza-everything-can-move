@@ -59,7 +59,7 @@ const Bubbles3D = () => {
         // let draggable: THREE.Object3D;
 
         
-        if (canvasRefSm.current?.childNodes[0] === undefined && screenWidth < 768) {
+        if (screenWidth < 768) {
             canvasRefSm.current?.appendChild(renderer.domElement);
 
             const geometrySm = new THREE.SphereGeometry( 1.2, 64, 32 );
@@ -75,7 +75,7 @@ const Bubbles3D = () => {
             scene.add( meshSm3);
             
         } 
-        if (canvasRefLg.current?.childNodes[0] === undefined && screenWidth >= 768 && screenWidth < 1024) {
+        if (screenWidth >= 768 && screenWidth < 1024) {
             canvasRefLg.current?.appendChild(renderer.domElement);
             const geometryLg = new THREE.SphereGeometry( 1.2, 64, 32 );
 
@@ -90,7 +90,7 @@ const Bubbles3D = () => {
             meshLg3.position.set(1, 7, -1);
             scene.add( meshLg3);
         } 
-        if (canvasRefXl.current?.childNodes[0] === undefined && screenWidth >= 1024 && screenWidth < 1440) {
+        if (screenWidth >= 1024 && screenWidth < 1440) {
             canvasRefXl.current?.appendChild(renderer.domElement);
             const geometryXl = new THREE.SphereGeometry( 1.2, 64, 32 );
 
@@ -107,7 +107,7 @@ const Bubbles3D = () => {
             scene.add( meshXl3);
             // console.log(meshXl1);
         } 
-        if (canvasRef2Xl.current?.childNodes[0] === undefined && screenWidth >= 1440) {
+        if (screenWidth >= 1440) {
             canvasRef2Xl.current?.appendChild(renderer.domElement);
             const geometry2Xl = new THREE.SphereGeometry( 1.5, 64, 32 );
 

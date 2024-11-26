@@ -30,6 +30,6 @@
     ".next/types/**/*.ts",
     "src/components/ui/Globe/Globe.tsx",
     "src/components/sections/PageTeam/desingeBySvitlana/Hero/Globe.jsx" 
-    ],
+, "src/components/sections/Experience/designedBySvitlana/Snow/Snow.jsx"    ],
   "exclude": ["node_modules"]
 }
