@@ -4,8 +4,7 @@ import Galaxy from '../../common/Galaxy';
 
 function GalaxySvitlana() {
   return (
-    <div className='h-[40%] w-full lg:h-[50%]  2xl:h-[560px] 2xl:w-[629px] mx-auto 2xl:mx-0'>
-  
+    <div className="mx-auto h-[40%] w-full lg:h-[50%] 2xl:mx-0 2xl:h-[560px] 2xl:w-[629px]">
       <Canvas camera={{ position: [0, 8, 0], fov: 50 }}>
         <ambientLight intensity={0.7} />
         <directionalLight position={[0, 10, 0]} intensity={1.8} />
@@ -17,9 +16,11 @@ function GalaxySvitlana() {
           range={0.8}
           rangeY={0.8}
         />
-        <OrbitControls enableDamping={true} />
+        <OrbitControls enableDamping={true} 
+        minDistance={8} 
+        maxDistance={20}
+         />
       </Canvas>
-   
     </div>
   );
 }

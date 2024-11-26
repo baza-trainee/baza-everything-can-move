@@ -5,11 +5,11 @@ import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundCompo
 function SectionPlans() {
   return (
     <BackgroundComponent text='Плани' bg='s-gray' >
-        <div className="relative">
+        <div className="relative 2xl:h-[728px]">
         <h2 className="traking-s-2 text-xlg lg:text-[80px] leading-o-120 uppercase">
         Прагнення
         </h2>
-          <div className="max-w-[596] 2xl:max-w-[552px] 2xl:mb-[310px]">
+          <div className="max-w-[596] 2xl:max-w-[552px] ">
             <div className="text-third-family text-s lg:text-l leading-o-150 ">
               <p className="my-4 italic ">
                 “Ми, прагнемо створювати позитивні зміни у світі через
