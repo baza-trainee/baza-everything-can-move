@@ -9,11 +9,17 @@ import { OrbitControls } from '@react-three/drei';
 export default function Teams() {
   const [isVisible, setIsVisible] = useState(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const [cameraSettings, setCameraSettings] = useState({
-    position: [2, 1, 10], // Масив координат (X, Y, Z)
-    fov: 40,             // Поле огляду
+
+  // Початкові налаштування камери
+  const [cameraSettings, setCameraSettings] = useState<{
+    position: [number, number, number]; // Масив з трьома координатами
+    fov: number; // Поле огляду
+  }>({
+    position: [2, 1, 10],
+    fov: 40,
   });
 
+  // Логіка спостереження за елементом
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -21,7 +27,7 @@ export default function Teams() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.5 } // 50% видимості для активації
+      { threshold: 0.5 }
     );
 
     if (headingRef.current) {
@@ -35,11 +41,12 @@ export default function Teams() {
     };
   }, []);
 
+  // Налаштування камери залежно від ширини вікна
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 768) {
-        setCameraSettings({ position: [3, 1, 12], fov: 50 }); // Мобільний розмір
+        setCameraSettings({ position: [3, 1, 12], fov: 50 }); // Мобільна версія
       } else if (width < 1024) {
         setCameraSettings({ position: [2.5, 1, 11], fov: 45 }); // Планшет
       } else {
@@ -47,10 +54,10 @@ export default function Teams() {
       }
     };
 
-    handleResize(); // Викликати при завантаженні
-    window.addEventListener('resize', handleResize); // Слухач resize
+    handleResize();
+    window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize); // Очистити слухач
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
@@ -125,8 +132,8 @@ export default function Teams() {
               </div>
             </Link>
           </div>
-          <div className="absolute w-[72%] lg:right-[-15%] h-[40%] lg:bottom-48 bottom-0 ">
-            <Canvas camera={{ ...cameraSettings}}>
+          <div className="absolute w-[72%] lg:right-[-15%] h-[40%] lg:bottom-48 bottom-0">
+            <Canvas camera={{ position: cameraSettings.position, fov: cameraSettings.fov }}>
               <ambientLight intensity={0.5} />
               <directionalLight position={[10, 10, 5]} intensity={1} />
               <OrbitControls
