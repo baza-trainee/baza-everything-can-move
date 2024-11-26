@@ -15,26 +15,36 @@ export const PROJECTS_SVITLANA_IMAGES = [
     link: '',
     name: 'zerno',
     src: zerno,
+    top: 669,
+    left: 93,
   },
   {
     link: '',
     name: 'hvostiki ',
     src: hvostiki,
+    top: 252,
+    left: 141,
   },
   {
     link: '',
     name: 'zavriki',
     src: zavriki,
+    top: 727,
+    left: 952,
   },
   {
     link: '',
     name: 'militari',
     src: militari,
+    top: 330,
+    left: 1013,
   },
   {
     link: '',
     name: 'song',
     src: song,
+    top: 146,
+    left: 600,
   },
 ];
 
