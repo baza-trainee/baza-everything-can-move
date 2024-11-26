@@ -14,7 +14,7 @@ const TorusScene: React.FC = () => {
   const dampValue = 0.86;
 
   useEffect(() => {
-    gl.autoClear = false; // Вимикаємо автоматичне очищення
+    gl.autoClear = false; 
     const composer = new EffectComposer(gl);
     composer.addPass(new RenderPass(scene, camera));
 

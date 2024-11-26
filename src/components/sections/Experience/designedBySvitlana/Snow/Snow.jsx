@@ -1,11 +1,11 @@
 'use client'
 import React, {useEffect, useRef} from 'react'
 import * as THREE from 'three';
-import styles from './head.module.css'
+import styles from './snow.module.css'
 import SectionTitle from '@/components/ui/SectionTitle';
 // import clsx from 'clsx';
 
-const Head = () => {
+const Snow = () => {
   	let camera, scene, renderer, parameters;
 	let mouseX = 0, mouseY = 0;
 	let windowHalfX = window.innerWidth / 2;
@@ -41,12 +41,27 @@ const Head = () => {
 		}
         geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
 		parameters = [
-			[[ 1.0, 0.2, 0.5 ], sprite2, 20 ],
-			[[ 0.95, 0.1, 0.5 ], sprite3, 15 ],
-			[[ 0.90, 0.05, 0.5 ], sprite1, 10 ],
-			[[ 0.85, 0, 0.5 ], sprite5, 8 ],
-			[[ 0.80, 0, 0.5 ], sprite4, 5 ]
+			[[0.6667, 0.88, 0.84], sprite2, 20 ],
+			[[0.6667, 0.88, 0.84], sprite3, 15 ], 
+			[[0.6667, 0.88, 0.84], sprite1, 10 ],
+			[[0.6667, 0.88, 0.84], sprite5, 8 ],
+			[[0.6667, 0.88, 0.84], sprite4, 5 ],
 		];
+// const initialColors = [
+//       [1.0, 0.2, 0.5], // almost white
+//       [0.95, 0.1, 0.5],
+//       [0.9, 0.05, 0.5],
+//       [0.85, 0, 0.5],
+//       [0.8, 0, 0.5],
+//     ];
+//     parameters = [
+//       [initialColors[0], sprite2, 20],
+//       [initialColors[1], sprite3, 15],
+//       [initialColors[2], sprite1, 10],
+//       [initialColors[3], sprite5, 8],
+//       [initialColors[4], sprite4, 5],
+//     ];
+
 		for ( let i = 0; i < parameters.length; i ++ ) {
 			const color = parameters[ i ][ 0 ];
 			const sprite = parameters[ i ][ 1 ];
@@ -67,6 +82,8 @@ const Head = () => {
 		renderer.setAnimationLoop( animate );
 		canvasSnow.current?.appendChild( renderer.domElement );
 		renderer.domElement.style.position = 'absolute';
+		renderer.domElement.style.width = '100%';
+		// console.log(renderer.domElement.style);
 		if (screenWidth < 768) {
 			renderer.domElement.style.height = '742px';
         }
@@ -77,7 +94,7 @@ const Head = () => {
 			renderer.domElement.style.height = '742px';
         }    
 
-		document.body.style.touchAction = 'none';
+		// document.body.style.touchAction = 'none';
 		canvasSnow.current?.addEventListener( 'pointermove', onPointerMove );
 		window.addEventListener( 'resize', onWindowResize );
 	    function onWindowResize() {
@@ -109,10 +126,11 @@ const Head = () => {
 			}
 		}
 		for ( let i = 0; i < materials.length; i ++ ) {
-			// const color = parameters[ i ][ 0 ];
-			// const h = ( 360 * ( color[ 0 ] + time ) % 360 ) / 360;
-			// console.log(h);
-			// materials[ i ].color.setHSL( h, color[ 1 ], color[ 2 ], THREE.SRGBColorSpace );
+			const color = parameters[ i ][ 0 ];
+			const lighteningAdj = (( 360 * ( 0.84 + time*0.16 ) % 360 ) / 360*0.16);
+			// console.log(lighteningAdj);
+			const lighteningAfterAdj = color[2] + lighteningAdj;
+			materials[ i ].color.setHSL( color[0], color[ 1 ], lighteningAfterAdj, THREE.SRGBColorSpace );
 		}
 		renderer.render( scene, camera );
 	}
@@ -129,4 +147,4 @@ const Head = () => {
 
 }
 
-export default Head
+export default Snow

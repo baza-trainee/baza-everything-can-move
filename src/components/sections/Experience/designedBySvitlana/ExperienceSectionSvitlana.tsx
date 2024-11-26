@@ -1,5 +1,5 @@
 import React from 'react'
-import Head from './Head/Head'
+import Snow from './Snow/Snow'
 // import Achievements from './Achievements/Achievements';
 // import FuckUpSection from './FuckUps/FuckUps';
 
@@ -7,7 +7,7 @@ import Head from './Head/Head'
 const ExperienceSectionSvitlana:React.FC = () => {
   return (
     <div>
-      <Head/>
+      <Snow/>
       {/* <Achievements title={'Досягнення'} subtitle={'Далі буде...'}/>
       <FuckUpSection title={'Факапи'} subtitle={'І це теж досвід'}/> */}
     </div>
