@@ -11,7 +11,10 @@ const ProjectsSectionSecond: React.FC = () => {
   const isInView = useInView(ref);
 
   return (
-    <section ref={ref} className="py-20 font-second-family lg:py-[100px]">
+    <section
+      ref={ref}
+      className="py-20 font-second-family lg:py-[100px] 2xl:py-0"
+    >
       <div className="ml-auto mr-auto flex w-full flex-col items-center px-[20px] lg:w-full lg:px-0 2xl:relative 2xl:h-[1059px] 2xl:w-[1440px] 2xl:max-w-[1440px] 2xl:px-0">
         {/* <Container className="flex flex-col items-center"> */}
         <SectionTitle secondDesign className="mb-4 lg:mb-8 2xl:mt-[496px]">
