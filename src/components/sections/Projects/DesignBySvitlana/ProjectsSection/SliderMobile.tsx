@@ -1,25 +1,28 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useRef } from 'react';
+import { PanInfo } from 'framer-motion';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { ProjectsImagesProps } from './types';
 import ProjectCard from './ProjectCard';
 
 const imageVariants = {
-  enter: () => {
+  enter: (direction: number) => {
     return {
-      x: '-100%',
+      x: direction > 0 ? '100%' : '-100%',
+
       opacity: 0,
     };
   },
+
   center: {
     x: 0,
     opacity: 1,
   },
-  exit: () => {
+  exit: (direction: number) => {
     return {
-      x: '100%',
+      x: direction > 0 ? '-100%' : '100%',
 
       opacity: 0,
     };
@@ -27,18 +30,37 @@ const imageVariants = {
 };
 
 const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const constraintsRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(2);
+  const [direction, setDirection] = useState(0);
 
-  const nextImage = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  }, [images.length]);
+  // const nextImage = useCallback(() => {
+  //   setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  // }, [images.length]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextImage();
-    }, 10000);
-    return () => clearInterval(interval);
-  }, [nextImage]);
+  const handleDragEnd = (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => {
+    //  <--------
+    if (info.offset.x < -50) {
+      setDirection(1);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    } else if (info.offset.x > 50) {
+      //  -------->
+      setDirection(-1);
+      setCurrentIndex(
+        (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      );
+    }
+  };
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     nextImage();
+  //   }, 10000);
+  //   return () => clearInterval(interval);
+  // }, [nextImage]);
 
   const handleClick = (index: number) => {
     setCurrentIndex(index);
@@ -46,16 +68,24 @@ const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
 
   return (
     <>
-      <div className="relative mb-9 h-[225px] w-[334px] overflow-hidden">
-        <AnimatePresence initial={false}>
+      <div
+        className="relative mb-9 h-[225px] w-[334px] overflow-hidden"
+        ref={constraintsRef}
+      >
+        <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={`title-${currentIndex}`}
             variants={imageVariants}
+            custom={direction}
             initial="enter"
             animate="center"
             exit="exit"
             transition={{ duration: 0.5 }}
             className="absolute"
+            drag="x"
+            dragConstraints={constraintsRef}
+            //dragElastic={0}
+            onDragEnd={handleDragEnd}
           >
             <ProjectCard {...images[currentIndex]} />
           </motion.div>

@@ -40,7 +40,7 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
-    }, 15000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [totalImages]);
 
