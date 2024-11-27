@@ -5,29 +5,41 @@ import styles from './snow.module.css'
 import SectionTitle from '@/components/ui/SectionTitle';
 // import clsx from 'clsx';
 
+// interface ParametersType {
+//   HSL: number[];
+//   texture:THREE.Texture;
+//   size: number;
+// }
+
 const Snow = () => {
-  	let camera, scene, renderer, parameters;
+
 	let mouseX = 0, mouseY = 0;
 	let windowHalfX = window.innerWidth / 2;
 	let windowHalfY = window.innerHeight / 2;
+	// const materials:THREE.PointsMaterial[] = [];
 	const materials = [];
+	// const canvasSnow = useRef<HTMLDivElement | null >(null);
 	const canvasSnow = useRef(null);
 	const screenWidth = window.innerWidth;
 
     useEffect(() => {
 
-      	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 2000 );
+      	const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 2000 );
 		camera.position.z = 1000;
-		scene = new THREE.Scene();
+		const scene = new THREE.Scene();
 		scene.fog = new THREE.FogExp2( 0x000000, 0.0008 );
 		const geometry = new THREE.BufferGeometry();
 		const vertices = [];
 		const textureLoader = new THREE.TextureLoader();
-		const assignSRGB = ( texture ) => {
+		// const assignSRGB = ( texture:THREE.Texture ) => {
+		const assignSRGB = ( texture) => {
 			texture.colorSpace = THREE.SRGBColorSpace;
-			// texture.color = '#8f8ded';
-			// console.log(texture);
 		};
+		// const sprite1:THREE.Texture = textureLoader.load( '/assets/images/Experience/snowflake1.png', assignSRGB );
+		// const sprite2:THREE.Texture = textureLoader.load( '/assets/images/Experience/snowflake2.png', assignSRGB );
+		// const sprite3:THREE.Texture = textureLoader.load( '/assets/images/Experience/snowflake3.png', assignSRGB );
+		// const sprite4:THREE.Texture = textureLoader.load( '/assets/images/Experience/snowflake4.png', assignSRGB );
+		// const sprite5:THREE.Texture = textureLoader.load( '/assets/images/Experience/snowflake5.png', assignSRGB );
 		const sprite1 = textureLoader.load( '/assets/images/Experience/snowflake1.png', assignSRGB );
 		const sprite2 = textureLoader.load( '/assets/images/Experience/snowflake2.png', assignSRGB );
 		const sprite3 = textureLoader.load( '/assets/images/Experience/snowflake3.png', assignSRGB );
@@ -40,7 +52,7 @@ const Snow = () => {
 			vertices.push( x, y, z );
 		}
         geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
-		parameters = [
+		const parameters = [
 			[[0.6667, 0.88, 0.84], sprite2, 20 ],
 			[[0.6667, 0.88, 0.84], sprite3, 15 ], 
 			[[0.6667, 0.88, 0.84], sprite1, 10 ],
@@ -65,10 +77,9 @@ const Snow = () => {
 		for ( let i = 0; i < parameters.length; i ++ ) {
 			const color = parameters[ i ][ 0 ];
 			const sprite = parameters[ i ][ 1 ];
-			const size = parameters[ i ][ 2 ];
-			materials[ i ] = new THREE.PointsMaterial( { size: size, map: sprite, blending: THREE.AdditiveBlending, depthTest: false, transparent: true } );
-			// console.log(materials[ i ].color);
-			materials[ i ].color.setHSL( color[ 0 ], color[ 1 ], color[ 2 ], THREE.SRGBColorSpace );
+			const size = Number(parameters[ i ][ 2 ]);
+			materials[ i ] = new THREE.PointsMaterial({ size: size, map: sprite, blending: THREE.AdditiveBlending, depthTest: false, transparent: true });
+			materials[ i ].color.setHSL( color[0], color[1], color[2], THREE.SRGBColorSpace );
 			// console.log(materials[ i ].color);
 			const particles = new THREE.Points( geometry, materials[ i ] );
 			particles.rotation.x = Math.random() * 6;
@@ -76,7 +87,7 @@ const Snow = () => {
 			particles.rotation.z = Math.random() * 6;
 			scene.add( particles );
 		}
-		renderer = new THREE.WebGLRenderer();
+		const renderer = new THREE.WebGLRenderer();
 		renderer.setPixelRatio( window.devicePixelRatio );
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		renderer.setAnimationLoop( animate );
@@ -105,7 +116,8 @@ const Snow = () => {
 			renderer.setSize( window.innerWidth, window.innerHeight );
 		}
 
-	function onPointerMove( event ) {
+	// function onPointerMove( event:PointerEvent ) {
+	function onPointerMove( event) {
 		if ( event.isPrimary === false ) return;
 		mouseX = event.clientX - windowHalfX;
 		mouseY = event.clientY - windowHalfY;
@@ -130,7 +142,7 @@ const Snow = () => {
 			const lighteningAdj = (( 360 * ( 0.84 + time*0.16 ) % 360 ) / 360*0.16);
 			// console.log(lighteningAdj);
 			const lighteningAfterAdj = color[2] + lighteningAdj;
-			materials[ i ].color.setHSL( color[0], color[ 1 ], lighteningAfterAdj, THREE.SRGBColorSpace );
+			materials[ i ].color.setHSL( color[0], color[1], lighteningAfterAdj, THREE.SRGBColorSpace );
 		}
 		renderer.render( scene, camera );
 	}
@@ -138,8 +150,9 @@ const Snow = () => {
 
 
   return (
-    <div id={styles.snowflakes} className='h-[796px] pt-[54px] lg:h-[924px] lg:pt-0 2xl:h-[742px]'>
-	    <div ref={canvasSnow}/>
+    <div id={styles.snowflakes} className='h-[796px] pt-[54px] lg:h-[924px] lg:pt-0 2xl:h-[742px] relative'>
+		{/* <div className='w-full h-20 absolute top-[54px] bg-gradient-to-b from-cyan-500 to-blue-500 z-[1000]'/> */}
+	    <div ref={canvasSnow} id={styles.bottomShadow}/>
 		<SectionTitle className='absolute z-100 top-[200px] lg:top-[260px] 2xl:top-[132px] inset-x-0 text-center 2xl:container 2xl:text-left' secondDesign={true}>досвід</SectionTitle>
 		<p className='absolute z-100 top-[253px] lg:top-[364px] 2xl:top-[245px] inset-x-0 text-center 2xl:text-left text-m leading-6 font-regular font-sans 2xl:container'>Досвід — це шлях, яким проходять наші <br className='block lg:hidden'/>трейні, <br className='hidden lg:block' /> здобуваючи практичні навички та <br className='block lg:hidden'/> впевненість у <br className='hidden lg:block' />  своїх силах. Це можливість <br className='block lg:hidden'/> втілювати знання в <br className='hidden lg:block' />  реальні проєкти,<br className='block lg:hidden'/> працювати в команді й <br className='hidden lg:block' /> відкривати для <br className='block lg:hidden'/> себе нові горизонти в ІТ-сфері.</p>
 	</div>

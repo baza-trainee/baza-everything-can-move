@@ -20,3 +20,26 @@ export const achievements = [
     text: "Вважають цілі досягнутими",
   }
 ];
+
+export const achievementsBySvitlana = [
+  {
+    numberValue: 812,
+    textValue: 'учасників',
+    text: "72% наших учасників заходять на 2 і 3 проєкти.",
+  },
+  {
+    numberValue: 47,
+    textValue: 'живих проектів',
+     text: "Підтримуємо соціальні ініціативи.",
+  },
+  {
+    numberValue: 102,
+    textValue: 'працевлаштовано',
+    text: "Кожен четвертий знаходить роботу по спеціальності."
+  },
+  {
+    numberValue: 14,
+    textValue: 'технологій',
+    text: "99% наших учасників задоволені практикою. ",
+  }
+];
