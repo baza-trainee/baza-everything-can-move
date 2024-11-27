@@ -44,52 +44,31 @@ const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
   };
 
   const handleDragEnd = (
-    event: MouseEvent | TouchEvent | PointerEvent,
+    _: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo
   ) => {
-    // const swipeDistance = info.offset.x;
-    // const swipeCards = Math.round(swipeDistance / totalWidth);
-    // console.log('swipeDistance', swipeCards);
-    // if (swipeCards > 0) {
-    //   if (currentIndex === 0) return;
-    //   setDirection(-1); // to right
-    // } else if (swipeCards < 0) {
-    //   if (currentIndex === images.length - 1) return;
-    //   setDirection(1); // to left
-    // }
-    // setCurrentIndex((prevIndex) =>
-    //   Math.max(0, Math.min(prevIndex - swipeCards, images.length - 1))
-    // );
     const swipeDistance = info.offset.x;
     const swipeCards = Math.round(swipeDistance / totalWidth);
     console.log('swipeDistance', swipeCards);
-    if (info.offset.x < -50) {
+    if (swipeCards < 0) {
       if (currentIndex === images.length - 1) return;
       setDirection(1); // to left
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    } else if (info.offset.x > -50) {
+      //setCurrentIndex((prevIndex) => prevIndex + 1);
+    } else if (swipeCards > 0) {
       if (currentIndex === 0) return;
       setDirection(-1); // to right
-      setCurrentIndex((prevIndex) => prevIndex - 1);
+      //setCurrentIndex((prevIndex) => prevIndex - 1);
     }
-    // setCurrentIndex((prevIndex) =>
-    //   Math.max(0, Math.min(prevIndex - swipeCards, images.length - 1))
-    // );
+    setCurrentIndex((prevIndex) =>
+      Math.max(0, Math.min(prevIndex - swipeCards, images.length - 1))
+    );
     //setDirection(0);
   };
   const imageVariants = {
-    // initial: (direction: number) => ({
-    //   x: direction > 0 ? 1000 : 1000,
-    // }),
-
     animate: {
       x: `${containerWidth / 2 - totalWidth / 2 - currentIndex * totalWidth}px`,
       opacity: 1,
     },
-
-    // exit: (direction: number) => ({
-    //   x: direction > 1 ? -100 : 100,
-    // }),
   };
   return (
     <>
