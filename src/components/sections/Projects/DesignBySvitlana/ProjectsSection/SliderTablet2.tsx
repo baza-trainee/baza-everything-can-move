@@ -9,12 +9,9 @@ import ProjectCard from './ProjectCard';
 const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(2);
   const [containerWidth, setContainerWidth] = useState(0);
-  const [direction, setDirection] = useState(0);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  console.log('current index', currentIndex);
-  console.log('DIRECTION', direction);
   const gap = 31;
   const cardWidth = 332;
   const totalWidth = cardWidth + gap;
@@ -49,14 +46,14 @@ const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
   ) => {
     const swipeDistance = info.offset.x;
     const swipeCards = Math.round(swipeDistance / totalWidth);
-    console.log('swipeDistance', swipeCards);
+
     if (swipeCards < 0) {
       if (currentIndex === images.length - 1) return;
-      setDirection(1); // to left
+      // setDirection(1); // to left to next
       //setCurrentIndex((prevIndex) => prevIndex + 1);
     } else if (swipeCards > 0) {
       if (currentIndex === 0) return;
-      setDirection(-1); // to right
+      // setDirection(-1); // to right to prev
       //setCurrentIndex((prevIndex) => prevIndex - 1);
     }
     setCurrentIndex((prevIndex) =>
@@ -64,6 +61,7 @@ const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
     );
     //setDirection(0);
   };
+
   const imageVariants = {
     animate: {
       x: `${containerWidth / 2 - totalWidth / 2 - currentIndex * totalWidth}px`,
@@ -84,7 +82,7 @@ const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
             <motion.div
               ref={containerRef}
               variants={imageVariants}
-              custom={direction}
+              //custom={direction}
               // initial="enter"
               animate="animate"
               transition={{ duration: 0.5 }}
