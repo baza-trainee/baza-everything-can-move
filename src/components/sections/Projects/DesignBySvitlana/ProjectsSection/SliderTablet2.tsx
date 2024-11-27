@@ -1,7 +1,7 @@
 'use client';
 //1-5
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useAnimationControls } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { PanInfo } from 'framer-motion';
 import { ProjectsImagesProps } from './types';
 import ProjectCard from './ProjectCard';
@@ -13,7 +13,7 @@ const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
 
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  console.log(containerRef?.current?.getBoundingClientRect().width);
+  console.log('current index', currentIndex);
 
   const gap = 31;
   const cardWidth = 332;
@@ -48,19 +48,18 @@ const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
     info: PanInfo
   ) => {
     const swipeDistance = info.offset.x;
-    const swipeThreshold = totalWidth / 4;
+    const swipeCards = Math.round(swipeDistance / totalWidth);
 
-    if (swipeDistance > swipeThreshold) {
+    if (swipeCards > 0) {
+      if (currentIndex === 0) return;
       setDirection(-1); // to right
-      //   setCurrentIndex((prevIndex) =>
-      //     Math.min(prevIndex + 1, images.length - 1)
-      //   );
-      setCurrentIndex((prevIndex) => prevIndex - 1);
-    } else if (swipeDistance < -swipeThreshold) {
+    } else if (swipeCards < 0) {
+      if (currentIndex === images.length - 1) return;
       setDirection(1); // to left
-      //setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-      setCurrentIndex((prevIndex) => prevIndex + 1);
     }
+    setCurrentIndex((prevIndex) =>
+      Math.max(0, Math.min(prevIndex - swipeCards, images.length - 1))
+    );
   };
   const imageVariants = {
     initial: (direction: number) => ({
