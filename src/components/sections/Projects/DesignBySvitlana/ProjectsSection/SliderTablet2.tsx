@@ -93,6 +93,10 @@ const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
                   <motion.div
                     key={`image-${index}`}
                     className="relative"
+                    animate={{
+                      opacity: index === currentIndex ? 1 : 0.7,
+                    }}
+                    transition={{ duration: 0.3 }}
                     style={{
                       width: `${cardWidth}px`,
                       marginRight: `${gap}px`,
