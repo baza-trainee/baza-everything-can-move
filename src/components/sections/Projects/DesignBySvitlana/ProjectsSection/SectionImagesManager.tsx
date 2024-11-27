@@ -6,6 +6,7 @@ import SliderMobile from './SliderMobile';
 
 import { ProjectsImagesProps } from './types';
 import SliderTablet from './SliderTablet';
+import SliderDesktop from './SliderDesktop';
 
 const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
   const [isClient, setIsClient] = useState(false);
@@ -13,7 +14,7 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
   const isTablet = useMediaQuery({
     query: '(min-width: 768px) and (max-width: 1439.5px)',
   });
-  //   const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
+  const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
 
   useEffect(() => {
     setIsClient(true);
@@ -44,6 +45,18 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
             </p>
           </div>
           <SliderTablet images={images} />
+        </>
+      )}
+      {/* desktop */}
+      {isDesktop && (
+        <>
+          <div className="mx-auto mb-[40px] w-[410px] text-center">
+            <p className="font-third-family text-l font-regular leading-s-36">
+              Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
+            </p>
+          </div>
+          <button>Button</button>
+          <SliderDesktop images={images} />
         </>
       )}
     </>

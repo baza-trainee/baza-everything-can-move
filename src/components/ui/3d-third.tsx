@@ -33,10 +33,10 @@ export const CardContainer = ({
     if (!containerRef.current) return;
     const { left, top, width, height } =
       containerRef.current.getBoundingClientRect();
-    const x = (e.clientX - left - width / 2) / 18;
-    const y = (e.clientY - top - height / 2) / 18;
+    const x = (e.clientX - left - width / 2) / 22;
+    const y = (e.clientY - top - height / 2) / 22;
     //translateZ(100px)
-    containerRef.current.style.transform = ` rotateY(${x}deg) rotateX(${-y}deg) `;
+    containerRef.current.style.transform = ` rotateY(${x}deg) rotateX(${y}deg) `;
     containerRef.current.style.willChange = 'transform';
     containerRef.current.style.zIndex = '10';
   };
@@ -151,7 +151,8 @@ export const CardItem = ({
   return (
     <Tag
       ref={ref}
-      className={cn('w-fit transition duration-200 ease-linear', className)}
+      // w-fit
+      className={cn('transition duration-200 ease-linear', className)}
       {...rest}
     >
       {children}

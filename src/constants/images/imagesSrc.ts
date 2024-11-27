@@ -13,28 +13,38 @@ import hvostiki from '@/assets/images/Projects/hvostiki.png';
 export const PROJECTS_SVITLANA_IMAGES = [
   {
     link: '',
-    name: 'zerno',
+    name: 'Проєкт zerno',
     src: zerno,
+    top: 669,
+    left: 93,
   },
   {
     link: '',
-    name: 'hvostiki ',
+    name: 'Проєкт хвостики ',
     src: hvostiki,
+    top: 252,
+    left: 141,
   },
   {
     link: '',
-    name: 'zavriki',
+    name: 'Проєкт читозаврик',
     src: zavriki,
+    top: 727,
+    left: 952,
   },
   {
     link: '',
-    name: 'militari',
+    name: 'eng for uarmy',
     src: militari,
+    top: 330,
+    left: 1013,
   },
   {
     link: '',
-    name: 'song',
+    name: '1000 і 1 пісня',
     src: song,
+    top: 146,
+    left: 600,
   },
 ];
 
