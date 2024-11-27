@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import SectionTitle from '@/components/ui/SectionTitle';
 import Image from 'next/image';
-import NumberFlow, { type Value } from '@number-flow/react'
+import NumberFlow from '@number-flow/react'
 import { achievementsBySvitlana } from '@/constants/achievements'
 
 
