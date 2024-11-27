@@ -1,3 +1,5 @@
+'use client'
+
 import React, {useEffect, useState} from 'react'
 import SectionTitle from '@/components/ui/SectionTitle';
 import Image from 'next/image';
@@ -5,7 +7,7 @@ import NumberFlow from '@number-flow/react'
 import { achievementsBySvitlana } from '@/constants/achievements'
 
 
-const Achievements = () => {
+const Achievements:React.FC = () => {
   const [pageUploaded, setPageUploaded] = useState(false);
   useEffect(() => {
     setPageUploaded(true)
