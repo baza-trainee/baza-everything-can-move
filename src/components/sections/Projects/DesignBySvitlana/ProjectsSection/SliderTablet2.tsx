@@ -7,7 +7,7 @@ import { ProjectsImagesProps } from './types';
 import ProjectCard from './ProjectCard';
 
 const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(2);
   const [containerWidth, setContainerWidth] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -97,33 +97,35 @@ const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
       <div className="relative mb-8 flex h-[225px] w-full justify-center overflow-hidden">
         <AnimatePresence>
           {/* //initial={false} */}
-
           <motion.div
-            ref={containerRef}
-            variants={imageVariants}
-            custom={direction}
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             onDragEnd={handleDragEnd}
-            // initial="enter"
-            animate="animate"
-            transition={{ duration: 0.5 }}
-            className="flex"
           >
-            {images.map((image, index) => {
-              return (
-                <motion.div
-                  key={`image-${index}`}
-                  className="relative"
-                  style={{
-                    width: `${cardWidth}px`,
-                    marginRight: `${gap}px`,
-                  }}
-                >
-                  <ProjectCard {...image} />
-                </motion.div>
-              );
-            })}
+            <motion.div
+              ref={containerRef}
+              variants={imageVariants}
+              custom={direction}
+              // initial="enter"
+              animate="animate"
+              transition={{ duration: 0.5 }}
+              className="flex"
+            >
+              {images.map((image, index) => {
+                return (
+                  <motion.div
+                    key={`image-${index}`}
+                    className="relative"
+                    style={{
+                      width: `${cardWidth}px`,
+                      marginRight: `${gap}px`,
+                    }}
+                  >
+                    <ProjectCard {...image} />
+                  </motion.div>
+                );
+              })}
+            </motion.div>
           </motion.div>
         </AnimatePresence>
       </div>
