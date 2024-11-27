@@ -30,8 +30,8 @@ const Achievements:React.FC = () => {
         {
           achievementsBySvitlana.map( (achievement, i) => {
             return (
-              <div className='flex flex-col items-center justify-start pb-[64px] w-full lg:w-1/2 2xl:w-1/4'>
-                <NumberFlow key={`p_${i}`} value={pageUploaded ? achievement.numberValue : 0} trend={0} suffix='+' className='text-[76px] leading-[91.2px] font-semibold font-second-family p-0 text-center'/>
+              <div key={`p_${i}`} className='flex flex-col items-center justify-start pb-[64px] w-full lg:w-1/2 2xl:w-1/4'>
+                <NumberFlow value={pageUploaded ? achievement.numberValue : 0} trend={0} suffix='+' className='text-[76px] leading-[91.2px] font-semibold font-second-family p-0 text-center'/>
                 <p className='inline-block text-lg leading-[38.4px] font-medium font-second-family text-s-purple text-center pb-4'>{achievement.textValue}</p>
                 <p className='inline-block text-m leading-s-24 font-regular font-third-family text-center w-[264px]'>{achievement.text}</p>
               </div>
