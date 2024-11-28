@@ -24,13 +24,11 @@ const SubTitleAnimation = ({
     >
       <h3
         className={clsx(
-          // mb-3  lg:mb-0 lg:mr-6
           'font-second-family text-md font-semibold uppercase leading-o-120 tracking-s-2 lg:text-lg lg:font-medium'
         )}
       >
         {children}
       </h3>
-      {/* if center add justify-center */}
     </div>
   );
 };
@@ -42,7 +40,7 @@ export default SubTitleAnimation;
 // props 1. color="white" or  color="black"
 // props 2. array of options- create your own Array in constans/data/subTitleArr
 // then export and send it as props
-// <SubTitleBtn className="" subTitleArr={subTitlesOurCustomers} color="black" />;
+// <SubTitleBtn subTitleArr={subTitlesOurCustomers} color="black" />;
 // props 3. className SubTitleAnimation and  SubTitleBtn (optional)
 
 // example how to use
@@ -65,7 +63,7 @@ export default SubTitleAnimation;
 //   <SubTitleAnimation className="mb-3" color="black">
 //     наші замовники
 //   </SubTitleAnimation>
-//   <SubTitleBtn className="" subTitleArr={subTitlesOurCustomers} color="black" />
+//   <SubTitleBtn subTitleArr={subTitlesOurCustomers} color="black" />
 // </div>;
 
 // Have Fun ))))

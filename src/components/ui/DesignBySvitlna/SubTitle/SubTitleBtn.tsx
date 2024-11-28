@@ -13,7 +13,7 @@ export interface SubTitleBtnProps {
 const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalLength = subTitleArr.length;
-  console.log('index', currentIndex);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalLength);
@@ -32,8 +32,6 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
       className={clsx('relative inline-flex h-8 min-w-32 lg:h-11', className)}
     >
       <AnimatePresence initial={false}>
-        {/* {subTitleArr &&
-            subTitleArr.map((item, ind) => ( */}
         {subTitleArr && (
           <motion.button
             key={subTitleArr[currentIndex]}
@@ -54,7 +52,6 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
             {subTitleArr[currentIndex]}
           </motion.button>
         )}
-        {/* ))} */}
       </AnimatePresence>
     </div>
   );
