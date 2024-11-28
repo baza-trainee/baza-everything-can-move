@@ -26,7 +26,11 @@ const ProjectsSectionSecond: React.FC = () => {
           <SubTitleAnimation className="mb-3 lg:mb-0 lg:mr-6" color="white">
             наші замовники
           </SubTitleAnimation>
-          <SubTitleBtn subTitleArr={subTitlesOurCustomers} color="white" />
+          <SubTitleBtn
+            className="justify-center lg:justify-normal"
+            subTitleArr={subTitlesOurCustomers}
+            color="white"
+          />
         </div>
         {/* ----------------------------------- */}
         {isInView && <SectionImagesManager images={PROJECTS_SVITLANA_IMAGES} />}

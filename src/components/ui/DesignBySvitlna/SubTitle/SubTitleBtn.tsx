@@ -29,7 +29,7 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
   return (
     <div
       className={clsx(
-        'relative inline-flex h-8 min-w-32 lg:h-11 lg:justify-normal',
+        'relative inline-flex h-8 min-w-32 lg:h-11 ',
         className
       )}
     >
