@@ -8,7 +8,6 @@ import ProjectsSection from '@/components/sections/Projects/ProjectsSection/Proj
 
 import BirdsComponent from '@/components/sections/Projects/DesignBySvitlana/Birds/BirdsComponent';
 import ProjectsSectionSecond from '@/components/sections/Projects/DesignBySvitlana/ProjectsSection/ProjectsSection';
-import Test from '@/components/sections/Projects/DesignBySvitlana/TestSection/Test';
 
 const Page = (): JSX.Element => {
   const { designType } = useDesignStore();
@@ -24,7 +23,6 @@ const Page = (): JSX.Element => {
         <>
           <BirdsComponent />
           <ProjectsSectionSecond />
-          <Test />
         </>
       )}
     </>

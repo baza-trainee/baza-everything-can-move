@@ -1,7 +1,8 @@
 'use client';
+// we use it !!!
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export interface SubTitleBtnProps {
   className?: string;
@@ -16,7 +17,7 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalLength);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -28,10 +29,7 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
 
   return (
     <div
-      className={clsx(
-        'relative inline-flex h-8 min-w-32 lg:h-11 ',
-        className
-      )}
+      className={clsx('relative inline-flex h-8 min-w-32 lg:h-11', className)}
     >
       <AnimatePresence initial={false}>
         {/* {subTitleArr &&
