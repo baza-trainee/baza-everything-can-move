@@ -6,7 +6,7 @@ const BirdsComponent = () => {
     //md:w-[375px] lg:w-[768px] 2xl:w-[1440px]
     <section className="relative m-auto h-[803px] w-full overflow-hidden lg:h-[924px] 2xl:mt-0 2xl:h-[754px]">
       <div className="absolute left-[50%] top-[254px] w-[300px] translate-x-[-50%] text-center lg:top-[238px] lg:w-[409px] 2xl:left-80 2xl:top-[132px] 2xl:w-[450px] 2xl:text-left">
-        <SectionTitle secondDesign className="mb-6">
+        <SectionTitle secondDesign className="mb-6 lg:mb-[6px]">
           <span className="text-white">Наші</span>
           <br />
           <span>проєкти</span>

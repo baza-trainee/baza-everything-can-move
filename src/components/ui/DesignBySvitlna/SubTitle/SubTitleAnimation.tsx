@@ -36,15 +36,14 @@ const SubTitleAnimation = ({
       className={clsx(
         'relative flex h-11 flex-col lg:flex-row lg:items-center lg:justify-center',
         color === 'black' && 'text-black',
-        color === 'white' && 'text-white'
+        color === 'white' && 'text-white',
+        className
       )}
     >
       <h3
         className={clsx(
           // mb-3  lg:mb-0 lg:mr-6
-          'mb-3 font-second-family text-md font-semibold uppercase leading-o-120 tracking-s-2 lg:mb-0 lg:mr-6 lg:text-lg lg:font-medium',
-
-          className
+          'mb-3 font-second-family text-md font-semibold uppercase leading-o-120 tracking-s-2 lg:mb-0 lg:mr-6 lg:text-lg lg:font-medium'
         )}
       >
         {children}
@@ -64,7 +63,7 @@ const SubTitleAnimation = ({
                 ease: 'easeInOut',
               }}
               className={clsx(
-                'absolute h-11 inline-flex items-center justify-center rounded-[100px] border px-8 font-second-family text-m font-bold uppercase leading-s-100 tracking-s-2 lg:text-md lg:font-medium',
+                'absolute inline-flex h-11 items-center justify-center rounded-[100px] border px-8 font-second-family text-m font-bold uppercase leading-s-100 tracking-s-2 lg:text-md lg:font-medium',
                 color === 'black' && 'border-black text-black',
                 color === 'white' && 'border-white text-white'
               )}
