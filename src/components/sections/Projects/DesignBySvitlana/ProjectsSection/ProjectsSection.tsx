@@ -5,6 +5,7 @@ import SubTitleAnimation from '@/components/ui/DesignBySvitlna/SubTitle/SubTitle
 import { PROJECTS_SVITLANA_IMAGES } from '@/constants/images/imagesSrc';
 import SectionImagesManager from './SectionImagesManager';
 import { useInView } from 'framer-motion';
+import { subTitlesOurCustomers } from '@/constants/data/subTitlesArr';
 
 const ProjectsSectionSecond: React.FC = () => {
   const ref = useRef(null);
@@ -20,7 +21,11 @@ const ProjectsSectionSecond: React.FC = () => {
         <SectionTitle secondDesign className="mb-4 lg:mb-8 2xl:mt-[496px]">
           категорії
         </SectionTitle>
-        <SubTitleAnimation className="mb-9 text-white lg:mb-8">
+        <SubTitleAnimation
+          className=""
+          color="white"
+          subTitleArr={subTitlesOurCustomers}
+        >
           наші замовники
         </SubTitleAnimation>
         {isInView && <SectionImagesManager images={PROJECTS_SVITLANA_IMAGES} />}
