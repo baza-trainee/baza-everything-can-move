@@ -5,15 +5,17 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 export interface SubTitleAnimationProps {
   children: React.ReactNode;
-  className?: string;
+  classNameGeneral?: string;
   subTitleArr: string[];
   color: 'black' | 'white';
+  classNameDivForBtn?: string;
 }
 const SubTitleAnimation = ({
   children,
-  className,
+  classNameGeneral,
   subTitleArr,
   color,
+  classNameDivForBtn,
 }: SubTitleAnimationProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalLength = subTitleArr.length;
@@ -33,22 +35,29 @@ const SubTitleAnimation = ({
 
   return (
     <div
+      // if center add items-center
       className={clsx(
-        'relative flex h-[68px] flex-col items-center justify-center lg:h-11 lg:flex-row',
+        'relative flex h-[68px] flex-col justify-center lg:h-11 lg:flex-row',
         color === 'black' && 'text-black',
         color === 'white' && 'text-white',
-        className
+        classNameGeneral
       )}
     >
       <h3
         className={clsx(
           // mb-3  lg:mb-0 lg:mr-6
-          'mb-3 font-second-family text-md font-semibold uppercase leading-o-120 tracking-s-2 lg:mb-0 lg:mr-6 lg:text-lg lg:font-medium'
+          'mb-3 font-second-family text-md font-semibold uppercase leading-o-120 tracking-s-2 lg:mb-0 lg:mr-6 lg:self-center lg:text-lg lg:font-medium'
         )}
       >
         {children}
       </h3>{' '}
-      <div className="relative inline-flex h-8 min-w-32 justify-center lg:h-11 lg:justify-normal">
+      {/* if center add justify-center */}
+      <div
+        className={clsx(
+          'relative inline-flex h-8 min-w-32 lg:h-11 lg:justify-normal',
+          classNameDivForBtn
+        )}
+      >
         <AnimatePresence initial={false}>
           {/* {subTitleArr &&
             subTitleArr.map((item, ind) => ( */}

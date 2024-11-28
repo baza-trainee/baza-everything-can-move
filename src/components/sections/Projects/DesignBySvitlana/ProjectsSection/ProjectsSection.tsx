@@ -22,7 +22,8 @@ const ProjectsSectionSecond: React.FC = () => {
           категорії
         </SectionTitle>
         <SubTitleAnimation
-          className="mb-9 lg:mb-6 2xl:mb-8"
+          classNameGeneral="mb-9 lg:mb-6 2xl:mb-8 items-center"
+          classNameDivForBtn="justify-center"
           color="white"
           subTitleArr={subTitlesOurCustomers}
         >
