@@ -34,7 +34,7 @@ const SubTitleAnimation = ({
   return (
     <div
       className={clsx(
-        'relative flex h-11 flex-col lg:flex-row lg:items-center lg:justify-center',
+        'relative flex h-[68px] flex-col items-center justify-center lg:h-11 lg:flex-row',
         color === 'black' && 'text-black',
         color === 'white' && 'text-white',
         className
@@ -48,7 +48,7 @@ const SubTitleAnimation = ({
       >
         {children}
       </h3>{' '}
-      <div className="relative inline-flex h-11 min-w-32">
+      <div className="relative inline-flex h-8 min-w-32 lg:h-11">
         <AnimatePresence initial={false}>
           {/* {subTitleArr &&
             subTitleArr.map((item, ind) => ( */}
@@ -63,7 +63,7 @@ const SubTitleAnimation = ({
                 ease: 'easeInOut',
               }}
               className={clsx(
-                'absolute inline-flex h-11 items-center justify-center rounded-[100px] border px-8 font-second-family text-m font-bold uppercase leading-s-100 tracking-s-2 lg:text-md lg:font-medium',
+                'absolute inline-flex h-8 items-center justify-center rounded-[100px] border px-4 font-second-family text-m font-bold uppercase leading-s-100 tracking-s-2 lg:h-11 lg:px-8 lg:text-md lg:font-medium',
                 color === 'black' && 'border-black text-black',
                 color === 'white' && 'border-white text-white'
               )}
