@@ -14,7 +14,7 @@ const Achievements:React.FC = () => {
   },[])
 
   return (
-    <div className='py-20 lg:pt-[200px] pb-[96px] 2xl:pb-[100px]'> 
+    <div className='py-20 lg:pt-[200px] pb-[96px] 2xl:pb-[100px] container'> 
 
       <div className='flex flex-col items-center 2xl:flex-row 2xl:justify-center 2xl:items-center gap-8 lg:gap-10 2xl:gap-6 pb-[70px] 2xl:pb-[100px]'>
         <SectionTitle className='text-center' secondDesign={true}>Досягнення</SectionTitle>
