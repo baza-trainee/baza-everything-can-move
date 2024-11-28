@@ -48,7 +48,7 @@ const SubTitleAnimation = ({
       >
         {children}
       </h3>{' '}
-      <div className="relative inline-flex h-8 min-w-32 lg:h-11">
+      <div className="relative inline-flex h-8 min-w-32 justify-center lg:h-11 lg:justify-normal">
         <AnimatePresence initial={false}>
           {/* {subTitleArr &&
             subTitleArr.map((item, ind) => ( */}
