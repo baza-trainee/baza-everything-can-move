@@ -1,6 +1,6 @@
 import React from 'react';
 import { subTitlesOurCustomers } from '@/constants/data/subTitlesArr';
-import SubTitleAnimation from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleAnimation';
+import SubTitleAnimation from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleAnimation1';
 
 const Test: React.FC = () => {
   return (
