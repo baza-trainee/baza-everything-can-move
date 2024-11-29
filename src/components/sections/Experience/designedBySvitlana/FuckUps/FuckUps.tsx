@@ -23,7 +23,7 @@ const FuckUps = () => {
             {fuckups.map((fuckup, i) => (
                 <div key={i} className='bg-white text-md leading-[20px] font-medium font-second-family flex flex-row gap-4 uppercase items-end justify-center px-[64px] py-[42px] lg:px-6 rounded-[40px] 2xl:px-[78px] 2xl:py-[41px] z-10'>
                     <p className='text-s-purple text-lg leading-[32px]'>{fuckup.index}</p>
-                    <p className='text-s-gray text-lg leading-[32px] '>//</p>
+                    <p className='text-s-gray text-lg leading-[32px] '></p>
                     <p className='text-s-gray text-md leading-[20px] 2xl:text-md 2xl:leading-[20px]'>fuck<span className='text-lg leading-[32px] font-bold'>up</span></p>
                     <p className='hidden'>{fuckup.textP1}</p>
                     <p className='hidden'>{fuckup.textP2}</p>
