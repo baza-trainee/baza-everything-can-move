@@ -46,9 +46,9 @@ export default function Scene() {
           transform: `translate(${translateX}%, ${translateY}%)`,
           transition: 'transform 1.9s ease-out',
         }}
-        className="h-[700px] 2xl:w-[50%] lg:w-[60%] w-[100%]"
+        className="h-[700px] 2xl:w-[50%] lg:w-[60%] w-[100%] z-10"
       >
-        <Canvas className="w-[100%] h-[100%] z-10">
+        <Canvas className="w-[100%] h-[100%]">
           <directionalLight position={[3, 0, 1]} intensity={0} />
           <Suspense fallback={null}>
             <Model />
