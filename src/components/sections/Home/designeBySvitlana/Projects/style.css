@@ -1,0 +1,62 @@
+/* Контейнер слайдера */
+.slider-container {
+  padding: 20px -50px;
+  position: relative;
+  max-width: 100%;
+}
+
+/* Кастомні стрілки */
+.custom-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #8f8ded;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.custom-nav-btn:hover {
+  background: #8f8ded;
+  color: #ffffff;
+}
+
+.swiper-button-prev {
+  left: -60px;
+}
+
+.swiper-button-next {
+  right: -60px;
+}
+
+/* Кастомна пагінація */
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.custom-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #8f8ded;
+  border-radius: 50%;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.custom-bullet-active {
+  background-color: #ffffff;
+  opacity: 1;
+  transform: scale(1.2);
+}
