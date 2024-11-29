@@ -58,7 +58,7 @@ const Slider = () => {
         spaceBetween={20}
         breakpoints={{
           768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3.5 },
+          1400: { slidesPerView: 3.5 },
         }}
         className="mySwiper"
       >
@@ -66,20 +66,79 @@ const Slider = () => {
           <SwiperSlide key={index}>
             <div className="slide-wrapper border-gray-700 bg-gray-800 rounded-lg border-2">
               <div className="slide-header flex items-center justify-between border-b-2 p-4">
-                <h3 className="text-md font-bold text-white">
+                <h3 className="text-sm font-bold text-white">
                   {project.title}
                 </h3>
                 <div className="icons flex gap-2">
-                  <span className="bg-transparent h-2 w-2 rounded-full border-2 border-white"></span>
-                  <span className="bg-transparent h-2 w-2 rounded-full border-2 border-white"></span>
-                  <span className="bg-transparent h-2 w-2 rounded-full border-2 border-white"></span>
+                  <div className="flex items-center gap-[6px]">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="26"
+                      height="14"
+                      fill="none"
+                      className="h-[14px] w-[26px]"
+                    >
+                      <rect
+                        width="25"
+                        height="13"
+                        x="0.5"
+                        y="0.5"
+                        stroke="#fff"
+                        rx="5.5"
+                      ></rect>
+                      <path
+                        fill="#fff"
+                        d="m13 2 .754 1.942 1.57-1.37-.235 2.07 2.026-.482-1.17 1.723 2.018.514-1.836.983 1.548 1.393-2.083.016.724 1.954-1.852-.954-.267 2.066L13 10.15l-1.197 1.705-.267-2.066-1.852.954.724-1.954-2.083-.016L9.873 7.38l-1.837-.983 2.019-.514-1.17-1.723 2.026.482-.235-2.07 1.57 1.37z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="26"
+                      height="14"
+                      fill="none"
+                      className="h-[14px] w-[26px]"
+                    >
+                      <rect
+                        width="25"
+                        height="13"
+                        x="0.5"
+                        y="0.5"
+                        stroke="#fff"
+                        rx="5.5"
+                      ></rect>
+                      <path
+                        fill="#fff"
+                        d="m13 2 .754 1.942 1.57-1.37-.235 2.07 2.026-.482-1.17 1.723 2.018.514-1.836.983 1.548 1.393-2.083.016.724 1.954-1.852-.954-.267 2.066L13 10.15l-1.197 1.705-.267-2.066-1.852.954.724-1.954-2.083-.016L9.873 7.38l-1.837-.983 2.019-.514-1.17-1.723 2.026.482-.235-2.07 1.57 1.37z"
+                      ></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="26"
+                      height="14"
+                      fill="none"
+                      className="h-[14px] w-[26px]"
+                    >
+                      <rect
+                        width="25"
+                        height="13"
+                        x="0.5"
+                        y="0.5"
+                        stroke="#fff"
+                        rx="5.5"
+                      ></rect>
+                      <path
+                        fill="#fff"
+                        d="m13 2 .754 1.942 1.57-1.37-.235 2.07 2.026-.482-1.17 1.723 2.018.514-1.836.983 1.548 1.393-2.083.016.724 1.954-1.852-.954-.267 2.066L13 10.15l-1.197 1.705-.267-2.066-1.852.954.724-1.954-2.083-.016L9.873 7.38l-1.837-.983 2.019-.514-1.17-1.723 2.026.482-.235-2.07 1.57 1.37z"
+                      ></path>
+                    </svg>
+                  </div>
                 </div>
               </div>
               <div className="slide-content">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="h-auto w-full rounded-b-lg p-4"
+                   className="h-auto w-full rounded-b-lg p-4 transform transition-transform duration-300 hover:scale-125"
                 />
               </div>
             </div>
@@ -101,7 +160,6 @@ const Slider = () => {
         />
       </div>
 
-      
       {/* Пагінація */}
       <div className="swiper-pagination"></div>
     </div>
