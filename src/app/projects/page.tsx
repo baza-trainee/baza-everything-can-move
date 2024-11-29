@@ -21,7 +21,7 @@ const Page = (): JSX.Element => {
       )}
       {designType === 'designBySvitlana' && (
         <>
-          <BirdsComponent />
+          {/* <BirdsComponent /> */}
           <ProjectsSectionSecond />
         </>
       )}
