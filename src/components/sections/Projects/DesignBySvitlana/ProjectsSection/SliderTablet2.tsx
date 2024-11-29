@@ -83,7 +83,7 @@ const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
               ref={containerRef}
               variants={imageVariants}
               //custom={direction}
-              // initial="enter"
+              // initial={{ x: 0 }}
               animate="animate"
               transition={{ duration: 0.5 }}
               className="flex"

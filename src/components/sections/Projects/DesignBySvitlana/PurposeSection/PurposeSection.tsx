@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { ICONS_PURPOSE } from '@/constants/icons/iconsSrc';
-import { motion } from 'framer-motion';
+import StarsComponent from './StarsComponent';
 
 const PurposeSection: React.FC = () => {
   return (
@@ -19,38 +19,7 @@ const PurposeSection: React.FC = () => {
       </Container>
       {/* stars div 1 */}
       <div className="relative mx-auto mb-5 h-[246px] w-[375px] lg:mb-4 lg:h-[413px] lg:w-[630px] 2xl:hidden">
-        {/* first star */}
-        <div className="absolute left-8 top-10 h-[168px] w-[168px] lg:left-11 lg:top-16 lg:h-[282px] lg:w-[282px]">
-          <ICONS_PURPOSE.STAR_BIG className="h-[168px] w-[168px] fill-s-gray lg:h-[282px] lg:w-[282px]" />
-          <div className="absolute left-1/2 top-1/2 h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2 lg:h-[84px] lg:w-[84px]">
-            <motion.div
-              whileInView={{ rotate: 360 }}
-              transition={{
-                repeat: Infinity,
-                duration: 4,
-                ease: 'linear',
-              }}
-            >
-              <ICONS_PURPOSE.STAR_SMALL className="h-[50px] w-[50px] fill-s-light-purple lg:h-[84px] lg:w-[84px]" />
-            </motion.div>
-          </div>
-        </div>
-        {/* second star */}
-        <div className="absolute left-[180px] top-[18px] h-[168px] w-[168px] lg:left-[300px] lg:top-[30px] lg:h-[282px] lg:w-[282px]">
-          <ICONS_PURPOSE.STAR_BIG className="h-[168px] w-[168px] fill-s-light-purple lg:h-[282px] lg:w-[282px]" />
-          <div className="absolute left-1/2 top-1/2 h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2 lg:h-[84px] lg:w-[84px]">
-            <motion.div
-              whileInView={{ rotate: -360 }}
-              transition={{
-                repeat: Infinity,
-                duration: 4,
-                ease: 'linear',
-              }}
-            >
-              <ICONS_PURPOSE.STAR_SMALL className="h-[50px] w-[50px] fill-white lg:h-[84px] lg:w-[84px]" />
-            </motion.div>
-          </div>
-        </div>
+        <StarsComponent />
       </div>
       {/* ------------------- */}
       <Container className="flex flex-col gap-6 lg:flex-row lg:gap-[90px] 2xl:gap-3">
@@ -68,38 +37,7 @@ const PurposeSection: React.FC = () => {
         </div>
         {/* stars div 2*/}
         <div className="mx-auto hidden 2xl:relative 2xl:block 2xl:h-[413px] 2xl:w-[630px]">
-          {/* first star */}
-          <div className="absolute left-8 top-10 h-[168px] w-[168px] lg:left-11 lg:top-16 lg:h-[282px] lg:w-[282px]">
-            <ICONS_PURPOSE.STAR_BIG className="h-[168px] w-[168px] fill-s-gray lg:h-[282px] lg:w-[282px]" />
-            <div className="absolute left-1/2 top-1/2 h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2 lg:h-[84px] lg:w-[84px]">
-              <motion.div
-                whileInView={{ rotate: 360 }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 4,
-                  ease: 'linear',
-                }}
-              >
-                <ICONS_PURPOSE.STAR_SMALL className="h-[50px] w-[50px] fill-s-light-purple lg:h-[84px] lg:w-[84px]" />
-              </motion.div>
-            </div>
-          </div>
-          {/* second star */}
-          <div className="absolute left-[180px] top-[18px] h-[168px] w-[168px] lg:left-[300px] lg:top-[30px] lg:h-[282px] lg:w-[282px]">
-            <ICONS_PURPOSE.STAR_BIG className="h-[168px] w-[168px] fill-s-light-purple lg:h-[282px] lg:w-[282px]" />
-            <div className="absolute left-1/2 top-1/2 h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2 lg:h-[84px] lg:w-[84px]">
-              <motion.div
-                whileInView={{ rotate: -360 }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 4,
-                  ease: 'linear',
-                }}
-              >
-                <ICONS_PURPOSE.STAR_SMALL className="h-[50px] w-[50px] fill-white lg:h-[84px] lg:w-[84px]" />
-              </motion.div>
-            </div>
-          </div>
+          <StarsComponent />
         </div>
         {/* ------------------- */}
         <div className="flex gap-[6px] 2xl:mt-[35px] 2xl:w-[292px]">
