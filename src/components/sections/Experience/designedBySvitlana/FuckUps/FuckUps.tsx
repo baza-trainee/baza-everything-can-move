@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import SectionTitle from '@/components/ui/SectionTitle';
 // import { Meteors } from './Meteors';
 import { fuckups } from '@/constants/fuckups'
