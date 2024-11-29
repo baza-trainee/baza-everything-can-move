@@ -101,6 +101,7 @@ const Slider = () => {
         />
       </div>
 
+      
       {/* Пагінація */}
       <div className="swiper-pagination"></div>
     </div>
