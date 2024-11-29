@@ -34,7 +34,7 @@ export default function Projects() {
         <div className="container">
           <h2
             ref={headingRef}
-            className={`mb-5 text-xlg leading-[120%] text-s-title-home uppercase transition-all duration-700 lg:text-3xl ${
+            className={`mb-5 text-xlg uppercase leading-[120%] text-s-title-home transition-all duration-700 lg:text-3xl ${
               isVisible
                 ? 'translate-y-0 opacity-100'
                 : 'translate-y-10 opacity-0'
@@ -42,6 +42,7 @@ export default function Projects() {
           >
             Досвід
           </h2>
+          <p >Тут ви можете дізнатись про наші факапи та досягнення</p>
           <Link
             href="/experience"
             className="border-sky-500 hover:bg-sky-700 relative flex max-w-48 rounded-3xl border-2 border-solid bg-s-gray py-2 pb-2 pl-8 text-md uppercase text-white"

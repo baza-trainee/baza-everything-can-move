@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import SectionTitle from '@/components/ui/SectionTitle';
 // import { Meteors } from './Meteors';
 import { fuckups } from '@/constants/fuckups'
@@ -7,12 +7,12 @@ const FuckUps = () => {
 
     useEffect(() => {
         const list = document.getElementById('list')
-        list?.addEventListener('click', (e)=>{
+        //list?.addEventListener('click', (e)=>{
             // console.log(e.target); //to add dataset
-        })
+        //})
     },[]);
 
-    const [isOpen, setIsOpen] = useState(false);
+    //const [isOpen, setIsOpen] = useState(false);
     // console.log(isOpen);
 
   return (

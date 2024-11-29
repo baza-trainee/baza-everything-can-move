@@ -61,21 +61,19 @@ export default function Teams() {
   }, []);
 
   return (
-    <Background text="01 // Команда" bg="white">
-      <section className="teams l pt-2 text-olga-grid mb-[222px]">
+    <Background text="01 // Команда" bg="white" xl={100}>
+      <section className="teams l mb-[222px] pt-2 text-olga-grid">
         <h2
           ref={headingRef}
           className={`mb-5 text-xlg leading-[120%] text-s-title-home transition-all duration-700 lg:text-3xl ${
-            isVisible
-              ? 'translate-y-0 opacity-100'
-              : 'translate-y-10 opacity-0'
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
           команди
         </h2>
         <div className="flex flex-wrap gap-12">
           <div className="text">
-            <div className="mb-6 inline-block items-center gap-8 text-lg uppercase lg:flex">
+            <div className="mb-6 items-center gap-8 text-lg uppercase lg:flex">
               ми об&apos;єднуємо
               <p className="border-sky-500 rounded-2xl border-2 border-solid px-6 py-1 text-md">
                 дизайнерів
@@ -109,7 +107,7 @@ export default function Teams() {
             </ul>
             <Link
               href="/team"
-              className="border-sky-500 hover:bg-sky-700 relative flex max-w-48 rounded-3xl border-2 border-solid bg-s-gray py-2 pb-2 pl-8 text-md uppercase text-white z-10"
+              className="border-sky-500 hover:bg-sky-700 relative z-10 flex max-w-48 rounded-3xl border-2 border-solid bg-s-gray py-2 pb-2 pl-8 text-md uppercase text-white"
             >
               переглянути
               <div className="absolute -right-2">
@@ -132,8 +130,13 @@ export default function Teams() {
               </div>
             </Link>
           </div>
-          <div className="absolute w-[72%] lg:right-[-15%] h-[40%] lg:bottom-48 bottom-0">
-            <Canvas camera={{ position: cameraSettings.position, fov: cameraSettings.fov }}>
+          <div className="absolute bottom-0 h-[40%] w-[72%] lg:bottom-48 lg:right-[-15%]">
+            <Canvas
+              camera={{
+                position: cameraSettings.position,
+                fov: cameraSettings.fov,
+              }}
+            >
               <ambientLight intensity={0.5} />
               <directionalLight position={[10, 10, 5]} intensity={1} />
               <OrbitControls
