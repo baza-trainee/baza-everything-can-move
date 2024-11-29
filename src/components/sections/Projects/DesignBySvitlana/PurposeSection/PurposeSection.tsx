@@ -1,7 +1,8 @@
+import React from 'react';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 import { ICONS_PURPOSE } from '@/constants/icons/iconsSrc';
-import React from 'react';
+import { motion } from 'framer-motion';
 
 const PurposeSection: React.FC = () => {
   return (
@@ -16,13 +17,39 @@ const PurposeSection: React.FC = () => {
           </p>
         </div>
       </Container>
+      {/* first star */}
       <div className="">
         <div className="relative h-[168px] w-[168px]">
           <ICONS_PURPOSE.STAR_BIG className="h-[168px] w-[168px] fill-s-gray" />
-          <ICONS_PURPOSE.STAR_SMALL className="absolute left-1/2 top-1/2 h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2 fill-s-light-purple" />
+          <div className="absolute left-1/2 top-1/2 h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{
+                repeat: Infinity,
+                duration: 6,
+                ease: 'linear',
+              }}
+            >
+              <ICONS_PURPOSE.STAR_SMALL className="h-[50px] w-[50px] fill-s-light-purple" />
+            </motion.div>
+          </div>
         </div>
-
-        <ICONS_PURPOSE.STAR_BIG className="ml-5 h-[168px] w-[168px] fill-s-light-purple" />
+        {/* second star */}
+        <div className="relative h-[168px] w-[168px]">
+          <ICONS_PURPOSE.STAR_BIG className="h-[168px] w-[168px] fill-s-light-purple" />
+          <div className="absolute left-1/2 top-1/2 h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2">
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{
+                repeat: Infinity,
+                duration: 6,
+                ease: 'linear',
+              }}
+            >
+              <ICONS_PURPOSE.STAR_SMALL className="h-[50px] w-[50px] fill-white" />
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
