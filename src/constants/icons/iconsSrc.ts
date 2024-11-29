@@ -23,11 +23,13 @@ import o3 from '@/assets/icons/header/designSvitlana/03.svg';
 import o4 from '@/assets/icons/header/designSvitlana/04.svg';
 import Stars_btn from '@/assets/icons/shared/stars_btn.svg';
 import Star_big from '@/assets/icons/projects/purpose/Star_big.svg';
-import Star_small from '@/assets/icons/projects/purpose/Star small.svg';
+import Star_small from '@/assets/icons/projects/purpose/Star_small.svg';
+import Rectangle from '@/assets/icons/projects/purpose/Rectangle.svg';
 
 export const ICONS_PURPOSE = {
   STAR_BIG: Star_big,
   STAR_SMALL: Star_small,
+  RECTANGLE: Rectangle,
 };
 export const ICONS_SRC = {
   CLOSE_MENU_ICON: CloseMenuIcon,
