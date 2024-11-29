@@ -1,5 +1,5 @@
 'use client';
-//1-5
+//1-5 not infinity- works
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PanInfo } from 'framer-motion';

@@ -45,7 +45,7 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
               Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
             </p>
           </div>
-          <SliderTablet images={images} />
+          {/* <SliderTablet images={images} /> */}
           <SliderTablet2 images={images} />
         </>
       )}

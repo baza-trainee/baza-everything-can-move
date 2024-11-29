@@ -17,7 +17,7 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalLength);
-    }, 3000);
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -40,7 +40,7 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
             animate="center"
             transition={{
               duration: 0.5,
-              ease: 'easeInOut',
+              ease: 'easeOut',
             }}
             className={clsx(
               'absolute inline-flex h-8 items-center justify-center rounded-[100px] border px-4 font-second-family text-m font-bold uppercase leading-s-100 tracking-s-2 lg:h-11 lg:px-8 lg:text-md lg:font-medium',
