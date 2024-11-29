@@ -28,6 +28,7 @@ const ProjectCard = ({ src, name }: SvitlanaProjectsImagesType) => {
             width: '300px',
             height: '146px',
           }}
+          onDragStart={(e) => e.preventDefault()}
         />
       </div>
     </div>
