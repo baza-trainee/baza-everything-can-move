@@ -46,8 +46,7 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
             </p>
           </div>
 
-          {/* <SliderTablet2 images={images} /> */}
-          <SliderDesktop images={images} />
+          <SliderTablet2 images={images} />
         </>
       )}
       {/* desktop */}
