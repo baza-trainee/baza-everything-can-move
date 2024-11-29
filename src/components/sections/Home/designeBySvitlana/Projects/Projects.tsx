@@ -33,7 +33,7 @@ export default function Projects() {
   return (
     <Background text="02 // Проєкти" bg="s-gray" xl={500}>
       <section className="mb-32 px-0">
-        <div className="flex justify-between items-center mb-12">
+        <div className="xl:flex justify-between items-center mb-12">
           <div className="title ">
             <h2
               ref={headingRef}
@@ -45,10 +45,10 @@ export default function Projects() {
             >
               Проєкти
             </h2>
-            <p className="text-lg uppercase">baza trainee ukraine</p>
+            <p className="text-lg uppercase xl:mb-0 mb-4">baza trainee ukraine</p>
           </div>
-          <div className="flex flex-col -space-y-7 space-x-80">
-            <p className="max-w-[590px] text-white leading-9">
+          <div className="flex flex-col xl:-space-y-7 xl:space-x-80">
+            <p className="max-w-[590px] text-white leading-9 xl:block hidden ">
               Усі наші проєкти мають різний рівень складності та контентент.
             </p>
             <Link
