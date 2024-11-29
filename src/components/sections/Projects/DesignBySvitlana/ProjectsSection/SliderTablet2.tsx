@@ -114,7 +114,7 @@ const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
         {images.map((_, index) => (
           <div
             key={index}
-            className={`h-3 w-3 rounded-full border border-white ${index === currentIndex ? 'bg-white' : 'bg-transparent'}`}
+            className={`h-3 w-3 cursor-pointer rounded-full border border-white ${index === currentIndex ? 'bg-white' : 'bg-transparent'}`}
             onClick={() => handleClick(index)}
           />
         ))}

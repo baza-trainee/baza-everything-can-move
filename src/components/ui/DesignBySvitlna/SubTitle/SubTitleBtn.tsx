@@ -43,7 +43,7 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
               ease: 'easeOut',
             }}
             className={clsx(
-              'absolute inline-flex h-8 items-center justify-center rounded-[100px] border px-4 font-second-family text-m font-bold uppercase leading-s-100 tracking-s-2 lg:h-11 lg:px-8 lg:text-md lg:font-medium',
+              'absolute inline-flex h-8 cursor-default items-center justify-center rounded-[100px] border px-4 font-second-family text-m font-bold uppercase leading-s-100 tracking-s-2 lg:h-11 lg:px-8 lg:text-md lg:font-medium',
               color === 'black' && 'border-black text-black',
               color === 'white' && 'border-white text-white'
             )}

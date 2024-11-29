@@ -20,6 +20,7 @@ const ProjectCard = ({ src, name }: SvitlanaProjectsImagesType) => {
       <div className="px-4 py-[19px]">
         <Image
           src={src}
+          // pointer-events-none
           className="object-cover"
           alt={name}
           // width={302}
