@@ -5,12 +5,12 @@ import { fuckups } from '@/constants/fuckups'
 
 const FuckUps = () => {
 
-    useEffect(() => {
-        const list = document.getElementById('list')
+    //useEffect(() => {
+        //const list = document.getElementById('list')
         //list?.addEventListener('click', (e)=>{
             // console.log(e.target); //to add dataset
         //})
-    },[]);
+    //},[]);
 
     //const [isOpen, setIsOpen] = useState(false);
     // console.log(isOpen);
