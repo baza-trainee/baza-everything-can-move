@@ -17,30 +17,31 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalLength);
-    }, 2000);
+    }, 2500);
     return () => clearInterval(interval);
-  }, []);
+  }, [totalLength]);
 
   const itemArrVariants = {
     initial: {
       opacity: 0.1,
       transition: {
-        duration: 0.5,
         ease: 'linear',
       },
     },
     animate: {
-      opacity: [0.5, 1],
+      opacity: 1,
       transition: {
-        duration: 1,
+        duration: 1.5,
+
         ease: 'linear',
       },
     },
     exit: {
       opacity: 0,
       transition: {
-        duration: 0.5,
         ease: 'linear',
+        delay: 0.5,
+        duration: 0.5,
       },
     },
     // animate: {
@@ -63,13 +64,11 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
     <div
       className={clsx('relative inline-flex h-8 min-w-32 lg:h-11', className)}
     >
-      <AnimatePresence mode="wait">
-        {subTitleArr && (
-          <motion.div
-            key={subTitleArr[currentIndex]}
-            className="absolute left-0 top-0 inline-flex h-8 items-center justify-center rounded-[100px] border px-4 lg:h-11 lg:px-8"
-          >
+      <div className="absolute inline-flex h-8 items-center justify-center rounded-[100px] border px-4 lg:h-11 lg:px-8">
+        <AnimatePresence mode="wait">
+          {subTitleArr && (
             <motion.div
+              key={`motion-${currentIndex}`}
               variants={itemArrVariants}
               initial="initial"
               exit="exit"
@@ -105,9 +104,9 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
             >
               {subTitleArr[currentIndex]}
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
