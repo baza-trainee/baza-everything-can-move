@@ -63,11 +63,10 @@ const Header = () => {
               <Link
                 href="/"
                 className={clsx(
-                  'pl-4 lg:pl-6',
                   designType === 'designByOlga' &&
-                    'pt-10 lg:pb-[30px] lg:pt-[30px] 2xl:pb-10 2xl:pl-10 2xl:pt-10',
+                    'pl-4 pt-10 lg:pb-[30px] lg:pl-6 lg:pt-[30px] 2xl:pb-10 2xl:pl-10 2xl:pt-10',
                   designType === 'designBySvitlana' &&
-                    'pb-1 pt-1 lg:pb-[26px] lg:pt-[10px] 2xl:pb-4 2xl:pl-20 2xl:pt-4'
+                    'ml-4 py-3 lg:ml-6 lg:py-4 2xl:ml-[82px]'
                 )}
               >
                 <Image
@@ -75,7 +74,7 @@ const Header = () => {
                     designType === 'designByOlga' &&
                       'h-16 w-16 lg:h-20 lg:w-20',
                     designType === 'designBySvitlana' &&
-                      'w-[56px] lg:w-[53px] 2xl:w-[66px]'
+                      'w-[40px] lg:w-[68px] 2xl:w-[76px]'
                   )}
                   src="/assets/images/Logo/logo_baza.png"
                   alt="Logo Baza Trainee Ukraine"
