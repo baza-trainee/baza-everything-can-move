@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Link from 'next/link';
-import { SocialMediaData } from '@/components/data/SocialMediaData';
+import { SocialMediaData } from '@/constants/data/SocialMediaData';
 
 const SocialMedia: React.FC = () => {
   return (
-    <ul className="xl:mb-0 mb-6 flex justify-center gap-[18px]">
+    <ul className="mb-6 flex justify-center gap-[18px] xl:mb-0">
       {SocialMediaData.map((social, index) => (
         <li
           key={index}

@@ -1,5 +1,5 @@
 'use client';
-//1-5
+//1-5 not infinity- works
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PanInfo } from 'framer-motion';
@@ -83,7 +83,7 @@ const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
               ref={containerRef}
               variants={imageVariants}
               //custom={direction}
-              // initial="enter"
+              // initial={{ x: 0 }}
               animate="animate"
               transition={{ duration: 0.5 }}
               className="flex"
@@ -114,7 +114,7 @@ const SliderTablet2: React.FC<ProjectsImagesProps> = ({ images }) => {
         {images.map((_, index) => (
           <div
             key={index}
-            className={`h-3 w-3 rounded-full border border-white ${index === currentIndex ? 'bg-white' : 'bg-transparent'}`}
+            className={`h-3 w-3 cursor-pointer rounded-full border border-white ${index === currentIndex ? 'bg-white' : 'bg-transparent'}`}
             onClick={() => handleClick(index)}
           />
         ))}
