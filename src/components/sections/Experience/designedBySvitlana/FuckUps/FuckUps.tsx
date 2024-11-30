@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import SectionTitle from '@/components/ui/SectionTitle';
 // import { Meteors } from './Meteors';
 import { ICONS_EXPERIENCE } from '@/constants/icons/iconsSrc';
