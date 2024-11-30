@@ -1,9 +1,9 @@
 'use client';
 
-import { motion, PanInfo } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { teamsFoto } from './ui/dataFoto';
 import CardTeam from './Card';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   generatePositions,
   generateVariantsHorizontal,
@@ -14,6 +14,10 @@ function ListTeam() {
   const [positionIndexes, setPositionIndexes] = useState(
     teamsFoto.map((_, index) => index)
   );
+
+  const [valueX, setVlueX] = useState(0);
+  const [lastPaginatedValue, setLastPaginatedValue] = useState(0);
+
   const position = useMemo(
     () => generatePositions(teamsFoto.length),
     [teamsFoto.length]
@@ -40,28 +44,40 @@ function ListTeam() {
     );
   }, [teamsFoto.length]);
 
-  const handleDragEnd = (
-    _: MouseEvent | TouchEvent | PointerEvent,
-    info: PanInfo
-  ) => {
-    if (info.offset.x > 50) {
-      handleNext();
-    } else if (info.offset.x < -50) {
-      handlePrev();
+  useEffect(() => {
+    const delta = valueX - lastPaginatedValue;
+
+    if (Math.abs(delta) >= 150) {
+      const steps = Math.trunc(delta / 150);
+
+      if (steps > 0) {
+        for (let i = 0; i < steps; i++) {
+          handleNext();
+        }
+      } else if (steps < 0) {
+        for (let i = 0; i < Math.abs(steps); i++) {
+          handlePrev();
+        }
+      }
+
+      setLastPaginatedValue(lastPaginatedValue + steps * 150);
     }
-  };
+  }, [valueX, lastPaginatedValue, handleNext, handlePrev]);
+
   return (
     <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 lg:bottom-[200px] 2xl:bottom-[130px]">
       <div className="flex h-[400px] w-full items-end justify-center overflow-hidden">
         <motion.ul
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          onDragEnd={handleDragEnd}
+          onPan={(_, info) => setVlueX((prev) => prev + info.delta.x)}
           className="relative flex h-[280px] w-full items-center justify-center"
         >
+          <motion.div
+            onPan={(_, info) => setVlueX((prev) => prev + info.delta.x)}
+            className="absolute bottom-0 left-0 right-0 z-20 h-[320px]"
+          ></motion.div>
           {teamsFoto.map((item, index) => (
             <motion.li
-              className="absolute"
+              className="pointer-events-none absolute"
               key={index}
               initial="center"
               animate={position[positionIndexes[index]]}
