@@ -67,11 +67,11 @@ const Bubbles2D:React.FC = () => {
 
   return (
     <div id='Block2D' className='relative h-[546px] lg:h-[466px] 2xl:h-[526px] w-full'>
-        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute left-[117px] top-[332px] lg:left-[-50px] lg:top-[84px] 2xl:top-[90px] 2xl:left-[-90px] rounded-full opacity-100 bg-radial-gradien z-0 hidden'/>
-        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute left-[19px] top-[127px] lg:left-[108px] lg:top-[272px] 2xl:top-[227px] 2xl:left-[166px] rounded-full opacity-100 bg-radial-gradien z-0 hidden'/>
-        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute top-[46px] left-[167px] lg:left-[162px] lg:top-[41px] 2xl:top-[36px] 2xl:left-[441px] rounded-full opacity-100 bg-radial-gradien z-0 hidden'/>
-        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute top-[397px] left-[3px] lg:left-[480px] lg:top-[-34px] 2xl:top-[145px] 2xl:left-[636px] rounded-full opacity-100 bg-radial-gradien z-0 hidden'/>
-        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute left-[-13px] top-[-23px] lg:top-[159px] lg:left-[480px] 2xl:top-[145px] 2xl:left-[909px] rounded-full opacity-100 bg-radial-gradien z-0 hidden'/>
+        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute left-[117px] top-[332px] lg:left-[-50px] lg:top-[84px] 2xl:top-[90px] 2xl:left-[-90px] rounded-full opacity-100 bg-radial-gradien z-10 hidden'/>
+        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute left-[19px] top-[127px] lg:left-[108px] lg:top-[272px] 2xl:top-[227px] 2xl:left-[166px] rounded-full opacity-100 bg-radial-gradien z-10 hidden'/>
+        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute top-[46px] left-[167px] lg:left-[162px] lg:top-[41px] 2xl:top-[36px] 2xl:left-[441px] rounded-full opacity-100 bg-radial-gradien z-10 hidden'/>
+        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute top-[397px] left-[3px] lg:left-[480px] lg:top-[-34px] 2xl:top-[145px] 2xl:left-[636px] rounded-full opacity-100 bg-radial-gradien z-10 hidden'/>
+        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute left-[-13px] top-[-23px] lg:top-[159px] lg:left-[480px] 2xl:top-[145px] 2xl:left-[909px] rounded-full opacity-100 bg-radial-gradien z-10 hidden'/>
 
          <div id={styles.wiggleBlock} data-leftsm='162' data-leftlg='0' data-left2xl='0' data-topsm='377' data-toplg='134' data-top2xl='183' className='bg-[#1D1D1C] rounded-full w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] 2xl:w-[164px] 2xl:h-[164px] flex flex-col items-center justify-center text-olga-green duration-400 absolute z-10 opacity-100 left-[162px] top-[377px] lg:left-[0px] lg:top-[134px] 2xl:top-[183px] 2xl:left-[0px]'>
             <div className="text-lg leading-s-48 2xl:text-xl 2xl:leading-[72px] font-medium z-50">{'812+'}</div>

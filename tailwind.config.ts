@@ -84,8 +84,8 @@ const config: Config = {
         widthXl: 'calc(100% - 343px)',
       },
       left: {
-        125: "125px",
-        1143: "1143px",
+        125: '125px',
+        1143: '1143px',
       },
       backgroundImage: {
         grid: 'linear-gradient(90deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px), linear-gradient(180deg, rgba(107, 106, 106, 0.6) 1px, transparent 1px)',
@@ -133,6 +133,7 @@ const config: Config = {
         's-36': '36px',
         's-38': '38px',
         's-48': '48px',
+        's-96': '96px',
         's-100': '100%',
         's-120': '120px',
         's-129': '129px',
@@ -147,16 +148,25 @@ const config: Config = {
         'olga-3': '0px 100px 80px 0px #8C898912',
         'olga-combined':
           '0px 6.65px 5.32px 0px #8C898907, 0px 22.34px 17.87px 0px #8C89890B, 0px 100px 80px 0px #8C898912',
-          '3xl': 'inset 0 10px 10px -10px rgba(0, 0, 0, 0.3)',
+        '3xl': 'inset 0 10px 10px -10px rgba(0, 0, 0, 0.3)',
       },
       animation: {
         marqueeCustom:
           'marqueeCustom var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+          "meteor-effect": "meteor 5s linear infinite",
       },
       keyframes: {
         marqueeCustom: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
+        },
+        meteor: {
+          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+          "70%": { opacity: "1" },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
         },
       },
     },
