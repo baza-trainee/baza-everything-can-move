@@ -9,27 +9,13 @@ const FuckUps = () => {
 
     const [isOpen, setIsOpen] = useState([false, false, false]);
 
-    // useEffect(() => {
-     // list = document.querySelectorAll('#list')
-        // for (let i = 0; i < list.children.length; i++) {
-        //     list.children[i].addEventListener('click', (e)=>{
-                // const idx = e.currentTarget?
-                // console.log(list);     
-        //     }
-        // )}
-
-    // },[isOpen]);
-
-
     const toggleClick = (e:React.SyntheticEvent<HTMLDivElement>) => {
         e.preventDefault();
-        // console.log(e);
         const idx = Number(e.currentTarget.dataset.index);
         const value = !isOpen[idx];
         const copy = isOpen.slice()
         copy.splice(idx,1,value)
         setIsOpen(copy);
-        // console.log(isOpen);
     }
 
 
@@ -41,14 +27,18 @@ const FuckUps = () => {
             {fuckups.map((fuckup, i) => {
                 const IndexIcon = ICONS_EXPERIENCE[i]
                 const value = isOpen[i]
-                // console.log(value);
                 return (
-                <div id='list' key={i} data-index={i} onClick={toggleClick} className={clsx('text-md leading-[20px] font-medium font-second-family flex flex-row gap-4 items-center justify-center px-[62px] py-[42px] lg:px-6 rounded-[40px] 2xl:px-[78px] 2xl:py-[41px] z-10', value ? 'bg-black' :'bg-white')}>
-                    <IndexIcon className='text-s-purple h-10 w-8 leading-[32px] -rotate-90'/>
-                    <p className='text-s-gray text-lg leading-[32px]'>&#47;&#47;</p>
-                    <p className='text-s-gray text-md leading-[20px] 2xl:text-md 2xl:leading-[20px] uppercase'>fuck<span className='text-lg leading-[32px] font-bold'>up</span></p>
-                    <p className={clsx(value ? 'block' : 'hidden')}>{fuckup.textP1}</p>
-                    <p className={clsx(value ? 'block' : 'hidden')}>{fuckup.textP2}</p>
+                <div id='list' key={i} data-index={i} onClick={toggleClick} className={clsx('font-second-family rounded-[40px] z-10', value ? 'bg-black border border-white' :'bg-white')}>
+                    <div className='text-md leading-[20px] font-medium flex flex-row gap-4 items-center justify-center px-[62px] py-[42px] lg:px-6 2xl:px-[78px] 2xl:py-[41px]'>
+                        <IndexIcon className='text-s-purple h-10 w-8 leading-[32px] -rotate-90'/>
+                        <p className={clsx('text-lg leading-[32px]', value ? 'text-white' : 'text-s-gray')} >&#47;&#47;</p>
+                        <p className={clsx('text-md leading-[20px] 2xl:text-md 2xl:leading-[20px] uppercase', value ? 'text-white' : 'text-s-gray')}>fuck<span className={clsx('text-lg leading-[32px] font-bold', value ? 'text-s-purple' : 'text-s-gray')}>up</span></p>
+                    </div>
+                    <div className={clsx(value ? 'block text-4 leading-6 font-regular text-center p-[38px] pt-8 border-t' : 'hidden')}>
+                        <p>{fuckup.textP1}</p>
+                        <br className={clsx(value ? 'block' : 'hidden')}/>
+                        <p>{fuckup.textP2}</p>
+                    </div>
                 </div>
                 )   
              })}
