@@ -1,15 +1,21 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { TeamsFotoType } from './ui/dataFoto';
+import { cn } from '@/lib/utils';
 
-function CardTeam({ name, urlFoto, role }: TeamsFotoType) {
+type CardsProps = TeamsFotoType & { className?: ReactNode };
+
+function CardTeam({ name, urlFoto, role, className }: CardsProps) {
   return (
     <div
       style={{
         backdropFilter: 'blur(87.77425384521484px)',
         background: 'rgba(188, 187, 249, 0.2)',
       }}
-      className="flex h-[280px] w-[224px] flex-col items-center justify-center rounded-2xl border-[1px] border-white font-second-family opacity-95"
+      className={cn(
+        'flex h-[280px] w-[224px] flex-col items-center justify-center rounded-2xl border-[1px] border-white font-second-family opacity-95',
+        className
+      )}
     >
       <Image
         src={urlFoto}
