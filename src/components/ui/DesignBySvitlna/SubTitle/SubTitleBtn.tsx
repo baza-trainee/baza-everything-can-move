@@ -21,12 +21,31 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
     return () => clearInterval(interval);
   }, []);
 
-  // const itemArrVariants = {
-  //   initial: { opacity: 0 },
-  //   animate: { opacity: 1 },
+  const itemArrVariants = {
+    initial: {
+      opacity: 0.1,
+      transition: {
+        duration: 0.5,
+        ease: 'linear',
+      },
+    },
+    animate: {
+      opacity: 0.5,
+      transition: {
+        duration: 0.5,
+        ease: 'linear',
+      },
+    },
 
-  //   exit: { opacity: 0 },
-  // };
+    center: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: 'linear',
+      },
+    },
+    exit: { opacity: 0 },
+  };
   return (
     <div
       className={clsx('relative inline-flex h-8 min-w-32 lg:h-11', className)}
@@ -36,14 +55,18 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
           <div className="absolute left-0 top-0 inline-flex h-8 items-center justify-center rounded-[100px] border px-4 lg:h-11 lg:px-8">
             <motion.div
               key={subTitleArr[currentIndex]}
-              animate={{
-                opacity: [0, 0.5, 1],
-              }}
-              transition={{
-                duration: 2,
-                ease: 'linear',
-                times: [0, 0.5, 1],
-              }}
+              variants={itemArrVariants}
+              initial="initial"
+              exit="exit"
+              animate={['animate', 'center']}
+              // animate={{
+              //   opacity: [0, 0.5, 1],
+              // }}
+              // transition={{
+              //   duration: 2,
+              //   ease: 'linear',
+              //   times: [0, 0.5, 1],
+              // }}
               className={clsx(
                 'font-second-family text-m font-bold uppercase leading-s-100 tracking-s-2 lg:text-md lg:font-medium',
                 color === 'black' && 'border-black text-black',
