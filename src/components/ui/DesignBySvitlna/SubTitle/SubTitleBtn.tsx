@@ -37,12 +37,12 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
             <motion.div
               key={subTitleArr[currentIndex]}
               animate={{
-                opacity: [0.1, 0.5, 1, 0.5],
+                opacity: [0, 0.5, 1],
               }}
               transition={{
                 duration: 2,
-                ease: 'easeInOut',
-                times: [0, 0.3, 0.7, 1],
+                ease: 'linear',
+                times: [0, 0.5, 1],
               }}
               className={clsx(
                 'font-second-family text-m font-bold uppercase leading-s-100 tracking-s-2 lg:text-md lg:font-medium',
