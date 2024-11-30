@@ -59,3 +59,5 @@ export const ICONS_SHARED = {
 };
 
 export const ICONS_HEADER_SV = [o0, o1, o2, o3, o4];
+
+export const ICONS_EXPERIENCE = [o1, o2, o3];
