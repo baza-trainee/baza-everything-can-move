@@ -101,16 +101,16 @@ function ListTeam() {
             onHoverEnd={() => {
               toggleIsSVG();
             }}
-            onPointerDown={() => {
+            onPointerDown={() => (
               setDragWidth(2),
-                setIsAutoScroll(false),
-                setDurationAnimation(DurtionAnimation.Short);
-            }}
-            onPointerUp={() => {
+              setIsAutoScroll(false),
+              setDurationAnimation(DurtionAnimation.Short)
+            )}
+            onPointerUp={() => (
               setDragWidth(1),
-                setIsAutoScroll(true),
-                setDurationAnimation(DurtionAnimation.Long);
-            }}
+              setIsAutoScroll(true),
+              setDurationAnimation(DurtionAnimation.Long)
+            )}
             onPan={(_, info) => setValueX((prev) => prev + info.delta.x)}
             className="absolute bottom-0 left-0 right-0 z-20 h-[320px]"
           ></motion.div>
