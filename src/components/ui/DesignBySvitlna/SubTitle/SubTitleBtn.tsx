@@ -65,9 +65,11 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
     >
       <AnimatePresence mode="wait">
         {subTitleArr && (
-          <div className="absolute left-0 top-0 inline-flex h-8 items-center justify-center rounded-[100px] border px-4 lg:h-11 lg:px-8">
+          <motion.div
+            key={subTitleArr[currentIndex]}
+            className="absolute left-0 top-0 inline-flex h-8 items-center justify-center rounded-[100px] border px-4 lg:h-11 lg:px-8"
+          >
             <motion.div
-              key={subTitleArr[currentIndex]}
               variants={itemArrVariants}
               initial="initial"
               exit="exit"
@@ -103,7 +105,7 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
             >
               {subTitleArr[currentIndex]}
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
