@@ -29,7 +29,20 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
         ease: 'linear',
       },
     },
-    exit: { opacity: 0 },
+    animate: {
+      opacity: [0.5, 1],
+      transition: {
+        duration: 1,
+        ease: 'linear',
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+        ease: 'linear',
+      },
+    },
     // animate: {
     //   opacity: 0.5,
     //   transition: {
@@ -58,16 +71,18 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
               variants={itemArrVariants}
               initial="initial"
               exit="exit"
+              animate="animate"
               //var2
               //animate={['animate', 'center']}
-              animate={{
-                opacity: [0.5, 1],
-              }}
-              transition={{
-                duration: 1.5,
-                ease: 'linear',
-                times: [0.5, 1],
-              }}
+              // var4
+              // animate={{
+              //   opacity: [0.5, 1],
+              // }}
+              // transition={{
+              //   duration: 1.5,
+              //   ease: 'linear',
+              //   times: [0.5, 1],
+              // }}
               //var3
               // animate={{
               //   opacity: [0, 0.5, 1],
