@@ -11,6 +11,7 @@ import {
 import { cycleIndex } from '@/components/ui/SwiperFoto';
 import { useFollowPointer } from './ui/useFollovingObject';
 import { useTeamSectionStore } from './ui/useTeamSectionStore';
+import { throttle } from 'lodash';
 
 enum DurtionAnimation {
   None = 0,
@@ -33,10 +34,10 @@ function ListTeam() {
   const [durationAnimation, setDurationAnimation] = useState(
     DurtionAnimation.None
   );
-  // const [
-  //   isDisabledHandleNextPrevFunction,
-  //   setIsDisabledHandleNextPrevFunction,
-  // ] = useState(false);
+  const [
+    isDisabledHandleNextPrevFunction,
+    setIsDisabledHandleNextPrevFunction,
+  ] = useState(false);
 
   const position = useMemo(
     () => generatePositions(teamsFoto.length),
@@ -49,28 +50,34 @@ function ListTeam() {
   );
 
   const handleNext = useCallback(() => {
+    if (isDisabledHandleNextPrevFunction) return;
+    setIsDisabledHandleNextPrevFunction(true);
+
     setPositionIndexes((prevPosition) =>
       prevPosition.map((prevIndex) =>
         cycleIndex(prevIndex, 1, teamsFoto.length)
       )
     );
-    // setIsDisabledHandleNextPrevFunction(true);
-    // setTimeout(() => setIsDisabledHandleNextPrevFunction(false), 400);
-  }, [teamsFoto.length]);
+    setTimeout(
+      () => setIsDisabledHandleNextPrevFunction(false),
+      DurtionAnimation.Short * 1000
+    );
+  }, [teamsFoto.length, isDisabledHandleNextPrevFunction]);
 
   const handlePrev = useCallback(() => {
+    if (isDisabledHandleNextPrevFunction) return;
+    setIsDisabledHandleNextPrevFunction(true);
     setPositionIndexes((prevPosition) =>
       prevPosition.map((prevIndex) =>
         cycleIndex(prevIndex, -1, teamsFoto.length)
       )
     );
-    // setIsDisabledHandleNextPrevFunction(true);
-    // setTimeout(() => setIsDisabledHandleNextPrevFunction(false), 400);
-  }, [teamsFoto.length]);
+    setTimeout(() => setIsDisabledHandleNextPrevFunction(false), 400);
+  }, [teamsFoto.length, isDisabledHandleNextPrevFunction]);
 
   useEffect(() => {
+    if (isDisabledHandleNextPrevFunction) return;
     const delta = valueX - lastPaginatedValue;
-    // if (isDisabledHandleNextPrevFunction) return;
     if (Math.abs(delta) >= stepToPagination) {
       const steps = Math.trunc(delta / stepToPagination);
 
@@ -86,26 +93,19 @@ function ListTeam() {
 
       setLastPaginatedValue(lastPaginatedValue + steps * stepToPagination);
     }
-  }, [valueX, lastPaginatedValue, handleNext, handlePrev]);
+  }, [
+    valueX,
+    lastPaginatedValue,
+    handleNext,
+    handlePrev,
+    isDisabledHandleNextPrevFunction,
+  ]);
 
   const refSvg = useRef(null);
   const { x, y } = useFollowPointer(refSvg);
 
   useEffect(() => {
     if (!isAutoScroll) return;
-
-    // let animationFrameId: number;
-
-    // const scroll = () => {
-    //   handlePrev();
-    //   animationFrameId = requestAnimationFrame(() => {
-    //     setTimeout(scroll, DurtionAnimation.Long * 1000);
-    //   });
-    // };
-
-    // scroll();
-
-    // return () => cancelAnimationFrame(animationFrameId);
 
     setDurationAnimation(DurtionAnimation.Long);
     const startFunction = () => handlePrev();
@@ -130,6 +130,13 @@ function ListTeam() {
     };
   }, []);
 
+  const throttledSetValueX = useCallback(
+    throttle((delta) => {
+      setValueX((prev) => prev + delta);
+    }, 30),
+    []
+  );
+
   return (
     <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 lg:bottom-[200px] 2xl:bottom-[130px]">
       <div className="flex h-[400px] w-full items-end justify-center overflow-hidden">
@@ -148,7 +155,7 @@ function ListTeam() {
               setDurationAnimation(DurtionAnimation.Long),
               setIsAutoScroll(true)
             )}
-            onPan={(_, info) => setValueX((prev) => prev + info.delta.x)}
+            onPan={(_, info) => throttledSetValueX(info.delta.x)}
             className="absolute bottom-0 left-0 right-0 z-20 h-[320px]"
           ></motion.div>
           {teamsFoto.map((item, index) => (
