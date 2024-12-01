@@ -24,19 +24,22 @@ const SliderDesktop: React.FC<ProjectsImagesProps> = ({ images }) => {
           <CardBody className="group/card h-full w-full cursor-pointer rounded-2xl border border-white/50 transition-transform duration-300 ease-in-out">
             <CardItem
               translateZ="70"
-              // px-4 pt-[14px] pb-2
-              className="flex justify-between px-6 pt-6"
+              // px-4 pt-[14px]
+              className="flex justify-between px-6 pb-2 pt-6"
             >
               <h4 className="font-second-family text-m font-medium leading-s-16 tracking-s-2 text-white/90">
                 {image.name.toUpperCase()}
               </h4>
+
               <StarsBtnComponent
                 classNameDiv="gap-[6px]"
                 classNameIcons="h-[14px] w-[26px]"
               />
             </CardItem>
             {/* <div className="w-[332px] border-b border-white"></div> */}
-            {/* <div className="w-[347px] border-b border-white/50"></div> */}
+
+            <div className="w-[347px] border-b border-white/50"></div>
+
             <CardItem
               translateZ="150"
               //   translateZ={image.translateZ} group-hover/card:h-[164px] group-hover/card:w-[340px]
