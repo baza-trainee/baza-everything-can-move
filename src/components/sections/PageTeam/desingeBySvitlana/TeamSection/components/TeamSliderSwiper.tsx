@@ -17,26 +17,27 @@ function TeamSliderSwiper() {
     <div className="absolute bottom-0 left-1/2 h-[320px] w-full -translate-x-1/2 lg:bottom-[200px] 2xl:bottom-[130px]">
       <div className="flex h-full w-full items-center justify-center">
         <Swiper
-          effect={'coverflow'}
+          // effect={'coverflow'}
           grabCursor={true}
           slidesPerView={5}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          spaceBetween={30}
+          // coverflowEffect={{
+          //   rotate: 0,
+          //   stretch: 0,
+          //   depth: 100,
+          //   modifier: 1,
+          //   slideShadows: true,
+          // }}
+          spaceBetween={100}
           loop
+          loopAdditionalSlides={1}
           freeMode={true}
           centeredSlides={true}
-          modules={[FreeMode, Autoplay, EffectCoverflow]}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-          }}
-          speed={2500}
+          modules={[FreeMode, Autoplay]}
+          // autoplay={{
+          //   delay: 0,
+          //   disableOnInteraction: false,
+          // }}
+          // speed={2500}
           className=""
           // onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         >
@@ -52,13 +53,14 @@ function TeamSliderSwiper() {
             return (
               <SwiperSlide
                 key={index}
-                className={clsx(
-                  `relative transition-all duration-700 ease-in-out`,
-                  index === 2 && 'translate-y-[20px] scale-100', // Центральний слайд
-                  index === 1 || index === 3
-                    ? 'translate-y-[-20px]' // Сусідні слайди
-                    : 'translate-y-[-40px] scale-[0.5]' // Крайні слайди
-                )}
+                className="h-[280px] w-[224px] bg-olga-green"
+                // className={clsx(
+                //   `relative transition-all duration-700 ease-in-out`,
+                //   index === 2 && 'translate-y-[20px] scale-100', // Центральний слайд
+                //   index === 1 || index === 3
+                //     ? 'translate-y-[-20px]' // Сусідні слайди
+                //     : 'translate-y-[-40px] scale-[0.5]' // Крайні слайди
+                // )}
               >
                 {/* <div
                   className={clsx(

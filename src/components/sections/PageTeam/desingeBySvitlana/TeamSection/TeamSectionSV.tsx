@@ -3,8 +3,8 @@ import React from 'react';
 import Header from './components/Header';
 import GloboTeam from './components/GloboTeam';
 import ListTeam from './components/ListTeam';
-import ListTeamcopy from './components/ListTeamcopy';
-import TeamSliderSwiper from './components/TeamSliderSwiper';
+// import ListTeamcopy from './components/ListTeamcopy';
+// import TeamSliderSwiper from './components/TeamSliderSwiper';
 
 function TeamSectionSV() {
   return (
@@ -13,8 +13,8 @@ function TeamSectionSV() {
         <Header />
         <GloboTeam />
       </Container>
-      <TeamSliderSwiper />
-      {/* <ListTeam /> */}
+      {/* <TeamSliderSwiper /> */}
+      <ListTeam />
       {/* <ListTeamcopy /> */}
     </section>
   );

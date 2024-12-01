@@ -160,7 +160,7 @@ function ListTeamcopy() {
             <motion.li
               className="absolute"
               key={index}
-              initial="center"
+              // initial="center"
               transition={{ duration: 0 }}
               animate={position[positionIndexes[index]]}
               variants={variants}
