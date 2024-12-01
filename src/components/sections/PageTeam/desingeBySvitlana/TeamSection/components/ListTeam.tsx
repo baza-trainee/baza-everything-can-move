@@ -14,9 +14,11 @@ import { useTeamSectionStore } from './ui/useTeamSectionStore';
 
 enum DurtionAnimation {
   None = 0,
-  Short = 0.2,
+  Short = 0.4,
   Long = 10,
 }
+
+const stepToPagination = 150;
 
 function ListTeam() {
   const [positionIndexes, setPositionIndexes] = useState(
@@ -25,12 +27,16 @@ function ListTeam() {
 
   const [valueX, setValueX] = useState(0);
   const [lastPaginatedValue, setLastPaginatedValue] = useState(0);
-  const { isSVG, toggleIsSVG } = useTeamSectionStore();
-  const [dragWidth, setDragWidth] = useState(1);
+  const { isSVG, setIsSVG } = useTeamSectionStore();
+  const [dragImageWidth, setDragImageWidth] = useState(1);
   const [isAutoScroll, setIsAutoScroll] = useState(true);
   const [durationAnimation, setDurationAnimation] = useState(
     DurtionAnimation.None
   );
+  // const [
+  //   isDisabledHandleNextPrevFunction,
+  //   setIsDisabledHandleNextPrevFunction,
+  // ] = useState(false);
 
   const position = useMemo(
     () => generatePositions(teamsFoto.length),
@@ -48,6 +54,8 @@ function ListTeam() {
         cycleIndex(prevIndex, 1, teamsFoto.length)
       )
     );
+    // setIsDisabledHandleNextPrevFunction(true);
+    // setTimeout(() => setIsDisabledHandleNextPrevFunction(false), 400);
   }, [teamsFoto.length]);
 
   const handlePrev = useCallback(() => {
@@ -56,13 +64,15 @@ function ListTeam() {
         cycleIndex(prevIndex, -1, teamsFoto.length)
       )
     );
+    // setIsDisabledHandleNextPrevFunction(true);
+    // setTimeout(() => setIsDisabledHandleNextPrevFunction(false), 400);
   }, [teamsFoto.length]);
 
   useEffect(() => {
     const delta = valueX - lastPaginatedValue;
-
-    if (Math.abs(delta) >= 150) {
-      const steps = Math.trunc(delta / 150);
+    // if (isDisabledHandleNextPrevFunction) return;
+    if (Math.abs(delta) >= stepToPagination) {
+      const steps = Math.trunc(delta / stepToPagination);
 
       if (steps > 0) {
         for (let i = 0; i < steps; i++) {
@@ -74,7 +84,7 @@ function ListTeam() {
         }
       }
 
-      setLastPaginatedValue(lastPaginatedValue + steps * 150);
+      setLastPaginatedValue(lastPaginatedValue + steps * stepToPagination);
     }
   }, [valueX, lastPaginatedValue, handleNext, handlePrev]);
 
@@ -83,11 +93,42 @@ function ListTeam() {
 
   useEffect(() => {
     if (!isAutoScroll) return;
+
+    // let animationFrameId: number;
+
+    // const scroll = () => {
+    //   handlePrev();
+    //   animationFrameId = requestAnimationFrame(() => {
+    //     setTimeout(scroll, DurtionAnimation.Long * 1000);
+    //   });
+    // };
+
+    // scroll();
+
+    // return () => cancelAnimationFrame(animationFrameId);
+
     setDurationAnimation(DurtionAnimation.Long);
-    const startFunction = () => handleNext();
+    const startFunction = () => handlePrev();
     const idInterval = setInterval(startFunction, DurtionAnimation.Long * 1000);
     return () => clearInterval(idInterval);
   }, [isAutoScroll, handleNext]);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        setIsAutoScroll(false);
+        setDurationAnimation(DurtionAnimation.None);
+      } else {
+        setIsAutoScroll(true);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
 
   return (
     <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 lg:bottom-[200px] 2xl:bottom-[130px]">
@@ -95,21 +136,17 @@ function ListTeam() {
         <motion.ul className="relative flex h-[280px] w-full cursor-none items-center justify-center">
           <motion.div
             ref={refSvg}
-            onHoverStart={() => {
-              toggleIsSVG();
-            }}
-            onHoverEnd={() => {
-              toggleIsSVG();
-            }}
+            onHoverStart={() => setIsSVG(false)}
+            onHoverEnd={() => setIsSVG(true)}
             onPointerDown={() => (
-              setDragWidth(2),
-              setIsAutoScroll(false),
-              setDurationAnimation(DurtionAnimation.Short)
+              setDragImageWidth(0.5),
+              setDurationAnimation(DurtionAnimation.Short),
+              setIsAutoScroll(false)
             )}
             onPointerUp={() => (
-              setDragWidth(1),
-              setIsAutoScroll(true),
-              setDurationAnimation(DurtionAnimation.Long)
+              setDragImageWidth(1),
+              setDurationAnimation(DurtionAnimation.Long),
+              setIsAutoScroll(true)
             )}
             onPan={(_, info) => setValueX((prev) => prev + info.delta.x)}
             className="absolute bottom-0 left-0 right-0 z-20 h-[320px]"
@@ -135,7 +172,7 @@ function ListTeam() {
               <motion.svg
                 style={{ x, y }}
                 initial={{ scale: 0 }}
-                animate={{ scale: dragWidth }}
+                animate={{ scale: dragImageWidth }}
                 exit={{ scale: 0 }}
                 transition={{ duration: 0.3 }}
                 width="82"

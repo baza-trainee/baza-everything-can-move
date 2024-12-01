@@ -10,7 +10,7 @@ import {
   generateVariantsHorizontalcopy,
 } from './ui/horizontalVariantscopy';
 
-const stepToPagination = 300;
+const stepToPagination = 150;
 
 // function getCoef(valueX: number) {
 //   return (Math.round(valueX) % stepToPagination) / stepToPagination;
@@ -160,7 +160,7 @@ function ListTeamcopy() {
             <motion.li
               className="absolute"
               key={index}
-              initial="center"
+              // initial="center"
               transition={{ duration: 0 }}
               animate={position[positionIndexes[index]]}
               variants={variants}
