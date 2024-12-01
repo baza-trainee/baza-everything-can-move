@@ -25,7 +25,7 @@ function ListTeam() {
 
   const [valueX, setValueX] = useState(0);
   const [lastPaginatedValue, setLastPaginatedValue] = useState(0);
-  const { isSVG, toggleIsSVG } = useTeamSectionStore();
+  const { isSVG, setIsSVG } = useTeamSectionStore();
   const [dragWidth, setDragWidth] = useState(1);
   const [isAutoScroll, setIsAutoScroll] = useState(true);
   const [durationAnimation, setDurationAnimation] = useState(
@@ -95,21 +95,17 @@ function ListTeam() {
         <motion.ul className="relative flex h-[280px] w-full cursor-none items-center justify-center">
           <motion.div
             ref={refSvg}
-            onHoverStart={() => {
-              toggleIsSVG();
-            }}
-            onHoverEnd={() => {
-              toggleIsSVG();
-            }}
+            onHoverStart={() => setIsSVG(false)}
+            onHoverEnd={() => setIsSVG(true)}
             onPointerDown={() => (
-              setDragWidth(2),
-              setIsAutoScroll(false),
-              setDurationAnimation(DurtionAnimation.Short)
+              setDragWidth(1.5),
+              setDurationAnimation(DurtionAnimation.Short),
+              setIsAutoScroll(false)
             )}
             onPointerUp={() => (
               setDragWidth(1),
-              setIsAutoScroll(true),
-              setDurationAnimation(DurtionAnimation.Long)
+              setDurationAnimation(DurtionAnimation.Long),
+              setIsAutoScroll(true)
             )}
             onPan={(_, info) => setValueX((prev) => prev + info.delta.x)}
             className="absolute bottom-0 left-0 right-0 z-20 h-[320px]"

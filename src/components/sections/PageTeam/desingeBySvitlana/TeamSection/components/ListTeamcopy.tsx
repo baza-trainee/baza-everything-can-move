@@ -10,7 +10,7 @@ import {
   generateVariantsHorizontalcopy,
 } from './ui/horizontalVariantscopy';
 
-const stepToPagination = 300;
+const stepToPagination = 150;
 
 // function getCoef(valueX: number) {
 //   return (Math.round(valueX) % stepToPagination) / stepToPagination;

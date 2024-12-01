@@ -6,7 +6,7 @@ interface TeamSectionStore {
   setPositionX: (x: number) => void;
   setPositionY: (y: number) => void;
   isSVG: boolean;
-  toggleIsSVG: () => void;
+  setIsSVG: (value: boolean) => void;
 }
 
 export const useTeamSectionStore = create<TeamSectionStore>((set) => ({
@@ -15,5 +15,5 @@ export const useTeamSectionStore = create<TeamSectionStore>((set) => ({
   isSVG: true,
   setPositionX: (x) => set({ positionX: x }),
   setPositionY: (y) => set({ positionY: y }),
-  toggleIsSVG: () => set((state) => ({ isSVG: !state.isSVG })),
+  setIsSVG: (value) => set({ isSVG: value }),
 }));
