@@ -33,10 +33,10 @@ function ListTeam() {
   const [durationAnimation, setDurationAnimation] = useState(
     DurtionAnimation.None
   );
-  const [
-    isDisabledHandleNextPrevFunction,
-    setIsDisabledHandleNextPrevFunction,
-  ] = useState(false);
+  // const [
+  //   isDisabledHandleNextPrevFunction,
+  //   setIsDisabledHandleNextPrevFunction,
+  // ] = useState(false);
 
   const position = useMemo(
     () => generatePositions(teamsFoto.length),
