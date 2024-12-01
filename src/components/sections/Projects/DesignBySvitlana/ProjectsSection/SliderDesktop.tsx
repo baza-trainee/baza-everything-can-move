@@ -32,8 +32,8 @@ const SliderDesktop: React.FC<ProjectsImagesProps> = ({ images }) => {
               </h4>
 
               <StarsBtnComponent
-                classNameDiv="gap-[6px]"
-                classNameIcons="h-[14px] w-[26px]"
+                classNameDiv="gap-[6px] text-white/90"
+                classNameIcons="h-[14px] w-[26px] "
               />
             </CardItem>
             {/* <div className="w-[332px] border-b border-white"></div> */}
