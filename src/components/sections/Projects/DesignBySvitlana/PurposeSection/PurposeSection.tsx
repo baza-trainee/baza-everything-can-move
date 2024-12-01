@@ -23,7 +23,7 @@ const PurposeSection: React.FC = () => {
       </div>
       {/* ------------------- */}
       <div className="flex flex-col gap-6 px-5 lg:flex-row lg:justify-center lg:gap-[90px] lg:px-6 2xl:gap-3 2xl:pl-20 2xl:pr-[54px]">
-        <div className="flex gap-[6px] lg:w-[281px] 2xl:mt-[210px] 2xl:w-[325px] 2xl:pr-8">
+        <div className="flex w-[280px] gap-[6px] lg:w-[280px] 2xl:mt-[210px] 2xl:w-[300px]">
           <div className="mt-[6px] 2xl:mt-3">
             <ICONS_PURPOSE.RECTANGLE />
           </div>
@@ -40,7 +40,7 @@ const PurposeSection: React.FC = () => {
           <StarsComponent />
         </div>
         {/* ------------------- */}
-        <div className="flex gap-[6px] lg:w-[311px] 2xl:mt-[35px] 2xl:w-[333px]">
+        <div className="flex w-[280px] gap-[6px] lg:w-[330px] 2xl:mt-[35px] 2xl:w-[333px]">
           <div className="mt-[6px] 2xl:mt-3">
             <ICONS_PURPOSE.RECTANGLE />
           </div>

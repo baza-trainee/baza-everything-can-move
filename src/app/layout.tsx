@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import { inter, ibmPlexMono, robotoMono } from '@/app/fonts/fonts';
 import './globals.css';
 import Header from '@/components/layout/Header/Header';
 import Footer from '@/components/layout/Footer/Footer';
@@ -30,9 +31,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk">
+    <html
+      lang="uk"
+      className={`${inter.variable} ${ibmPlexMono.variable} ${robotoMono.variable} antialiased`}
+    >
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon.svg" />
       <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

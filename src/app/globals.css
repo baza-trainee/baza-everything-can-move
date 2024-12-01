@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,regular,500,600,700,100italic,200italic,300italic,italic,500italic,600italic,700italic);
+/* @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,regular,500,600,700,100italic,200italic,300italic,italic,500italic,600italic,700italic); */
 
 @tailwind base;
 @tailwind components;
@@ -21,7 +21,7 @@ body {
 
   background-color: #000;
   color: #fff;
-  font-family: 'Roboto Mono', sans-serif;
+  font-family: var(--font-roboto-mono), sans-serif;
 }
 
 @layer utilities {
