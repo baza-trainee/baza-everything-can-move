@@ -6,7 +6,7 @@ import StarsComponent from './StarsComponent';
 
 const PurposeSection: React.FC = () => {
   return (
-    <section className="lg-[100px] bg-white py-20 font-second-family">
+    <section className="bg-white py-20 font-second-family lg:py-[100px]">
       <Container>
         <SectionTitle secondDesign className="mb-6 lg:mb-[6px]">
           Наша мета
@@ -17,7 +17,7 @@ const PurposeSection: React.FC = () => {
           </p>
         </div>
       </Container>
-      {/* stars div 1 */}
+      {/* stars div for mobile and tablet1 */}
       <div className="relative mx-auto mb-5 h-[246px] w-[375px] lg:mb-4 lg:h-[413px] lg:w-[630px] 2xl:hidden">
         <StarsComponent />
       </div>
@@ -35,7 +35,7 @@ const PurposeSection: React.FC = () => {
             </span>
           </p>
         </div>
-        {/* stars div 2*/}
+        {/* stars div for desktop 2*/}
         <div className="mx-auto hidden 2xl:relative 2xl:block 2xl:h-[413px] 2xl:w-[630px]">
           <StarsComponent />
         </div>
