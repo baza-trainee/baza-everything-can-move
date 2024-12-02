@@ -4,7 +4,7 @@ import * as THREE from 'three';
 
 const Bubbles3D = () => {
     const canvas = useRef(null);
-    const screenWidth = window.innerWidth;
+    // const screenWidth = window.innerWidth;
 
     useEffect(()=>{
         const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 2000 );
