@@ -1,14 +1,12 @@
 'use client';
 
 import { InfiniteMovingCards } from '@/components/ui/InfiniteMovingCards';
+import { PartnersArrProps } from '@/constants/partnersArr';
 
 import React from 'react';
 
 interface MovingPartnersCardsProps {
-  items: {
-    name: string;
-    Icon: React.FC;
-  }[];
+  items: PartnersArrProps;
   speed?: 'fast' | 'normal' | 'slow';
 }
 

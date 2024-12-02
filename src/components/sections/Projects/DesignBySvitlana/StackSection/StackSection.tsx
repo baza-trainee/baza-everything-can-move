@@ -1,6 +1,8 @@
 import React from 'react';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
+import TechCard from './TechCard';
+import { STACK_ARR } from '@/constants/stackArr';
 
 const StackSection: React.FC = () => {
   return (
@@ -21,7 +23,11 @@ const StackSection: React.FC = () => {
             </p>
           </div>
         </div>
-        <div>CARDS</div>
+        <div className="flex flex-col items-center gap-[45px] lg:flex-row lg:flex-wrap lg:justify-center lg:gap-[29px] 2xl:flex-row 2xl:gap-[45px]">
+          {STACK_ARR.map((item, ind) => (
+            <TechCard key={`icon-${ind}`} oneStack={item} />
+          ))}
+        </div>
       </Container>
 
       {/* </div> */}
