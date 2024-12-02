@@ -29,7 +29,7 @@ export default function Projects() {
     };
   }, []);
   return (
-    <Background text="04 // Майбутнє" bg="s-gray">
+    <Background text="04 // Майбутнє" bg="s-gray" xl={0}>
       <section className="">
         <div className="container">
           <h2
