@@ -23,9 +23,9 @@ const StackSection: React.FC = () => {
             </p>
           </div>
         </div>
-        <div>
+        <div className="flex flex-col items-center gap-[45px]">
           {STACK_ARR.map((item, ind) => (
-            <TechCard key={`icon-${ind}`} icon={item} />
+            <TechCard key={`icon-${ind}`} oneStack={item} />
           ))}
         </div>
       </Container>
