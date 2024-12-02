@@ -10,7 +10,7 @@ const StarsComponent = () => {
         style={{
           perspective: '300px',
         }}
-        className="absolute left-[38px] top-10 h-[158px] w-[158px] lg:left-11 lg:top-16 lg:h-[282px] lg:w-[282px]"
+        className="absolute left-[38px] top-10 h-[158px] w-[158px] lg:left-[46px] lg:top-[66px] lg:h-[282px] lg:w-[282px]"
       >
         <motion.div
           animate={{ rotate: 360 }}
