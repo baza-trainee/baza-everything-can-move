@@ -1,10 +1,7 @@
 import React from 'react';
+import { TechStackArrProps } from '@/constants/stackArr';
 
-export interface TechCardProps {
-  oneStack: { Icon: React.FC; name: string };
-}
-
-const TechCard: React.FC<TechCardProps> = ({ oneStack }) => {
+const TechCard: React.FC<TechStackArrProps> = ({ oneStack }) => {
   return (
     <div className="flex h-[200px] w-[220px] flex-col rounded-2xl border border-white font-second-family text-l font-medium leading-o-120 tracking-s-2 text-white 2xl:text-md">
       <div className="flex h-[134px] w-full items-center justify-center border-b border-white">

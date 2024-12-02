@@ -1,24 +1,28 @@
 import { ICONS_STACK } from './icons/iconsSrc';
 
+export interface TechStackArrProps {
+  oneStack: { Icon: React.FC; name: string };
+}
+
 export const STACK_ARR = [
   {
-    name: 'Partner 1',
+    name: 'React.JS',
     Icon: ICONS_STACK.REACT_LOGO,
   },
   {
-    name: 'Partner 2',
+    name: 'TypeScript',
     Icon: ICONS_STACK.TS_LOGO,
   },
   {
-    name: 'Partner 3',
+    name: 'Tailwind',
     Icon: ICONS_STACK.TW_LOGO,
   },
   {
-    name: 'Partner 4',
+    name: 'CSS',
     Icon: ICONS_STACK.CSS_LOGO,
   },
   {
-    name: 'Partner 5',
+    name: 'Next.js',
     Icon: ICONS_STACK.NEXT_LOGO,
   },
 ];
