@@ -30,7 +30,7 @@ const StarsComponent = () => {
           <motion.div
             animate={{
               rotate: -360,
-              translateZ: 50,
+              translateZ: 150,
             }}
             transition={{
               repeat: Infinity,
@@ -70,7 +70,7 @@ const StarsComponent = () => {
 
         <div className="absolute left-1/2 top-1/2 h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2 lg:h-[84px] lg:w-[84px]">
           <motion.div
-            animate={{ rotate: 360, translateZ: 50 }}
+            animate={{ rotate: 360, translateZ: 150 }}
             transition={{
               repeat: Infinity,
               duration: 4,
