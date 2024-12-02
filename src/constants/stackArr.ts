@@ -1,10 +1,12 @@
 import { ICONS_STACK } from './icons/iconsSrc';
 
-export interface TechStackArrProps {
-  oneStack: { Icon: React.FC; name: string };
+export interface Stack {
+  Icon: React.FC;
+  name: string;
 }
+export type StackArrProps = Stack[];
 
-export const STACK_ARR = [
+export const STACK_ARR: StackArrProps = [
   {
     name: 'React.JS',
     Icon: ICONS_STACK.REACT_LOGO,
