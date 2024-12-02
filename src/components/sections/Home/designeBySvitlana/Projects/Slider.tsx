@@ -60,7 +60,7 @@ const Slider = () => {
           768: { slidesPerView: 2 },
           1400: { slidesPerView: 3.5 },
         }}
-        className="mySwiper"
+        className="mySwiper overflow-scroll"
       >
         {projects.map((project, index) => (
           <SwiperSlide key={index}>

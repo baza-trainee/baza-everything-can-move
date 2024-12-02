@@ -48,8 +48,8 @@ export default function Scene() {
         }}
         className="h-[700px] 2xl:w-[50%] lg:w-[60%] w-[100%] z-10"
       >
-        <Canvas className="w-[100%] h-[10%]">
-          <directionalLight position={[9, 6, 2]} intensity={0} />
+        <Canvas className="w-[100%] h-[15%]">
+          <directionalLight position={[1, 16, 12]} intensity={0} />
           <Suspense fallback={null}>
             <Model />
           </Suspense>
