@@ -5,7 +5,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/effect-creative';
 import 'swiper/css/effect-coverflow';
 
-import { FreeMode, Autoplay, Keyboard } from 'swiper/modules';
+import { FreeMode, Autoplay, Keyboard, EffectCreative } from 'swiper/modules';
 import { teamsFoto } from '../ui/dataFoto';
 import CardTeam from './Card';
 
@@ -19,24 +19,24 @@ function SwiperSlider() {
       <Swiper
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
-        // effect={'creative'}
+        effect={'creative'}
         centeredSlides={true}
-        // creativeEffect={{
-        //   limitProgress: 5,
-        //   //   progressMultiplier: 0,
-        //   prev: {
-        //     scale: 1,
-        //     translate: ['-120%', -20, 0],
-        //     // opacity: 1,
-        //   },
+        creativeEffect={{
+          limitProgress: 5,
+          //   progressMultiplier: 0,
+          prev: {
+            scale: 0.9,
+            translate: ['-120%', -20, -10],
+            opacity: 1,
+          },
 
-        //   next: {
-        //     scale: 1,
-        //     translate: ['120%', -20, 0],
-        //     // opacity: 1,
-        //   },
-        // }}
-        // autoHeight={true}
+          next: {
+            scale: 0.9,
+            translate: ['120%', -20, -10],
+            opacity: 1,
+          },
+        }}
+        autoHeight={true}
         loop={true}
         slidesPerView={5}
         keyboard={{
@@ -45,17 +45,12 @@ function SwiperSlider() {
         }}
         spaceBetween={30}
         freeMode={true}
-        // autoplay={{
-        //   delay: 2500,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         speed={2000}
-        modules={[
-          FreeMode,
-          Keyboard,
-          // EffectCreative,
-          Autoplay,
-        ]}
+        modules={[FreeMode, Keyboard, EffectCreative, Autoplay]}
         className="mySwiper"
       >
         {teamsFoto.map((item, index) => (

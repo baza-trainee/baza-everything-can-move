@@ -2,8 +2,8 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 import React from 'react';
 import Header from './components/Header';
 import GloboTeam from './components/GloboTeam';
-import ListTeam from './components/ListTeam';
-// import SwiperSlider from './components/SwiperSlider';
+// import ListTeam from './components/ListTeam';
+import SwiperSlider from './components/SwiperSlider';
 
 function TeamSectionSV() {
   return (
@@ -12,8 +12,8 @@ function TeamSectionSV() {
         <Header />
         <GloboTeam />
       </Container>
-      <ListTeam />
-      {/* <SwiperSlider /> */}
+      {/* <ListTeam /> */}
+      <SwiperSlider />
       {/* <ListTeamcopy /> */}
     </section>
   );
