@@ -15,7 +15,11 @@ function TeamSectionSV() {
       </Container>
       {isSwiper ? <ListTeam /> : <SwiperSlider />}
       {/* <ListTeamcopy /> */}
-      <button type="button" onClick={() => togleSwiper(!isSwiper)}>
+      <button
+        type="button"
+        className="rounded-xl border-solid border-white bg-s-light-purple p-4"
+        onClick={() => togleSwiper(!isSwiper)}
+      >
         зміни слайдер
       </button>
     </section>
