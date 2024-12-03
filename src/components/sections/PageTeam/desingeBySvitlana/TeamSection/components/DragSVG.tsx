@@ -13,7 +13,7 @@ type Props = {
     | MotionValue<number>
     | MotionValue<string>
     | CustomValueType
-    | MotionValue<any>
+    // | MotionValue<any>
     | undefined;
   y:
     | string
@@ -21,7 +21,7 @@ type Props = {
     | MotionValue<number>
     | MotionValue<string>
     | CustomValueType
-    | MotionValue<any>
+    // | MotionValue<any>
     | undefined;
 };
 
