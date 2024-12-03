@@ -3,10 +3,10 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 import TechCard from './TechCard';
 import { STACK_ARR } from '@/constants/stackArr';
-import DigitalRain from './DigitalRain';
-//import DigitalRain2 from './DigitalRain2';
+// import DigitalRain from './DigitalRain';
+import DigitalRain2 from './DigitalRain2';
 
-const StackSection: React.FC = () => {
+const StackSection2: React.FC = () => {
   return (
     <section className="relative h-[1680px] w-full font-third-family font-regular lg:h-[894px] 2xl:h-[834px]">
       {/* Container */}
@@ -17,7 +17,7 @@ const StackSection: React.FC = () => {
           background: `linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.5) 57.08%, rgba(0, 0, 0, 0.257173) 80.1%, rgba(0, 0, 0, 0) 98.1%)`,
         }}
       ></div>
-      <DigitalRain />
+      <DigitalRain2 />
       <div
         className="absolute bottom-0 h-20 w-full"
         style={{
@@ -57,4 +57,4 @@ const StackSection: React.FC = () => {
   );
 };
 
-export default StackSection;
+export default StackSection2;
