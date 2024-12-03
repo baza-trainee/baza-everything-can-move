@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { useTeamSectionStore } from './ui/useTeamSectionStore';
+import { useTeamSectionStore } from '../ui/useTeamSectionStore';
 
 function Drag({ className }: { className?: string }) {
   const { isSVG } = useTeamSectionStore();

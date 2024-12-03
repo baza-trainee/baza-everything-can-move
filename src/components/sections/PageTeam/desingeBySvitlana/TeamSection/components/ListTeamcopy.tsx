@@ -1,14 +1,14 @@
 'use client';
 
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { teamsFoto } from './ui/dataFoto';
+import { teamsFoto } from '../ui/dataFoto';
 import CardTeam from './Card';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { cycleIndex } from '@/components/ui/SwiperFoto';
 import {
   generatePositionscopy,
   generateVariantsHorizontalcopy,
-} from './ui/horizontalVariantscopy';
+} from '../ui/horizontalVariantscopy';
 
 const stepToPagination = 150;
 
