@@ -3,13 +3,15 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 import TechCard from './TechCard';
 import { STACK_ARR } from '@/constants/stackArr';
+import DigitalRain from './DigitalRain';
 
 const StackSection: React.FC = () => {
   return (
     <section className="w-full pb-40 pt-20 font-third-family font-regular lg:pb-[100px] lg:pt-20 2xl:pb-[200px]">
       {/* Container */}
       {/* <div className="my-auto w-full px-5 lg:px-6 2xl:px-20"> */}
-      <Container>
+      <Container >
+        <DigitalRain />
         <div className="mb-10 text-center lg:text-left 2xl:mb-12">
           <div className="mb-6 lg:mb-[6px] 2xl:w-[544px]">
             <SectionTitle secondDesign>
