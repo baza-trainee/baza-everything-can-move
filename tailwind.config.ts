@@ -106,16 +106,20 @@ const config: Config = {
       },
       fontFamily: {
         //font-
-        'main-family': ['Roboto-Mono', 'ui-sans-serif', 'sans-serif'],
-        'second-family': ['IBM Plex Mono', 'sans-serif'],
-        'third-family': ['Inter', 'ui-sans-serif', 'sans-serif'],
-        font3: ['VG5000', 'ui-sans-serif', 'sans-serif'],
-
-        font4: ['Nunito', 'ui-sans-serif', 'sans-serif'],
-        font5: ['IBM Plex Sans', 'ui-sans-serif', 'sans-serif'],
-        font6: ['Urbanist', 'ui-sans-serif', 'sans-serif'],
-        font7: ['Poppins', 'ui-sans-serif', 'sans-serif'],
-        font8: ['Playfair Display', 'ui-sans-serif', 'sans-serif'],
+        'main-family': [
+          'var(--font-roboto-mono)',
+          'ui-sans-serif',
+          'sans-serif',
+        ], // Olga
+        'second-family': ['var(--font-ibm-plex-mono)', 'sans-serif'], // Svitlana
+        'third-family': ['var(--font-inter)', 'ui-sans-serif', 'sans-serif'], //Svitlana
+        //wo do not it any more?
+        // font3: ['VG5000', 'ui-sans-serif', 'sans-serif'],
+        // font4: ['Nunito', 'ui-sans-serif', 'sans-serif'],
+        // font5: ['IBM Plex Sans', 'ui-sans-serif', 'sans-serif'],
+        // font6: ['Urbanist', 'ui-sans-serif', 'sans-serif'],
+        // font7: ['Poppins', 'ui-sans-serif', 'sans-serif'],
+        // font8: ['Playfair Display', 'ui-sans-serif', 'sans-serif'],
       },
 
       letterSpacing: {
@@ -153,7 +157,7 @@ const config: Config = {
       animation: {
         marqueeCustom:
           'marqueeCustom var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
-          "meteor-effect": "meteor 5s linear infinite",
+        'meteor-effect': 'meteor 5s linear infinite',
       },
       keyframes: {
         marqueeCustom: {
@@ -161,11 +165,11 @@ const config: Config = {
           to: { transform: 'translateX(-50%)' },
         },
         meteor: {
-          "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
-          "70%": { opacity: "1" },
-          "100%": {
-            transform: "rotate(215deg) translateX(-500px)",
-            opacity: "0",
+          '0%': { transform: 'rotate(215deg) translateX(0)', opacity: '1' },
+          '70%': { opacity: '1' },
+          '100%': {
+            transform: 'rotate(215deg) translateX(-500px)',
+            opacity: '0',
           },
         },
       },

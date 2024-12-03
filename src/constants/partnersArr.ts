@@ -1,6 +1,12 @@
 import { ICONS_PARTNERS } from './icons/iconsSrc';
 
-export const PARTNERS_ARR = [
+export interface Partner {
+  Icon: React.FC;
+  name: string;
+}
+export type PartnersArrProps = Partner[];
+
+export const PARTNERS_ARR: PartnersArrProps = [
   {
     name: 'Partner 1',
     Icon: ICONS_PARTNERS.PARTNER_1,

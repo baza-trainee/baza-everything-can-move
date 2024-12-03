@@ -29,8 +29,6 @@ const BirdsScene: React.FC = () => {
       renderer: THREE.WebGLRenderer;
     let mouseX = 0,
       mouseY = 0;
-    // const windowHalfX = window.innerWidth / 2; //! change???
-    // const windowHalfY = window.innerHeight / 2; //! change???
     let last = performance.now(); //!
     let gpuCompute: GPUComputationRenderer;
 

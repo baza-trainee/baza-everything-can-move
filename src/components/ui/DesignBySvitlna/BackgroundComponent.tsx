@@ -35,7 +35,7 @@ function BackgroundComponent({
 
   return (
     <motion.section
-      className={cn(`bg-${bg} shadow-3xl xl:rounded-t-3xl pt-[100px]`, className)}
+      className={cn(`bg-${bg} shadow-3xl  pt-[100px]`, className)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
