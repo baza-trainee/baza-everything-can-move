@@ -5,15 +5,14 @@ import 'swiper/css/free-mode';
 import 'swiper/css/effect-creative';
 import 'swiper/css/effect-coverflow';
 
-import { FreeMode, Autoplay, Keyboard, EffectCreative } from 'swiper/modules';
+import { FreeMode, Autoplay, Keyboard } from 'swiper/modules';
 import { teamsFoto } from '../ui/dataFoto';
 import CardTeam from './Card';
-import { useState } from 'react';
 
 function SwiperSlider() {
-  const [positionIndexes, setPositionIndexes] = useState(
-    teamsFoto.map((_, index) => index)
-  );
+  // const [positionIndexes, setPositionIndexes] = useState(
+  //   teamsFoto.map((_, index) => index)
+  // );
 
   return (
     <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 lg:bottom-[200px] 2xl:bottom-[130px]">

@@ -31,8 +31,11 @@ function ListTeam() {
 
   const { isSVG, setIsSVG } = useTeamSectionStore();
 
-  const { sliderState, updateState, position, variants } =
-    useSlideState(teamsFoto);
+  const {
+    sliderState,
+    updateState,
+    //  position, variants
+  } = useSlideState(teamsFoto);
 
   const {
     isDisabledHandleScroll,

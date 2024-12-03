@@ -1,5 +1,5 @@
 import { RefObject, useEffect } from 'react';
-import { useMotionValue, useSpring, frame } from 'framer-motion';
+import { useMotionValue, useSpring } from 'framer-motion';
 
 const spring = { damping: 15, stiffness: 50, restDelta: 0.001 };
 
