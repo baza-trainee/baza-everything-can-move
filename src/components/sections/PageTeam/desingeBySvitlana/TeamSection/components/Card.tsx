@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React, { ReactNode } from 'react';
-import { TeamsFotoType } from './ui/dataFoto';
+import { TeamsFotoType } from '../ui/dataFoto';
 import { cn } from '@/lib/utils';
 
 type CardsProps = TeamsFotoType & { className?: ReactNode };
