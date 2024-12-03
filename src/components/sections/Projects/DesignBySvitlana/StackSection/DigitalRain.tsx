@@ -17,6 +17,7 @@ export default function DigitalRain() {
 
     const fontSize = 16;
     const columns = canvas.width / fontSize;
+    console.log('colum', columns);
 
     const drops: number[] = [];
     for (let i = 0; i < columns; i++) {
@@ -26,7 +27,10 @@ export default function DigitalRain() {
     // const characters =
     //   'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルウォンヴヵヶヷヸヹヺ・ーヽヾヿ';
     const characters =
-      'useEffect(() =>{React.FC=({ images })=>{const[currentIndex,const [containerWidth, setContainerWidth]=useState(0);';
+      'useEffect()=>{React.FC=({images})=>{const[currentIndex,const[containerWidth,setContainerWidth]=useState(0);window.addEventListener(resize,handleResize)';
+
+    const charIndices: number[] = new Array(Math.floor(columns)).fill(0);
+    console.log('arr', charIndices);
     function draw() {
       if (!ctx || !canvas) return;
 
@@ -37,11 +41,16 @@ export default function DigitalRain() {
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
-        const text = characters.charAt(
-          Math.floor(Math.random() * characters.length)
-        );
+        // const text = characters.charAt(
+        //   Math.floor(Math.random() * characters.length)
+        // );
+        const text = characters.charAt(charIndices[i]);
+
+        //ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
+        charIndices[i] = (charIndices[i] + 1) % characters.length;
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
           drops[i] = 0;
         }
