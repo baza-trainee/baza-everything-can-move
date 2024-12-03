@@ -30,20 +30,26 @@ export default function DigitalRain() {
       'useEffect()=>{React.FC=({images})=>{const[currentIndex,const[containerWidth,setContainerWidth]=useState(0);window.addEventListener(resize,handleResize)';
 
     const charIndices: number[] = new Array(Math.floor(columns)).fill(0);
-    console.log('arr', charIndices);
+    const colorsArr = ['#bcbbf9', '#ffffff', '#8f8ded', '#0F0'];
     function draw() {
       if (!ctx || !canvas) return;
 
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = '#0F0';
+      //one Color
+      // ctx.fillStyle = '#bcbbf9';
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
+        //random character
         // const text = characters.charAt(
         //   Math.floor(Math.random() * characters.length)
         // );
+        //random character but in a row
+        const randomColor =
+          colorsArr[Math.floor(Math.random() * colorsArr.length)];
+        ctx.fillStyle = randomColor;
         const text = characters.charAt(charIndices[i]);
 
         //ctx.fillText(text, i * fontSize, drops[i] * fontSize);
