@@ -12,8 +12,6 @@ export default function DigitalRain() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // canvas.width = window.innerWidth;
-    // canvas.height = window.innerHeight;
     canvas.width = canvasRef.current.clientWidth;
     canvas.height = canvasRef.current.clientHeight;
 
@@ -25,9 +23,10 @@ export default function DigitalRain() {
       drops[i] = 1;
     }
 
+    // const characters =
+    //   'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルウォンヴヵヶヷヸヹヺ・ーヽヾヿ';
     const characters =
-      'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルウォンヴヵヶヷヸヹヺ・ーヽヾヿ';
-
+      'useEffect(() =>{React.FC=({ images })=>{const[currentIndex,const [containerWidth, setContainerWidth]=useState(0);';
     function draw() {
       if (!ctx || !canvas) return;
 
@@ -56,8 +55,8 @@ export default function DigitalRain() {
     function handleResize() {
       if (!canvas) return;
 
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = canvasRef.current.clientWidth;
+      canvas.height = canvasRef.current.clientHeight;
     }
 
     window.addEventListener('resize', handleResize);
@@ -69,8 +68,8 @@ export default function DigitalRain() {
   }, []);
 
   return (
-    <div className="inset-0 h-full w-full bg-black">
-      <canvas ref={canvasRef} className="h-full w-full" />
-    </div>
+    // <div className="inset-0 h-full w-full bg-black">
+    <canvas ref={canvasRef} className="h-full w-full" />
+    // </div>
   );
 }

@@ -7,11 +7,11 @@ import DigitalRain from './DigitalRain';
 
 const StackSection: React.FC = () => {
   return (
-    <section className="w-full pb-40 pt-20 font-third-family font-regular lg:pb-[100px] lg:pt-20 2xl:pb-[200px]">
+    <section className="relative h-[1680px] w-full font-third-family font-regular lg:h-[894px] 2xl:h-[834px]">
       {/* Container */}
       {/* <div className="my-auto w-full px-5 lg:px-6 2xl:px-20"> */}
-      <Container >
-        <DigitalRain />
+      <DigitalRain />
+      <Container className="absolute left-1/2 top-0 -translate-x-1/2 pb-40 pt-20 lg:pb-[100px] lg:pt-20 2xl:pb-[200px]">
         <div className="mb-10 text-center lg:text-left 2xl:mb-12">
           <div className="mb-6 lg:mb-[6px] 2xl:w-[544px]">
             <SectionTitle secondDesign>
