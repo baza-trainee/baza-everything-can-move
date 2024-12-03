@@ -4,7 +4,7 @@ import { designTypes, useDesignStore } from '@/useDesignStore';
 import { useEffect, useState } from 'react';
 
 const getRandomDesignType = (): designTypes => {
-  return Math.random() < 0.5 ? 'designByOlga' : 'designBySvitlana';//to change back!!! for dev purpose only
+  return Math.random() < 0.5 ? 'designBySvitlana' : 'designBySvitlana';//to change back!!! for dev purpose only
 };
 
 const InitializeDesign = () => {
