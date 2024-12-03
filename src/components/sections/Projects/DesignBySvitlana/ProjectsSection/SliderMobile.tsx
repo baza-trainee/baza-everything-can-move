@@ -55,12 +55,6 @@ const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
     }
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     nextImage();
-  //   }, 10000);
-  //   return () => clearInterval(interval);
-  // }, [nextImage]);
 
   const handleClick = (index: number) => {
     setCurrentIndex(index);
