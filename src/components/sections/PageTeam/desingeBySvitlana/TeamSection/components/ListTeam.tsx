@@ -101,8 +101,8 @@ function ListTeam() {
 
   const throttledSetValueX = useCallback(
     throttle((delta) => {
-      const threshold = 2;
-      const maxDelta = 10;
+      const threshold = 1;
+      const maxDelta = 8;
 
       if (Math.abs(delta) > threshold) {
         const clampedDelta = Math.min(Math.max(delta, -maxDelta), maxDelta);
