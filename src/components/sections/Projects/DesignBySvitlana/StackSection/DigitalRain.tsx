@@ -27,10 +27,10 @@ export default function DigitalRain() {
     // const characters =
     //   'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルウォンヴヵヶヷヸヹヺ・ーヽヾヿ';
     const characters =
-      'useEffect()=>{React.FC=({images})=>{const[currentIndex,const[containerWidth,setContainerWidth]=useState(0);window.addEventListener(resize,handleResize)';
+      'return.useEffect()=>{React.FC=({images})=>{const[currentIndex,const[containerWidth]=useState(0);handleDragEnd.useMemoContainer.window.addEventListener(resize,handleResize).useRef.useCallback';
 
     const charIndices: number[] = new Array(Math.floor(columns)).fill(0);
-    const colorsArr = ['#bcbbf9', '#ffffff', '#8f8ded', '#0F0'];
+    const colorsArr = ['#ffffff', '#8f8ded']; //'#bcbbf9'
     function draw() {
       if (!ctx || !canvas) return;
 
@@ -38,7 +38,7 @@ export default function DigitalRain() {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       //one Color
-      // ctx.fillStyle = '#bcbbf9';
+      // ctx.fillStyle = '#0f0';
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {

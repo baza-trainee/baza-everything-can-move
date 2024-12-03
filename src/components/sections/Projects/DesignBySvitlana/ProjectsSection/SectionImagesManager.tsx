@@ -29,14 +29,14 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
     <>
       {/* /* mobile */}
       {isMobile && (
-        <div>
+        <>
           <SliderMobile images={images} />
           <div className="m-auto mb-10 w-[273px] text-center">
             <p className="font-third-family text-m font-regular leading-s-24">
               Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
             </p>
           </div>
-        </div>
+        </>
       )}
       {/* tablet */}
       {isTablet && (
