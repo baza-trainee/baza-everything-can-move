@@ -4,7 +4,7 @@ import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundCompo
 
 function SectionPlans() {
   return (
-    <BackgroundComponent text='Плани' bg='s-gray' >
+    <BackgroundComponent text='Плани' bg='s-gray' isAlwaysOpen={true} >
         <div className="relative 2xl:h-[728px]">
         <h2 className="traking-s-2 text-xlg lg:text-[80px] leading-o-120 uppercase">
         Прагнення

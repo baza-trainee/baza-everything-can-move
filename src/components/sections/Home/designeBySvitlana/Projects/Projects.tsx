@@ -31,7 +31,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <Background text="02 // Проєкти" bg="s-gray" xl={840}>
+    <Background text="02 // Проєкти" bg="s-gray" xl={840} isContainer={true}>
       <section className="mb-32 px-0 relative overflow-visible">
         <div className="2xl:flex justify-between items-center mb-12">
           <div className="title ">
