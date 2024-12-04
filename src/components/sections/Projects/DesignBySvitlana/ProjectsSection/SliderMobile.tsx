@@ -55,7 +55,6 @@ const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
     }
   };
 
-
   const handleClick = (index: number) => {
     setCurrentIndex(index);
   };
@@ -71,7 +70,7 @@ const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
             key={`title-${currentIndex}`}
             variants={imageVariants}
             custom={direction}
-            initial="enter"
+            //initial="enter"
             animate="center"
             exit="exit"
             transition={{ duration: 0.5 }}

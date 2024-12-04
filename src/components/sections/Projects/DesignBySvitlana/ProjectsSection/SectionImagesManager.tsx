@@ -23,7 +23,8 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
   if (!isClient) {
     return null;
   }
-
+  console.log('Client', isClient);
+  console.log('isMobile', isMobile);
   return (
     <>
       {/* /* mobile */}
