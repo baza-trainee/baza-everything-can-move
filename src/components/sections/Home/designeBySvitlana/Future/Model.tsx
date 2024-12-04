@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import { useLoader } from "@react-three/fiber";
-import { STLLoader } from "three/examples/jsm/loaders/STLLoader";
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+
 import { Group } from "three";
 
 export default function Model() {
@@ -10,6 +11,7 @@ export default function Model() {
 
   // Завантажуємо STL-файл за допомогою STLLoader
   const geometry = useLoader(STLLoader, "/models/Smile.stl");
+
 
   return (
     <group ref={group}>
