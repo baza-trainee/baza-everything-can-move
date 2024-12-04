@@ -11,6 +11,7 @@ type BgProps = {
   lg?: number;
   xl?: number;
   text?: string;
+  isContainer?: boolean
 };
 
 function BackgroundComponent({
@@ -19,6 +20,7 @@ function BackgroundComponent({
   bg = 'white',
   lg = 125,
   xl = 1142,
+  isContainer,
   className,
 }: BgProps) {
   const xlClassMap: Record<number, string> = {
@@ -40,7 +42,7 @@ function BackgroundComponent({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <Container className="relative">
+      <Container className={cn(isContainer ? 'px-0 lg:px-0 2xl:px-0 relative lg:max-w-[1440px] 2xl:max-w-[1920px]' : 'relative')}>
         <motion.div
           className={cn(
             `absolute -top-[140px] h-[80px] w-[215px] z-2 shadow-3xl rounded-t-2xl pt-[26px] bg-${bg} left-4 ${
