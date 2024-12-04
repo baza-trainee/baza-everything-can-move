@@ -13,18 +13,32 @@ const imageVariants = {
       x: direction > 0 ? '100%' : '-100%',
 
       opacity: 0,
+      transition: {
+        ease: 'linear',
+        duration: 0.5,
+      },
     };
   },
 
   center: {
     x: 0,
     opacity: 1,
+    transition: {
+      duration: 0.7,
+
+      ease: 'linear',
+    },
   },
   exit: (direction: number) => {
     return {
       x: direction > 0 ? '-100%' : '100%',
 
       opacity: 0,
+      transition: {
+        ease: 'linear',
+
+        duration: 0.5,
+      },
     };
   },
 };
@@ -70,10 +84,9 @@ const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
             key={`title-${currentIndex}`}
             variants={imageVariants}
             custom={direction}
-            //initial="enter"
+            initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.5 }}
             className="absolute"
             drag="x"
             dragConstraints={constraintsRef}

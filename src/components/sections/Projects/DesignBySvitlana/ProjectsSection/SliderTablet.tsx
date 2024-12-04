@@ -1,100 +1,120 @@
 'use client';
-//not THIS ONE!but ok exept runners
-import React, { useState, useEffect } from 'react';
+//1-5 not infinity- works
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { PanInfo } from 'framer-motion';
 import { ProjectsImagesProps } from './types';
 import ProjectCard from './ProjectCard';
 
 const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(2);
+  const [containerWidth, setContainerWidth] = useState(0);
 
-  const newImgArr = [...images, ...images];
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const positions = [
-    'left5',
-    'left4',
-    'left3',
-    'left2',
-    'left1',
-    'center',
-    'right1',
-    'right2',
-    'right3',
-    'right4',
-  ];
   const gap = 31;
   const cardWidth = 332;
-  const dif = cardWidth + gap;
-  const totalImages = images.length * 2;
-
-  const handleClick = (index: number) => {
-    const newIndex =
-      currentIndex >= images.length - 1 && currentIndex <= totalImages - 1
-        ? index + images.length
-        : index;
-
-    setCurrentIndex(newIndex);
-  };
+  const totalWidth = cardWidth + gap;
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
-    }, 10000);
-    return () => clearInterval(interval);
-  }, [totalImages]);
+    if (containerRef.current) {
+      const { width } = containerRef.current.getBoundingClientRect();
+      setContainerWidth(width);
+    }
+
+    const handleResize = () => {
+      if (containerRef.current) {
+        const { width } = containerRef.current.getBoundingClientRect();
+        setContainerWidth(width);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleClick = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  const handleDragEnd = (
+    _: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => {
+    const swipeDistance = info.offset.x;
+    const swipeCards = Math.round(swipeDistance / totalWidth);
+
+    if (swipeCards < 0) {
+      if (currentIndex === images.length - 1) return;
+      // setDirection(1); // to left to next
+      //setCurrentIndex((prevIndex) => prevIndex + 1);
+    } else if (swipeCards > 0) {
+      if (currentIndex === 0) return;
+      // setDirection(-1); // to right to prev
+      //setCurrentIndex((prevIndex) => prevIndex - 1);
+    }
+    setCurrentIndex((prevIndex) =>
+      Math.max(0, Math.min(prevIndex - swipeCards, images.length - 1))
+    );
+    //setDirection(0);
+  };
 
   const imageVariants = {
-    center: { x: '0px', opacity: 1 },
-    left5: { x: `${-5 * dif}px`, opacity: 0 },
-    left4: { x: `${-4 * dif}px`, opacity: 0 },
-    left3: { x: `${-3 * dif}px`, opacity: 0 },
-    left2: { x: `${-2 * dif}px`, opacity: 0.5 },
-    left1: { x: `${-dif}px`, opacity: 0.5 },
-
-    right1: { x: `${dif}px`, opacity: 0.5 },
-    right2: { x: `${2 * dif}px`, opacity: 0.5 },
-    right3: { x: `${3 * dif}px`, opacity: 0 },
-
-    right4: { x: `${4 * dif}px`, opacity: 0 },
+    animate: {
+      x: `${containerWidth / 2 - totalWidth / 2 - currentIndex * totalWidth}px`,
+      opacity: 1,
+    },
   };
-  const getPositionIndex = (baseIndex: number, offset: number) => {
-    return (baseIndex + offset + totalImages) % totalImages;
-  };
-
   return (
     <>
+      {/* w-full */}
       <div className="relative mb-8 flex h-[225px] w-full justify-center overflow-hidden">
         <AnimatePresence>
-          {positions.map((position, posIndex) => {
-            const imageIndex = getPositionIndex(currentIndex, posIndex - 1);
-
-            return (
-              <motion.div
-                key={`image-${imageIndex}`}
-                variants={imageVariants}
-                initial="center"
-                animate={position}
-                transition={{ duration: 0.7 }}
-                style={{
-                  position: 'absolute',
-                  width: `${cardWidth}px`,
-
-                  // transform: `translateX(-${(cardWidth + gap) * currentIndex}px)`,
-                }}
-              >
-                <ProjectCard {...newImgArr[imageIndex]} />
-              </motion.div>
-            );
-          })}
+          {/* //initial={false} */}
+          <motion.div
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            onDragEnd={handleDragEnd}
+          >
+            <motion.div
+              ref={containerRef}
+              variants={imageVariants}
+              //custom={direction}
+              // initial={{ x: 0 }}
+              animate="animate"
+              transition={{ duration: 0.5 }}
+              className="flex"
+            >
+              {images.map((image, index) => {
+                return (
+                  <motion.div
+                    key={`image-${index}`}
+                    className="relative"
+                    animate={{
+                      opacity: index === currentIndex ? 1 : 0.7,
+                    }}
+                    transition={{ duration: 0.3 }}
+                    style={{
+                      width: `${cardWidth}px`,
+                      marginRight: `${gap}px`,
+                    }}
+                  >
+                    <ProjectCard {...image} />
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </motion.div>
         </AnimatePresence>
       </div>
-
       <div className="mb-8 flex justify-center gap-[15px]">
         {images.map((_, index) => (
           <div
             key={index}
-            className={`h-3 w-3 rounded-full border border-white ${index === currentIndex % (totalImages / 2) ? 'bg-white' : 'bg-transparent'}`}
+            className={`h-3 w-3 cursor-pointer rounded-full border border-white ${index === currentIndex ? 'bg-white' : 'bg-transparent'}`}
             onClick={() => handleClick(index)}
           />
         ))}

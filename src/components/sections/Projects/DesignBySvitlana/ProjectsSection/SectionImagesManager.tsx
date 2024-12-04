@@ -7,7 +7,7 @@ import SliderMobile from './SliderMobile';
 import { ProjectsImagesProps } from './types';
 
 import SliderDesktop from './SliderDesktop';
-import SliderTablet2 from './SliderTablet2';
+import SliderTablet from './SliderTablet';
 
 const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
   const [isClient, setIsClient] = useState(false);
@@ -47,7 +47,7 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
             </p>
           </div>
 
-          <SliderTablet2 images={images} />
+          <SliderTablet images={images} />
         </>
       )}
       {/* desktop */}
