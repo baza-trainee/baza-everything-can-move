@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-export default function DigitalRain2() {
+export default function DigitalRainWords() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
