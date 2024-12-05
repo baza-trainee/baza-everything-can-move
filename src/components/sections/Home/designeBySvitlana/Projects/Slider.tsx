@@ -8,22 +8,36 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper as SwiperClass } from 'swiper/types'; // Додаємо тип Swiper
 import { ButtonSlide } from '../../../../ui/SwiperFoto/components/ButtonSlider';
-
 import './style.css';
 
 const Slider = () => {
   const projects = [
-    { title: 'Проєкт Буп', image: '/assets/images/Projects/1001song.webp' },
-    { title: 'Проєкт Balakun', image: '/assets/images/Projects/balakun.webp' },
-    { title: 'Baza Skill', image: '/assets/images/Projects/baza_skill.webp' },
     {
-      title: 'Baza Tainee Ukraine',
-      image: '/assets/images/Projects/baza_tainee_ukraine.webp',
+      title: 'Проєкт',
+      subTitle: 'Kolyskova',
+      image: '/assets/images/Projects/kolyskova.webp',
     },
-    { title: 'Klouns', image: '/assets/images/Projects/klouns.webp' },
-    { title: 'Kolyskova', image: '/assets/images/Projects/kolyskova.webp' },
-    { title: 'Militari', image: '/assets/images/Projects/militari.webp' },
-    { title: 'Organik', image: '/assets/images/Projects/organik.webp' },
+    {
+      title: 'Проєкт',
+      subTitle: 'Balakun',
+      image: '/assets/images/Projects/balakun.webp',
+    },
+    {
+      title: 'Проєкт',
+      s: 'Б',
+      su: 'у',
+      sub: 'п',
+      image: '/assets/images/Projects/klouns.webp',
+    },
+    {
+      title: 'Проєкт KRYLA',
+      image: '/assets/images/Projects/zbir-na-dron.webp',
+    },
+    {
+      title: 'ЗБІР',
+      subTitleDR: 'на дрони',
+      image: '/assets/images/Projects/127-brig.webp',
+    },
   ];
 
   // Типізуємо реф для Swiper
@@ -66,8 +80,12 @@ const Slider = () => {
           <SwiperSlide key={index}>
             <div className="slide-wrapper border-gray-700 bg-gray-800 rounded-lg border-2">
               <div className="slide-header flex items-center justify-between border-b-2 p-4">
-                <h3 className="text-sm font-bold text-white">
-                  {project.title}
+                <h3 className="text-sm font-bold uppercase text-white">
+                  {project.title} <span>{project.subTitle}</span>
+                  <span className='lit1'>{project.s}</span>
+                  <span className='lit2'>{project.su}</span>
+                  <span className='lit3'>{project.sub}</span>
+                  <span className='lit3' >{project.subTitleDR}</span>
                 </h3>
                 <div className="icons flex gap-2">
                   <div className="flex items-center gap-[6px]">
@@ -76,7 +94,7 @@ const Slider = () => {
                       width="26"
                       height="14"
                       fill="none"
-                      className="h-[14px] w-[26px]"
+                      className="icon h-[14px] w-[26px]"
                     >
                       <rect
                         width="25"
@@ -96,7 +114,7 @@ const Slider = () => {
                       width="26"
                       height="14"
                       fill="none"
-                      className="h-[14px] w-[26px]"
+                      className="icon h-[14px] w-[26px]"
                     >
                       <rect
                         width="25"
@@ -107,6 +125,7 @@ const Slider = () => {
                         rx="5.5"
                       ></rect>
                       <path
+                        className="bg"
                         fill="#fff"
                         d="m13 2 .754 1.942 1.57-1.37-.235 2.07 2.026-.482-1.17 1.723 2.018.514-1.836.983 1.548 1.393-2.083.016.724 1.954-1.852-.954-.267 2.066L13 10.15l-1.197 1.705-.267-2.066-1.852.954.724-1.954-2.083-.016L9.873 7.38l-1.837-.983 2.019-.514-1.17-1.723 2.026.482-.235-2.07 1.57 1.37z"
                       ></path>
@@ -116,7 +135,7 @@ const Slider = () => {
                       width="26"
                       height="14"
                       fill="none"
-                      className="h-[14px] w-[26px]"
+                      className="icon h-[14px] w-[26px]"
                     >
                       <rect
                         width="25"
@@ -138,7 +157,7 @@ const Slider = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="h-auto w-full transform rounded-b-lg p-4 transition-transform duration-300 hover:scale-125"
+                  className="h-auto w-full transform rounded-b-lg p-4 transition-transform duration-300"
                 />
               </div>
             </div>
