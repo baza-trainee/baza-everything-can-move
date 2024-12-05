@@ -11,6 +11,8 @@ import { useTeamSectionStore } from '../ui/useTeamSectionStore';
 import { throttle } from 'lodash';
 import DragSVG from './DragSVG';
 import { useSlideState } from '../ui/useSliderState';
+import { useMouseStore } from '../ui/useMouseStore';
+import { useMediaQuery } from 'react-responsive';
 
 enum DurtionAnimation {
   None = 0,
@@ -24,23 +26,28 @@ function ListTeam() {
   const [positionIndexes, setPositionIndexes] = useState(
     teamsFoto.map((_, index) => index)
   );
+  const isMobile = useMediaQuery({ query: '(max-width: 1439.5px)' });
+
   const autoScrollRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const refSvg = useRef(null);
 
   const { x, y } = useFollowPointer(refSvg);
 
   const { isSVG, setIsSVG } = useTeamSectionStore();
+  const setMouse = useMouseStore((state) => state.setMouse);
 
-  const {
-    sliderState,
-    updateState,
-    //  position, variants
-  } = useSlideState(teamsFoto);
+  const handleMouseMove = (event: React.MouseEvent) => {
+    const { clientX, clientY } = event;
+    setMouse(clientX, clientY);
+  };
+
+  const { sliderState, updateState, position, variants } =
+    useSlideState(teamsFoto);
 
   const {
     isDisabledHandleScroll,
     valueX,
-    durationAnimation = DurtionAnimation.Short,
+    durationAnimation = DurtionAnimation.Long,
     lastPaginatedValue,
     dragImageScale,
     isAutoScroll,
@@ -112,24 +119,24 @@ function ListTeam() {
     [updateState]
   );
 
-  useEffect(() => {
-    if (!isAutoScroll) return;
-    console.log('start autoscroll');
+  // useEffect(() => {
+  //   if (!isAutoScroll) return;
+  //   console.log('start autoscroll with duration:', durationAnimation);
 
-    clearAutoScroll();
-    updateState({ durationAnimation: DurtionAnimation.Long });
-    autoScrollRef.current = setInterval(() => {
-      setPositionIndexes((prevPosition) =>
-        prevPosition.map((prevIndex) =>
-          cycleIndex(prevIndex, -1, teamsFoto.length)
-        )
-      );
-    }, DurtionAnimation.Long * 1000);
+  //   clearAutoScroll();
+  //   // updateState({ durationAnimation: DurtionAnimation.Long });
+  //   autoScrollRef.current = setInterval(() => {
+  //     setPositionIndexes((prevPosition) =>
+  //       prevPosition.map((prevIndex) =>
+  //         cycleIndex(prevIndex, -1, teamsFoto.length)
+  //       )
+  //     );
+  //   }, durationAnimation * 1000);
 
-    return () => {
-      clearAutoScroll();
-    };
-  }, [isAutoScroll, durationAnimation]);
+  //   return () => {
+  //     clearAutoScroll();
+  //   };
+  // }, [isAutoScroll, durationAnimation]);
 
   const handlePointerInteraction = (isDown: boolean) => {
     if (isDown) {
@@ -138,8 +145,8 @@ function ListTeam() {
     updateState({
       durationAnimation: isDown
         ? DurtionAnimation.Short
-        : DurtionAnimation.Long,
-      dragImageScale: isDown ? 0.5 : 1,
+        : DurtionAnimation.Short,
+
       isAutoScroll: !isDown,
     });
 
@@ -154,10 +161,13 @@ function ListTeam() {
         clearAutoScroll();
         updateState({
           isAutoScroll: false,
-          durationAnimation: DurtionAnimation.None,
+          // durationAnimation: DurtionAnimation.None,
         });
       } else {
-        updateState({ isAutoScroll: true });
+        updateState({
+          isAutoScroll: true,
+          // durationAnimation: DurtionAnimation.Long,
+        });
       }
     };
 
@@ -173,6 +183,7 @@ function ListTeam() {
       <div className="flex h-[400px] w-full items-end justify-center overflow-hidden">
         <div className="relative flex h-[280px] w-full cursor-none items-center justify-center">
           <motion.div
+            onMouseMove={handleMouseMove}
             ref={refSvg}
             onHoverStart={() => (
               setIsSVG(false),
@@ -180,13 +191,15 @@ function ListTeam() {
               updateState({
                 isAutoScroll: false,
                 durationAnimation: DurtionAnimation.Short,
+                dragImageScale: 0.5,
               })
             )}
             onHoverEnd={() => (
               setIsSVG(true),
               updateState({
+                dragImageScale: 1,
                 isAutoScroll: true,
-                durationAnimation: DurtionAnimation.Long,
+                // durationAnimation: DurtionAnimation.Long,
               })
             )}
             onPointerDown={() => handlePointerInteraction(true)}
@@ -200,38 +213,76 @@ function ListTeam() {
               key={index}
               // animate={position[positionIndexes[index]]}
               // variants={variants}
-              style={{
-                ...(positionIndexes[index] < 2 && {
-                  transition: `transform ${durationAnimation}s linear, opacity ${durationAnimation}s linear`,
-                  transform: 'translateX(-300%) translateY(0%) scale(0)',
-                  opacity: 0,
-                }),
-                ...(positionIndexes[index] === 2 && {
-                  transform: 'translateX(-240%) translateY(0%) scale(0.57)',
-                  transition: `transform ${durationAnimation}s linear`,
-                }),
-                ...(positionIndexes[index] === 3 && {
-                  transform: 'translateX(-130%) translateY(-10%) scale(1)',
-                  transition: `transform ${durationAnimation}s linear`,
-                }),
-                ...(positionIndexes[index] === 4 && {
-                  transform: 'translateX(0%) translateY(0%) scale(1)',
-                  transition: `transform ${durationAnimation}s linear`,
-                }),
-                ...(positionIndexes[index] === 5 && {
-                  transform: 'translateX(130%) translateY(-10%) scale(1)',
-                  transition: `transform ${durationAnimation}s linear`,
-                }),
-                ...(positionIndexes[index] === 6 && {
-                  transform: 'translateX(240%) translateY(0%) scale(0.57)',
-                  transition: `transform ${durationAnimation}s linear`,
-                }),
-                ...(positionIndexes[index] > 6 && {
-                  transform: 'translateX(300%) translateY(0%) scale(0)',
-                  transition: `transform ${durationAnimation}s linear, opacity ${durationAnimation}s linear`,
-                  opacity: 0,
-                }),
-              }}
+              style={
+                isMobile
+                  ? {
+                      ...(positionIndexes[index] < 2 && {
+                        transition: `transform ${durationAnimation}s linear, opacity ${durationAnimation}s linear`,
+                        transform: 'translateX(-300%) scale(0)',
+                        opacity: 0,
+                      }),
+                      ...(positionIndexes[index] === 2 && {
+                        transform: 'translateX(-180%) scale(0.57)',
+                        transition: `transform ${durationAnimation}s linear`,
+                      }),
+                      ...(positionIndexes[index] === 3 && {
+                        transform: 'translateX(-100%) scale(0.57)',
+                        transition: `transform ${durationAnimation}s linear`,
+                      }),
+                      ...(positionIndexes[index] === 4 && {
+                        transform: 'translateX(0%) translateY(0%) scale(1)',
+                        transition: `transform ${durationAnimation}s linear`,
+                      }),
+                      ...(positionIndexes[index] === 5 && {
+                        transform: 'translateX(100%) scale(0.57)',
+                        transition: `transform ${durationAnimation}s linear`,
+                      }),
+                      ...(positionIndexes[index] === 6 && {
+                        transform: 'translateX(180%) scale(0.57)',
+                        transition: `transform ${durationAnimation}s linear`,
+                      }),
+                      ...(positionIndexes[index] > 6 && {
+                        transform: 'translateX(300%) scale(0)',
+                        transition: `transform ${durationAnimation}s linear, opacity ${durationAnimation}s linear`,
+                        opacity: 0,
+                      }),
+                    }
+                  : {
+                      ...(positionIndexes[index] < 2 && {
+                        transition: `transform ${durationAnimation}s linear, opacity ${durationAnimation}s linear`,
+                        transform: 'translateX(-300%) translateY(0%) scale(0)',
+                        opacity: 0,
+                      }),
+                      ...(positionIndexes[index] === 2 && {
+                        transform:
+                          'translateX(-240%) translateY(0%) scale(0.57)',
+                        transition: `transform ${durationAnimation}s linear`,
+                      }),
+                      ...(positionIndexes[index] === 3 && {
+                        transform:
+                          'translateX(-130%) translateY(-10%) scale(1)',
+                        transition: `transform ${durationAnimation}s linear`,
+                      }),
+                      ...(positionIndexes[index] === 4 && {
+                        transform: 'translateX(0%) translateY(0%) scale(1)',
+                        transition: `transform ${durationAnimation}s linear`,
+                      }),
+                      ...(positionIndexes[index] === 5 && {
+                        transform: 'translateX(130%) translateY(-10%) scale(1)',
+                        transition: `transform ${durationAnimation}s linear`,
+                      }),
+                      ...(positionIndexes[index] === 6 && {
+                        transform:
+                          'translateX(240%) translateY(0%) scale(0.57)',
+                        transition: `transform ${durationAnimation}s linear`,
+                      }),
+                      ...(positionIndexes[index] > 6 && {
+                        transform: 'translateX(300%) translateY(0%) scale(0)',
+                        transition: `transform ${durationAnimation}s linear, opacity ${durationAnimation}s linear`,
+                        opacity: 0,
+                      }),
+                    }
+              }
               // transition={{ duration: durationAnimation, ease: 'linear' }}
             >
               <CardTeam
