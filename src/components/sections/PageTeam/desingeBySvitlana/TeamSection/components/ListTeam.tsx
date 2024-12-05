@@ -41,8 +41,11 @@ function ListTeam() {
     setMouse(clientX, clientY);
   };
 
-  const { sliderState, updateState, position, variants } =
-    useSlideState(teamsFoto);
+  const {
+    sliderState,
+    updateState,
+    //  position, variants
+  } = useSlideState(teamsFoto);
 
   const {
     isDisabledHandleScroll,
@@ -50,7 +53,7 @@ function ListTeam() {
     durationAnimation = DurtionAnimation.Long,
     lastPaginatedValue,
     dragImageScale,
-    isAutoScroll,
+    // isAutoScroll,
   } = sliderState;
 
   const clearAutoScroll = () => {
