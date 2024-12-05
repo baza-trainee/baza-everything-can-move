@@ -32,4 +32,6 @@ const ListCards = forwardRef<HTMLUListElement, Props>(
   }
 );
 
+ListCards.displayName = 'ListCards';
+
 export default ListCards;
