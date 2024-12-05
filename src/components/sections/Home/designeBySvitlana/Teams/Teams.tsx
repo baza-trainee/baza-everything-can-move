@@ -61,7 +61,7 @@ export default function Teams() {
   }, []);
 
   return (
-    <Background text="01 // Команда" bg="white" xl={1142} lg={0}>
+    <Background text="01 // Команда" bg="white" xl={1142} >
       <section className="teams l mb-[222px] pt-2 text-olga-grid">
         <div className="container relative">
           <h2
