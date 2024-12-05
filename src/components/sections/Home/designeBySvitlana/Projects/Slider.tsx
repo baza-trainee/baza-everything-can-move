@@ -57,8 +57,8 @@ const Slider = () => {
         slidesPerView={1}
         spaceBetween={20}
         breakpoints={{
-          768: { slidesPerView: 2 },
-          1400: { slidesPerView: 3.5 },
+          768: { slidesPerView: 2.5 },
+          1400: { slidesPerView: 4.5 },
         }}
         className="mySwiper overflow-scroll"
       >
@@ -138,7 +138,7 @@ const Slider = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                   className="h-auto w-full rounded-b-lg p-4 transform transition-transform duration-300 hover:scale-125"
+                  className="h-auto w-full transform rounded-b-lg p-4 transition-transform duration-300 hover:scale-125"
                 />
               </div>
             </div>
@@ -147,14 +147,14 @@ const Slider = () => {
       </Swiper>
 
       {/* Кнопки навігації */}
-      <div className="mt-4 hidden flex-row items-center justify-end gap-8 lg:flex">
+      <div className="mr-16 mt-4 hidden flex-row items-center justify-end gap-8 lg:flex">
         <ButtonSlide
-          className="flex h-full w-full cursor-pointer items-center justify-center"
+          className="bg-transparent hover:bg-gray-600 flex h-14 w-12 cursor-pointer items-center justify-center rounded-full transition-all"
           onClick={handlePrev}
           ariaLabel="кнопка для переходу до попереднього фото"
         />
         <ButtonSlide
-          className="flex h-full w-full rotate-180 cursor-pointer items-center justify-center"
+          className="bg-transparent hover:bg-gray-600 flex h-12 w-12 rotate-180 cursor-pointer items-center justify-center rounded-full transition-all"
           onClick={handleNext}
           ariaLabel="кнопка для переходу до наступного фото"
         />
