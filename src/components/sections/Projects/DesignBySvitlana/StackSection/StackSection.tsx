@@ -1,9 +1,10 @@
+//with LETTERS I do not need it any more
 import React from 'react';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 import TechCard from './TechCard';
 import { STACK_ARR } from '@/constants/stackArr';
-import DigitalRain from './DigitalRain';
+import DigitalRainLetter from './DigitalRainLetter';
 //import DigitalRain2 from './DigitalRain2';
 
 const StackSection: React.FC = () => {
@@ -12,27 +13,24 @@ const StackSection: React.FC = () => {
       {/* Container */}
       {/* <div className="my-auto w-full px-5 lg:px-6 2xl:px-20"> */}
       <div
-        className="absolute top-0 h-20 w-full"
+        className="absolute top-0 h-[60px] w-full 2xl:h-20"
         style={{
           background: `linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.5) 57.08%, rgba(0, 0, 0, 0.257173) 80.1%, rgba(0, 0, 0, 0) 98.1%)`,
         }}
       ></div>
-      <DigitalRain />
+      <DigitalRainLetter />
       <div
-        className="absolute bottom-0 h-20 w-full"
+        className="absolute bottom-0 h-[60px] w-full 2xl:h-20"
         style={{
           background: `background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.5) 57.08%, rgba(0, 0, 0, 0.257173) 80.1%, rgba(0, 0, 0, 0) 98.1%)`,
         }}
       ></div>
       <Container className="absolute left-1/2 top-0 -translate-x-1/2 pb-40 pt-20 lg:pb-[100px] lg:pt-20 2xl:pb-[200px]">
-        {/* blur for title with text */}
-        <div className="hidden backdrop-blur-[2px] 2xl:absolute 2xl:left-12 2xl:top-20 2xl:block 2xl:h-[315px] 2xl:w-[562px] 2xl:rounded-[40px]"></div>
+        {/* shadow for title with text */}
+        <div className="hidden bg-white 2xl:absolute 2xl:left-5 2xl:top-[91px] 2xl:block 2xl:h-[315px] 2xl:w-[602px] 2xl:rounded-[40px]"></div>
         {/* title with text */}
         <div className="mb-10 text-center lg:text-left 2xl:mb-12">
-          <div
-            className="mb-6 lg:mb-[6px] 2xl:w-[544px]"
-            // style={{ backdropFilter: 'blur(200px)' }}
-          >
+          <div className="mb-6 lg:mb-[6px] 2xl:w-[544px]">
             <SectionTitle secondDesign>
               <span className="text-white">стек</span> технологій
             </SectionTitle>

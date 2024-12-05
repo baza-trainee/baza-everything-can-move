@@ -16,7 +16,7 @@ interface StateProps {
 export const useSlideState = (imageArray: TeamsFotoType[]) => {
   const [sliderState, setSliderState] = useState<StateProps>({
     isDisabledHandleScroll: false,
-    durationAnimation: 0,
+    durationAnimation: 10,
 
     valueX: 0,
     lastPaginatedValue: 0,

@@ -16,8 +16,7 @@ const SliderDesktop: React.FC<ProjectsImagesProps> = ({ images }) => {
           style={{
             top: image.top,
             left: image.left,
-            // width: `${image.widthTablet}px`,
-            // height: `${image.heightTablet}px`,
+
             transition: 'transform 0.3s ease-in-out',
           }}
         >

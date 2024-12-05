@@ -1,8 +1,8 @@
 'use client';
-
+//with LETTERS I do not need it any more
 import { useEffect, useRef } from 'react';
 
-export default function DigitalRain() {
+export default function DigitalRainLetter() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

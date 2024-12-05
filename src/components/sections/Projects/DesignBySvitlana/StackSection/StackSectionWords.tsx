@@ -4,9 +4,9 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import TechCard from './TechCard';
 import { STACK_ARR } from '@/constants/stackArr';
 // import DigitalRain from './DigitalRain';
-import DigitalRain2 from './DigitalRain2';
+import DigitalRainWords from './DigitalRainWords';
 
-const StackSection2: React.FC = () => {
+const StackSectionWords: React.FC = () => {
   return (
     <section className="relative h-[1680px] w-full font-third-family font-regular lg:h-[894px] 2xl:h-[834px]">
       {/* Container */}
@@ -17,16 +17,21 @@ const StackSection2: React.FC = () => {
           background: `linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.5) 57.08%, rgba(0, 0, 0, 0.257173) 80.1%, rgba(0, 0, 0, 0) 98.1%)`,
         }}
       ></div>
-      <DigitalRain2 />
+      <DigitalRainWords />
       <div
         className="absolute bottom-0 h-20 w-full"
         style={{
-          background: `background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.5) 57.08%, rgba(0, 0, 0, 0.257173) 80.1%, rgba(0, 0, 0, 0) 98.1%)`,
+          background: `linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.5) 57.08%, rgba(0, 0, 0, 0.257173) 80.1%, rgba(0, 0, 0, 0) 98.1%)`,
         }}
       ></div>
       <Container className="absolute left-1/2 top-0 -translate-x-1/2 pb-40 pt-20 lg:pb-[100px] lg:pt-20 2xl:pb-[200px]">
-        {/* blur for title with text */}
-        <div className="hidden backdrop-blur-[2px] 2xl:absolute 2xl:left-12 2xl:top-20 2xl:block 2xl:h-[315px] 2xl:w-[562px] 2xl:rounded-[40px]"></div>
+        {/* shadow for title with text */}
+        <div
+          style={{
+            background: `radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0.6814) 71.6%, rgba(0, 0, 0, 0.4) 100%)`,
+          }}
+          className="absolute left-0 top-[87px] -z-10 h-[220px] w-[375px] rounded-[40%] lg:h-[264px] lg:w-[530px] 2xl:left-5 2xl:top-[91px] 2xl:h-[315px] 2xl:w-[602px]"
+        ></div>
         {/* title with text */}
         <div className="mb-10 text-center lg:text-left 2xl:mb-12">
           <div
@@ -57,4 +62,4 @@ const StackSection2: React.FC = () => {
   );
 };
 
-export default StackSection2;
+export default StackSectionWords;

@@ -11,7 +11,8 @@ type BgProps = {
   lg?: number;
   xl?: number;
   text?: string;
-  isContainer?: boolean
+  isContainer?: boolean;
+  isAlwaysOpen?: boolean; // Новий проп для визначення завжди відкритого компонента
 };
 
 function BackgroundComponent({
@@ -21,6 +22,7 @@ function BackgroundComponent({
   lg = 125,
   xl = 1142,
   isContainer,
+  isAlwaysOpen = false, // За замовчуванням компонент не завжди відкритий
   className,
 }: BgProps) {
   const xlClassMap: Record<number, string> = {
@@ -33,17 +35,28 @@ function BackgroundComponent({
     125: 'lg:left-[125px]',
     463: 'lg:left-[463px]',
   };
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleOpen = () => setIsOpen(!isOpen);
+
+  const [isOpen, setIsOpen] = useState(isAlwaysOpen); // Ініціалізація стану залежно від `isAlwaysOpen`
+  const toggleOpen = () => {
+    if (!isAlwaysOpen) {
+      setIsOpen(!isOpen);
+    }
+  };
 
   return (
     <motion.section
-      className={cn(`bg-${bg} shadow-3xl  pt-[100px]`, className)}
+      className={cn(`bg-${bg} shadow-3xl pt-[100px]`, className)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <Container className={cn(isContainer ? 'px-0 lg:px-0 2xl:px-0 relative lg:max-w-[1440px] 2xl:max-w-[1920px]' : 'relative')}>
+      <Container
+        className={cn(
+          isContainer
+            ? 'px-0 lg:px-0 2xl:px-0 relative lg:max-w-[1440px] 2xl:max-w-[1920px]'
+            : 'relative'
+        )}
+      >
         <motion.div
           className={cn(
             `absolute -top-[140px] h-[80px] w-[215px] z-2 shadow-3xl rounded-t-2xl pt-[26px] bg-${bg} left-4 ${
@@ -57,9 +70,12 @@ function BackgroundComponent({
             onClick={toggleOpen}
             className={cn(
               'relative h-[36px] w-[132px] text-xs border-[1px] border-solid transition-colors cursor-pointer',
+              isAlwaysOpen
+                ? 'pointer-events-none' // Вимикаємо курсор, якщо компонент завжди відкритий
+                : '',
               bg === 'white'
-                ? 'rotate-[-7deg] border-s-gray text-s-gray hover:bg-s-gray hover:text-white'
-                : 'rotate-[7deg] border-white text-white hover:bg-white hover:text-s-gray'
+                ? 'rotate-[-5deg] border-s-gray text-s-gray hover:bg-s-gray hover:text-white'
+                : 'rotate-[5deg] border-white text-white hover:bg-white hover:text-s-gray'
             )}
           >
             <Rectangle className="left-0 top-0 -translate-x-1/2 -translate-y-1/2" />
@@ -89,9 +105,10 @@ function BackgroundComponent({
 
 export default BackgroundComponent;
 
+
 // how to use
 // all number of position left for lg and 2xl are in xlClassMap
 
 
-  /* <Background text='Плани' bg='s-gray' lg={125} xl={503}> */
+  /* <Background text='Плани' bg='s-gray' lg={125} xl={503} isAlwaysOpen={true}/> */
 
