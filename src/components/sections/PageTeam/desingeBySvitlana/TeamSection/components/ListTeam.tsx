@@ -29,7 +29,7 @@ function ListTeam() {
   );
   const isMobile = useMediaQuery({ query: '(max-width: 1439.5px)' });
 
-  const autoScrollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  // const autoScrollRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const refSvg = useRef(null);
 
   const { x, y } = useFollowPointer(refSvg);
