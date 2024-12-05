@@ -5,15 +5,46 @@ import {
   useSpring,
   useTransform,
 } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import ListCards from './components/ListCards';
 import StarsRow from './components/StarsRow';
 import TextBottom from './components/TextBottom';
 
+interface StateProps {
+  widthList: number;
+  widthContiner: number;
+  pddingRight: number;
+}
 function DesctopLyout() {
   const [paddingTop, setPaddingTop] = useState(0);
+  const [dimentions, setDimention] = useState<StateProps>({
+    widthList: 3500,
+    widthContiner: 786,
+    pddingRight: 24,
+  });
 
+  const listCardRef = useRef<HTMLUListElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+
+  const updateValueWidthElement = useCallback(() => {
+    if (listCardRef.current && gridRef.current) {
+      const listDimention = listCardRef.current.getBoundingClientRect();
+      const dimentionContainer = gridRef.current.getBoundingClientRect();
+      setDimention((prev) => ({
+        ...prev,
+        widthContiner: dimentionContainer.width,
+        widthList: listDimention.width,
+      }));
+    }
+  }, []);
+
+  useEffect(() => {
+    updateValueWidthElement();
+    window.addEventListener('resize', updateValueWidthElement);
+    return () => {
+      window.removeEventListener('resize', updateValueWidthElement);
+    };
+  }, []);
 
   const sectionScroll = useScroll({
     target: gridRef,
@@ -28,7 +59,10 @@ function DesctopLyout() {
   const translateX = useTransform(
     sectionScroll.scrollYProgress,
     [0, 1],
-    [0, -3020]
+    [
+      0,
+      dimentions.widthContiner - dimentions.widthList - dimentions.pddingRight,
+    ]
   );
 
   const smoothTranslateX = useSpring(translateX, {
@@ -55,7 +89,7 @@ function DesctopLyout() {
           style={{ x: smoothTranslateX }}
           className="lg:w-[3920px] 2xl:w-[4440px]"
         >
-          <ListCards paddingTop={paddingTop} />
+          <ListCards ref={listCardRef} paddingTop={paddingTop} />
           <StarsRow stars={28} />
           <TextBottom />
         </motion.div>

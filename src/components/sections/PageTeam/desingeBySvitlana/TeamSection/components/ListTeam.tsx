@@ -163,7 +163,7 @@ function ListTeam() {
   return (
     <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 lg:bottom-[200px] 2xl:bottom-[130px]">
       <div className="flex h-[400px] w-full items-end justify-center overflow-hidden">
-        <div className="relative flex h-[280px] w-full cursor-none items-center justify-center">
+        <ul className="relative flex h-[280px] w-full cursor-none items-center justify-center">
           <motion.div
             onPointerMove={handleMouseMove}
             ref={refSvg}
@@ -184,7 +184,7 @@ function ListTeam() {
             className="absolute bottom-0 left-0 right-0 z-20 h-[320px] touch-none"
           ></motion.div>
           {teamsFoto.map((item, index) => (
-            <motion.div
+            <li
               className="-z-500 pointer-events-none absolute"
               key={index}
               // animate={position[positionIndexes[index]]}
@@ -209,10 +209,10 @@ function ListTeam() {
                 name={item.name}
                 role={item.role}
               />
-            </motion.div>
+            </li>
           ))}
           {!isSVG && <DragSVG x={x} y={y} dragImageScale={dragImageScale} />}
-        </div>
+        </ul>
       </div>
     </div>
   );
