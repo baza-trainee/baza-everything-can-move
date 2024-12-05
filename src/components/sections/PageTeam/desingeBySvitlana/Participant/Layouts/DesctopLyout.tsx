@@ -5,7 +5,7 @@ import {
   useSpring,
   useTransform,
 } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import ListCards from './components/ListCards';
 import StarsRow from './components/StarsRow';
 import TextBottom from './components/TextBottom';
@@ -26,7 +26,7 @@ function DesctopLyout() {
   const listCardRef = useRef<HTMLUListElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  const updateValueWidthElement = useCallback(() => {
     if (listCardRef.current && gridRef.current) {
       const listDimention = listCardRef.current.getBoundingClientRect();
       const dimentionContainer = gridRef.current.getBoundingClientRect();
@@ -36,6 +36,14 @@ function DesctopLyout() {
         widthList: listDimention.width,
       }));
     }
+  }, []);
+
+  useEffect(() => {
+    updateValueWidthElement();
+    window.addEventListener('resize', updateValueWidthElement);
+    return () => {
+      window.removeEventListener('resize', updateValueWidthElement);
+    };
   }, []);
 
   const sectionScroll = useScroll({
