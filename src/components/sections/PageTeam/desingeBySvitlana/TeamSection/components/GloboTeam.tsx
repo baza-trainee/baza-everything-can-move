@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -63,7 +63,7 @@ function GloboTeam() {
 function PointsComponent({
   points,
   mouseX,
-  mouseY,
+  // mouseY,
 }: {
   points: number[][];
   mouseX: number;
