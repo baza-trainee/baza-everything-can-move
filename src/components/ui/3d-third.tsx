@@ -77,7 +77,6 @@ export const CardContainer = ({
         >
           {children}
         </div>
-        {isMouseEntered && <p>blabla</p>}
       </div>
     </MouseEnterContext.Provider>
   );
@@ -86,7 +85,7 @@ export const CardContainer = ({
 export const CardBody = ({
   children,
   className,
-  style
+  style,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -129,7 +128,7 @@ export const CardItem = ({
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
-  scale: number;
+  scale?: number;
   [key: string]: unknown;
 }) => {
   const ref = useRef<HTMLDivElement>(null);

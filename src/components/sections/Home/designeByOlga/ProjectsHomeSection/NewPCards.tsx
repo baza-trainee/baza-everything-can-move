@@ -8,6 +8,7 @@ import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 import { useMediaQuery } from 'react-responsive';
 import MobileCarousel from './MobileCarousel/MobileCarousel';
 import Link from 'next/link';
+import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 
 export function NewPCards() {
   const [isClient, setIsClient] = useState(false);
@@ -78,6 +79,14 @@ export function NewPCards() {
                         }}
                       />
                     </Link>
+                  </CardItem>
+
+                  <CardItem className="mt-2 flex h-full w-full transform justify-between">
+                    <ICONS_SHARED.CORNER_BOTTOM className="w-4" />
+                    <p className="text-sm leading-o-130 text-olga-light-grey">
+                      {image.name}
+                    </p>
+                    <ICONS_SHARED.CORNER_TOP className="w-4 rotate-90" />
                   </CardItem>
                 </CardBody>
               </CardContainer>
