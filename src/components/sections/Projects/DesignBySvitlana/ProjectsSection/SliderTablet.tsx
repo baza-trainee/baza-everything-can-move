@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PanInfo } from 'framer-motion';
-import { ProjectsImagesProps } from './types';
+import { ProjectsImagesProps } from '@/constants/images/imagesSrc';
 import ProjectCard from './ProjectCard';
 
 const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {

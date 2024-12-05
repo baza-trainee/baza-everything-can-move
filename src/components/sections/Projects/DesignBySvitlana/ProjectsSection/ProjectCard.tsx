@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { SvitlanaProjectsImagesType } from './types';
+import { SvitlanaProjectsImagesType } from '@/constants/images/imagesSrc';
 
 import StarsBtnComponent from '@/components/ui/DesignBySvitlna/StarsBtnComponent';
 

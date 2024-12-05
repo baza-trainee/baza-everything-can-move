@@ -2,43 +2,57 @@
 // I think I don't need it any more - Good one card !
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
-import type { StaticImageData } from 'next/image';
+// import type { StaticImageData } from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 import { ButtonSlide } from '@/components/ui/SwiperFoto/components/ButtonSlider';
+import { ImagesHomeProjectsProps } from '@/constants/images/imagesSrc';
 
-interface ImageType {
-  pos: string;
-  src: StaticImageData;
-
-  name: string;
-  widthDesktop: number;
-  heightDesktop: number;
-  topDesktop: number | string;
-  leftDesktop: number | string;
-  translateZ: number;
-
-  widthTablet: number;
-  heightTablet: number;
-  topTablet: number | string;
-  leftTablet: number | string;
+interface ProjectsSliderProps {
+  images: ImagesHomeProjectsProps;
 }
+// interface ImageType {
+//   pos: string;
+//   src: StaticImageData;
 
-export interface ProjectsSliderProps {
-  images: ImageType[];
-}
+//   name: string;
+//   widthDesktop: number;
+//   heightDesktop: number;
+//   topDesktop: number | string;
+//   leftDesktop: number | string;
+//   translateZ: number;
+
+//   widthTablet: number;
+//   heightTablet: number;
+//   topTablet: number | string;
+//   leftTablet: number | string;
+// }
+
+// export interface ProjectsSliderProps {
+//   images: ImageType[];
+// }
 
 const imageVariants = {
+  // enter: (direction: number) => {
+  //   return {
+  //     x: direction > 0 ? '-150%' : '150%',
+  //     scale: 0.5,
+  //     opacity: 0.5,
+  //     transition: {
+  //       x: { duration: 1 },
+  //       ease: 'easeIn',
+  //     },
+  //   };
+  // },
   enter: (direction: number) => {
     return {
-      //x: direction > 0 ? -1000 : 1000,
       x: direction > 0 ? '-150%' : '150%',
       scale: 0.5,
       opacity: 0.5,
       transition: {
-        x: { duration: 1 },
-        ease: 'easeIn',
+        duration: 0.5,
+        ease: 'linear',
       },
     };
   },
@@ -46,11 +60,11 @@ const imageVariants = {
     x: 0,
     scale: 0.5,
     opacity: 1,
-    transition: { duration: 0.5, delay: 0.5 },
+    transition: { duration: 0.5, delay: 0.5, ease: 'linear' },
   },
   expand: {
     scale: 1,
-    transition: { duration: 0.7, delay: 1 },
+    transition: { duration: 0.5, delay: 1, ease: 'linear' },
   },
 
   exit: (direction: number) => {
@@ -61,7 +75,7 @@ const imageVariants = {
       opacity: 0.5,
       transition: {
         duration: 0.5,
-        ease: 'easeIn',
+        ease: 'linear',
       },
     };
   },
@@ -69,13 +83,17 @@ const imageVariants = {
 
 const titleVariants = {
   enter: (direction: number) => {
-    return { x: direction > 0 ? -1000 : 1000, opacity: 0 };
+    return {
+      x: direction > 0 ? -1000 : 1000,
+      opacity: 0,
+      transition: { duration: 0.5, ease: 'linear' },
+    };
   },
   center: {
     x: 0,
 
     opacity: 1,
-    transition: { duration: 0.5, delay: 0.5 },
+    transition: { duration: 1, delay: 0.5, ease: 'linear' },
   },
 
   exit: (direction: number) => {
@@ -87,7 +105,7 @@ const titleVariants = {
   },
 };
 
-const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ images }) => {
+const ProjectsSlider = ({ images }: ProjectsSliderProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -151,12 +169,12 @@ const ProjectsSlider: React.FC<ProjectsSliderProps> = ({ images }) => {
                     custom={direction}
                     variants={titleVariants}
                     initial="enter"
-                    animate={['center']}
+                    animate="center"
                     exit="exit"
-                    transition={{
-                      x: { type: 'spring', stiffness: 300, damping: 30 },
-                      opacity: { duration: 0.2 },
-                    }}
+                    // transition={{
+                    //   x: { type: 'spring', stiffness: 300, damping: 30 },
+                    //   opacity: { duration: 0.2 },
+                    // }}
                   >
                     <h3 className="text-center text-s leading-o-150 text-olga-light-grey">
                       {image.name}

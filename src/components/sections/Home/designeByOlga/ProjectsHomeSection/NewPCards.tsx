@@ -1,5 +1,5 @@
 'use client';
-// I will change it
+// new one because of scale
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-third';
@@ -9,7 +9,7 @@ import { useMediaQuery } from 'react-responsive';
 import MobileCarousel from './MobileCarousel/MobileCarousel';
 import Link from 'next/link';
 
-export function PCardsThird() {
+export function NewPCards() {
   const [isClient, setIsClient] = useState(false);
 
   const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
@@ -39,15 +39,25 @@ export function PCardsThird() {
                 style={{
                   top: image.topTablet,
                   left: image.leftTablet,
-                  width: `${image.widthTablet}px`,
-                  height: `${image.heightTablet}px`,
-                  transition: 'transform 0.3s ease-in-out',
+                  //   width: `${image.widthTablet}px`,
+                  //   height: `${image.heightTablet}px`,
+                  //   width: `352px`,
+                  //   height: `164px`,
+
+                  transition: 'transform 0.5s linear',
                 }}
               >
                 <CardBody className="group/card h-full w-full rounded-xl transition-transform duration-300 ease-in-out">
                   <CardItem
                     translateZ={image.translateZ}
-                    className="h-full w-full transform group-hover/card:h-[164px] group-hover/card:w-[340px]"
+                    scale={image.scaleTablet}
+                    //group-hover/card:h-[164px] group-hover/card:w-[340px]
+                    className="h-full w-full transform"
+                    style={{
+                      width: `${image.widthTablet}px`,
+                      height: `${image.heightTablet}px`,
+                      transition: ' 0.5s linear',
+                    }}
                   >
                     <Link
                       href={image.link}
@@ -62,8 +72,9 @@ export function PCardsThird() {
                         style={{
                           width: '100%',
                           height: '100%',
-                          transition:
-                            'width 0.3s ease-in-out, height 0.3s ease-in-out',
+                          //   width: '352px',
+                          //   height: '168px',
+                          transition: ' 0.5s linear',
                         }}
                       />
                     </Link>
@@ -86,15 +97,22 @@ export function PCardsThird() {
                 style={{
                   top: image.topDesktop,
                   left: image.leftDesktop,
-                  width: `${image.widthDesktop}px`,
-                  height: `${image.heightDesktop}px`,
-                  transition: 'transform 0.3s ease-in-out',
+                  //   width: `${image.widthDesktop}px`,
+                  //   height: `${image.heightDesktop}px`,
+                  transition: 'transform 0.5s linear',
                 }}
               >
                 <CardBody className="group/card h-full w-full rounded-xl transition-transform duration-300 ease-in-out">
                   <CardItem
                     translateZ={image.translateZ}
-                    className="h-full w-full transform group-hover/card:h-[240px] group-hover/card:w-[480px]"
+                    scale={image.scaleDesktop}
+                    //group-hover/card:h-[240px] group-hover/card:w-[480px]
+                    className="h-full w-full transform"
+                    style={{
+                      width: `${image.widthDesktop}px`,
+                      height: `${image.heightDesktop}px`,
+                      transition: ' 0.5s linear',
+                    }}
                   >
                     <Link
                       href={image.link}
@@ -109,8 +127,8 @@ export function PCardsThird() {
                         style={{
                           width: '100%',
                           height: '100%',
-                          transition:
-                            'width 0.3s ease-in-out, height 0.3s ease-in-out',
+
+                          transition: ' 0.5s linear',
                         }}
                       />
                     </Link>
@@ -127,8 +145,3 @@ export function PCardsThird() {
     </div>
   );
 }
-// box-shadow: 0px 6.65px 5.32px 0px #8C898907;
-
-// box-shadow: 0px 22.34px 17.87px 0px #8C89890B;
-
-// box-shadow: 0px 100px 80px 0px #8C898912;

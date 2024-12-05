@@ -3,9 +3,9 @@ import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 interface SocialMediaData {
   name: string;
   link: string;
-
   icon: JSX.Element;
 }
+
 export const SocialMediaData: SocialMediaData[] = [
   {
     name: 'telegram',

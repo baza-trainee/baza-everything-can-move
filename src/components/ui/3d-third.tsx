@@ -77,6 +77,7 @@ export const CardContainer = ({
         >
           {children}
         </div>
+        {isMouseEntered && <p>blabla</p>}
       </div>
     </MouseEnterContext.Provider>
   );
@@ -85,9 +86,11 @@ export const CardContainer = ({
 export const CardBody = ({
   children,
   className,
+  style
 }: {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }) => {
   return (
     <div
@@ -95,6 +98,9 @@ export const CardBody = ({
         '[transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]', //h-96 w-96
         className
       )}
+      style={{
+        ...style,
+      }}
     >
       {children}
     </div>
@@ -111,6 +117,7 @@ export const CardItem = ({
   rotateX = 0,
   rotateY = 0,
   rotateZ = 0,
+  scale = 1,
   ...rest
 }: {
   as?: React.ElementType;
@@ -122,6 +129,7 @@ export const CardItem = ({
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
+  scale: number;
   [key: string]: unknown;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -130,9 +138,9 @@ export const CardItem = ({
   const handleAnimations = useCallback(() => {
     if (!ref.current) return;
     if (isMouseEntered) {
-      ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`;
+      ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)  scale(${scale})`;
     } else {
-      ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
+      ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1) `;
     }
   }, [
     isMouseEntered,
@@ -142,6 +150,7 @@ export const CardItem = ({
     translateX,
     translateY,
     translateZ,
+    scale,
   ]);
 
   useEffect(() => {
