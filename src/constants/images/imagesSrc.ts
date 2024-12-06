@@ -88,7 +88,7 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     leftDesktop: 325,
     scaleDesktop: 2.85,
 
-    translateZ: 90,
+    translateZ: 50,
 
     widthTablet: 120,
     heightTablet: 64,

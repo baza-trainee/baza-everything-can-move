@@ -92,19 +92,23 @@ export function NewPCards() {
                       transformOrigin: 'left center',
                     }}
                     translateZ={image.translateZ + 30}
+                    scaleY={1 / image.scaleTablet}
                     //
-                    className="absolute -bottom-6 flex h-6 w-full transform items-center justify-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"
+                    //scaleY={1 / image.scaleTablet}
+                    //scaleX={1 / image.scaleTablet}
+                    //
+                    className="absolute -bottom-6 hidden h-6 w-full transform items-center justify-center opacity-0 transition-opacity duration-300 group-hover/card:flex group-hover/card:opacity-100"
                   >
                     <ICONS_SHARED.CORNER_BOTTOM
                       style={{
-                        transform: `scale(${1 / image.scaleTablet})`,
+                        transform: `scaleX(${1 / image.scaleTablet})`,
                       }}
                       className="absolute bottom-0 left-0 w-4"
                     />
 
                     <p
                       style={{
-                        transform: `scale(${1 / image.scaleTablet})`,
+                        transform: `scaleX(${1 / image.scaleTablet})`,
                         whiteSpace: 'nowrap',
                         // overflow: 'hidden',
                         // textOverflow: 'ellipsis',
@@ -117,7 +121,7 @@ export function NewPCards() {
 
                     <ICONS_SHARED.CORNER_TOP
                       style={{
-                        transform: `rotate(90deg )scale(${1 / image.scaleTablet})`,
+                        transform: `rotate(90deg ) scaleY(${1 / image.scaleTablet})`,
                       }}
                       className="absolute bottom-0 right-0 w-4"
                     />
