@@ -36,19 +36,26 @@ export function NewPCards() {
             {IMAGES_HOME_PROJECTS.map((image, ind) => (
               <CardContainer
                 key={image.name + ind}
+                scale={image.scaleTablet}
                 className="absolute w-fit"
                 style={{
                   top: image.topTablet,
                   left: image.leftTablet,
-                  //   width: `${image.widthTablet}px`,
-                  //   height: `${image.heightTablet}px`,
+                  width: `${image.widthTablet}px`,
+                  height: `${image.heightTablet}px`,
                   //   width: `352px`,
                   //   height: `164px`,
 
                   transition: 'transform 0.5s linear',
                 }}
               >
-                <CardBody className="group/card h-full w-full rounded-xl transition-transform duration-300 ease-in-out">
+                <CardBody
+                  //   style={{
+                  //     width: `${image.widthTablet}px`,
+                  //     height: `${image.heightTablet}px`,
+                  //   }}
+                  className="group/card h-full w-full transition-transform duration-300 ease-in-out"
+                >
                   <CardItem
                     translateZ={image.translateZ}
                     scale={image.scaleTablet}
@@ -68,7 +75,7 @@ export function NewPCards() {
                     >
                       <Image
                         src={image.src}
-                        className="rounded-xl object-cover group-hover/card:shadow-xl"
+                        className="object-cover group-hover/card:shadow-xl"
                         alt={image.name}
                         style={{
                           width: '100%',
@@ -79,15 +86,42 @@ export function NewPCards() {
                         }}
                       />
                     </Link>
-                    <div className="mt-2 flex h-6 w-full transform items-center justify-between opacity-0 transition-opacity duration-300 group-hover/card:opacity-100">
-                      <ICONS_SHARED.CORNER_BOTTOM className="w-4" />
-                      {/* <p className="text-sm leading-o-130 text-olga-light-grey">
-                        {image.name}
-                      </p> */}
-                      <ICONS_SHARED.CORNER_TOP className="w-4 rotate-90" />
-                    </div>
                   </CardItem>
-                  {/* second CardItem */}
+                  <CardItem
+                    style={{
+                      transformOrigin: 'left center',
+                    }}
+                    translateZ={image.translateZ + 30}
+                    //
+                    className="absolute -bottom-6 flex h-6 w-full transform items-center justify-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"
+                  >
+                    <ICONS_SHARED.CORNER_BOTTOM
+                      style={{
+                        transform: `scale(${1 / image.scaleTablet})`,
+                      }}
+                      className="absolute bottom-0 left-0 w-4"
+                    />
+
+                    <p
+                      style={{
+                        transform: `scale(${1 / image.scaleTablet})`,
+                        whiteSpace: 'nowrap',
+                        // overflow: 'hidden',
+                        // textOverflow: 'ellipsis',
+                      }}
+                      //7text-sm
+                      className="text-s leading-o-130 text-olga-light-grey"
+                    >
+                      {image.name}
+                    </p>
+
+                    <ICONS_SHARED.CORNER_TOP
+                      style={{
+                        transform: `rotate(90deg )scale(${1 / image.scaleTablet})`,
+                      }}
+                      className="absolute bottom-0 right-0 w-4"
+                    />
+                  </CardItem>
                 </CardBody>
               </CardContainer>
             ))}
@@ -111,7 +145,7 @@ export function NewPCards() {
                   transition: 'transform 0.5s linear',
                 }}
               >
-                <CardBody className="group/card h-full w-full rounded-xl transition-transform duration-300 ease-in-out">
+                <CardBody className="group/card h-full w-full transition-transform duration-300 ease-in-out">
                   <CardItem
                     translateZ={image.translateZ}
                     scale={image.scaleDesktop}
