@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Swiper as SwiperClass } from 'swiper/types'; // Додаємо тип Swiper
 import { ButtonSlide } from '../../../../ui/SwiperFoto/components/ButtonSlider';
 import './style.css';
@@ -55,10 +55,17 @@ const Slider = () => {
     }
   };
 
+  // Використання третього слайда як активного
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(4); // Зробити третій слайд активним (індекс 2)
+    }
+  }, []);
+
   return (
     <div className="slider-container relative p-0 pb-8 lg:pb-0">
       <Swiper
-        modules={[Navigation, Pagination]}
+        modules={[Navigation, Pagination, Autoplay]}
         onSwiper={(swiper) => {
           swiperRef.current = swiper; // Зберігаємо реф на Swiper
         }}
@@ -74,6 +81,12 @@ const Slider = () => {
           768: { slidesPerView: 2.5 },
           1400: { slidesPerView: 4.5 },
         }}
+        autoplay={{
+          delay: 3000, // Час між прокрутками (у мс)
+          disableOnInteraction: false, // Продовжувати після ручного гортання
+        }}
+        
+        loop={true} // Увімкнути безкінечний слайдер
         className="mySwiper overflow-scroll"
       >
         {projects.map((project, index) => (
@@ -82,10 +95,10 @@ const Slider = () => {
               <div className="slide-header flex items-center justify-between border-b-2 p-4">
                 <h3 className="text-sm font-bold uppercase text-white">
                   {project.title} <span>{project.subTitle}</span>
-                  <span className='lit1'>{project.s}</span>
-                  <span className='lit2'>{project.su}</span>
-                  <span className='lit3'>{project.sub}</span>
-                  <span className='lit3' >{project.subTitleDR}</span>
+                  <span className="lit1">{project.s}</span>
+                  <span className="lit2">{project.su}</span>
+                  <span className="lit3">{project.sub}</span>
+                  <span className="lit4">{project.subTitleDR}</span>
                 </h3>
                 <div className="icons flex gap-2">
                   <div className="flex items-center gap-[6px]">
