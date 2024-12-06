@@ -2,7 +2,7 @@
 // import Test from './Test';
 
 import React from 'react';
-import Scene from './Scene';
+// import Scene from './Scene';
 import './Hero.css';
 import SceneCopy from './SceneCopy';
 
