@@ -61,6 +61,9 @@
   opacity: 1;
   transform: scale(1.2);
 }
+.swiper-slide-active img{
+  transform: scale(1.15);
+}
 .swiper-slide-active .slide-header,
 .swiper-slide-active .slide-content {
   background-color: #fff;
@@ -103,12 +106,4 @@
 .swiper-slide-active .slide-header .lit4 {
   color: #ffe332;
   transition: color 0.3s ease 0s;
-}
-.swiper-slide img{
-    width: 100%;
-    transition: .7s all ease-in-out;
-    filter: grayscale(100%);
-}
-.swiper-slide-active img {
-  filter: none;
 }

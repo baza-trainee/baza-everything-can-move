@@ -82,8 +82,8 @@ const Slider = () => {
           1400: { slidesPerView: 4.5 },
         }}
         autoplay={{
-          delay: 3000, // Час між прокрутками (у мс)
-          disableOnInteraction: false, // Продовжувати після ручного гортання
+          // delay: 3000, // Час між прокрутками (у мс)
+          // disableOnInteraction: false, // Продовжувати після ручного гортання
         }}
         
         loop={true} // Увімкнути безкінечний слайдер
