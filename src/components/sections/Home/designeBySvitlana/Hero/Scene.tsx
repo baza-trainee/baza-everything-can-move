@@ -37,7 +37,7 @@ export default function Scene() {
 
   // Розрахунок зміщення залежно від позиції скролу
   const translateX = isLargeScreen ? Math.max(-70, 20 - scrollY / 2) : 0;
-  const translateY = isLargeScreen ? Math.min(180, scrollY / 2) : 0;
+  const translateY = isLargeScreen ? Math.min(130, scrollY / 2) : 0;
 
   return (
     <>
@@ -46,9 +46,9 @@ export default function Scene() {
           transform: `translate(${translateX}%, ${translateY}%)`,
           transition: 'transform 1.9s ease-out',
         }}
-        className="h-[700px] 2xl:w-[50%] lg:w-[60%] w-[100%] z-10"
+        className="h-[700px] 2xl:w-[50%] lg:w-[80%] w-[100%] z-10 left-[30%] absolute"
       >
-        <Canvas className="w-[100%] h-[15%]">
+        <Canvas className="w-[100%] h-[60%]">
           <directionalLight position={[1, 16, 12]} intensity={0} />
           <Suspense fallback={null}>
             <Model />
