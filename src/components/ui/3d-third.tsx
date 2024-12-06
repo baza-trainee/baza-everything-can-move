@@ -11,7 +11,7 @@ import React, {
   useCallback,
 } from 'react';
 
-const MouseEnterContext = createContext<
+export const MouseEnterContext = createContext<
   [boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
 >(undefined);
 

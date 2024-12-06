@@ -79,15 +79,15 @@ export function NewPCards() {
                         }}
                       />
                     </Link>
+                    <div className="mt-2 flex h-6 w-full transform items-center justify-between opacity-0 transition-opacity duration-300 group-hover/card:opacity-100">
+                      <ICONS_SHARED.CORNER_BOTTOM className="w-4" />
+                      {/* <p className="text-sm leading-o-130 text-olga-light-grey">
+                        {image.name}
+                      </p> */}
+                      <ICONS_SHARED.CORNER_TOP className="w-4 rotate-90" />
+                    </div>
                   </CardItem>
-
-                  <CardItem className="mt-2 flex h-full w-full transform justify-between">
-                    <ICONS_SHARED.CORNER_BOTTOM className="w-4" />
-                    <p className="text-sm leading-o-130 text-olga-light-grey">
-                      {image.name}
-                    </p>
-                    <ICONS_SHARED.CORNER_TOP className="w-4 rotate-90" />
-                  </CardItem>
+                  {/* second CardItem */}
                 </CardBody>
               </CardContainer>
             ))}
