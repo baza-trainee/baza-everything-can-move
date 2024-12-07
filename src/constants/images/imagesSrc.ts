@@ -70,11 +70,11 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
 
     translateZ: 90,
 
-    widthTablet: 120,
-    heightTablet: 64,
-    topTablet: 160,
-    leftTablet: 452,
-    scaleTablet: 2.93,
+    widthTablet: 180,
+    heightTablet: 92,
+    topTablet: 150,
+    leftTablet: 392,
+    scaleTablet: 1.95,
   },
   {
     pos: '3.l',
@@ -90,11 +90,11 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
 
     translateZ: 50,
 
-    widthTablet: 120,
-    heightTablet: 64,
-    topTablet: 80,
-    leftTablet: 30,
-    scaleTablet: 2.93,
+    widthTablet: 180,
+    heightTablet: 92,
+    topTablet: 90,
+    leftTablet: 40,
+    scaleTablet: 1.95,
   },
 
   {
@@ -112,8 +112,8 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
 
     widthTablet: 180,
     heightTablet: 92,
-    topTablet: 66,
-    leftTablet: 432,
+    topTablet: 30,
+    leftTablet: 402,
     scaleTablet: 1.95,
   },
 
@@ -150,11 +150,11 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
 
     translateZ: 90,
 
-    widthTablet: 180,
-    heightTablet: 92,
+    widthTablet: 120,
+    heightTablet: 64,
     topTablet: 36,
-    leftTablet: 92,
-    scaleTablet: 1.95,
+    leftTablet: 102,
+    scaleTablet: 2.93,
   },
   {
     pos: '1.r',
@@ -169,11 +169,11 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
 
     translateZ: 90,
 
-    widthTablet: 180,
-    heightTablet: 92,
+    widthTablet: 120,
+    heightTablet: 64,
     topTablet: 230,
-    leftTablet: 410,
-    scaleTablet: 1.95,
+    leftTablet: 390,
+    scaleTablet: 2.93, //2.93,
   },
   {
     pos: '1.l',
@@ -191,7 +191,7 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     widthTablet: 340,
     heightTablet: 164,
     topTablet: 92,
-    leftTablet: 192,
+    leftTablet: 142,
     scaleTablet: 1.035,
   },
 ];

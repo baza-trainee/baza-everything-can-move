@@ -21,14 +21,12 @@ export const CardContainer = ({
   containerClassName,
   scale = 1,
   style,
-  opacity = 1,
 }: {
   children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
   style?: React.CSSProperties;
   scale?: number;
-  opacity?: number;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
