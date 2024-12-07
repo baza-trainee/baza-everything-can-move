@@ -12,7 +12,7 @@ type BgProps = {
   xl?: number;
   text?: string;
   isContainer?: boolean;
-  isAlwaysOpen?: boolean; // Новий проп для визначення завжди відкритого компонента
+  isAlwaysOpen?: boolean; 
 };
 
 function BackgroundComponent({
@@ -36,7 +36,7 @@ function BackgroundComponent({
     463: 'lg:left-[463px]',
   };
 
-  const [isOpen, setIsOpen] = useState(isAlwaysOpen); // Ініціалізація стану залежно від `isAlwaysOpen`
+  const [isOpen, setIsOpen] = useState(isAlwaysOpen);
   const toggleOpen = () => {
     if (!isAlwaysOpen) {
       setIsOpen(!isOpen);
@@ -71,7 +71,7 @@ function BackgroundComponent({
             className={cn(
               'relative h-[36px] w-[132px] text-xs border-[1px] border-solid transition-colors cursor-pointer',
               isAlwaysOpen
-                ? 'pointer-events-none' // Вимикаємо курсор, якщо компонент завжди відкритий
+                ? 'pointer-events-none' 
                 : '',
               bg === 'white'
                 ? 'rotate-[-5deg] border-s-gray text-s-gray hover:bg-s-gray hover:text-white'

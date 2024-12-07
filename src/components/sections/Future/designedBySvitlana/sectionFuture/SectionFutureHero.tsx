@@ -7,13 +7,13 @@ function SectionFutureHero() {
     <section className="h-heightMobile lg:h-heightLg 2xl:h-height2xl">
     
       <Container className='h-full relative'>
-        <div className="h-full flex flex-col 2xl:flex-row align-center justify-center lg:justify-end 2xl:justify-between 2xl:items-end h-full pt-[20px] lg:pb-[4.5%] lg:pt-0">
+        <div className="h-full pt-[14%] flex flex-col 2xl:flex-row align-center justify-center lg:justify-start 2xl:justify-between 2xl:items-end h-full  lg:pb-[4.5%] ">
        
         <div className='max-w-[454px] text-center 2xl:max-w-[547px] 2xl:text-start mx-auto 2xl:mx-0 self-center'>
-        <h2 className="traking-s-2 text-xlg lg:text-[80px] leading-o-120 uppercase">
+        <h2 className="traking-s-2 text-xlg lg:text-[80px] leading-o-120 uppercase ">
           <span>плани на </span>Майбутнє
         </h2>
-        <p className='font-third-family text-s lg:text-m 2xl:text-l leading-o-150 mt-2 mb-[6.4%]'>Наші плани спрямовані на створення кращого майбутнього для України через розвиток талантів у сфері ІТ. Кожен успішний проєкт і новий фахівець — це внесок у зміцнення країни та її інноваційний потенціал.</p>
+        <p className='font-third-family text-s lg:text-m 2xl:text-l leading-o-150  mb-[6.4%]'>Наші плани спрямовані на створення кращого майбутнього для України через розвиток талантів у сфері ІТ. Кожен успішний проєкт і новий фахівець — це внесок у зміцнення країни та її інноваційний потенціал.</p>
         </div>
         <GalaxySvitlana />
         <div className=" hidden absolute bottom-0 left-1/2 z-10 opacity-100 transition-opacity duration-500 2xl:block">

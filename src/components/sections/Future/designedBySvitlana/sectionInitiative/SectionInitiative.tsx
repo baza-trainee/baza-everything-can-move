@@ -3,14 +3,14 @@ import React from 'react';
 
 function SectionInitiative() {
   return (
-    <section className='py-[80px]'>
+    <section className='py-[80px] lg:py-[100px] 2xl:py-[80px] 2xl:mt-[30px]'>
       <Container>
-        <div>
-        <h2 className="traking-s-2 text-xlg lg:text-[80px] leading-o-120 uppercase text-center">
+        <div className='max-w-[522px] mx-auto 2xl:pl-7 2xl:w-full 2xl:max-w-full 2xl:grid grid-cols-2 2xl:gap-x-[140px]'>
+        <h2 className="traking-s-2 mb-4 text-xlg lg:text-[80px] leading-o-120 uppercase text-center 2xl:text-left 2xl:order-2">
         Соціальні ініціативи
         </h2>
-          <video src="#"></video>
-          <div className="font-third-family text-m leading-o-150 2xl:text-l">
+        <video className='w-full 2xl:w-[575px]  rounded-2xl mt-[60px] mb-[60px] 2xl:mt-[105px] 2xl:mb-auto lg:mt-[80px] row-span-2' src="/assets/videos/video.mov" loop autoPlay controls/>
+          <div className="font-third-family text-m leading-o-150 2xl:text-l 2xl:order-3">
           <p className='mb-2'  >
             Сміливо змінюємо сучасний шлях входу в ІТ та плануємо трансформувати
             його й надалі шляхом добрих справ. Благодійні проєкти, розробки та
