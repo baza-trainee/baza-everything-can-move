@@ -65,7 +65,7 @@ export function NewPCards() {
                     >
                       <Image
                         src={image.src}
-                        className="object-cover group-hover/card:shadow-xl"
+                        className="object-cover"
                         alt={image.name}
                         style={{
                           width: '100%',
@@ -77,7 +77,7 @@ export function NewPCards() {
                     <CardItem
                       style={{
                         transformOrigin: 'left center',
-                        transition: ' 0.5s linear',
+                        transition: ' 0.3s linear',
                       }}
                       translateZ={image.translateZ + 30}
                       scaleY={1 / image.scaleTablet}
@@ -97,7 +97,7 @@ export function NewPCards() {
                           // overflow: 'hidden',
                           // textOverflow: 'ellipsis',
                         }}
-                        //7text-sm
+                        //text-sm
                         className="text-s leading-o-130 text-olga-light-grey"
                       >
                         {image.name}
@@ -135,12 +135,12 @@ export function NewPCards() {
                   transition: 'transform 0.5s linear',
                 }}
               >
-                <CardBody className="group/card h-full w-full transition-transform duration-300 ease-in-out">
+                <CardBody className="group/card h-full w-full transition-transform duration-300 ease-in-out group-hover/card:shadow-xl">
                   <CardItem
                     translateZ={image.translateZ}
                     scale={image.scaleDesktop}
                     //group-hover/card:h-[240px] group-hover/card:w-[480px]
-                    className="h-full w-full transform"
+                    className="relative h-full w-full transform"
                     style={{
                       width: `${image.widthDesktop}px`,
                       height: `${image.heightDesktop}px`,
@@ -155,7 +155,7 @@ export function NewPCards() {
                     >
                       <Image
                         src={image.src}
-                        className="object-cover group-hover/card:shadow-xl"
+                        className="object-cover"
                         alt={image.name}
                         style={{
                           width: '100%',
@@ -169,10 +169,11 @@ export function NewPCards() {
                   <CardItem
                     style={{
                       transformOrigin: 'left center',
+                      transition: ' 0.3s linear',
                     }}
                     translateZ={image.translateZ + 30}
                     scaleY={1 / image.scaleDesktop}
-                    className="absolute -bottom-6 hidden h-6 w-full transform items-center justify-center text-center opacity-0 transition-opacity duration-300 group-hover/card:flex group-hover/card:opacity-100"
+                    className="absolute -bottom-5 hidden h-6 w-full transform items-center justify-center text-center opacity-0 transition-opacity duration-500 group-hover/card:flex group-hover/card:opacity-100"
                   >
                     <ICONS_SHARED.CORNER_BOTTOM
                       style={{
@@ -180,20 +181,19 @@ export function NewPCards() {
                       }}
                       className="absolute bottom-0 left-0 w-4"
                     />
-                    <div>
-                      <p
-                        style={{
-                          transform: `scaleX(${1 / image.scaleDesktop})`,
-                          whiteSpace: 'nowrap',
-                          // overflow: 'hidden',
-                          // textOverflow: 'ellipsis',
-                        }}
-                        //7text-sm
-                        className="text-s leading-o-130 text-olga-light-grey"
-                      >
-                        {image.name}
-                      </p>
-                    </div>
+
+                    <p
+                      style={{
+                        transform: `scaleX(${1 / image.scaleDesktop})`,
+                        whiteSpace: 'nowrap',
+                        // overflow: 'hidden',
+                        // textOverflow: 'ellipsis',
+                      }}
+                      //7text-sm
+                      className="text-sm leading-o-130 text-olga-light-grey"
+                    >
+                      {image.name}
+                    </p>
 
                     <ICONS_SHARED.CORNER_TOP
                       style={{
