@@ -30,7 +30,7 @@
     position: absolute;
     left: 0px;
     right: 0px;
-    z-index: 100;
+    z-index: 20;
     height: 80px;
    background: linear-gradient(black, transparent);
 }

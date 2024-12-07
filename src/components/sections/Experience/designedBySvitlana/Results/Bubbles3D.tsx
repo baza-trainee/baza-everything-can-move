@@ -40,22 +40,36 @@ const Bubbles3D = () => {
 			metalness: 0,
 			roughness: 0,
 		} );
-        const geometry = new THREE.SphereGeometry( 1.1, 64, 32 );
-		const mesh1 = new THREE.Mesh( geometry, material );
-		const mesh2 = new THREE.Mesh( geometry, material );
-		const mesh3 = new THREE.Mesh( geometry, material );
+        const geometrySM = new THREE.SphereGeometry( 1.1, 64, 32 );
+        const geometryLG = new THREE.SphereGeometry( 1.5, 64, 32 );
+		const mesh1 = new THREE.Mesh( geometrySM, material );
+		const mesh2 = new THREE.Mesh( geometrySM, material );
+		const mesh3 = new THREE.Mesh( geometrySM, material );
+        const mesh4 = new THREE.Mesh( geometryLG, material );
+		const mesh5 = new THREE.Mesh( geometryLG, material );
+		const mesh6 = new THREE.Mesh( geometryLG, material );
 		
-        mesh1.position.set(-2.5, 1, -1);
-        scene.add( mesh1);
-        mesh2.position.set(2.5,-4, -1);
-        scene.add( mesh2);
+
         if (screenWidth < 768 ) {
+            mesh1.position.set(-2.5, 1, -1);
+            scene.add( mesh1);
+            mesh2.position.set(2.5,-4, -1);
+            scene.add( mesh2);
             mesh3.position.set(2.5, 7, -1);
             scene.add( mesh3);
         }
+        if (screenWidth >= 768 && screenWidth < 1440) {
+		    mesh4.position.set(2.5, 7, -1);
+            scene.add( mesh4);
+            mesh5.position.set(2.5, 7, -1);
+            scene.add( mesh5);
+        } 
         if (screenWidth >= 1440) {
-		    mesh3.position.set(2.5, 7, -1);
-            scene.add( mesh3);
+            mesh4.position.set(2.5, 7, -1);
+            scene.add( mesh4);
+            mesh5.position.set(2.5, 7, -1);
+		    mesh6.position.set(2.5, 7, -1);
+            scene.add( mesh6);
         }   
 
         const lightProbe = new THREE.LightProbe();

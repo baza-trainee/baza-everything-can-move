@@ -31,6 +31,7 @@ function BackgroundComponent({
     180: '2xl:left-[180px]',
     500: '2xl:left-[500px]',
     840: '2xl:left-[840px]',
+    940: '2xl:left-[1090px]',
     125: 'lg:left-[125px]',
     463: 'lg:left-[463px]',
   };

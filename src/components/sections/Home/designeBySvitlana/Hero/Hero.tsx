@@ -1,8 +1,10 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
 // import Test from './Test';
+
 import React from 'react';
-import Scene from './Scene';
+// import Scene from './Scene';
 import './Hero.css';
+import SceneCopy from './SceneCopy';
 
 export default function Hero() {
   return (
@@ -15,7 +17,8 @@ export default function Hero() {
           <br />
           робили
         </h1>
-        <Scene />
+        {/* <Scene /> */}
+        <SceneCopy />
         <div className="absolute bottom-[-10rem] left-1/2 z-10 opacity-100 transition-opacity duration-500 md:block">
           <div className="icon-scroll scroll-to-second-section mb-6 h-10 w-6 cursor-pointer rounded-[20px] border border-white xl:mb-12">
             <span className="mx-auto my-2 block h-2 w-0.5 animate-[scroll_3s_ease_infinite] rounded-full bg-white"></span>
