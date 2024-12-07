@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import SliderMobile from './SliderMobile';
 
-import { ProjectsImagesProps } from './types';
+import { ProjectsImagesProps } from '@/constants/images/imagesSrc';
 
 import SliderDesktop from './SliderDesktop';
 import SliderTablet from './SliderTablet';
@@ -23,8 +23,7 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
   if (!isClient) {
     return null;
   }
-  console.log('Client', isClient);
-  console.log('isMobile', isMobile);
+
   return (
     <>
       {/* /* mobile */}

@@ -4,7 +4,7 @@ import React, { useState, useRef } from 'react';
 import { PanInfo } from 'framer-motion';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { ProjectsImagesProps } from './types';
+import { ProjectsImagesProps } from '@/constants/images/imagesSrc';
 import ProjectCard from './ProjectCard';
 
 const imageVariants = {
