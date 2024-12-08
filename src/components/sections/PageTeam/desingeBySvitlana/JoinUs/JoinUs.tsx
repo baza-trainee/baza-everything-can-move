@@ -1,12 +1,9 @@
 import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
-import Container from '@/components/ui/DesignBySvitlna/Container';
 import SubTitleBtn from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleBtn';
 import React from 'react';
 import Ball from './Ball';
 
-type Props = {};
-
-function JoinUs({}: Props) {
+function JoinUs() {
   return (
     <BackgroundComponent
       isAlwaysOpen
