@@ -30,7 +30,7 @@ const FuckUps = () => {
                 return (
                 <div id='list' key={i} data-index={i} onMouseEnter={toggleHover} className={clsx('ease-in duration-200 h-min font-second-family rounded-[40px] lg:w-[227px] 2xl:w-[364px] z-10 relative overflow-hidden', value ? 'bg-black border border-white' :'bg-white')}>
                     <div className='text-md leading-[20px] font-medium flex flex-row gap-4 items-center justify-center px-[62px] py-[42px] lg:px-6 2xl:px-[78px] 2xl:py-[41px]'>
-                        <IndexIcon className={clsx('text-s-purple h-10 w-8 leading-[32px] -rotate-90', value ? 'text-s-purple lg:text-white 2xl:text-s-purple' : 'lg:text-s-gray')}/>
+                        <IndexIcon className={clsx('text-s-purple h-10 w-full leading-[32px] -rotate-90', value ? 'text-s-purple lg:text-white 2xl:text-s-purple' : 'lg:text-s-gray')}/>
                         <p className={clsx('text-lg leading-[32px]', value ? 'text-white' : 'text-s-gray')} >&#47;&#47;</p>
                         <p className={clsx('text-md leading-[20px] 2xl:text-md 2xl:leading-[20px] uppercase', value ? 'text-white' : 'text-s-gray')}>fuck<span className={clsx('text-lg leading-[32px] font-bold', value ? 'text-s-purple lg:text-white 2xl:text-s-purple' : 'text-s-gray')}>up</span></p>
                     </div>

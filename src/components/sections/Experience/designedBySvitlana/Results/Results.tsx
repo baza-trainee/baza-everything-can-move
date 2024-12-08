@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Bubbles3D from './Bubbles3D';
-import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
+// import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 // import clsx from 'clsx';
 
 const Results = () => {
@@ -28,8 +28,8 @@ console.log(isOpen);
   
   return (
     <div onClick={toggleBubbles} className='relative'>
-      <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0}>
-        {/* <div className='bg-s-gray relative'> */}
+      {/* <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isContainer={true}> */}
+        <div className='bg-s-gray relative'>
         {/* <div className='container'> */}
           <SectionTitle  className='text-left pb-8' secondDesign={true}>Результати </SectionTitle>
           <p className='text-[16px] leading-6 font-regular 2xl:w-[551px]'>Ми тримаємо фокус на уроках та покращенні процесів . Долаючи<br className='lg:block 2xl:hidden'/> труднощі ми розвивали в собі нові навички й покращували вже надбані.</p>
@@ -37,10 +37,10 @@ console.log(isOpen);
         {/* </div> */}
         <Bubbles3D isOpen={isOpen}/>
 
-      {/* </div> */}
-      
+      </div>
+      {/* to make own open/close block */}
     
-      </Background>
+      {/* </Background> */}
     </div>
   )
 }
