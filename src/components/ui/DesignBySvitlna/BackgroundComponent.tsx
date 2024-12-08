@@ -13,7 +13,6 @@ type BgProps = {
   text?: string;
   isContainer?: boolean;
   isAlwaysOpen?: boolean; // Новий проп для визначення завжди відкритого компонента
-  zIndexRectangleBox?: number;
 };
 
 function BackgroundComponent({
@@ -25,7 +24,6 @@ function BackgroundComponent({
   isContainer,
   isAlwaysOpen = false, // За замовчуванням компонент не завжди відкритий
   className,
-  zIndexRectangleBox = 2,
 }: BgProps) {
   const xlClassMap: Record<number, string> = {
     276: '2xl:left-[276px]',
@@ -65,8 +63,7 @@ function BackgroundComponent({
               bg === 'white' ? 'pl-[37px]' : 'pl-[46px]'
             }`,
             xlClassMap[xl] || '',
-            xlClassMap[lg] || '',
-            `z-[${zIndexRectangleBox}]`
+            xlClassMap[lg] || ''
           )}
         >
           <div

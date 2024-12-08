@@ -10,7 +10,7 @@ function JoinUs() {
       text="соціальні мережі"
       bg="white"
       className="relative z-20 h-[772px] lg:h-[975px] 2xl:h-[788px]"
-      zIndexRectangleBox={20}
+      //   zIndexRectangleBox={20}
     >
       <div className="font-third-family font-semibold text-black">
         <h2 className="flex text-xlg uppercase leading-o-150 tracking-custom-tight text-s-purple lg:flex-col lg:text-3xl 2xl:flex-row 2xl:gap-12">
