@@ -27,7 +27,6 @@ const MotionImage = motion.create(Image);
 
 export default function Processes() {
   const isDesctop = useMediaQuery({ query: '(min-width: 1439.5px)' });
-  if (!isDesctop) return null;
 
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const [isAnimation, setIsAnimation] = useState(true);
@@ -74,7 +73,7 @@ export default function Processes() {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
-
+  if (!isDesctop) return null;
   return (
     <section className="m-0 bg-black pt-[78px]">
       <Container>
@@ -113,7 +112,6 @@ export default function Processes() {
             <div className="relative flex h-[692px] w-[562px] items-end justify-center overflow-hidden bg-black">
               {isAnimation && (
                 <ul className="flex w-full flex-col gap-6 pb-6">
-                  {/* <AnimatePresence> */}
                   {visibleMessages.map((index) => (
                     <li key={index} className="flex justify-center">
                       <MotionImage
@@ -135,7 +133,6 @@ export default function Processes() {
                       />
                     </li>
                   ))}
-                  {/* </AnimatePresence> */}
                 </ul>
               )}
               {!isAnimation && (
