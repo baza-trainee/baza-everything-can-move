@@ -3,7 +3,6 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 import { useMediaQuery } from 'react-responsive';
 import DesctopLyout from './Layouts/DesctopLyout';
 import MobileLayout from './Layouts/MobileLayout';
-import { FC } from 'react';
 import { cn } from '@/lib/utils';
 type ParticipantProps = {
   className?: string;
