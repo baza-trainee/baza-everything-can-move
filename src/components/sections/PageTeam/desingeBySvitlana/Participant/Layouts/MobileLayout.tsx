@@ -26,7 +26,7 @@ function MobileLayout() {
     refIndex: number
   ) => {
     return (
-      <ul ref={refs[refIndex]} className="flex flex-col gap-6">
+      <ul ref={refs[refIndex]} className="flex flex-col gap-6 overflow-hidden">
         {data.map((item, index) => {
           if (index < startIndex || index > endIndex) return null;
           const loclIndex = index - startIndex;

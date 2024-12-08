@@ -1,5 +1,6 @@
 import { RefObject, useEffect } from 'react';
 import { useMotionValue, useSpring } from 'framer-motion';
+// import { throttle } from 'lodash';
 
 const spring = { damping: 15, stiffness: 50, restDelta: 0.001 };
 

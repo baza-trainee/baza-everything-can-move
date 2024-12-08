@@ -9,18 +9,22 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import ListCards from './components/ListCards';
 import StarsRow from './components/StarsRow';
 import TextBottom from './components/TextBottom';
+import { cn } from '@/lib/utils';
 
 interface StateProps {
   widthList: number;
   widthContiner: number;
-  pddingRight: number;
+  padingRight: number;
+  isPositionFixed: boolean;
+  paddingTop: number;
 }
 function DesctopLyout() {
-  const [paddingTop, setPaddingTop] = useState(0);
-  const [dimentions, setDimention] = useState<StateProps>({
+  const [layoutState, setLayoutState] = useState<StateProps>({
     widthList: 3500,
     widthContiner: 786,
-    pddingRight: 24,
+    padingRight: 24,
+    isPositionFixed: false,
+    paddingTop: 0,
   });
 
   const listCardRef = useRef<HTMLUListElement>(null);
@@ -30,7 +34,7 @@ function DesctopLyout() {
     if (listCardRef.current && gridRef.current) {
       const listDimention = listCardRef.current.getBoundingClientRect();
       const dimentionContainer = gridRef.current.getBoundingClientRect();
-      setDimention((prev) => ({
+      setLayoutState((prev) => ({
         ...prev,
         widthContiner: dimentionContainer.width,
         widthList: listDimention.width,
@@ -61,9 +65,17 @@ function DesctopLyout() {
     [0, 1],
     [
       0,
-      dimentions.widthContiner - dimentions.widthList - dimentions.pddingRight,
+      layoutState.widthContiner -
+        layoutState.widthList -
+        layoutState.padingRight,
     ]
   );
+  useMotionValueEvent(sectionScroll.scrollYProgress, 'change', (event) => {
+    setLayoutState((prev) => ({
+      ...prev,
+      isPositionFixed: event === 1 ? true : false,
+    }));
+  });
 
   const smoothTranslateX = useSpring(translateX, {
     stiffness: 50,
@@ -81,19 +93,26 @@ function DesctopLyout() {
     damping: 20,
   });
 
-  useMotionValueEvent(smoothTransItemY, 'change', (v) => setPaddingTop(v));
+  useMotionValueEvent(smoothTransItemY, 'change', (v) =>
+    setLayoutState((prev) => ({ ...prev, paddingTop: v }))
+  );
   return (
     <div ref={gridRef} className="h-[4500px]">
-      <div className="sticky top-10 overflow-clip">
+      <motion.div
+        className={cn(
+          'top-10 overflow-clip',
+          layoutState.isPositionFixed ? 'fixed -z-10' : 'sticky'
+        )}
+      >
         <motion.div
           style={{ x: smoothTranslateX }}
           className="lg:w-[3920px] 2xl:w-[4440px]"
         >
-          <ListCards ref={listCardRef} paddingTop={paddingTop} />
+          <ListCards ref={listCardRef} paddingTop={layoutState.paddingTop} />
           <StarsRow stars={28} />
           <TextBottom />
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -1,9 +1,8 @@
 import clsx from 'clsx';
-import { motion } from 'framer-motion';
 
 function TextBottom() {
   return (
-    <motion.ul className="flex justify-between">
+    <ul className="z-0 flex justify-between">
       {[...Array(5)].map((_, index) => (
         <li key={index}>
           <p
@@ -16,7 +15,7 @@ function TextBottom() {
           </p>
         </li>
       ))}
-    </motion.ul>
+    </ul>
   );
 }
 

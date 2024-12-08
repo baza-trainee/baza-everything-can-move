@@ -21,8 +21,6 @@ enum DurtionAnimation {
   Long = 10,
 }
 
-const stepToPagination = 150;
-
 function ListTeam() {
   const [positionIndexes, setPositionIndexes] = useState(
     teamsFoto.map((_, index) => index)
@@ -45,6 +43,7 @@ function ListTeam() {
   const {
     sliderState,
     updateState,
+
     //  position, variants
   } = useSlideState(teamsFoto);
 
@@ -54,6 +53,7 @@ function ListTeam() {
     durationAnimation = DurtionAnimation.Long,
     lastPaginatedValue,
     dragImageScale,
+    stepToPagination,
     // isAutoScroll,
   } = sliderState;
 
@@ -113,6 +113,21 @@ function ListTeam() {
     [updateState]
   );
 
+  const setStep = () => {
+    if (isMobile) {
+      updateState({ stepToPagination: 100 });
+    } else {
+      updateState({ stepToPagination: 120 });
+    }
+  };
+
+  useEffect(() => {
+    setStep();
+    window.addEventListener('resize', setStep);
+    return () => {
+      window.removeEventListener('resize', setStep);
+    };
+  }, []);
   // useEffect(() => {
   //   if (!isAutoScroll) return;
   //   console.log('start autoscroll with duration:', durationAnimation);
@@ -161,7 +176,7 @@ function ListTeam() {
   );
 
   return (
-    <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 lg:bottom-[200px] 2xl:bottom-[130px]">
+    <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 lg:bottom-[45px] 2xl:bottom-[30px]">
       <div className="flex h-[400px] w-full items-end justify-center overflow-hidden">
         <ul className="relative flex h-[280px] w-full cursor-none items-center justify-center">
           <motion.div
