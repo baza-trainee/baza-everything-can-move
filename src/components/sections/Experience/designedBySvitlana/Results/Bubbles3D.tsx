@@ -1,6 +1,7 @@
 'use client'
 import React, {useEffect, useRef} from 'react'
 import * as THREE from 'three';
+// import clsx from 'clsx';
 
 const API = {
 	lightProbeIntensity: 5.0,
@@ -9,11 +10,12 @@ const API = {
     ambientLightIntensity: 1.7,
 };
 
-const Bubbles3D = () => {
+const Bubbles3D = ({isOpen}:{isOpen:boolean}) => {
     const canvas = useRef<HTMLDivElement | null >(null);
     const screenWidth = window.innerWidth;
 
     useEffect(()=>{
+
 		const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
 		camera.position.set( 0, 0, 30 );
         const renderer = new THREE.WebGLRenderer();
@@ -24,8 +26,15 @@ const Bubbles3D = () => {
         renderer.setAnimationLoop( animate );
 		canvas.current?.appendChild( renderer.domElement );
 		renderer.domElement.style.position = 'absolute';
+		// renderer.domElement.style.zIndex = '500';
+		// renderer.domElement.style.overflow = 'clip';
+        // if(isOpen){
+            // renderer.domElement.style.top = '500px'
+            // renderer.domElement.style.left = '-1500px'
+        // }
+        console.log(renderer.domElement.style);
 		renderer.domElement.style.width = '100%';
-        		if (screenWidth < 768) {
+        if (screenWidth < 768) {
 			renderer.domElement.style.height = '763px';
         }
 		if (screenWidth >= 768 && screenWidth < 1440) {
@@ -40,6 +49,7 @@ const Bubbles3D = () => {
 			metalness: 0,
 			roughness: 0,
 		} );
+
         const geometrySM = new THREE.SphereGeometry( 1.1, 64, 32 );
         const geometryLG = new THREE.SphereGeometry( 1.5, 64, 32 );
 		const mesh1 = new THREE.Mesh( geometrySM, material );
@@ -48,9 +58,8 @@ const Bubbles3D = () => {
         const mesh4 = new THREE.Mesh( geometryLG, material );
 		const mesh5 = new THREE.Mesh( geometryLG, material );
 		const mesh6 = new THREE.Mesh( geometryLG, material );
-		
 
-        if (screenWidth < 768 ) {
+            if (screenWidth < 768 ) {
             mesh1.position.set(-2.5, 1, -1);
             scene.add( mesh1);
             mesh2.position.set(2.5,-4, -1);
@@ -70,8 +79,7 @@ const Bubbles3D = () => {
             mesh5.position.set(2.5, 7, -1);
 		    mesh6.position.set(2.5, 7, -1);
             scene.add( mesh6);
-        }   
-
+        } 
         const lightProbe = new THREE.LightProbe();
 		scene.add( lightProbe )
 		const directionalLight = new THREE.DirectionalLight( 0xffffff, API.directionalLightIntensity );
@@ -85,13 +93,15 @@ const Bubbles3D = () => {
         function render() {
             window.requestAnimationFrame(render);     
             renderer.render( scene, camera )
-            }
+        }
         render(); 
-    }, [])
+    }, [screenWidth, isOpen])
 
   return (
-    <div className='h-[763px] lg:h-[710px] 2xl:h-[509px] z-[9999]'>
-        <div ref={canvas}/>
+    <div className='h-[763px] lg:h-[710px] 2xl:h-[509px] z-[0]' >
+        <div ref={canvas} />
+        {/* {isOpen &&<div ref={canvas} />} */}
+        {/* <div ref={canvas} className={clsx(isOpen ? 'block' : 'hidden')}/> */}
     
     </div>
   )

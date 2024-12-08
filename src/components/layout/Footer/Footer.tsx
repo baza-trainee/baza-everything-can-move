@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
   const { designType } = useDesignStore();
 
   return (
-    <footer className="bg-black">
+    <footer className="bg-black z-[9000]">
       <div
         className={clsx(
           'w-full overflow-hidden whitespace-nowrap border-b border-white',
