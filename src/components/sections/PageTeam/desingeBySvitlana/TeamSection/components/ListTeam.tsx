@@ -11,7 +11,6 @@ import { useTeamSectionStore } from '../ui/useTeamSectionStore';
 import { throttle } from 'lodash';
 import DragSVG from './DragSVG';
 import { useSlideState } from '../ui/useSliderState';
-import { useMouseStore } from '../ui/useMouseStore';
 import { useMediaQuery } from 'react-responsive';
 import { ListTeamStylesDesctop, ListTeamStylesMobile } from './ListTeamStyles';
 
@@ -33,12 +32,6 @@ function ListTeam() {
   const { x, y } = useFollowPointer(refSvg);
 
   const { isSVG, setIsSVG } = useTeamSectionStore();
-  const setMouse = useMouseStore((state) => state.setMouse);
-
-  const handleMouseMove = (event: React.MouseEvent) => {
-    const { clientX, clientY } = event;
-    setMouse(clientX, clientY);
-  };
 
   const {
     sliderState,
@@ -180,7 +173,7 @@ function ListTeam() {
       <div className="flex h-[400px] w-full items-end justify-center overflow-hidden">
         <ul className="relative flex h-[280px] w-full cursor-none items-center justify-center">
           <motion.div
-            onPointerMove={handleMouseMove}
+            // onPointerMove={handleMouseMove}
             ref={refSvg}
             onHoverStart={() => handleDragImage({ mode: 'start' })}
             onHoverEnd={() => handleDragImage({ mode: 'finish' })}
