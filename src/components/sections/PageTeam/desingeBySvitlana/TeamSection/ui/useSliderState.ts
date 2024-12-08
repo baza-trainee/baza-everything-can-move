@@ -11,13 +11,14 @@ interface StateProps {
   lastPaginatedValue: number;
   dragImageScale: number;
   isAutoScroll: boolean;
+  stepToPagination: number;
 }
 
 export const useSlideState = (imageArray: TeamsFotoType[]) => {
   const [sliderState, setSliderState] = useState<StateProps>({
     isDisabledHandleScroll: false,
     durationAnimation: 10,
-
+    stepToPagination: 150,
     valueX: 0,
     lastPaginatedValue: 0,
     dragImageScale: 1,

@@ -9,6 +9,7 @@ import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 
 import HeaderNavigation from './HeaderNavigation';
 import { NAV_LINKS } from '@/constants/navlinks';
+// import SceneLogo from './SceneLogo';
 
 const Header = () => {
   const pathname = usePathname();
@@ -69,6 +70,7 @@ const Header = () => {
                     'ml-4 py-3 lg:ml-6 lg:py-4 2xl:ml-[82px]'
                 )}
               >
+                {/* <SceneLogo /> */}
                 <Image
                   className={clsx(
                     designType === 'designByOlga' &&

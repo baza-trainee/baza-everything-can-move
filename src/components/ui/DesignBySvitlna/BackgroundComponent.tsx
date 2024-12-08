@@ -13,6 +13,7 @@ type BgProps = {
   text?: string;
   isContainer?: boolean;
   isAlwaysOpen?: boolean; // Новий проп для визначення завжди відкритого компонента
+  zIndexRectangleBox?: number;
 };
 
 function BackgroundComponent({
@@ -24,6 +25,7 @@ function BackgroundComponent({
   isContainer,
   isAlwaysOpen = false, // За замовчуванням компонент не завжди відкритий
   className,
+  zIndexRectangleBox = 2,
 }: BgProps) {
   const xlClassMap: Record<number, string> = {
     276: '2xl:left-[276px]',
@@ -45,7 +47,7 @@ function BackgroundComponent({
 
   return (
     <motion.section
-      className={cn(`bg-${bg} shadow-3xl pt-[100px]`, className)}
+      className={cn(`bg-${bg} pt-[100px] shadow-3xl`, className)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -53,23 +55,24 @@ function BackgroundComponent({
       <Container
         className={cn(
           isContainer
-            ? 'px-0 lg:px-0 2xl:px-0 relative lg:max-w-[1440px] 2xl:max-w-[1920px]'
+            ? 'relative px-0 lg:max-w-[1440px] lg:px-0 2xl:max-w-[1920px] 2xl:px-0'
             : 'relative'
         )}
       >
         <motion.div
           className={cn(
-            `absolute -top-[140px] h-[80px] w-[215px] z-2 shadow-3xl rounded-t-2xl pt-[26px] bg-${bg} left-4 ${
+            `z-2 absolute -top-[140px] h-[80px] w-[215px] rounded-t-2xl pt-[26px] shadow-3xl bg-${bg} left-4 ${
               bg === 'white' ? 'pl-[37px]' : 'pl-[46px]'
             }`,
             xlClassMap[xl] || '',
-            xlClassMap[lg] || ''
+            xlClassMap[lg] || '',
+            `z-[${zIndexRectangleBox}]`
           )}
         >
           <div
             onClick={toggleOpen}
             className={cn(
-              'relative h-[36px] w-[132px] text-xs border-[1px] border-solid transition-colors cursor-pointer',
+              'relative h-[36px] w-[132px] cursor-pointer border-[1px] border-solid text-xs transition-colors',
               isAlwaysOpen
                 ? 'pointer-events-none' // Вимикаємо курсор, якщо компонент завжди відкритий
                 : '',
@@ -105,10 +108,7 @@ function BackgroundComponent({
 
 export default BackgroundComponent;
 
-
 // how to use
 // all number of position left for lg and 2xl are in xlClassMap
 
-
-  /* <Background text='Плани' bg='s-gray' lg={125} xl={503} isAlwaysOpen={true}/> */
-
+/* <Background text='Плани' bg='s-gray' lg={125} xl={503} isAlwaysOpen={true}/> */

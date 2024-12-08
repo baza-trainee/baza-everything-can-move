@@ -38,9 +38,9 @@ function GloboTeam() {
   const points = generateFibonacciSpherePoints(900, sizes.pointsRadius);
 
   return (
-    <div className="relative mx-auto mt-10 h-full w-full lg:mt-14 2xl:-mt-20">
+    <div className="pointer-events-none relative mx-auto mt-10 h-full w-full lg:mt-14 2xl:-mt-20">
       <Canvas
-        className="absolute left-1/2 -translate-x-1/2"
+        className="pointer-events-none absolute left-1/2 -translate-x-1/2"
         style={{ height: sizes.canvasSize, width: sizes.canvasSize }}
         camera={{ position: [0, 0, 8] }}
       >
@@ -63,7 +63,6 @@ function GloboTeam() {
 function PointsComponent({
   points,
   mouseX,
-  // mouseY,
 }: {
   points: number[][];
   mouseX: number;
@@ -74,9 +73,7 @@ function PointsComponent({
   useFrame(({ clock }) => {
     if (pointsRef.current) {
       const normalizedX = (mouseX / window.innerWidth) * 2 - 1;
-      // const normalizedY = -(mouseY / window.innerHeight) * 2 + 1;
 
-      // pointsRef.current.rotation.x = normalizedY * 0.5;
       pointsRef.current.rotation.y = normalizedX * 0.5;
       const elapsedTime = clock.getElapsedTime();
 
