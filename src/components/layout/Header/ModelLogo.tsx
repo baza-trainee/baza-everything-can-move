@@ -11,8 +11,6 @@ export default function ModelLogo() {
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
-    console.log(actions);
-
     if (animations.length > 0) {
       actions[animations[0].name]?.play();
     }
