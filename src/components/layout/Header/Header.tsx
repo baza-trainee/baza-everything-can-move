@@ -3,13 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { useDesignStore } from '@/useDesignStore';
 import clsx from 'clsx';
 import Link from 'next/link';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 
 import HeaderNavigation from './HeaderNavigation';
 import { NAV_LINKS } from '@/constants/navlinks';
-// import SceneLogo from './SceneLogo';
+import SceneLogo from './SceneLogo';
 
 const Header = () => {
   const pathname = usePathname();
@@ -70,8 +70,8 @@ const Header = () => {
                     'ml-4 py-3 lg:ml-6 lg:py-4 2xl:ml-[82px]'
                 )}
               >
-                {/* <SceneLogo /> */}
-                <Image
+                <SceneLogo />
+                {/* <Image
                   className={clsx(
                     designType === 'designByOlga' &&
                       'h-16 w-16 lg:h-20 lg:w-20',
@@ -83,7 +83,7 @@ const Header = () => {
                   priority
                   width={80}
                   height={80}
-                />
+                /> */}
               </Link>
               {/* right side */}
               <div
