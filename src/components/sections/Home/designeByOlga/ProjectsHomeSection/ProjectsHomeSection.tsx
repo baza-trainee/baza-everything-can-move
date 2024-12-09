@@ -3,6 +3,7 @@ import React from 'react';
 
 // import { PCardsThird } from './PCardsThird';
 import { NewPCards } from './NewPCards';
+import { NewPCards2 } from './NewPCards-2';
 
 const ProjectsHomeSection: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const ProjectsHomeSection: React.FC = () => {
 
         {/* <PCardsThird /> */}
         <NewPCards />
+        <NewPCards2 />
       </div>
     </section>
   );
