@@ -5,22 +5,23 @@ import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 const messagesDiscord = [
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/1.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/2.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/3.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/4.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/5.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/6.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/7.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/8.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/9.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/10.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/11.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/12.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/13.png' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/14.png' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/1.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/2.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/3.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/4.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/5.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/6.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/7.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/8.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/9.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/10.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/11.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/12.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/13.webp' },
+  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/14.webp' },
 ];
 
 const MotionImage = motion.create(Image);
@@ -112,27 +113,34 @@ export default function Processes() {
             <div className="relative flex h-[692px] w-[562px] items-end justify-center overflow-hidden bg-black">
               {isAnimation && (
                 <ul className="flex w-full flex-col gap-6 pb-6">
-                  {visibleMessages.map((index) => (
-                    <li key={index} className="flex justify-center">
-                      <MotionImage
-                        initial={{
-                          y: '100%',
-                        }}
-                        animate={{
-                          y: 0,
-                        }}
-                        transition={{
-                          duration: 0.3,
-                          type: 'tween',
-                        }}
-                        className="h-auto w-[498px]"
-                        width={498}
-                        height={50}
-                        src={messagesDiscord[index].url}
-                        alt="повідомлення із діскорда"
-                      />
-                    </li>
-                  ))}
+                  {visibleMessages.map((index) => {
+                    return (
+                      <li key={index} className="flex justify-center">
+                        <MotionImage
+                          initial={{
+                            y: '100%',
+                          }}
+                          animate={{
+                            y: 0,
+                          }}
+                          transition={{
+                            duration: 0.3,
+                            type: 'tween',
+                          }}
+                          className={cn(
+                            'h-auto w-[498px] rounded-3xl',
+                            index === 3 && 'w-[360px]',
+                            index === 6 && 'w-[360px]',
+                            index === 8 && 'w-[360px]'
+                          )}
+                          width={498}
+                          height={50}
+                          src={messagesDiscord[index].url}
+                          alt="повідомлення із діскорда"
+                        />
+                      </li>
+                    );
+                  })}
                 </ul>
               )}
               {!isAnimation && (
