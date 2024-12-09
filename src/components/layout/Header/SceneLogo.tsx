@@ -5,16 +5,14 @@ import { Suspense } from 'react';
 
 function SceneLogo() {
   return (
-    <div className="">
-      <Canvas gl={{ antialias: true }} dpr={[1, 1.5]}>
-        <directionalLight position={[-5, -5, 5]} intensity={5} />
-        <Suspense fallback={null}>
-          {/* <Center position={[-0.5, -0.5, 0]}> */}
-          <ModelLogo />
-          {/* </Center> */}
-        </Suspense>
-      </Canvas>
-    </div>
+    <Canvas gl={{ antialias: true }} dpr={[1, 1.5]}>
+      <directionalLight position={[-5, -5, 5]} intensity={5} />
+      <Suspense fallback={null}>
+        {/* <Center position={[-0.5, -0.5, 0]}> */}
+        <ModelLogo />
+        {/* </Center> */}
+      </Suspense>
+    </Canvas>
   );
 }
 
