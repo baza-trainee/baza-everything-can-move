@@ -1,6 +1,6 @@
 import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import SubTitleBtn from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleBtn';
-import { motion, useDragControls } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import React, { ReactNode, useRef } from 'react';
 import Ball from './Ball';
