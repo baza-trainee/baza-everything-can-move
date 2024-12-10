@@ -1,6 +1,7 @@
 'use client';
-
+import type { StaticImageData } from 'next/image';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 import React, {
   createContext,
@@ -19,13 +20,20 @@ export const CardContainer = ({
   children,
   className,
   containerClassName,
-  //scale = 1,
+  widthStart,
+  widthEnd,
+  translateX = '0px',
+  translateY = '0px',
   style,
 }: {
   children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
   style?: React.CSSProperties;
+  widthStart?: string;
+  widthEnd?: string;
+  translateX?: string;
+  translateY?: string;
   // scale?: number;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -41,18 +49,22 @@ export const CardContainer = ({
     containerRef.current.style.transform = ` rotateY(${x}deg) rotateX(${y}deg)   `;
     containerRef.current.style.willChange = 'transform';
     containerRef.current.style.zIndex = '10';
+    // containerRef.current.style.transformOrigin = 'right';
   };
 
   const handleMouseEnter = () => {
     setIsMouseEntered(true);
+
     if (!containerRef.current) return;
+    containerRef.current.style.transform = `translateX(${translateX}) translateY(${translateY} `;
+    // containerRef.current.style.transformOrigin = 'right';
   };
 
   const handleMouseLeave = () => {
     if (!containerRef.current) return;
     setIsMouseEntered(false);
     //scale(1)
-    containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)  `;
+    containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg) translateX(0px) translateY(0px)  `;
     containerRef.current.style.zIndex = '';
   };
   return (
@@ -63,6 +75,7 @@ export const CardContainer = ({
           perspective: '1000px',
           ...style,
           zIndex: isMouseEntered ? 10 : 1,
+          width: isMouseEntered ? widthEnd : widthStart,
         }}
       >
         <div
@@ -71,11 +84,12 @@ export const CardContainer = ({
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className={cn(
-            'flex items-center justify-center transition-all duration-200 ease-linear'
+            'flex items-center justify-center transition-all duration-300 ease-linear'
             // className
           )}
           style={{
             transformStyle: 'preserve-3d',
+            transformOrigin: 'center',
           }}
         >
           {children}
@@ -119,8 +133,10 @@ export const CardItem = ({
   rotateX = 0,
   rotateY = 0,
   rotateZ = 0,
-  scaleX = 1,
-  scaleY = 1,
+  widthStart,
+  widthEnd,
+  heightStart,
+  heightEnd,
 
   ...rest
 }: {
@@ -133,8 +149,10 @@ export const CardItem = ({
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
-  scaleX?: number;
-  scaleY?: number;
+  widthStart?: string;
+  widthEnd?: string;
+  heightStart?: string;
+  heightEnd?: string;
   [key: string]: unknown;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -143,11 +161,17 @@ export const CardItem = ({
   const handleAnimations = useCallback(() => {
     if (!ref.current) return;
     if (isMouseEntered) {
-      //
-      ref.current.style.transform = `scaleX(${scaleX}) scaleY(${scaleY}) translateX(${translateX}) translateY(${translateY}) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)  `;
+      if (widthEnd) ref.current.style.width = widthEnd;
+      if (heightEnd) ref.current.style.height = heightEnd;
+      ref.current.style.transition =
+        'width 0.5s ease-in-out, height 0.5s ease-in-out';
+      ref.current.style.transform = ` translateX(${translateX}) translateY(${translateY}) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)  `;
+      // ref.current.style.transformOrigin = 'right';
     } else {
-      //
-      ref.current.style.transform = ` scaleX(1) scaleY(1) translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)  `;
+      ref.current.style.transform = ` translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)  `;
+      if (widthStart) ref.current.style.width = widthStart;
+      if (heightStart) ref.current.style.height = heightStart;
+      // ref.current.style.transformOrigin = 'right';
     }
   }, [
     isMouseEntered,
@@ -157,8 +181,10 @@ export const CardItem = ({
     translateX,
     translateY,
     translateZ,
-    scaleY,
-    scaleX,
+    widthStart,
+    widthEnd,
+    heightStart,
+    heightEnd,
   ]);
 
   useEffect(() => {
@@ -184,4 +210,40 @@ export const useMouseEnter = () => {
     throw new Error('useMouseEnter must be used within a MouseEnterProvider');
   }
   return context;
+};
+export const CardImage = ({
+  src,
+  alt,
+  width,
+  height,
+  className,
+}: {
+  src: StaticImageData;
+  alt: string;
+  width?: string;
+  height?: string;
+  className?: string;
+}) => {
+  return (
+    <div
+      className={className}
+      style={{
+        position: 'relative',
+        width: width,
+        height: height,
+        overflow: 'hidden',
+      }}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        className="object-cover transition-all duration-500 ease-in-out"
+        style={{
+          width: '100%',
+          height: '100%',
+          transition: 'transform 0.5s ease-in-out',
+        }}
+      />
+    </div>
+  );
 };

@@ -2,7 +2,12 @@
 // new one because of hover
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { CardContainer, CardItem } from '@/components/ui/3d-third-2';
+import {
+  CardContainer,
+  CardItem,
+  CardBody,
+  CardImage,
+} from '@/components/ui/3d-third-2';
 import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 import { useMediaQuery } from 'react-responsive';
@@ -35,54 +40,58 @@ export function NewPCards2() {
             {IMAGES_HOME_PROJECTS.map((image, ind) => (
               <CardContainer
                 key={image.name + ind}
-                //scale={image.scaleTablet}
+                // widthStart={`${image.widthTablet}px`}
+                // widthEnd={'352px'}
+                translateX={'-50%'}
                 className="absolute w-fit"
                 style={{
                   top: image.topTablet,
                   left: image.leftTablet,
-                  //transform: `scale(${1 / image.scaleTablet})`,
-                  width: `${image.widthTablet}px`,
-                  height: `${image.heightTablet}px`,
-                  transition: 'transform 0.5s linear',
                 }}
               >
-                {/* <CardBody className="group/card h-full w-full transition-transform duration-300 ease-in-out group-hover/card:shadow-xl"> */}
-                <CardItem
-                  translateZ={image.translateZ}
-                  scaleX={image.scaleTablet}
-                  scaleY={image.scaleTablet}
-                  //group-hover/card:h-[168px] group-hover/card:w-[352px] h-[168px] w-[352px] hover:scale-150
-                  className="absolute left-0 top-0 transform"
-                  style={{ transition: ' 0.5s linear' }}
+                <CardBody
+                  className="group/card relative h-full w-full"
+                  style={{
+                    transition: 'transform 0.5s linear',
+                  }}
                 >
-                  <Link
-                    href={image.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cursor-none"
+                  <CardItem
+                    translateZ={image.translateZ}
+                    //translateX={'-50%'}
+                    widthStart={`${image.widthTablet}px`}
+                    widthEnd={'352px'}
+                    heightStart={`${image.heightTablet}px`}
+                    heightEnd={'168px'}
+                    className="group/card transform group-hover/card:shadow-xl"
+                    style={{
+                      transition: ' width 0.5s linear, height 0.5s linear',
+                      transformOrigin: 'center',
+                    }}
                   >
+                    {/* <Link
+                      href={image.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-none"
+                    > */}
                     <Image
                       src={image.src}
-                      //group-hover/card:scale-100
-                      className="object-cover"
+                      className="object-cover transition-all duration-500 ease-in-out"
                       alt={image.name}
-                      width={352}
-                      height={168}
                       style={{
-                        // width: '100%',
-                        // height: '100%',
-                        //transform: `scale(${1 / image.scaleTablet})`,
-                        transition: ' 0.5s linear',
+                        width: '100%',
+                        height: '100%',
+                        transition: 'transform 0.5s ease-in-out',
                       }}
                     />
-                  </Link>
-                  <CardItem
+                    {/* </Link> */}
+                  </CardItem>
+                  {/* </CardBody> */}
+                  {/* <div
                     style={{
                       transformOrigin: 'left center',
                       transition: ' 0.3s linear',
                     }}
-                    translateZ={image.translateZ + 30}
-                    scaleY={1 / image.scaleTablet}
                     className="absolute -bottom-5 h-6 w-full transform items-center justify-center opacity-0 transition-opacity duration-500 ease-linear group-hover/card:flex group-hover/card:opacity-100"
                   >
                     <ICONS_SHARED.CORNER_BOTTOM
@@ -111,9 +120,8 @@ export function NewPCards2() {
                       }}
                       className="absolute bottom-0 right-0 w-4"
                     />
-                  </CardItem>
-                </CardItem>
-                {/* </CardBody> */}
+                  </div> */}
+                </CardBody>
               </CardContainer>
             ))}
           </FollowerPointerCard>
@@ -153,19 +161,13 @@ export function NewPCards2() {
                       rel="noopener noreferrer"
                       className="cursor-none"
                     > */}
-                  <Image
+                  <CardImage
+                    width={`${image.widthDesktop}px`}
+                    height={`${image.heightDesktop}px`}
                     src={image.src}
-                    className="object-cover"
                     alt={image.name}
-                    width={image.widthDesktop * 2}
-                    height={image.heightDesktop*2}
-                    style={{
-                      // width: '100%',
-                      // height: '100%',
-
-                      transition: ' 0.5s linear',
-                    }}
                   />
+                
                   {/* </Link> */}
                 </CardItem>
                 <CardItem
