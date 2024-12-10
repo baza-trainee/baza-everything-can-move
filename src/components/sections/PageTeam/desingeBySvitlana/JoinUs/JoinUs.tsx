@@ -1,6 +1,7 @@
 import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import SubTitleBtn from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleBtn';
-import React from 'react';
+import { motion } from 'framer-motion';
+
 import Ball from './Ball';
 
 function JoinUs() {
