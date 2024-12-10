@@ -1,8 +1,4 @@
-import React from 'react';
-
-type Props = {};
-
-function Icons({}: Props) {
+function Icons() {
   return <div>Icons</div>;
 }
 
