@@ -1,9 +1,25 @@
 import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import SubTitleBtn from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleBtn';
+import { motion, useDragControls } from 'framer-motion';
 
+import React, { ReactNode, useRef } from 'react';
 import Ball from './Ball';
 
 function JoinUs() {
+  const dragArea = useRef(null);
+
+  const MotionDiv = ({ children }: { children: ReactNode }) => {
+    return (
+      <motion.div
+        className="absolute"
+        dragElastic
+        dragConstraints={dragArea}
+        drag
+      >
+        {children}
+      </motion.div>
+    );
+  };
   return (
     <BackgroundComponent
       isAlwaysOpen
@@ -11,7 +27,12 @@ function JoinUs() {
       bg="white"
       className="relative z-20 h-[772px] lg:h-[975px] 2xl:h-[788px]"
     >
-      <div className="font-third-family font-semibold text-black">
+      <motion.div
+        aria-hidden
+        ref={dragArea}
+        className="absolute -top-[100px] left-0 h-[772px] w-full lg:h-[975px] 2xl:h-[788px]"
+      ></motion.div>
+      <motion.div className="font-third-family font-semibold text-black">
         <h2 className="flex text-xlg uppercase leading-o-150 tracking-custom-tight text-s-purple lg:flex-col lg:text-3xl 2xl:flex-row 2xl:gap-12">
           <span> Приєднуйся </span>
           <div className="flex gap-12">
@@ -38,10 +59,34 @@ function JoinUs() {
         <p className="mt-6 font-second-family text-m font-regular leading-o-150 2xl:text-l">
           Підписуйся, слідкуй за нами та пиши!
         </p>
-      </div>
-      {/* <div className="h-[532px] w-full lg:h-[554px] 2xl:h-[476px]"></div> */}
-      <Ball typeLinkSocial={false} colorSchemaStars="white" />
-      <Ball typeLinkSocial={false} colorSchemaStars="purple" />
+      </motion.div>
+      <MotionDiv>
+        <Ball typeBall="stars" colorSchemaStars="white" />
+      </MotionDiv>
+      <MotionDiv>
+        <Ball typeBall="stars" colorSchemaStars="purple" />
+      </MotionDiv>
+      <MotionDiv>
+        <Ball
+          typeBall="socialLink"
+          colorSchemaStars="purple"
+          linkSocial="facebook"
+        />
+      </MotionDiv>
+      <MotionDiv>
+        <Ball
+          typeBall="socialLink"
+          colorSchemaStars="purple"
+          linkSocial="linkedin"
+        />
+      </MotionDiv>
+      <MotionDiv>
+        <Ball
+          typeBall="socialLink"
+          colorSchemaStars="purple"
+          linkSocial="telegram"
+        />
+      </MotionDiv>
     </BackgroundComponent>
   );
 }
