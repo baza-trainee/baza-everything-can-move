@@ -28,7 +28,7 @@ export function NewPCards() {
 
   return (
     <div className="flex w-full justify-center">
-      {/* tablet */}
+      {/* tablet isTablet */}
       {isTablet && (
         <div className="lg:relative lg:block lg:h-[338px] lg:w-[620px]">
           <FollowerPointerCard>
@@ -67,6 +67,8 @@ export function NewPCards() {
                         src={image.src}
                         className="object-cover"
                         alt={image.name}
+                        width={704}
+                        height={336}
                         style={{
                           width: '100%',
                           height: '100%',
@@ -117,7 +119,7 @@ export function NewPCards() {
           </FollowerPointerCard>
         </div>
       )}
-      {/* desktop */}
+      {/* desktop isDesktop */}
       {isDesktop && (
         <div className="2xl:relative 2xl:block 2xl:h-[417px] 2xl:w-[1144px]">
           {/* hidden */}
@@ -157,6 +159,8 @@ export function NewPCards() {
                         src={image.src}
                         className="object-cover"
                         alt={image.name}
+                        width={1024}
+                        height={500}
                         style={{
                           width: '100%',
                           height: '100%',

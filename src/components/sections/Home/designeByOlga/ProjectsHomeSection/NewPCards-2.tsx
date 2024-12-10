@@ -2,18 +2,13 @@
 // new one because of hover
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import {
-  CardContainer,
-  CardItem,
-  CardBody,
-  CardImage,
-} from '@/components/ui/3d-third-2';
+import { CardContainer, CardItem, CardBody } from '@/components/ui/3d-third-2';
 import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 import { useMediaQuery } from 'react-responsive';
 import MobileCarousel from './MobileCarousel/MobileCarousel';
-import Link from 'next/link';
-import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
+// import Link from 'next/link';
+// import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 
 export function NewPCards2() {
   const [isClient, setIsClient] = useState(false);
@@ -42,7 +37,7 @@ export function NewPCards2() {
                 key={image.name + ind}
                 // widthStart={`${image.widthTablet}px`}
                 // widthEnd={'352px'}
-                translateX={'-50%'}
+                // translateX={'-50%'}
                 className="absolute w-fit"
                 style={{
                   top: image.topTablet,
@@ -65,7 +60,6 @@ export function NewPCards2() {
                     className="group/card transform group-hover/card:shadow-xl"
                     style={{
                       transition: ' width 0.5s linear, height 0.5s linear',
-                      transformOrigin: 'center',
                     }}
                   >
                     {/* <Link
@@ -140,73 +134,84 @@ export function NewPCards2() {
                 style={{
                   top: image.topDesktop,
                   left: image.leftDesktop,
-                  width: `${image.widthDesktop}px`,
-                  height: `${image.heightDesktop}px`,
-                  transition: 'transform 0.5s linear',
+                  // width: `${image.widthDesktop}px`,
+                  // height: `${image.heightDesktop}px`,
                 }}
               >
-                {/* <CardBody className="group/card relative h-full w-full transition-transform duration-300 ease-in-out group-hover/card:shadow-xl"> */}
-                <CardItem
-                  translateZ={image.translateZ}
-                  scaleX={image.scaleDesktop}
-                  scaleY={image.scaleDesktop}
-                  // scale={image.scaleDesktop}
-                  //group-hover/card:h-[249px] group-hover/card:w-[512px]
-                  className="absolute left-0 top-0"
-                  style={{ transition: ' 0.5s linear' }}
+                <CardBody
+                  className="group/card relative h-full w-full"
+                  style={{
+                    transition: 'transform 0.5s linear',
+                  }}
                 >
-                  {/* <Link
+                  <CardItem
+                    translateZ={image.translateZ}
+                    widthStart={`${image.widthDesktop}px`}
+                    widthEnd={'512px'}
+                    heightStart={`${image.heightDesktop}px`}
+                    heightEnd={'249px'}
+                    //group-hover/card:h-[249px] group-hover/card:w-[512px]
+                    className="group/card transform group-hover/card:shadow-xl"
+                    style={{
+                      transition: ' width 0.5s linear, height 0.5s linear',
+                    }}
+                  >
+                    {/* <Link
                       href={image.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="cursor-none"
                     > */}
-                  <CardImage
-                    width={`${image.widthDesktop}px`}
-                    height={`${image.heightDesktop}px`}
-                    src={image.src}
-                    alt={image.name}
-                  />
-                
-                  {/* </Link> */}
-                </CardItem>
-                <CardItem
-                  style={{
-                    transformOrigin: 'left center',
-                    transition: ' 0.3s linear',
-                  }}
-                  translateZ={image.translateZ + 30}
-                  scaleY={1 / image.scaleDesktop}
-                  className="absolute -bottom-5 hidden h-6 w-full transform items-center justify-center text-center opacity-0 transition-opacity duration-500 group-hover/card:flex group-hover/card:opacity-100"
-                >
-                  <ICONS_SHARED.CORNER_BOTTOM
-                    style={{
-                      transform: `scaleX(${1 / image.scaleDesktop})`,
-                    }}
-                    className="absolute bottom-0 left-0 w-4"
-                  />
+                    <Image
+                      src={image.src}
+                      className="object-cover transition-all duration-500 ease-in-out"
+                      alt={image.name}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        transition: 'transform 0.5s ease-in-out',
+                      }}
+                    />
 
-                  <p
+                    {/* </Link> */}
+                  </CardItem>
+                  {/* <CardItem
                     style={{
-                      transform: `scaleX(${1 / image.scaleDesktop})`,
-                      whiteSpace: 'nowrap',
-                      // overflow: 'hidden',
-                      // textOverflow: 'ellipsis',
+                      transformOrigin: 'left center',
+                      transition: ' 0.3s linear',
                     }}
-                    //7text-sm
-                    className="text-sm leading-o-130 text-olga-light-grey"
+                    translateZ={image.translateZ + 30}
+                    scaleY={1 / image.scaleDesktop}
+                    className="absolute -bottom-5 hidden h-6 w-full transform items-center justify-center text-center opacity-0 transition-opacity duration-500 group-hover/card:flex group-hover/card:opacity-100"
                   >
-                    {image.name}
-                  </p>
+                    <ICONS_SHARED.CORNER_BOTTOM
+                      style={{
+                        transform: `scaleX(${1 / image.scaleDesktop})`,
+                      }}
+                      className="absolute bottom-0 left-0 w-4"
+                    />
 
-                  <ICONS_SHARED.CORNER_TOP
-                    style={{
-                      transform: `rotate(90deg ) scaleY(${1 / image.scaleDesktop})`,
-                    }}
-                    className="absolute bottom-0 right-0 w-4"
-                  />
-                </CardItem>
-                {/* </CardBody> */}
+                    <p
+                      style={{
+                        transform: `scaleX(${1 / image.scaleDesktop})`,
+                        whiteSpace: 'nowrap',
+                        // overflow: 'hidden',
+                        // textOverflow: 'ellipsis',
+                      }}
+                      //7text-sm
+                      className="text-sm leading-o-130 text-olga-light-grey"
+                    >
+                      {image.name}
+                    </p>
+
+                    <ICONS_SHARED.CORNER_TOP
+                      style={{
+                        transform: `rotate(90deg ) scaleY(${1 / image.scaleDesktop})`,
+                      }}
+                      className="absolute bottom-0 right-0 w-4"
+                    />
+                  </CardItem> */}
+                </CardBody>
               </CardContainer>
             ))}
           </FollowerPointerCard>
