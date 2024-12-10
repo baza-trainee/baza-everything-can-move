@@ -3,7 +3,6 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useMediaQuery } from 'react-responsive';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -27,8 +26,6 @@ const messagesDiscord = [
 const MotionImage = motion.create(Image);
 
 export default function Processes() {
-  const isDesctop = useMediaQuery({ query: '(min-width: 1439.5px)' });
-
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const [isAnimation, setIsAnimation] = useState(true);
   useEffect(() => {
@@ -74,12 +71,11 @@ export default function Processes() {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
-  if (!isDesctop) return null;
   return (
-    <section className="m-0 bg-black pt-[78px]">
+    <section className="m-0 -mt-[1px] bg-black pt-[80px]">
       <Container>
-        <SectionTitle>Процеси</SectionTitle>{' '}
-        <div className="max-w-[543px] font-third-family text-l font-regular leading-o-150">
+        <SectionTitle>Процеси</SectionTitle>
+        <div className="max-w-[543px] font-third-family text-m font-regular leading-o-150 2xl:text-l">
           <p className="text-balance">
             На цьому проєкті наша команда отримала свій перший досвід створення
             анімації.
@@ -89,30 +85,30 @@ export default function Processes() {
             Процес був з викликами, перемогами та приємним спілкувнням.
           </p>
         </div>
-        <div className="relative mx-auto w-[1198px]">
+        <div className="relative -mx-5 mt-[70px] w-[375px] lg:-mx-6 lg:mt-[92px] lg:w-[768px] 2xl:mx-auto 2xl:mt-0 2xl:w-[1198px]">
           <Image
-            className="absolute -top-[60px] left-1/2 z-10 -translate-x-1/2"
+            className="absolute -top-[30px] left-1/2 z-10 h-[60px] w-[60px] -translate-x-1/2 lg:-top-[60px] lg:h-[120px] lg:w-[120px]"
             width={120}
             height={120}
             alt="діскорд іконка"
             src={'/assets/images/PageTeam/DesignSvitlna/discord.png'}
           />
-          <div className="relative z-0 h-[940px] w-[1198px] overflow-hidden">
-            <div className="absolute top-0 h-[1198px] w-[1198px] rounded-full border-[1px] border-solid border-white" />
-            <div className="absolute left-1/2 top-[80px] h-[1000px] w-[1000px] -translate-x-1/2 rounded-full border-[1px] border-solid border-s-purple" />
-            <div className="absolute left-1/2 top-[160px] h-[828px] w-[828px] -translate-x-1/2 rounded-full border-[1px] border-solid border-white" />
+          <div className="relative left-1/2 top-0 z-0 h-[750px] w-[375px] -translate-x-1/2 overflow-hidden lg:h-[1500px] lg:w-full 2xl:h-[940px] 2xl:w-[1198px]">
+            <div className="absolute left-1/2 top-0 h-[375px] w-[375px] -translate-x-1/2 rounded-full border-[1px] border-solid border-white lg:h-[1198px] lg:w-[1198px]" />
+            <div className="absolute left-1/2 top-6 h-[320px] w-[320px] -translate-x-1/2 rounded-full border-[1px] border-solid border-s-purple lg:top-[80px] lg:h-[1000px] lg:w-[1000px]" />
+            <div className="absolute left-1/2 top-[50px] h-[268px] w-[268px] -translate-x-1/2 rounded-full border-[1px] border-solid border-white lg:top-[160px] lg:h-[828px] lg:w-[828px]" />
             <Image
-              className="absolute left-1/2 top-[80px] -translate-x-1/2"
+              className="absolute left-1/2 top-[62px] h-[564px] w-[260px] -translate-x-1/2 lg:top-[80px] lg:h-[1232px] lg:w-[568px]"
               width={568}
               height={1232}
               alt="мобільний телефон"
               src={'/assets/images/PageTeam/DesignSvitlna/Phone.png'}
             />
           </div>
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-            <div className="relative flex h-[692px] w-[562px] items-end justify-center overflow-hidden bg-black">
+          <div className="absolute bottom-[125px] left-1/2 -translate-x-1/2 overflow-hidden rounded-b-[26px] lg:bottom-[190px] lg:rounded-b-[80px] 2xl:bottom-0">
+            <div className="relative flex h-[486px] w-[258px] items-end justify-center overflow-hidden bg-black lg:h-[692px] lg:w-[562px]">
               {isAnimation && (
-                <ul className="flex w-full flex-col gap-6 pb-6">
+                <ul className="flex w-full flex-col gap-4 pb-[36px] lg:gap-6">
                   {visibleMessages.map((index) => {
                     return (
                       <li key={index} className="flex justify-center">
@@ -128,10 +124,10 @@ export default function Processes() {
                             type: 'tween',
                           }}
                           className={cn(
-                            'h-auto w-[498px] rounded-3xl',
-                            index === 3 && 'w-[360px]',
-                            index === 6 && 'w-[360px]',
-                            index === 8 && 'w-[360px]'
+                            'h-auto w-[240px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
+                            index === 3 && 'w-[174px] lg:w-[360px]',
+                            index === 6 && 'w-[174px] lg:w-[360px]',
+                            index === 8 && 'w-[174px] lg:w-[360px]'
                           )}
                           width={498}
                           height={50}
@@ -146,7 +142,8 @@ export default function Processes() {
               {!isAnimation && (
                 <AnimatePresence>
                   <motion.svg
-                    className="absolute left-[40%] top-1/2"
+                    key="discord icon"
+                    className="absolute left-[40%] top-1/2 h-[50px] w-[50px] lg:h-[100px] lg:w-[100px]"
                     initial={{
                       scale: 0,
                       rotate: 0,
