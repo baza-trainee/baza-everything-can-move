@@ -19,7 +19,7 @@ const Results = () => {
      // document.body.children[1].children[0].children[0].children[3].classList.toggle('duration-200');
      // document.body.children[1].children[0].children[0].children[3].classList.toggle('ease-in-out');
    }
-console.log(isOpen);
+// console.log(isOpen);
   useEffect(() => {
     // const blockHeight = document.body.children[1].children[0].children[0].children[3]
     // console.log(document.body.children[1].children[0].children[0].children[3].classList);

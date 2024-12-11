@@ -42,6 +42,11 @@ import tw_logo from '@/assets/icons/projects/stack/tw_logo.svg';
 import next_logo from '@/assets/icons/projects/stack/next_logo.svg';
 import react_logo from '@/assets/icons/projects/stack/react_logo.svg';
 
+//---- experience -----------
+import i1 from '@/assets/icons/experience/designSvitlana/01.svg';
+import i2 from '@/assets/icons/experience/designSvitlana/02.svg';
+import i3 from '@/assets/icons/experience/designSvitlana/03.svg';
+
 // export const ICONS_STACK = [react_logo, ts_logo, tw_logo, css_logo, next_logo];
 
 export const ICONS_STACK = {
@@ -86,4 +91,4 @@ export const ICONS_SHARED = {
 
 export const ICONS_HEADER_SV = [o0, o1, o2, o3, o4];
 
-export const ICONS_EXPERIENCE = [o1, o2, o3];
+export const ICONS_EXPERIENCE = [i1, i2, i3];

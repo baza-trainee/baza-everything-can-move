@@ -18,7 +18,7 @@ const Bubbles3D = ({isOpen}:{isOpen:boolean}) => {
         const screenWidth = window.innerWidth;
         const renderer = new THREE.WebGLRenderer();
         renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( window.innerWidth, window.innerHeight);
+        renderer.setSize( window.innerWidth, window.innerHeight);  
         renderer.toneMapping = THREE.NoToneMapping;
         renderer.setClearColor( 0xffffff, 0);
         renderer.domElement.style.width = '100%';
@@ -49,7 +49,7 @@ const Bubbles3D = ({isOpen}:{isOpen:boolean}) => {
             // renderer.domElement.style.top = '500px'
             // renderer.domElement.style.left = '-1500px'
         // }
-        console.log(renderer.domElement.style);
+        // console.log(renderer.domElement.style);
 		// renderer.domElement.style.width = '100%';
         if (screenWidth < 768) {
 			// renderer.domElement.style.height = '763px';
