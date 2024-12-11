@@ -1,7 +1,24 @@
- 
 .olga #stroke {
-    -webkit-text-fill-color: black !important;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
-
+  -webkit-text-fill-color: black !important;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
 }
 
+.marquee-container {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: flex;
+  will-change: transform; /* Оптимізація для плавної анімації */
+}
+
+.images {
+  flex-shrink: 0;
+}
+
+#stroke {
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
