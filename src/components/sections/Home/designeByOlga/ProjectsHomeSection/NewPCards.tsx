@@ -67,8 +67,6 @@ export function NewPCards() {
                         src={image.src}
                         className="object-cover"
                         alt={image.name}
-                        width={704}
-                        height={336}
                         style={{
                           width: '100%',
                           height: '100%',
@@ -159,8 +157,6 @@ export function NewPCards() {
                         src={image.src}
                         className="object-cover"
                         alt={image.name}
-                        width={1024}
-                        height={500}
                         style={{
                           width: '100%',
                           height: '100%',
