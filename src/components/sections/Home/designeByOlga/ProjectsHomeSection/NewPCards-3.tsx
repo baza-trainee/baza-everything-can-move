@@ -62,9 +62,9 @@ export function NewPCards3() {
                     // widthEnd={'352px'}
                     // heightStart={`${image.heightTablet}px`}
                     // heightEnd={'168px'}
-                    className="group/card transform group-hover/card:shadow-xl"
+                    className="group/card relative transform group-hover/card:shadow-xl"
                     style={{
-                      transition: ' width 0.5s linear, height 0.5s linear',
+                      transition: ' 0.5s linear',
                       width: 352,
                       height: 168,
                     }}
@@ -77,13 +77,14 @@ export function NewPCards3() {
                     > */}
                     <Image
                       src={image.src}
-                      className="object-cover transition-all duration-500 ease-in-out"
+                      className="object-cover transition-all duration-500 ease-linear"
                       alt={image.name}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        transition: 'transform 0.5s ease-in-out',
-                      }}
+                      quality={90}
+                      fill={true}
+                      // style={{
+                      //   width: '100%',
+                      //   height: '100%',
+                      // }}
                     />
                     {/* </Link> */}
                   </CardItem>
@@ -131,18 +132,15 @@ export function NewPCards3() {
       {/* desktop isDesktop*/}
       {isDesktop && (
         <div className="2xl:relative 2xl:block 2xl:h-[417px] 2xl:w-[1144px]">
-          {/* hidden */}
           <FollowerPointerCard>
             {IMAGES_HOME_PROJECTS.map((image, ind) => (
               <CardContainer
                 key={image.name + ind}
+                scale={1 / image.scaleDesktop}
                 className="absolute w-fit"
-                // scale={image.scaleDesktop}
                 style={{
                   top: image.topDesktop,
                   left: image.leftDesktop,
-                  // width: `${image.widthDesktop}px`,
-                  // height: `${image.heightDesktop}px`,
                 }}
               >
                 <CardBody
@@ -153,14 +151,15 @@ export function NewPCards3() {
                 >
                   <CardItem
                     translateZ={image.translateZ}
-                    widthStart={`${image.widthDesktop}px`}
-                    widthEnd={'512px'}
-                    heightStart={`${image.heightDesktop}px`}
-                    heightEnd={'249px'}
-                    //group-hover/card:h-[249px] group-hover/card:w-[512px]
-                    className="group/card transform group-hover/card:shadow-xl"
+                    // widthStart={`${image.widthDesktop}px`}
+                    // widthEnd={'512px'}
+                    // heightStart={`${image.heightDesktop}px`}
+                    // heightEnd={'249px'}
+                    className="group/card relative transform group-hover/card:shadow-xl"
                     style={{
-                      transition: ' width 0.5s linear, height 0.5s linear',
+                      transition: '  0.5s linear',
+                      width: 512,
+                      height: 249,
                     }}
                   >
                     {/* <Link
@@ -171,13 +170,14 @@ export function NewPCards3() {
                     > */}
                     <Image
                       src={image.src}
-                      className="object-cover transition-all duration-500 ease-in-out"
+                      className="object-cover transition-all duration-500 ease-linear"
                       alt={image.name}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        transition: 'transform 0.5s ease-in-out',
-                      }}
+                      quality={90}
+                      fill={true}
+                      // style={{
+                      //   width: '100%',
+                      //   height: '100%',
+                      // }}
                     />
 
                     {/* </Link> */}

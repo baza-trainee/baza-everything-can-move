@@ -20,9 +20,6 @@ export const MouseEnterContext = createContext<
 export const CardContainer = ({
   children,
   className,
-  containerClassName,
-  widthStart,
-  widthEnd,
   translateX = '0px',
   translateY = '0px',
   scale = 1,
@@ -30,13 +27,10 @@ export const CardContainer = ({
 }: {
   children?: React.ReactNode;
   className?: string;
-  containerClassName?: string;
-  style?: React.CSSProperties;
-  widthStart?: string;
-  widthEnd?: string;
   translateX?: string;
   translateY?: string;
   scale?: number;
+  style?: React.CSSProperties;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
@@ -60,8 +54,6 @@ export const CardContainer = ({
     if (!containerRef.current) return;
     //scale(1)
     containerRef.current.style.transform = `translateX(${translateX}) translateY(${translateY} `;
-
-    
   };
 
   const handleMouseLeave = () => {
@@ -142,12 +134,9 @@ export const CardItem = ({
   rotateX = 0,
   rotateY = 0,
   rotateZ = 0,
-  widthStart,
-  widthEnd,
-  heightStart,
-  heightEnd,
-  scaleX = 1,
-  scaleY = 1,
+
+  // scaleX = 1,
+  // scaleY = 1,
 
   ...rest
 }: {
@@ -160,12 +149,8 @@ export const CardItem = ({
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
-  widthStart?: string;
-  widthEnd?: string;
-  heightStart?: string;
-  heightEnd?: string;
-  scaleX?: number;
-  scaleY?: number;
+  // scaleX?: number;
+  // scaleY?: number;
   [key: string]: unknown;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
