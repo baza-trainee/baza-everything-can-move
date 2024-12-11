@@ -25,7 +25,7 @@ function IrregularWaveMesh({ speed = 1, intensity = 1 }) {
     position.needsUpdate = true;
   });
 
-  // `ShaderMaterial` для створення градієнтного ефекту
+
   return (
     <mesh ref={meshRef}>
       <planeGeometry args={[10, 10, 64, 64]} />

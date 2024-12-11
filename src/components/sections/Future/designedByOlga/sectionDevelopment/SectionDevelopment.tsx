@@ -6,9 +6,9 @@ import { TEXTS } from '../../../../../constants/text';
 import clsx from 'clsx';
 import styles from './SectionDevelopment.module.css';
 
-function SectionDevelopment  ()  {
-  const texts = TEXTS.slice(0, 4)
-  console.log(texts)
+function SectionDevelopment() {
+  const texts = TEXTS.slice(0, 4);
+ 
   return (
     <section>
       <div className="container">
@@ -22,7 +22,7 @@ function SectionDevelopment  ()  {
                 styles.scroll
               )}
             >
-              <div className="sticky left-0 top-0 h-[340px] w-customLg 2xl:w-custom2xl py-[18px] 2xl:h-[376px] 2xl:w-[69%] 2xl:py-[21px]">
+              <div className="sticky left-0 top-0 h-[340px] w-customLg py-[18px] 2xl:h-[376px] 2xl:w-[69%] 2xl:w-custom2xl 2xl:py-[21px]">
                 <BrainAnimation />
               </div>
               {texts.map((item, index) => (
@@ -62,6 +62,6 @@ function SectionDevelopment  ()  {
       </div>
     </section>
   );
-};
+}
 
 export default SectionDevelopment;
