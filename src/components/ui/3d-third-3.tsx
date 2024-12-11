@@ -25,6 +25,7 @@ export const CardContainer = ({
   widthEnd,
   translateX = '0px',
   translateY = '0px',
+  scale = 1,
   style,
 }: {
   children?: React.ReactNode;
@@ -35,7 +36,7 @@ export const CardContainer = ({
   widthEnd?: string;
   translateX?: string;
   translateY?: string;
-  // scale?: number;
+  scale?: number;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
@@ -57,15 +58,17 @@ export const CardContainer = ({
     setIsMouseEntered(true);
 
     if (!containerRef.current) return;
+    //scale(1)
     containerRef.current.style.transform = `translateX(${translateX}) translateY(${translateY} `;
-    // containerRef.current.style.transformOrigin = 'right';
+
+    
   };
 
   const handleMouseLeave = () => {
     if (!containerRef.current) return;
     setIsMouseEntered(false);
-    //scale(1)
-    containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg) translateX(0px) translateY(0px)  `;
+    //scale(${scale})
+    containerRef.current.style.transform = ` rotateY(0deg) rotateX(0deg) translateX(0px) translateY(0px)  `;
     containerRef.current.style.zIndex = '';
   };
   return (
@@ -93,7 +96,8 @@ export const CardContainer = ({
           perspective: '1000px',
           transformStyle: 'preserve-3d',
           zIndex: isMouseEntered ? 10 : 1,
-          width: isMouseEntered ? widthEnd : widthStart,
+          // width: isMouseEntered ? widthEnd : widthStart,
+          scale: isMouseEntered ? 1 : scale,
           ...style,
         }}
       >
@@ -142,6 +146,8 @@ export const CardItem = ({
   widthEnd,
   heightStart,
   heightEnd,
+  scaleX = 1,
+  scaleY = 1,
 
   ...rest
 }: {
@@ -158,6 +164,8 @@ export const CardItem = ({
   widthEnd?: string;
   heightStart?: string;
   heightEnd?: string;
+  scaleX?: number;
+  scaleY?: number;
   [key: string]: unknown;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -166,17 +174,15 @@ export const CardItem = ({
   const handleAnimations = useCallback(() => {
     if (!ref.current) return;
     if (isMouseEntered) {
-      if (widthEnd) ref.current.style.width = widthEnd;
-      if (heightEnd) ref.current.style.height = heightEnd;
+      // if (widthEnd) ref.current.style.width = widthEnd;
+      // if (heightEnd) ref.current.style.height = heightEnd;
       ref.current.style.transition =
         'width 0.5s ease-in-out, height 0.5s ease-in-out';
       ref.current.style.transform = ` translateX(${translateX}) translateY(${translateY}) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)  `;
-      // ref.current.style.transformOrigin = 'right';
     } else {
       ref.current.style.transform = ` translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)  `;
-      if (widthStart) ref.current.style.width = widthStart;
-      if (heightStart) ref.current.style.height = heightStart;
-      // ref.current.style.transformOrigin = 'right';
+      // if (widthStart) ref.current.style.width = widthStart;
+      // if (heightStart) ref.current.style.height = heightStart;
     }
   }, [
     isMouseEntered,
@@ -186,10 +192,10 @@ export const CardItem = ({
     translateX,
     translateY,
     translateZ,
-    widthStart,
-    widthEnd,
-    heightStart,
-    heightEnd,
+    // widthStart,
+    // widthEnd,
+    // heightStart,
+    // heightEnd,
   ]);
 
   useEffect(() => {

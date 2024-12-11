@@ -43,6 +43,7 @@ export function NewPCards3() {
                 // widthStart={`${image.widthTablet}px`}
                 // widthEnd={'352px'}
                 // translateX={'-50%'}
+                scale={1 / image.scaleTablet}
                 className="absolute w-fit"
                 style={{
                   top: image.topTablet,
@@ -57,14 +58,15 @@ export function NewPCards3() {
                 >
                   <CardItem
                     translateZ={image.translateZ}
-                    //translateX={'-50%'}
-                    widthStart={`${image.widthTablet}px`}
-                    widthEnd={'352px'}
-                    heightStart={`${image.heightTablet}px`}
-                    heightEnd={'168px'}
+                    // widthStart={`${image.widthTablet}px`}
+                    // widthEnd={'352px'}
+                    // heightStart={`${image.heightTablet}px`}
+                    // heightEnd={'168px'}
                     className="group/card transform group-hover/card:shadow-xl"
                     style={{
                       transition: ' width 0.5s linear, height 0.5s linear',
+                      width: 352,
+                      height: 168,
                     }}
                   >
                     {/* <Link
