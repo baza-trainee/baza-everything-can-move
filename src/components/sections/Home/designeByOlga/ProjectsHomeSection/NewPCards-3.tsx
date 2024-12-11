@@ -1,5 +1,5 @@
 'use client';
-// new one because of hover
+//from big to small
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { CardContainer, CardItem, CardBody } from '@/components/ui/3d-third-3';
@@ -32,11 +32,9 @@ export function NewPCards3() {
       {isTablet && (
         <div
           className="lg:relative lg:block lg:h-[338px] lg:w-[620px]"
-          style={
-            {
-              // perspective: '1000px',
-            }
-          }
+          style={{
+            perspective: '1000px',
+          }}
         >
           <FollowerPointerCard>
             {IMAGES_HOME_PROJECTS.map((image, ind) => (

@@ -1,4 +1,5 @@
 'use client';
+//from big to small
 import type { StaticImageData } from 'next/image';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -89,8 +90,8 @@ export const CardContainer = ({
           className
         )}
         style={{
+          perspective: '1000px',
           transformStyle: 'preserve-3d',
-          transformOrigin: 'center',
           zIndex: isMouseEntered ? 10 : 1,
           width: isMouseEntered ? widthEnd : widthStart,
           ...style,
