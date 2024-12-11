@@ -6,6 +6,7 @@ import React, { ReactNode, useRef } from 'react';
 import Ball from './Ball';
 
 function JoinUs() {
+  // const [items, setItems] = useState([0, 1, 2, 3, 4]);
   const dragArea = useRef(null);
 
   const MotionDiv = ({ children }: { children: ReactNode }) => {
@@ -27,12 +28,7 @@ function JoinUs() {
       bg="white"
       className="relative z-20 h-[772px] lg:h-[975px] 2xl:h-[788px]"
     >
-      <motion.div
-        aria-hidden
-        ref={dragArea}
-        className="absolute -top-[100px] left-0 h-[772px] w-full lg:h-[975px] 2xl:h-[788px]"
-      ></motion.div>
-      <motion.div className="font-third-family font-semibold text-black">
+      <div className="font-third-family font-semibold text-black">
         <h2 className="flex text-xlg uppercase leading-o-150 tracking-custom-tight text-s-purple lg:flex-col lg:text-3xl 2xl:flex-row 2xl:gap-12">
           <span> Приєднуйся </span>
           <div className="flex gap-12">
@@ -59,34 +55,51 @@ function JoinUs() {
         <p className="mt-6 font-second-family text-m font-regular leading-o-150 2xl:text-l">
           Підписуйся, слідкуй за нами та пиши!
         </p>
+      </div>
+      <motion.div
+        aria-hidden
+        ref={dragArea}
+        className="absolute -top-[100px] left-0 h-[772px] w-full lg:h-[975px] 2xl:h-[788px]"
+      >
+        <MotionDiv>
+          <Ball typeBall="stars" colorSchemaStars="white" />
+        </MotionDiv>
+        <MotionDiv>
+          <Ball typeBall="stars" colorSchemaStars="purple" />
+        </MotionDiv>
+        <MotionDiv>
+          <Ball
+            typeBall="socialLink"
+            colorSchemaStars="purple"
+            linkSocial="facebook"
+          />
+        </MotionDiv>
+        <MotionDiv>
+          <Ball
+            typeBall="socialLink"
+            colorSchemaStars="purple"
+            linkSocial="linkedin"
+          />
+        </MotionDiv>
+        <MotionDiv>
+          <Ball
+            typeBall="socialLink"
+            colorSchemaStars="purple"
+            linkSocial="telegram"
+          />
+        </MotionDiv>
       </motion.div>
-      <MotionDiv>
-        <Ball typeBall="stars" colorSchemaStars="white" />
-      </MotionDiv>
-      <MotionDiv>
-        <Ball typeBall="stars" colorSchemaStars="purple" />
-      </MotionDiv>
-      <MotionDiv>
-        <Ball
-          typeBall="socialLink"
-          colorSchemaStars="purple"
-          linkSocial="facebook"
-        />
-      </MotionDiv>
-      <MotionDiv>
-        <Ball
-          typeBall="socialLink"
-          colorSchemaStars="purple"
-          linkSocial="linkedin"
-        />
-      </MotionDiv>
-      <MotionDiv>
-        <Ball
-          typeBall="socialLink"
-          colorSchemaStars="purple"
-          linkSocial="telegram"
-        />
-      </MotionDiv>
+      {/* <Reorder.Group axis="y" onReorder={setItems} values={items}>
+        {items.map((item) => (
+          <Reorder.Item
+            key={item}
+            value={item}
+            className="h-28 w-28 rounded-full bg-olga-green"
+          >
+            <p className="text-center text-black">{item}</p>
+          </Reorder.Item>
+        ))}
+      </Reorder.Group> */}
     </BackgroundComponent>
   );
 }

@@ -93,20 +93,20 @@ export default function Processes() {
             alt="діскорд іконка"
             src={'/assets/images/PageTeam/DesignSvitlna/discord.png'}
           />
-          <div className="relative left-1/2 top-0 z-0 h-[750px] w-[375px] -translate-x-1/2 overflow-hidden lg:h-[1500px] lg:w-full 2xl:h-[940px] 2xl:w-[1198px]">
-            <div className="absolute left-1/2 top-0 h-[375px] w-[375px] -translate-x-1/2 rounded-full border-[1px] border-solid border-white lg:h-[1198px] lg:w-[1198px]" />
+          <div className="relative left-1/2 top-0 z-0 h-[978px] w-[375px] -translate-x-1/2 overflow-hidden lg:h-[1500px] lg:w-full 2xl:h-[940px] 2xl:w-[1198px]">
+            <div className="absolute left-1/2 top-0 h-[368px] w-[368px] -translate-x-1/2 rounded-full border-[1px] border-solid border-white lg:h-[1198px] lg:w-[1198px]" />
             <div className="absolute left-1/2 top-6 h-[320px] w-[320px] -translate-x-1/2 rounded-full border-[1px] border-solid border-s-purple lg:top-[80px] lg:h-[1000px] lg:w-[1000px]" />
             <div className="absolute left-1/2 top-[50px] h-[268px] w-[268px] -translate-x-1/2 rounded-full border-[1px] border-solid border-white lg:top-[160px] lg:h-[828px] lg:w-[828px]" />
             <Image
-              className="absolute left-1/2 top-[62px] h-[564px] w-[260px] -translate-x-1/2 lg:top-[80px] lg:h-[1232px] lg:w-[568px]"
+              className="absolute left-1/2 top-[62px] h-[708x] w-[326px] -translate-x-1/2 lg:top-[80px] lg:h-[1232px] lg:w-[568px]"
               width={568}
               height={1232}
               alt="мобільний телефон"
               src={'/assets/images/PageTeam/DesignSvitlna/Phone.png'}
             />
           </div>
-          <div className="absolute bottom-[125px] left-1/2 -translate-x-1/2 overflow-hidden rounded-b-[26px] lg:bottom-[190px] lg:rounded-b-[80px] 2xl:bottom-0">
-            <div className="relative flex h-[486px] w-[258px] items-end justify-center overflow-hidden bg-black lg:h-[692px] lg:w-[562px]">
+          <div className="absolute bottom-[212px] left-1/2 -translate-x-1/2 overflow-hidden rounded-b-[26px] lg:bottom-[190px] lg:rounded-b-[80px] 2xl:bottom-0">
+            <div className="relative flex h-[608px] w-[302px] items-end justify-center overflow-hidden bg-black lg:h-[692px] lg:w-[562px]">
               {isAnimation && (
                 <ul className="flex w-full flex-col gap-4 pb-[36px] lg:gap-6">
                   {visibleMessages.map((index) => {
@@ -124,10 +124,10 @@ export default function Processes() {
                             type: 'tween',
                           }}
                           className={cn(
-                            'h-auto w-[240px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
-                            index === 3 && 'w-[174px] lg:w-[360px]',
-                            index === 6 && 'w-[174px] lg:w-[360px]',
-                            index === 8 && 'w-[174px] lg:w-[360px]'
+                            'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
+                            index === 3 && 'w-[202px] lg:w-[360px]',
+                            index === 6 && 'w-[202px] lg:w-[360px]',
+                            index === 8 && 'w-[202px] lg:w-[360px]'
                           )}
                           width={498}
                           height={50}
