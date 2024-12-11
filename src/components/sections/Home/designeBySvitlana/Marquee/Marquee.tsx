@@ -4,210 +4,102 @@ import Image from 'next/image';
 import '../Marquee/marquee.css';
 
 const Marquee = () => {
-  const marqueeLeft = {
-    x: ['0%', '-100%'],
+  // Налаштування анімації вліво
+  const marqueeAnimationLeft = {
+    x: ['0%', '-100%'], // Початкова і кінцева позиції
     transition: {
-      duration: 45,
-      ease: 'linear',
-      repeat: Infinity,
+      duration: 20, // Тривалість циклу
+      ease: 'linear', // Лінійна анімація
+      repeat: Infinity, // Повторюється безкінечно
     },
   };
-
-  const marqueeRight = {
-    x: ['0%', '100%'],
+  const marqueeAnimationRight = {
+    x: ['-100%', '0%'], // Початкова і кінцева позиції
     transition: {
-      duration: 45,
-      ease: 'linear',
-      repeat: Infinity,
+      duration: 20, // Тривалість циклу
+      ease: 'linear', // Лінійна анімація
+      repeat: Infinity, // Повторюється безкінечно
     },
   };
 
   return (
-    <div className="olga flex w-full flex-col items-center space-y-4 overflow-x-hidden py-3">
-      {/* Верхній рядок - рухається вліво */}
+    <div className="marquee-container overflow-x-hidden py-3">
+      {/* Бігучий рядок */}
       <motion.div
-        animate={marqueeLeft}
-        className="flex min-w-min shrink-0 grow-0 basis-auto items-center gap-x-6 whitespace-nowrap"
+        animate={marqueeAnimationLeft}
+        className="marquee-content flex whitespace-nowrap"
       >
-        <p
-          id="stroke"
-          className="inline-block font-font3 text-[40px] font-medium leading-[72px]"
-        >
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-1.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
-        <p className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-2.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
-        <p
-          id="stroke"
-          className="inline-block font-font3 text-[40px] font-medium leading-[72px]"
-        >
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-1.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
-        <p className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-2.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
-        <p id="stroke" className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-1.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
-        <p className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-2.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />{' '}
-        <p id="stroke" className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-1.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />{' '}
-        <p className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-2.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
+        {/* Дублюємо контент кілька разів для безперервності */}
+        {Array(10)
+          .fill(0)
+          .map((_, index) => (
+            <div
+              key={index}
+              className="flex shrink-0 grow-0 basis-auto items-center gap-x-6"
+            >
+              <p
+                id="stroke"
+                className="font-font3 text-[40px] font-medium leading-[72px]"
+              >
+                BAZA TRAINEE UKRAINE
+              </p>
+              <Image
+                className="images"
+                src="/assets/images/HomeImg/Star-1.svg"
+                alt="Еліпс"
+                width={50}
+                height={50}
+              />
+              <p className="font-font3 text-[40px] font-medium leading-[72px] text-white">
+                BAZA TRAINEE UKRAINE
+              </p>
+              <Image
+                className="images mr-6"
+                src="/assets/images/HomeImg/Star-2.svg"
+                alt="Еліпс"
+                width={50}
+                height={50}
+              />
+            </div>
+          ))}
       </motion.div>
-
-      {/* Нижній рядок - рухається вправо */}
       <motion.div
-        animate={marqueeRight}
-        className="flex min-w-min shrink-0 grow-0 basis-auto items-center gap-x-6 whitespace-nowrap"
+        animate={marqueeAnimationRight}
+        className="marquee-content flex whitespace-nowrap"
       >
-        <p
-          id="stroke"
-          className="inline-block font-font3 text-[40px] font-medium leading-[72px]"
-        >
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-1.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
-        <p className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-2.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
-        <p
-          id="stroke"
-          className="inline-block font-font3 text-[40px] font-medium leading-[72px]"
-        >
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-1.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
-        <p className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-2.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
-        <p id="stroke" className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-1.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
-        <p className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-2.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
-        <p id="stroke" className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-1.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />{' '}
-        <p className="inline-block font-font3 text-[40px] font-medium leading-[72px] text-white">
-          BAZA TRAINEE UKRAINE
-        </p>
-        <Image
-          className="images"
-          src="/assets/images/HomeImg/Star-2.svg"
-          alt="Еліпс"
-          width={100} // Вкажи потрібну ширину SVG
-          height={100} // Вкажи потрібну висоту SVG
-        />
+        {/* Дублюємо контент кілька разів для безперервності */}
+        {Array(10)
+          .fill(0)
+          .map((_, index) => (
+            <div
+              key={index}
+              className="flex shrink-0 grow-0 basis-auto items-center gap-x-6"
+            >
+              <p
+                id="stroke"
+                className="font-font3 text-[40px] font-medium leading-[72px]"
+              >
+                BAZA TRAINEE UKRAINE
+              </p>
+              <Image
+                className="images"
+                src="/assets/images/HomeImg/Star-1.svg"
+                alt="Еліпс"
+                width={50}
+                height={50}
+              />
+              <p className="font-font3 text-[40px] font-medium leading-[72px] text-white">
+                BAZA TRAINEE UKRAINE
+              </p>
+              <Image
+                className="images mr-6"
+                src="/assets/images/HomeImg/Star-2.svg"
+                alt="Еліпс"
+                width={50}
+                height={50}
+              />
+            </div>
+          ))}
       </motion.div>
     </div>
   );
