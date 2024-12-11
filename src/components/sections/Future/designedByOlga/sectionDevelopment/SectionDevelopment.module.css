@@ -3,5 +3,5 @@
 }
 
 .scroll::-webkit-scrollbar {
-  display: none; /* Для Chrome, Safari, Opera */
+  display: none; 
 }

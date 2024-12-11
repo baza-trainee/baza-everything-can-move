@@ -30,18 +30,15 @@ function BrainAnimation() {
       return tl;
     };
 
-    // Функція для анімації кіл у випадковому порядку
     const animateCircles = () => {
       const tl = highlightCircles();
-      mainTimeline.clear(); // Очищаємо таймлайн перед додаванням нової анімації
-      mainTimeline.add(tl); // Додаємо анімацію до основного таймлайну
-      mainTimeline.play(); // Запускаємо основний таймлайн
+      mainTimeline.clear(); 
+      mainTimeline.add(tl); 
+      mainTimeline.play();
     };
 
-    // Початкова анімація при завантаженні компонента
     animateCircles();
 
-    // Запускаємо інтервал для повторної анімації
     const interval = setInterval(animateCircles, 2000);
 
     return () => {

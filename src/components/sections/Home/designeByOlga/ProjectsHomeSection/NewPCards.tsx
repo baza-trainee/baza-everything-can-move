@@ -28,7 +28,7 @@ export function NewPCards() {
 
   return (
     <div className="flex w-full justify-center">
-      {/* tablet */}
+      {/* tablet isTablet */}
       {isTablet && (
         <div className="lg:relative lg:block lg:h-[338px] lg:w-[620px]">
           <FollowerPointerCard>
@@ -117,7 +117,7 @@ export function NewPCards() {
           </FollowerPointerCard>
         </div>
       )}
-      {/* desktop */}
+      {/* desktop isDesktop */}
       {isDesktop && (
         <div className="2xl:relative 2xl:block 2xl:h-[417px] 2xl:w-[1144px]">
           {/* hidden */}
