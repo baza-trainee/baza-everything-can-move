@@ -35,7 +35,7 @@ export default function Projects() {
         <div className="title">
           <h2
             ref={headingRef}
-            className={`mb-5 text-xlg uppercase leading-[120%] text-s-title-home transition-all duration-700 lg:text-3xl ${
+            className={`mb-5 text-xlg uppercase leading-[120%] text-s-title-home transition-all duration-700 lg:text-3xl font-bold ${
               isVisible
                 ? 'translate-y-0 opacity-100'
                 : 'translate-y-10 opacity-0'
@@ -44,17 +44,17 @@ export default function Projects() {
             Майбутнє
           </h2>
           <div className="mb-6 items-center gap-8 text-lg uppercase lg:flex">
-            Ми пишемо
-            <p className="border-sky-500 rounded-2xl border-2 border-solid px-5 py-1 text-md max-w-28 text-center">
+            <p className='lg:mb-0 mb-3'>Ми пишемо</p>
+            <p className="border-sky-500 rounded-3xl border-2 border-solid px-6 py-1 text-md text-center max-w-32">
               сайти
             </p>
           </div>
-          <div className="xl:text-lg leading-9 lg:lg:w-[485px]">
-            <p className="mb-8">
+          <div className="xl:text-l lg:leading-9 leading-6 lg:lg:w-[575px]">
+            <p className="mb-4">
               По мірі розвитку наші проєкти ускладнюються, команди професійно
               розвиваються, а ринок вимагає іновацій.
             </p>
-            <p className="mb-8">А чом би і не анімація? - подумали ми.</p>
+            <p className="mb-4">А чом би і не анімація? - подумали ми.</p>
             <p className="mb-10">І реалізували.</p>
           </div>
           <Link
