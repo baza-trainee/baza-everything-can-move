@@ -69,7 +69,7 @@ const Header = () => {
                   designType === 'designByOlga' &&
                     'pl-2 pt-6 lg:pb-[26px] lg:pl-4 lg:pt-[26px] 2xl:pb-8 2xl:pl-5 2xl:pt-8',
                   designType === 'designBySvitlana' &&
-                    'ml-2 lg:ml-4 lg:py-2 2xl:ml-[66px] 2xl:py-0'
+                    'ml-4 py-3 lg:ml-6 lg:py-4 2xl:ml-20 2xl:pb-[14px] 2xl:pt-4'
                 )}
               >
                 {/*designBySvitlana h-[40px] w-[40px] lg:h-[68px] lg:w-[68px] 2xl:h-[76px]
@@ -81,7 +81,7 @@ const Header = () => {
                     designType === 'designByOlga' &&
                       'h-[80px] w-[80px] lg:h-[88px] lg:w-[88px] 2xl:h-24 2xl:w-24',
                     designType === 'designBySvitlana' &&
-                      'h-16 w-16 lg:h-[84px] lg:w-[84px] 2xl:h-[106px] 2xl:w-[106px]'
+                      'h-10 w-10 lg:h-[68px] lg:w-[68px] 2xl:h-[76px] 2xl:w-[76px]'
                   )}
                 >
                   <SceneLogo />
@@ -146,7 +146,7 @@ const Header = () => {
                     designType === 'designByOlga' &&
                       'h-[104px] w-[112px] bg-olga-btn-menu pl-8 pt-16 lg:h-[140px] lg:w-[200px] lg:px-3 lg:pb-3 lg:pt-6 2xl:h-[160px] 2xl:w-[236px] 2xl:hover:bg-olga-green 2xl:hover:text-olga-bg',
                     designType === 'designBySvitlana' &&
-                      'h-16 w-[107px] bg-s-gray pl-[27px] pt-6 lg:h-[100px] lg:w-[180px] lg:pb-4 lg:pl-4 lg:pr-6 lg:pt-6 2xl:h-[107px] 2xl:w-[297px] 2xl:pb-3 2xl:pl-5 2xl:pr-20 2xl:pt-8 2xl:hover:bg-s-purple 2xl:hover:text-s-gray'
+                      'bg-transparent h-16 w-[107px] pl-[27px] pt-6 lg:h-[100px] lg:w-[180px] lg:bg-s-gray lg:pb-4 lg:pl-4 lg:pr-6 lg:pt-6 2xl:h-[107px] 2xl:w-[297px] 2xl:pb-3 2xl:pl-5 2xl:pr-20 2xl:pt-8 2xl:hover:bg-s-purple 2xl:hover:text-s-gray'
                   )}
                 >
                   <ICONS_SRC.OPEN_MENU_ICON
