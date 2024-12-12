@@ -8,12 +8,14 @@ import Ball from './Ball';
 function JoinUs() {
   // const [items, setItems] = useState([0, 1, 2, 3, 4]);
   const dragArea = useRef(null);
-
+  // const [dragData, setDragData] = useState<any>();
   const MotionDiv = ({ children }: { children: ReactNode }) => {
     return (
       <motion.div
         className="absolute"
         dragElastic
+        // onDragStart={() => setDragData(dragArea)}
+        // onDragEnd={() => setDragData({ y: 0 })}
         dragConstraints={dragArea}
         drag
       >
