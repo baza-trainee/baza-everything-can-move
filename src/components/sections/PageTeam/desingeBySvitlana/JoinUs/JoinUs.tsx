@@ -2,21 +2,21 @@ import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundCompo
 import SubTitleBtn from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleBtn';
 import { motion } from 'framer-motion';
 
-import React, { ReactNode, useRef, useState } from 'react';
+import React, { ReactNode, useRef } from 'react';
 import Ball from './Ball';
 
 function JoinUs() {
   // const [items, setItems] = useState([0, 1, 2, 3, 4]);
   const dragArea = useRef(null);
-  const [dragData, setDragData] = useState<any>();
+  // const [dragData, setDragData] = useState<any>();
   const MotionDiv = ({ children }: { children: ReactNode }) => {
     return (
       <motion.div
         className="absolute"
         dragElastic
-        onDragStart={() => setDragData(dragArea)}
-        onDragEnd={() => setDragData({ y: 0 })}
-        dragConstraints={dragData}
+        // onDragStart={() => setDragData(dragArea)}
+        // onDragEnd={() => setDragData({ y: 0 })}
+        dragConstraints={dragArea}
         drag
       >
         {children}
