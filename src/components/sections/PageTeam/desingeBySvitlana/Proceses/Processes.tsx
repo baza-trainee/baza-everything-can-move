@@ -117,30 +117,41 @@ export default function Processes() {
                       return (
                         <motion.li key={index} className="flex justify-center">
                           {visibleMessages[index] === index && (
-                            <MotionImage
+                            <motion.div
                               initial={{
-                                y: '100%',
                                 marginTop: 0,
                               }}
                               animate={{
-                                y: 0,
                                 marginTop: isMobile ? 16 : 24,
                               }}
                               transition={{
                                 duration: 0.3,
                                 type: 'tween',
                               }}
-                              className={cn(
-                                'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
-                                index === 3 && 'w-[202px] lg:w-[360px]',
-                                index === 6 && 'w-[202px] lg:w-[360px]',
-                                index === 8 && 'w-[202px] lg:w-[360px]'
-                              )}
-                              width={498}
-                              height={50}
-                              src={messagesDiscord[index].url}
-                              alt="повідомлення із діскорда"
-                            />
+                            >
+                              <MotionImage
+                                initial={{
+                                  y: '100%',
+                                }}
+                                animate={{
+                                  y: 0,
+                                }}
+                                transition={{
+                                  duration: 0.4,
+                                  type: 'tween',
+                                }}
+                                className={cn(
+                                  'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
+                                  index === 3 && 'w-[202px] lg:w-[360px]',
+                                  index === 6 && 'w-[202px] lg:w-[360px]',
+                                  index === 8 && 'w-[202px] lg:w-[360px]'
+                                )}
+                                width={498}
+                                height={50}
+                                src={messagesDiscord[index].url}
+                                alt="повідомлення із діскорда"
+                              />
+                            </motion.div>
                           )}
                         </motion.li>
                       );
