@@ -2,7 +2,7 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import React from 'react';
 
 // import { PCardsThird } from './PCardsThird';
-// import { NewPCards } from './NewPCards';
+//import { NewPCards } from './NewPCards';
 // import { NewPCards2 } from './NewPCards-2';
 import { NewPCards3 } from './NewPCards-3';
 
@@ -16,15 +16,12 @@ const ProjectsHomeSection: React.FC = () => {
         {/* <p className="my-4 text-center text-white">
           Var 1- scale from small to big
         </p>
-        <NewPCards />
-        <p className="my-4 text-center text-white">
+        <NewPCards /> */}
+        {/*<p className="my-4 text-center text-white">
           Var 2- hover to right side.
         </p>
         <NewPCards2 /> */}
-        <p className="my-4 text-center text-white">
-          Var 3- scale from big to small. Не звертити увагу на позиції - це
-          тимчасово.
-        </p>
+
         <NewPCards3 />
       </div>
     </section>
