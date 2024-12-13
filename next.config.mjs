@@ -20,7 +20,9 @@ const nextConfig = {
       }
     );
 
-    fileLoaderRule.exclude = /\.svg$/i;
+    if (fileLoaderRule) {
+      fileLoaderRule.exclude = /\.svg$/i;
+    }
     config.module.rules.push({
       test: /\.(glsl|vs|fs|frag|vert)$/i,
       type: 'asset/source',
