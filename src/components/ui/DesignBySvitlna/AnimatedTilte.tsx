@@ -51,13 +51,15 @@ function AnimatedTitle({
       { threshold: 1 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [isAnimating]);
@@ -90,7 +92,7 @@ function AnimatedTitle({
           )}
         >
           {word.split('').map((char, i) => {
-            const globalCharIndex = wordStart + i; 
+            const globalCharIndex = wordStart + i;
             const isVisible = charIndex > wordStart + i;
             const isFinal = charIndex >= wordEnd;
 
@@ -101,7 +103,7 @@ function AnimatedTitle({
                 : 'opacity-0';
 
             const isTargetChar =
-              title === 'Соціальні ініціативи' && globalCharIndex === 3; 
+              title === 'Соціальні ініціативи' && globalCharIndex === 3;
 
             return (
               <span
