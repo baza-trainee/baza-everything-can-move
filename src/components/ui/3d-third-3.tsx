@@ -81,7 +81,7 @@ export const CardContainer = ({
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         className={cn(
-          'flex items-center justify-center transition-all duration-300 ease-linear',
+          'flex items-center justify-center transition-all duration-500 ease-linear',
           className
         )}
         style={{
@@ -160,8 +160,7 @@ export const CardItem = ({
     if (isMouseEntered) {
       // if (widthEnd) ref.current.style.width = widthEnd;
       // if (heightEnd) ref.current.style.height = heightEnd;
-      ref.current.style.transition =
-        'width 0.5s ease-in-out, height 0.5s ease-in-out';
+      ref.current.style.transition = '0.5s ease-linear';
       ref.current.style.transform = ` translateX(${translateX}) translateY(${translateY}) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)  `;
     } else {
       ref.current.style.transform = ` translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)  `;

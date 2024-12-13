@@ -7,7 +7,7 @@ import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 import { useMediaQuery } from 'react-responsive';
 import MobileCarousel from './MobileCarousel/MobileCarousel';
-// import Link from 'next/link';
+import Link from 'next/link';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 
 export function NewPCards3() {
@@ -48,55 +48,56 @@ export function NewPCards3() {
                 style={{
                   top: image.topTablet,
                   left: image.leftTablet,
+                  //transition: 'transform 0.5s linear',
                 }}
               >
                 <CardBody
                   className="group/card relative h-full w-full"
-                  style={{
-                    transition: 'transform 0.5s linear',
-                  }}
+                  style={
+                    {
+                      //transition: 'transform 0.5s linear',
+                    }
+                  }
                 >
                   <CardItem
                     translateZ={image.translateZ}
-                    // widthStart={`${image.widthTablet}px`}
-                    // widthEnd={'352px'}
-                    // heightStart={`${image.heightTablet}px`}
-                    // heightEnd={'168px'}
                     className="group/card relative transform group-hover/card:shadow-xl"
                     style={{
-                      transition: ' 0.5s linear',
+                      //transition: ' 0.5s linear',
                       width: 352,
                       height: 168,
                     }}
                   >
-                    {/* <Link
+                    <Link
                       href={image.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="cursor-none"
-                    > */}
-                    <Image
-                      src={image.src}
-                      className="object-cover transition-all duration-500 ease-linear"
-                      alt={image.name}
-                      quality={90}
-                      fill={true}
-                      // style={{
-                      //   width: '100%',
-                      //   height: '100%',
-                      // }}
-                    />
-                    {/* </Link> */}
+                    >
+                      <Image
+                        src={image.src}
+                        className="object-cover transition-all duration-500 ease-linear"
+                        alt={image.name}
+                        quality={90}
+                        fill={true}
+                        // style={{
+                        //   width: '100%',
+                        //   height: '100%',
+                        // }}
+                      />
+                    </Link>
                   </CardItem>
-                  {/* </CardBody> */}
+
                   <CardItem
                     translateZ={image.translateZ + 30}
-                    style={{
-                      // transformOrigin: 'left center',
-                      transition: ' 0.3s linear',
-                    }}
-                    // absolute -bottom-5
-                    className="mt-5 h-6 w-full transform items-center justify-center opacity-0 transition-opacity duration-500 ease-linear group-hover/card:flex group-hover/card:opacity-100"
+                    style={
+                      {
+                        // transformOrigin: 'left center',
+                        //transition: ' 0.3s linear',
+                      }
+                    }
+                    // mt-5
+                    className="absolute -bottom-7 h-6 w-full transform items-center justify-center opacity-0 transition-opacity duration-500 ease-linear group-hover/card:flex group-hover/card:opacity-100"
                   >
                     <ICONS_SHARED.CORNER_BOTTOM
                       // style={{

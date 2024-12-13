@@ -45,8 +45,8 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
 
     widthDesktop: 120,
     heightDesktop: 64,
-    topDesktop: 215,
-    leftDesktop: 489,
+    topDesktop: 125, //215,
+    leftDesktop: 309, // 489,
     scaleDesktop: 4.26,
 
     translateZ: 90,
@@ -64,8 +64,8 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     src: bazaSkill,
     widthDesktop: 120,
     heightDesktop: 64,
-    topDesktop: 77,
-    leftDesktop: 522,
+    topDesktop: -20, //77,
+    leftDesktop: 322, //522,
     scaleDesktop: 4.26,
 
     translateZ: 90,
@@ -84,16 +84,16 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
 
     widthDesktop: 180,
     heightDesktop: 92,
-    topDesktop: 34,
-    leftDesktop: 325,
+    topDesktop: -34, //34,
+    leftDesktop: 175, //325,
     scaleDesktop: 2.85,
 
     translateZ: 50,
 
     widthTablet: 180,
     heightTablet: 92,
-    topTablet: 30,//90,
-    leftTablet: -60,//40,
+    topTablet: 30, //90,
+    leftTablet: -60, //40,
     scaleTablet: 1.95,
   },
 
@@ -104,8 +104,8 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     src: balakun,
     widthDesktop: 340,
     heightDesktop: 164,
-    topDesktop: 36,
-    leftDesktop: 0,
+    topDesktop: -10, //36,
+    leftDesktop: -80, //0,
     scaleDesktop: 1.5,
 
     translateZ: 90,
@@ -124,8 +124,8 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     src: organik,
     widthDesktop: 180,
     heightDesktop: 92,
-    topDesktop: 0,
-    leftDesktop: 605,
+    topDesktop: -70, //0,
+    leftDesktop: 445, //605,
     scaleDesktop: 2.85,
 
     translateZ: 90,
@@ -144,8 +144,8 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     src: klouns,
     widthDesktop: 120,
     heightDesktop: 64,
-    topDesktop: 137,
-    leftDesktop: 602,
+    topDesktop: 37, //137,
+    leftDesktop: 402, //602,
     scaleDesktop: 4.26,
 
     translateZ: 90,
@@ -163,8 +163,8 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     src: militari,
     widthDesktop: 500,
     heightDesktop: 240,
-    topDesktop: 103,
-    leftDesktop: 635,
+    topDesktop: 113, //103,
+    leftDesktop: 645, //635,
     scaleDesktop: 1.025,
 
     translateZ: 90,
@@ -182,8 +182,8 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     src: kolyskova,
     widthDesktop: 500,
     heightDesktop: 240,
-    topDesktop: 146,
-    leftDesktop: 56,
+    topDesktop: 166, //146,
+    leftDesktop: 56, //56,
     scaleDesktop: 1.025,
 
     translateZ: 90,
