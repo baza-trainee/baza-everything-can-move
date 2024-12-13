@@ -1,8 +1,6 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
-// import Test from './Test';
-
+import { SubTitle } from '@/components/ui/DesignBySvitlna/SubTitle/SubTitle';
 import React from 'react';
-// import Scene from './Scene';
 import './Hero.css';
 import SceneCopy from './Scene';
 
@@ -12,12 +10,11 @@ export default function Hero() {
       <div className="items-top container relative flex flex-wrap">
         {/* <Test /> */}
         <h1 className="text-animation text-[40px] uppercase leading-[120%] lg:text-[64px] 2xl:text-[86px]">
-          як ми <span></span> <br />
+          <span className='flex items-center gap-12'> як ми<SubTitle/></span> 
           <span style={{ color: 'rgba(143, 141, 237, 1)' }}>анімацію</span>
           <br />
           робили
         </h1>
-        {/* <Scene /> */}
         <SceneCopy />
         <div className="absolute bottom-[-10rem] hidden  left-1/2 z-10 opacity-100 transition-opacity duration-500 lg:block">
           <div className="icon-scroll scroll-to-second-section mb-6 h-10 w-6 cursor-pointer rounded-[20px] border border-white xl:mb-12">

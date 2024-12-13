@@ -45,16 +45,16 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
 
     widthDesktop: 120,
     heightDesktop: 64,
-    topDesktop: 215,
-    leftDesktop: 489,
+    topDesktop: 125, //215,
+    leftDesktop: 309, // 489,
     scaleDesktop: 4.26,
 
     translateZ: 90,
 
     widthTablet: 180,
     heightTablet: 92,
-    topTablet: 0,
-    leftTablet: 272,
+    topTablet: -50, //0,
+    leftTablet: 152, //272,
     scaleTablet: 1.95,
   },
   {
@@ -64,16 +64,16 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     src: bazaSkill,
     widthDesktop: 120,
     heightDesktop: 64,
-    topDesktop: 77,
-    leftDesktop: 522,
+    topDesktop: -20, //77,
+    leftDesktop: 322, //522,
     scaleDesktop: 4.26,
 
     translateZ: 90,
 
     widthTablet: 180,
     heightTablet: 92,
-    topTablet: 150,
-    leftTablet: 392,
+    topTablet: 90, //150,
+    leftTablet: 302, //392,
     scaleTablet: 1.95,
   },
   {
@@ -84,16 +84,16 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
 
     widthDesktop: 180,
     heightDesktop: 92,
-    topDesktop: 34,
-    leftDesktop: 325,
+    topDesktop: -34, //34,
+    leftDesktop: 175, //325,
     scaleDesktop: 2.85,
 
     translateZ: 50,
 
     widthTablet: 180,
     heightTablet: 92,
-    topTablet: 90,
-    leftTablet: 40,
+    topTablet: 30, //90,
+    leftTablet: -60, //40,
     scaleTablet: 1.95,
   },
 
@@ -104,16 +104,16 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     src: balakun,
     widthDesktop: 340,
     heightDesktop: 164,
-    topDesktop: 36,
-    leftDesktop: 0,
+    topDesktop: -10, //36,
+    leftDesktop: -80, //0,
     scaleDesktop: 1.5,
 
     translateZ: 90,
 
     widthTablet: 180,
     heightTablet: 92,
-    topTablet: 30,
-    leftTablet: 402,
+    topTablet: -25, //30,
+    leftTablet: 312, //402,
     scaleTablet: 1.95,
   },
 
@@ -124,8 +124,8 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     src: organik,
     widthDesktop: 180,
     heightDesktop: 92,
-    topDesktop: 0,
-    leftDesktop: 605,
+    topDesktop: -70, //0,
+    leftDesktop: 445, //605,
     scaleDesktop: 2.85,
 
     translateZ: 90,
@@ -144,16 +144,16 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     src: klouns,
     widthDesktop: 120,
     heightDesktop: 64,
-    topDesktop: 137,
-    leftDesktop: 602,
+    topDesktop: 37, //137,
+    leftDesktop: 402, //602,
     scaleDesktop: 4.26,
 
     translateZ: 90,
 
     widthTablet: 120,
     heightTablet: 64,
-    topTablet: 36,
-    leftTablet: 102,
+    topTablet: -22, //36,
+    leftTablet: -35, //102,
     scaleTablet: 2.93,
   },
   {
@@ -163,16 +163,16 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     src: militari,
     widthDesktop: 500,
     heightDesktop: 240,
-    topDesktop: 103,
-    leftDesktop: 635,
+    topDesktop: 113, //103,
+    leftDesktop: 645, //635,
     scaleDesktop: 1.025,
 
     translateZ: 90,
 
     widthTablet: 120,
     heightTablet: 64,
-    topTablet: 230,
-    leftTablet: 390,
+    topTablet: 150, //230,
+    leftTablet: 270, //390,
     scaleTablet: 2.93, //2.93,
   },
   {
@@ -182,16 +182,16 @@ export const IMAGES_HOME_PROJECTS: ImagesHomeProjectsProps = [
     src: kolyskova,
     widthDesktop: 500,
     heightDesktop: 240,
-    topDesktop: 146,
-    leftDesktop: 56,
+    topDesktop: 166, //146,
+    leftDesktop: 56, //56,
     scaleDesktop: 1.025,
 
     translateZ: 90,
 
     widthTablet: 340,
     heightTablet: 164,
-    topTablet: 92,
-    leftTablet: 142,
+    topTablet: 82, //92,
+    leftTablet: 122, //142,
     scaleTablet: 1.035,
   },
 ];
