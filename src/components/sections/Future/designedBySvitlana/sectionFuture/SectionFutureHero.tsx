@@ -1,6 +1,7 @@
 import React from 'react';
 import GalaxySvitlana from './GalaxySvitlana';
 import Container from '../../../../ui/DesignBySvitlna/Container';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
 
 function SectionFutureHero() {
   return (
@@ -8,9 +9,11 @@ function SectionFutureHero() {
       <Container className="relative h-full">
         <div className="align-center flex h-full flex-col justify-center pt-[14%] lg:justify-start lg:pb-[4.5%] 2xl:flex-row 2xl:items-end 2xl:justify-between">
           <div className="mx-auto max-w-[454px] self-center text-center 2xl:mx-0 2xl:max-w-[547px] 2xl:text-start">
-            <h2 className="traking-s-2 text-xlg uppercase leading-o-120 lg:text-[80px]">
-              <span>плани на </span>Майбутнє
-            </h2>
+            <AnimatedTitle
+              title="Плани на майбутнє"
+              wordClasses={['text-white', 'text-white', 'text-s-purple']}
+              className="text-center 2xl:text-start"
+            />
             <p className="mb-[6.4%] font-third-family text-s leading-o-150 lg:text-m 2xl:text-l">
               Наші плани спрямовані на створення кращого майбутнього для України
               через розвиток талантів у сфері ІТ. Кожен успішний проєкт і новий
