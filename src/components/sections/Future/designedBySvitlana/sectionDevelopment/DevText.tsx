@@ -9,7 +9,11 @@ function DevText() {
           key={item.title}
           className="w-[345px] lg:self-end 2xl:odd:self-start"
         >
-          <h3>{idx + 1 + ' // ' + item.title}</h3>
+          <h3 className='font-font5 text-lg leading-o-120 uppercase tracking-s-2 flex gap-5 mb-5'>
+            <span>{`0${idx + 1}`}</span>
+            <span>//</span>
+            <span className='text-s-purple'>{item.title.split(' ')[0]}</span>
+          </h3>
           <p className="font-third-family text-m leading-o-150 2xl:text-l">
             {item.text}
           </p>
