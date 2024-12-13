@@ -88,7 +88,6 @@ export const CardContainer = ({
           perspective: '1000px',
           transformStyle: 'preserve-3d',
           zIndex: isMouseEntered ? 10 : 1,
-          // width: isMouseEntered ? widthEnd : widthStart,
           scale: isMouseEntered ? 1 : scale,
           ...style,
         }}

@@ -8,7 +8,7 @@ import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 import { useMediaQuery } from 'react-responsive';
 import MobileCarousel from './MobileCarousel/MobileCarousel';
 // import Link from 'next/link';
-// import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
+import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 
 export function NewPCards3() {
   const [isClient, setIsClient] = useState(false);
@@ -89,23 +89,25 @@ export function NewPCards3() {
                     {/* </Link> */}
                   </CardItem>
                   {/* </CardBody> */}
-                  {/* <div
+                  <CardItem
+                    translateZ={image.translateZ + 30}
                     style={{
-                      transformOrigin: 'left center',
+                      // transformOrigin: 'left center',
                       transition: ' 0.3s linear',
                     }}
-                    className="absolute -bottom-5 h-6 w-full transform items-center justify-center opacity-0 transition-opacity duration-500 ease-linear group-hover/card:flex group-hover/card:opacity-100"
+                    // absolute -bottom-5
+                    className="mt-5 h-6 w-full transform items-center justify-center opacity-0 transition-opacity duration-500 ease-linear group-hover/card:flex group-hover/card:opacity-100"
                   >
                     <ICONS_SHARED.CORNER_BOTTOM
-                      style={{
-                        transform: `scaleX(${1 / image.scaleTablet})`,
-                      }}
+                      // style={{
+                      //   transform: `scaleX(${1 / image.scaleTablet})`,
+                      // }}
                       className="absolute bottom-0 left-0 w-4"
                     />
 
                     <p
                       style={{
-                        transform: `scaleX(${1 / image.scaleTablet})`,
+                        //transform: `scaleX(${1 / image.scaleTablet})`,
                         whiteSpace: 'nowrap',
                         // overflow: 'hidden',
                         // textOverflow: 'ellipsis',
@@ -117,12 +119,13 @@ export function NewPCards3() {
                     </p>
 
                     <ICONS_SHARED.CORNER_TOP
+                      // scaleY(${1 / image.scaleTablet}
                       style={{
-                        transform: `rotate(90deg ) scaleY(${1 / image.scaleTablet})`,
+                        transform: `rotate(90deg ) `,
                       }}
                       className="absolute bottom-0 right-0 w-4"
                     />
-                  </div> */}
+                  </CardItem>
                 </CardBody>
               </CardContainer>
             ))}
