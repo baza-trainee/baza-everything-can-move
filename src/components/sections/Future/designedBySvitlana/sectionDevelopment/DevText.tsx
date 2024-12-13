@@ -11,7 +11,7 @@ function DevText() {
         >
           <h3 className='font-font5 text-lg leading-o-120 uppercase tracking-s-2 flex gap-5 mb-5'>
             <span>{`0${idx + 1}`}</span>
-            <span>//</span>
+            <span>{'//'}</span>
             <span className='text-s-purple'>{item.title.split(' ')[0]}</span>
           </h3>
           <p className="font-third-family text-m leading-o-150 2xl:text-l">
