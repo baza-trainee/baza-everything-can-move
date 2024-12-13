@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import ModelLogo from './ModelLogo';
 import { Suspense } from 'react';
-// import { Center } from '@react-three/drei';
+//import { Center } from '@react-three/drei';
 
 function SceneLogo() {
   return (
