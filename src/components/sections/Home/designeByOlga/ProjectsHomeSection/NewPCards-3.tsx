@@ -40,9 +40,6 @@ export function NewPCards3() {
             {IMAGES_HOME_PROJECTS.map((image, ind) => (
               <CardContainer
                 key={image.name + ind}
-                // widthStart={`${image.widthTablet}px`}
-                // widthEnd={'352px'}
-                // translateX={'-50%'}
                 scale={1 / image.scaleTablet}
                 className="absolute w-fit"
                 style={{
@@ -53,11 +50,9 @@ export function NewPCards3() {
               >
                 <CardBody
                   className="group/card relative h-full w-full"
-                  style={
-                    {
-                      //transition: 'transform 0.5s linear',
-                    }
-                  }
+                  // style={{
+                  //   transition: 'transform 0.5s linear',
+                  // }}
                 >
                   <CardItem
                     translateZ={image.translateZ}
@@ -90,28 +85,18 @@ export function NewPCards3() {
 
                   <CardItem
                     translateZ={image.translateZ + 30}
-                    style={
-                      {
-                        // transformOrigin: 'left center',
-                        //transition: ' 0.3s linear',
-                      }
-                    }
+                    style={{
+                      //transformOrigin: 'left center',
+                      transition: ' 0.5s linear',
+                    }}
                     // mt-5
-                    className="absolute -bottom-7 h-6 w-full transform items-center justify-center opacity-0 transition-opacity duration-500 ease-linear group-hover/card:flex group-hover/card:opacity-100"
+                    className="absolute -bottom-7 hidden h-6 w-full transform items-center justify-center opacity-0 transition-opacity duration-500 ease-linear group-hover/card:flex group-hover/card:opacity-100"
                   >
-                    <ICONS_SHARED.CORNER_BOTTOM
-                      // style={{
-                      //   transform: `scaleX(${1 / image.scaleTablet})`,
-                      // }}
-                      className="absolute bottom-0 left-0 w-4"
-                    />
+                    <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-0 w-4" />
 
                     <p
                       style={{
-                        //transform: `scaleX(${1 / image.scaleTablet})`,
                         whiteSpace: 'nowrap',
-                        // overflow: 'hidden',
-                        // textOverflow: 'ellipsis',
                       }}
                       //text-sm
                       className="text-s leading-o-130 text-olga-light-grey"
@@ -149,65 +134,51 @@ export function NewPCards3() {
               >
                 <CardBody
                   className="group/card relative h-full w-full"
-                  style={{
-                    transition: 'transform 0.5s linear',
-                  }}
+                  // style={{
+                  //   transition: 'transform 0.5s linear',
+                  // }}
                 >
                   <CardItem
                     translateZ={image.translateZ}
-                    // widthStart={`${image.widthDesktop}px`}
-                    // widthEnd={'512px'}
-                    // heightStart={`${image.heightDesktop}px`}
-                    // heightEnd={'249px'}
                     className="group/card relative transform group-hover/card:shadow-xl"
                     style={{
-                      transition: '  0.5s linear',
+                      //  transition: '  0.5s linear',
                       width: 512,
                       height: 249,
                     }}
                   >
-                    {/* <Link
+                    <Link
                       href={image.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="cursor-none"
-                    > */}
-                    <Image
-                      src={image.src}
-                      className="object-cover transition-all duration-500 ease-linear"
-                      alt={image.name}
-                      quality={90}
-                      fill={true}
-                      // style={{
-                      //   width: '100%',
-                      //   height: '100%',
-                      // }}
-                    />
-
-                    {/* </Link> */}
+                    >
+                      <Image
+                        src={image.src}
+                        className="object-cover transition-all duration-500 ease-linear"
+                        alt={image.name}
+                        quality={90}
+                        fill={true}
+                        // style={{
+                        //   width: '100%',
+                        //   height: '100%',
+                        // }}
+                      />
+                    </Link>
                   </CardItem>
-                  {/* <CardItem
-                    style={{
-                      transformOrigin: 'left center',
-                      transition: ' 0.3s linear',
-                    }}
+                  <CardItem
                     translateZ={image.translateZ + 30}
-                    scaleY={1 / image.scaleDesktop}
-                    className="absolute -bottom-5 hidden h-6 w-full transform items-center justify-center text-center opacity-0 transition-opacity duration-500 group-hover/card:flex group-hover/card:opacity-100"
+                    style={{
+                      // transformOrigin: 'left center',
+                      transition: ' 0.5s linear',
+                    }}
+                    className="absolute -bottom-7 hidden h-6 w-full transform items-center justify-center text-center opacity-0 transition-opacity duration-500 ease-linear group-hover/card:flex group-hover/card:opacity-100"
                   >
-                    <ICONS_SHARED.CORNER_BOTTOM
-                      style={{
-                        transform: `scaleX(${1 / image.scaleDesktop})`,
-                      }}
-                      className="absolute bottom-0 left-0 w-4"
-                    />
+                    <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-0 w-4" />
 
                     <p
                       style={{
-                        transform: `scaleX(${1 / image.scaleDesktop})`,
                         whiteSpace: 'nowrap',
-                        // overflow: 'hidden',
-                        // textOverflow: 'ellipsis',
                       }}
                       //7text-sm
                       className="text-sm leading-o-130 text-olga-light-grey"
@@ -217,11 +188,11 @@ export function NewPCards3() {
 
                     <ICONS_SHARED.CORNER_TOP
                       style={{
-                        transform: `rotate(90deg ) scaleY(${1 / image.scaleDesktop})`,
+                        transform: `rotate(90deg )`,
                       }}
                       className="absolute bottom-0 right-0 w-4"
                     />
-                  </CardItem> */}
+                  </CardItem>
                 </CardBody>
               </CardContainer>
             ))}
