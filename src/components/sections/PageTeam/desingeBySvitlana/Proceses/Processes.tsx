@@ -43,7 +43,7 @@ export default function Processes() {
           gapBeetwenMessages * currentIndex +
           1
       );
-      // console.log(calculateOffset);
+      console.log(calculateOffset);
     }
   }, [currentIndex]);
 
@@ -130,11 +130,23 @@ export default function Processes() {
               {isAnimation && (
                 <AnimatePresence key="discord message">
                   <motion.ul
-                    initial={{ y: calculateOffset, opacity: 0, scale: 0 }}
-                    animate={{ y: calculateOffset, opacity: 1, scale: 1 }}
+                    initial={{
+                      marginBottom: -calculateOffset,
+                      opacity: 0,
+                      scale: 0,
+                    }}
+                    animate={{
+                      marginBottom: -calculateOffset,
+                      opacity: 1,
+                      scale: 1,
+                    }}
+                    exit={{
+                      scale: 0,
+                      opacity: 0,
+                    }}
                     transition={{ ease: 'linear' }}
                     ref={listRef}
-                    className="flex w-full flex-col gap-4"
+                    className="-mb-[3000px] flex w-full scale-0 flex-col gap-4 opacity-0"
                   >
                     {messagesDiscord.map((item, index) => {
                       return (
