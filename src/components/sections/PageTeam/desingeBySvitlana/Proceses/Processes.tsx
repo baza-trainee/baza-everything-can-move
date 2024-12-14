@@ -35,20 +35,12 @@ export default function Processes() {
 
   useEffect(() => {
     if (listRef.current?.clientHeight) {
-      console.log(listRef.current.clientHeight);
-
       setcalculateOffset(
         itemsRef.current.slice(0, currentIndex).reduce((totalHeight, ref) => {
           return totalHeight + (ref?.offsetHeight || 0);
         }, 0) +
           gapBeetwenMessages * currentIndex -
           1
-      );
-      console.log(
-        itemsRef.current.slice(0, currentIndex).reduce((totalHeight, ref) => {
-          return totalHeight + (ref?.offsetHeight || 0);
-        }, 0) +
-          gapBeetwenMessages * currentIndex
       );
     }
   }, [currentIndex]);
