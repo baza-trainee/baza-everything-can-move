@@ -119,6 +119,10 @@ export default function Processes() {
                           animate={{
                             y: 0,
                           }}
+                          transition={{
+                            duration: 0.5,
+                            ease: 'linear',
+                          }}
                           key={index}
                           className="flex justify-center"
                         >
@@ -131,6 +135,7 @@ export default function Processes() {
                             )}
                             width={498}
                             height={50}
+                            // placeholder="blur"
                             src={item.url}
                             alt="повідомлення із діскорда"
                           />
