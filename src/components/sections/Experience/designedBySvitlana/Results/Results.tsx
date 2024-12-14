@@ -1,28 +1,58 @@
 'use client'
 
-// import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import SectionTitle from '@/components/ui/SectionTitle';
 // import Bubbles3D from './Bubbles3D';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import { ICONS } from '@/constants/icons/icons';
+import styles from "./results.module.css";
 // import clsx from 'clsx';
+
+// interface MouseOverProps {
+//   onMouseOver: (event: React.MouseEvent<HTMLDivElement>) => void;
+// }
 
 const Results = () => {
 
-  //  const [isOpen, setIsOpen] = useState<boolean>(false);
-// 
-  //  function toggleBubbles(){
-  //    setIsOpen(!isOpen);
-  //  }
-// console.log(isOpen);
-  // useEffect(() => {
-    // const blockHeight = document.body.children[1].children[0].children[0].children[3]
-    // console.log(document.body.children[1].children[0].children[0].children[3].classList);
-  // },[]);
+
+  useEffect(() => {
+    const tags = document.querySelector(`#${styles.tags}`)
+    const resultsBlock = document.querySelector(`#${styles.resultsBlock}`)
+    if (!tags) return;
+    if (!resultsBlock) return;
+    // const MAX_DISTANCE = 200
+
+    // function clamp(v, min, max) {
+    //   return Math.min(Math.max(v, min), max)
+    // }
+    // function remap(v, a, b, c, d) {
+    //   return ((v - a) / (b - a)) * (d - c) + c
+    // }
+//     resultsBlock.addEventListener('mousemove', mouseOverHandler);
+// function mouseOverHandler(onMouseOver:MouseOverProps ){
+
+// }
+      // const mouseX = e.clientX
+      // const mouseY = e.clientY
+    // const rect = tags.getBoundingClientRect()
+    // const tagsX = rect.left + rect.width / 2
+    // const tagsY = rect.top + rect.height / 2
+
+    // const x = boxX - mouseX
+    // const y = boxY - mouseY
+    // const distance = Math.sqrt(x * x + y * y)
+
+    // const progress = distance / MAX_DISTANCE
+    // const clampedProgress = clamp(progress, 0, 1)
+    // const inverseProgress = 1 - clampedProgress
+    // const scale = remap(inverseProgress, 0, 1, 1, 2)
+
+    // tags.style.transform = `scale(${scale})`
+  },[]);
   
   return (
-    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isContainer={false} className='2xl:relative'>
-      <div className='flex flex-col 2xl:flex-row'>
+    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isContainer={true} className='2xl:relative'>
+      <div id={styles.resultsBlock}  className='flex flex-col 2xl:flex-row gap-[26px]'>
         <div>
           <div className='flex justify-start items-center gap-[14px] pb-8 lg:gap-[69px] 2xl:gap-[3px] pt-[22px] lg:pt-[10px] 2xl:pt-[131px]'>
             <SectionTitle  className='text-left' secondDesign={true}>Результати</SectionTitle>
@@ -42,22 +72,44 @@ const Results = () => {
             <ICONS.ARROW_LG className='hidden lg:block 2xl:hidden'/>
           </div>
         </div>
-        <div className=''>
-          <div className=''>
-            <div><div>Взаємодія</div></div>
-            <div><div>Лідерство</div></div>
-            <div><div>Стратегія</div></div>
-          </div>
-          <div className=''>
-            <div><div>Гнучкість</div></div>
-            <div><div>Колаборація</div></div>
-            <div><div>Креативність</div></div>
-          </div>
-          <div className=''>
-            <div><div>Системність</div></div>
-            <div><div>Емпатія</div></div>
-            <div><div>Аналітика</div></div>
-            <div><div>Ефективність</div></div>
+        <div id={styles.tags} className='will-change-transform flex justify-start items-center relative w-full h-auto'>
+          <div className='h-[355px] w-full relative uppercase'>
+            <div id={styles.tagGroup1} className='will-change-transform pointer-events-none w-full h-full'>
+              <div id={styles.tagGroup1_1} className='inline-block absolute translate-x-[86px] rotate-[8deg]'>
+                <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-white text-black hover:bg-s-light-purple hover:text-white duration-300 rounded'>Взаємодія</div>
+              </div>
+              <div id={styles.tagGroup1_2} className='inline-block absolute translate-x-[195px] translate-y-[235px] -rotate-[4deg]'>
+                <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-white text-black hover:bg-s-light-purple hover:text-white duration-300 rounded'>Лідерство</div>
+              </div>
+              <div id={styles.tagGroup1_3} className='inline-block absolute translate-x-[25px] translate-y-[140px] -rotate-[5deg]'>
+                <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-white text-black hover:bg-s-light-purple hover:text-white duration-300 rounded'>Стратегія</div>
+              </div>
+            </div>
+            <div id={styles.tagGroup2} className='will-change-transform pointer-events-none w-full h-full'>
+              <div id={styles.tagGroup2_1} className='inline-block absolute translate-x-[84px] translate-y-[85px] rotate-[0.04deg]'>
+                <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-white text-black hover:bg-s-light-purple hover:text-white duration-300 rounded'>Гнучкість</div>
+              </div>
+              <div id={styles.tagGroup2_2} className='inline-block absolute translate-x-[146px] translate-y-[55px] rotate-[12deg]'>
+                <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-white text-black hover:bg-s-light-purple hover:text-white duration-300 rounded'>Колаборація</div>
+              </div>
+              <div id={styles.tagGroup2_3} className='inline-block absolute translate-x-[63px] translate-y-[270px] rotate-[6deg]'>
+                <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-white text-black hover:bg-s-light-purple hover:text-white duration-300 rounded'>Креативність</div>
+              </div>
+            </div>
+            <div id={styles.tagGroup3} className='will-change-transform pointer-events-none w-full h-full'>
+              <div id={styles.tagGroup3_1} className='inline-block absolute translate-x-[30px] translate-y-[210px] rotate-[1.56deg]'>
+                <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-black text-white hover:bg-s-light-purple duration-300 rounded border border-white'>Системність</div>
+              </div>
+              <div id={styles.tagGroup3_2} className='inline-block absolute translate-x-[155px] translate-y-[172px]'>
+                <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-white text-black hover:bg-s-light-purple hover:text-white duration-300 rounded'>Емпатія</div>
+              </div>
+              <div id={styles.tagGroup3_3} className='inline-block absolute translate-x-[5px] translate-y-[45px] -rotate-[12deg]'>
+                <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-black text-white hover:bg-s-light-purple duration-300 rounded border border-white'>Аналітика</div>
+              </div>
+              <div id={styles.tagGroup3_4} className='inline-block absolute translate-x-[175px] translate-y-[125px] rotate-[6deg]'>
+                <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-black text-white hover:bg-s-light-purple duration-300 rounded border border-white'>Ефективність</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
