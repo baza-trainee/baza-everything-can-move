@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react';
+import { useEffect} from 'react';
 import SectionTitle from '@/components/ui/SectionTitle';
 // import Bubbles3D from './Bubbles3D';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
