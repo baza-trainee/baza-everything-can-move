@@ -38,7 +38,7 @@ export default function Processes() {
     // if (listRef.current?.clientHeight && currentIndex >= 0) {
     setcalculateOffset(
       itemsRef.current.slice(0, currentIndex).reduce((totalHeight, ref) => {
-        return totalHeight + (ref?.offsetHeight || 0);
+        return totalHeight + (ref?.clientHeight || 0);
       }, 0) +
         gapBeetwenMessages * currentIndex -
         1
@@ -131,17 +131,17 @@ export default function Processes() {
                   <div className="absolute top-[100%]">
                     <motion.ul
                       initial={{
-                        // y: 0,
+                        y: 0,
                         opacity: 0,
                         scale: 0,
                       }}
                       animate={{
-                        // y: -calculateOffset,
+                        y: -calculateOffset,
                         opacity: 1,
                         scale: 1,
                       }}
                       exit={{
-                        // y: 0,
+                        y: 0,
                         scale: 0,
                         opacity: 0,
                       }}
