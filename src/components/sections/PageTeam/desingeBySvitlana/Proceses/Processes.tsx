@@ -43,7 +43,7 @@ export default function Processes() {
           gapBeetwenMessages * currentIndex +
           1
       );
-      console.log(calculateOffset);
+      // console.log(calculateOffset);
     }
   }, [currentIndex]);
 
