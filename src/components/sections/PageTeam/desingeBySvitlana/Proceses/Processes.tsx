@@ -26,7 +26,7 @@ const messagesDiscord = [
 const gapBeetwenMessages = 16;
 
 export default function Processes() {
-  const [currentIndex, setcurrentIndex] = useState<number>(0);
+  const [currentIndex, setcurrentIndex] = useState<number>(-1);
   const [calculateOffset, setcalculateOffset] = useState(0);
   const [isAnimation, setIsAnimation] = useState(true);
 
@@ -34,7 +34,7 @@ export default function Processes() {
   const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    if (listRef.current?.clientHeight) {
+    if (listRef.current?.clientHeight && currentIndex >= 0) {
       setcalculateOffset(
         itemsRef.current.slice(0, currentIndex).reduce((totalHeight, ref) => {
           return totalHeight + (ref?.offsetHeight || 0);
