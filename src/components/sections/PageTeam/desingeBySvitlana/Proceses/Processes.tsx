@@ -130,7 +130,7 @@ export default function Processes() {
                   <div className="absolute top-[100%]">
                     <motion.ul
                       initial={{
-                        y: 0,
+                        // y: 0,
                         opacity: 0,
                         scale: 0,
                       }}
@@ -140,7 +140,7 @@ export default function Processes() {
                         scale: 1,
                       }}
                       exit={{
-                        y: 0,
+                        // y: 0,
                         scale: 0,
                         opacity: 0,
                       }}
