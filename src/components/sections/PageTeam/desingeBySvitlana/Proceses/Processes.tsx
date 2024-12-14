@@ -27,23 +27,29 @@ const gapBeetwenMessages = 16;
 
 export default function Processes() {
   const [currentIndex, setcurrentIndex] = useState<number>(0);
-  const [calculateOffset, setcalculateOffset] = useState(3000);
+  const [calculateOffset, setcalculateOffset] = useState(0);
   const [isAnimation, setIsAnimation] = useState(true);
 
   const itemsRef = useRef<HTMLDivElement[]>([]);
   const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    if (listRef.current && currentIndex >= 0) {
+    if (listRef.current?.clientHeight) {
+      console.log(listRef.current.clientHeight);
+
       setcalculateOffset(
-        listRef.current.clientHeight -
-          itemsRef.current.slice(0, currentIndex).reduce((totalHeight, ref) => {
-            return totalHeight + (ref?.offsetHeight || 0);
-          }, 0) -
-          gapBeetwenMessages * currentIndex +
+        itemsRef.current.slice(0, currentIndex).reduce((totalHeight, ref) => {
+          return totalHeight + (ref?.offsetHeight || 0);
+        }, 0) +
+          gapBeetwenMessages * currentIndex -
           1
       );
-      console.log(calculateOffset);
+      console.log(
+        itemsRef.current.slice(0, currentIndex).reduce((totalHeight, ref) => {
+          return totalHeight + (ref?.offsetHeight || 0);
+        }, 0) +
+          gapBeetwenMessages * currentIndex
+      );
     }
   }, [currentIndex]);
 
@@ -58,7 +64,7 @@ export default function Processes() {
           } else {
             clearInterval(showMessages);
             setIsAnimation(false);
-            setcalculateOffset(3000);
+            setcalculateOffset(0);
             setTimeout(() => {
               setcurrentIndex(0);
               setIsAnimation(true);
@@ -77,11 +83,11 @@ export default function Processes() {
       if (document.hidden) {
         setIsAnimation(false);
         setcurrentIndex(0);
-        setcalculateOffset(3000);
+        setcalculateOffset(0);
       } else {
         setcurrentIndex(0);
         setIsAnimation(true);
-        setcalculateOffset(3000);
+        setcalculateOffset(0);
       }
     };
 
@@ -126,53 +132,56 @@ export default function Processes() {
             />
           </div>
           <div className="absolute bottom-[248px] left-1/2 -translate-x-1/2 overflow-hidden lg:bottom-[238px] 2xl:bottom-0">
-            <div className="relative flex h-[570px] w-[302px] items-end justify-center overflow-hidden bg-black lg:h-[1014px] lg:w-[562px] 2xl:h-[692px]">
+            <div className="relative flex h-[570px] w-[302px] items-end justify-center bg-black lg:h-[1014px] lg:w-[562px] 2xl:h-[692px]">
               {isAnimation && (
                 <AnimatePresence key="discord message">
-                  <motion.ul
-                    initial={{
-                      marginBottom: -calculateOffset,
-                      opacity: 0,
-                      scale: 0,
-                    }}
-                    animate={{
-                      marginBottom: -calculateOffset,
-                      opacity: 1,
-                      scale: 1,
-                    }}
-                    exit={{
-                      scale: 0,
-                      opacity: 0,
-                    }}
-                    transition={{ ease: 'linear' }}
-                    ref={listRef}
-                    className="-mb-[3000px] flex w-full scale-0 flex-col gap-4 opacity-0"
-                  >
-                    {messagesDiscord.map((item, index) => {
-                      return (
-                        <li key={index} className="flex justify-center">
-                          <div
-                            ref={(el) => {
-                              itemsRef.current[index] = el!;
-                            }}
-                          >
-                            <Image
-                              className={cn(
-                                'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
-                                index === 3 && 'w-[202px] lg:w-[360px]',
-                                index === 6 && 'w-[202px] lg:w-[360px]',
-                                index === 8 && 'w-[202px] lg:w-[360px]'
-                              )}
-                              width={498}
-                              height={50}
-                              src={item.url}
-                              alt="повідомлення із діскорда"
-                            />
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </motion.ul>
+                  <div className="absolute top-[100%]">
+                    <motion.ul
+                      initial={{
+                        y: 0,
+                        opacity: 0,
+                        scale: 0,
+                      }}
+                      animate={{
+                        y: -calculateOffset,
+                        opacity: 1,
+                        scale: 1,
+                      }}
+                      exit={{
+                        y: 0,
+                        scale: 0,
+                        opacity: 0,
+                      }}
+                      transition={{ ease: 'linear' }}
+                      ref={listRef}
+                      className="flex w-full scale-0 flex-col gap-4 opacity-0"
+                    >
+                      {messagesDiscord.map((item, index) => {
+                        return (
+                          <li key={index} className="flex justify-center">
+                            <div
+                              ref={(el) => {
+                                itemsRef.current[index] = el!;
+                              }}
+                            >
+                              <Image
+                                className={cn(
+                                  'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
+                                  index === 3 && 'w-[202px] lg:w-[360px]',
+                                  index === 6 && 'w-[202px] lg:w-[360px]',
+                                  index === 8 && 'w-[202px] lg:w-[360px]'
+                                )}
+                                width={498}
+                                height={50}
+                                src={item.url}
+                                alt="повідомлення із діскорда"
+                              />
+                            </div>
+                          </li>
+                        );
+                      })}
+                    </motion.ul>
+                  </div>
                 </AnimatePresence>
               )}
               {!isAnimation && (
