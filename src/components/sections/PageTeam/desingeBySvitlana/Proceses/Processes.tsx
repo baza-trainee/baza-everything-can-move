@@ -27,7 +27,7 @@ const gapBeetwenMessages = 16;
 
 export default function Processes() {
   const [currentIndex, setcurrentIndex] = useState<number>(0);
-  const [calculateOffset, setcalculateOffset] = useState(1800);
+  const [calculateOffset, setcalculateOffset] = useState(3000);
   const [isAnimation, setIsAnimation] = useState(true);
 
   const itemsRef = useRef<HTMLDivElement[]>([]);
@@ -58,7 +58,7 @@ export default function Processes() {
           } else {
             clearInterval(showMessages);
             setIsAnimation(false);
-            setcalculateOffset(1800);
+            setcalculateOffset(3000);
             setTimeout(() => {
               setcurrentIndex(0);
               setIsAnimation(true);
@@ -77,11 +77,11 @@ export default function Processes() {
       if (document.hidden) {
         setIsAnimation(false);
         setcurrentIndex(0);
-        setcalculateOffset(1800);
+        setcalculateOffset(3000);
       } else {
         setcurrentIndex(0);
         setIsAnimation(true);
-        setcalculateOffset(1800);
+        setcalculateOffset(3000);
       }
     };
 
