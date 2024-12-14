@@ -26,7 +26,6 @@ const messagesDiscord = [
 export default function Processes() {
   const [currentIndexes, setcurrentIndexes] = useState<number[]>([]);
   const [isAnimation, setIsAnimation] = useState(true);
-  console.log(currentIndexes);
 
   useEffect(() => {
     if (!isAnimation) return;
@@ -113,33 +112,36 @@ export default function Processes() {
                       if (currentIndexes[index] !== index) {
                         return null;
                       }
+
                       return (
-                        <motion.li
-                          initial={{ y: 500 }}
-                          animate={{
-                            y: 0,
-                          }}
-                          transition={{
-                            duration: 0.5,
-                            ease: 'linear',
-                          }}
-                          key={index}
-                          className="flex justify-center"
-                        >
-                          <Image
-                            className={cn(
-                              'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
-                              index === 3 && 'w-[202px] lg:w-[360px]',
-                              index === 6 && 'w-[202px] lg:w-[360px]',
-                              index === 8 && 'w-[202px] lg:w-[360px]'
-                            )}
-                            width={498}
-                            height={50}
-                            // placeholder="blur"
-                            src={item.url}
-                            alt="повідомлення із діскорда"
-                          />
-                        </motion.li>
+                        <AnimatePresence key={index}>
+                          <motion.li
+                            initial={{ y: 500 }}
+                            animate={{
+                              y: 0,
+                            }}
+                            transition={{
+                              duration: 0.5,
+                              ease: 'linear',
+                            }}
+                            className="flex justify-center"
+                          >
+                            <Image
+                              priority={true}
+                              className={cn(
+                                'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
+                                index === 3 && 'w-[202px] lg:w-[360px]',
+                                index === 6 && 'w-[202px] lg:w-[360px]',
+                                index === 8 && 'w-[202px] lg:w-[360px]'
+                              )}
+                              width={498}
+                              height={50}
+                              // placeholder="blur"
+                              src={item.url}
+                              alt="повідомлення із діскорда"
+                            />
+                          </motion.li>{' '}
+                        </AnimatePresence>
                       );
                     })}
                   </ul>
