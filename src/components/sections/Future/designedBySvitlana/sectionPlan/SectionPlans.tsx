@@ -1,14 +1,13 @@
 import React from 'react';
 import PlanAnimation from './PlanAnimation';
 import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
 
 function SectionPlans() {
   return (
     <BackgroundComponent text="Плани" bg="s-gray" isAlwaysOpen={true}>
       <div className="relative 2xl:h-[728px]">
-        <h2 className="traking-s-2 text-xlg uppercase leading-o-120 lg:text-[80px]">
-          Прагнення
-        </h2>
+        <AnimatedTitle title="Прагнення" />
         <div className="max-w-[596] 2xl:max-w-[552px]">
           <div className="text-third-family text-s leading-o-150 2xl:text-l">
             <p className="font-light 2xl:font-normal my-4 max-w-[596px] italic">
