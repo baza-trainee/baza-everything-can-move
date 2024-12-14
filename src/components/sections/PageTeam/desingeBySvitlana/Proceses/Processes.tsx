@@ -29,20 +29,21 @@ export default function Processes() {
   const [currentIndex, setcurrentIndex] = useState<number>(-1);
   const [calculateOffset, setcalculateOffset] = useState(0);
   const [isAnimation, setIsAnimation] = useState(true);
+  console.log(calculateOffset);
 
   const itemsRef = useRef<HTMLDivElement[]>([]);
   const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    if (listRef.current?.clientHeight && currentIndex >= 0) {
-      setcalculateOffset(
-        itemsRef.current.slice(0, currentIndex).reduce((totalHeight, ref) => {
-          return totalHeight + (ref?.offsetHeight || 0);
-        }, 0) +
-          gapBeetwenMessages * currentIndex -
-          1
-      );
-    }
+    // if (listRef.current?.clientHeight && currentIndex >= 0) {
+    setcalculateOffset(
+      itemsRef.current.slice(0, currentIndex).reduce((totalHeight, ref) => {
+        return totalHeight + (ref?.offsetHeight || 0);
+      }, 0) +
+        gapBeetwenMessages * currentIndex -
+        1
+    );
+    // }
   }, [currentIndex]);
 
   useEffect(() => {
@@ -135,7 +136,7 @@ export default function Processes() {
                         scale: 0,
                       }}
                       animate={{
-                        y: -calculateOffset,
+                        // y: -calculateOffset,
                         opacity: 1,
                         scale: 1,
                       }}
