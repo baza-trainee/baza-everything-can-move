@@ -27,7 +27,7 @@ const gapBeetwenMessages = 16;
 
 export default function Processes() {
   const [currentIndex, setcurrentIndex] = useState<number>(0);
-  const [calculateOffset, setcalculateOffset] = useState(1800);
+  const [calculateOffset, setcalculateOffset] = useState(3000);
   const [isAnimation, setIsAnimation] = useState(true);
 
   const itemsRef = useRef<HTMLDivElement[]>([]);
@@ -58,7 +58,7 @@ export default function Processes() {
           } else {
             clearInterval(showMessages);
             setIsAnimation(false);
-            setcalculateOffset(1800);
+            setcalculateOffset(3000);
             setTimeout(() => {
               setcurrentIndex(0);
               setIsAnimation(true);
@@ -77,11 +77,11 @@ export default function Processes() {
       if (document.hidden) {
         setIsAnimation(false);
         setcurrentIndex(0);
-        setcalculateOffset(1800);
+        setcalculateOffset(3000);
       } else {
         setcurrentIndex(0);
         setIsAnimation(true);
-        setcalculateOffset(1800);
+        setcalculateOffset(3000);
       }
     };
 
@@ -130,11 +130,23 @@ export default function Processes() {
               {isAnimation && (
                 <AnimatePresence key="discord message">
                   <motion.ul
-                    initial={{ y: calculateOffset, opacity: 0, scale: 0 }}
-                    animate={{ y: calculateOffset, opacity: 1, scale: 1 }}
+                    initial={{
+                      marginBottom: -calculateOffset,
+                      opacity: 0,
+                      scale: 0,
+                    }}
+                    animate={{
+                      marginBottom: -calculateOffset,
+                      opacity: 1,
+                      scale: 1,
+                    }}
+                    exit={{
+                      scale: 0,
+                      opacity: 0,
+                    }}
                     transition={{ ease: 'linear' }}
                     ref={listRef}
-                    className="flex w-full flex-col gap-4"
+                    className="-mb-[3000px] flex w-full scale-0 flex-col gap-4 opacity-0"
                   >
                     {messagesDiscord.map((item, index) => {
                       return (
