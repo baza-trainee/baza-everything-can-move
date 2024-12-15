@@ -1,17 +1,16 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { useDesignStore } from '@/useDesignStore';
 import clsx from 'clsx';
 import Link from 'next/link';
-// import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useDesignStore } from '@/useDesignStore';
+import Image from 'next/image';
+import HeaderNavigation from './HeaderNavigation';
+import SceneLogo from './SceneLogo';
+import { NAV_LINKS } from '@/constants/navlinks';
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 
-import HeaderNavigation from './HeaderNavigation';
-import { NAV_LINKS } from '@/constants/navlinks';
-import SceneLogo from './SceneLogo';
-
-const Header = () => {
+const Header: React.FC = () => {
   const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState(false);
   const { designType } = useDesignStore();
@@ -59,10 +58,9 @@ const Header = () => {
               'font-second-family font-medium'
           )}
         >
+          {/* If  header do not open  */}
           {!openMenu && (
             <>
-              {/*designBySvitlana  ml-4 py-3 lg:ml-6 lg:py-4 2xl:ml-[82px] */}
-              {/*designByOlga pl-4 pt-10 lg:pb-[30px] lg:pl-6 lg:pt-[30px] 2xl:pb-10 2xl:pl-10 2xl:pt-10 */}
               <Link
                 href="/"
                 className={clsx(
@@ -72,33 +70,30 @@ const Header = () => {
                     'ml-4 py-3 lg:ml-6 lg:py-4 2xl:ml-20 2xl:pb-[14px] 2xl:pt-4'
                 )}
               >
-                {/*designBySvitlana h-[40px] w-[40px] lg:h-[68px] lg:w-[68px] 2xl:h-[76px]
-                2xl:w-[76px] */}
-
-                {/*designByOlga h-16 w-16 lg:h-20 lg:w-20 */}
-                <div
-                  className={clsx(
-                    designType === 'designByOlga' &&
-                      'h-16 w-16 lg:h-20 lg:w-20',
-                    designType === 'designBySvitlana' &&
+                {/* For Olga not 3d */}
+                {designType === 'designByOlga' && (
+                  <Image
+                    className={clsx('h-16 w-16 lg:h-20 lg:w-20')}
+                    src="/assets/images/Logo/logo_baza.png"
+                    alt="Logo Baza Trainee Ukraine"
+                    //priority
+                    width={80}
+                    height={80}
+                  />
+                )}
+                {/* for Svitlana 3d*/}
+                {designType === 'designBySvitlana' && (
+                  <div
+                    className={clsx(
                       'h-10 w-10 lg:h-[68px] lg:w-[68px] 2xl:h-[76px] 2xl:w-[76px]'
-                  )}
-                >
-                  <SceneLogo />
-                </div>
-                {/* <Image
-                  className={clsx(
-                    designType === 'designByOlga' &&
-                      'h-16 w-16 lg:h-20 lg:w-20',
-                    designType === 'designBySvitlana' &&
-                      'w-[40px] lg:w-[68px] 2xl:w-[76px]'
-                  )}
-                  src="/assets/images/Logo/logo_baza.png"
-                  alt="Logo Baza Trainee Ukraine"
-                  priority
-                  width={80}
-                  height={80}
-                /> */}
+                    )}
+                  >
+                    <SceneLogo />
+                  </div>
+                )}
+                {/*we do not need it any more ?*/}
+                {/* designType === 'designBySvitlana' && 'w-[40px] lg:w-[68px]
+                2xl:w-[76px]' */}
               </Link>
               {/* right side */}
               <div
@@ -162,8 +157,6 @@ const Header = () => {
                   <p
                     className={clsx(
                       'hidden transition-colors duration-300 ease-linear lg:block'
-                      //  designType === 'designByOlga' && 'ml-auto', //leading-o-130 lg:text-md 2xl:text-l
-                      //  designType === 'designBySvitlana' && ''
                     )}
                   >
                     Меню
@@ -172,7 +165,7 @@ const Header = () => {
               </div>
             </>
           )}
-
+          {/* If open header   */}
           <HeaderNavigation
             headerNav={NAV_LINKS}
             handleMenuClick={handleMenuClick}
