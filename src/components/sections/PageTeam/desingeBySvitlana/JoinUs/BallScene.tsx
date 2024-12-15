@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { BallsProps } from './Balls';
 import { useMediaQuery } from 'react-responsive';
+import styles from './Balls.module.css';
+import clsx from 'clsx';
 
 const BallScene = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
@@ -9,7 +11,7 @@ const BallScene = () => {
     {
       id: 1,
       x: 200,
-      y: 150,
+      y: 202,
       vx: 0,
       vy: 0,
       angle: 0,
@@ -23,7 +25,7 @@ const BallScene = () => {
     {
       id: 2,
       x: 250,
-      y: 150,
+      y: 203,
       vx: 0,
       vy: 0,
       angle: 0,
@@ -37,7 +39,7 @@ const BallScene = () => {
     {
       id: 3,
       x: 300,
-      y: 200,
+      y: 205,
       vx: 0,
       vy: 0,
       angle: 0,
@@ -80,8 +82,8 @@ const BallScene = () => {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const gravity = 0.01; // Сила гравітації
-  const bounce = 0.4; // Сила відскоку
+  const gravity = 0.02;
+  const bounce = 0.3;
   const dragSpeedRef = useRef<{ vx: number; vy: number }>({ vx: 0, vy: 0 });
 
   useEffect(() => {
@@ -93,50 +95,41 @@ const BallScene = () => {
           const ball = updatedBalls[i];
 
           if (!ball.isDragging) {
-            // Гравітація
             ball.vy += gravity;
 
-            // Обмеження межами контейнера
             const container = containerRef.current;
             if (container) {
               const rect = container.getBoundingClientRect();
 
-              // Зіткнення з нижньою межею
               if (ball.y + ball.radius >= rect.height) {
                 ball.y = rect.height - ball.radius;
                 ball.vy = -ball.vy * bounce;
-                ball.vx *= 0.95; // Зменшення горизонтальної швидкості (тертя)
+                ball.vx *= 0.95;
               }
 
-              // Зіткнення з верхньою межею
               if (ball.y - ball.radius <= 0) {
                 ball.y = ball.radius;
                 ball.vy = -ball.vy * bounce;
               }
 
-              // Зіткнення з лівою межею
               if (ball.x - ball.radius <= 0) {
                 ball.x = ball.radius;
                 ball.vx = -ball.vx * bounce;
               }
 
-              // Зіткнення з правою межею
               if (ball.x + ball.radius >= rect.width) {
                 ball.x = rect.width - ball.radius;
                 ball.vx = -ball.vx * bounce;
               }
             }
 
-            // Оновлення позиції
             ball.x += ball.vx;
             ball.y += ball.vy;
 
-            // Оновлення кута обертання на основі швидкості
             const speed = Math.sqrt(ball.vx ** 2 + ball.vy ** 2);
-            ball.angle += (speed / ball.radius) * 5; // Коефіцієнт масштабу для обертання
+            ball.angle += (speed / ball.radius) * 5;
           }
 
-          // Відштовхування від інших куль
           for (let j = i + 1; j < updatedBalls.length; j++) {
             const otherBall = updatedBalls[j];
 
@@ -170,10 +163,10 @@ const BallScene = () => {
       requestAnimationFrame(updatePositions);
     };
 
-    updatePositions(); // Запуск циклу оновлення
+    updatePositions();
   }, []);
 
-  const handleMouseDown = (id: number) => {
+  const handlePointerDown = (id: number) => {
     setBalls((prevBalls) =>
       prevBalls.map((ball) =>
         ball.id === id ? { ...ball, isDragging: true, vx: 0, vy: 0 } : ball
@@ -181,7 +174,7 @@ const BallScene = () => {
     );
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handlePointerMove = (clientX: number, clientY: number) => {
     setBalls((prevBalls) =>
       prevBalls.map((ball) => {
         if (ball.isDragging) {
@@ -190,11 +183,11 @@ const BallScene = () => {
 
           const rect = container.getBoundingClientRect();
           const newX = Math.max(
-            Math.min(e.clientX - rect.left, rect.width - ball.radius),
+            Math.min(clientX - rect.left, rect.width - ball.radius),
             ball.radius
           );
           const newY = Math.max(
-            Math.min(e.clientY - rect.top, rect.height - ball.radius),
+            Math.min(clientY - rect.top, rect.height - ball.radius),
             ball.radius
           );
 
@@ -208,7 +201,7 @@ const BallScene = () => {
     );
   };
 
-  const handleMouseUp = () => {
+  const handlePointerUp = () => {
     setBalls((prevBalls) =>
       prevBalls.map((ball) =>
         ball.isDragging
@@ -224,12 +217,15 @@ const BallScene = () => {
   };
 
   useEffect(() => {
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
+    const handleMove = (e: PointerEvent) =>
+      handlePointerMove(e.clientX, e.clientY);
+
+    document.addEventListener('pointermove', handleMove);
+    document.addEventListener('pointerup', handlePointerUp);
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('pointermove', handleMove);
+      document.removeEventListener('pointerup', handlePointerUp);
     };
   }, []);
 
@@ -242,22 +238,28 @@ const BallScene = () => {
         {balls.map((ball) => (
           <div
             key={ball.id}
-            onMouseDown={() => handleMouseDown(ball.id)}
-            className="absolute z-0 flex cursor-grab items-center justify-center rounded-full"
+            onPointerDown={(e) => {
+              e.preventDefault();
+              handlePointerDown(ball.id);
+            }}
+            className={clsx(
+              styles.ball,
+              'absolute z-0 flex cursor-grab items-center justify-center rounded-full'
+            )}
             style={{
               width: `${ball.radius * 2}px`,
               height: `${ball.radius * 2}px`,
               backgroundColor: ball.color,
               top: ball.y - ball.radius,
               left: ball.x - ball.radius,
-              transform: ` rotate(${ball.angle}deg)`,
+              transform: `rotate(${ball.angle}deg)`,
             }}
           >
             {ball.link && (
               <a href={ball.link} className="cursor-pointer">
                 <img
                   src={ball.src}
-                  alt="куля"
+                  alt="ball"
                   width={ball.imgeSize}
                   height={ball.imgeSize}
                 />
@@ -267,7 +269,7 @@ const BallScene = () => {
               <img
                 className="pointer-events-none"
                 src={ball.src}
-                alt="куля"
+                alt="ball"
                 width={ball.imgeSize}
                 height={ball.imgeSize}
               />
