@@ -2,10 +2,7 @@
 
 import { motion } from 'framer-motion';
 import ButtonContact from '@/components/ui/ButtonContact/ButtonContact';
-import Image from 'next/image';
 import clsx from 'clsx';
-
-const MotionImage = motion.create(Image);
 
 function ButtonJoin() {
   return (
