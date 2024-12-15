@@ -67,7 +67,7 @@ const Header = () => {
                 href="/"
                 className={clsx(
                   designType === 'designByOlga' &&
-                    'pl-2 pt-6 lg:pb-[26px] lg:pl-4 lg:pt-[26px] 2xl:pb-8 2xl:pl-5 2xl:pt-8',
+                    'ml-4 pt-10 lg:ml-6 lg:py-[30px] 2xl:ml-5 2xl:py-10',
                   designType === 'designBySvitlana' &&
                     'ml-4 py-3 lg:ml-6 lg:py-4 2xl:ml-20 2xl:pb-[14px] 2xl:pt-4'
                 )}
@@ -79,7 +79,7 @@ const Header = () => {
                 <div
                   className={clsx(
                     designType === 'designByOlga' &&
-                      'h-[80px] w-[80px] lg:h-[88px] lg:w-[88px] 2xl:h-24 2xl:w-24',
+                      'h-16 w-16 lg:h-20 lg:w-20',
                     designType === 'designBySvitlana' &&
                       'h-10 w-10 lg:h-[68px] lg:w-[68px] 2xl:h-[76px] 2xl:w-[76px]'
                   )}
