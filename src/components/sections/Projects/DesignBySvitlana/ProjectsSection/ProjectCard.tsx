@@ -23,6 +23,7 @@ const ProjectCard = ({ src, name }: SvitlanaProjectsImagesType) => {
           // pointer-events-none
           className="object-cover"
           alt={name}
+          quality={90}
           // width={302}
           // height={146}
           style={{
