@@ -1,37 +1,20 @@
+// 'use client';
+
 import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import SubTitleBtn from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleBtn';
-import { motion } from 'framer-motion';
-
-import React, { ReactNode, useRef } from 'react';
-import Ball from './Ball';
+import BallScene from './BallScene';
 
 function JoinUs() {
-  // const [items, setItems] = useState([0, 1, 2, 3, 4]);
-  const dragArea = useRef(null);
-  // const [dragData, setDragData] = useState<any>();
-  const MotionDiv = ({ children }: { children: ReactNode }) => {
-    return (
-      <motion.div
-        className="absolute"
-        dragElastic
-        // onDragStart={() => setDragData(dragArea)}
-        // onDragEnd={() => setDragData({ y: 0 })}
-        dragConstraints={dragArea}
-        drag
-      >
-        {children}
-      </motion.div>
-    );
-  };
   return (
     <BackgroundComponent
       isAlwaysOpen
       text="соціальні мережі"
       bg="white"
-      className="relative z-20 h-[772px] lg:h-[975px] 2xl:h-[788px]"
+      className="relative h-[772px] lg:h-[975px] 2xl:h-[788px]"
     >
-      <div className="font-third-family font-semibold text-black">
-        <h2 className="flex text-xlg uppercase leading-o-150 tracking-custom-tight text-s-purple lg:flex-col lg:text-3xl 2xl:flex-row 2xl:gap-12">
+      <BallScene />
+      <div className="pointer-events-none font-third-family font-semibold text-black">
+        <h2 className="z-[99999] flex text-xlg uppercase leading-o-150 tracking-custom-tight text-s-purple lg:flex-col lg:text-3xl 2xl:flex-row 2xl:gap-12">
           <span> Приєднуйся </span>
           <div className="flex gap-12">
             <span className="hidden lg:block"> до </span>
@@ -39,7 +22,7 @@ function JoinUs() {
           </div>
         </h2>
 
-        <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-6">
+        <div className="z-[99999] mt-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-6">
           <p className="text-md uppercase leading-o-120 tracking-custom-tight lg:text-lg lg:font-medium">
             хочеш?
           </p>
@@ -58,50 +41,6 @@ function JoinUs() {
           Підписуйся, слідкуй за нами та пиши!
         </p>
       </div>
-      <motion.div
-        aria-hidden
-        ref={dragArea}
-        className="absolute -top-[100px] left-0 h-[772px] w-full lg:h-[975px] 2xl:h-[788px]"
-      >
-        <MotionDiv>
-          <Ball typeBall="stars" colorSchemaStars="white" />
-        </MotionDiv>
-        <MotionDiv>
-          <Ball typeBall="stars" colorSchemaStars="purple" />
-        </MotionDiv>
-        <MotionDiv>
-          <Ball
-            typeBall="socialLink"
-            colorSchemaStars="purple"
-            linkSocial="facebook"
-          />
-        </MotionDiv>
-        <MotionDiv>
-          <Ball
-            typeBall="socialLink"
-            colorSchemaStars="purple"
-            linkSocial="linkedin"
-          />
-        </MotionDiv>
-        <MotionDiv>
-          <Ball
-            typeBall="socialLink"
-            colorSchemaStars="purple"
-            linkSocial="telegram"
-          />
-        </MotionDiv>
-      </motion.div>
-      {/* <Reorder.Group axis="y" onReorder={setItems} values={items}>
-        {items.map((item) => (
-          <Reorder.Item
-            key={item}
-            value={item}
-            className="h-28 w-28 rounded-full bg-olga-green"
-          >
-            <p className="text-center text-black">{item}</p>
-          </Reorder.Item>
-        ))}
-      </Reorder.Group> */}
     </BackgroundComponent>
   );
 }
