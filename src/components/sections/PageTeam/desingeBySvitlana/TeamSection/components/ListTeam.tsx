@@ -26,19 +26,13 @@ function ListTeam() {
   );
   const isMobile = useMediaQuery({ query: '(max-width: 1439.5px)' });
 
-  // const autoScrollRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const refSvg = useRef(null);
 
   const { x, y } = useFollowPointer(refSvg);
 
   const { isSVG, setIsSVG } = useTeamSectionStore();
 
-  const {
-    sliderState,
-    updateState,
-
-    //  position, variants
-  } = useSlideState(teamsFoto);
+  const { sliderState, updateState } = useSlideState(teamsFoto);
 
   const {
     isDisabledHandleScroll,
@@ -47,19 +41,10 @@ function ListTeam() {
     lastPaginatedValue,
     dragImageScale,
     stepToPagination,
-    // isAutoScroll,
   } = sliderState;
 
-  // const clearAutoScroll = () => {
-  //   if (autoScrollRef.current) {
-  //     clearInterval(autoScrollRef.current);
-  //     autoScrollRef.current = null;
-  //   }
-  // };
   const handleScroll = useCallback(
     (way: 1 | -1) => {
-      // clearAutoScroll();
-
       setPositionIndexes((prevPosition) =>
         prevPosition.map((prevIndex) =>
           cycleIndex(prevIndex, way, teamsFoto.length)
@@ -108,7 +93,7 @@ function ListTeam() {
 
   const setStep = () => {
     if (isMobile) {
-      updateState({ stepToPagination: 100 });
+      updateState({ stepToPagination: 90 });
     } else {
       updateState({ stepToPagination: 120 });
     }
@@ -121,45 +106,7 @@ function ListTeam() {
       window.removeEventListener('resize', setStep);
     };
   }, []);
-  // useEffect(() => {
-  //   if (!isAutoScroll) return;
-  //   console.log('start autoscroll with duration:', durationAnimation);
 
-  //   clearAutoScroll();
-  //   // updateState({ durationAnimation: DurtionAnimation.Long });
-  //   autoScrollRef.current = setInterval(() => {
-  //     setPositionIndexes((prevPosition) =>
-  //       prevPosition.map((prevIndex) =>
-  //         cycleIndex(prevIndex, -1, teamsFoto.length)
-  //       )
-  //     );
-  //   }, durationAnimation * 1000);
-
-  //   return () => {
-  //     clearAutoScroll();
-  //   };
-  // }, [isAutoScroll, durationAnimation]);
-
-  // useEffect(() => {
-  //   const handleVisibilityChange = () => {
-  //     if (document.hidden) {
-  //       clearAutoScroll();
-  //       updateState({
-  //         isAutoScroll: false,
-  //       });
-  //     } else {
-  //       updateState({
-  //         isAutoScroll: true,
-  //       });
-  //     }
-  //   };
-
-  //   document.addEventListener('visibilitychange', handleVisibilityChange);
-
-  //   return () => {
-  //     document.removeEventListener('visibilitychange', handleVisibilityChange);
-  //   };
-  // }, []);
   const handleDragImage = ({ mode }: { mode: 'start' | 'finish' }) => (
     setIsSVG(mode === 'start' ? false : true),
     updateState({
@@ -171,21 +118,9 @@ function ListTeam() {
   return (
     <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 lg:bottom-[45px] 2xl:bottom-[30px]">
       <div className="flex h-[400px] w-full items-end justify-center overflow-hidden">
-        <ul className="relative flex h-[280px] w-full cursor-none items-center justify-center">
+        <ul className="relative flex h-[280px] w-full items-center justify-center">
           <motion.div
-            // onPointerMove={handleMouseMove}
             ref={refSvg}
-            onHoverStart={() => handleDragImage({ mode: 'start' })}
-            onHoverEnd={() => handleDragImage({ mode: 'finish' })}
-            // drag="x"
-            // dragConstraints={{ left: 0, right: 0 }}
-            // onDragEnd={(_, info) => {
-            //   if (info.offset.x > 0) {
-            //     handlePointerInteraction(true);
-            //   } else if (info.offset.x < 0) {
-            //     handlePointerInteraction(false);
-            //   }
-            // }}
             onPointerDown={() => handleDragImage({ mode: 'start' })}
             onPointerUp={() => handleDragImage({ mode: 'finish' })}
             onPan={(_, info) => throttledSetValueX(info.delta.x)}
@@ -195,8 +130,6 @@ function ListTeam() {
             <li
               className="-z-500 pointer-events-none absolute"
               key={index}
-              // animate={position[positionIndexes[index]]}
-              // variants={variants}
               style={
                 isMobile
                   ? ListTeamStylesMobile({
@@ -210,7 +143,6 @@ function ListTeam() {
                       durationAnimation,
                     })
               }
-              // transition={{ duration: durationAnimation, ease: 'linear' }}
             >
               <CardTeam
                 urlFoto={item.urlFoto}

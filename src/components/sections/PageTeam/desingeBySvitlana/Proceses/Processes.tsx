@@ -26,7 +26,6 @@ const messagesDiscord = [
 export default function Processes() {
   const [currentIndexes, setcurrentIndexes] = useState<number[]>([]);
   const [isAnimation, setIsAnimation] = useState(true);
-  console.log(currentIndexes);
 
   useEffect(() => {
     if (!isAnimation) return;
@@ -70,6 +69,23 @@ export default function Processes() {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
+
+  const images = messagesDiscord.map((item, index) => (
+    <Image
+      src={item.url}
+      alt={item.url}
+      key={item.url}
+      priority={true}
+      className={cn(
+        'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
+        index === 3 && 'w-[202px] lg:w-[360px]',
+        index === 6 && 'w-[202px] lg:w-[360px]',
+        index === 8 && 'w-[202px] lg:w-[360px]'
+      )}
+      width={498}
+      height={50}
+    />
+  ));
   return (
     <section className="m-0 -mt-[1px] bg-black pt-[80px]">
       <Container>
@@ -107,43 +123,19 @@ export default function Processes() {
           <div className="absolute bottom-[248px] left-1/2 -translate-x-1/2 overflow-hidden lg:bottom-[238px] 2xl:bottom-0">
             <div className="relative flex h-[570px] w-[302px] items-end justify-center bg-black lg:h-[1014px] lg:w-[562px] 2xl:h-[692px]">
               {isAnimation && (
-                <AnimatePresence key="discord message">
-                  <ul className="flex w-full flex-col gap-4">
-                    {messagesDiscord.map((item, index) => {
-                      if (currentIndexes[index] !== index) {
-                        return null;
-                      }
-                      return (
-                        <motion.li
-                          initial={{ y: 500 }}
-                          animate={{
-                            y: 0,
-                          }}
-                          transition={{
-                            duration: 0.5,
-                            ease: 'linear',
-                          }}
-                          key={index}
-                          className="flex justify-center"
-                        >
-                          <Image
-                            className={cn(
-                              'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
-                              index === 3 && 'w-[202px] lg:w-[360px]',
-                              index === 6 && 'w-[202px] lg:w-[360px]',
-                              index === 8 && 'w-[202px] lg:w-[360px]'
-                            )}
-                            width={498}
-                            height={50}
-                            // placeholder="blur"
-                            src={item.url}
-                            alt="повідомлення із діскорда"
-                          />
-                        </motion.li>
-                      );
-                    })}
-                  </ul>
-                </AnimatePresence>
+                <ul className="flex w-full flex-col gap-4">
+                  {images.map((item, index) => {
+                    if (currentIndexes[index] !== index) {
+                      return null;
+                    }
+
+                    return (
+                      <li className="flex justify-center" key={index}>
+                        {item}
+                      </li>
+                    );
+                  })}
+                </ul>
               )}
               {!isAnimation && (
                 <AnimatePresence>
