@@ -23,7 +23,7 @@ const Results = () => {
   return (
     // <div onClick={toggleBubbles} className='relative'>
     // <div className='relative'>
-      <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isContainer={false}>
+      <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isContainer={false} isAlwaysOpen={true}>
         {/* <div className='bg-s-gray relative'> */}
         {/* <div className='container'> */}
           <div className='flex justify-start items-center gap-[14px] pb-8 lg:gap-[69px]'>
