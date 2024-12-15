@@ -3,7 +3,6 @@ import { BallsProps } from './Balls';
 import { useMediaQuery } from 'react-responsive';
 import styles from './Balls.module.css';
 import clsx from 'clsx';
-
 const BallScene = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
 
@@ -82,8 +81,8 @@ const BallScene = () => {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const gravity = 0.02;
-  const bounce = 0.3;
+  const gravity = 0.02; // Сила гравітації
+  const bounce = 0.3; // Сила відскоку
   const dragSpeedRef = useRef<{ vx: number; vy: number }>({ vx: 0, vy: 0 });
 
   useEffect(() => {
@@ -95,41 +94,50 @@ const BallScene = () => {
           const ball = updatedBalls[i];
 
           if (!ball.isDragging) {
+            // Гравітація
             ball.vy += gravity;
 
+            // Обмеження межами контейнера
             const container = containerRef.current;
             if (container) {
               const rect = container.getBoundingClientRect();
 
+              // Зіткнення з нижньою межею
               if (ball.y + ball.radius >= rect.height) {
                 ball.y = rect.height - ball.radius;
                 ball.vy = -ball.vy * bounce;
-                ball.vx *= 0.95;
+                ball.vx *= 0.95; // Зменшення горизонтальної швидкості (тертя)
               }
 
+              // Зіткнення з верхньою межею
               if (ball.y - ball.radius <= 0) {
                 ball.y = ball.radius;
                 ball.vy = -ball.vy * bounce;
               }
 
+              // Зіткнення з лівою межею
               if (ball.x - ball.radius <= 0) {
                 ball.x = ball.radius;
                 ball.vx = -ball.vx * bounce;
               }
 
+              // Зіткнення з правою межею
               if (ball.x + ball.radius >= rect.width) {
                 ball.x = rect.width - ball.radius;
                 ball.vx = -ball.vx * bounce;
               }
             }
 
+            // Оновлення позиції
             ball.x += ball.vx;
             ball.y += ball.vy;
 
+            // Оновлення кута обертання на основі швидкості
             const speed = Math.sqrt(ball.vx ** 2 + ball.vy ** 2);
-            ball.angle += (speed / ball.radius) * 5;
+            ball.angle += (speed / ball.radius) * 5; // Коефіцієнт масштабу для обертання
           }
 
+          // Відштовхування від інших куль
           for (let j = i + 1; j < updatedBalls.length; j++) {
             const otherBall = updatedBalls[j];
 
@@ -163,7 +171,7 @@ const BallScene = () => {
       requestAnimationFrame(updatePositions);
     };
 
-    updatePositions();
+    updatePositions(); // Запуск циклу оновлення
   }, []);
 
   const handlePointerDown = (id: number) => {
@@ -174,7 +182,7 @@ const BallScene = () => {
     );
   };
 
-  const handlePointerMove = (clientX: number, clientY: number) => {
+  const handlePointerMove = (e: MouseEvent) => {
     setBalls((prevBalls) =>
       prevBalls.map((ball) => {
         if (ball.isDragging) {
@@ -183,11 +191,11 @@ const BallScene = () => {
 
           const rect = container.getBoundingClientRect();
           const newX = Math.max(
-            Math.min(clientX - rect.left, rect.width - ball.radius),
+            Math.min(e.clientX - rect.left, rect.width - ball.radius),
             ball.radius
           );
           const newY = Math.max(
-            Math.min(clientY - rect.top, rect.height - ball.radius),
+            Math.min(e.clientY - rect.top, rect.height - ball.radius),
             ball.radius
           );
 
@@ -217,15 +225,21 @@ const BallScene = () => {
   };
 
   useEffect(() => {
-    const handleMove = (e: PointerEvent) =>
-      handlePointerMove(e.clientX, e.clientY);
+    // const handleTouchMove = (e: TouchEvent) => {
+    //   const touch = e.touches[0];
+    //   handlePointerMove(touch.clientX, touch.clientY);
+    // };
 
-    document.addEventListener('pointermove', handleMove);
-    document.addEventListener('pointerup', handlePointerUp);
+    document.addEventListener('mousemove', handlePointerMove);
+    document.addEventListener('mouseup', handlePointerUp);
+    // document.addEventListener('touchmove', handleTouchMove);
+    // document.addEventListener('touchend', handlePointerUp);
 
     return () => {
-      document.removeEventListener('pointermove', handleMove);
-      document.removeEventListener('pointerup', handlePointerUp);
+      document.removeEventListener('mousemove', handlePointerMove);
+      document.removeEventListener('mouseup', handlePointerUp);
+      // document.removeEventListener('touchmove', handleTouchMove);
+      // document.removeEventListener('touchend', handlePointerUp);
     };
   }, []);
 
@@ -238,10 +252,8 @@ const BallScene = () => {
         {balls.map((ball) => (
           <div
             key={ball.id}
-            onPointerDown={(e) => {
-              e.preventDefault();
-              handlePointerDown(ball.id);
-            }}
+            onMouseDown={() => handlePointerDown(ball.id)}
+            // onTouchStart={() => handlePointerDown(ball.id)}
             className={clsx(
               styles.ball,
               'absolute z-0 flex cursor-grab items-center justify-center rounded-full'
@@ -259,7 +271,7 @@ const BallScene = () => {
               <a href={ball.link} className="cursor-pointer">
                 <img
                   src={ball.src}
-                  alt="ball"
+                  alt="куля"
                   width={ball.imgeSize}
                   height={ball.imgeSize}
                 />
@@ -269,7 +281,7 @@ const BallScene = () => {
               <img
                 className="pointer-events-none"
                 src={ball.src}
-                alt="ball"
+                alt="куля"
                 width={ball.imgeSize}
                 height={ball.imgeSize}
               />
