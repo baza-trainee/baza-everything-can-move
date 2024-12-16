@@ -49,6 +49,7 @@ const SliderDesktop: React.FC<ProjectsImagesProps> = ({ images }) => {
                 src={image.src}
                 className="h-[146px] w-[300px] object-cover group-hover/card:shadow-xl"
                 alt={image.name}
+                quality={90}
                 // width={302}
                 // height={146}
                 style={{
