@@ -9,8 +9,8 @@ const BallScene = () => {
   const [balls, setBalls] = useState<BallsProps>([
     {
       id: 1,
-      x: 200,
-      y: 202,
+      x: 140,
+      y: 250,
       vx: 0,
       vy: 0,
       angle: 0,
@@ -24,7 +24,7 @@ const BallScene = () => {
     {
       id: 2,
       x: 250,
-      y: 203,
+      y: 250,
       vx: 0,
       vy: 0,
       angle: 0,
@@ -37,8 +37,8 @@ const BallScene = () => {
     },
     {
       id: 3,
-      x: 300,
-      y: 205,
+      x: 600,
+      y: 300,
       vx: 0,
       vy: 0,
       angle: 0,
@@ -51,8 +51,8 @@ const BallScene = () => {
     },
     {
       id: 4,
-      x: 400,
-      y: 250,
+      x: 450,
+      y: 350,
       vx: 0,
       vy: 0,
       angle: 0,

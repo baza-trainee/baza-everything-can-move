@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { Center, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { useMediaQuery } from 'react-responsive';
 import Drag from './Drag';
@@ -44,16 +44,18 @@ function GloboTeam() {
         style={{ height: sizes.canvasSize, width: sizes.canvasSize }}
         camera={{ position: [0, 0, 8] }}
       >
-        <PointsComponent points={points} mouseX={mouseX} mouseY={mouseY} />
-        <OrbitControls
-          enableDamping
-          dampingFactor={0.1}
-          minPolarAngle={Math.PI / 2}
-          maxPolarAngle={Math.PI / 2}
-          enableZoom={false}
-          autoRotate
-          autoRotateSpeed={0.5}
-        />
+        <Center position={[0, 0, 0]} scale={1.6}>
+          <PointsComponent points={points} mouseX={mouseX} mouseY={mouseY} />
+          <OrbitControls
+            enableDamping
+            dampingFactor={0.1}
+            minPolarAngle={Math.PI / 2}
+            maxPolarAngle={Math.PI / 2}
+            enableZoom={false}
+            autoRotate
+            autoRotateSpeed={0.5}
+          />
+        </Center>
       </Canvas>
       <Drag className="pointer-events-none absolute left-1/2 top-[70px] -translate-x-1/2" />
     </div>
