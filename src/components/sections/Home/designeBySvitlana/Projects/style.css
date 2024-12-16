@@ -1,51 +1,4 @@
-/* Контейнер слайдера */
-.slider-container {
-  padding: 20px -50px;
-  position: relative;
-  max-width: 100%;
-}
-
-/* Кастомні стрілки */
-.custom-nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  width: 40px;
-  height: 40px;
-  background: #ffffff;
-  color: #000000;
-  border: 2px solid #8f8ded;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.custom-nav-btn:hover {
-  background: #8f8ded;
-  color: #ffffff;
-}
-
-.swiper-button-prev {
-  left: -60px;
-}
-
-.swiper-button-next {
-  right: -60px;
-}
-
-/* Кастомна пагінація */
-.swiper-pagination {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.custom-bullet {
+.slick-slider li {
   width: 12px;
   height: 12px;
   background-color: transparent;
@@ -55,55 +8,74 @@
   cursor: pointer;
   transition: all 0.3s;
 }
+.slick-dots::before {
+  display: none;
+}
+.slick-dots li button:before {
+  display: none;
+}
+.slick-dots li.slick-active {
+  background-color: #fff;
+}
+.slick-dots {
+  position: absolute;
+  bottom: -79px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
 
 .custom-bullet-active {
   background-color: #ffffff;
   opacity: 1;
   transform: scale(1.2);
 }
-.swiper-slide-active img{
-  transform: scale(1.15);
+.slick-center img {
+  transform: scale(1.08);
 }
-.swiper-slide-active .slide-header,
-.swiper-slide-active .slide-content {
+.slick-center .slide-item {
   background-color: #fff;
 }
-.swiper-slide-active .slide-header h3 {
+
+.slick-center h3 {
   color: #363535;
 }
 
-.swiper-slide-active .slide-header span {
+.slick-center span {
   color: #b80e16;
 }
-.swiper-slide-active .slide-header {
+.slick-center .slide-header {
   border-bottom: 2px solid #000;
 }
 
-.swiper-slide-active .icon {
+.slick-center .icon {
   fill: #bcbbf9;
   transition: fill 0.3s ease 0s;
 }
-.swiper-slide-active .icon path {
+.slick-center .icon path {
   fill: #000;
   transition: fill 0.3s ease 0s;
 }
-.swiper-slide-active .icon .bg {
+.slick-center .icon .bg {
   fill: #fff;
   transition: fill 0.3s ease 0s;
 }
-.swiper-slide-active .slide-header .lit1 {
+.slick-center .slide-header .lit1 {
   color: #533ba3;
   transition: color 0.3s ease 0s;
 }
-.swiper-slide-active .slide-header .lit2 {
+.slick-center .slide-header .lit2 {
   color: #fda800;
   transition: color 0.3s ease 0s;
 }
-.swiper-slide-active .slide-header .lit3 {
+.slick-center .slide-header .lit3 {
   color: #fe2e05;
   transition: color 0.3s ease 0s;
 }
-.swiper-slide-active .slide-header .lit4 {
+.slick-center .slide-header .lit4 {
   color: #ffe332;
   transition: color 0.3s ease 0s;
 }
