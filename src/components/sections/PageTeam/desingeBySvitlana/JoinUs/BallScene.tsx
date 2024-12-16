@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { BallsProps } from './Balls';
 import { useMediaQuery } from 'react-responsive';
-
+import styles from './Balls.module.css';
+import clsx from 'clsx';
 const BallScene = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
 
@@ -9,7 +10,7 @@ const BallScene = () => {
     {
       id: 1,
       x: 200,
-      y: 150,
+      y: 202,
       vx: 0,
       vy: 0,
       angle: 0,
@@ -23,7 +24,7 @@ const BallScene = () => {
     {
       id: 2,
       x: 250,
-      y: 150,
+      y: 203,
       vx: 0,
       vy: 0,
       angle: 0,
@@ -37,7 +38,7 @@ const BallScene = () => {
     {
       id: 3,
       x: 300,
-      y: 200,
+      y: 205,
       vx: 0,
       vy: 0,
       angle: 0,
@@ -80,8 +81,8 @@ const BallScene = () => {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const gravity = 0.01; // Сила гравітації
-  const bounce = 0.4; // Сила відскоку
+  const gravity = 0.02; // Сила гравітації
+  const bounce = 0.3; // Сила відскоку
   const dragSpeedRef = useRef<{ vx: number; vy: number }>({ vx: 0, vy: 0 });
 
   useEffect(() => {
@@ -173,7 +174,7 @@ const BallScene = () => {
     updatePositions(); // Запуск циклу оновлення
   }, []);
 
-  const handleMouseDown = (id: number) => {
+  const handlePointerDown = (id: number) => {
     setBalls((prevBalls) =>
       prevBalls.map((ball) =>
         ball.id === id ? { ...ball, isDragging: true, vx: 0, vy: 0 } : ball
@@ -181,7 +182,7 @@ const BallScene = () => {
     );
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handlePointerMove = (e: MouseEvent) => {
     setBalls((prevBalls) =>
       prevBalls.map((ball) => {
         if (ball.isDragging) {
@@ -208,7 +209,7 @@ const BallScene = () => {
     );
   };
 
-  const handleMouseUp = () => {
+  const handlePointerUp = () => {
     setBalls((prevBalls) =>
       prevBalls.map((ball) =>
         ball.isDragging
@@ -224,12 +225,21 @@ const BallScene = () => {
   };
 
   useEffect(() => {
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
+    // const handleTouchMove = (e: TouchEvent) => {
+    //   const touch = e.touches[0];
+    //   handlePointerMove(touch.clientX, touch.clientY);
+    // };
+
+    document.addEventListener('mousemove', handlePointerMove);
+    document.addEventListener('mouseup', handlePointerUp);
+    // document.addEventListener('touchmove', handleTouchMove);
+    // document.addEventListener('touchend', handlePointerUp);
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('mousemove', handlePointerMove);
+      document.removeEventListener('mouseup', handlePointerUp);
+      // document.removeEventListener('touchmove', handleTouchMove);
+      // document.removeEventListener('touchend', handlePointerUp);
     };
   }, []);
 
@@ -242,15 +252,19 @@ const BallScene = () => {
         {balls.map((ball) => (
           <div
             key={ball.id}
-            onMouseDown={() => handleMouseDown(ball.id)}
-            className="absolute z-0 flex cursor-grab items-center justify-center rounded-full"
+            onMouseDown={() => handlePointerDown(ball.id)}
+            // onTouchStart={() => handlePointerDown(ball.id)}
+            className={clsx(
+              styles.ball,
+              'absolute z-0 flex cursor-grab items-center justify-center rounded-full'
+            )}
             style={{
               width: `${ball.radius * 2}px`,
               height: `${ball.radius * 2}px`,
               backgroundColor: ball.color,
               top: ball.y - ball.radius,
               left: ball.x - ball.radius,
-              transform: ` rotate(${ball.angle}deg)`,
+              transform: `rotate(${ball.angle}deg)`,
             }}
           >
             {ball.link && (

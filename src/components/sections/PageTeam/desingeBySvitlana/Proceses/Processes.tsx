@@ -69,6 +69,23 @@ export default function Processes() {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
+
+  const images = messagesDiscord.map((item, index) => (
+    <Image
+      src={item.url}
+      alt={item.url}
+      key={item.url}
+      priority={true}
+      className={cn(
+        'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
+        index === 3 && 'w-[202px] lg:w-[360px]',
+        index === 6 && 'w-[202px] lg:w-[360px]',
+        index === 8 && 'w-[202px] lg:w-[360px]'
+      )}
+      width={498}
+      height={50}
+    />
+  ));
   return (
     <section className="m-0 -mt-[1px] bg-black pt-[80px]">
       <Container>
@@ -107,26 +124,14 @@ export default function Processes() {
             <div className="relative flex h-[570px] w-[302px] items-end justify-center bg-black lg:h-[1014px] lg:w-[562px] 2xl:h-[692px]">
               {isAnimation && (
                 <ul className="flex w-full flex-col gap-4">
-                  {messagesDiscord.map((item, index) => {
+                  {images.map((item, index) => {
                     if (currentIndexes[index] !== index) {
                       return null;
                     }
 
                     return (
                       <li className="flex justify-center" key={index}>
-                        <Image
-                          priority={true}
-                          className={cn(
-                            'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
-                            index === 3 && 'w-[202px] lg:w-[360px]',
-                            index === 6 && 'w-[202px] lg:w-[360px]',
-                            index === 8 && 'w-[202px] lg:w-[360px]'
-                          )}
-                          width={498}
-                          height={50}
-                          src={item.url}
-                          alt="повідомлення із діскорда"
-                        />
+                        {item}
                       </li>
                     );
                   })}

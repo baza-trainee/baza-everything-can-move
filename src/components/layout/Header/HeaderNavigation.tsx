@@ -1,24 +1,17 @@
 'use client';
-
+import { useEffect } from 'react';
+import clsx from 'clsx';
 import { useDesignStore } from '@/useDesignStore';
 import Link from 'next/link';
-import Image from 'next/image';
-
-import clsx from 'clsx';
-
+//import Image from 'next/image';
 import NavigationLinks from './NavigationLinks';
 import SocialMedia from './SocialMedia';
-import { useEffect } from 'react';
-
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
-
-type NavLink = {
-  name: string;
-  link: string;
-};
+import { NavLinksArrType } from '@/constants/navlinks';
+import SceneLogo from './SceneLogo';
 
 interface HeaderNavigationProps {
-  headerNav: NavLink[];
+  headerNav: NavLinksArrType;
   handleMenuClick: () => void;
   openMenu: boolean;
 }
@@ -54,14 +47,22 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
               onClick={handleMenuClick}
               className="py-[18px] lg:py-[10px]"
             >
-              <Image
+              {/*we do not need it any more???
+               <Image
                 className="h-16 w-16 lg:h-20 lg:w-20"
                 src="/assets/images/Logo/logo_baza.png"
                 alt="Logo Baza Trainee Ukraine"
                 width={80}
                 height={80}
                 priority
-              />
+              /> */}
+              <div
+                className={clsx(
+                  'h-16 w-16 lg:h-20 lg:w-20 '
+                )}
+              >
+                <SceneLogo />
+              </div>
             </Link>
             <button
               className="flex h-11 w-11 items-center justify-center text-white transition-colors duration-300 ease-linear lg:h-[100px] lg:w-[100px] 2xl:hover:text-olga-green"

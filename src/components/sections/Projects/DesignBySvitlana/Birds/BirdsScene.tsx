@@ -40,6 +40,21 @@ const BirdsScene: React.FC = () => {
     let birdUniforms: {
       [key: string]: THREE.IUniform;
     };
+    //---------------------------------------
+    const onWindowResize = () => {
+      if (renderer && camera && containerRef.current) {
+        const width = containerRef.current.clientWidth;
+        const height = containerRef.current.clientHeight;
+
+        // new window size
+        renderer.setSize(width, height);
+
+        // new aspect
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      }
+    };
+    //----------------------------
     const initBirds = () => {
       const geometry = new BirdGeometry();
       // For Vertex and Fragment
@@ -264,8 +279,9 @@ const BirdsScene: React.FC = () => {
       initBirds();
     };
     init();
-
+    window.addEventListener('resize', onWindowResize);
     return () => {
+      window.removeEventListener('resize', onWindowResize);
       renderer.setAnimationLoop(null);
       gpuCompute?.dispose();
 
