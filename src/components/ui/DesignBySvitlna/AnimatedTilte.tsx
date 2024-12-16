@@ -6,29 +6,45 @@ type AnimatedTitleProps = {
   title: string;
   className?: string;
   wordClasses?: string[];
+  colorBg?: string;
 };
 
 function AnimatedTitle({
   title,
   className = '',
   wordClasses = ['text-s-purple'],
+  colorBg = 'black',
 }: AnimatedTitleProps) {
   const [charIndex, setCharIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const colors = [
-    'text-t-soft-gray',
-    'text-t-silver',
-    'text-s-purple',
-    'text-t-dark-purple',
-    'text-t-plum',
-    'text-t-light-purple',
-    'text-t-lavender',
-    'text-t-pinkish-purple',
-    'text-t-indigo',
-    'text-t-pink',
-  ];
+  const getColorSet = (colorBg: string) => {
+    switch (colorBg) {
+      case 'white':
+        return [
+          'text-black',
+          'text-s-gray',
+          'text-s-purple',
+          'text-s-light-purple',
+          'text-s-title-home',
+        ];
+      case 'black':
+        return [
+          'text-white',
+          'text-s-gray',
+          'text-s-purple',
+          'text-s-light-purple',
+          'text-s-title-home',
+        ];
+      case 'gray':
+        return ['text-white', 'text-black', 'text-s-purple', 'text-s-light-purple', 'text-s-title-home'];
+      default:
+        return ['black'];
+    }
+  };
+
+  const colors = getColorSet(colorBg);
 
   const getRandomColor = () => {
     return colors[Math.floor(Math.random() * colors.length)];
@@ -154,11 +170,14 @@ Props:
 1. `title` (string, required): The animated text to display.
 2. `className` (string, optional): Tailwind classes for overall title styling.
 3. `wordClasses` (string[], optional): Tailwind classes for styling individual words in the title.
+4. `colorBg`: color of section's background
+
 
 Examples:
 <AnimatedTitle 
   title="Future Plans" 
   className="text-center 2xl:text-start mb-4"
   wordClasses={['text-white', 'text-s-purple']}
+  colorBg='gray'
 />
 */
