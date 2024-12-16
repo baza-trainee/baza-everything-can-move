@@ -87,11 +87,9 @@ const Results = () => {
   
   return (
 
-<<<<<<< HEAD
-    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} className='2xl:relative'>
-=======
-    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} className='2xl:relative'>
->>>>>>> b15bfcfb2cb558472a8951cf896fdc0ff88050b6
+
+    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0}  isAlwaysOpen={true} className='2xl:relative'>
+
       <div id={styles.resultsBlock}  className='flex flex-col 2xl:flex-row gap-[26px]'>
         <div>
           <div className='flex justify-start items-center gap-[14px] pb-8 lg:gap-[69px] 2xl:gap-[3px] pt-[22px] lg:pt-[10px] 2xl:pt-[131px]'>
