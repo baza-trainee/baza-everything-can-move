@@ -1,8 +1,8 @@
 'use client';
 //from big to small
-import type { StaticImageData } from 'next/image';
+//import type { StaticImageData } from 'next/image';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
+//import Image from 'next/image';
 
 import React, {
   createContext,
@@ -205,39 +205,39 @@ export const useMouseEnter = () => {
   }
   return context;
 };
-export const CardImage = ({
-  src,
-  alt,
-  width,
-  height,
-  className,
-}: {
-  src: StaticImageData;
-  alt: string;
-  width?: string;
-  height?: string;
-  className?: string;
-}) => {
-  return (
-    <div
-      className={className}
-      style={{
-        position: 'relative',
-        width: width,
-        height: height,
-        overflow: 'hidden',
-      }}
-    >
-      <Image
-        src={src}
-        alt={alt}
-        className="object-cover transition-all duration-500 ease-in-out"
-        style={{
-          width: '100%',
-          height: '100%',
-          transition: 'transform 0.5s ease-in-out',
-        }}
-      />
-    </div>
-  );
-};
+// export const CardImage = ({
+//   src,
+//   alt,
+//   width,
+//   height,
+//   className,
+// }: {
+//   src: StaticImageData;
+//   alt: string;
+//   width?: string;
+//   height?: string;
+//   className?: string;
+// }) => {
+//   return (
+//     <div
+//       className={className}
+//       style={{
+//         position: 'relative',
+//         width: width,
+//         height: height,
+//         overflow: 'hidden',
+//       }}
+//     >
+//       <Image
+//         src={src}
+//         alt={alt}
+//         className="object-cover transition-all duration-500 ease-in-out"
+//         style={{
+//           width: '100%',
+//           height: '100%',
+//           transition: 'transform 0.5s ease-in-out',
+//         }}
+//       />
+//     </div>
+//   );
+// };

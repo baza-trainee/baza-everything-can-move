@@ -2,7 +2,11 @@
 //from big to small- I use it
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { CardContainer, CardItem, CardBody } from '@/components/ui/3d-third-3';
+import {
+  CardContainer,
+  CardItem,
+  CardBody,
+} from '@/components/ui/ParallaxCard';
 import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 
@@ -11,7 +15,7 @@ import MobileCarousel from './MobileCarousel/MobileCarousel';
 import Link from 'next/link';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 
-const NewPCards3: React.FC = () => {
+const ProjectCardsShowcase: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
 
   const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
@@ -67,8 +71,8 @@ const NewPCards3: React.FC = () => {
                     <Link
                       href={image.link}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className="cursor-none"
+                      rel="noopener noreferrer "
+                      className="relative inset-0 flex h-[168px] w-[352px] cursor-none"
                     >
                       <Image
                         src={image.src}
@@ -76,6 +80,7 @@ const NewPCards3: React.FC = () => {
                         alt={image.name}
                         quality={90}
                         fill={true}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 33vw"
                         // style={{
                         //   width: '100%',
                         //   height: '100%',
@@ -159,7 +164,7 @@ const NewPCards3: React.FC = () => {
                         className="object-cover transition-all duration-500 ease-linear"
                         alt={image.name}
                         quality={90}
-                        fill={true}
+                        //fill={true}
                         // style={{
                         //   width: '100%',
                         //   height: '100%',
@@ -206,4 +211,4 @@ const NewPCards3: React.FC = () => {
     </div>
   );
 };
-export default NewPCards3;
+export default ProjectCardsShowcase;

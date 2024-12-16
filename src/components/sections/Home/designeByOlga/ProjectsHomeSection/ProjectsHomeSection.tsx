@@ -1,7 +1,7 @@
 import SectionTitle from '@/components/ui/SectionTitle';
 import React from 'react';
 
-import NewPCards3 from './NewPCards-3';
+import ProjectCardsShowcase from './ProjectCardsShowcase';
 
 const ProjectsHomeSection: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const ProjectsHomeSection: React.FC = () => {
         </p>
         <NewPCards2 /> */}
 
-        <NewPCards3 />
+        <ProjectCardsShowcase />
       </div>
     </section>
   );
