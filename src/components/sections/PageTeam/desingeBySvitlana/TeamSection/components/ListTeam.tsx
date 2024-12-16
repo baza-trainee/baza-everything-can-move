@@ -24,7 +24,7 @@ function ListTeam() {
   const [positionIndexes, setPositionIndexes] = useState(
     teamsFoto.map((_, index) => index)
   );
-  const isMobile = useMediaQuery({ query: '(max-width: 1439.5px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
 
   const refSvg = useRef(null);
 
@@ -118,7 +118,25 @@ function ListTeam() {
   return (
     <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 lg:bottom-[45px] 2xl:bottom-[30px]">
       <div className="flex h-[400px] w-full items-end justify-center overflow-hidden">
-        <ul className="relative flex h-[280px] w-full items-center justify-center">
+        <motion.ul
+          // drag="x"
+          // dragConstraints={{ left: 0, right: 0 }}
+          // onDragStart={(_, info) => {
+          //   if (!isMobile) return;
+
+          //   if (info.offset.x > 0) {
+          //     console.log('right');
+          //     handleScroll(1);
+          //   }
+          //   if (info.offset.x < 0) {
+          //     console.log('left');
+
+          //     handleScroll(-1);
+          //   }
+          // }}
+          className="relative flex h-[280px] w-full items-center justify-center"
+        >
+          {/* {!isMobile && ( */}
           <motion.div
             ref={refSvg}
             onPointerDown={() => handleDragImage({ mode: 'start' })}
@@ -126,6 +144,7 @@ function ListTeam() {
             onPan={(_, info) => throttledSetValueX(info.delta.x)}
             className="absolute bottom-0 left-0 right-0 z-20 h-[320px] touch-none"
           ></motion.div>
+          {/* )} */}
           {teamsFoto.map((item, index) => (
             <li
               className="-z-500 pointer-events-none absolute"
@@ -152,7 +171,7 @@ function ListTeam() {
             </li>
           ))}
           {!isSVG && <DragSVG x={x} y={y} dragImageScale={dragImageScale} />}
-        </ul>
+        </motion.ul>
       </div>
     </div>
   );
