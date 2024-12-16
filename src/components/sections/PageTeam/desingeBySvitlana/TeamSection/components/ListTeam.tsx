@@ -118,25 +118,7 @@ function ListTeam() {
   return (
     <div className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 lg:bottom-[45px] 2xl:bottom-[30px]">
       <div className="flex h-[400px] w-full items-end justify-center overflow-hidden">
-        <motion.ul
-          // drag="x"
-          // dragConstraints={{ left: 0, right: 0 }}
-          // onDragStart={(_, info) => {
-          //   if (!isMobile) return;
-
-          //   if (info.offset.x > 0) {
-          //     console.log('right');
-          //     handleScroll(1);
-          //   }
-          //   if (info.offset.x < 0) {
-          //     console.log('left');
-
-          //     handleScroll(-1);
-          //   }
-          // }}
-          className="relative flex h-[280px] w-full items-center justify-center"
-        >
-          {/* {!isMobile && ( */}
+        <motion.ul className="relative flex h-[280px] w-full items-center justify-center">
           <motion.div
             ref={refSvg}
             onPointerDown={() => handleDragImage({ mode: 'start' })}
@@ -144,7 +126,7 @@ function ListTeam() {
             onPan={(_, info) => throttledSetValueX(info.delta.x)}
             className="absolute bottom-0 left-0 right-0 z-20 h-[320px] touch-none"
           ></motion.div>
-          {/* )} */}
+
           {teamsFoto.map((item, index) => (
             <li
               className="-z-500 pointer-events-none absolute"
