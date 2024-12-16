@@ -71,6 +71,22 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
     return (baseIndex + offset + totalImages) % totalImages;
   };
 
+  const handleDragEnd = (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => {
+    //  <--------
+    if (info.offset.x > -50) {
+      setDirection(1);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    } else if (info.offset.x < 50) {
+      //  -------->
+      setDirection(-1);
+      setCurrentIndex(
+        (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      );
+    }
+  };
   return (
     <div
       className="w-full flex-col items-center justify-center lg:hidden"
@@ -110,6 +126,10 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
                 variants={imageVariants}
                 transition={{ duration: 0.7 }}
                 className="absolute top-0 h-[164px] w-[320px]"
+                drag="x"
+                dragConstraints={containerRef}
+                //dragElastic={0}
+                onDragEnd={handleDragEnd}
               >
                 <Link
                   href={images[imageIndex].link}
