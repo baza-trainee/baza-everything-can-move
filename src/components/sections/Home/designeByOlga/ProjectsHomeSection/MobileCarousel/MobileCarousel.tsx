@@ -2,13 +2,15 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { HomeProjectsImagesType } from './types';
+//import { HomeProjectsImagesType } from './types';
+import { ImagesHomeProjectsProps } from '@/constants/images/imagesSrc';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 import { ButtonSlide } from '@/components/ui/SwiperFoto';
+import { PanInfo } from 'framer-motion';
 
 interface ProjectsSliderProps {
-  images: HomeProjectsImagesType[];
+  images: ImagesHomeProjectsProps;
 }
 
 const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
@@ -30,14 +32,14 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
   };
 
-  useEffect(() => {
-    if (isInView) {
-      const interval = setInterval(() => {
-        handleNext();
-      }, 15000);
-      return () => clearInterval(interval);
-    }
-  }, [isInView, handleNext]);
+  // useEffect(() => {
+  //   if (isInView) {
+  //     const interval = setInterval(() => {
+  //       handleNext();
+  //     }, 15000);
+  //     return () => clearInterval(interval);
+  //   }
+  // }, [isInView, handleNext]);
 
   const positions = ['right', 'center', 'left'];
 

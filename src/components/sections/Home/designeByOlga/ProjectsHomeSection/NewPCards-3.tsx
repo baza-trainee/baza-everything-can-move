@@ -1,16 +1,17 @@
 'use client';
-//from big to small
+//from big to small- I use it
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { CardContainer, CardItem, CardBody } from '@/components/ui/3d-third-3';
 import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
+
 import { useMediaQuery } from 'react-responsive';
 import MobileCarousel from './MobileCarousel/MobileCarousel';
 import Link from 'next/link';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 
-export function NewPCards3() {
+const NewPCards3: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
 
   const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
@@ -204,4 +205,5 @@ export function NewPCards3() {
       {isMobile && <MobileCarousel images={IMAGES_HOME_PROJECTS} />}
     </div>
   );
-}
+};
+export default NewPCards3;
