@@ -106,6 +106,9 @@ function BackgroundComponent({
 export default BackgroundComponent;
 
 // how to use
+
 // all number of position left for lg and 2xl are in xlClassMap
+
+//  IsContainer = false - there is no container 
 
 /* <Background text='Плани' bg='s-gray' lg={125} xl={503} isAlwaysOpen={true}/> */
