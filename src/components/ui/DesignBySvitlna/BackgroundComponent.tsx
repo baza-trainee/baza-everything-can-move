@@ -11,7 +11,7 @@ type BgProps = {
   lg?: number;
   xl?: number;
   text?: string;
-  isContainer?: boolean;
+  isNoContainer?: boolean;
   isAlwaysOpen?: boolean; 
 };
 
@@ -21,7 +21,7 @@ function BackgroundComponent({
   bg = 'white',
   lg = 125,
   xl = 1142,
-  isContainer,
+  isNoContainer,
   isAlwaysOpen = false, // За замовчуванням компонент не завжди відкритий
   className,
 }: BgProps) {
@@ -52,7 +52,7 @@ function BackgroundComponent({
     >
       <Container
         className={cn(
-          isContainer
+          isNoContainer
             ? 'relative px-0 lg:max-w-[1440px] lg:px-0 2xl:max-w-[1920px] 2xl:px-0'
             : 'relative'
         )}
