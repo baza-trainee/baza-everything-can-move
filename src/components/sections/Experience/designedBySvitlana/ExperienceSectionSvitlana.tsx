@@ -16,4 +16,4 @@ const ExperienceSectionSvitlana:React.FC = () => {
   )
 }
 
-export default ExperienceSectionSvitlana
+export default ExperienceSectionSvitlana 
