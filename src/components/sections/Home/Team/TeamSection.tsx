@@ -1,9 +1,9 @@
 import React from 'react';
 import FotoSwiper from '../../../ui/SwiperFoto/components/FotoSwiper';
-import SectionTitle from '@/components/ui/SectionTitle';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import { teamImages } from './ArrayTeamImages';
-import SubTitle from '@/components/ui/SubTitle';
-import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
+import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
+import ContainerWithCorners from '@/components/ui/DesignByOlga/ContainerWithCorners';
 import LinkMoreInfo from '@/components/ui/SwiperFoto/components/LinkMoreInfo';
 
 function TeamSection() {

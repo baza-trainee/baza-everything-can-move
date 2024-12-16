@@ -1,13 +1,20 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import SectionTitle from '@/components/ui/SectionTitle';
-import SubTitle from '@/components/ui/SubTitle';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
+import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
 import './goalsection.css';
 
 const techItems = [
-  "CSS", "REACT", "NEXTJS", "TYPESCRIPT", 
-  "TAILWIND", "FIGMA", "JIRA", "TRELLO", "AI"
+  'CSS',
+  'REACT',
+  'NEXTJS',
+  'TYPESCRIPT',
+  'TAILWIND',
+  'FIGMA',
+  'JIRA',
+  'TRELLO',
+  'AI',
 ];
 
 const GoalSectiont: React.FC = () => {
@@ -24,15 +31,15 @@ const GoalSectiont: React.FC = () => {
           height={20}
         />
       </div>
-      <div className="flex flex-wrap relative items-center justify-between 2xl:flex-nowrap">
-        <div className="bg-[url('/assets/images/HomeImg/goal.png')] bg-center bg-no-repeat w-[100%] h-[100%]">
-        <div className="circle-container h-[450px] max-w-[720px]">
+      <div className="relative flex flex-wrap items-center justify-between 2xl:flex-nowrap">
+        <div className="h-[100%] w-[100%] bg-[url('/assets/images/HomeImg/goal.png')] bg-center bg-no-repeat">
+          <div className="circle-container h-[450px] max-w-[720px]">
             {techItems.map((item, index) => (
               <div key={index} className={`circle-item item-${index + 1}`}>
                 {item}
               </div>
             ))}
-        </div>
+          </div>
         </div>
         <p className="lg:max-w-[346px]">
           Проєкт створено для взаємної підтримки двох соціальних груп. <br></br>

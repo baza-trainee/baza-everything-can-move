@@ -1,11 +1,11 @@
 'use client';
 import React from 'react';
 import GoalSectiont from '../../GoalSection/GoalSection';
-import SectionTitle from '@/components/ui/SectionTitle';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import { PARTNERS_ARR } from '@/constants/partnersArr';
 import MovingPartnersCards from './MovingPartnersCards';
-import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
-import SubTitle from '@/components/ui/SubTitle';
+import ContainerWithCorners from '@/components/ui/DesignByOlga/ContainerWithCorners';
+import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
 
 const PartnersSection: React.FC = () => {
   return (

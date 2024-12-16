@@ -1,6 +1,6 @@
-import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
-import SubTitle from '@/components/ui/SubTitle';
-import SectionTitle from '@/components/ui/SectionTitle';
+import ContainerWithCorners from '@/components/ui/DesignByOlga/ContainerWithCorners';
+import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import BrainAnimation from './BrainAnimation';
 import { TEXTS } from '../../../../../constants/text';
 import clsx from 'clsx';
@@ -8,7 +8,7 @@ import styles from './SectionDevelopment.module.css';
 
 function SectionDevelopment() {
   const texts = TEXTS.slice(0, 4);
- 
+
   return (
     <section>
       <div className="container">

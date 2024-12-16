@@ -75,7 +75,7 @@ export const ICONS_PARTNERS = {
   PARTNER_3: Partner_3,
   PARTNER_4: Partner_4,
   PARTNER_5: Partner_5,
-  PARTNER_6: Partner_6,
+ PARTNER_6: Partner_6,
   PARTNER_7: Partner_7,
   PARTNER_8: Partner_8,
   PARTNER_9: Partner_9,

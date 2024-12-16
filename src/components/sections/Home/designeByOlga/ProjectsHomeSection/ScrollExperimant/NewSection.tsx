@@ -6,7 +6,7 @@ import { useTransform, useScroll, motion } from 'framer-motion';
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 // import Image from 'next/image';
 // import Link from 'next/link';
-import SectionTitle from '@/components/ui/SectionTitle';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import {} from //   CardBody,
 //   CardContainer,
 //   CardItem,

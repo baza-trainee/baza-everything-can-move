@@ -1,7 +1,7 @@
-import SectionTitle from '../../../../ui/SectionTitle';
+import SectionTitle from '../../../../ui/SharedDesigns/SectionTitle';
 import MainImage from './MainImage';
-import SubTitle from '@/components/ui/SubTitle';
-import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
+import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
+import ContainerWithCorners from '@/components/ui/DesignByOlga/ContainerWithCorners';
 
 function SectionTeam() {
   return (

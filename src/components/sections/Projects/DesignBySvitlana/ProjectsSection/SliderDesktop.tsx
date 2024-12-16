@@ -6,7 +6,7 @@ import {
   CardBody,
   CardContainer,
   CardItem,
-} from '@/components/ui/ParallaxCard';
+} from '@/components/ui/SharedDesigns/ParallaxCard';
 
 import StarsBtnComponent from '@/components/ui/DesignBySvitlna/StarsBtnComponent';
 

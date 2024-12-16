@@ -1,7 +1,7 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
 import Image from 'next/image';
-import SectionTitle from '@/components/ui/SectionTitle';
-import SubTitle from '@/components/ui/SubTitle';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
+import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
 import './style.css';
 
 export default function OldBase() {
@@ -9,7 +9,7 @@ export default function OldBase() {
     <section className="oldBase pb-[59px] pt-[114px]">
       <div className="container relative">
         <Image
-          className="absolute bottom-0 left-15"
+          className="left-15 absolute bottom-0"
           alt="Низ"
           width={16}
           height={16}
@@ -24,7 +24,7 @@ export default function OldBase() {
         />
         <SectionTitle className="mb-1">старт бази</SectionTitle>
         <SubTitle className="mb-8"> квітень 2023</SubTitle>
-        <div className="lg:flex-nowrap 2xl:justify-end lg:gap-52 gap-20  relative flex flex-wrap items-center">
+        <div className="relative flex flex-wrap items-center gap-20 lg:flex-nowrap lg:gap-52 2xl:justify-end">
           <div className="orbit relative flex h-[280px] w-[280px] items-center justify-center">
             <div className="orbit-circle big-orbit"></div>
             <div className="orbit-circle middle-orbit"></div>

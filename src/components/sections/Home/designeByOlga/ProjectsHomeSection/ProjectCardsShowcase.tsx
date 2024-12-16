@@ -6,8 +6,8 @@ import {
   CardContainer,
   CardItem,
   CardBody,
-} from '@/components/ui/ParallaxCard';
-import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
+} from '@/components/ui/SharedDesigns/ParallaxCard';
+import { FollowerPointerCard } from '@/components/ui/DesignByOlga/FollowerPointerCard';
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 
 import { useMediaQuery } from 'react-responsive';

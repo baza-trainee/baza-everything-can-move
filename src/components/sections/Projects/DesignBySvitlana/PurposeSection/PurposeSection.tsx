@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
-import SectionTitle from '@/components/ui/SectionTitle';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import { ICONS_PURPOSE } from '@/constants/icons/iconsSrc';
 import StarsComponent from './StarsComponent';
 
@@ -32,7 +32,7 @@ const PurposeSection: React.FC = () => {
         </div>
         {/* ------------------- */}
         {/* */}
-        <div className="lg:px-6  px-5  flex flex-col gap-6 lg:flex-row lg:justify-center lg:gap-[90px] 2xl:gap-3 2xl:pl-20 2xl:pr-[54px]">
+        <div className="flex flex-col gap-6 px-5 lg:flex-row lg:justify-center lg:gap-[90px] lg:px-6 2xl:gap-3 2xl:pl-20 2xl:pr-[54px]">
           <div className="flex w-[280px] gap-[6px] lg:w-[280px] 2xl:mt-[210px] 2xl:w-[300px]">
             <div className="mt-[6px] 2xl:mt-3">
               <ICONS_PURPOSE.RECTANGLE />
