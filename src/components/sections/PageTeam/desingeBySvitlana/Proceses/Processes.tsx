@@ -1,10 +1,10 @@
 'use client';
 import Container from '@/components/ui/DesignBySvitlna/Container';
-import SectionTitle from '@/components/ui/SectionTitle';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
 
 const messagesDiscord = [
   { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/1.webp' },
@@ -89,7 +89,7 @@ export default function Processes() {
   return (
     <section className="m-0 -mt-[1px] bg-black pt-[80px]">
       <Container>
-        <SectionTitle>Процеси</SectionTitle>
+        <AnimatedTitle title="Процеси" />
         <div className="max-w-[543px] font-third-family text-m font-regular leading-o-150 2xl:text-l">
           <p className="text-balance">
             На цьому проєкті наша команда отримала свій перший досвід створення
