@@ -13,7 +13,7 @@ const PurposeSection: React.FC = () => {
       lg={463}
       bg="white"
       isAlwaysOpen
-      isContainer={true}
+      isNoContainer={true}
     >
       <div className="bg-white pb-20 font-second-family lg:pb-[100px]">
         <Container>

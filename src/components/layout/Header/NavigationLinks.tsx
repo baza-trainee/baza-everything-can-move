@@ -6,13 +6,11 @@ import Link from 'next/link';
 import { useDesignStore } from '@/useDesignStore';
 import clsx from 'clsx';
 import { ICONS_HEADER_SV } from '@/constants/icons/iconsSrc';
+import { NavLinksArrType } from '@/constants/navlinks';
 
-type NavLink = {
-  name: string;
-  link: string;
-};
+
 export interface NavigationLinksProps {
-  headerNav: NavLink[];
+  headerNav: NavLinksArrType;
   onClickLink: () => void;
 }
 
@@ -25,7 +23,7 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
   return (
     <nav>
       {designType === 'designByOlga' && (
-        <ul className="xl:gap-2 flex flex-col items-center gap-5 2xl:gap-4">
+        <ul className="flex flex-col items-center gap-5 xl:gap-2 2xl:gap-4">
           {/* py-6  2xl:py-2 xl:py-[18px] xl:gap-[18px] gap-5 2xl:gap-2 */}
           {headerNav.map((item, index) => {
             return (
@@ -37,7 +35,7 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
                     pathname === item.link
                       ? 'text-olga-green-extra'
                       : 'text-white',
-                    'text-[44px] uppercase leading-o-120 transition-colors duration-300 ease-linear 2xl:hover:text-olga-green lg:text-2xl 2xl:text-4xl'
+                    'text-[44px] uppercase leading-o-120 transition-colors duration-300 ease-linear lg:text-2xl 2xl:text-4xl 2xl:hover:text-olga-green'
                   )}
                 >
                   {item.name}
@@ -61,7 +59,6 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
                   'transition-colors duration-300 ease-linear 2xl:hover:text-s-gray'
                 )}
               >
-               
                 <div
                   className={clsx(
                     'absolute inset-0 h-full w-full scale-x-0 transform bg-s-light-purple transition-transform duration-300 ease-linear',

@@ -3,7 +3,7 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 const messagesDiscord = [
@@ -23,44 +23,24 @@ const messagesDiscord = [
   { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/14.webp' },
 ];
 
-const gapBeetwenMessages = 16;
-
 export default function Processes() {
-  const [currentIndex, setcurrentIndex] = useState<number>(0);
-  const [calculateOffset, setcalculateOffset] = useState(3000);
+  const [currentIndexes, setcurrentIndexes] = useState<number[]>([]);
   const [isAnimation, setIsAnimation] = useState(true);
-
-  const itemsRef = useRef<HTMLDivElement[]>([]);
-  const listRef = useRef<HTMLUListElement>(null);
-
-  useEffect(() => {
-    if (listRef.current && currentIndex >= 0) {
-      setcalculateOffset(
-        listRef.current.clientHeight -
-          itemsRef.current.slice(0, currentIndex).reduce((totalHeight, ref) => {
-            return totalHeight + (ref?.offsetHeight || 0);
-          }, 0) -
-          gapBeetwenMessages * currentIndex +
-          1
-      );
-      console.log(calculateOffset);
-    }
-  }, [currentIndex]);
 
   useEffect(() => {
     if (!isAnimation) return;
-    setcurrentIndex(0);
+    setcurrentIndexes([]);
     const showMessages = setInterval(
       () =>
-        setcurrentIndex((prev) => {
-          if (prev < messagesDiscord.length) {
-            return prev + 1;
+        setcurrentIndexes((prev) => {
+          if (prev.length < messagesDiscord.length) {
+            return [...prev, prev.length];
           } else {
             clearInterval(showMessages);
             setIsAnimation(false);
-            setcalculateOffset(3000);
+            setcurrentIndexes([]);
             setTimeout(() => {
-              setcurrentIndex(0);
+              setcurrentIndexes([]);
               setIsAnimation(true);
             }, 4000);
             return prev;
@@ -76,12 +56,10 @@ export default function Processes() {
     const handleVisibilityChange = () => {
       if (document.hidden) {
         setIsAnimation(false);
-        setcurrentIndex(0);
-        setcalculateOffset(3000);
+        setcurrentIndexes([]);
       } else {
-        setcurrentIndex(0);
+        setcurrentIndexes([]);
         setIsAnimation(true);
-        setcalculateOffset(3000);
       }
     };
 
@@ -91,6 +69,23 @@ export default function Processes() {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
+
+  const images = messagesDiscord.map((item, index) => (
+    <Image
+      src={item.url}
+      alt={item.url}
+      key={item.url}
+      priority={true}
+      className={cn(
+        'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
+        index === 3 && 'w-[202px] lg:w-[360px]',
+        index === 6 && 'w-[202px] lg:w-[360px]',
+        index === 8 && 'w-[202px] lg:w-[360px]'
+      )}
+      width={498}
+      height={50}
+    />
+  ));
   return (
     <section className="m-0 -mt-[1px] bg-black pt-[80px]">
       <Container>
@@ -126,54 +121,21 @@ export default function Processes() {
             />
           </div>
           <div className="absolute bottom-[248px] left-1/2 -translate-x-1/2 overflow-hidden lg:bottom-[238px] 2xl:bottom-0">
-            <div className="relative flex h-[570px] w-[302px] items-end justify-center overflow-hidden bg-black lg:h-[1014px] lg:w-[562px] 2xl:h-[692px]">
+            <div className="relative flex h-[570px] w-[302px] items-end justify-center bg-black lg:h-[1014px] lg:w-[562px] 2xl:h-[692px]">
               {isAnimation && (
-                <AnimatePresence key="discord message">
-                  <motion.ul
-                    initial={{
-                      marginBottom: -calculateOffset,
-                      opacity: 0,
-                      scale: 0,
-                    }}
-                    animate={{
-                      marginBottom: -calculateOffset,
-                      opacity: 1,
-                      scale: 1,
-                    }}
-                    exit={{
-                      scale: 0,
-                      opacity: 0,
-                    }}
-                    transition={{ ease: 'linear' }}
-                    ref={listRef}
-                    className="-mb-[3000px] flex w-full scale-0 flex-col gap-4 opacity-0"
-                  >
-                    {messagesDiscord.map((item, index) => {
-                      return (
-                        <li key={index} className="flex justify-center">
-                          <div
-                            ref={(el) => {
-                              itemsRef.current[index] = el!;
-                            }}
-                          >
-                            <Image
-                              className={cn(
-                                'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
-                                index === 3 && 'w-[202px] lg:w-[360px]',
-                                index === 6 && 'w-[202px] lg:w-[360px]',
-                                index === 8 && 'w-[202px] lg:w-[360px]'
-                              )}
-                              width={498}
-                              height={50}
-                              src={item.url}
-                              alt="повідомлення із діскорда"
-                            />
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </motion.ul>
-                </AnimatePresence>
+                <ul className="flex w-full flex-col gap-4">
+                  {images.map((item, index) => {
+                    if (currentIndexes[index] !== index) {
+                      return null;
+                    }
+
+                    return (
+                      <li className="flex justify-center" key={index}>
+                        {item}
+                      </li>
+                    );
+                  })}
+                </ul>
               )}
               {!isAnimation && (
                 <AnimatePresence>

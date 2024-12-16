@@ -1,0 +1,42 @@
+#tags{
+    transform:translate3d(0px, 0%, 0px);
+    transform-style:preserve-3d;
+}
+
+#tagGroup1, #tagGroup2, #tagGroup3{
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    will-change: transform;
+    transform-style:preserve-3d;
+    inset:0% 0% auto;
+}
+/* #tagGroup1:hover{
+    transform:translate3d(5.48%, 5.48%, 0px);
+} */
+/* #tagGroup2{ */
+    /* transform:translate3d(0.0048%, 0.0048%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); replace with animation*/
+/* } */
+/* #tagGroup3{ */
+    /* transform:translate3d(0.0048%, 0.0048%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); replace with animation*/
+/* } */
+
+/* #tagGroup1_1{
+    inset:0% auto auto 1.53rem;
+}
+#tagGroup1_2{
+    inset:1.2rem auto auto 1rem;
+}
+#tagGroup1_3{
+    inset:.2rem 1.12rem auto auto;
+}
+#tagGroup2_1{
+    inset:1rem auto auto 1.32rem;
+}
+#tagGroup2_2{
+    inset:.7rem 1.22rem auto auto;
+}
+#tagGroup3_3{
+    inset:.5rem auto auto .86rem;
+} */
