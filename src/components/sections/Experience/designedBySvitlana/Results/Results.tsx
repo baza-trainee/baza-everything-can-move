@@ -88,7 +88,7 @@ const Results = () => {
   return (
 
 <<<<<<< HEAD
-    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0}  isAlwaysOpen={true} className='2xl:relative'>
+    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} className='2xl:relative'>
 =======
     <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} className='2xl:relative'>
 >>>>>>> b15bfcfb2cb558472a8951cf896fdc0ff88050b6
