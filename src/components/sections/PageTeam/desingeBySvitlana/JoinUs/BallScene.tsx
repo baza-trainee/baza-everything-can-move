@@ -256,7 +256,7 @@ const BallScene = () => {
             // onTouchStart={() => handlePointerDown(ball.id)}
             className={clsx(
               styles.ball,
-              'absolute z-0 flex cursor-grab items-center justify-center rounded-full'
+              'absolute flex cursor-grab items-center justify-center rounded-full'
             )}
             style={{
               width: `${ball.radius * 2}px`,
