@@ -16,6 +16,6 @@ export const useDesignStore = create<DesignStoreState>((set) => ({
       designType:
         state.designType === 'designByOlga'
           ? 'designBySvitlana'
-          : 'designByOlga',
+          : 'designBySvitlana',////////////////////////////////////////////////////////////////
     })),
 }));

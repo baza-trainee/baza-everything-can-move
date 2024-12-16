@@ -1,86 +1,63 @@
 'use client'
 
-import { useEffect} from 'react';
+import { useEffect, useState } from 'react';
 import SectionTitle from '@/components/ui/SectionTitle';
-// import Bubbles3D from './Bubbles3D';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import { ICONS } from '@/constants/icons/icons';
 import styles from "./results.module.css";
 // import clsx from 'clsx';
 
 
-const Results = () => {
-
+const Results:React.FC = () => {
+  
+  const [hovered, setHovered] = useState<boolean>(false);
 
   useEffect(() => {
-
     const resultsBlock = document.getElementById('resultsBlock');
-     if (!resultsBlock) return;
+    const tagGroups = document.querySelectorAll(`#${styles.tagGroup}`);
+    if (!resultsBlock) return;
+    if (!tagGroups) return;
 
-    //  console.log(resultsBlock);
+    const tagGroup1 = tagGroups[0]
+    // const tagGroup2 = tagGroups[1]
+    // const tagGroup3 = tagGroups[2]
+    // console.log(tagGroup1);
+    // console.log(tagGroup2);
+    // console.log(tagGroup3);
 
-//       resultsBlock.onmouseover = function() {  
-        
-//  } 
+    const handleMouseOver = (event:MouseEvent): void => {
+      setHovered(true);
+      const screenWidthHalf = window.innerWidth/2;
+      const screenHeightHalf = window.innerHeight/2;
+      // let Xdirection = ""
+      // let Ydirection = ""
+      const mouseX = event.clientX
+      const mouseY = event.clientY
+      if (mouseX < screenWidthHalf) {
+        // Xdirection = "left";
+        tagGroup1.classList.add('transition-transform');
+      } else if (mouseX > screenWidthHalf) {
+        // Xdirection = "right"
+      }
+      if (mouseY < screenHeightHalf) {
+        // Ydirection = "top"
+      } else if (mouseY > screenHeightHalf) {
+        // Ydirection = "bottom"
+      }
+      // console.log('Xdirection', Xdirection); 
+      // console.log('Ydirection', Ydirection); 
+    }
+    const handleMouseOut = (): void => setHovered(false);
 
-    //  resultsBlock.addEventListener('click', () =>{
-
-
-      // resultsBlock.addEventListener('mouseover', mouseOverHandler);
-      // resultsBlock.addEventListener('mouseout', () => {
-      //   resultsBlock.removeEventListener('mouseover', mouseOverHandler);
-      // });
-    //  })
-
-//     function mouseOverHandler(e: React.MouseEvent<HTMLDivElement, MouseEvent>){
-//       const screenWidthHalf = window.innerWidth/2;
-//       const screenHeightHalf = window.innerHeight/2;
-//       let Xdirection = ""
-//       let Ydirection = ""
-//       const mouseX = e.clientX
-//       const mouseY = e.clientY
-//       if (mouseX < screenWidthHalf) {
-//         Xdirection = "left"
-//       } else if (mouseX > screenWidthHalf) {
-//         Xdirection = "right"
-//       }
-//       if (mouseY < screenHeightHalf) {
-//         Ydirection = "top"
-//       } else if (mouseY > screenHeightHalf) {
-//         Ydirection = "bottom"
-//       }
-//       console.log('Xdirection', Xdirection); 
-//       console.log('Ydirection', Ydirection); 
-// }
-
-    // const tags = document.querySelector(`#${styles.tags}`)
-    // const resultsBlock = document.querySelector(`#${styles.resultsBlock}`)
-    // if (!tags) return;
-    // if (!resultsBlock) return;
-    // const MAX_DISTANCE = 200
-
-    // function clamp(v, min, max) {
-    //   return Math.min(Math.max(v, min), max)
-    // }
-    // function remap(v, a, b, c, d) {
-    //   return ((v - a) / (b - a)) * (d - c) + c
-    // }
-
-    // const rect = tags.getBoundingClientRect()
-    // const tagsX = rect.left + rect.width / 2
-    // const tagsY = rect.top + rect.height / 2
-
-    // const x = boxX - mouseX
-    // const y = boxY - mouseY
-    // const distance = Math.sqrt(x * x + y * y) 
-
-    // const progress = distance / MAX_DISTANCE
-    // const clampedProgress = clamp(progress, 0, 1)
-    // const inverseProgress = 1 - clampedProgress
-    // const scale = remap(inverseProgress, 0, 1, 1, 2)
-
-    // tags.style.transform = `scale(${scale})`
-  },[]);
+      if (resultsBlock) {
+    resultsBlock.addEventListener('mouseover', handleMouseOver);
+    resultsBlock.addEventListener('mouseout', handleMouseOut);
+    }
+      return () => {
+    resultsBlock.removeEventListener('mouseover', handleMouseOver);
+    resultsBlock.removeEventListener('mouseout', handleMouseOut);
+      };
+  },[hovered]);
 
 
 
@@ -88,9 +65,9 @@ const Results = () => {
   return (
 
 
-    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0}  isAlwaysOpen={true} className='2xl:relative'>
+    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0}  isAlwaysOpen={false} className='2xl:relative'>
 
-      <div id={styles.resultsBlock}  className='flex flex-col 2xl:flex-row gap-[26px]'>
+      <div id='resultsBlock' className='flex flex-col 2xl:flex-row gap-[26px]'>
         <div>
           <div className='flex justify-start items-center gap-[14px] pb-8 lg:gap-[69px] 2xl:gap-[3px] pt-[22px] lg:pt-[10px] 2xl:pt-[131px]'>
             <SectionTitle  className='text-left' secondDesign={true}>Результати</SectionTitle>
@@ -112,7 +89,7 @@ const Results = () => {
         </div>
         <div id={styles.tags} className='will-change-transform flex justify-start items-center relative w-full h-auto'>
           <div className='h-[355px] w-full relative uppercase'>
-            <div id={styles.tagGroup1} className='will-change-transform pointer-events-none w-full h-full'>
+            <div id={styles.tagGroup} className='will-change-transform pointer-events-none w-full h-full'>
               <div id={styles.tagGroup1_1} className='inline-block absolute translate-x-[86px] rotate-[8deg]'>
                 <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-white text-black hover:bg-s-light-purple hover:text-white duration-300 rounded'>Взаємодія</div>
               </div>
@@ -123,7 +100,7 @@ const Results = () => {
                 <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-white text-black hover:bg-s-light-purple hover:text-white duration-300 rounded'>Стратегія</div>
               </div>
             </div>
-            <div id={styles.tagGroup2} className='will-change-transform pointer-events-none w-full h-full'>
+            <div id={styles.tagGroup} className='will-change-transform pointer-events-none w-full h-full'>
               <div id={styles.tagGroup2_1} className='inline-block absolute translate-x-[84px] translate-y-[85px] rotate-[0.04deg]'>
                 <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-white text-black hover:bg-s-light-purple hover:text-white duration-300 rounded'>Гнучкість</div>
               </div>
@@ -134,7 +111,7 @@ const Results = () => {
                 <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-white text-black hover:bg-s-light-purple hover:text-white duration-300 rounded'>Креативність</div>
               </div>
             </div>
-            <div id={styles.tagGroup3} className='will-change-transform pointer-events-none w-full h-full'>
+            <div id={styles.tagGroup} className='will-change-transform pointer-events-none w-full h-full'>
               <div id={styles.tagGroup3_1} className='inline-block absolute translate-x-[30px] translate-y-[210px] rotate-[1.56deg]'>
                 <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-black text-white hover:bg-s-light-purple duration-300 rounded border border-white'>Системність</div>
               </div>
