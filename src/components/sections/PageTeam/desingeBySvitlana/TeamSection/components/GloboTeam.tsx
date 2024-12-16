@@ -9,7 +9,11 @@ import Drag from './Drag';
 import { useMouseStore } from '../ui/useMouseStore';
 
 function GloboTeam() {
-  const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
+  const isMobile = useMediaQuery(
+    { query: '(max-width: 767.5px)' },
+    undefined,
+    (matches) => matches
+  );
   const { mouseX, mouseY } = useMouseStore();
   const generateFibonacciSpherePoints = (numPoints: number, radius: number) => {
     const points = [];
@@ -44,7 +48,7 @@ function GloboTeam() {
         style={{ height: sizes.canvasSize, width: sizes.canvasSize }}
         camera={{ position: [0, 0, 8] }}
       >
-        <Center position={[0, 0, 0]} scale={1.6}>
+        <Center position={[0, 0, 0]} scale={1}>
           <PointsComponent points={points} mouseX={mouseX} mouseY={mouseY} />
           <OrbitControls
             enableDamping
