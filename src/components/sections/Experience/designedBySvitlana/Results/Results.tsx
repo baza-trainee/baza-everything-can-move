@@ -8,16 +8,50 @@ import { ICONS } from '@/constants/icons/icons';
 import styles from './results.module.css';
 // import clsx from 'clsx';
 
-// interface MouseOverProps {
-//   onMouseOver: (event: React.MouseEvent<HTMLDivElement>) => void;
-// }
-
 const Results = () => {
   useEffect(() => {
-    const tags = document.querySelector(`#${styles.tags}`);
-    const resultsBlock = document.querySelector(`#${styles.resultsBlock}`);
-    if (!tags) return;
+    const resultsBlock = document.getElementById('resultsBlock');
     if (!resultsBlock) return;
+
+    //  console.log(resultsBlock);
+
+    //       resultsBlock.onmouseover = function() {
+
+    //  }
+
+    //  resultsBlock.addEventListener('click', () =>{
+
+    // resultsBlock.addEventListener('mouseover', mouseOverHandler);
+    // resultsBlock.addEventListener('mouseout', () => {
+    //   resultsBlock.removeEventListener('mouseover', mouseOverHandler);
+    // });
+    //  })
+
+    //     function mouseOverHandler(e: React.MouseEvent<HTMLDivElement, MouseEvent>){
+    //       const screenWidthHalf = window.innerWidth/2;
+    //       const screenHeightHalf = window.innerHeight/2;
+    //       let Xdirection = ""
+    //       let Ydirection = ""
+    //       const mouseX = e.clientX
+    //       const mouseY = e.clientY
+    //       if (mouseX < screenWidthHalf) {
+    //         Xdirection = "left"
+    //       } else if (mouseX > screenWidthHalf) {
+    //         Xdirection = "right"
+    //       }
+    //       if (mouseY < screenHeightHalf) {
+    //         Ydirection = "top"
+    //       } else if (mouseY > screenHeightHalf) {
+    //         Ydirection = "bottom"
+    //       }
+    //       console.log('Xdirection', Xdirection);
+    //       console.log('Ydirection', Ydirection);
+    // }
+
+    // const tags = document.querySelector(`#${styles.tags}`)
+    // const resultsBlock = document.querySelector(`#${styles.resultsBlock}`)
+    // if (!tags) return;
+    // if (!resultsBlock) return;
     // const MAX_DISTANCE = 200
 
     // function clamp(v, min, max) {
@@ -26,12 +60,7 @@ const Results = () => {
     // function remap(v, a, b, c, d) {
     //   return ((v - a) / (b - a)) * (d - c) + c
     // }
-    //     resultsBlock.addEventListener('mousemove', mouseOverHandler);
-    // function mouseOverHandler(onMouseOver:MouseOverProps ){
 
-    // }
-    // const mouseX = e.clientX
-    // const mouseY = e.clientY
     // const rect = tags.getBoundingClientRect()
     // const tagsX = rect.left + rect.width / 2
     // const tagsY = rect.top + rect.height / 2

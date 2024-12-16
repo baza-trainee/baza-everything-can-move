@@ -7,7 +7,7 @@ function SectionPlans() {
   return (
     <BackgroundComponent text="Плани" bg="s-gray" isAlwaysOpen={true}>
       <div className="relative 2xl:h-[728px]">
-        <AnimatedTitle title="Прагнення" />
+        <AnimatedTitle title="Прагнення"  colorBg='gray'/>
         <div className="max-w-[596] 2xl:max-w-[552px]">
           <div className="text-third-family text-s leading-o-150 2xl:text-l">
             <p className="font-light 2xl:font-normal my-4 max-w-[596px] italic">
