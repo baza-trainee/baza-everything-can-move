@@ -1,16 +1,16 @@
 'use client';
-import React, { useRef} from 'react';
+// just try scroll?
+import React, { useRef } from 'react';
 import { useTransform, useScroll, motion } from 'framer-motion';
 
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 // import Image from 'next/image';
 // import Link from 'next/link';
 import SectionTitle from '@/components/ui/SectionTitle';
-import {
-//   CardBody,
+import {} from //   CardBody,
 //   CardContainer,
 //   CardItem,
-} from '@/components/ui/new-3d-third';
+'@/components/ui/new-3d-third';
 
 // import { PCardsThird } from './PCardsThird';
 

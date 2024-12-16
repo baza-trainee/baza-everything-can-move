@@ -1,10 +1,10 @@
 'use client';
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef } from 'react'; //useEffect,
 import Image from 'next/image';
 import Link from 'next/link';
 //import { HomeProjectsImagesType } from './types';
 import { ImagesHomeProjectsProps } from '@/constants/images/imagesSrc';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion'; //useInView
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 import { ButtonSlide } from '@/components/ui/SwiperFoto';
 import { PanInfo } from 'framer-motion';
@@ -15,8 +15,8 @@ interface ProjectsSliderProps {
 
 const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-
-  const isInView = useInView(containerRef);
+  // for imfinity mooving
+  // const isInView = useInView(containerRef);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -31,7 +31,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
     setDirection(-1);
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
   };
-
+  // for imfinity mooving
   // useEffect(() => {
   //   if (isInView) {
   //     const interval = setInterval(() => {
