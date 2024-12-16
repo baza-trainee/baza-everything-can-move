@@ -27,9 +27,8 @@ function AnimatedTitle({
     'text-t-lavender',
     'text-t-pinkish-purple',
     'text-t-indigo',
-    'text-t-yellow',
     'text-t-turquoise',
-    'text-t-soft-pink',
+    'text-t-pink',
   ];
 
   const getRandomColor = () => {
@@ -67,7 +66,7 @@ function AnimatedTitle({
     if (charIndex < title.length && isAnimating) {
       const timeout = setTimeout(() => {
         setCharIndex(charIndex + 1);
-      }, 75);
+      }, 150);
       return () => clearTimeout(timeout);
     }
   }, [charIndex, isAnimating, title]);
