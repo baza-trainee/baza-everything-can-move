@@ -87,10 +87,7 @@ const Results = () => {
   
   return (
 
-    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isContainer={true} className='2xl:relative'>
-      {/* <div id={styles.resultsBlock} onMouseOver={(e)=>mouseOverHandler(e)} className='flex flex-col 2xl:flex-row gap-[26px]'> */}
-      <div id={styles.resultsBlock} className='flex flex-col 2xl:flex-row gap-[26px]'>
-    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isContainer={true} isAlwaysOpen={true} className='2xl:relative'>
+    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} className='2xl:relative'>
       <div id={styles.resultsBlock}  className='flex flex-col 2xl:flex-row gap-[26px]'>
         <div>
           <div className='flex justify-start items-center gap-[14px] pb-8 lg:gap-[69px] 2xl:gap-[3px] pt-[22px] lg:pt-[10px] 2xl:pt-[131px]'>

@@ -42,7 +42,6 @@ const config: Config = {
       't-pinkish-purple': '#e4e3ff',
       't-dark-indigo': '#4a49a1',
       't-indigo': '#323183',
-      't-turquoise': '#7fd1d7',
       't-pink': '#76007c',
       //Svitlana
       's-gray': '#363535',

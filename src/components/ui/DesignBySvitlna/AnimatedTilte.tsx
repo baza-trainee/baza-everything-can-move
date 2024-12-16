@@ -27,7 +27,6 @@ function AnimatedTitle({
     'text-t-lavender',
     'text-t-pinkish-purple',
     'text-t-indigo',
-    'text-t-turquoise',
     'text-t-pink',
   ];
 
