@@ -80,7 +80,7 @@ const ProjectCardsShowcase: React.FC = () => {
                         alt={image.name}
                         quality={90}
                         fill={true}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 33vw"
+                        sizes="(max-width: 768px) 704px"
                         // style={{
                         //   width: '100%',
                         //   height: '100%',
@@ -153,24 +153,25 @@ const ProjectCardsShowcase: React.FC = () => {
                       height: 249,
                     }}
                   >
-                    <Link
+                    {/* <Link
                       href={image.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="cursor-none"
-                    >
-                      <Image
-                        src={image.src}
-                        className="object-cover transition-all duration-500 ease-linear"
-                        alt={image.name}
-                        quality={90}
-                        //fill={true}
-                        // style={{
-                        //   width: '100%',
-                        //   height: '100%',
-                        // }}
-                      />
-                    </Link>
+                      className="relative inset-0 flex h-[168px] w-[512px] cursor-none"
+                    > */}
+                    <Image
+                      src={image.src}
+                      className="object-cover transition-all duration-500 ease-linear"
+                      alt={image.name}
+                      quality={90}
+                      fill={true}
+                      sizes="512px"
+                      // style={{
+                      //   width: '100%',
+                      //   height: '100%',
+                      // }}
+                    />
+                    {/* </Link> */}
                   </CardItem>
                   <CardItem
                     translateZ={image.translateZ + 30}

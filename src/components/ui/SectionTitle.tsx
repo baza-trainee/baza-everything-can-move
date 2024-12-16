@@ -1,3 +1,4 @@
+// For Olga and Svitlana
 import clsx from 'clsx';
 
 export interface SectionTitleProps {
