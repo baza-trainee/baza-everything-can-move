@@ -1,10 +1,7 @@
-import SectionTitle from '@/components/ui/SectionTitle';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import React from 'react';
 
-// import { PCardsThird } from './PCardsThird';
-//import { NewPCards } from './NewPCards';
-// import { NewPCards2 } from './NewPCards-2';
-import { NewPCards3 } from './NewPCards-3';
+import ProjectCardsShowcase from './ProjectCardsShowcase';
 
 const ProjectsHomeSection: React.FC = () => {
   return (
@@ -22,7 +19,7 @@ const ProjectsHomeSection: React.FC = () => {
         </p>
         <NewPCards2 /> */}
 
-        <NewPCards3 />
+        <ProjectCardsShowcase />
       </div>
     </section>
   );

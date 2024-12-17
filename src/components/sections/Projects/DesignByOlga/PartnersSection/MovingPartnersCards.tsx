@@ -1,6 +1,6 @@
 'use client';
 
-import { InfiniteMovingCards } from '@/components/ui/InfiniteMovingCards';
+import { InfiniteMovingCards } from '@/components/ui/SharedDesigns/InfiniteMovingCards';
 import { PartnersArrProps } from '@/constants/partnersArr';
 
 import React from 'react';

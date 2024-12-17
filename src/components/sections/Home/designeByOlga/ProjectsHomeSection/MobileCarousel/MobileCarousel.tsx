@@ -1,20 +1,22 @@
 'use client';
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef } from 'react'; //useEffect,
 import Image from 'next/image';
 import Link from 'next/link';
-import { HomeProjectsImagesType } from './types';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+
+import { motion, AnimatePresence } from 'framer-motion'; //useInView
+import { PanInfo } from 'framer-motion';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
+import { ImagesHomeProjectsProps } from '@/constants/images/imagesSrc';
 import { ButtonSlide } from '@/components/ui/SwiperFoto';
 
 interface ProjectsSliderProps {
-  images: HomeProjectsImagesType[];
+  images: ImagesHomeProjectsProps;
 }
 
 const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-
-  const isInView = useInView(containerRef);
+  // for imfinity moving
+  // const isInView = useInView(containerRef);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -29,15 +31,15 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
     setDirection(-1);
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
   };
-
-  useEffect(() => {
-    if (isInView) {
-      const interval = setInterval(() => {
-        handleNext();
-      }, 15000);
-      return () => clearInterval(interval);
-    }
-  }, [isInView, handleNext]);
+  // for imfinity moving
+  // useEffect(() => {
+  //   if (isInView) {
+  //     const interval = setInterval(() => {
+  //       handleNext();
+  //     }, 15000);
+  //     return () => clearInterval(interval);
+  //   }
+  // }, [isInView, handleNext]);
 
   const positions = ['right', 'center', 'left'];
 
@@ -69,6 +71,22 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
     return (baseIndex + offset + totalImages) % totalImages;
   };
 
+  const handleDragEnd = (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => {
+    //  <--------
+    if (info.offset.x > -50) {
+      setDirection(1);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    } else if (info.offset.x < 50) {
+      //  -------->
+      setDirection(-1);
+      setCurrentIndex(
+        (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      );
+    }
+  };
   return (
     <div
       className="w-full flex-col items-center justify-center lg:hidden"
@@ -79,7 +97,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 right-3 rotate-[270deg]" />
 
         <AnimatePresence initial={false} custom={direction}>
-          {/* {posIndex === 1 && ( */}
+          {/* title */}
           <motion.div
             key={`title-${currentIndex}`}
             className="absolute bottom-0 w-full"
@@ -94,12 +112,11 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
               {images[currentIndex].name}
             </h3>
           </motion.div>
-          {/* )} */}
+          {/* image */}
           {positions.map((position, posIndex) => {
             const imageIndex = getPositionIndex(currentIndex, posIndex - 1);
 
             return (
-              // <React.Fragment key={`fragment-${posIndex}`}>
               <motion.div
                 key={`image-${imageIndex}`}
                 custom={direction}
@@ -108,6 +125,10 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
                 variants={imageVariants}
                 transition={{ duration: 0.7 }}
                 className="absolute top-0 h-[164px] w-[320px]"
+                drag="x"
+                dragConstraints={containerRef}
+                //dragElastic={0}
+                onDragEnd={handleDragEnd}
               >
                 <Link
                   href={images[imageIndex].link}
@@ -122,8 +143,6 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
                   />
                 </Link>
               </motion.div>
-
-              // </React.Fragment>
             );
           })}
         </AnimatePresence>
@@ -131,7 +150,6 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
       {/* buttons div */}
       <div className="flex justify-center gap-5">
         <ButtonSlide onClick={handleBack} ariaLabel="кнопка попереднє фото" />
-
         <ButtonSlide
           className="rotate-180"
           ariaLabel="кнопка наступне фото"

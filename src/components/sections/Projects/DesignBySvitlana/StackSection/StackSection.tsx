@@ -1,7 +1,7 @@
 //with LETTERS I do not need it any more
 import React from 'react';
 import Container from '@/components/ui/DesignBySvitlna/Container';
-import SectionTitle from '@/components/ui/SectionTitle';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import TechCard from './TechCard';
 import { STACK_ARR } from '@/constants/stackArr';
 import DigitalRainLetter from './DigitalRainLetter';

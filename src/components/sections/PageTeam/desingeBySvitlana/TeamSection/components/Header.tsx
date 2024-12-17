@@ -1,4 +1,4 @@
-import SectionTitle from '@/components/ui/SectionTitle';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import React from 'react';
 
 function Header() {

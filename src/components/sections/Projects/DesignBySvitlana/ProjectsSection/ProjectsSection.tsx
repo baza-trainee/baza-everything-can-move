@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SectionTitle from '@/components/ui/SectionTitle';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import SubTitleAnimation from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleAnimation';
 import { PROJECTS_SVITLANA_IMAGES } from '@/constants/images/imagesSrc';
 import SectionImagesManager from './SectionImagesManager';

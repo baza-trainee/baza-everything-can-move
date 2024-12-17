@@ -1,16 +1,21 @@
 'use client';
-//from big to small
+//from big to small- I use it
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { CardContainer, CardItem, CardBody } from '@/components/ui/3d-third-3';
-import { FollowerPointerCard } from '@/components/ui/FollowerPointerCard';
+import {
+  CardContainer,
+  CardItem,
+  CardBody,
+} from '@/components/ui/SharedDesigns/ParallaxCard';
+import { FollowerPointerCard } from '@/components/ui/DesignByOlga/FollowerPointerCard';
 import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
+
 import { useMediaQuery } from 'react-responsive';
 import MobileCarousel from './MobileCarousel/MobileCarousel';
 import Link from 'next/link';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 
-export function NewPCards3() {
+const ProjectCardsShowcase: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
 
   const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
@@ -66,8 +71,8 @@ export function NewPCards3() {
                     <Link
                       href={image.link}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className="cursor-none"
+                      rel="noopener noreferrer "
+                      className="relative inset-0 flex h-[168px] w-[352px] cursor-none"
                     >
                       <Image
                         src={image.src}
@@ -75,6 +80,7 @@ export function NewPCards3() {
                         alt={image.name}
                         quality={90}
                         fill={true}
+                        sizes="(max-width: 768px) 704px"
                         // style={{
                         //   width: '100%',
                         //   height: '100%',
@@ -147,24 +153,25 @@ export function NewPCards3() {
                       height: 249,
                     }}
                   >
-                    <Link
+                    {/* <Link
                       href={image.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="cursor-none"
-                    >
-                      <Image
-                        src={image.src}
-                        className="object-cover transition-all duration-500 ease-linear"
-                        alt={image.name}
-                        quality={90}
-                        fill={true}
-                        // style={{
-                        //   width: '100%',
-                        //   height: '100%',
-                        // }}
-                      />
-                    </Link>
+                      className="relative inset-0 flex h-[168px] w-[512px] cursor-none"
+                    > */}
+                    <Image
+                      src={image.src}
+                      className="object-cover transition-all duration-500 ease-linear"
+                      alt={image.name}
+                      quality={90}
+                      fill={true}
+                      sizes="512px"
+                      // style={{
+                      //   width: '100%',
+                      //   height: '100%',
+                      // }}
+                    />
+                    {/* </Link> */}
                   </CardItem>
                   <CardItem
                     translateZ={image.translateZ + 30}
@@ -204,4 +211,5 @@ export function NewPCards3() {
       {isMobile && <MobileCarousel images={IMAGES_HOME_PROJECTS} />}
     </div>
   );
-}
+};
+export default ProjectCardsShowcase;

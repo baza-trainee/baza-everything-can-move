@@ -1,14 +1,14 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
-import SectionTitle from '@/components/ui/SectionTitle';
-import SubTitle from '@/components/ui/SubTitle';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
+import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
 import VerticalSlider from './VerticalSlider';
 function Today() {
   return (
     <section className="taday">
       <div className="container">
-      <SectionTitle className="mb-1">Сьогодні</SectionTitle>
-      <SubTitle className="mb-8">2024</SubTitle>
-        <div className="flex lg:flex-nowrap flex-wrap items-center justify-between">
+        <SectionTitle className="mb-1">Сьогодні</SectionTitle>
+        <SubTitle className="mb-8">2024</SubTitle>
+        <div className="flex flex-wrap items-center justify-between lg:flex-nowrap">
           <div className="text max-w-80">
             <p className="mb-[20px]">
               Зараз ми реалізовуємо внутрішні та зовінішнк проєкти як для себе,

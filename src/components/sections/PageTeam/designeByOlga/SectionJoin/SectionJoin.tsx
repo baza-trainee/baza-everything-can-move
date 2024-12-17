@@ -1,5 +1,5 @@
-import ContainerWithCorners from '@/components/ui/ContainerWithCorners';
-import SectionTitle from '@/components/ui/SectionTitle';
+import ContainerWithCorners from '@/components/ui/DesignByOlga/ContainerWithCorners';
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import ButtonJoin from './ButtonJoin';
 import Description from './Description';
 

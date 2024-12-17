@@ -49,17 +49,12 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
 
     if (swipeCards < 0) {
       if (currentIndex === images.length - 1) return;
-      // setDirection(1); // to left to next
-      //setCurrentIndex((prevIndex) => prevIndex + 1);
     } else if (swipeCards > 0) {
       if (currentIndex === 0) return;
-      // setDirection(-1); // to right to prev
-      //setCurrentIndex((prevIndex) => prevIndex - 1);
     }
     setCurrentIndex((prevIndex) =>
       Math.max(0, Math.min(prevIndex - swipeCards, images.length - 1))
     );
-    //setDirection(0);
   };
 
   const imageVariants = {
@@ -73,7 +68,6 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
       {/* w-full */}
       <div className="relative mb-8 flex h-[225px] w-full justify-center overflow-hidden">
         <AnimatePresence>
-          {/* //initial={false} */}
           <motion.div
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
@@ -82,8 +76,6 @@ const SliderTablet: React.FC<ProjectsImagesProps> = ({ images }) => {
             <motion.div
               ref={containerRef}
               variants={imageVariants}
-              //custom={direction}
-              // initial={{ x: 0 }}
               animate="animate"
               transition={{ duration: 0.5 }}
               className="flex"
