@@ -30,20 +30,22 @@ const Results:React.FC = () => {
       setHovered(true);
       const screenWidthHalf = window.innerWidth/2;
       const screenHeightHalf = window.innerHeight/2;
-      // let Xdirection = ""
-      // let Ydirection = ""
+      //let Xdirection = ""
+      //let Ydirection = ""
       const mouseX = event.clientX
       const mouseY = event.clientY
       if (mouseX < screenWidthHalf) {
-        // Xdirection = "left";
-        tagGroup1.classList.add('transition-transform');
+        //Xdirection = "left";
+        // tagGroup1.classList.add('transition-transform');
+        tagGroup1.classList.add('animate-result-tags_left')
+        // console.log(tagGroup1.classList);
       } else if (mouseX > screenWidthHalf) {
-        // Xdirection = "right"
+        //Xdirection = "right"
       }
       if (mouseY < screenHeightHalf) {
-        // Ydirection = "top"
+        //Ydirection = "top"
       } else if (mouseY > screenHeightHalf) {
-        // Ydirection = "bottom"
+        //Ydirection = "bottom"
       }
       // console.log('Xdirection', Xdirection); 
       // console.log('Ydirection', Ydirection); 
@@ -71,9 +73,10 @@ const Results:React.FC = () => {
       xl={0}
       isAlwaysOpen={true}
       className="2xl:relative"
+      isNoContainer={true}
     >
 
-      <div id='resultsBlock' className='flex flex-col 2xl:flex-row gap-[26px]'>
+      <div id='resultsBlock' className='flex flex-col 2xl:flex-row gap-[26px] w-full'>
 
         <div>
           <div className="flex items-center justify-start gap-[14px] pb-8 pt-[22px] lg:gap-[69px] lg:pt-[10px] 2xl:gap-[3px] 2xl:pt-[131px]">
@@ -177,11 +180,8 @@ const Results:React.FC = () => {
                 </div>
               </div>
             </div>
-
-
-
+          </div>
         </div>
-      </div>
       </div>
     </Background>
   );
