@@ -31,7 +31,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <Background text="02 // Проєкти" bg="s-gray" xl={840} isNoContainer={true}>
+    <Background text="02 // Проєкти" bg="s-gray" xl={940} isNoContainer={true}>
       <section className="relative mb-32 overflow-visible px-0">
         <div className="container">
           <div className="mb-12 items-center justify-between 2xl:flex">

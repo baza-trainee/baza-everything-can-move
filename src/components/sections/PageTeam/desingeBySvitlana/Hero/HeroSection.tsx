@@ -1,9 +1,8 @@
 'use client';
 
 import Container from '@/components/ui/DesignBySvitlna/Container';
-import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
 import { SubTitle } from '@/components/ui/DesignBySvitlna/SubTitle/SubTitle';
-import React from 'react';
 import dynamic from 'next/dynamic';
 const Globes = dynamic(() => import('./Globe.jsx'), {
   ssr: false,
@@ -15,9 +14,7 @@ function HeroSection() {
     <section className="overflow-hidden pb-[110px] pt-[123px]">
       <Container className="flex flex-col lg:gap-0 lg:-space-y-[60px] 2xl:flex-row 2xl:gap-[130px] 2xl:-space-y-0">
         <div className="z-10 max-w-[499px]">
-          <SectionTitle secondDesign={true} className="mb-6 2xl:mb-[31px]">
-            команди
-          </SectionTitle>
+          <AnimatedTitle title="команди" className="mb-6 2xl:mb-[31px]" />
           <div className="mb-8 flex items-end gap-4 lg:gap-10 2xl:mb-[41px]">
             <svg
               className="h-[35px] w-[37px] lg:h-[51px] lg:w-[52px]"

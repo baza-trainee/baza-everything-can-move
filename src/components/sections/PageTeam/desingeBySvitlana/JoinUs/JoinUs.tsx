@@ -1,8 +1,7 @@
-// 'use client';
-
 import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import SubTitleBtn from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleBtn';
 import BallScene from './BallScene';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
 
 function JoinUs() {
   return (
@@ -14,10 +13,10 @@ function JoinUs() {
     >
       <div className="pointer-events-none font-third-family font-semibold text-black">
         <h2 className="flex text-xlg uppercase leading-o-150 tracking-custom-tight text-s-purple lg:flex-col lg:text-3xl 2xl:flex-row 2xl:gap-12">
-          <span> Приєднуйся </span>
+          <AnimatedTitle title="Приєднуйся" />
           <div className="flex gap-12">
-            <span className="hidden lg:block"> до </span>
-            <span className="hidden lg:block">нас</span>
+            <AnimatedTitle className="hidden lg:block" title="до" />
+            <AnimatedTitle className="hidden lg:block" title="нас" />
           </div>
         </h2>
 

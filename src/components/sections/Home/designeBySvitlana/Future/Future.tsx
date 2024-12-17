@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import Link from 'next/link';
-import Scene from './Scene';
+// import Scene from './Scene';
 
 export default function Projects() {
   const [isVisible, setIsVisible] = useState(false);
@@ -31,7 +31,7 @@ export default function Projects() {
   }, []);
   return (
     <Background text="04 // Майбутнє" bg="s-gray" xl={0}>
-      <section className="mb-32 flex 2xl:flex-nowrap flex-wrap">
+      <section className="mb-32 flex items-center gap-12 2xl:flex-nowrap flex-wrap">
         <div className="title">
           <h2
             ref={headingRef}
@@ -82,7 +82,15 @@ export default function Projects() {
             </div>
           </Link>
         </div>
-         <Scene /> 
+        <video
+          src="/assets/videos/Baza.mp4" // шлях до твого відеофайлу
+          controls
+          autoPlay
+          loop
+          muted
+          className="h-[74%] 2xl:w-[50%]"
+        />
+         {/* <Scene />  */}
       </section>
     </Background>
   );
