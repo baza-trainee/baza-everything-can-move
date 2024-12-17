@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+//import { useEffect } from 'react';
 import clsx from 'clsx';
 import { useDesignStore } from '@/useDesignStore';
 import Link from 'next/link';
@@ -22,22 +22,26 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
   openMenu,
 }) => {
   const { designType } = useDesignStore();
-  useEffect(() => {
-    if (openMenu) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  }, [openMenu]);
+  // useEffect(() => {
+  //   if (openMenu) {
+  //     document.body.style.overflow = 'hidden';
+  //     //document.body.style.position = 'fixed';
+  //   } else {
+  //     document.body.style.overflow = '';
+  //     //document.body.style.position = '';
+  //   }
+  // }, [openMenu]);
   return (
     <>
       {designType === 'designByOlga' && (
         <div
-          // overflow-y-auto pb-[18px] h-dvh h-svh
+          // overflow-y-auto pb-[18px] h-dvh h-svh overflow-y-auto bg-olga-bg
           className={clsx(
-            'fixed inset-0 z-50 flex h-dvh w-full flex-col gap-6 overflow-y-auto bg-olga-bg text-white transition-transform duration-500 ease-in-out xl:gap-2',
+            'fixed inset-0 z-[100000] flex w-screen flex-col gap-6 bg-[transparent] text-white transition-all duration-700 ease-in xl:gap-2',
 
-            openMenu ? 'translate-y-0' : '-translate-y-full'
+            openMenu
+              ? 'h-full translate-y-0 opacity-100' //overflow-y-auto
+              : 'h-full -translate-y-full overflow-hidden opacity-30' //opacity-0 h-0
           )}
         >
           {/* upper line */}
@@ -56,11 +60,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
                 height={80}
                 priority
               /> */}
-              <div
-                className={clsx(
-                  'h-16 w-16 lg:h-20 lg:w-20 '
-                )}
-              >
+              <div className={clsx('h-16 w-16 lg:h-20 lg:w-20')}>
                 <SceneLogo />
               </div>
             </Link>
