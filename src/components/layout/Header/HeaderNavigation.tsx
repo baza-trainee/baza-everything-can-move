@@ -37,21 +37,28 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
         <div
           // overflow-y-auto pb-[18px] h-dvh h-svh overflow-y-auto bg-olga-bg
           className={clsx(
-            'fixed inset-0 z-[100000] flex w-screen flex-col gap-6 bg-[transparent] text-white transition-all duration-700 ease-in xl:gap-2',
+            'fixed inset-0 z-[100000] flex w-screen flex-col bg-[transparent] text-white transition-all duration-700 ease-in xl:gap-2',
 
             openMenu
-              ? 'h-full translate-y-0 opacity-100' //overflow-y-auto
-              : 'h-full -translate-y-full overflow-hidden opacity-30' //opacity-0 h-0
+              ? 'translate-y-0 opacity-100' //overflow-y-auto
+              : '-translate-y-[100%] opacity-30' //opacity-0 h-0 overflow-y-auto
           )}
         >
-          {/* upper line */}
-          <div className="flex items-center justify-between px-4 lg:pl-10 lg:pr-6 2xl:pr-5">
-            <Link
-              href="/"
-              onClick={handleMenuClick}
-              className="py-[18px] lg:py-[10px]"
-            >
-              {/*we do not need it any more???
+          {/* div with scroll */}
+          <div
+            className={clsx(
+              'flex min-h-full flex-col gap-6'
+              // openMenu && 'overflow-y-auto'
+            )}
+          >
+            {/* upper line */}
+            <div className="flex items-center justify-between px-4 lg:pl-10 lg:pr-6 2xl:pr-5">
+              <Link
+                href="/"
+                onClick={handleMenuClick}
+                className="py-[18px] lg:py-[10px]"
+              >
+                {/*we do not need it any more???
                <Image
                 className="h-16 w-16 lg:h-20 lg:w-20"
                 src="/assets/images/Logo/logo_baza.png"
@@ -60,34 +67,34 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
                 height={80}
                 priority
               /> */}
-              <div className={clsx('h-16 w-16 lg:h-20 lg:w-20')}>
-                <SceneLogo />
-              </div>
-            </Link>
-            <button
-              className="flex h-11 w-11 items-center justify-center text-white transition-colors duration-300 ease-linear lg:h-[100px] lg:w-[100px] 2xl:hover:text-olga-green"
-              onClick={handleMenuClick}
-            >
-              <ICONS_SRC.CLOSE_MENU_ICON className="fill-current w-10 lg:w-16" />
-            </button>
+                <div className={clsx('h-16 w-16 lg:h-20 lg:w-20')}>
+                  <SceneLogo />
+                </div>
+              </Link>
+              <button
+                className="flex h-11 w-11 items-center justify-center text-white transition-colors duration-300 ease-linear lg:h-[100px] lg:w-[100px] 2xl:hover:text-olga-green"
+                onClick={handleMenuClick}
+              >
+                <ICONS_SRC.CLOSE_MENU_ICON className="fill-current w-10 lg:w-16" />
+              </button>
+            </div>
+            {/* end of  upper line flex flex-col justify-between*/}
+            {/* nav links section*/}
+            <NavigationLinks
+              headerNav={headerNav}
+              onClickLink={handleMenuClick}
+            />
+            {/* end of nav links section*/}
+            {/* soc media section*/}
+            <div className="flex flex-grow flex-col justify-end xl:flex-grow-0">
+              {/* className="pb-6 2xl:pb-[14px]" */}
+              <p className="mb-1 text-center text-s leading-o-130 text-white lg:text-m 2xl:text-sm">
+                Слідкуй за нами
+              </p>
+              <SocialMedia />
+            </div>
+            {/* end of soc media section*/}
           </div>
-          {/* end of  upper line flex flex-col justify-between*/}
-
-          {/* nav links section*/}
-          <NavigationLinks
-            headerNav={headerNav}
-            onClickLink={handleMenuClick}
-          />
-          {/* end of nav links section*/}
-          {/* soc media section*/}
-          <div className="flex flex-grow flex-col justify-end xl:flex-grow-0">
-            {/* className="pb-6 2xl:pb-[14px]" */}
-            <p className="mb-1 text-center text-s leading-o-130 text-white lg:text-m 2xl:text-sm">
-              Слідкуй за нами
-            </p>
-            <SocialMedia />
-          </div>
-          {/* end of soc media section*/}
         </div>
       )}
       {/* design By Svitlana */}
