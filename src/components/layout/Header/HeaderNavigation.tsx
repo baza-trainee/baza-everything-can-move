@@ -35,27 +35,17 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
     <>
       {designType === 'designByOlga' && (
         <div
-          // overflow-y-auto pb-[18px] h-dvh h-svh overflow-y-auto w-screen
+          // pb-[18px] h-dvh h-svh overflow-y-auto w-screen ??
           className={clsx(
-            'fixed inset-0 z-[100000] w-full flex-col bg-olga-bg text-white transition-all duration-700 ease-in xl:gap-2',
+            'fixed inset-0 z-[100000] flex-col transition-all duration-700 ease-in xl:gap-2',
 
             openMenu
-              ? 'translate-y-0 opacity-100' //overflow-y-auto
-              : '-translate-y-[130%] opacity-30' //opacity-0 h-0 overflow-y-auto
+              ? 'translate-y-0 overflow-y-auto opacity-100'
+              : '-translate-y-[130%] opacity-50' //opacity-0 h-0 overflow-y-auto
           )}
         >
-          {/* div with scroll */}
-          <div
-            className={clsx(
-              'flex flex-col gap-6',
-              openMenu && 'overflow-y-auto'
-            )}
-          >
-            {/* <div
-              className={clsx(
-                openMenu ? 'overflow-y-auto' : 'min-h-max' //h-screen
-              )}
-            > */}
+          <div className="relative flex h-auto min-h-full w-full flex-col bg-olga-bg text-white">
+            {' '}
             {/* upper line */}
             <div className="flex items-center justify-between px-4 lg:pl-10 lg:pr-6 2xl:pr-5">
               <Link
@@ -90,7 +80,6 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
               <SocialMedia />
             </div>
             {/* end of soc media section*/}
-            {/* </div> */}
           </div>
         </div>
       )}
@@ -99,24 +88,26 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
         <div
           className={clsx(
             //   h-dvh??  h-[812px] lg:h-[1024px] 2xl:h-[860px]
-            'fixed top-0 z-50 flex w-full transform flex-col overflow-y-auto bg-s-gray font-second-family text-white transition-transform duration-500 ease-in-out 2xl:right-0 2xl:top-0 2xl:w-[730px]',
+            'fixed top-0 z-[10000] flex w-screen flex-col overflow-y-auto bg-s-gray font-second-family text-white transition-transform duration-500 ease-in 2xl:right-0 2xl:top-0 2xl:w-[730px]',
             openMenu ? 'translate-y-0' : '-translate-y-full',
             'max-h-screen pb-[85px] lg:pb-[130px] 2xl:pb-[188px]'
           )}
         >
-          <div className="w-full px-6 pb-[49px] pt-6 lg:pb-[134px] 2xl:px-20 2xl:pb-[38px] 2xl:pt-8">
-            <button
-              onClick={handleMenuClick}
-              className="ml-auto flex h-[54px] w-[54px] items-center justify-center rounded-full transition-colors duration-300 ease-linear 2xl:h-[60px] 2xl:w-[60px] 2xl:hover:bg-s-light-purple 2xl:hover:text-s-gray"
-            >
-              <ICONS_SRC.CLOSE_MENU_ICON className="fill-current h-8 w-8 2xl:hover:fill-s-light-purple" />
-            </button>
-          </div>
+          <div>
+            <div className="w-full px-6 pb-[49px] pt-6 lg:pb-[134px] 2xl:px-20 2xl:pb-[38px] 2xl:pt-8">
+              <button
+                onClick={handleMenuClick}
+                className="ml-auto flex h-[54px] w-[54px] items-center justify-center rounded-full transition-colors duration-300 ease-linear 2xl:h-[60px] 2xl:w-[60px] 2xl:hover:bg-s-light-purple 2xl:hover:text-s-gray"
+              >
+                <ICONS_SRC.CLOSE_MENU_ICON className="fill-current h-8 w-8 2xl:hover:fill-s-light-purple" />
+              </button>
+            </div>
 
-          <NavigationLinks
-            headerNav={headerNav}
-            onClickLink={handleMenuClick}
-          />
+            <NavigationLinks
+              headerNav={headerNav}
+              onClickLink={handleMenuClick}
+            />
+          </div>
         </div>
       )}
     </>

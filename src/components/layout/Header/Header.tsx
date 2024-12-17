@@ -18,8 +18,10 @@ const Header: React.FC = () => {
   useEffect(() => {
     if (openMenu) {
       document.body.style.overflow = 'hidden';
+      //document.body.style.position = 'fixed';
     } else {
       document.body.style.overflow = '';
+      //document.body.style.position = '';
     }
 
     return () => {
