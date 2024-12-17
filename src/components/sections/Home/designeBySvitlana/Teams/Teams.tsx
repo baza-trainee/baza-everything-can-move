@@ -2,22 +2,25 @@
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { Canvas } from '@react-three/fiber';
-import StrokeText from './Simple3DText';
-import { OrbitControls } from '@react-three/drei';
+
+import StarsComponent from './StarsComponent';
+
+// import { Canvas } from '@react-three/fiber';
+// import StrokeText from './Simple3DText';
+// import { OrbitControls } from '@react-three/drei';
 
 export default function Teams() {
   const [isVisible, setIsVisible] = useState(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   // Початкові налаштування камери
-  const [cameraSettings, setCameraSettings] = useState<{
-    position: [number, number, number]; // Масив з трьома координатами
-    fov: number; // Поле огляду
-  }>({
-    position: [2, 1, 10],
-    fov: 40,
-  });
+  // const [cameraSettings, setCameraSettings] = useState<{
+  //   position: [number, number, number]; // Масив з трьома координатами
+  //   fov: number; // Поле огляду
+  // }>({
+  //   position: [2, 1, 10],
+  //   fov: 40,
+  // });
 
   // Логіка спостереження за елементом
   useEffect(() => {
@@ -42,26 +45,26 @@ export default function Teams() {
   }, []);
 
   // Налаштування камери залежно від ширини вікна
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width < 768) {
-        setCameraSettings({ position: [3, 1, 12], fov: 50 }); // Мобільна версія
-      } else if (width < 1024) {
-        setCameraSettings({ position: [2.5, 1, 11], fov: 45 }); // Планшет
-      } else {
-        setCameraSettings({ position: [2, 1, 10], fov: 40 }); // Десктоп
-      }
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     const width = window.innerWidth;
+  //     if (width < 768) {
+  //       setCameraSettings({ position: [3, 1, 12], fov: 50 }); // Мобільна версія
+  //     } else if (width < 1024) {
+  //       setCameraSettings({ position: [2.5, 1, 11], fov: 45 }); // Планшет
+  //     } else {
+  //       setCameraSettings({ position: [2, 1, 10], fov: 40 }); // Десктоп
+  //     }
+  //   };
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
+  //   handleResize();
+  //   window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
 
   return (
-    <Background text="01 // Команда" bg="white" xl={1142} >
+    <Background text="01 // Команда" bg="white" xl={1142}>
       <section className="teams l mb-[222px] pt-2 text-olga-grid">
         <div className="container relative">
           <h2
@@ -75,7 +78,7 @@ export default function Teams() {
             команди
           </h2>
           <div className="flex flex-wrap gap-12">
-            <div className="text">
+            <div className="text 2xl:mb-0 mb-8">
               <div className="mb-6 items-center gap-8 text-lg uppercase lg:flex">
                 ми об&apos;єднуємо
                 <p className="border-sky-500 rounded-2xl border-2 border-solid px-6 py-1 text-md">
@@ -133,7 +136,12 @@ export default function Teams() {
                 </div>
               </Link>
             </div>
-            <div className="absolute bottom-0 h-[40%] w-[72%] lg:bottom-48 lg:right-[-15%]">
+            <div className="relative">
+              
+              <StarsComponent />
+            </div>
+
+            {/* <div className="absolute bottom-0 h-[40%] w-[72%] lg:bottom-48 lg:right-[-15%]">
               <Canvas
                 camera={{
                   position: cameraSettings.position,
@@ -157,7 +165,7 @@ export default function Teams() {
                   scale={[1, 1, 1]}
                 />
               </Canvas>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
