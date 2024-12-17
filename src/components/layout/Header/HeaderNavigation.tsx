@@ -35,22 +35,27 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
     <>
       {designType === 'designByOlga' && (
         <div
-          // overflow-y-auto pb-[18px] h-dvh h-svh overflow-y-auto bg-olga-bg
+          // overflow-y-auto pb-[18px] h-dvh h-svh overflow-y-auto w-screen
           className={clsx(
-            'fixed inset-0 z-[100000] flex w-screen flex-col bg-[transparent] text-white transition-all duration-700 ease-in xl:gap-2',
+            'fixed inset-0 z-[100000] w-full flex-col bg-olga-bg text-white transition-all duration-700 ease-in xl:gap-2',
 
             openMenu
               ? 'translate-y-0 opacity-100' //overflow-y-auto
-              : '-translate-y-[100%] opacity-30' //opacity-0 h-0 overflow-y-auto
+              : '-translate-y-[130%] opacity-30' //opacity-0 h-0 overflow-y-auto
           )}
         >
           {/* div with scroll */}
           <div
             className={clsx(
-              'flex min-h-full flex-col gap-6'
-              // openMenu && 'overflow-y-auto'
+              'flex flex-col gap-6',
+              openMenu && 'overflow-y-auto'
             )}
           >
+            {/* <div
+              className={clsx(
+                openMenu ? 'overflow-y-auto' : 'min-h-max' //h-screen
+              )}
+            > */}
             {/* upper line */}
             <div className="flex items-center justify-between px-4 lg:pl-10 lg:pr-6 2xl:pr-5">
               <Link
@@ -58,15 +63,6 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
                 onClick={handleMenuClick}
                 className="py-[18px] lg:py-[10px]"
               >
-                {/*we do not need it any more???
-               <Image
-                className="h-16 w-16 lg:h-20 lg:w-20"
-                src="/assets/images/Logo/logo_baza.png"
-                alt="Logo Baza Trainee Ukraine"
-                width={80}
-                height={80}
-                priority
-              /> */}
                 <div className={clsx('h-16 w-16 lg:h-20 lg:w-20')}>
                   <SceneLogo />
                 </div>
@@ -94,6 +90,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
               <SocialMedia />
             </div>
             {/* end of soc media section*/}
+            {/* </div> */}
           </div>
         </div>
       )}
