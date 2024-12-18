@@ -37,14 +37,12 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
         <div
           // pb-[18px] h-dvh h-svh overflow-y-auto w-screen ??
           className={clsx(
-            'fixed inset-0 z-[100000] flex-col transition-all duration-700 ease-in xl:gap-2',
+            'fixed inset-0 z-[100000] flex-col overflow-hidden transition-[max-height,opacity] duration-700 ease-in xl:gap-2',
 
-            openMenu
-              ? 'translate-y-0 overflow-y-auto opacity-100'
-              : '-translate-y-[130%] opacity-50' //opacity-0 h-0 overflow-y-auto
+            openMenu ? 'max-h-screen opacity-100' : 'max-h-0 opacity-80'
           )}
         >
-          <div className="relative flex h-auto min-h-full w-full flex-col bg-olga-bg text-white">
+          <div className="relative flex h-full min-h-full w-screen flex-col overflow-y-auto bg-olga-bg text-white">
             {' '}
             {/* upper line */}
             <div className="flex items-center justify-between px-4 lg:pl-10 lg:pr-6 2xl:pr-5">

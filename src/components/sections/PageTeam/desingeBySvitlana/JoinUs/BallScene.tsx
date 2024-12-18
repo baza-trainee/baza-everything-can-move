@@ -1,85 +1,28 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { BallsProps } from './Balls';
-import { useMediaQuery } from 'react-responsive';
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useBallsState } from './Balls';
 import styles from './Balls.module.css';
 import clsx from 'clsx';
+
 const BallScene = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
-
-  const [balls, setBalls] = useState<BallsProps>([
-    {
-      id: 1,
-      x: 140,
-      y: 250,
-      vx: 0,
-      vy: 0,
-      angle: 0,
-      color: '#363535',
-      isDragging: false,
-      src: '/assets/icons/Ball1.svg',
-      link: '',
-      radius: isMobile ? 70 : 124,
-      imgeSize: isMobile ? 140 : 248,
-    },
-    {
-      id: 2,
-      x: 250,
-      y: 250,
-      vx: 0,
-      vy: 0,
-      angle: 0,
-      color: '#363535',
-      isDragging: false,
-      src: '/assets/icons/Ball2.svg',
-      link: '',
-      radius: isMobile ? 70 : 124,
-      imgeSize: isMobile ? 140 : 248,
-    },
-    {
-      id: 3,
-      x: 600,
-      y: 300,
-      vx: 0,
-      vy: 0,
-      angle: 0,
-      color: '#8F8DED',
-      isDragging: false,
-      src: '/assets/icons/Facebook.svg',
-      link: 'https://www.facebook.com/BazaTraineeUkraine',
-      radius: isMobile ? 80 : 140,
-      imgeSize: isMobile ? 48 : 82,
-    },
-    {
-      id: 4,
-      x: 450,
-      y: 350,
-      vx: 0,
-      vy: 0,
-      angle: 0,
-      color: '#8F8DED',
-      isDragging: false,
-      src: '/assets/icons/linkedin.svg',
-      link: 'https://www.linkedin.com/company/baza-trainee-ukraine/posts/?feedView=all',
-      radius: isMobile ? 80 : 140,
-      imgeSize: isMobile ? 48 : 82,
-    },
-    {
-      id: 5,
-      x: 500,
-      y: 300,
-      vx: 0,
-      vy: 0,
-      angle: 0,
-      color: '#8F8DED',
-      isDragging: false,
-      src: '/assets/icons/Telegram.svg',
-      link: 'https://t.me/+CBXkAJlsCy83ZDYy',
-      radius: isMobile ? 80 : 140,
-      imgeSize: isMobile ? 48 : 82,
-    },
-  ]);
-
+  const [isBallsInViev, setisBallsInViev] = useState(false);
+  const { balls, setBalls } = useBallsState();
   const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef);
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (isInView) {
+      timer = setTimeout(() => {
+        setisBallsInViev(true);
+      }, 4000);
+    } else {
+      setisBallsInViev(false);
+    }
+
+    return () => clearTimeout(timer);
+  }, [isInView]);
 
   const gravity = 0.02; // Сила гравітації
   const bounce = 0.3; // Сила відскоку
@@ -223,7 +166,29 @@ const BallScene = () => {
       )
     );
   };
+  // Функція для генерації випадкової зміни позиції
+  const randomHit = () => {
+    const angle = Math.random() * Math.PI * 2; // Випадковий кут
+    const force = 3; // Сила удару
+    return {
+      vx: Math.cos(angle) * force,
+      vy: Math.sin(angle) * force,
+    };
+  };
 
+  // Оновлений метод для обробки кліку на сенсорному екрані
+  const handleTouchStart = (id: number) => {
+    setBalls((prevBalls) =>
+      prevBalls.map((ball) =>
+        ball.id === id
+          ? {
+              ...ball,
+              ...randomHit(), // Додаємо випадкову зміну швидкості
+            }
+          : ball
+      )
+    );
+  };
   useEffect(() => {
     // const handleTouchMove = (e: TouchEvent) => {
     //   const touch = e.touches[0];
@@ -249,45 +214,53 @@ const BallScene = () => {
         ref={containerRef}
         className="relative h-[772px] w-[375px] overflow-hidden lg:h-[975px] lg:w-[768px] 2xl:h-[788px] 2xl:w-[1440px]"
       >
-        {balls.map((ball) => (
-          <div
-            key={ball.id}
-            onMouseDown={() => handlePointerDown(ball.id)}
-            // onTouchStart={() => handlePointerDown(ball.id)}
-            className={clsx(
-              styles.ball,
-              'absolute flex cursor-grab items-center justify-center rounded-full'
-            )}
-            style={{
-              width: `${ball.radius * 2}px`,
-              height: `${ball.radius * 2}px`,
-              backgroundColor: ball.color,
-              top: ball.y - ball.radius,
-              left: ball.x - ball.radius,
-              transform: `rotate(${ball.angle}deg)`,
-            }}
-          >
-            {ball.link && (
-              <a href={ball.link} className="cursor-pointer">
+        {isInView &&
+          balls.map((ball) => (
+            <motion.div
+              key={ball.id}
+              onMouseDown={() => handlePointerDown(ball.id)}
+              onTouchStart={() => handleTouchStart(ball.id)}
+              className={clsx(
+                styles.ball,
+                'absolute flex cursor-grab items-center justify-center rounded-full'
+              )}
+              initial={{
+                left: 1500,
+              }}
+              animate={{
+                top: ball.y - ball.radius,
+                left: ball.x - ball.radius,
+              }}
+              transition={{ duration: isBallsInViev ? 0 : 1 }}
+              style={{
+                width: `${ball.radius * 2}px`,
+                height: `${ball.radius * 2}px`,
+                backgroundColor: ball.color,
+
+                transform: `rotate(${ball.angle}deg)`,
+              }}
+            >
+              {ball.link && (
+                <a href={ball.link} className="cursor-pointer">
+                  <img
+                    src={ball.src}
+                    alt="куля"
+                    width={ball.imgeSize}
+                    height={ball.imgeSize}
+                  />
+                </a>
+              )}
+              {!ball.link && (
                 <img
+                  className="pointer-events-none"
                   src={ball.src}
                   alt="куля"
                   width={ball.imgeSize}
                   height={ball.imgeSize}
                 />
-              </a>
-            )}
-            {!ball.link && (
-              <img
-                className="pointer-events-none"
-                src={ball.src}
-                alt="куля"
-                width={ball.imgeSize}
-                height={ball.imgeSize}
-              />
-            )}
-          </div>
-        ))}
+              )}
+            </motion.div>
+          ))}
       </div>
     </div>
   );
