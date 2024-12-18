@@ -1,11 +1,11 @@
 'use client';
-import React, { useState, useCallback, useRef, useEffect } from 'react'; //useEffect,
+import React, { useState, useCallback, useRef, } from 'react'; //useEffect,
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { motion, AnimatePresence } from 'framer-motion'; //useInView
 import { PanInfo } from 'framer-motion';
-import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
+//import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 import { ImagesHomeProjectsProps } from '@/constants/images/imagesSrc';
 import { ButtonSlide } from '@/components/ui/SwiperFoto';
 
@@ -20,8 +20,8 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [direction, setDirection] = useState(0);
-  const cardWidth = 320;
-  const totalWidth = 343;
+//   const cardWidth = 320;
+//   const totalWidth = 343;
   const totalImages = images.length;
 
   const imageVariants = {
