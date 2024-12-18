@@ -45,7 +45,6 @@ export const CardContainer = ({
     containerRef.current.style.transform = ` rotateY(${x}deg) rotateX(${y}deg)   `;
     containerRef.current.style.willChange = 'transform';
     containerRef.current.style.zIndex = '10';
-    // containerRef.current.style.transformOrigin = 'right';
   };
 
   const handleMouseEnter = () => {
@@ -134,9 +133,6 @@ export const CardItem = ({
   rotateY = 0,
   rotateZ = 0,
 
-  // scaleX = 1,
-  // scaleY = 1,
-
   ...rest
 }: {
   as?: React.ElementType;
@@ -148,8 +144,7 @@ export const CardItem = ({
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
-  // scaleX?: number;
-  // scaleY?: number;
+
   [key: string]: unknown;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -158,14 +153,10 @@ export const CardItem = ({
   const handleAnimations = useCallback(() => {
     if (!ref.current) return;
     if (isMouseEntered) {
-      // if (widthEnd) ref.current.style.width = widthEnd;
-      // if (heightEnd) ref.current.style.height = heightEnd;
       ref.current.style.transition = '0.5s ease-linear';
       ref.current.style.transform = ` translateX(${translateX}) translateY(${translateY}) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)  `;
     } else {
       ref.current.style.transform = ` translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)  `;
-      // if (widthStart) ref.current.style.width = widthStart;
-      // if (heightStart) ref.current.style.height = heightStart;
     }
   }, [
     isMouseEntered,
@@ -175,10 +166,6 @@ export const CardItem = ({
     translateX,
     translateY,
     translateZ,
-    // widthStart,
-    // widthEnd,
-    // heightStart,
-    // heightEnd,
   ]);
 
   useEffect(() => {
@@ -205,39 +192,3 @@ export const useMouseEnter = () => {
   }
   return context;
 };
-// export const CardImage = ({
-//   src,
-//   alt,
-//   width,
-//   height,
-//   className,
-// }: {
-//   src: StaticImageData;
-//   alt: string;
-//   width?: string;
-//   height?: string;
-//   className?: string;
-// }) => {
-//   return (
-//     <div
-//       className={className}
-//       style={{
-//         position: 'relative',
-//         width: width,
-//         height: height,
-//         overflow: 'hidden',
-//       }}
-//     >
-//       <Image
-//         src={src}
-//         alt={alt}
-//         className="object-cover transition-all duration-500 ease-in-out"
-//         style={{
-//           width: '100%',
-//           height: '100%',
-//           transition: 'transform 0.5s ease-in-out',
-//         }}
-//       />
-//     </div>
-//   );
-// };

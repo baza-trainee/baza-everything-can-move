@@ -51,20 +51,18 @@ const ProjectCardsShowcase: React.FC = () => {
                 style={{
                   top: image.topTablet,
                   left: image.leftTablet,
-                  //transition: 'transform 0.5s linear',
+                
                 }}
               >
                 <CardBody
                   className="group/card relative h-full w-full"
-                  // style={{
-                  //   transition: 'transform 0.5s linear',
-                  // }}
+                 
                 >
                   <CardItem
                     translateZ={image.translateZ}
                     className="group/card relative transform group-hover/card:shadow-xl"
                     style={{
-                      //transition: ' 0.5s linear',
+                    
                       width: 352,
                       height: 168,
                     }}
@@ -93,10 +91,10 @@ const ProjectCardsShowcase: React.FC = () => {
                   <CardItem
                     translateZ={image.translateZ + 30}
                     style={{
-                      //transformOrigin: 'left center',
+                    
                       transition: ' 0.5s linear',
                     }}
-                    // mt-5
+                   
                     className="absolute -bottom-7 hidden h-6 w-full transform items-center justify-center opacity-0 transition-opacity duration-500 ease-linear group-hover/card:flex group-hover/card:opacity-100"
                   >
                     <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-0 w-4" />
@@ -105,14 +103,14 @@ const ProjectCardsShowcase: React.FC = () => {
                       style={{
                         whiteSpace: 'nowrap',
                       }}
-                      //text-sm
+                    
                       className="text-s leading-o-130 text-olga-light-grey"
                     >
                       {image.name}
                     </p>
 
                     <ICONS_SHARED.CORNER_TOP
-                      // scaleY(${1 / image.scaleTablet}
+                    
                       style={{
                         transform: `rotate(90deg ) `,
                       }}
@@ -141,25 +139,23 @@ const ProjectCardsShowcase: React.FC = () => {
               >
                 <CardBody
                   className="group/card relative h-full w-full"
-                  // style={{
-                  //   transition: 'transform 0.5s linear',
-                  // }}
+                  
                 >
                   <CardItem
                     translateZ={image.translateZ}
                     className="group/card relative transform group-hover/card:shadow-xl"
                     style={{
-                      //  transition: '  0.5s linear',
+                    
                       width: 512,
                       height: 249,
                     }}
                   >
-                    {/* <Link
+                    <Link
                       href={image.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="relative inset-0 flex h-[168px] w-[512px] cursor-none"
-                    > */}
+                    >
                     <Image
                       src={image.src}
                       className="object-cover transition-all duration-500 ease-linear"
@@ -172,12 +168,11 @@ const ProjectCardsShowcase: React.FC = () => {
                       //   height: '100%',
                       // }}
                     />
-                    {/* </Link> */}
+                    </Link>
                   </CardItem>
                   <CardItem
                     translateZ={image.translateZ + 30}
                     style={{
-                      // transformOrigin: 'left center',
                       transition: ' 0.5s linear',
                     }}
                     className="absolute -bottom-7 hidden h-6 w-full transform items-center justify-center text-center opacity-0 transition-opacity duration-500 ease-linear group-hover/card:flex group-hover/card:opacity-100"
@@ -188,7 +183,6 @@ const ProjectCardsShowcase: React.FC = () => {
                       style={{
                         whiteSpace: 'nowrap',
                       }}
-                      //7text-sm
                       className="text-sm leading-o-130 text-olga-light-grey"
                     >
                       {image.name}
