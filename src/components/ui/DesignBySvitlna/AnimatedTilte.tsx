@@ -19,35 +19,26 @@ function AnimatedTitle({
   const [isAnimating, setIsAnimating] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const getColorSet = (colorBg: string) => {
-    switch (colorBg) {
-      case 'white':
-        return [
-          'text-black',
-          'text-s-gray',
-          'text-s-purple',
-          'text-s-light-purple',
-          'text-s-title-home',
-        ];
-      case 'black':
-        return [
-          'text-white',
-          'text-s-gray',
-          'text-s-purple',
-          'text-s-light-purple',
-          'text-s-title-home',
-        ];
-      case 'gray':
-        return ['text-white', 'text-black', 'text-s-purple', 'text-s-light-purple', 'text-s-title-home'];
-      default:
-        return ['black'];
-    }
+  const arrColors = [
+    'text-white',
+    'text-black',
+    'text-s-gray',
+    'text-s-purple',
+    'text-s-light-purple',
+    'text-s-title-home',
+  ];
+
+  const colors = (color: string | undefined): string[] => {
+    if (!color || typeof color !== 'string') return []; // Захист від undefined
+    return arrColors.filter(
+      (el) => !el.toLowerCase().includes(color.trim().toLowerCase())
+    );
   };
 
-  const colors = getColorSet(colorBg);
-
   const getRandomColor = () => {
-    return colors[Math.floor(Math.random() * colors.length)];
+    const filteredColors = colors(colorBg);
+    if (filteredColors.length === 0) return null;
+    return filteredColors[Math.floor(Math.random() * filteredColors.length)];
   };
 
   const getRandomChar = () => {
@@ -160,7 +151,6 @@ function AnimatedTitle({
     </div>
   );
 }
-
 export default AnimatedTitle;
 
 /*
