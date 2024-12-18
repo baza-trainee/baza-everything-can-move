@@ -158,7 +158,8 @@ const config: Config = {
         marqueeCustom:
           'marqueeCustom var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
         'meteor-effect': 'meteor 5s linear infinite',
-        'result-tags_left': 'moveleft 6s ease-in infinite',
+        'result-tags_left': 'moveleft 4s ease-in',
+        'result-tags_right': 'moveright 4s ease-in',
       },
       keyframes: {
         marqueeCustom: {
@@ -174,9 +175,14 @@ const config: Config = {
           },
         },
         moveleft:{
-          '0%': { transform: 'translateX(-20%)' },
-          '50%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-20%)' },
+          '0%': { transform: 'translateX(0)' },
+          '40%': { transform: 'translateX(-5%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        moveright:{
+          '0%': { transform: 'translateX(0)' },
+          '40%': { transform: 'translateX(5%)' },
+          '100%': { transform: 'translateX(0)' },
         },
       },
     },

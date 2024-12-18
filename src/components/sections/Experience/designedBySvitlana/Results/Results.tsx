@@ -1,7 +1,6 @@
 'use client';
 
 import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
-// import Bubbles3D from './Bubbles3D';
 import { useEffect, useState } from 'react';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import { ICONS } from '@/constants/icons/icons';
@@ -12,6 +11,12 @@ import styles from './results.module.css';
 const Results:React.FC = () => {
   
   const [hovered, setHovered] = useState<boolean>(false);
+  const [Xdirection, setXdirection] = useState<string>('');
+  const [Ydirection, setYdirection] = useState<string>('');
+  const [mouseX, setmouseX] = useState<number>(0);
+  const [mouseY, setmouseY] = useState<number>(0);
+  const [mouseXprev, setmouseXprev] = useState<number>(0);
+  const [mouseYprev, setmouseYprev] = useState<number>(0);
 
   useEffect(() => {
     const resultsBlock = document.getElementById('resultsBlock');
@@ -22,45 +27,81 @@ const Results:React.FC = () => {
     const tagGroup1 = tagGroups[0]
     // const tagGroup2 = tagGroups[1]
     // const tagGroup3 = tagGroups[2]
-    // console.log(tagGroup1);
-    // console.log(tagGroup2);
-    // console.log(tagGroup3);
+
 
     const handleMouseOver = (event:MouseEvent): void => {
       setHovered(true);
-      const screenWidthHalf = window.innerWidth/2;
-      const screenHeightHalf = window.innerHeight/2;
-      //let Xdirection = ""
-      //let Ydirection = ""
-      const mouseX = event.clientX
-      const mouseY = event.clientY
-      if (mouseX < screenWidthHalf) {
-        //Xdirection = "left";
-        // tagGroup1.classList.add('transition-transform');
-        tagGroup1.classList.add('animate-result-tags_left')
-        // console.log(tagGroup1.classList);
-      } else if (mouseX > screenWidthHalf) {
-        //Xdirection = "right"
+      // const screenWidthHalf = window.innerWidth/2;
+      // const screenHeightHalf = window.innerHeight/2;
+      setmouseXprev(mouseX)
+      setmouseYprev(mouseY)
+      setmouseX(event.clientX)
+      setmouseY(event.clientY)
+      // const XDistance = (mouseX-mouseXprev).toString()
+      // const YDistance = (mouseYprev-mouseY).toString()
+
+      if (mouseX < mouseXprev) {
+       setXdirection('left')
+        // tagGroup1.classList.add('animate-result-tags_left')
+        // tagGroup1.classList.remove('animate-result-tags_left')
+        // tagGroup1.classList.add(`translate-x-[${XDistance}px]`, 'duration-[3000]')
+      } 
+      if (mouseX > mouseXprev) {
+        // tagGroup1.classList.add('animate-result-tags_right')
+        // tagGroup1.classList.remove('animate-result-tags_right')
+        setXdirection('right')
       }
-      if (mouseY < screenHeightHalf) {
-        //Ydirection = "top"
-      } else if (mouseY > screenHeightHalf) {
-        //Ydirection = "bottom"
+      if (mouseY < mouseYprev) {
+       setYdirection('top')
+      } else if (mouseY > mouseYprev) {
+        setYdirection('bottom')
       }
-      // console.log('Xdirection', Xdirection); 
-      // console.log('Ydirection', Ydirection); 
     }
+
+    if (mouseX < mouseXprev) {
+      //  setXdirection('left')
+        tagGroup1.classList.add('animate-result-tags_left')
+        setTimeout(() => {
+          tagGroup1.classList.remove('animate-result-tags_left')
+        }, 4000);
+        
+        // tagGroup1.classList.add(`translate-x-[${XDistance}px]`, 'duration-[3000]')
+      } 
+      if (mouseX > mouseXprev) {
+        tagGroup1.classList.add('animate-result-tags_right')
+        setTimeout(() => {
+          tagGroup1.classList.remove('animate-result-tags_right')
+        }, 4000);
+        // setXdirection('right')
+      }
+
     const handleMouseOut = (): void => setHovered(false);
+    // const handleMouseMove = (): void => {
+    //   const XDistance = (mouseX-mouseXprev).toString()
+    //   const YDistance = mouseYprev-mouseY
+    //   console.log(XDistance);
+    //   // console.log('X',XDistance);
+    //   // console.log('Y',YDistance);
+    //   if(Xdirection==='right'){
+    //     tagGroup1.classList.add(`translate-x-[${XDistance}px]`, 'duration-[3000]')
+    //     // tagGroup1.classList.add(`${styles.moveX}`)
+    //   } else if(Ydirection==='top'){
+    //     // tagGroup1.classList.add(`${styles.moveY}`)
+    //   //  tagGroup1.classList.add('animate-result-tags_left')
+    //   }
+    // }
 
       if (resultsBlock) {
     resultsBlock.addEventListener('mouseover', handleMouseOver);
+    // resultsBlock.addEventListener('mousemove', handleMouseMove);
     resultsBlock.addEventListener('mouseout', handleMouseOut);
     }
       return () => {
     resultsBlock.removeEventListener('mouseover', handleMouseOver);
+    // resultsBlock.removeEventListener('mousemove', handleMouseMove);
     resultsBlock.removeEventListener('mouseout', handleMouseOut);
-      };
-  },[hovered]);
+    };
+  },[hovered, Xdirection, Ydirection, mouseX, mouseY, mouseXprev, mouseYprev]);
 
 
 
@@ -107,7 +148,7 @@ const Results:React.FC = () => {
         <div id={styles.tags} className='will-change-transform flex justify-start items-center relative w-full h-auto'>
           <div className='h-[355px] w-full relative uppercase'>
 
-            <div id={styles.tagGroup} className='will-change-transform pointer-events-none w-full h-full'>
+            <div id={styles.tagGroup} className='will-change-transform pointer-events-none w-full h-full absolute'>
               <div id={styles.tagGroup1_1} className='inline-block absolute translate-x-[86px] rotate-[8deg]'>
                 <div className='pointer-events-auto font-medium text-md leading-5 py-[9.65px] px-[24.5px] bg-white text-black hover:bg-s-light-purple hover:text-white duration-300 rounded'>Взаємодія</div>
               </div>

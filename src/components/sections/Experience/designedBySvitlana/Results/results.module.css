@@ -1,6 +1,6 @@
 #tags{
-    transform:translate3d(0px, 0%, 0px);
-    transform-style:preserve-3d;
+    /* transform:translate3d(0px, 0%, 0px); */
+    /* transform-style:preserve-3d; */
 }
 
 #tagGroup{
@@ -10,17 +10,50 @@
     position:absolute;
     will-change: transform;
     transform-style:preserve-3d;
-    inset:0% 0% auto;
+    /* inset:0% 0% auto; */
 }
-/* #tagGroup1:hover{
-    transform:translate3d(5.48%, 5.48%, 0px);
-} */
-/* #tagGroup2{ */
-    /* transform:translate3d(0.0048%, 0.0048%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); replace with animation*/
-/* } */
-/* #tagGroup3{ */
-    /* transform:translate3d(0.0048%, 0.0048%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); replace with animation*/
-/* } */
+
+.moveX{
+   animation-name: moveXanimation;
+   animation-timing-function: ease-in-out;
+   animation-composition: add;
+   animation-iteration-count: infinite;
+   /* animation-play-state: running; */
+   animation-duration: 4s;
+   /* transition: all 0.5s ease-in; */
+}
+@keyframes moveXanimation {
+  0% {
+    transform: translate3d(0%, 0%, 0px);
+  }
+  40% {
+    transform: translate3d(-7.8362%, 0%, 0px);
+  }
+  100% {
+    transform: translate3d(0%, 0%, 0px);
+  }
+}
+.moveY{
+   animation-name: moveYanimation;
+   animation-timing-function: ease-in-out;
+   animation-composition: add;
+   animation-iteration-count: infinite;
+   /* animation-play-state: running; */
+   animation-duration: 4s;
+   /* transition: all 0.5s ease-in; */
+}
+@keyframes moveYanimation {
+  0% {
+    transform: translate3d(0%, 0%, 0px);
+  }
+  40% {
+    transform: translate3d(0%, 7%, 0px);
+  }
+  100% {
+    transform: translate3d(0%, 0%, 0px);
+  }
+}
+
 
 /* #tagGroup1_1{
     inset:0% auto auto 1.53rem;
