@@ -173,7 +173,7 @@ const config: Config = {
             opacity: '0',
           },
         },
-        moveleft:{
+        moveleft: {
           '0%': { transform: 'translateX(-20%)' },
           '50%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-20%)' },

@@ -131,6 +131,7 @@ const Header: React.FC = () => {
                   : 'UPS'}
               </div>
               {/* b2 next page */}
+
               <Link
                 href={NAV_LINKS[indexOfNextPage].link}
                 className={clsx(
@@ -143,11 +144,12 @@ const Header: React.FC = () => {
               >
                 {indexOfNextPage >= 0 ? NAV_LINKS[indexOfNextPage].name : 'UPS'}
               </Link>
+
               {/* b3 menu */}
-              <div
+              <button
                 onClick={handleMenuClick}
                 className={clsx(
-                  'cursor-pointer pb-6 pr-4 text-white transition-colors duration-300 ease-linear',
+                  'cursor-pointer pb-6 pr-4 uppercase text-white transition-colors duration-300 ease-linear',
                   designType === 'designByOlga' &&
                     'h-[104px] w-[112px] bg-olga-btn-menu pl-8 pt-16 lg:h-[140px] lg:w-[200px] lg:px-3 lg:pb-3 lg:pt-6 2xl:h-[160px] 2xl:w-[236px] 2xl:hover:bg-olga-green 2xl:hover:text-olga-bg',
                   designType === 'designBySvitlana' &&
@@ -166,12 +168,12 @@ const Header: React.FC = () => {
 
                 <p
                   className={clsx(
-                    'hidden transition-colors duration-300 ease-linear lg:block'
+                    'hidden text-left transition-colors duration-300 ease-linear lg:block'
                   )}
                 >
                   Меню
                 </p>
-              </div>
+              </button>
             </div>
           </>
           {/*  )} */}
