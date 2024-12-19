@@ -35,21 +35,6 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
   };
 
-  //   const titleVariants = {
-  //     exit: (direction: number) => ({
-  //       x: direction > 0 ? '100%' : '-100%',
-  //       opacity: 0,
-  //     }),
-  //     enter: (direction: number) => ({
-  //       x: direction > 0 ? '-100%' : '100%',
-  //       opacity: 0,
-  //     }),
-  //     center: {
-  //       x: '0%',
-  //       opacity: 1,
-  //     },
-  //   };
-
   const handleDragEnd = (
     event: MouseEvent | TouchEvent | PointerEvent,
     info: PanInfo
@@ -77,10 +62,10 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
       y: '15%',
       width: '120px',
       height: '64px',
-
+      opacity: 1,
       transition: {
         duration: 0.7,
-        ease: 'easeIn',
+        ease: 'linear',
       },
     },
 
@@ -89,7 +74,7 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
       y: '0%',
       height: '164px',
       width: '320px',
-
+      opacity: 1,
       transition: {
         x: { duration: 0.6 },
         width: { duration: 1 }, //delay: 0.5,
@@ -102,21 +87,37 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
       x: '150%',
       width: '120px',
       height: '64px',
-
+      opacity: 1,
       y: '15%',
       transition: {
         duration: 0.7,
-        ease: 'easeIn',
+        ease: 'linear',
       },
-    }, //
+    },
+    hidden: {
+      x: '-250%',
+      opacity: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'linear',
+      },
+    },
+    exit: {
+      x: '300%',
+      opacity: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'linear',
+      },
+    },
   };
   return (
-    <div
-      className="w-full flex-col items-center justify-center lg:hidden"
-      ref={containerRef}
-    >
-      <div className="relative mb-6 flex h-[193px] w-[343px] items-center justify-center overflow-hidden">
-        <AnimatePresence custom={direction}>
+    <div className="w-full flex-col items-center justify-center lg:hidden">
+      <div
+        ref={containerRef}
+        className="relative mb-6 flex h-[193px] w-[343px] items-center justify-center overflow-hidden"
+      >
+        <AnimatePresence custom={direction} initial={false}>
           {positions.map((position, posIndex) => {
             const imageIndex = getPositionIndex(currentIndex, posIndex - 1);
 
@@ -127,12 +128,13 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
                 custom={direction}
                 //initial={posIndex === 1 && 'center'}
 
-                initial={position}
+                //initial={position}
+                initial="hidden"
                 animate={position}
-                //exit="right"
+                exit="exit"
                 drag="x"
                 dragConstraints={containerRef}
-                //dragElastic={0}
+                dragElastic={0}
                 onDragEnd={handleDragEnd}
                 className={clsx(
                   'absolute',

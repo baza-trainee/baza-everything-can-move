@@ -23,23 +23,14 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
   const totalImages = images.length;
 
   const handleNext = useCallback(() => {
-    setDirection(1);
+    setDirection(1); //from left to right
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
   }, [totalImages]);
 
   const handleBack = () => {
-    setDirection(-1);
+    setDirection(-1); //from right to left
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
   };
-  // for imfinity moving
-  // useEffect(() => {
-  //   if (isInView) {
-  //     const interval = setInterval(() => {
-  //       handleNext();
-  //     }, 15000);
-  //     return () => clearInterval(interval);
-  //   }
-  // }, [isInView, handleNext]);
 
   const positions = ['right', 'center', 'left'];
 
@@ -77,11 +68,11 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
   ) => {
     //  <--------
     if (info.offset.x > -50) {
-      setDirection(1);
+      setDirection(1); //from left to right
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     } else if (info.offset.x < 50) {
       //  -------->
-      setDirection(-1);
+      setDirection(-1); //from right to left
       setCurrentIndex(
         (prevIndex) => (prevIndex - 1 + images.length) % images.length
       );
