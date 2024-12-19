@@ -1,6 +1,6 @@
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import React from 'react';
-import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
 function SectionInitiative() {
   return (

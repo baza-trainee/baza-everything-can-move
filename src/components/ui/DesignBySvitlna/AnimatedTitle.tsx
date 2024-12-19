@@ -17,19 +17,21 @@ function AnimatedTitle({
 }: AnimatedTitleProps) {
   const [charIndex, setCharIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+
   const ref = useRef<HTMLDivElement>(null);
 
   const arrColors = [
     'text-white',
-    'text-black',
-    'text-s-gray',
     'text-s-purple',
     'text-s-light-purple',
     'text-s-title-home',
+    'text-s-soft-gray',
+    'text-s-plum',
+    'text-s-lavender',
   ];
 
   const colors = (color: string | undefined): string[] => {
-    if (!color || typeof color !== 'string') return []; // Захист від undefined
+    if (!color || typeof color !== 'string') return [];
     return arrColors.filter(
       (el) => !el.toLowerCase().includes(color.trim().toLowerCase())
     );
@@ -81,6 +83,8 @@ function AnimatedTitle({
     const words = title.split(' ');
     let charCounter = 0;
 
+    const wordRefs = useRef<HTMLSpanElement[]>([]);
+
     return words.map((word, index) => {
       const wordStart = charCounter;
       const wordEnd = charCounter + word.length;
@@ -94,6 +98,9 @@ function AnimatedTitle({
             !isAnimating && (wordClasses[index] || ''),
             'transition-all duration-300 ease-in-out'
           )}
+          ref={(el) => {
+            if (el) wordRefs.current[index] = el;
+          }}
         >
           {word.split('').map((char, i) => {
             const globalCharIndex = wordStart + i;
@@ -103,8 +110,8 @@ function AnimatedTitle({
             const colorClass = isFinal
               ? wordClasses[index] || ''
               : isVisible
-                ? getRandomColor()
-                : 'opacity-0';
+              ? getRandomColor()
+              : 'opacity-0';
 
             const isTargetChar =
               title === 'Соціальні ініціативи' && globalCharIndex === 3;
@@ -142,7 +149,7 @@ function AnimatedTitle({
     <div ref={ref}>
       <div
         className={cn(
-          'traking-s-2 text-xlg uppercase leading-o-120 lg:text-[80px]',
+          'traking-s-2 font-second-family text-xlg font-semibold uppercase leading-o-150 lg:text-[80px] lg:leading-o-120',
           className
         )}
       >
@@ -151,6 +158,7 @@ function AnimatedTitle({
     </div>
   );
 }
+
 export default AnimatedTitle;
 
 /*
@@ -160,7 +168,7 @@ Props:
 1. `title` (string, required): The animated text to display.
 2. `className` (string, optional): Tailwind classes for overall title styling.
 3. `wordClasses` (string[], optional): Tailwind classes for styling individual words in the title.
-4. `colorBg`: color of section's background
+4. `colorBg`: in this case using only for WHITE bg
 
 
 Examples:
@@ -168,6 +176,6 @@ Examples:
   title="Future Plans" 
   className="text-center 2xl:text-start mb-4"
   wordClasses={['text-white', 'text-s-purple']}
-  colorBg='gray'
+  colorBg='white'
 />
 */
