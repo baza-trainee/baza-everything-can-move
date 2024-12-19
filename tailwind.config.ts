@@ -38,7 +38,10 @@ const config: Config = {
       's-gray': '#363535',
       's-purple': '#8f8ded',
       's-light-purple': '#bcbbf9',
-      's-title-home': 'rgba(143, 141, 237, 1)',
+      's-title-home': 'rgb(143, 141, 237)',
+      's-soft-gray': '#4f4e4e', 
+      's-plum': '#5a578c', 
+      's-lavender': '#d7d6fc', 
       //Olga
       'olga-white-40': 'rgba(255, 255, 255, 0.4)',
       'olga-white-10': 'rgba(255, 255, 255, 0.1)',
@@ -116,7 +119,7 @@ const config: Config = {
         //wo do not it any more?
         // font3: ['VG5000', 'ui-sans-serif', 'sans-serif'],
         // font4: ['Nunito', 'ui-sans-serif', 'sans-serif'],
-        font5: ['IBM Plex Sans', 'ui-sans-serif', 'sans-serif'],
+        // font5: ['IBM Plex Sans', 'ui-sans-serif', 'sans-serif'],
         // font6: ['Urbanist', 'ui-sans-serif', 'sans-serif'],
         // font7: ['Poppins', 'ui-sans-serif', 'sans-serif'],
         // font8: ['Playfair Display', 'ui-sans-serif', 'sans-serif'],

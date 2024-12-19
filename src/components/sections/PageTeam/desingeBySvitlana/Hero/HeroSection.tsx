@@ -1,7 +1,7 @@
 'use client';
 
 import Container from '@/components/ui/DesignBySvitlna/Container';
-import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 import { SubTitle } from '@/components/ui/DesignBySvitlna/SubTitle/SubTitle';
 import dynamic from 'next/dynamic';
 const Globes = dynamic(() => import('./Globe.jsx'), {

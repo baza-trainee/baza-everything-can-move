@@ -1,7 +1,7 @@
 import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import SubTitleBtn from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleBtn';
 import BallScene from './BallScene';
-import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
 function JoinUs() {
   return (
@@ -12,13 +12,18 @@ function JoinUs() {
       className="relative h-[772px] lg:h-[975px] 2xl:h-[788px]"
     >
       <div className="pointer-events-none font-third-family font-semibold text-black">
-        <h2 className="flex text-xlg uppercase leading-o-150 tracking-custom-tight text-s-purple lg:flex-col lg:text-3xl 2xl:flex-row 2xl:gap-12">
-          <AnimatedTitle title="Приєднуйся" />
-          <div className="flex gap-12">
-            <AnimatedTitle className="hidden lg:block" title="до" />
-            <AnimatedTitle className="hidden lg:block" title="нас" />
-          </div>
-        </h2>
+        <AnimatedTitle
+          title="Приєднуйся"
+          colorBg="white"
+          className="lg:hidden"
+        />
+
+        <AnimatedTitle
+          title="Приєднуйся до нас"
+          wordClasses={['text-s-purple', 'text-s-purple', 'text-s-purple']}
+          colorBg="white"
+          className="hidden lg:block max-w-[520px] 2xl:max-w-full"
+        />
 
         <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-6">
           <p className="text-md uppercase leading-o-120 tracking-custom-tight lg:text-lg lg:font-medium">
