@@ -8,6 +8,7 @@ import { PanInfo } from 'framer-motion';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 import { ImagesHomeProjectsProps } from '@/constants/images/imagesSrc';
 import { ButtonSlide } from '@/components/ui/SwiperFoto';
+import clsx from 'clsx';
 
 interface ProjectsSliderProps {
   images: ImagesHomeProjectsProps;
@@ -40,7 +41,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
       scale: 1,
       zIndex: 5,
       transition: {
-        duration: 0.6,
+        duration: 0.7,
 
         ease: 'linear',
       },
@@ -50,7 +51,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
       scale: 0.4,
       zIndex: 2,
       transition: {
-        duration: 0.6,
+        duration: 0.7,
 
         ease: 'linear',
       },
@@ -60,7 +61,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
       scale: 0.4,
       zIndex: 2,
       transition: {
-        duration: 0.6,
+        duration: 0.7,
 
         ease: 'linear',
       },
@@ -72,7 +73,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
       x: direction > 0 ? '100%' : '-100%',
       opacity: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
 
         ease: 'linear',
       },
@@ -81,7 +82,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
       x: direction > 0 ? '-100%' : '100%',
       opacity: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
 
         ease: 'linear',
       },
@@ -90,7 +91,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
       x: '0%',
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
 
         ease: 'linear',
       },
@@ -136,7 +137,6 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.5 }}
           >
             <h3 className="text-center text-s leading-o-150 text-olga-light-grey">
               {images[currentIndex].name}
@@ -145,7 +145,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
           {/* image */}
           {positions.map((position, posIndex) => {
             const imageIndex = getPositionIndex(currentIndex, posIndex - 1);
-            console.log('imInd', imageIndex, '-', currentIndex);
+
             return (
               <motion.div
                 key={`image-${imageIndex}`}
@@ -153,11 +153,9 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
                 initial={position}
                 animate={position}
                 variants={imageVariants}
-                transition={{ duration: 0.7 }}
-                className="absolute top-0 h-[164px] w-[320px]"
+                className={clsx('absolute top-0 h-[164px] w-[320px]')}
                 drag="x"
                 dragConstraints={containerRef}
-                //dragElastic={0}
                 onDragEnd={handleDragEnd}
               >
                 <Link
