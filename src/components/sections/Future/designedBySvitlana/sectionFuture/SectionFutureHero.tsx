@@ -1,7 +1,7 @@
 import React from 'react';
 import GalaxySvitlana from './GalaxySvitlana';
 import Container from '../../../../ui/DesignBySvitlna/Container';
-import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
 function SectionFutureHero() {
   return (

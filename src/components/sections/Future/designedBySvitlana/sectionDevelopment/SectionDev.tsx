@@ -2,7 +2,7 @@ import React from 'react';
 import DevText from './DevText';
 import SceneLogo from '@/components/layout/Header/SceneLogo';
 import Container from '../../../../ui/DesignBySvitlna/Container';
-import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
 function SectionDev() {
   return (
