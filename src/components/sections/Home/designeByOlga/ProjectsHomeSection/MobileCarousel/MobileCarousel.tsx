@@ -8,7 +8,6 @@ import { PanInfo } from 'framer-motion';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 import { ImagesHomeProjectsProps } from '@/constants/images/imagesSrc';
 import { ButtonSlide } from '@/components/ui/SwiperFoto';
-import clsx from 'clsx';
 
 interface ProjectsSliderProps {
   images: ImagesHomeProjectsProps;
@@ -153,7 +152,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
                 initial={position}
                 animate={position}
                 variants={imageVariants}
-                className={clsx('absolute top-0 h-[164px] w-[320px]')}
+                className="absolute top-0 h-[164px] w-[320px]"
                 drag="x"
                 dragConstraints={containerRef}
                 onDragEnd={handleDragEnd}
