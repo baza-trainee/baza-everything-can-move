@@ -6,7 +6,7 @@ import { PROJECTS_SVITLANA_IMAGES } from '@/constants/images/imagesSrc';
 import SectionImagesManager from './SectionImagesManager';
 import { subTitlesOurCustomers } from '@/constants/data/subTitlesArr';
 import SubTitleBtn from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleBtn';
-import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
 const ProjectsSectionSecond: React.FC = () => {
   return (
@@ -17,10 +17,8 @@ const ProjectsSectionSecond: React.FC = () => {
         </SectionTitle> */}
         <AnimatedTitle
           title="категорії"
-          //className="mb-4 lg:mb-[14px] 2xl:mt-[496px]"
-          className="mb-4 font-second-family text-xlg font-semibold leading-o-150 tracking-s-2 lg:mb-[14px] lg:text-3xl lg:leading-o-120 2xl:mt-[496px] 2xl:text-3xl"
+          className="mb-4 lg:mb-[14px] 2xl:mt-[496px]"
           wordClasses={['text-s-purple']}
-          colorBg="black"
         />
         {/* ----------------------------------- */}
         <div className="mb-9 flex flex-col items-center lg:mb-6 lg:flex-row 2xl:mb-8">
