@@ -57,17 +57,17 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
     //  <--------
     if (info.offset.x > -50) {
       setDirection(1);
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    } else if (info.offset.x < 50) {
-      //  -------->
-      setDirection(-1);
       setCurrentIndex(
         (prevIndex) => (prevIndex - 1 + images.length) % images.length
       );
+    } else if (info.offset.x < 50) {
+      //  -------->
+      setDirection(-1);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }
   };
-  const positions = ['left', 'center', 'right']; //cI=1 left=0 center=1 right=2???
-  // const positions = ['right', 'center', 'left']; //cI=1 left=2 center=1 right=0???
+  const positions = ['left', 'center', 'right']; //cI=1 left=0 center=1 right=2
+
   const getPositionIndex = (baseIndex: number, offset: number) => {
     return (baseIndex + offset + totalImages) % totalImages;
   };
@@ -77,21 +77,20 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
       y: '15%',
       width: '120px',
       height: '64px',
-      // zIndex: 2, //
+
       transition: {
         duration: 0.7,
         ease: 'easeIn',
       },
     },
-    // center: { x: '0%', width: '320px', height: '164px', zIndex: 5 }, //
+
     center: {
       x: '0%',
       y: '0%',
       height: '164px',
       width: '320px',
-      // zIndex: 5,
+
       transition: {
-        //duration: 0.7,
         x: { duration: 0.6 },
         width: { duration: 1 }, //delay: 0.5,
         height: { duration: 1 }, //delay: 0.5,
@@ -103,7 +102,7 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
       x: '150%',
       width: '120px',
       height: '64px',
-      //zIndex: 2,
+
       y: '15%',
       transition: {
         duration: 0.7,
@@ -116,8 +115,6 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
       className="w-full flex-col items-center justify-center lg:hidden"
       ref={containerRef}
     >
-      {/* <div className="h-[193px] "> */}
-      {/* */}
       <div className="relative mb-6 flex h-[193px] w-[343px] items-center justify-center overflow-hidden">
         <AnimatePresence custom={direction}>
           {positions.map((position, posIndex) => {
@@ -129,7 +126,7 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
                 variants={imageVariants}
                 custom={direction}
                 //initial={posIndex === 1 && 'center'}
-                // animate={posIndex === 1 && 'center'}
+
                 initial={position}
                 animate={position}
                 //exit="right"
@@ -137,11 +134,9 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
                 dragConstraints={containerRef}
                 //dragElastic={0}
                 onDragEnd={handleDragEnd}
-                // h-[164px] w-[320px]
                 className={clsx(
                   'absolute',
-                  //
-                  //duration-500  w-[320px] 'absolute'
+
                   posIndex === 0 && 'z-0', //left-0 top-1/4
                   posIndex === 1 && 'z-10', //top-0
 
@@ -153,7 +148,6 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-full w-full"
-                  // className="h-[164px] w-[320px]"
                 >
                   <Image
                     src={images[imageIndex].src}
@@ -165,11 +159,9 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
               </motion.div>
             );
           })}
-
-          {/* image */}
         </AnimatePresence>
       </div>
-      {/* </div> */}
+
       {/* buttons div */}
       <div className="flex justify-center gap-5">
         <ButtonSlide onClick={handleBack} ariaLabel="кнопка попереднє фото" />
