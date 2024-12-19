@@ -14,7 +14,6 @@ import { useMediaQuery } from 'react-responsive';
 import MobileCarousel from './MobileCarousel/MobileCarousel';
 import Link from 'next/link';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
-import MobileCarousel2 from './MobileCarousel/MobileCarousel2';
 
 const ProjectCardsShowcase: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
@@ -191,7 +190,6 @@ const ProjectCardsShowcase: React.FC = () => {
 
       {/* mobile */}
       {isMobile && <MobileCarousel images={IMAGES_HOME_PROJECTS} />}
-      {/* {isMobile && <MobileCarousel2 images={IMAGES_HOME_PROJECTS} />} */}
     </div>
   );
 };

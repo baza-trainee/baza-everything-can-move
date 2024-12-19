@@ -145,7 +145,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
           {/* image */}
           {positions.map((position, posIndex) => {
             const imageIndex = getPositionIndex(currentIndex, posIndex - 1);
-
+            console.log('imInd', imageIndex, '-', currentIndex);
             return (
               <motion.div
                 key={`image-${imageIndex}`}
