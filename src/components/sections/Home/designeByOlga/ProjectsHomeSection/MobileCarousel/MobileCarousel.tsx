@@ -94,7 +94,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
             className="absolute bottom-0 w-full"
             custom={direction}
             variants={titleVariants}
-            // initial="enter"
+            initial="enter"
             animate="center"
             exit="exit"
             transition={{ duration: 0.5 }}
@@ -111,7 +111,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
               <motion.div
                 key={`image-${imageIndex}`}
                 custom={direction}
-                initial="left"
+                initial={position}
                 animate={position}
                 variants={imageVariants}
                 transition={{ duration: 0.7 }}

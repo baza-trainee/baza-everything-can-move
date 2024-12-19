@@ -190,8 +190,8 @@ const ProjectCardsShowcase: React.FC = () => {
       )}
 
       {/* mobile */}
-      {/* {isMobile && <MobileCarousel images={IMAGES_HOME_PROJECTS} />} */}
-      {isMobile && <MobileCarousel2 images={IMAGES_HOME_PROJECTS} />}
+      {isMobile && <MobileCarousel images={IMAGES_HOME_PROJECTS} />}
+      {/* {isMobile && <MobileCarousel2 images={IMAGES_HOME_PROJECTS} />} */}
     </div>
   );
 };
