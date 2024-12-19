@@ -1,7 +1,8 @@
 import React from 'react';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
-import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
+//import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
 import { ICONS_PURPOSE } from '@/constants/icons/iconsSrc';
 import StarsComponent from './StarsComponent';
 
@@ -17,9 +18,16 @@ const PurposeSection: React.FC = () => {
     >
       <div className="bg-white pb-20 font-second-family lg:pb-[100px]">
         <Container>
-          <SectionTitle secondDesign className="mb-6 lg:mb-[6px]">
+          {/* <SectionTitle secondDesign className="mb-6 lg:mb-[6px]">
             Наша мета
-          </SectionTitle>
+          </SectionTitle> */}
+          <AnimatedTitle
+            title="Наша мета"
+            //className="mb-6 lg:mb-[6px]"
+            className="mb-6 font-second-family text-xlg font-semibold leading-o-150 tracking-s-2 lg:mb-[6px] lg:text-3xl lg:leading-o-120 2xl:text-3xl"
+            wordClasses={['text-s-purple', 'text-s-purple']}
+            colorBg="white"
+          />
           <div className="mb-6 w-[280px] lg:mb-0 lg:w-[540px] 2xl:w-[609px]">
             <p className="text-md font-semibold uppercase leading-o-120 tracking-s-2 text-black lg:text-lg lg:font-medium lg:text-s-gray 2xl:text-l 2xl:font-regular 2xl:normal-case 2xl:leading-o-150 2xl:tracking-normal 2xl:text-black">
               Проєкт створено для взаємної підтримки двох соціальних груп.

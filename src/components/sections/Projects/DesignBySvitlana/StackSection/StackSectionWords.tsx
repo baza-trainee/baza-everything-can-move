@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '@/components/ui/DesignBySvitlna/Container';
-import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
+//import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
 import TechCard from './TechCard';
 import { STACK_ARR } from '@/constants/stackArr';
 // import DigitalRain from './DigitalRain';
@@ -38,9 +39,16 @@ const StackSectionWords: React.FC = () => {
             className="mb-6 lg:mb-[6px] 2xl:w-[544px]"
             // style={{ backdropFilter: 'blur(200px)' }}
           >
-            <SectionTitle secondDesign>
+            {/* <SectionTitle secondDesign>
               <span className="text-white">стек</span> технологій
-            </SectionTitle>
+            </SectionTitle> */}
+            <AnimatedTitle
+              title="стек технологій"
+              //no style
+              className="font-second-family text-xlg font-semibold leading-o-150 tracking-s-2 lg:text-3xl lg:leading-o-120 2xl:text-3xl"
+              wordClasses={['text-white', 'text-s-purple']}
+              colorBg="black"
+            />
           </div>
 
           <div className="w-[320px] text-m leading-o-150 lg:w-[494px] 2xl:w-[483px] 2xl:text-l">

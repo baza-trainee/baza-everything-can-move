@@ -183,6 +183,10 @@ const config: Config = {
           '0%': { transform: 'translateX(0)' },
           '40%': { transform: 'translateX(5%)' },
           '100%': { transform: 'translateX(0)' },
+        moveleft: {
+          '0%': { transform: 'translateX(-20%)' },
+          '50%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-20%)' },
         },
       },
     },
