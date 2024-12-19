@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import Link from 'next/link';
-import Scene from './Scene';
+// import Scene from './Scene';
 
 export default function Projects() {
   const [isVisible, setIsVisible] = useState(false);
@@ -82,15 +82,15 @@ export default function Projects() {
             </div>
           </Link>
         </div>
-        {/* <video
+        <video
           src="/assets/videos/Baza.mp4" // шлях до твого відеофайлу
           controls
           autoPlay
           loop
           muted
           className="h-[74%] 2xl:w-[50%]"
-        /> */}
-         <Scene /> 
+        />
+         {/* <Scene />  */}
       </section>
     </Background>
   );
