@@ -12,7 +12,7 @@ import zavriki from '@/assets/images/Projects/zavriki.png';
 import zerno from '@/assets/images/Projects/zerno.png';
 import hvostiki from '@/assets/images/Projects/hvostiki.png';
 
-interface ImagesHomeProjects {
+export interface ImagesHomeProjects {
   pos: string;
   src: StaticImageData;
   link: string;

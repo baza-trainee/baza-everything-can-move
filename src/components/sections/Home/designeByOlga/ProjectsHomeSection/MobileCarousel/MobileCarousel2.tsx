@@ -1,12 +1,15 @@
 'use client';
-import React, { useState, useCallback, useRef } from 'react'; //useEffect,
+import React, { useState, useCallback, useRef, useEffect } from 'react'; //useEffect,
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { motion, AnimatePresence } from 'framer-motion'; //useInView
 import { PanInfo } from 'framer-motion';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
-import { ImagesHomeProjectsProps } from '@/constants/images/imagesSrc';
+import {
+  ImagesHomeProjectsProps,
+  ImagesHomeProjects,
+} from '@/constants/images/imagesSrc';
 import { ButtonSlide } from '@/components/ui/SwiperFoto';
 
 interface ProjectsSliderProps {
@@ -19,9 +22,23 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
   // const isInView = useInView(containerRef);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [carouselImages, setCarouselImages] = useState<ImagesHomeProjects[]>(
+    []
+  );
 
   const totalImages = images.length;
 
+  useEffect(() => {
+    const getPositionIndex = (baseIndex: number, offset: number) => {
+      return (baseIndex + offset + totalImages) % totalImages;
+    };
+    const leftImage = images[getPositionIndex(currentIndex, -1)];
+    const centerImage = images[currentIndex];
+    const rightImage = images[getPositionIndex(currentIndex, 1)];
+
+    // Обновляем состояние с новыми изображениями
+    setCarouselImages([leftImage, centerImage, rightImage]);
+  }, [currentIndex, images, totalImages]);
   const handleNext = useCallback(() => {
     setDirection(1); //from left to right
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
@@ -39,7 +56,7 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
       x: '0%',
       scale: 1,
       zIndex: 5,
-     
+
       transition: {
         duration: 0.6,
 
@@ -50,7 +67,7 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
       x: '-50%',
       scale: 0.4,
       zIndex: 2,
-     
+
       transition: {
         duration: 0.6,
 
@@ -61,7 +78,7 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
       x: '50%',
       scale: 0.4,
       zIndex: 2,
-      
+
       transition: {
         duration: 0.6,
 
@@ -98,9 +115,6 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
         ease: 'linear',
       },
     },
-  };
-  const getPositionIndex = (baseIndex: number, offset: number) => {
-    return (baseIndex + offset + totalImages) % totalImages;
   };
 
   const handleDragEnd = (
@@ -146,38 +160,30 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
             </h3>
           </motion.div>
           {/* image */}
-          {positions.map((position, posIndex) => {
-            const imageIndex = getPositionIndex(currentIndex, posIndex - 1);
-
-            return (
-              <motion.div
-                key={`image-${imageIndex}`}
-                custom={direction}
-                initial={position}
-                animate={position}
-                variants={imageVariants}
-                //transition={{ duration: 0.7 }}
-                className="absolute top-0 h-[164px] w-[320px]"
-                drag="x"
-                dragConstraints={containerRef}
-                //dragElastic={0}
-                onDragEnd={handleDragEnd}
-              >
-                <Link
-                  href={images[imageIndex].link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    src={images[imageIndex].src}
-                    alt={`Image ${imageIndex}`}
-                    className="object-cover"
-                    style={{ width: '100%' }}
-                  />
-                </Link>
-              </motion.div>
-            );
-          })}
+          {carouselImages.map((image, index) => (
+            <motion.div
+              key={`image-${index}`}
+              custom={direction}
+              initial={positions[index]}
+              animate={positions[index]}
+              variants={imageVariants}
+              //transition={{ duration: 0.7 }}
+              className="absolute top-0 h-[164px] w-[320px]"
+              drag="x"
+              dragConstraints={containerRef}
+              //dragElastic={0}
+              onDragEnd={handleDragEnd}
+            >
+              <Link href={image.link} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={image.src}
+                  alt={`Image ${image.name}`}
+                  className="object-cover"
+                  style={{ width: '100%' }}
+                />
+              </Link>
+            </motion.div>
+          ))}
         </AnimatePresence>
       </div>
       {/* buttons div */}
