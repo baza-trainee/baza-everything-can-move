@@ -16,59 +16,23 @@ interface ProjectsSliderProps {
 
 const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  // for imfinity moving
-  // const isInView = useInView(containerRef);
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [direction, setDirection] = useState(0);
-  //   const cardWidth = 320;
-  //   const totalWidth = 343;
+
   const totalImages = images.length;
 
-  const imageVariants = {
-    enter: (direction: number) => {
-      return {
-        x: direction > 0 ? '100%' : '-100%',
-
-        opacity: 0,
-        transition: {
-          ease: 'linear',
-          duration: 0.5,
-        },
-      };
-    },
-
-    center: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.7,
-
-        ease: 'linear',
-      },
-    },
-    exit: (direction: number) => {
-      return {
-        x: direction > 0 ? '-100%' : '100%',
-
-        opacity: 0,
-        transition: {
-          ease: 'linear',
-
-          duration: 0.5,
-        },
-      };
-    },
-  };
-
   const handleNext = useCallback(() => {
+    //from left to right
     setDirection(1);
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
   }, [totalImages]);
 
   const handleBack = () => {
+    //from right to left
     setDirection(-1);
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
   };
 
   //   const titleVariants = {
@@ -107,6 +71,46 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
   const getPositionIndex = (baseIndex: number, offset: number) => {
     return (baseIndex + offset + totalImages) % totalImages;
   };
+  const imageVariants = {
+    left: {
+      x: '-150%',
+      y: '15%',
+      width: '120px',
+      height: '64px',
+      // zIndex: 2, //
+      transition: {
+        duration: 0.7,
+        ease: 'easeIn',
+      },
+    },
+    // center: { x: '0%', width: '320px', height: '164px', zIndex: 5 }, //
+    center: {
+      x: '0%',
+      y: '0%',
+      height: '164px',
+      width: '320px',
+      // zIndex: 5,
+      transition: {
+        //duration: 0.7,
+        x: { duration: 0.6 },
+        width: { duration: 1 }, //delay: 0.5,
+        height: { duration: 1 }, //delay: 0.5,
+        ease: 'linear',
+      },
+    },
+
+    right: {
+      x: '150%',
+      width: '120px',
+      height: '64px',
+      //zIndex: 2,
+      y: '15%',
+      transition: {
+        duration: 0.7,
+        ease: 'easeIn',
+      },
+    }, //
+  };
   return (
     <div
       className="w-full flex-col items-center justify-center lg:hidden"
@@ -124,28 +128,32 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
                 key={`image-${imageIndex}`}
                 variants={imageVariants}
                 custom={direction}
-                initial={posIndex === 1 && 'center'}
-                //animate="center"
-                //exit="exit"
+                //initial={posIndex === 1 && 'center'}
+                // animate={posIndex === 1 && 'center'}
+                initial={position}
+                animate={position}
+                //exit="right"
                 drag="x"
                 dragConstraints={containerRef}
                 //dragElastic={0}
                 onDragEnd={handleDragEnd}
                 // h-[164px] w-[320px]
                 className={clsx(
-                  // top-0
-                  'absolute w-[320px] duration-500 ease-linear',
-                  posIndex === 0 && 'left-0 top-0 w-[160px] z-0',
-                  posIndex === 1 && 'top-0 w-[320px] z-10',
+                  'absolute',
+                  //
+                  //duration-500  w-[320px] 'absolute'
+                  posIndex === 0 && 'z-0', //left-0 top-1/4
+                  posIndex === 1 && 'z-10', //top-0
 
-                  posIndex === 2 && 'right-0 top-0 w-[160px] z-0'
+                  posIndex === 2 && 'z-0' //right-0 top-1/4
                 )}
               >
                 <Link
                   href={images[imageIndex].link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-[164px] w-[320px]"
+                  className="h-full w-full"
+                  // className="h-[164px] w-[320px]"
                 >
                   <Image
                     src={images[imageIndex].src}
