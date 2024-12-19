@@ -144,7 +144,7 @@ function AnimatedTitle({
     <div ref={ref}>
       <div
         className={cn(
-          'traking-s-2 font-second-family text-xlg font-semibold uppercase leading-o-150 2xl:text-3xl lg:leading-o-120',
+          'traking-s-2 font-second-family text-xlg font-semibold uppercase leading-o-150 lg:text-3xl lg:leading-o-120',
           className
         )}
       >
