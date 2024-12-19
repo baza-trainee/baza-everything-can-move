@@ -1,5 +1,5 @@
 import BirdsScene from './BirdsScene';
-import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
 const BirdsSection = () => {
   return (
@@ -12,9 +12,8 @@ const BirdsSection = () => {
         </SectionTitle> */}
         <AnimatedTitle
           title="Наші проєкти"
-          className="mb-6 font-second-family text-xlg font-semibold leading-o-150 tracking-s-2 lg:mb-[6px] lg:text-3xl lg:leading-o-120 2xl:text-3xl"
+          className="mb-6 lg:mb-[6px]"
           wordClasses={['text-white', 'text-s-purple']}
-          colorBg="black"
         />
         <p className="font-third-family text-m font-regular leading-s-24 2xl:text-l 2xl:leading-s-36">
           Усі проєкти створюються українцями, які опановують ІТ-спеціальності
