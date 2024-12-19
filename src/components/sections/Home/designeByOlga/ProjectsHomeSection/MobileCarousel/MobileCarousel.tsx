@@ -35,27 +35,65 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
   const positions = ['right', 'center', 'left'];
 
   const imageVariants = {
-    center: { x: '0%', scale: 1, zIndex: 5 },
+    center: {
+      x: '0%',
+      scale: 1,
+      zIndex: 5,
+      transition: {
+        duration: 0.6,
+
+        ease: 'linear',
+      },
+    },
     left: {
       x: '-50%',
       scale: 0.4,
       zIndex: 2,
+      transition: {
+        duration: 0.6,
+
+        ease: 'linear',
+      },
     },
-    right: { x: '50%', scale: 0.4, zIndex: 2 },
+    right: {
+      x: '50%',
+      scale: 0.4,
+      zIndex: 2,
+      transition: {
+        duration: 0.6,
+
+        ease: 'linear',
+      },
+    },
   };
 
   const titleVariants = {
     exit: (direction: number) => ({
       x: direction > 0 ? '100%' : '-100%',
       opacity: 0,
+      transition: {
+        duration: 0.5,
+
+        ease: 'linear',
+      },
     }),
     enter: (direction: number) => ({
       x: direction > 0 ? '-100%' : '100%',
       opacity: 0,
+      transition: {
+        duration: 0.5,
+
+        ease: 'linear',
+      },
     }),
     center: {
       x: '0%',
       opacity: 1,
+      transition: {
+        duration: 0.5,
+
+        ease: 'linear',
+      },
     },
   };
   const getPositionIndex = (baseIndex: number, offset: number) => {
@@ -87,7 +125,8 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-3" />
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 right-3 rotate-[270deg]" />
 
-        <AnimatePresence initial={false} custom={direction}>
+        <AnimatePresence custom={direction}>
+          {/* //initial={false} */}
           {/* title */}
           <motion.div
             key={`title-${currentIndex}`}
