@@ -1,6 +1,6 @@
 'use client';
 import Container from '@/components/ui/DesignBySvitlna/Container';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
@@ -47,7 +47,7 @@ export default function Processes() {
           </p>
         </div>
         <div className="relative -mx-5 mt-[70px] w-[375px] lg:-mx-6 lg:mt-[92px] lg:w-[768px] 2xl:mx-auto 2xl:mt-0 2xl:w-[1198px]">
-          <Image
+          <img
             className="absolute -top-[30px] left-1/2 z-10 h-[60px] w-[60px] -translate-x-1/2 lg:-top-[60px] lg:h-[120px] lg:w-[120px]"
             width={120}
             height={120}
@@ -58,7 +58,7 @@ export default function Processes() {
             <div className="absolute left-1/2 top-0 h-[368px] w-[368px] -translate-x-1/2 rounded-full border-[1px] border-solid border-white lg:h-[1198px] lg:w-[1198px]" />
             <div className="absolute left-1/2 top-6 h-[320px] w-[320px] -translate-x-1/2 rounded-full border-[1px] border-solid border-s-purple lg:top-[80px] lg:h-[1000px] lg:w-[1000px]" />
             <div className="absolute left-1/2 top-[50px] h-[268px] w-[268px] -translate-x-1/2 rounded-full border-[1px] border-solid border-white lg:top-[160px] lg:h-[828px] lg:w-[828px]" />
-            <Image
+            <img
               className="absolute left-1/2 top-[62px] h-[708x] w-[326px] -translate-x-1/2 lg:top-[80px] lg:h-[1232px] lg:w-[568px]"
               width={568}
               height={1232}
