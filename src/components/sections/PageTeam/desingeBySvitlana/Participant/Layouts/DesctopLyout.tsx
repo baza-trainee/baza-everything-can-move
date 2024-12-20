@@ -9,7 +9,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import ListCards from './components/ListCards';
 import StarsRow from './components/StarsRow';
 import TextBottom from './components/TextBottom';
-import { cn } from '@/lib/utils';
+import { debounce } from 'lodash';
 
 interface StateProps {
   widthList: number;
@@ -26,7 +26,6 @@ function DesctopLyout() {
     isPositionFixed: false,
     paddingTop: 0,
   });
-
   const listCardRef = useRef<HTMLUListElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -43,12 +42,13 @@ function DesctopLyout() {
   }, []);
 
   useEffect(() => {
+    const debouncedUpdate = debounce(() => updateValueWidthElement, 100);
     updateValueWidthElement();
-    window.addEventListener('resize', updateValueWidthElement);
+    window.addEventListener('resize', debouncedUpdate);
     return () => {
-      window.removeEventListener('resize', updateValueWidthElement);
+      window.removeEventListener('resize', debouncedUpdate);
     };
-  }, []);
+  }, [updateValueWidthElement]);
 
   const sectionScroll = useScroll({
     target: gridRef,
@@ -70,6 +70,7 @@ function DesctopLyout() {
         layoutState.padingRight,
     ]
   );
+
   useMotionValueEvent(sectionScroll.scrollYProgress, 'change', (event) => {
     setLayoutState((prev) => ({
       ...prev,
@@ -99,10 +100,8 @@ function DesctopLyout() {
   return (
     <div ref={gridRef} className="h-[4500px]">
       <motion.div
-        className={cn(
-          'top-10 overflow-clip',
-          layoutState.isPositionFixed ? 'fixed -z-10' : 'sticky'
-        )}
+        style={{ position: layoutState.isPositionFixed ? 'fixed' : 'sticky' }}
+        className="top-10 -z-10 overflow-clip"
       >
         <motion.div
           style={{ x: smoothTranslateX }}
