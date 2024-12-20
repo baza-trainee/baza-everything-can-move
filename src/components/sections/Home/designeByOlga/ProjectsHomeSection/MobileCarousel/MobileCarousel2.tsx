@@ -32,9 +32,9 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
     const getPositionIndex = (baseIndex: number, offset: number) => {
       return (baseIndex + offset + totalImages) % totalImages;
     };
-    const leftImage = images[getPositionIndex(currentIndex, -1)];
-    const centerImage = images[currentIndex];
-    const rightImage = images[getPositionIndex(currentIndex, 1)];
+    const leftImage = images[getPositionIndex(currentIndex, -1)]; // ci=1 li=0
+    const centerImage = images[currentIndex]; //1
+    const rightImage = images[getPositionIndex(currentIndex, 1)]; //2
 
     // Обновляем состояние с новыми изображениями
     setCarouselImages([leftImage, centerImage, rightImage]);
@@ -50,12 +50,16 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
   };
 
   const positions = ['right', 'center', 'left'];
+  //console.log('positions[index]', positions[currentIndex]);
+
+  console.log('curInd', currentIndex);
 
   const imageVariants = {
     center: {
       x: '0%',
       scale: 1,
       zIndex: 5,
+      opacity: 0.7,
 
       transition: {
         duration: 0.6,
@@ -133,6 +137,18 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
       );
     }
   };
+  const getPosition = (index: number) => {
+    if (index === 0) return 'left';
+    if (index === 1) return 'center';
+    if (index === 2) return 'right';
+    return 'left'; // safety fallback, но не должен понадобиться
+  };
+  const getPosition2 = (index: number) => {
+    if (index === currentIndex) return 'center';
+    if (index === (currentIndex - 1 + totalImages) % totalImages) return 'left';
+    return 'right';
+  };
+
   return (
     <div
       className="w-full flex-col items-center justify-center lg:hidden"
@@ -159,13 +175,18 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
               {images[currentIndex].name}
             </h3>
           </motion.div>
-          {/* image */}
+        </AnimatePresence>
+        {/* image */}
+        <AnimatePresence custom={direction}>
           {carouselImages.map((image, index) => (
             <motion.div
               key={`image-${index}`}
               custom={direction}
-              initial={positions[index]}
-              animate={positions[index]}
+              //initial={positions[index]}
+              //animate={positions[index]}
+              initial={getPosition2(index)}
+              animate={getPosition2(index)}
+              // animate={index === 1 ? 'center' : index === 0 ? 'left' : 'right'}
               variants={imageVariants}
               //transition={{ duration: 0.7 }}
               className="absolute top-0 h-[164px] w-[320px]"
@@ -185,6 +206,8 @@ const MobileCarousel2: React.FC<ProjectsSliderProps> = ({ images }) => {
             </motion.div>
           ))}
         </AnimatePresence>
+
+        {/* </AnimatePresence> */}
       </div>
       {/* buttons div */}
       <div className="flex justify-center gap-5">
