@@ -1,5 +1,6 @@
-import { cn } from '@/lib/utils';
-import Image from 'next/image';
+// import { cn } from '@/lib/utils';
+import clsx from 'clsx';
+// import Image from 'next/image';
 
 export const messagesDiscord = [
   { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/1.webp' },
@@ -19,18 +20,18 @@ export const messagesDiscord = [
 ];
 
 export const images = messagesDiscord.map((item, index) => (
-  <Image
+  <img
     src={item.url}
     alt={item.url}
     key={item.url}
-    priority={true}
-    className={cn(
-      'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
+    // priority={true}
+    className={clsx(
+      'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[24px]',
       index === 3 && 'w-[202px] lg:w-[360px]',
       index === 6 && 'w-[202px] lg:w-[360px]',
       index === 8 && 'w-[202px] lg:w-[360px]'
     )}
-    width={498}
-    height={50}
+    // width={498}
+    // height={50}
   />
 ));
