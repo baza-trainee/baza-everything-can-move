@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef } from 'react'; //useEffect,
+import React, { useState } from 'react'; //useEffect,
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -13,7 +13,6 @@ interface ProjectsSliderProps {
   images: ImagesHomeProjectsProps;
 }
 const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
   const [positionIndexes, setPositionIndexes] = useState([0, 1, 2]);
   const [direction, setDirection] = useState(0);
 
@@ -112,10 +111,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
   };
 
   return (
-    <div
-      ref={containerRef}
-      className="w-full flex-col items-center justify-center lg:hidden"
-    >
+    <div className="w-full flex-col items-center justify-center lg:hidden">
       <div className="relative mb-6 flex h-[193px] w-[343px] items-center justify-center overflow-hidden">
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-3" />
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 right-3 rotate-[270deg]" />
