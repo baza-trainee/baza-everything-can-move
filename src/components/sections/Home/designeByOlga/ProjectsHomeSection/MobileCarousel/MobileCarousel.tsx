@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useCallback, useRef } from 'react'; //useEffect,
+import React, { useState, useRef } from 'react'; //useEffect,
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,60 +12,30 @@ import { ButtonSlide } from '@/components/ui/SwiperFoto';
 interface ProjectsSliderProps {
   images: ImagesHomeProjectsProps;
 }
-
 const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  // for imfinity moving
-  // const isInView = useInView(containerRef);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [positionIndexes, setPositionIndexes] = useState([0, 1, 2]);
   const [direction, setDirection] = useState(0);
 
   const totalImages = images.length;
 
-  const handleNext = useCallback(() => {
+  const handleNext = () => {
     setDirection(1); //from left to right
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
-  }, [totalImages]);
+    setPositionIndexes((prevIndexes) =>
+      prevIndexes.map((prevIndex) => (prevIndex + 1) % totalImages)
+    );
+  };
 
   const handleBack = () => {
     setDirection(-1); //from right to left
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
+    setPositionIndexes((prevIndexes) =>
+      prevIndexes.map(
+        (prevIndex) => (prevIndex - 1 + totalImages) % totalImages
+      )
+    );
   };
 
   const positions = ['right', 'center', 'left'];
-
-  const imageVariants = {
-    center: {
-      x: '0%',
-      scale: 1,
-      zIndex: 5,
-      transition: {
-        duration: 0.7,
-
-        ease: 'linear',
-      },
-    },
-    left: {
-      x: '-50%',
-      scale: 0.4,
-      zIndex: 2,
-      transition: {
-        duration: 0.7,
-
-        ease: 'linear',
-      },
-    },
-    right: {
-      x: '50%',
-      scale: 0.4,
-      zIndex: 2,
-      transition: {
-        duration: 0.7,
-
-        ease: 'linear',
-      },
-    },
-  };
 
   const titleVariants = {
     exit: (direction: number) => ({
@@ -96,8 +66,28 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
       },
     },
   };
-  const getPositionIndex = (baseIndex: number, offset: number) => {
-    return (baseIndex + offset + totalImages) % totalImages;
+  const imageVariants = {
+    center: {
+      x: '0%',
+      scale: 1,
+      zIndex: 5,
+
+      transition: { duration: 0.6, ease: 'linear' },
+    },
+    left: {
+      x: '-50%',
+      scale: 0.4,
+      zIndex: 3,
+
+      transition: { duration: 0.6, ease: 'linear' },
+    },
+    right: {
+      x: '50%',
+      scale: 0.4,
+      zIndex: 3,
+
+      transition: { duration: 0.6, ease: 'linear' },
+    },
   };
 
   const handleDragEnd = (
@@ -107,19 +97,24 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
     //  <--------
     if (info.offset.x > -50) {
       setDirection(1); //from left to right
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setPositionIndexes((prevIndexes) =>
+        prevIndexes.map((prevIndex) => (prevIndex + 1) % totalImages)
+      );
     } else if (info.offset.x < 50) {
       //  -------->
       setDirection(-1); //from right to left
-      setCurrentIndex(
-        (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      setPositionIndexes((prevIndexes) =>
+        prevIndexes.map(
+          (prevIndex) => (prevIndex - 1 + totalImages) % totalImages
+        )
       );
     }
   };
+
   return (
     <div
-      className="w-full flex-col items-center justify-center lg:hidden"
       ref={containerRef}
+      className="w-full flex-col items-center justify-center lg:hidden"
     >
       <div className="relative mb-6 flex h-[193px] w-[343px] items-center justify-center overflow-hidden">
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-3" />
@@ -129,7 +124,7 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
           {/* //initial={false} */}
           {/* title */}
           <motion.div
-            key={`title-${currentIndex}`}
+            key={`image-${positionIndexes[1]}`}
             className="absolute bottom-0 w-full"
             custom={direction}
             variants={titleVariants}
@@ -138,41 +133,39 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
             exit="exit"
           >
             <h3 className="text-center text-s leading-o-150 text-olga-light-grey">
-              {images[currentIndex].name}
+              {images[positionIndexes[1]].name}
             </h3>
           </motion.div>
-          {/* image */}
-          {positions.map((position, posIndex) => {
-            const imageIndex = getPositionIndex(currentIndex, posIndex - 1);
-
-            return (
-              <motion.div
-                key={`image-${imageIndex}`}
-                custom={direction}
-                initial={position}
-                animate={position}
-                variants={imageVariants}
-                className="absolute top-0 h-[164px] w-[320px]"
-                drag="x"
-                dragConstraints={containerRef}
-                onDragEnd={handleDragEnd}
-              >
-                <Link
-                  href={images[imageIndex].link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    src={images[imageIndex].src}
-                    alt={`Image ${imageIndex}`}
-                    className="object-cover"
-                    style={{ width: '100%' }}
-                  />
-                </Link>
-              </motion.div>
-            );
-          })}
         </AnimatePresence>
+
+        {/* image */}
+
+        {positionIndexes.map((imageIndex, posIndex) => (
+          <motion.div
+            key={`image-${imageIndex}`}
+            className="absolute top-0 h-[164px] w-[320px]"
+            initial={positions[posIndex]}
+            animate={positions[posIndex]}
+            variants={imageVariants}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            //dragConstraints={containerRef}
+            onDragEnd={handleDragEnd}
+          >
+            <Link
+              href={images[imageIndex].link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={images[imageIndex].src}
+                alt={`Image ${images[imageIndex].name}`}
+                className="object-cover"
+                style={{ width: '100%' }}
+              />
+            </Link>
+          </motion.div>
+        ))}
       </div>
       {/* buttons div */}
       <div className="flex justify-center gap-5">
@@ -186,5 +179,4 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
     </div>
   );
 };
-
 export default MobileCarousel;
