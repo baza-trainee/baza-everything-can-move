@@ -1,12 +1,13 @@
 'use client';
 import Container from '@/components/ui/DesignBySvitlna/Container';
-// import Image from 'next/image';
+import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
-import { images } from './dataProcesses';
+import clsx from 'clsx';
+import { messagesDiscord } from './dataProcesses';
 
-const durationAnimation = images.length * 2;
+const durationAnimation = messagesDiscord.length * 2;
 const durationShowDiscord = 4;
 
 export default function Processes() {
@@ -82,7 +83,7 @@ export default function Processes() {
                     }}
                     className="flex w-full flex-col"
                   >
-                    {images.map((item, index) => {
+                    {messagesDiscord.map((item, index) => {
                       return (
                         <motion.li
                           variants={{
@@ -101,10 +102,21 @@ export default function Processes() {
                               filter: 'blur(0px)',
                             },
                           }}
-                          className="flex justify-center"
+                          className={clsx('flex justify-center')}
                           key={index}
                         >
-                          {item}
+                          <Image
+                            src={item.url}
+                            alt={'discord повідомлення'}
+                            className={clsx(
+                              'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[24px]',
+                              index === 3 && 'w-[202px] lg:w-[360px]',
+                              index === 6 && 'w-[202px] lg:w-[360px]',
+                              index === 8 && 'w-[202px] lg:w-[360px]'
+                            )}
+                            width={498}
+                            height={50}
+                          />
                         </motion.li>
                       );
                     })}
