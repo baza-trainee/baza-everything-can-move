@@ -48,7 +48,7 @@ const Bubbles3D = () => {
 		const directionalLight = new THREE.DirectionalLight( 0xffffff, API.directionalLightIntensity );
 		directionalLight.position.set( -5, 4, 5 );
 		scene.add( directionalLight );
-        const ambientLight = new THREE.AmbientLight( 0xD3FE50, API.ambientLightIntensity );
+        const ambientLight = new THREE.AmbientLight( 0xFFFFFF, API.ambientLightIntensity );
         scene.add( ambientLight );
         // const raycaster = new THREE.Raycaster();
         // const pointer = new THREE.Vector2();
@@ -57,7 +57,7 @@ const Bubbles3D = () => {
         // const clickMouse = new THREE.Vector2();
         // const moveMouse = new THREE.Vector2();
         // let draggable: THREE.Object3D;
-
+        renderer.domElement.style.position = 'absolute';
         
         if (canvasRefSm.current?.childNodes[0] === undefined && screenWidth < 768) {
             canvasRefSm.current?.appendChild(renderer.domElement);
@@ -201,11 +201,11 @@ const Bubbles3D = () => {
     			
 
     return (
-        <div id='Block3D' className='h-[800px] z-[9999] pb-[100px] lg:pb-20 2xl:pb-16'>
-            <div ref={canvasRefSm} className='mx-0 bg-olga-bg absolute top-0 block lg:hidden'/>
-            <div ref={canvasRefLg} className='mx-0 bg-olga-bg absolute top-0 hidden lg:block'/>
-            <div ref={canvasRefXl} className='mx-0 bg-olga-bg absolute top-0 hidden xl:block'/>
-            <div ref={canvasRef2Xl} className='mx-0 bg-olga-bg absolute top-0 hidden 2xl:block'/>
+        <div id='Block3D' className='h-[546px] relative top-[-700px] w-full'>
+            <div ref={canvasRefSm} className='mx-0 bg-olga-bg lg:hidden w-full'/>
+            {/* <div ref={canvasRefLg} className='mx-0 bg-olga-bg absolute top-0 hidden lg:block'/> */}
+            {/* <div ref={canvasRefXl} className='mx-0 bg-olga-bg absolute top-0 hidden xl:block'/> */}
+            {/* <div ref={canvasRef2Xl} className='mx-0 bg-olga-bg absolute top-0 hidden 2xl:block'/> */}
             
         </div>
     )
