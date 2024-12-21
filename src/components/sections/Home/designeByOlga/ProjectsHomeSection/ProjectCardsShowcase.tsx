@@ -1,9 +1,10 @@
 'use client';
 //from big to small- I use it
 import React, { useEffect, useState } from 'react';
-import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 
 import { useMediaQuery } from 'react-responsive';
+
+import { IMAGES_HOME_PROJECTS } from '@/constants/images/imagesSrc';
 
 import MobileCarousel from './ProjectsComponentVariants/MobileCarousel';
 import ProjectCardsTablet from './ProjectsComponentVariants/ProjectCardsTablet';
