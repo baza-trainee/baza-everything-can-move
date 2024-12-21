@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation';
 import { useDesignStore } from '@/useDesignStore';
 import Image from 'next/image';
 //import HeaderNavigation from './HeaderNavigation';
-import HeaderNavigation from './HeaderNavigation2';
-import SceneLogo from './SceneLogo';
+import HeaderNavigation from './Shared/HeaderNavigation';
+import SceneLogo from './Shared/SceneLogo';
 import { NAV_LINKS } from '@/constants/navlinks';
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 

@@ -4,9 +4,7 @@ import clsx from 'clsx';
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 import { HeaderNavigationProps } from '@/components/layout/Header/types';
 
-import NavigationLinks from '@/components/layout/Header/NavigationLinks';
-
-
+import NavigationLinks from '@/components/layout/Header/Shared/NavigationLinks';
 
 const HeaderNaviComponentSvitlana: React.FC<HeaderNavigationProps> = ({
   headerNav,
