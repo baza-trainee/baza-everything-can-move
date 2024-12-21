@@ -20,7 +20,7 @@ const HeaderNaviComponentSvitlana: React.FC<HeaderNavigationProps> = ({
       setIsAnimating(true);
       const timeout = setTimeout(() => {
         setIsAnimating(false);
-      }, 500);
+      }, 700);
       return () => clearTimeout(timeout);
     } else {
       // in close menu
@@ -37,12 +37,14 @@ const HeaderNaviComponentSvitlana: React.FC<HeaderNavigationProps> = ({
     <div
       className={clsx(
         //   h-dvh??  h-[812px] lg:h-[1024px] 2xl:h-[860px]
-        'fixed top-0 z-[10000] flex w-screen flex-col bg-s-gray font-second-family text-white transition-transform duration-500 ease-linear 2xl:right-0 2xl:top-0 2xl:w-[730px]',
-        openMenu ? 'translate-y-0' : '-translate-y-full',
-        isAnimating ? 'overflow-visible' : 'max-h-screen overflow-y-auto'
+        'fixed top-0 z-[10000] flex w-screen flex-col bg-s-gray font-second-family text-white transition-all duration-700 ease-linear 2xl:right-0 2xl:top-0 2xl:w-[730px]',
+        openMenu
+          ? 'translate-y-0 opacity-100'
+          : '-translate-y-[812px] opacity-80 lg:-translate-y-[1024px] 2xl:-translate-y-[860px]',
+        isAnimating ? 'overflow-y-visible overflow-x-hidden' : 'max-h-screen overflow-y-auto'
       )}
     >
-      <div className="flex-1 overflow-y-auto pb-[85px] lg:pb-[212px] 2xl:pb-[130px]">
+      <div className="flex-1 pb-[85px] lg:pb-[212px] 2xl:pb-[130px]">
         {' '}
         <div className="w-full px-6 pb-[49px] pt-6 lg:pb-[134px] 2xl:px-20 2xl:pb-[38px] 2xl:pt-8">
           <button
