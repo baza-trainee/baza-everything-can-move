@@ -12,18 +12,20 @@ const HeaderNaviComponentSvitlana: React.FC<HeaderNavigationProps> = ({
   openMenu,
 }) => {
   return (
+    // <div className="max-h-screen overflow-y-auto">
     <div
       className={clsx(
         //   h-dvh??  h-[812px] lg:h-[1024px] 2xl:h-[860px]
-        'fixed top-0 z-[10000] flex w-screen flex-col overflow-y-auto bg-s-gray font-second-family text-white transition-transform duration-500 ease-linear 2xl:right-0 2xl:top-0 2xl:w-[730px]',
+        'fixed top-0 z-[10000] flex h-[812px] w-screen flex-col overflow-y-auto bg-s-gray font-second-family text-white transition-transform duration-500 ease-linear lg:h-[1024px] 2xl:right-0 2xl:top-0 2xl:h-[860px] 2xl:w-[730px]',
         openMenu
           ? 'translate-y-0'
           : //-translate-y-full
-            '-translate-y-[815px] lg:-translate-y-[1030px] 2xl:-translate-y-[864px]',
-        'max-h-screen pb-[85px] lg:pb-[212px] 2xl:pb-[130px]'
+            '-translate-y-[815px] lg:-translate-y-[1030px] 2xl:-translate-y-[864px]'
+        //'pb-[85px] lg:pb-[212px] 2xl:pb-[130px]' //max-h-screen
       )}
     >
-      <div>
+      <div className="max-h-screen overflow-y-auto pb-[85px] lg:pb-[212px] 2xl:pb-[130px]">
+        {' '}
         <div className="w-full px-6 pb-[49px] pt-6 lg:pb-[134px] 2xl:px-20 2xl:pb-[38px] 2xl:pt-8">
           <button
             onClick={handleMenuClick}
@@ -32,10 +34,10 @@ const HeaderNaviComponentSvitlana: React.FC<HeaderNavigationProps> = ({
             <ICONS_SRC.CLOSE_MENU_ICON className="fill-current h-8 w-8 2xl:hover:fill-s-light-purple" />
           </button>
         </div>
-
         <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
       </div>
     </div>
+    // </div>
   );
 };
 
