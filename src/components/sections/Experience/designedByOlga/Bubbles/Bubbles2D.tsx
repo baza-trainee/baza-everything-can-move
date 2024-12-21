@@ -66,7 +66,7 @@ const Bubbles2D:React.FC = () => {
 
 
   return (
-    <div id='Block2D' className='relative h-[546px] lg:h-[466px] 2xl:h-[526px] w-full mt-[54px] lg:mt-12 2xl:mt-[60px]'>
+    <div id='Block2D' className='relative h-[546px] lg:h-[466px] 2xl:h-[526px] w-full px-4 lg:px-6 2xl:px-[120px] mt-[54px] lg:mt-12 2xl:mt-[60px]'>
         <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute left-[117px] top-[332px] lg:left-[-50px] lg:top-[84px] 2xl:top-[90px] 2xl:left-[-90px] rounded-full opacity-100 bg-radial-gradien z-10 hidden'/>
         <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute left-[19px] top-[127px] lg:left-[108px] lg:top-[272px] 2xl:top-[227px] 2xl:left-[166px] rounded-full opacity-100 bg-radial-gradien z-10 hidden'/>
         <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute top-[46px] left-[167px] lg:left-[162px] lg:top-[41px] 2xl:top-[36px] 2xl:left-[441px] rounded-full opacity-100 bg-radial-gradien z-10 hidden'/>
