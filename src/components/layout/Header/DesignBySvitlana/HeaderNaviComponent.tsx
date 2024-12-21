@@ -13,6 +13,61 @@ const HeaderNaviComponentSvitlana: React.FC<HeaderNavigationProps> = ({
   openMenu,
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
+  // const [scrollBarWidth, setScrollBarWidth] = useState(0);
+
+  // const [ifScrollBarNeeded, setIfScrollBarNeeded] = useState<boolean>(false);
+
+  // useEffect(() => {
+  //   // calculate scroll width
+  //   const calculateScrollbarWidth = () => {
+  //     const scrollBarWidth =
+  //       window.innerWidth - document.documentElement.clientWidth;
+  //     setScrollBarWidth(scrollBarWidth);
+  //   };
+
+  //   // check height
+  //   const determineMenuHeight = () => {
+  //     const windowWidth = window.innerWidth;
+
+  //     if (windowWidth < 768) {
+  //       return 812;
+  //     } else if (windowWidth < 1440) {
+  //       return 1024;
+  //     } else {
+  //       return 860;
+  //     }
+  //   };
+
+  //   // check if we need scroll
+  //   const checkIfScrollbarNeeded = () => {
+  //     const windowHeight = window.innerHeight;
+  //     const menuHeight = determineMenuHeight();
+  //     console.log('windowHeight', windowHeight);
+  //     console.log('menuHeight', menuHeight);
+  //     if (menuHeight > windowHeight) {
+  //
+  //       calculateScrollbarWidth();
+  //       setIfScrollBarNeeded(true);
+  //     } else {
+  //
+  //       setIfScrollBarNeeded(false);
+  //     }
+  //   };
+
+  //   checkIfScrollbarNeeded();
+
+  //   // renew if resize
+  //   window.addEventListener('resize', () => {
+  //     checkIfScrollbarNeeded();
+  //   });
+
+  //   // Очистка обработчиков
+  //   return () => {
+  //     window.removeEventListener('resize', () => {
+  //       checkIfScrollbarNeeded();
+  //     });
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (openMenu) {
@@ -33,15 +88,15 @@ const HeaderNaviComponentSvitlana: React.FC<HeaderNavigationProps> = ({
   }, [openMenu]);
 
   return (
-    // <div className="max-h-screen overflow-y-auto">
     <div
       className={clsx(
         //   h-dvh??  h-[812px] lg:h-[1024px] 2xl:h-[860px]
         'fixed top-0 z-[10000] flex w-screen flex-col bg-s-gray font-second-family text-white transition-all duration-700 ease-linear 2xl:right-0 2xl:top-0 2xl:w-[730px]',
         openMenu
           ? 'translate-y-0 opacity-100'
-          : '-translate-y-[812px] opacity-80 lg:-translate-y-[1024px] 2xl:-translate-y-[860px]',
+          : '-translate-y-[812px] opacity-90 lg:-translate-y-[1024px] 2xl:-translate-y-[860px]',
         isAnimating ? 'overflow-y-auto' : 'max-h-screen overflow-y-auto'
+        //ifScrollBarNeeded && `pr:${scrollBarWidth}px`
       )}
     >
       <div className="flex-1 pb-[85px] lg:pb-[212px] 2xl:pb-[130px]">
@@ -57,7 +112,6 @@ const HeaderNaviComponentSvitlana: React.FC<HeaderNavigationProps> = ({
         <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
       </div>
     </div>
-    // </div>
   );
 };
 
