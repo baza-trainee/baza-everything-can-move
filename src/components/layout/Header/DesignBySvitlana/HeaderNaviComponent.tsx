@@ -16,17 +16,22 @@ const HeaderNaviComponentSvitlana: React.FC<HeaderNavigationProps> = ({
 
   useEffect(() => {
     if (openMenu) {
+      // in open menu
       setIsAnimating(true);
       const timeout = setTimeout(() => {
         setIsAnimating(false);
       }, 500);
       return () => clearTimeout(timeout);
     } else {
-      setIsAnimating(false);
+      // in close menu
+      setIsAnimating(true);
+      const timeout = setTimeout(() => {
+        setIsAnimating(false);
+      }, 1000);
+      return () => clearTimeout(timeout);
     }
   }, [openMenu]);
 
-  console.log('is A', isAnimating);
   return (
     // <div className="max-h-screen overflow-y-auto">
     <div
