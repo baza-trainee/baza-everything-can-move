@@ -41,7 +41,7 @@ const HeaderNaviComponentSvitlana: React.FC<HeaderNavigationProps> = ({
         openMenu
           ? 'translate-y-0 opacity-100'
           : '-translate-y-[812px] opacity-80 lg:-translate-y-[1024px] 2xl:-translate-y-[860px]',
-        isAnimating ? 'overflow-y-visible overflow-x-hidden' : 'max-h-screen overflow-y-auto'
+        isAnimating ? 'overflow-y-auto' : 'max-h-screen overflow-y-auto'
       )}
     >
       <div className="flex-1 pb-[85px] lg:pb-[212px] 2xl:pb-[130px]">
