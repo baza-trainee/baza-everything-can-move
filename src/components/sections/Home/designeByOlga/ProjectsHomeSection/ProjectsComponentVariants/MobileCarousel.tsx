@@ -1,10 +1,11 @@
 'use client';
-import React, { useState } from 'react'; //useEffect,
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { motion, AnimatePresence } from 'framer-motion'; //useInView
+import { motion, AnimatePresence } from 'framer-motion';
 import { PanInfo } from 'framer-motion';
+
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 import { ImagesHomeProjectsProps } from '@/constants/images/imagesSrc';
 import { ButtonSlide } from '@/components/ui/SwiperFoto';
@@ -116,8 +117,8 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 left-3" />
         <ICONS_SHARED.CORNER_BOTTOM className="absolute bottom-0 right-3 rotate-[270deg]" />
 
+        {/* //initial={false} */}
         <AnimatePresence custom={direction}>
-          {/* //initial={false} */}
           {/* title */}
           <motion.div
             key={`image-${positionIndexes[1]}`}
@@ -135,7 +136,6 @@ const MobileCarousel: React.FC<ProjectsSliderProps> = ({ images }) => {
         </AnimatePresence>
 
         {/* image */}
-
         {positionIndexes.map((imageIndex, posIndex) => (
           <motion.div
             key={`image-${imageIndex}`}
