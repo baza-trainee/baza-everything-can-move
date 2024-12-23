@@ -8,8 +8,8 @@ export default function Scene() {
   return (
     <Canvas
       camera={{ position: [0, 0, 10], fov: 120 }} // Початкова позиція камери
-      style={{ width: '100%', height: '70vh' }}
-      className='transform -translate-y-5'// Розтягування Canvas на весь екран
+      style={{ width: '100%', height: '50vh'  }}
+      className='transform -translate-y-5 -rotate-[30deg] -left-4'// Розтягування Canvas на весь екран
     >
       {/* Джерела світла */}
       <ambientLight intensity={0.5} />

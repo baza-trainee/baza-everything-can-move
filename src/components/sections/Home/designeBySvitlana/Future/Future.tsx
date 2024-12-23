@@ -4,6 +4,7 @@ import Link from 'next/link';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 // import Scene from './Scene';
 
+
 export default function Projects() {
 
   return (
@@ -50,15 +51,15 @@ export default function Projects() {
             </div>
           </Link>
         </div>
-        <video
+        {/* <video
           src="/assets/videos/Baza.mp4" // шлях до твого відеофайлу
           controls
           autoPlay
           loop
           muted
           className="h-[74%] 2xl:w-[50%]"
-        />
-         {/* <Scene />  */}
+        /> */}
+         <Scene /> 
       </section>
     </Background>
   );

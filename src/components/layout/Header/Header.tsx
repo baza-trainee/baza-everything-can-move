@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation';
 import { useDesignStore } from '@/useDesignStore';
 import Image from 'next/image';
 //import HeaderNavigation from './HeaderNavigation';
-import HeaderNavigation from './HeaderNavigation2';
-import SceneLogo from './SceneLogo';
+import HeaderNavigation from './Shared/HeaderNavigation';
+import SceneLogo from './Shared/SceneLogo';
 import { NAV_LINKS } from '@/constants/navlinks';
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 
@@ -70,8 +70,8 @@ const Header: React.FC = () => {
             handleMenuClick={handleMenuClick}
             openMenu={openMenu}
           />
+
           {/* If  header do not open  */}
-          {/* {!openMenu && ( */}
           <>
             <Link
               href="/"
@@ -82,7 +82,7 @@ const Header: React.FC = () => {
                   'ml-4 py-3 lg:ml-6 lg:py-4 2xl:ml-20 2xl:pb-[14px] 2xl:pt-4'
               )}
             >
-              {/* For Olga not 3d */}
+              {/* For Olga not 3d Logo*/}
               {designType === 'designByOlga' && (
                 <Image
                   className={clsx('h-16 w-16 lg:h-20 lg:w-20')}
@@ -93,7 +93,7 @@ const Header: React.FC = () => {
                   height={80}
                 />
               )}
-              {/* for Svitlana 3d*/}
+              {/* for Svitlana 3d Logo*/}
               {designType === 'designBySvitlana' && (
                 <div
                   className={clsx(
@@ -103,7 +103,7 @@ const Header: React.FC = () => {
                   <SceneLogo />
                 </div>
               )}
-              {/*we do not need it any more ?*/}
+
               {/* designType === 'designBySvitlana' && 'w-[40px] lg:w-[68px]
                 2xl:w-[76px]' */}
             </Link>
@@ -176,7 +176,6 @@ const Header: React.FC = () => {
               </button>
             </div>
           </>
-          {/*  )} */}
         </header>
       )}
     </>

@@ -15,7 +15,6 @@ const ProjectsSectionSecond: React.FC = () => {
           title="категорії"
           className="mb-4 lg:mb-[14px] 2xl:mt-[496px]"
           wordClasses={['text-s-purple']}
-          colorBg="black"
         />
         {/* ----------------------------------- */}
         <div className="mb-9 flex flex-col items-center lg:mb-6 lg:flex-row 2xl:mb-8">

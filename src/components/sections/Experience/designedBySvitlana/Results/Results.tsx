@@ -1,7 +1,10 @@
 'use client';
 
 // import Bubbles3D from './Bubbles3D';
-import { useEffect, useState } from 'react';
+
+import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
+import React, { useEffect, useState } from 'react';
+
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import { ICONS } from '@/constants/icons/icons';
 import styles from './results.module.css';
@@ -10,6 +13,12 @@ import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
 const Results: React.FC = () => {
   const [hovered, setHovered] = useState<boolean>(false);
+  // const [Xdirection, setXdirection] = useState<string>('');
+  // const [Ydirection, setYdirection] = useState<string>('');
+  const [mouseX, setmouseX] = useState<number>(0);
+  const [mouseY, setmouseY] = useState<number>(0);
+  // const [mouseXprev, setmouseXprev] = useState<number>(0);
+  // const [mouseYprev, setmouseYprev] = useState<number>(0);
 
   useEffect(() => {
     const resultsBlock = document.getElementById('resultsBlock');
@@ -17,48 +26,81 @@ const Results: React.FC = () => {
     if (!resultsBlock) return;
     if (!tagGroups) return;
 
-    const tagGroup1 = tagGroups[0];
-    // const tagGroup2 = tagGroups[1]
-    // const tagGroup3 = tagGroups[2]
-    // console.log(tagGroup1);
-    // console.log(tagGroup2);
-    // console.log(tagGroup3);
 
-    const handleMouseOver = (event: MouseEvent): void => {
-      setHovered(true);
-      const screenWidthHalf = window.innerWidth / 2;
-      const screenHeightHalf = window.innerHeight / 2;
-      //let Xdirection = ""
-      //let Ydirection = ""
-      const mouseX = event.clientX;
-      const mouseY = event.clientY;
-      if (mouseX < screenWidthHalf) {
-        //Xdirection = "left";
-        // tagGroup1.classList.add('transition-transform');
-        tagGroup1.classList.add('animate-result-tags_left');
-        // console.log(tagGroup1.classList);
-      } else if (mouseX > screenWidthHalf) {
-        //Xdirection = "right"
-      }
-      if (mouseY < screenHeightHalf) {
-        //Ydirection = "top"
-      } else if (mouseY > screenHeightHalf) {
-        //Ydirection = "bottom"
-      }
-      // console.log('Xdirection', Xdirection);
-      // console.log('Ydirection', Ydirection);
-    };
+    const tagGroup1 = tagGroups[0] as HTMLDivElement;
+    const tagGroup2 = tagGroups[1] as HTMLDivElement;
+    const tagGroup3 = tagGroups[2] as HTMLDivElement;
+
+    // const handleMouseOver = (event:MouseEvent): void => {
+    //   setHovered(true);
+    // }
+    const handleMouseOver = (event:MouseEvent): void => {
+      // setmouseXprev(mouseX)
+      // setmouseYprev(mouseY)
+      setmouseX(event.clientX)
+      setmouseY(event.clientY)
+      // const XDistance = (mouseX-mouseXprev).toString()
+      // const YDistance = (mouseYprev-mouseY).toString()
+      // if (mouseX < mouseXprev) {
+      //   setXdirection('left');
+      // } else if (mouseX > mouseXprev) {
+      //  setXdirection('right');
+      // }
+      // if (mouseY < mouseYprev) {
+      //   setYdirection('top');
+      // } else if (mouseY > mouseYprev) {
+      //   setYdirection('bottom');
+      // }
+      
+      // tagGroup1.style.left = `${mouseX}px`
+      // console.log(mouseX);
+      // console.log(XDistance);
+
+    }
+      // const screenWidthHalf = window.innerWidth/2;
+      // const screenHeightHalf = window.innerHeight/2;
+      // const XDistance = (mouseX-mouseXprev).toString()
+  // const YDistance = (mouseYprev-mouseY).toString()
+  // if(Xdirection === 'right'){
+  //   tagGroup1.style.left = `${XDistance}px`
+  // }
+  // if(Xdirection === 'left'){
+    // const moveLeft = screenWidthHalf
+    // console.log(mouseX);
+
+    
+    // const coeficientArray =[]
+    // for(let i = 0; i < 7; i++) {
+      // const coeficient = Math.ceil(Math.random() * 9);
+    //   coeficientArray.push(coeficient)
+    // }
+    // const coeficientsArray = Array(6).fill(coeficient)
+    // const NegPosCoeficient = Math.random() < 0.5 ? -1 : 1;
+    // console.log(coeficient);
+    // console.log(coeficientArray);
+    tagGroup1.style.left = `${mouseX/100*7}px`
+    tagGroup1.style.top = `${mouseY/100*7}px`
+    tagGroup2.style.left = `${mouseX/100*5}px`
+    tagGroup2.style.top = `${mouseY/100*8}px`
+    tagGroup3.style.left = `${mouseX/100*4}px`
+    tagGroup3.style.top = `${mouseY/100*10}px`
+
+// console.log(XDistance);
+    
     const handleMouseOut = (): void => setHovered(false);
 
-    if (resultsBlock) {
-      resultsBlock.addEventListener('mouseover', handleMouseOver);
-      resultsBlock.addEventListener('mouseout', handleMouseOut);
+      if (resultsBlock) {
+    resultsBlock.addEventListener('mouseover', handleMouseOver);
+    // resultsBlock.addEventListener('mousemove', handleMouseMove);
+    resultsBlock.addEventListener('mouseout', handleMouseOut);
     }
-    return () => {
-      resultsBlock.removeEventListener('mouseover', handleMouseOver);
-      resultsBlock.removeEventListener('mouseout', handleMouseOut);
-    };
-  }, [hovered]);
+      return () => {
+    resultsBlock.removeEventListener('mouseover', handleMouseOver);
+    // resultsBlock.removeEventListener('mousemove', handleMouseMove);
+    resultsBlock.removeEventListener('mouseout', handleMouseOut);
+      };
+  },[hovered, mouseX, mouseY]);
+
 
   return (
     <Background
@@ -69,11 +111,11 @@ const Results: React.FC = () => {
       className="2xl:relative"
       isNoContainer={true}
     >
-      <div
-        id="resultsBlock"
-        className="flex w-full flex-col gap-[26px] 2xl:flex-row"
-      >
-        <div>
+
+
+      <div id='resultsBlock' className='flex flex-col 2xl:flex-row gap-[26px] w-full pb-20 lg:pb-[100px] 2xl:pb-[200px]'>
+
+        <div className='px-5 lg:px-[26px] 2xl:px-20'>
           <div className="flex items-center justify-start gap-[14px] pb-8 pt-[22px] lg:gap-[69px] lg:pt-[10px] 2xl:gap-[3px] 2xl:pt-[131px]">
             <AnimatedTitle title="Результати" />
             <ICONS.VIOLET_WHITE_STAR_SM className="lg:hidden" />
@@ -97,22 +139,12 @@ const Results: React.FC = () => {
           </div>
         </div>
 
-        <div
-          id={styles.tags}
-          className="relative flex h-auto w-full items-center justify-start will-change-transform"
-        >
-          <div className="relative h-[355px] w-full uppercase">
-            <div
-              id={styles.tagGroup}
-              className="pointer-events-none h-full w-full will-change-transform"
-            >
-              <div
-                id={styles.tagGroup1_1}
-                className="absolute inline-block translate-x-[86px] rotate-[8deg]"
-              >
-                <div className="pointer-events-auto rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-black duration-300 hover:bg-s-light-purple hover:text-white">
-                  Взаємодія
-                </div>
+
+        <div id={styles.tags} className='will-change-transform flex justify-start items-center relative w-full h-auto'>
+          <div className='h-[355px] w-full relative uppercase'>
+
+            <div id={styles.tagGroup}>
+              <div id={styles.tagGroup1_1} className='inline-block absolute translate-x-[86px] rotate-[8deg]'>
               </div>
               <div
                 id={styles.tagGroup1_2}

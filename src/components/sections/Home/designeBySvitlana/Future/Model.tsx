@@ -1,24 +1,33 @@
-"use client";
+import { useLoader, useFrame } from '@react-three/fiber';
+import { useRef } from 'react';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'three';
 
-import { useRef } from "react";
-import { useLoader } from "@react-three/fiber";
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+const Model = () => {
+  const gltf = useLoader(GLTFLoader, '/models/logo1-home.glb'); // Вказати правильний шлях
+  const mixerRef = useRef<THREE.AnimationMixer | null>(null);
 
-import { Group } from "three";
+  // Ініціалізація AnimationMixer для анімацій
+  if (gltf.animations.length && !mixerRef.current) {
+    mixerRef.current = new THREE.AnimationMixer(gltf.scene);
+    gltf.animations.forEach((clip) => {
+      mixerRef.current?.clipAction(clip).play();
+    });
+  }
 
-export default function Model() {
-  const group = useRef<Group>(null);
-
-  // Завантажуємо STL-файл за допомогою STLLoader
-  const geometry = useLoader(STLLoader, "/models/Smile.stl");
-
+  // Оновлення анімації в кожному кадрі
+  useFrame((state, delta) => {
+    mixerRef.current?.update(delta);
+    gltf.scene.rotation.y += delta * Math.PI / 2;
+  });
 
   return (
-    <group ref={group}>
-      <mesh geometry={geometry}>
-        {/* Налаштовуємо матеріал */}
-        <meshStandardMaterial color="#fff" />
-      </mesh>
-    </group>
+    <primitive
+      object={gltf.scene}
+      scale={[5, 5, 6]} // Збільшити модель у 2 рази
+      rotation={[0, Math.PI / 10, 0, -10]} // Розворот: [x, y, z] у радіанах
+    />
   );
-}
+};
+
+export default Model;

@@ -3,64 +3,27 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { cn } from '@/lib/utils';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
+import clsx from 'clsx';
+import { messagesDiscord } from './dataProcesses';
 
-const messagesDiscord = [
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/1.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/2.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/3.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/4.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/5.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/6.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/7.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/8.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/9.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/10.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/11.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/12.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/13.webp' },
-  { url: '/assets/images/PageTeam/DesignSvitlna/FoneMessages/14.webp' },
-];
+const durationAnimation = messagesDiscord.length * 2;
+const durationShowDiscord = 4;
 
 export default function Processes() {
-  const [currentIndexes, setcurrentIndexes] = useState<number[]>([]);
   const [isAnimation, setIsAnimation] = useState(true);
 
   useEffect(() => {
-    if (!isAnimation) return;
-    setcurrentIndexes([]);
-    const showMessages = setInterval(
-      () =>
-        setcurrentIndexes((prev) => {
-          if (prev.length < messagesDiscord.length) {
-            return [...prev, prev.length];
-          } else {
-            clearInterval(showMessages);
-            setIsAnimation(false);
-            setcurrentIndexes([]);
-            setTimeout(() => {
-              setcurrentIndexes([]);
-              setIsAnimation(true);
-            }, 4000);
-            return prev;
-          }
-        }),
-      3000
+    const timeOutAnimation = setTimeout(
+      () => setIsAnimation(!isAnimation),
+      isAnimation ? durationAnimation * 1000 : durationShowDiscord * 1000
     );
-
-    return () => clearInterval(showMessages);
+    return () => clearTimeout(timeOutAnimation);
   }, [isAnimation]);
 
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (document.hidden) {
-        setIsAnimation(false);
-        setcurrentIndexes([]);
-      } else {
-        setcurrentIndexes([]);
-        setIsAnimation(true);
-      }
+      setIsAnimation(!document.hidden);
     };
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -70,22 +33,6 @@ export default function Processes() {
     };
   }, []);
 
-  const images = messagesDiscord.map((item, index) => (
-    <Image
-      src={item.url}
-      alt={item.url}
-      key={item.url}
-      priority={true}
-      className={cn(
-        'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[20px]',
-        index === 3 && 'w-[202px] lg:w-[360px]',
-        index === 6 && 'w-[202px] lg:w-[360px]',
-        index === 8 && 'w-[202px] lg:w-[360px]'
-      )}
-      width={498}
-      height={50}
-    />
-  ));
   return (
     <section className="m-0 -mt-[1px] bg-black pt-[80px]">
       <Container>
@@ -101,7 +48,7 @@ export default function Processes() {
           </p>
         </div>
         <div className="relative -mx-5 mt-[70px] w-[375px] lg:-mx-6 lg:mt-[92px] lg:w-[768px] 2xl:mx-auto 2xl:mt-0 2xl:w-[1198px]">
-          <Image
+          <img
             className="absolute -top-[30px] left-1/2 z-10 h-[60px] w-[60px] -translate-x-1/2 lg:-top-[60px] lg:h-[120px] lg:w-[120px]"
             width={120}
             height={120}
@@ -112,7 +59,7 @@ export default function Processes() {
             <div className="absolute left-1/2 top-0 h-[368px] w-[368px] -translate-x-1/2 rounded-full border-[1px] border-solid border-white lg:h-[1198px] lg:w-[1198px]" />
             <div className="absolute left-1/2 top-6 h-[320px] w-[320px] -translate-x-1/2 rounded-full border-[1px] border-solid border-s-purple lg:top-[80px] lg:h-[1000px] lg:w-[1000px]" />
             <div className="absolute left-1/2 top-[50px] h-[268px] w-[268px] -translate-x-1/2 rounded-full border-[1px] border-solid border-white lg:top-[160px] lg:h-[828px] lg:w-[828px]" />
-            <Image
+            <img
               className="absolute left-1/2 top-[62px] h-[708x] w-[326px] -translate-x-1/2 lg:top-[80px] lg:h-[1232px] lg:w-[568px]"
               width={568}
               height={1232}
@@ -123,19 +70,58 @@ export default function Processes() {
           <div className="absolute bottom-[248px] left-1/2 -translate-x-1/2 overflow-hidden lg:bottom-[238px] 2xl:bottom-0">
             <div className="relative flex h-[570px] w-[302px] items-end justify-center bg-black lg:h-[1014px] lg:w-[562px] 2xl:h-[692px]">
               {isAnimation && (
-                <ul className="flex w-full flex-col gap-4">
-                  {images.map((item, index) => {
-                    if (currentIndexes[index] !== index) {
-                      return null;
-                    }
-
-                    return (
-                      <li className="flex justify-center" key={index}>
-                        {item}
-                      </li>
-                    );
-                  })}
-                </ul>
+                <AnimatePresence key="listMessages">
+                  <motion.ul
+                    initial="hidden"
+                    animate="visibble"
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visibble: {
+                        opacity: 1,
+                        transition: { staggerChildren: 2 },
+                      },
+                    }}
+                    className="flex w-full flex-col"
+                  >
+                    {messagesDiscord.map((item, index) => {
+                      return (
+                        <motion.li
+                          variants={{
+                            hidden: {
+                              marginTop: 0,
+                              height: 0,
+                              scale: 0,
+                              x: 200,
+                              filter: 'blur(40px)',
+                            },
+                            visibble: {
+                              marginTop: '16px',
+                              height: 'auto',
+                              scale: 1,
+                              x: 0,
+                              filter: 'blur(0px)',
+                            },
+                          }}
+                          className={clsx('flex justify-center')}
+                          key={index}
+                        >
+                          <Image
+                            src={item.url}
+                            alt={'discord повідомлення'}
+                            className={clsx(
+                              'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[24px]',
+                              index === 3 && 'w-[202px] lg:w-[360px]',
+                              index === 6 && 'w-[202px] lg:w-[360px]',
+                              index === 8 && 'w-[202px] lg:w-[360px]'
+                            )}
+                            width={498}
+                            height={50}
+                          />
+                        </motion.li>
+                      );
+                    })}
+                  </motion.ul>
+                </AnimatePresence>
               )}
               {!isAnimation && (
                 <AnimatePresence>
@@ -155,7 +141,7 @@ export default function Processes() {
                       y: [0, -20, 20, 0],
                     }}
                     transition={{
-                      duration: 4,
+                      duration: durationShowDiscord,
                       ease: 'easeInOut',
                       times: [0, 0.25, 0.75, 1],
                     }}

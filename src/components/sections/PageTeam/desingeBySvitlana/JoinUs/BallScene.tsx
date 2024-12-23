@@ -5,12 +5,19 @@ import { motion, useInView } from 'framer-motion';
 import { useBallsState } from './Balls';
 import styles from './Balls.module.css';
 import clsx from 'clsx';
+import { useMediaQuery } from 'react-responsive';
 
 const BallScene = () => {
   const [isBallsInViev, setisBallsInViev] = useState(false);
+
   const { balls, setBalls } = useBallsState();
+
   const containerRef = useRef<HTMLDivElement>(null);
+
   const isInView = useInView(containerRef);
+
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+
   useEffect(() => {
     let timer: NodeJS.Timeout;
     if (isInView) {
@@ -24,7 +31,7 @@ const BallScene = () => {
     return () => clearTimeout(timer);
   }, [isInView]);
 
-  const gravity = 0.02; // Сила гравітації
+  const gravity = 0.01; // Сила гравітації
   const bounce = 0.3; // Сила відскоку
   const dragSpeedRef = useRef<{ vx: number; vy: number }>({ vx: 0, vy: 0 });
 
@@ -190,21 +197,12 @@ const BallScene = () => {
     );
   };
   useEffect(() => {
-    // const handleTouchMove = (e: TouchEvent) => {
-    //   const touch = e.touches[0];
-    //   handlePointerMove(touch.clientX, touch.clientY);
-    // };
-
     document.addEventListener('mousemove', handlePointerMove);
     document.addEventListener('mouseup', handlePointerUp);
-    // document.addEventListener('touchmove', handleTouchMove);
-    // document.addEventListener('touchend', handlePointerUp);
 
     return () => {
       document.removeEventListener('mousemove', handlePointerMove);
       document.removeEventListener('mouseup', handlePointerUp);
-      // document.removeEventListener('touchmove', handleTouchMove);
-      // document.removeEventListener('touchend', handlePointerUp);
     };
   }, []);
 
@@ -225,7 +223,7 @@ const BallScene = () => {
                 'absolute flex cursor-grab items-center justify-center rounded-full'
               )}
               initial={{
-                left: 1500,
+                left: isMobile ? 200 : 1200,
               }}
               animate={{
                 top: ball.y - ball.radius,
