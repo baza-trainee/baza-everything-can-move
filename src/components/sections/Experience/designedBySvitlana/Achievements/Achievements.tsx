@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import Image from 'next/image';
 import NumberFlow from '@number-flow/react';
 import { achievementsBySvitlana } from '@/constants/achievements';

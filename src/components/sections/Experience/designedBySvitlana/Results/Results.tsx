@@ -2,7 +2,6 @@
 
 // import Bubbles3D from './Bubbles3D';
 
-import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import React, { useEffect, useState } from 'react';
 
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';

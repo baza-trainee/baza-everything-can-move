@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import styles from './snow.module.css';
-import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 // import clsx from 'clsx';
 

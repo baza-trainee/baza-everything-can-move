@@ -1,5 +1,3 @@
-'use client'; // Додайте це, якщо використовуєте Next.js
-import React, { useEffect, useRef, useState } from 'react';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import Link from 'next/link';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
