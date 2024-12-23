@@ -2,7 +2,7 @@
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import Link from 'next/link';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
-// import Scene from './Scene';
+import Scene from './Scene';
 
 
 export default function Projects() {
