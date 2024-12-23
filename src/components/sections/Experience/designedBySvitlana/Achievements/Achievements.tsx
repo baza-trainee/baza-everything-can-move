@@ -5,6 +5,7 @@ import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import Image from 'next/image';
 import NumberFlow from '@number-flow/react';
 import { achievementsBySvitlana } from '@/constants/achievements';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
 const Achievements: React.FC = () => {
   const [pageUploaded, setPageUploaded] = useState(false);
@@ -15,9 +16,7 @@ const Achievements: React.FC = () => {
   return (
     <div className="container py-20 pb-[96px] lg:pt-[200px] 2xl:pb-[100px]">
       <div className="flex flex-col items-center gap-8 pb-[70px] lg:gap-10 2xl:flex-row 2xl:items-center 2xl:justify-center 2xl:gap-6 2xl:pb-[100px]">
-        <SectionTitle className="text-center" secondDesign={true}>
-          Досягнення
-        </SectionTitle>
+        <AnimatedTitle title="Досягнення" className="text-center" />
         <Image
           src="/assets/images/Experience/star.png"
           alt="star"

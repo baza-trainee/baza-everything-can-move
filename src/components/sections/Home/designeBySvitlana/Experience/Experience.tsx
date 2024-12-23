@@ -2,47 +2,16 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import Link from 'next/link';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
 export default function Projects() {
-  const [isVisible, setIsVisible] = useState(false);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-
-  // Логіка спостереження за елементом
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (headingRef.current) {
-      observer.observe(headingRef.current);
-    }
-
-    return () => {
-      if (headingRef.current) {
-        observer.unobserve(headingRef.current);
-      }
-    };
-  }, []);
+ 
   return (
     <Background text="03 // Досвід" bg="white" xl={500}>
       <section className="mb-32 text-black">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="teitle">
-            <h2
-              ref={headingRef}
-              className={`mb-5 text-xlg uppercase leading-[120%] text-s-title-home transition-all duration-700 lg:text-3xl ${
-                isVisible
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-10 opacity-0'
-              }`}
-            >
-              Досвід
-            </h2>
+            <AnimatedTitle title='Досвід' className='mb-5' colorBg='white'/>
             <p className="mb-10 leading-7 lg:max-w-[310px]">
               Тут ви можете дізнатись про наші факапи та досягнення
             </p>

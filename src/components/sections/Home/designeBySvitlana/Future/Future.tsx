@@ -1,48 +1,16 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
-import React, { useEffect, useRef, useState } from 'react';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import Link from 'next/link';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 // import Scene from './Scene';
 
 export default function Projects() {
-  const [isVisible, setIsVisible] = useState(false);
-  const headingRef = useRef<HTMLHeadingElement>(null);
 
-  // Логіка спостереження за елементом
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (headingRef.current) {
-      observer.observe(headingRef.current);
-    }
-
-    return () => {
-      if (headingRef.current) {
-        observer.unobserve(headingRef.current);
-      }
-    };
-  }, []);
   return (
     <Background text="04 // Майбутнє" bg="s-gray" xl={0}>
       <section className="mb-32 flex items-center gap-12 2xl:flex-nowrap flex-wrap">
         <div className="title">
-          <h2
-            ref={headingRef}
-            className={`mb-5 text-xlg uppercase leading-[120%] text-s-title-home transition-all duration-700 lg:text-3xl font-bold ${
-              isVisible
-                ? 'translate-y-0 opacity-100'
-                : 'translate-y-10 opacity-0'
-            }`}
-          >
-            Майбутнє
-          </h2>
+         <AnimatedTitle title='Майбутнє' className='mb-5'/>
           <div className="mb-6 items-center gap-8 text-lg uppercase lg:flex">
             <p className='lg:mb-0 mb-3'>Ми пишемо</p>
             <p className="border-sky-500 rounded-3xl border-2 border-solid px-6 py-1 text-md text-center max-w-32">

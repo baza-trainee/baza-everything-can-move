@@ -1,7 +1,7 @@
-'use client'; // Додайте це, якщо використовуєте Next.js
 import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
 import VerticalSlider from './VerticalSlider';
+
 function Today() {
   return (
     <section className="taday">

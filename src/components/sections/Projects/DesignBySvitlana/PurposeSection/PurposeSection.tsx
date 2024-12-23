@@ -1,8 +1,7 @@
 import React from 'react';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
-//import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
-import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTilte';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 import { ICONS_PURPOSE } from '@/constants/icons/iconsSrc';
 import StarsComponent from './StarsComponent';
 
@@ -18,13 +17,9 @@ const PurposeSection: React.FC = () => {
     >
       <div className="bg-white pb-20 font-second-family lg:pb-[100px]">
         <Container>
-          {/* <SectionTitle secondDesign className="mb-6 lg:mb-[6px]">
-            Наша мета
-          </SectionTitle> */}
           <AnimatedTitle
             title="Наша мета"
-            //className="mb-6 lg:mb-[6px]"
-            className="mb-6 font-second-family text-xlg font-semibold leading-o-150 tracking-s-2 lg:mb-[6px] lg:text-3xl lg:leading-o-120 2xl:text-3xl"
+            className="mb-6 lg:mb-[6px]"
             wordClasses={['text-s-purple', 'text-s-purple']}
             colorBg="white"
           />

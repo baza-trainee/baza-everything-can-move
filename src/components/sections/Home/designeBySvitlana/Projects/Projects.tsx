@@ -1,51 +1,17 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
-import React, { useEffect, useRef, useState } from 'react';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import Link from 'next/link';
 import Slider from './Slider';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
 export default function Projects() {
-  const [isVisible, setIsVisible] = useState(false);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-
-  // Логіка спостереження за елементом
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (headingRef.current) {
-      observer.observe(headingRef.current);
-    }
-
-    return () => {
-      if (headingRef.current) {
-        observer.unobserve(headingRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <Background text="02 // Проєкти" bg="s-gray" xl={940} isNoContainer={true}>
+    <Background text="02 // Проєкти" bg="s-gray" lg={125} xl={840} isNoContainer={true}>
       <section className="relative mb-32 overflow-visible px-0">
         <div className="container">
           <div className="mb-12 items-center justify-between 2xl:flex">
             <div className="title">
-              <h2
-                ref={headingRef}
-                className={`text-xlg uppercase leading-[120%] text-s-title-home transition-all duration-700 lg:text-3xl ${
-                  isVisible
-                    ? 'translate-y-0 opacity-100'
-                    : 'translate-y-10 opacity-0'
-                }`}
-              >
-                Проєкти
-              </h2>
+              <AnimatedTitle title="Проєкти" className="lg-text-[76px]" />
               <p className="mb-4 text-md uppercase lg:text-lg xl:mb-0">
                 baza trainee ukraine
               </p>
