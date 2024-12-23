@@ -3,7 +3,8 @@
 import React from 'react';
 import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
 import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
-import WiresAnimationComponent from './WiresAnimation';
+// import WiresAnimationComponent from './WiresAnimation';
+import WiresAnimationComponent2 from './WiresAnimation2';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 
 export interface FuckUpsSectionProps {
@@ -19,7 +20,8 @@ const FuckUpSection = ({ title, subtitle }: FuckUpsSectionProps) => {
         <SectionTitle>{title}</SectionTitle>
         <SubTitle>{subtitle}</SubTitle>
       </div>
-      <WiresAnimationComponent />
+      {/* <WiresAnimationComponent /> */}
+      <WiresAnimationComponent2 />
       <div className="relative xl:sticky xl:translate-y-[-580px] 2xl:translate-y-[-515px]">
         <p className="my-16 bg-olga-btn-menu px-4 py-10 text-sm font-regular leading-[23.4px] lg:px-6 lg:py-8 lg:uppercase xl:py-10 2xl:px-[124px] 2xl:py-14 2xl:text-l 2xl:leading-[31.2px]">
           Baza Trainee UKRAINE це синергія ініціативності та ентузіазму. Віримо,
