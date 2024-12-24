@@ -5,7 +5,7 @@ import {
   CardContainer,
   CardItem,
   CardBody,
-} from '@/components/ui/SharedDesigns/ParallaxCard';
+} from '@/components/ui/DesignByOlga/ParallaxCard';
 import { FollowerPointerCard } from '@/components/ui/DesignByOlga/FollowerPointerCard';
 
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';

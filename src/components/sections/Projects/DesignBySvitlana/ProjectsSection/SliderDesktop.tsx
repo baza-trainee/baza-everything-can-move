@@ -7,7 +7,7 @@ import {
   CardBody,
   CardContainer,
   CardItem,
-} from '@/components/ui/SharedDesigns/3d-third';
+} from '@/components/ui/DesignBySvitlna/3d-third';
 
 import StarsBtnComponent from '@/components/ui/DesignBySvitlna/StarsBtnComponent';
 
@@ -22,7 +22,7 @@ const SliderDesktop: React.FC<ProjectsImagesProps> = ({ images }) => {
             top: image.top,
             left: image.left,
 
-            transition: 'transform 0.3s ease-in-out',
+            // transition: 'transform 0.3s ease-in-out',
           }}
         >
           <CardBody className="group/card h-full w-full cursor-pointer rounded-2xl border border-white/50 transition-transform duration-300 ease-in-out">

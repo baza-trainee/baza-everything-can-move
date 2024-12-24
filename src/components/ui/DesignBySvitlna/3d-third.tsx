@@ -1,8 +1,6 @@
 'use client';
-//from big to small
-//import type { StaticImageData } from 'next/image';
+// it is good one- I used it for Svitlana but  changed it to  3d-thirds-3
 import { cn } from '@/lib/utils';
-//import Image from 'next/image';
 
 import React, {
   createContext,
@@ -20,16 +18,13 @@ export const MouseEnterContext = createContext<
 export const CardContainer = ({
   children,
   className,
-  translateX = '0px',
-  translateY = '0px',
-  scale = 1,
+  containerClassName,
+
   style,
 }: {
   children?: React.ReactNode;
   className?: string;
-  translateX?: string;
-  translateY?: string;
-  scale?: number;
+  containerClassName?: string;
   style?: React.CSSProperties;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -41,59 +36,48 @@ export const CardContainer = ({
       containerRef.current.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / 22;
     const y = (e.clientY - top - height / 2) / 22;
-    //translateZ(100px) scale(${scale})
-    containerRef.current.style.transform = ` rotateY(${x}deg) rotateX(${y}deg)   `;
+
+    containerRef.current.style.transform = ` rotateY(${x}deg) rotateX(${y}deg)  `;
     containerRef.current.style.willChange = 'transform';
     containerRef.current.style.zIndex = '10';
   };
 
   const handleMouseEnter = () => {
     setIsMouseEntered(true);
-
     if (!containerRef.current) return;
-    //scale(1)
-    containerRef.current.style.transform = `translateX(${translateX}) translateY(${translateY} `;
   };
 
   const handleMouseLeave = () => {
     if (!containerRef.current) return;
     setIsMouseEntered(false);
-    //scale(${scale})
-    containerRef.current.style.transform = ` rotateY(0deg) rotateX(0deg) translateX(0px) translateY(0px)  `;
+    containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)  `;
     containerRef.current.style.zIndex = '';
   };
   return (
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
-      {/* <div
-        //className={cn(containerClassName, className)}
-        style={
-          {
-            // perspective: '1000px',
-            // zIndex: isMouseEntered ? 10 : 1,
-            // width: isMouseEntered ? widthEnd : widthStart,
-          }
-        }
-      > */}
       <div
-        ref={containerRef}
-        onMouseEnter={handleMouseEnter}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className={cn(
-          'flex items-center justify-center transition-all duration-500 ease-linear',
-          className
-        )}
+        className={cn(containerClassName, className)}
         style={{
           perspective: '1000px',
-          transformStyle: 'preserve-3d',
-          zIndex: isMouseEntered ? 10 : 1,
-          scale: isMouseEntered ? 1 : scale,
           ...style,
+          zIndex: isMouseEntered ? 10 : 1,
         }}
       >
-        {children}
+        <div
+          ref={containerRef}
+          onMouseEnter={handleMouseEnter}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          className={cn(
+            'flex items-center justify-center transition-all duration-300 ease-linear'
+          )}
+          style={{
+            transformStyle: 'preserve-3d',
+          }}
+        >
+          {children}
+        </div>
       </div>
-      {/* </div> */}
     </MouseEnterContext.Provider>
   );
 };
@@ -126,8 +110,8 @@ export const CardItem = ({
   as: Tag = 'div',
   children,
   className,
-  translateX = '0px',
-  translateY = '0px',
+  translateX = 0,
+  translateY = 0,
   translateZ = 0,
   rotateX = 0,
   rotateY = 0,
@@ -138,8 +122,8 @@ export const CardItem = ({
   as?: React.ElementType;
   children: React.ReactNode;
   className?: string;
-  translateX?: string;
-  translateY?: string;
+  translateX?: number | string;
+  translateY?: number | string;
   translateZ?: number | string;
   rotateX?: number | string;
   rotateY?: number | string;
@@ -153,10 +137,9 @@ export const CardItem = ({
   const handleAnimations = useCallback(() => {
     if (!ref.current) return;
     if (isMouseEntered) {
-      ref.current.style.transition = '0.5s ease-linear';
-      ref.current.style.transform = ` translateX(${translateX}) translateY(${translateY}) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)  `;
+      ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) `;
     } else {
-      ref.current.style.transform = ` translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)  `;
+      ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)  `;
     }
   }, [
     isMouseEntered,
