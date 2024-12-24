@@ -37,8 +37,8 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
           </div>
         </>
       )}
-      {/* tablet */}
-      {isTablet && (
+      {/* tablet isTablet &&*/}
+      {isDesktop && (
         <>
           <div className="m-auto mb-[60px] w-full text-center">
             <p className="font-third-family text-m font-regular leading-s-24">
@@ -49,8 +49,8 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
           <SliderTablet images={images} />
         </>
       )}
-      {/* desktop */}
-      {isDesktop && (
+      {/* desktop isDesktop &&*/}
+      {isTablet && (
         <>
           <div className="mx-auto mb-[40px] w-[410px] text-center">
             <p className="font-third-family text-l font-regular leading-s-36">

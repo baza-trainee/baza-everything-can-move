@@ -2,11 +2,16 @@
 import React from 'react';
 import Image from 'next/image';
 import { ProjectsImagesProps } from '@/constants/images/imagesSrc';
+// import {
+//   CardBody,
+//   CardContainer,
+//   CardItem,
+// } from '@/components/ui/SharedDesigns/ParallaxCard';
 import {
   CardBody,
   CardContainer,
   CardItem,
-} from '@/components/ui/SharedDesigns/ParallaxCard';
+} from '@/components/ui/SharedDesigns/3d-third';
 
 import StarsBtnComponent from '@/components/ui/DesignBySvitlna/StarsBtnComponent';
 
