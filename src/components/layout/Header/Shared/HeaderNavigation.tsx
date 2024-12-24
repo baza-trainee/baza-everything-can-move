@@ -6,6 +6,7 @@ import { HeaderNavigationProps } from '@/components/layout/Header/types';
 
 import HeaderNaviComponentOlga from '../DesignByOlga/HeaderNaviComponent';
 import HeaderNaviComponentSvitlana from '../DesignBySvitlana/HeaderNaviComponent';
+import NaviLinksComponentOlga2 from '../DesignByOlga/NLinksCompOlga2';
 
 const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
   headerNav,
@@ -17,6 +18,7 @@ const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
   return (
     <>
       {/* design By Olga */}
+
       {designType === 'designByOlga' && (
         <HeaderNaviComponentOlga
           headerNav={headerNav}

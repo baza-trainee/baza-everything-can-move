@@ -10,6 +10,7 @@ const NaviLinksComponentOlga: React.FC<NavigationLinksProps> = ({
   onClickLink,
 }) => {
   const pathname = usePathname();
+
   return (
     <ul className="flex flex-col items-center gap-5 xl:gap-2 2xl:gap-4">
       {/* py-6  2xl:py-2 xl:py-[18px] xl:gap-[18px] gap-5 2xl:gap-2 */}

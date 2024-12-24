@@ -5,8 +5,9 @@ import { useDesignStore } from '@/useDesignStore';
 
 import { NavigationLinksProps } from '@/components/layout/Header/types';
 
-import NaviLinksComponentOlga from '../DesignByOlga/NaviLinksComponent';
+//import NaviLinksComponentOlga from '../DesignByOlga/NaviLinksComponent';
 import NaviLinksComponentSvitlana from '../DesignBySvitlana/NaviLinksComponent';
+import NaviLinksComponentOlga2 from '../DesignByOlga/NLinksCompOlga2';
 
 const NavigationLinks: React.FC<NavigationLinksProps> = ({
   headerNav,
@@ -16,7 +17,13 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
   return (
     <nav>
       {designType === 'designByOlga' && (
-        <NaviLinksComponentOlga
+        // not adaptive
+        // <NaviLinksComponentOlga
+        //   headerNav={headerNav}
+        //   onClickLink={onClickLink}
+        // />
+        //adaptive
+        <NaviLinksComponentOlga2
           headerNav={headerNav}
           onClickLink={onClickLink}
         />
