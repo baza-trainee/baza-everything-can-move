@@ -29,12 +29,12 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
     if (!isClient) return;
     /////
     //-----
-    const mobileMinFontSize = 16;
+    const mobileMinFontSize = 24;
     const mobileMaxFontSize = 44;
     const mobileMinHeight = 500;
     const mobileMaxHeight = 630;
     //-----
-    const tabletMinFontSize = 32;
+    const tabletMinFontSize = 22;
     const tabletMaxFontSize = 64;
     const tabletMinHeight = 500;
     const tabletMaxHeight = 682; //751;
