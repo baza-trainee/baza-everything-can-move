@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import { Meteors } from './Meteors';
 import { ICONS_EXPERIENCE } from '@/constants/icons/iconsSrc';
 import { fuckups } from '@/constants/fuckups';
 import clsx from 'clsx';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
 const FuckUps = () => {
   const [isOpen, setIsOpen] = useState([false, false, false]);
@@ -19,9 +19,7 @@ const FuckUps = () => {
 
   return (
     <div className="container pb-[140px] lg:pb-[160px] 2xl:pb-[260px]">
-      <SectionTitle className="text-left" secondDesign={true}>
-        Факапи{' '}
-      </SectionTitle>
+      <AnimatedTitle title="Факапи" />
       <p className="pb-[60px] text-md font-semibold uppercase leading-s-24">
         Іван бурчав, що бек треба <br className="2xl:hidden" /> було планувати
         <br className="hidden 2xl:block" /> від початку.

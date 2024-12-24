@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import styles from './snow.module.css';
-import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 // import clsx from 'clsx';
 
 // interface ParametersType {
@@ -194,12 +194,10 @@ const Snow = () => {
     >
       {/* <div className='w-full h-20 absolute top-[54px] bg-gradient-to-b from-cyan-500 to-blue-500 z-[1000]'/> */}
       <div ref={canvasSnow} id={styles.bottomShadow} />
-      <SectionTitle
+      <AnimatedTitle
+        title="досвід"
         className="z-100 absolute inset-x-0 top-[200px] text-center 2xl:container lg:top-[260px] 2xl:top-[132px] 2xl:text-left"
-        secondDesign={true}
-      >
-        досвід
-      </SectionTitle>
+      />
       <p className="z-100 absolute inset-x-0 top-[253px] text-center font-sans text-m font-regular leading-6 2xl:container lg:top-[364px] 2xl:top-[245px] 2xl:text-left">
         Досвід — це шлях, яким проходять наші <br className="block lg:hidden" />
         трейні, <br className="hidden lg:block" /> здобуваючи практичні навички

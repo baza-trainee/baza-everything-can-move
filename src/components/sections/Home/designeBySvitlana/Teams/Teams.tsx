@@ -1,6 +1,6 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
-import React, { useEffect, useRef, useState } from 'react';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 import Link from 'next/link';
 
 import StarsComponent from './StarsComponent';
@@ -10,9 +10,6 @@ import StarsComponent from './StarsComponent';
 // import { OrbitControls } from '@react-three/drei';
 
 export default function Teams() {
-  const [isVisible, setIsVisible] = useState(false);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-
   // Початкові налаштування камери
   // const [cameraSettings, setCameraSettings] = useState<{
   //   position: [number, number, number]; // Масив з трьома координатами
@@ -21,28 +18,6 @@ export default function Teams() {
   //   position: [2, 1, 10],
   //   fov: 40,
   // });
-
-  // Логіка спостереження за елементом
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (headingRef.current) {
-      observer.observe(headingRef.current);
-    }
-
-    return () => {
-      if (headingRef.current) {
-        observer.unobserve(headingRef.current);
-      }
-    };
-  }, []);
 
   // Налаштування камери залежно від ширини вікна
   // useEffect(() => {
@@ -67,18 +42,13 @@ export default function Teams() {
     <Background text="01 // Команда" bg="white" xl={1142}>
       <section className="teams l mb-[222px] pt-2 text-olga-grid">
         <div className="container relative">
-          <h2
-            ref={headingRef}
-            className={`mb-5 text-xlg leading-[120%] text-s-title-home transition-all duration-700 lg:text-3xl ${
-              isVisible
-                ? 'translate-y-0 opacity-100'
-                : 'translate-y-10 opacity-0'
-            }`}
-          >
-            команди
-          </h2>
+          <AnimatedTitle
+            title="команди"
+            colorBg="white"
+            className="lg:text-[76px]"
+          />
           <div className="flex flex-wrap gap-12">
-            <div className="text 2xl:mb-0 mb-8">
+            <div className="text mb-8 2xl:mb-0">
               <div className="mb-6 items-center gap-8 text-lg uppercase lg:flex">
                 ми об&apos;єднуємо
                 <p className="border-sky-500 rounded-2xl border-2 border-solid px-6 py-1 text-md">
@@ -137,7 +107,6 @@ export default function Teams() {
               </Link>
             </div>
             <div className="relative">
-              
               <StarsComponent />
             </div>
 

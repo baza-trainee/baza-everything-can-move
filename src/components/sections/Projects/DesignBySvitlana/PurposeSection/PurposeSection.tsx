@@ -1,7 +1,6 @@
 import React from 'react';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import BackgroundComponent from '@/components/ui/DesignBySvitlna/BackgroundComponent';
-//import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 import { ICONS_PURPOSE } from '@/constants/icons/iconsSrc';
 import StarsComponent from './StarsComponent';
@@ -18,9 +17,6 @@ const PurposeSection: React.FC = () => {
     >
       <div className="bg-white pb-20 font-second-family lg:pb-[100px]">
         <Container>
-          {/* <SectionTitle secondDesign className="mb-6 lg:mb-[6px]">
-            Наша мета
-          </SectionTitle> */}
           <AnimatedTitle
             title="Наша мета"
             className="mb-6 lg:mb-[6px]"
