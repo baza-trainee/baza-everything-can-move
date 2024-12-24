@@ -34,19 +34,20 @@ export default function Scene() {
 
   // Розрахунок зміщення залежно від ширини екрану та позиції скролу
   const calculateTranslateX = () => {
-    if (screenWidth > 1200) {
-      return Math.max(-40, 20 - scrollY / 2); // Для великих екранів
-    } else if (screenWidth > 768) {
-      return Math.max(-40, 20 - scrollY / 2); // Для середніх екранів
-    } else {
-      // return Math.max(-10, 5 - scrollY / 5); // Для маленьких екранів
+    if (screenWidth > 1400) {
+      return Math.max(-40, 70 - scrollY / 2); // Для великих екранів
+    } else if (screenWidth > 1024) {
+      return Math.max(-40, 40 - scrollY / 2); // Для середніх екранів
+    }  else if (screenWidth > 768) {
+      return Math.max(-40, 20 - scrollY / 2); // Для маленьких екранів
     }
   };
 
   const calculateTranslateY = () => {
     if (screenWidth > 1200) {
-      return Math.min(130, scrollY / 2); // Для великих екранів
-    } else if (screenWidth > 768) {
+      return Math.min(123, scrollY / 2); // Для великих екранів
+    } 
+    else if (screenWidth > 768) {
       return Math.min(120, scrollY / 3); // Для середніх екранів
     } else {
       // return Math.min(50, scrollY / 4); // Для маленьких екранів
@@ -63,7 +64,7 @@ export default function Scene() {
           transform: `translate(${translateX}%, ${translateY}%)`,
           transition: 'transform 1.9s ease-out',
         }}
-        className="absolute left-0 -top-24 z-10 h-[700px] w-[100%] lg:w-[70%] xl:-top-64 xl:left-[30%] 2xl:w-[50%]"
+        className="absolute  -top-24 z-10 h-[700px] w-[100%] lg:w-[60%] xl:-top-64 left-[28%] 2xl:left-[30%] 2xl:w-[50%]"
       >
         <Canvas gl={{ antialias: true }} dpr={[1, 1.5]}>
           <directionalLight position={[-5, -5, 5]} intensity={5} />
