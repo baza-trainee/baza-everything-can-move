@@ -10,7 +10,7 @@ const transition = {
   ease: "linear",
 };
 
-export const WiresAnimation = ({
+export const WiresAnimation2 = ({
   pathLengths,
   className,
 }: {
@@ -541,7 +541,7 @@ export const WiresAnimation = ({
   );
 };
 
-export function WiresAnimationComponent() {
+export function WiresAnimationComponent2() {
 
   const ref = React.useRef<HTMLDivElement | null >(null);
 
@@ -559,7 +559,7 @@ export function WiresAnimationComponent() {
   return (
     <div className="h-[200vh] w-full relative overflow-clip" ref={ref}>
 
-      <WiresAnimation
+      <WiresAnimation2
         pathLengths={[
           pathLengthFirst,
           pathLengthSecond,
@@ -574,7 +574,7 @@ export function WiresAnimationComponent() {
   );
 }
 
-export default WiresAnimationComponent;
+export default WiresAnimationComponent2;
 
 
 
