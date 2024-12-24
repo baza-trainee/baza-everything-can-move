@@ -18,7 +18,15 @@ const Model = () => {
   // Оновлення анімації в кожному кадрі
   useFrame((state, delta) => {
     mixerRef.current?.update(delta);
-    gltf.scene.rotation.y += delta * Math.PI / 2;
+    gltf.scene.rotation.y += (delta * Math.PI) / 2;
+  });
+
+  gltf.scene.traverse((child) => {
+    if (child instanceof THREE.Mesh) {
+      child.material = new THREE.MeshStandardMaterial({
+        color: new THREE.Color('#FFF'),
+      });
+    }
   });
 
   return (

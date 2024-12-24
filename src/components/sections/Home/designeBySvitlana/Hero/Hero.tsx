@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section className="hero pb-[400px] pt-[104px] 2xl:pb-[280px]">
       <div className="items-top container relative flex flex-wrap">
-        <div  className="max-w-[525px]">
+        <div  className="max-w-[535px]">
           <div className='flex items-center '>
           <AnimatedTitle title="як ми"  className='mr-8 lg:mr-12 text-xl lg:text-2xl 2xl:text-4xl'  wordClasses={['text-white']}/>
           <SubTitle/>
