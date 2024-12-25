@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useDesignStore } from '@/useDesignStore';
 import SectionFuture from '@/components/sections/Future/designedByOlga/sectionFuture/SectionFuture';
 import SectionDevelopment from '@/components/sections/Future/designedByOlga/sectionDevelopment/SectionDevelopment';
@@ -25,9 +25,9 @@ function Page() {
       {designType === 'designBySvitlana' && (
         <div className="text-white">
           <SectionFutureHero />
-          <SectionInitiative/>
-          <SectionDev/>
-          <SectionPlans/>
+          <SectionInitiative />
+          <SectionDev />
+          <SectionPlans />
         </div>
       )}
     </>

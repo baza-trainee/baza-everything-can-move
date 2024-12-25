@@ -34,7 +34,7 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
     const mobileMinHeight = 500;
     const mobileMaxHeight = 630;
     //-----
-    const tabletMinFontSize = 22;
+    const tabletMinFontSize = 28;
     const tabletMaxFontSize = 64;
     const tabletMinHeight = 500;
     const tabletMaxHeight = 682; //751;
@@ -43,13 +43,13 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
     const calculateFontSize = () => {
       const screenHeight = window.innerHeight;
       console.log('screenHeight', screenHeight);
-
+      let newFontSize;
       if (isMobile) {
         // if (screenHeight < 630) {
         //   console.log('mobile less');
         //   setIsLayoutChanged(true);
         // }
-        const newFontSize =
+        newFontSize =
           screenHeight >= mobileMaxHeight
             ? mobileMaxFontSize
             : mobileMinFontSize +
@@ -61,23 +61,23 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
         console.log('New Font mobile', newFontSize);
       }
       if (isTablet) {
-        // if (screenHeight < 682) {
-        //   console.log('tablet less');
-        //   setIsLayoutChanged(true);
-        // }
-        console.log('tablet less');
-        const newFontSize =
-          screenHeight >= tabletMaxHeight
-            ? tabletMaxFontSize
-            : tabletMinFontSize +
-              ((screenHeight - tabletMinHeight) *
-                (tabletMaxFontSize - tabletMinFontSize)) /
-                (tabletMaxHeight - tabletMinHeight);
+        if (screenHeight >= tabletMaxHeight) {
+          newFontSize = tabletMaxFontSize;
 
-        setFontSize(newFontSize);
+          setIsLayoutChanged(false);
+        } else {
+          newFontSize =
+            tabletMinFontSize +
+            ((screenHeight - tabletMinHeight) *
+              (tabletMaxFontSize - tabletMinFontSize)) /
+              (tabletMaxHeight - tabletMinHeight);
+
+          setFontSize(newFontSize);
+          setIsLayoutChanged(true);
+        }
+
         console.log('New Font tablet', newFontSize);
       }
-      //    return screenHeight > 800 ? '18px' : '16px';
 
       if (isDesktop) {
         if (screenHeight < 848) {
@@ -99,8 +99,18 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
   }, [isClient, isDesktop, isMobile, isTablet]);
 
   return (
-    <ul className="flex flex-col items-center gap-5 xl:gap-2 2xl:gap-4">
-      {/* py-6  2xl:py-2 xl:py-[18px] xl:gap-[18px] gap-5 2xl:gap-2 */}
+    <ul
+      className={clsx(
+        'flex flex-col items-center',
+        isLayoutChanged
+          ? 'gap-2 xl:gap-2 2xl:gap-4'
+          : 'gap-5 xl:gap-2 2xl:gap-4'
+      )}
+      style={{
+        fontSize: `${fontSize}px`,
+      }}
+    >
+      {/*isLayoutChanged, py-6  2xl:py-2 xl:py-[18px] xl:gap-[18px] gap-5 2xl:gap-2 */}
       {headerNav.map((item, index) => {
         return (
           <li key={index} className="flex w-full justify-center py-[10px]">
@@ -113,9 +123,6 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
                 //text-[44px] lg:text-2xl
                 'uppercase leading-o-120 transition-colors duration-300 ease-linear 2xl:text-4xl 2xl:hover:text-olga-green'
               )}
-              style={{
-                fontSize: `${fontSize}px`,
-              }}
             >
               {item.name}
             </Link>

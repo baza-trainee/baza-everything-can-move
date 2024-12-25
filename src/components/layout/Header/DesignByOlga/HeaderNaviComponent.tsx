@@ -46,7 +46,8 @@ const HeaderNaviComponentOlga: React.FC<HeaderNavigationProps> = ({
         <NavigationLinks headerNav={headerNav} onClickLink={handleMenuClick} />
         {/* end of nav links section*/}
         {/* soc media section*/}
-        <div className="flex flex-grow flex-col justify-end xl:flex-grow-0">
+        {/* xl:flex-grow-0 */}
+        <div className="mb-6 flex flex-grow flex-col justify-end">
           {/* className="pb-6 2xl:pb-[14px]" */}
           <p className="mb-1 text-center text-s leading-o-130 text-white lg:text-m 2xl:text-sm">
             Слідкуй за нами
