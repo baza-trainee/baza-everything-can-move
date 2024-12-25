@@ -22,14 +22,14 @@ const FuckUpSection = ({ title, subtitle }: FuckUpsSectionProps) => {
       </div>
       {/* <WiresAnimationComponent /> */}
       <WiresAnimationComponent2 />
-      <div className="relative xl:sticky xl:translate-y-[-580px] 2xl:translate-y-[-515px]">
+      {/* <div className="relative xl:sticky xl:translate-y-[-580px] 2xl:translate-y-[-515px]">
         <p className="my-16 bg-olga-btn-menu px-4 py-10 text-sm font-regular leading-[23.4px] lg:px-6 lg:py-8 lg:uppercase xl:py-10 2xl:px-[124px] 2xl:py-14 2xl:text-l 2xl:leading-[31.2px]">
           Baza Trainee UKRAINE це синергія ініціативності та ентузіазму. Віримо,
           що найм джуніорів — це не лише інвестиція в майбутнє компанії, а й
           можливість ростити власних професіоналів з індивідуальним підходом та
           свіжим баченням.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };
