@@ -16,14 +16,11 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
   const [isClient, setIsClient] = useState(false);
 
   const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
-  //horisont
+
   const isTablet = useMediaQuery({
     query: '(min-width: 768px) and (max-width: 1439.5px)',
   });
-  //vertical
-  //   const isXlTablet = useMediaQuery({
-  //     query: '(min-width: 1024px) and (max-width: 1439.5px)',
-  //   });
+
   const isDesktop = useMediaQuery({ query: '(min-width: 1440px)' });
 
   useEffect(() => {
@@ -32,7 +29,7 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
 
   useEffect(() => {
     if (!isClient) return;
-    /////
+
     //-----
     const mobileMinFontSize = 30;
     const mobileMaxFontSize = 44;
@@ -42,17 +39,17 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
     const tabletMinFontSize = 30;
     const tabletMaxFontSize = 64;
     const tabletMinHeight = 500;
-    const tabletMaxHeight = 702; //751;
+    const tabletMaxHeight = 702;
     //-----
     const desktopMinFontSize = 44;
     const desktopMaxFontSize = 86;
     const desktopMinHeight = 700;
-    const desktopMaxHeight = 848; //751;
+    const desktopMaxHeight = 848;
 
     //////////
     const calculateFontSize = () => {
       const screenHeight = window.innerHeight;
-      console.log('screenHeight', screenHeight);
+      //console.log('screenHeight', screenHeight);
       let newFontSize;
       if (isMobile) {
         if (screenHeight >= mobileMaxHeight) {
@@ -69,7 +66,7 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
         }
 
         setFontSize(newFontSize);
-        console.log('New Font mobile', newFontSize);
+        // console.log('New Font mobile', newFontSize);
       }
       //-------
       if (isTablet) {
@@ -86,7 +83,7 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
           setIsLayoutChanged(true);
         }
         setFontSize(newFontSize);
-        console.log('New Font tablet', newFontSize);
+        // console.log('New Font tablet', newFontSize);
       }
       //-------
       if (isDesktop) {
@@ -103,7 +100,7 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
           setIsLayoutChanged(true);
         }
         setFontSize(newFontSize);
-        console.log('New Font desktop', newFontSize);
+        //console.log('New Font desktop', newFontSize);
       }
     };
     ////////
