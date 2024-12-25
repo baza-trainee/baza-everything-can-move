@@ -18,18 +18,19 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     if (openMenu) {
-      const scrollBarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
+      // 
       document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = `${scrollBarWidth}px`;
+      //const scrollBarWidth =
+      //   window.innerWidth - document.documentElement.clientWidth;
+      // document.body.style.paddingRight = `${scrollBarWidth}px`;
     } else {
       document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
+      // document.body.style.paddingRight = '';
     }
 
     return () => {
       document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
+      // document.body.style.paddingRight = '';
     };
   }, [openMenu]);
   //define indexes of current and next pages

@@ -13,6 +13,7 @@ const HeaderNaviComponentSvitlana: React.FC<HeaderNavigationProps> = ({
   openMenu,
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
+
   // const [scrollBarWidth, setScrollBarWidth] = useState(0);
 
   // const [ifScrollBarNeeded, setIfScrollBarNeeded] = useState<boolean>(false);
