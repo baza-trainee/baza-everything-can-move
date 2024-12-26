@@ -1,9 +1,9 @@
-import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import { motion, useInView } from 'framer-motion';
 import { data } from './components/data';
 import { Card } from './components/Card';
 import { cn } from '@/lib/utils';
 import { useRef } from 'react';
+import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
 function MobileLayout() {
   const ref1 = useRef<HTMLUListElement>(null);
@@ -56,7 +56,9 @@ function MobileLayout() {
 
   return (
     <div>
-      <SectionTitle className="mb-[60px]">Наша команда</SectionTitle>
+      <div className="w-[270px]">
+        <AnimatedTitle title="наші учасники" className="mb-[60px]" />
+      </div>
       {renderList(0, 1, 0)}
       {renderList(2, 4, 1)}
       {renderList(5, 6, 2)}
