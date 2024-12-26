@@ -8,7 +8,7 @@ function TeamSectionSV({ className }: { className?: string }) {
   return (
     <section
       className={cn(
-        'relative z-10 overflow-hidden border-t border-t-white bg-black pb-[140px] pt-20 lg:pb-[178px] lg:pt-[160px] 2xl:pb-[110px] 2xl:pt-[100px]',
+        'relative z-10 overflow-hidden bg-black pb-[140px] pt-20 lg:border-t lg:border-t-white lg:pb-[178px] lg:pt-[160px] 2xl:pb-[110px] 2xl:pt-[100px]',
         className
       )}
     >
