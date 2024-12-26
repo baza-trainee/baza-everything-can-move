@@ -97,7 +97,7 @@ const SliderMobile: React.FC<ProjectsImagesProps> = ({ images }) => {
           </motion.div>
         </AnimatePresence>
       </div>
-      <div className="mb-8 flex justify-center gap-[15px]">
+      <div className="flex justify-center gap-[15px]">
         {images.map((_, index) => (
           <div
             key={index}

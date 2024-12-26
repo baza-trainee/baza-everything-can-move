@@ -31,11 +31,17 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
       {isMobile && (
         <>
           <SliderMobile images={images} />
-          <div className="m-auto mb-10 w-[273px] text-center">
+          <div className="mx-auto mb-10 mt-8 w-[273px] text-center">
             <p className="font-third-family text-m font-regular leading-s-24">
               Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
             </p>
           </div>
+          <BtnAnimated
+           
+            color="white"
+            href="https://baza-trainee.tech/uk/projects"
+            linkAttributes
+          />
         </>
       )}
       {/* tablet isTablet &&*/}
@@ -48,19 +54,29 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
           </div>
 
           <SliderTablet images={images} />
-          <BtnAnimated />
+          <BtnAnimated
+            className="mt-10"
+            color="white"
+            href="https://baza-trainee.tech/uk/projects"
+            linkAttributes
+          />
         </>
       )}
       {/* desktop isDesktop &&*/}
       {isDesktop && (
         <>
-          <div className="mx-auto mb-[40px] w-[410px] text-center">
+          <div className="mx-auto mb-10 w-[410px] text-center">
             <p className="font-third-family text-l font-regular leading-s-36">
               Всі проєкти можна переглянути на сайті Baza Trainee Ukraine.
             </p>
           </div>
-          <button>Button</button>
+
           <SliderDesktop images={images} />
+          <BtnAnimated
+            color="white"
+            href="https://baza-trainee.tech/uk/projects"
+            linkAttributes
+          />
         </>
       )}
     </>

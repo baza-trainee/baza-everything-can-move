@@ -57,7 +57,7 @@ export default function Projects() {
           muted
           className="h-[74%] 2xl:w-[50%]"
         /> */}
-        {/* <Scene /> */}
+        <Scene />
       </section>
     </Background>
   );
