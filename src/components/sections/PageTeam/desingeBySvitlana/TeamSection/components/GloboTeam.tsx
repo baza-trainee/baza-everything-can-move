@@ -39,16 +39,20 @@ function GloboTeam() {
     pointsRadius: isMobile ? 3 : 4.8,
   };
 
-  const points = generateFibonacciSpherePoints(900, sizes.pointsRadius);
+  const points = generateFibonacciSpherePoints(
+    900,
+    3
+    //  sizes.pointsRadius
+  );
 
   return (
-    <div className="pointer-events-none relative mx-auto mt-10 h-full w-full lg:mt-14 2xl:-mt-20">
+    <div className="pointer-events-none relative mx-auto mt-10 h-[300px] w-full lg:mt-14 lg:h-[510px] 2xl:-mt-20">
       <Canvas
-        className="pointer-events-none absolute left-1/2 -translate-x-1/2"
-        style={{ height: sizes.canvasSize, width: sizes.canvasSize }}
+        className="pointer-events-none absolute left-1/2 h-[300px] w-[300px] -translate-x-1/2 lg:h-[510px] lg:w-[510px]"
+        // style={{ height: sizes.canvasSize, width: sizes.canvasSize }}
         camera={{ position: [0, 0, 8] }}
       >
-        <Center position={[0, 0, 0]} scale={1}>
+        <Center position={[0, 0, 0]} scale={1.55}>
           <PointsComponent points={points} mouseX={mouseX} mouseY={mouseY} />
           <OrbitControls
             enableDamping
