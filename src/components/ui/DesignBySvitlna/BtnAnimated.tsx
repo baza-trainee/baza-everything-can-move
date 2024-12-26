@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 
 const BtnAnimated = () => {
   return (
@@ -14,7 +15,7 @@ const BtnAnimated = () => {
       {/* gray cicle */}
       <motion.div
         //   top-[-214px]
-        className="absolute left-0 right-0 z-0 mx-auto rounded-full bg-s-gray transition-all duration-300 ease-out"
+        className="absolute left-0 right-0 z-0 mx-auto rounded-full bg-s-gray text-white transition-all duration-300 ease-out hover:text-s-gray"
         // h-[214px] w-[214px]  variants={{
         //   rest: { y: '-120%', transition: { duration: 0.5 } },
         //   hover: { y: '-45%', transition: { duration: 0.5 } },
@@ -70,6 +71,8 @@ const BtnAnimated = () => {
       >
         переглянути
       </motion.span>
+      {/* -right-[14px] top-[10px] */}
+      <ICONS_SHARED.ARROW_BTN_ICON className="absolute z-30 top-[10px]" />
     </motion.div>
   );
 };
