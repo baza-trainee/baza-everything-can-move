@@ -73,26 +73,6 @@ const SubTitleBtn = ({ className, subTitleArr, color }: SubTitleBtnProps) => {
               initial="initial"
               exit="exit"
               animate="animate"
-              //var2
-              //animate={['animate', 'center']}
-              // var4
-              // animate={{
-              //   opacity: [0.5, 1],
-              // }}
-              // transition={{
-              //   duration: 1.5,
-              //   ease: 'linear',
-              //   times: [0.5, 1],
-              // }}
-              //var3
-              // animate={{
-              //   opacity: [0, 0.5, 1],
-              // }}
-              // transition={{
-              //   duration: 2,
-              //   ease: 'linear',
-              //   times: [0, 0.5, 1],
-              // }}
               className={clsx(
                 'font-second-family text-m font-bold uppercase leading-s-100 tracking-s-2 lg:text-md lg:font-medium',
                 color === 'black' && 'border-black text-black',

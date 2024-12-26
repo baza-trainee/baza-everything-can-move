@@ -8,6 +8,7 @@ import { ProjectsImagesProps } from '@/constants/images/imagesSrc';
 
 import SliderDesktop from './SliderDesktop';
 import SliderTablet from './SliderTablet';
+import BtnAnimated from '@/components/ui/DesignBySvitlna/BtnAnimated';
 
 const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
   const [isClient, setIsClient] = useState(false);
@@ -47,6 +48,7 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
           </div>
 
           <SliderTablet images={images} />
+          <BtnAnimated />
         </>
       )}
       {/* desktop isDesktop &&*/}
