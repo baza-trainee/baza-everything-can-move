@@ -20,15 +20,13 @@ export const MouseEnterContext = createContext<
 export const CardContainer = ({
   children,
   className,
-  translateX = '0px',
-  translateY = '0px',
+
   scale = 1,
   style,
 }: {
   children?: React.ReactNode;
   className?: string;
-  translateX?: string;
-  translateY?: string;
+
   scale?: number;
   style?: React.CSSProperties;
 }) => {
@@ -52,14 +50,14 @@ export const CardContainer = ({
 
     if (!containerRef.current) return;
     //scale(1)
-    containerRef.current.style.transform = `translateX(${translateX}) translateY(${translateY} `;
+    // containerRef.current.style.transform = `translateX(${translateX}) translateY(${translateY} `;
   };
 
   const handleMouseLeave = () => {
     if (!containerRef.current) return;
     setIsMouseEntered(false);
-    //scale(${scale})
-    containerRef.current.style.transform = ` rotateY(0deg) rotateX(0deg) translateX(0px) translateY(0px)  `;
+    //scale(${scale}) translateX(0px) translateY(0px)
+    containerRef.current.style.transform = ` rotateY(0deg) rotateX(0deg) `;
     containerRef.current.style.zIndex = '';
   };
   return (

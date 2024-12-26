@@ -4,21 +4,19 @@ import Link from 'next/link';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 import Scene from './Scene';
 
-
 export default function Projects() {
-
   return (
     <Background text="04 // Майбутнє" bg="s-gray" xl={0}>
-      <section className="mb-32 flex items-center gap-12 2xl:flex-nowrap flex-wrap">
+      <section className="mb-32 flex flex-wrap items-center gap-12 2xl:flex-nowrap">
         <div className="title">
-         <AnimatedTitle title='Майбутнє' className='mb-5'/>
+          <AnimatedTitle title="Майбутнє" className="mb-5" />
           <div className="mb-6 items-center gap-8 text-lg uppercase lg:flex">
-            <p className='lg:mb-0 mb-3'>Ми пишемо</p>
-            <p className="border-sky-500 rounded-3xl border-2 border-solid px-6 py-1 text-md text-center max-w-32">
+            <p className="mb-3 lg:mb-0">Ми пишемо</p>
+            <p className="border-sky-500 max-w-32 rounded-3xl border-2 border-solid px-6 py-1 text-center text-md">
               сайти
             </p>
           </div>
-          <div className="xl:text-l lg:leading-9 leading-6 lg:lg:w-[575px]">
+          <div className="leading-6 lg:lg:w-[575px] lg:leading-9 xl:text-l">
             <p className="mb-4">
               По мірі розвитку наші проєкти ускладнюються, команди професійно
               розвиваються, а ринок вимагає іновацій.
@@ -59,7 +57,7 @@ export default function Projects() {
           muted
           className="h-[74%] 2xl:w-[50%]"
         /> */}
-         <Scene /> 
+        <Scene />
       </section>
     </Background>
   );

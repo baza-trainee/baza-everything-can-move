@@ -37,7 +37,7 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
           </div>
         </>
       )}
-      {/* tablet */}
+      {/* tablet isTablet &&*/}
       {isTablet && (
         <>
           <div className="m-auto mb-[60px] w-full text-center">
@@ -49,7 +49,7 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
           <SliderTablet images={images} />
         </>
       )}
-      {/* desktop */}
+      {/* desktop isDesktop &&*/}
       {isDesktop && (
         <>
           <div className="mx-auto mb-[40px] w-[410px] text-center">

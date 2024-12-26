@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useDesignStore } from '@/useDesignStore';
 import Image from 'next/image';
-//import HeaderNavigation from './HeaderNavigation';
+
 import HeaderNavigation from './Shared/HeaderNavigation';
 import SceneLogo from './Shared/SceneLogo';
 import { NAV_LINKS } from '@/constants/navlinks';
@@ -18,20 +18,22 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     if (openMenu) {
-      const scrollBarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
+      //
       document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = `${scrollBarWidth}px`;
+      //const scrollBarWidth =
+      //   window.innerWidth - document.documentElement.clientWidth;
+      // document.body.style.paddingRight = `${scrollBarWidth}px`;
     } else {
       document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
+      // document.body.style.paddingRight = '';
     }
 
     return () => {
       document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
+      // document.body.style.paddingRight = '';
     };
   }, [openMenu]);
+
   //define indexes of current and next pages
   function headerNav() {
     const indexOfCurrentPage = NAV_LINKS.findIndex(

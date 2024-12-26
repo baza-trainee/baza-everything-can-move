@@ -4,7 +4,7 @@ import {
   CardContainer,
   CardItem,
   CardBody,
-} from '@/components/ui/SharedDesigns/ParallaxCard';
+} from '@/components/ui/DesignByOlga/ParallaxCard';
 import { FollowerPointerCard } from '@/components/ui/DesignByOlga/FollowerPointerCard';
 
 import Link from 'next/link';
@@ -48,18 +48,18 @@ const ProjectCardsDesktop: React.FC<ProjectsSliderProps> = ({ images }) => {
                   rel="noopener noreferrer"
                   className="relative inset-0 flex h-[249px] w-[512px] cursor-none"
                 >
-                  <Image
-                    src={image.src}
-                    className="object-cover transition-all duration-500 ease-linear"
-                    alt={image.name}
-                    quality={90}
-                    fill={true}
-                    sizes="512px" //1024
-                    // style={{
-                    //   width: '100%',
-                    //   height: '100%',
-                    // }}
-                  />
+                <Image
+                  src={image.src}
+                  className="object-cover transition-all duration-500 ease-linear"
+                  alt={image.name}
+                  quality={90}
+                  fill={true}
+                  sizes="512px" //1024
+                  // style={{
+                  //   width: '100%',
+                  //   height: '100%',
+                  // }}
+                />
                 </Link>
               </CardItem>
               <CardItem
