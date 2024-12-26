@@ -41,9 +41,9 @@ export const teamsFoto: TeamsFotoType[] = [
     role: 'Frontend // Team Lead',
   },
   {
-    name: 'Vitalii Dzvonyk',
-    urlFoto: '/assets/images/PageTeam/DesignSvitlna/VitaliiDzvonyk.webp',
-    role: 'QA',
+    name: 'Valerii Hrekov',
+    urlFoto: '/assets/images/PageTeam/DesignSvitlna/ValeriiHrekov.webp',
+    role: '3D Artist // Modelling',
   },
   {
     name: 'Bohdana Lutska',

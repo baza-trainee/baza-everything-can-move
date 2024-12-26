@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
-import clsx from 'clsx';
 import { messagesDiscord } from './dataProcesses';
+import { cn } from '@/lib/utils';
 
 const durationAnimation = messagesDiscord.length * 2;
 const durationShowDiscord = 4;
@@ -37,7 +37,7 @@ export default function Processes() {
     <section className="m-0 -mt-[1px] bg-black pt-[80px]">
       <Container>
         <AnimatedTitle title="Процеси" />
-        <div className="max-w-[543px] font-third-family text-m font-regular leading-o-150 2xl:text-l">
+        <div className="mt-6 max-w-[543px] font-third-family text-m font-regular leading-o-150 lg:mt-2 2xl:text-l">
           <p className="text-balance">
             На цьому проєкті наша команда отримала свій перший досвід створення
             анімації.
@@ -91,24 +91,24 @@ export default function Processes() {
                               marginTop: 0,
                               height: 0,
                               scale: 0,
-                              x: 200,
+                              y: 200,
                               filter: 'blur(40px)',
                             },
                             visibble: {
                               marginTop: '16px',
                               height: 'auto',
                               scale: 1,
-                              x: 0,
+                              y: 0,
                               filter: 'blur(0px)',
                             },
                           }}
-                          className={clsx('flex justify-center')}
+                          className="flex justify-center"
                           key={index}
                         >
                           <Image
                             src={item.url}
                             alt={'discord повідомлення'}
-                            className={clsx(
+                            className={cn(
                               'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[24px]',
                               index === 3 && 'w-[202px] lg:w-[360px]',
                               index === 6 && 'w-[202px] lg:w-[360px]',
