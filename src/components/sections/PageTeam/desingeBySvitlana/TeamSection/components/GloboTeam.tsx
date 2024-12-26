@@ -4,16 +4,16 @@ import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
-import { useMediaQuery } from 'react-responsive';
+// import { useMediaQuery } from 'react-responsive';
 import Drag from './Drag';
 import { useMouseStore } from '../ui/useMouseStore';
 
 function GloboTeam() {
-  const isMobile = useMediaQuery(
-    { query: '(max-width: 767.5px)' },
-    undefined,
-    (matches) => matches
-  );
+  // const isMobile = useMediaQuery(
+  //   { query: '(max-width: 767.5px)' },
+  //   undefined,
+  //   (matches) => matches
+  // );
   const { mouseX, mouseY } = useMouseStore();
   const generateFibonacciSpherePoints = (numPoints: number, radius: number) => {
     const points = [];
@@ -34,10 +34,10 @@ function GloboTeam() {
 
     return points;
   };
-  const sizes = {
-    canvasSize: isMobile ? '300px' : '510px',
-    pointsRadius: isMobile ? 3 : 4.8,
-  };
+  // const sizes = {
+  //   canvasSize: isMobile ? '300px' : '510px',
+  //   pointsRadius: isMobile ? 3 : 4.8,
+  // };
 
   const points = generateFibonacciSpherePoints(
     900,
