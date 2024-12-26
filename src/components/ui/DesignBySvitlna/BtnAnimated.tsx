@@ -5,9 +5,8 @@ import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 const BtnAnimated = () => {
   return (
     // btn
-    // <div className="h-12 w-[228px]">
-    //  {/* overflow-hidden */}
-    <div className="flex text-white hover:text-s-gray">
+
+    <div className="flex text-white transition-colors duration-300 hover:text-s-gray ease-linear">
       {' '}
       <motion.div
         className="relative inline-block h-12 w-[214px] cursor-pointer overflow-hidden rounded-full border border-white bg-white text-center"
