@@ -1,4 +1,3 @@
-import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import { motion, useInView } from 'framer-motion';
 import { data } from './components/data';
 import { Card } from './components/Card';
