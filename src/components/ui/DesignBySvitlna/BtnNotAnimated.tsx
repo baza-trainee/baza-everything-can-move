@@ -28,6 +28,7 @@ const BtnNotAnimated = ({
           : 'border-s-gray bg-s-gray text-white',
         className
       )}
+      aria-label="Перейти за посиланням"
     >
       <Link
         className="flex h-full w-full items-center justify-center"
