@@ -44,7 +44,7 @@ const Marquee = () => {
                 BAZA TRAINEE UKRAINE
               </p>
               <Image
-                className="images"
+                className="images w-[50px] h-[50px]"
                 src="/assets/images/HomeImg/Star-1.svg"
                 alt="Еліпс"
                 width={50}
@@ -54,7 +54,7 @@ const Marquee = () => {
                 BAZA TRAINEE UKRAINE
               </p>
               <Image
-                className="images mr-6"
+                className="images mr-6 w-[50px] h-[50px]"
                 src="/assets/images/HomeImg/Star-2.svg"
                 alt="Еліпс"
                 width={50}
@@ -82,7 +82,7 @@ const Marquee = () => {
                 BAZA TRAINEE UKRAINE
               </p>
               <Image
-                className="images"
+                className="images w-[50px] h-[50px]"
                 src="/assets/images/HomeImg/Star-1.svg"
                 alt="Еліпс"
                 width={50}
@@ -92,7 +92,7 @@ const Marquee = () => {
                 BAZA TRAINEE UKRAINE
               </p>
               <Image
-                className="images mr-6"
+                className="images mr-6 w-[50px] h-[50px]"
                 src="/assets/images/HomeImg/Star-2.svg"
                 alt="Еліпс"
                 width={50}
