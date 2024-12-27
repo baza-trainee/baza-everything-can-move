@@ -20,28 +20,30 @@ const BtnNotAnimated = ({
   const targetAttribute = linkAttributes ? '_blank' : '';
   return (
     // {/* btn */}
-    <div
+    <button
       className={clsx(
-        'relative inline-block h-12 w-[214px] cursor-pointer rounded-full border',
-        color === 'white' ? 'border-white bg-white' : 'border-s-gray bg-s-gray',
+        'relative h-12 w-[214px] cursor-pointer rounded-full border font-third-family text-md uppercase leading-s-100 tracking-s-1',
+        color === 'white'
+          ? 'border-white bg-white text-s-gray'
+          : 'border-s-gray bg-s-gray text-white',
         className
       )}
     >
       <Link
-        className="block h-full w-full"
+        className="flex h-full w-full items-center justify-center"
         href={href}
         rel={relAttribute}
         target={targetAttribute}
       >
         {/*gray text for white btn/white text for gray btn */}
-        <span
+        {/* <span
           className={clsx(
             'absolute inset-0 z-10 flex items-center justify-center font-third-family text-md uppercase leading-s-100 tracking-s-1',
             color === 'white' ? 'text-s-gray' : 'text-white'
-          )}
-        >
-          переглянути
-        </span>
+          )} 
+        >*/}
+        переглянути
+        {/* </span> */}
       </Link>
       {/* icon*/}
 
@@ -51,7 +53,7 @@ const BtnNotAnimated = ({
           color === 'white' ? 'text-white' : 'text-s-gray'
         )}
       />
-    </div>
+    </button>
   );
 };
 

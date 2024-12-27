@@ -42,11 +42,7 @@ const SectionImagesManager: React.FC<ProjectsImagesProps> = ({ images }) => {
             href="https://baza-trainee.tech/uk/projects"
             linkAttributes
           />
-          <BtnNotAnimated
-            className="mt-4"
-            color="gray"
-            href="https://baza-trainee.tech/uk/projects"
-          />
+         
         </>
       )}
       {/* tablet isTablet &&*/}
