@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
             designType === 'designByOlga' && 'justify-between',
             designType === 'designBySvitlana' && 'justify-start gap-8'
           )}
-        >
+          >
           <Image
             src="/assets/images/Logo/logo_baza2.png"
             alt="logo"
@@ -47,12 +47,13 @@ const Footer: React.FC = () => {
               'h-[83px] w-[83px] grow-0 lg:h-[64px] lg:w-[64px] 2xl:h-[83px] 2xl:w-[83px]',
               designType === 'designByOlga' && 'hidden'
             )}
-          />
+            />
           <Image
             src="/assets/images/Logo/logo_baza.png"
             alt="logo"
             width={83}
             height={83}
+            // priority
             className={clsx(
               'h-[80px] w-[80px] grow-0 lg:mr-6 lg:h-[83px] lg:w-[83px] 2xl:mr-10',
               designType === 'designBySvitlana' && 'hidden'

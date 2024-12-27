@@ -10,6 +10,7 @@ export default function OurNumber() {
       {/* Рядок рухається вліво */}
       <div className="animate-marquee-reverse decor relative inline-block w-[100%] whitespace-nowrap">
         <Image
+          className='w-[100px] h-[20px]'
           src="/assets/images/HomeImg/line.svg"
           alt="Line Image"
           width={100}
@@ -80,6 +81,7 @@ export default function OurNumber() {
       </div>
       <div className="animate-marquee inline-block w-[100%] whitespace-nowrap">
         <Image
+          className='w-[100px] h-[20px]'
           src="/assets/images/HomeImg/line.svg"
           alt="Line Image"
           width={100}

@@ -1,15 +1,15 @@
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
-import Link from 'next/link';
+//import Link from 'next/link';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
+import BtnAnimated from '@/components/ui/DesignBySvitlna/BtnAnimated';
 
 export default function Projects() {
- 
   return (
     <Background text="03 // Досвід" bg="white" xl={500}>
       <section className="mb-32 text-black">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="teitle">
-            <AnimatedTitle title='Досвід' className='mb-5' colorBg='white'/>
+            <AnimatedTitle title="Досвід" className="mb-5" colorBg="white" />
             <p className="mb-10 leading-7 lg:max-w-[310px]">
               Тут ви можете дізнатись про наші факапи та досягнення
             </p>
@@ -22,7 +22,7 @@ export default function Projects() {
             <span className="text-l font-medium"> О. Уайльд</span>
           </div>
         </div>
-        <Link
+        {/* <Link
           href="/experience"
           className="border-sky-500 hover:bg-sky-700 relative mb-8 flex max-w-48 rounded-3xl border-2 border-solid bg-s-gray py-2 pb-2 pl-8 text-md uppercase text-white"
         >
@@ -45,11 +45,12 @@ export default function Projects() {
               ></path>
             </svg>
           </div>
-        </Link>
+        </Link> */}
+        <BtnAnimated color="gray" href="/experience" className="mb-8 mr-auto" />
         <div className="flex flex-col justify-end gap-6 lg:flex-row lg:items-center 2xl:-mt-16">
           <div className="flex flex-col gap-6">
             <div className="bg-gray-800 group rounded-lg border-2 border-s-gray px-9 py-0 pb-4 transition-all duration-500 hover:bg-s-gray hover:text-white">
-              <p className="hidden font-font5 text-[76px] font-bold lg:flex">
+              <p className="font-font5 hidden text-[76px] font-bold lg:flex">
                 <span className="inline-block text-[77px] font-bold tracking-[15px] duration-500 group-hover:translate-x-[-10px] group-hover:translate-y-[-20px] group-hover:-rotate-45">
                   8
                 </span>
@@ -63,7 +64,7 @@ export default function Projects() {
                   +
                 </span>
               </p>
-              <div className="relative flex items-center space-x-2 font-font5 lg:hidden">
+              <div className="font-font5 relative flex items-center space-x-2 lg:hidden">
                 <svg
                   className="-z-1 absolute -left-10 -top-6 w-[140%] 2xl:top-0"
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +85,7 @@ export default function Projects() {
                     </clipPath>
                   </defs>
                 </svg>
-                <p className="font-font5 text-[76px] font-bold lg:flex relative">
+                <p className="font-font5 relative text-[76px] font-bold lg:flex">
                   <span className="inline-block text-[77px] font-bold tracking-[15px] duration-500 group-hover:translate-x-[-10px] group-hover:translate-y-[-20px] group-hover:-rotate-45">
                     8
                   </span>
@@ -108,7 +109,7 @@ export default function Projects() {
               Активних учасників
             </div>
             <div className="bg-gray-800 group relative rounded-lg border-2 border-s-gray px-9 py-3 transition-all duration-500 hover:bg-s-gray hover:text-white">
-              <p className="relative z-10 flex font-font5 text-[76px] font-bold">
+              <p className="font-font5 relative z-10 flex text-[76px] font-bold">
                 <span className="inline-block text-[77px] font-bold tracking-[15px] duration-500 group-hover:translate-x-[-10px] group-hover:translate-y-[-20px] group-hover:-rotate-45">
                   1
                 </span>

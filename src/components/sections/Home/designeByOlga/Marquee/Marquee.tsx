@@ -1,17 +1,35 @@
-'use client'; // Додайте це, якщо використовуєте Next.js
+'use client';
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import './marquee.css';
+import '../Marquee/marquee.css';
 
-const Marquee: React.FC = () => {
-  const [animationDuration] = useState(30); // Можна змінити значення за потреби
+const Marquee = () => {
+  const [animationDuration] = useState(30);
+  // Налаштування анімації вліво
+  const marqueeAnimationLeft = {
+    x: ['0%', '-100%'], // Початкова і кінцева позиції
+    transition: {
+      duration: 20, // Тривалість циклу
+      ease: 'linear', // Лінійна анімація
+      repeat: Infinity, // Повторюється безкінечно
+    },
+  };
+  const marqueeAnimationRight = {
+    x: ['-100%', '0%'], // Початкова і кінцева позиції
+    transition: {
+      duration: 20, // Тривалість циклу
+      ease: 'linear', // Лінійна анімація
+      repeat: Infinity, // Повторюється безкінечно
+    },
+  };
+
 
   return (
-    <section className="relative">
-      <div className="no-repeat absolute h-[100%] w-[100%] bg-[url('/assets/images/HomeImg/background.png')] bg-cover bg-center bg-no-repeat"></div>
-      <div className="overflow-hidden">
-        {/* Рядок рухається вліво */}
-        <div
+    <div className="marquee-container overflow-x-hidden py-3 relative">
+       <div className="no-repeat absolute h-[100%] w-[100%] bg-[url('/assets/images/HomeImg/background.png')] bg-cover bg-center bg-no-repeat"></div>
+      {/* Бігучий рядок */}
+      <div
           className="decor relative inline-block w-[100%] whitespace-nowrap"
           style={{
             animation: `marquee-reverse ${animationDuration}s linear infinite`,
@@ -22,38 +40,63 @@ const Marquee: React.FC = () => {
             alt="Line Image"
             width={100}
             height={20}
+            style={{ width: 'auto', height: 'auto' }}
           />
         </div>
-
-        {/* Рядок рухається вправо */}
-        <div
-          className="whitespace-nowrap text-[40px]"
-          style={{
-            animation: `marquee ${animationDuration}s linear infinite`,
-          }}
-        >
-          BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA
-          TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE
-          UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE
-          BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE
-        </div>
-
-        {/* Ще один рядок рухається вліво */}
-        <div
-          className="whitespace-nowrap text-[40px]"
-          style={{
-            animation: `marquee-reverse ${animationDuration}s linear infinite`,
-          }}
-        >
-          BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA
-          TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE
-          UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE
-          BAZA TRAINEE UKRAINE BAZA TRAINEE UKRAINE
-        </div>
-
-        {/* Ще один рядок рухається вправо */}
-        <div
-          className="inline-block w-[100%] whitespace-nowrap"
+      <motion.div
+        animate={marqueeAnimationLeft}
+        className="marquee-content flex whitespace-nowrap"
+      >
+        {/* Дублюємо контент кілька разів для безперервності */}
+        {Array(10)
+          .fill(0)
+          .map((_, index) => (
+            <div
+              key={index}
+              className="flex shrink-0 grow-0 basis-auto items-center gap-x-6"
+            >
+              <p
+                id="stroke"
+                className="font-font3 text-[40px] font-regular leading-[72px]"
+              >
+                BAZA TRAINEE UKRAINE 
+              </p>
+              
+              <p className="font-font3 text-[40px] font-regular leading-[72px] text-white mr-4">
+                BAZA TRAINEE UKRAINE 
+              </p>
+              
+            </div>
+          ))}
+      </motion.div>
+      <motion.div
+        animate={marqueeAnimationRight}
+        className="marquee-content flex whitespace-nowrap"
+      >
+        {/* Дублюємо контент кілька разів для безперервності */}
+        {Array(10)
+          .fill(0)
+          .map((_, index) => (
+            <div
+              key={index}
+              className="flex shrink-0 grow-0 basis-auto items-center gap-x-6"
+            >
+              <p
+                id="stroke"
+                className="font-font3 text-[40px] font-regular leading-[72px] mr-4"
+              >
+                BAZA TRAINEE UKRAINE 
+              </p>
+              
+              <p className="font-font3 text-[40px] font-regular leading-[72px] text-white mr-4">
+                BAZA TRAINEE UKRAINE 
+              </p>
+              
+            </div>
+          ))}
+      </motion.div>
+      <div
+          className="decor relative inline-block w-[100%] whitespace-nowrap"
           style={{
             animation: `marquee ${animationDuration}s linear infinite`,
           }}
@@ -63,10 +106,10 @@ const Marquee: React.FC = () => {
             alt="Line Image"
             width={100}
             height={20}
+            style={{ width: 'auto', height: 'auto' }}
           />
         </div>
-      </div>
-    </section>
+    </div>
   );
 };
 
