@@ -22,6 +22,7 @@ const Marquee: React.FC = () => {
             alt="Line Image"
             width={100}
             height={20}
+            style={{ width: 'auto', height: 'auto' }}
           />
         </div>
 
@@ -63,6 +64,7 @@ const Marquee: React.FC = () => {
             alt="Line Image"
             width={100}
             height={20}
+            style={{ width: 'auto', height: 'auto' }}
           />
         </div>
       </div>
