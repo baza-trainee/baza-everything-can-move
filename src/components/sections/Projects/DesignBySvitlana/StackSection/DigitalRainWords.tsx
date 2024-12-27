@@ -16,21 +16,8 @@ export default function DigitalRainWords() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // canvas.width = canvasRef.current.clientWidth;
-    // canvas.height = canvasRef.current.clientHeight;
-
     const fontSize = 16;
     let columns = 0;
-    // const columns = Math.floor(canvas.width / fontSize);
-
-    // const drops: number[] = new Array(columns).fill(1);
-
-    // const columnWords: { word: string; charIndex: number; color: string }[] =
-    //   Array.from({ length: columns }, () => ({
-    //     word: '',
-    //     charIndex: 0,
-    //     color: '',
-    //   }));
 
     const wordsArr = [
       'return',
