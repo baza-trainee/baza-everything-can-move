@@ -59,11 +59,11 @@ const Marquee = () => {
                 id="stroke"
                 className="font-font3 text-[40px] font-regular leading-[72px]"
               >
-                BAZA TRAINEE UKRAINE
+                BAZA TRAINEE UKRAINE 
               </p>
               
-              <p className="font-font3 text-[40px] font-regular leading-[72px] text-white">
-                BAZA TRAINEE UKRAINE
+              <p className="font-font3 text-[40px] font-regular leading-[72px] text-white mr-4">
+                BAZA TRAINEE UKRAINE 
               </p>
               
             </div>
@@ -83,13 +83,13 @@ const Marquee = () => {
             >
               <p
                 id="stroke"
-                className="font-font3 text-[40px] font-regular leading-[72px]"
+                className="font-font3 text-[40px] font-regular leading-[72px] mr-4"
               >
-                BAZA TRAINEE UKRAINE
+                BAZA TRAINEE UKRAINE 
               </p>
               
-              <p className="font-font3 text-[40px] font-regular leading-[72px] text-white">
-                BAZA TRAINEE UKRAINE
+              <p className="font-font3 text-[40px] font-regular leading-[72px] text-white mr-4">
+                BAZA TRAINEE UKRAINE 
               </p>
               
             </div>
