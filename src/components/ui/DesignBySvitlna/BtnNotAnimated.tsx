@@ -36,18 +36,10 @@ const BtnNotAnimated = ({
         rel={relAttribute}
         target={targetAttribute}
       >
-        {/*gray text for white btn/white text for gray btn */}
-        {/* <span
-          className={clsx(
-            'absolute inset-0 z-10 flex items-center justify-center font-third-family text-md uppercase leading-s-100 tracking-s-1',
-            color === 'white' ? 'text-s-gray' : 'text-white'
-          )} 
-        >*/}
         переглянути
-        {/* </span> */}
       </Link>
-      {/* icon*/}
 
+      {/* icon*/}
       <ICONS_SHARED.ARROW_BTN_ICON
         className={clsx(
           'absolute -right-[14px] top-[10px] z-30',

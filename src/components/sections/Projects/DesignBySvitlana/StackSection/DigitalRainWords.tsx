@@ -59,7 +59,6 @@ export default function DigitalRainWords() {
 
       columns = Math.floor(canvas.width / fontSize);
 
-      // Обновляем массивы `drops` и `columnWords`
       dropsRef.current = new Array(columns).fill(1);
       columnWordsRef.current = Array.from({ length: columns }, () => ({
         word: '',
