@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@motionone/utils": "^10.18.0",
     "@number-flow/react": "^0.4.1",
     "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^9.117.3",
