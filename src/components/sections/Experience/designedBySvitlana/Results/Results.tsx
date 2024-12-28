@@ -1,16 +1,27 @@
 'use client';
 
-// import Bubbles3D from './Bubbles3D';
-
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect, useState, useRef } from 'react';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import { ICONS } from '@/constants/icons/icons';
 import styles from './results.module.css';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
+import { motion } from "framer-motion";
+import { useFollowPointer } from "./use-follow-pointer";
 // import clsx from 'clsx';
 
 const Results: React.FC = () => {
+
+  const tags_group1 = useRef<HTMLDivElement | null >(null);
+  const tags_group2 = useRef<HTMLDivElement | null >(null);
+  const tags_group3 = useRef<HTMLDivElement | null >(null);
+
+  const { x, y } = useFollowPointer(tags_group1);
+  // const { x, y } = useFollowPointer(tags_group2);
+  // const { x, y } = useFollowPointer(tags_group3);
+
+
+// console.log(x.get());
+
   const [hovered, setHovered] = useState<boolean>(false);
   // const [Xdirection, setXdirection] = useState<string>('');
   // const [Ydirection, setYdirection] = useState<string>('');
@@ -142,8 +153,11 @@ const Results: React.FC = () => {
         <div id={styles.tags} className='will-change-transform flex justify-start items-center relative w-full h-auto'>
           <div className='h-[355px] w-full relative uppercase'>
 
-            <div id={styles.tagGroup}>
-              <div id={styles.tagGroup1_1} className='inline-block absolute translate-x-[86px] rotate-[8deg]'>
+            <motion.div id={styles.tagGroup} ref={tags_group1} style={{x,y}}>
+              <div id={styles.tagGroup1_1} className='inline-block absolute translate-x-[86px] translate-y-[5px] rotate-[4deg]'>
+                <div className="pointer-events-auto rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-black duration-300 hover:bg-s-light-purple hover:text-white">
+                  Взаємодія
+                </div>
               </div>
               <div
                 id={styles.tagGroup1_2}
@@ -161,12 +175,9 @@ const Results: React.FC = () => {
                   Стратегія
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div
-              id={styles.tagGroup}
-              className="pointer-events-none h-full w-full will-change-transform"
-            >
+            <motion.div id={styles.tagGroup} className="pointer-events-none h-full w-full will-change-transform" ref={tags_group2} style={{x,y}}>
               <div
                 id={styles.tagGroup2_1}
                 className="absolute inline-block translate-x-[84px] translate-y-[85px] rotate-[0.04deg]"
@@ -191,12 +202,9 @@ const Results: React.FC = () => {
                   Креативність
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div
-              id={styles.tagGroup}
-              className="pointer-events-none h-full w-full will-change-transform"
-            >
+            <motion.div id={styles.tagGroup} className="pointer-events-none h-full w-full will-change-transform" ref={tags_group3} style={{x,y}}>
               <div
                 id={styles.tagGroup3_1}
                 className="absolute inline-block translate-x-[30px] translate-y-[210px] rotate-[1.56deg]"
@@ -229,7 +237,7 @@ const Results: React.FC = () => {
                   Ефективність
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
