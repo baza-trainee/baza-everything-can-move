@@ -31,13 +31,14 @@ const BtnAnimated = ({
       )}
     >
       {/* btn */}
-      <motion.div
+      <motion.button
         className={clsx(
           'relative inline-block h-12 w-[214px] cursor-pointer overflow-hidden rounded-full border',
           color === 'white'
             ? 'border-white bg-white'
             : 'border-s-gray bg-s-gray'
         )}
+        aria-label="Перейти за посиланням"
         initial="rest"
         whileHover="hover"
         whileTap="hover"
@@ -113,7 +114,7 @@ const BtnAnimated = ({
             переглянути
           </motion.span>
         </Link>
-      </motion.div>
+      </motion.button>
       {/* icon*/}
       <div className="relative h-12">
         <ICONS_SHARED.ARROW_BTN_ICON className="absolute -right-[14px] top-[10px] z-30" />

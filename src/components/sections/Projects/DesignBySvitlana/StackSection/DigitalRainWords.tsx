@@ -4,6 +4,10 @@ import { useEffect, useRef } from 'react';
 
 export default function DigitalRainWords() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const dropsRef = useRef<number[]>([]);
+  const columnWordsRef = useRef<
+    { word: string; charIndex: number; color: string }[]
+  >([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -12,20 +16,8 @@ export default function DigitalRainWords() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width = canvasRef.current.clientWidth;
-    canvas.height = canvasRef.current.clientHeight;
-
     const fontSize = 16;
-    const columns = Math.floor(canvas.width / fontSize);
-
-    const drops: number[] = new Array(columns).fill(1);
-
-    const columnWords: { word: string; charIndex: number; color: string }[] =
-      Array.from({ length: columns }, () => ({
-        word: '',
-        charIndex: 0,
-        color: '',
-      }));
+    let columns = 0;
 
     const wordsArr = [
       'return',
@@ -59,6 +51,21 @@ export default function DigitalRainWords() {
     ];
     const colorsArr = ['#ffffff', '#8f8ded', '#bcbbf9']; //'#bcbbf9' '#363535'
 
+    function initializeCanvas() {
+      if (!canvas || !ctx) return;
+
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+
+      columns = Math.floor(canvas.width / fontSize);
+
+      dropsRef.current = new Array(columns).fill(1);
+      columnWordsRef.current = Array.from({ length: columns }, () => ({
+        word: '',
+        charIndex: 0,
+        color: '',
+      }));
+    }
     function draw() {
       if (!ctx || !canvas) return;
 
@@ -67,43 +74,44 @@ export default function DigitalRainWords() {
 
       ctx.font = `${fontSize}px monospace`;
 
-      for (let i = 0; i < drops.length; i++) {
+      for (let i = 0; i < dropsRef.current.length; i++) {
+        const columnWord = columnWordsRef.current[i];
         if (
-          columnWords[i].word === '' ||
-          columnWords[i].charIndex >= columnWords[i].word.length
+          columnWord.word === '' ||
+          columnWord.charIndex >= columnWord.word.length
         ) {
-          columnWords[i] = {
+          columnWordsRef.current[i] = {
             word: wordsArr[Math.floor(Math.random() * wordsArr.length)],
             charIndex: 0,
             color: colorsArr[Math.floor(Math.random() * colorsArr.length)],
           };
         }
 
-        const { word, charIndex, color } = columnWords[i];
+        const { word, charIndex, color } = columnWordsRef.current[i];
         const text = word[charIndex];
 
         ctx.fillStyle = color;
 
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        ctx.fillText(text, i * fontSize, dropsRef.current[i] * fontSize);
 
-        columnWords[i].charIndex++;
+        columnWordsRef.current[i].charIndex++;
 
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
-          drops[i] = 0;
+        if (
+          dropsRef.current[i] * fontSize > canvas.height &&
+          Math.random() > 0.95
+        ) {
+          dropsRef.current[i] = 0;
         }
 
-        drops[i]++;
+        dropsRef.current[i]++;
       }
     }
+    function handleResize() {
+      initializeCanvas();
+    }
+    initializeCanvas();
 
     const intervalId = setInterval(draw, 32);
-
-    function handleResize() {
-      if (!canvas) return;
-
-      canvas.width = canvasRef.current.clientWidth;
-      canvas.height = canvasRef.current.clientHeight;
-    }
 
     window.addEventListener('resize', handleResize);
 
