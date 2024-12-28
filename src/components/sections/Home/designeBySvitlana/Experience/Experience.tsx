@@ -50,23 +50,9 @@ export default function Projects() {
         <div className="flex flex-col justify-end gap-6 lg:flex-row lg:items-center 2xl:-mt-16">
           <div className="flex flex-col gap-6">
             <div className="bg-gray-800 group rounded-lg border-2 border-s-gray px-9 py-0 pb-4 transition-all duration-500 hover:bg-s-gray hover:text-white">
-              <p className="font-font5 hidden text-[76px] font-bold lg:flex">
-                <span className="inline-block text-[77px] font-bold tracking-[15px] duration-500 group-hover:translate-x-[-10px] group-hover:translate-y-[-20px] group-hover:-rotate-45">
-                  8
-                </span>
-                <span className="inline-block text-[77px] font-bold tracking-[5px] duration-500 group-hover:translate-x-[0px] group-hover:translate-y-[-25px] group-hover:rotate-12">
-                  1
-                </span>
-                <span className="inline-block text-[77px] font-bold tracking-[5px] duration-500 group-hover:translate-x-[15px] group-hover:translate-y-[5px] group-hover:rotate-12">
-                  2
-                </span>
-                <span className="inline-block text-[75px] font-bold tracking-[15px] duration-500 group-hover:translate-x-[45px] group-hover:translate-y-[-15px]">
-                  +
-                </span>
-              </p>
               <div className="font-font5 relative flex items-center space-x-2 lg:hidden">
                 <svg
-                  className="-z-1 absolute -left-10 -top-6 w-[140%] 2xl:top-0"
+                  className="-z-1 absolute -left-9 top-[-25%] w-[133%] lg:hidden"
                   xmlns="http://www.w3.org/2000/svg"
                   width="540"
                   height="152"
@@ -148,7 +134,7 @@ export default function Projects() {
           </div>
           <div className="group relative hidden h-[360px] rounded-lg border-2 border-s-gray px-9 pt-[150px] lg:block lg:w-[542px]">
             <svg
-              className="absolute -top-4 left-0 w-[100%] 2xl:top-0"
+              className="absolute  left-0 w-[100%] top-0"
               xmlns="http://www.w3.org/2000/svg"
               width="540"
               height="152"
