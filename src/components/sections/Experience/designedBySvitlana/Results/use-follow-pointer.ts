@@ -13,7 +13,7 @@ export function useFollowPointer(ref: RefObject<HTMLElement>) {
     if (!ref.current) return;
 
     const handlePointerMove = ({ clientX, clientY }: MouseEvent) => {
-      const element = ref.current!;
+      // const element = ref.current!;
     //   console.log('clientX:', clientX, 'clientY:', clientY );
 
 
