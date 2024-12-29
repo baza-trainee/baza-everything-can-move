@@ -3,7 +3,7 @@ import { useMotionValue, useSpring, frame } from "framer-motion";
 
 const spring = { damping: 3, stiffness: 12, restDelta: 0.001 };
 
-export function useFollowPointer(ref: RefObject<HTMLElement>, parentElem:HTMLElement) {
+export function useFollowPointer(ref: RefObject<HTMLElement>) {
 
   const xPoint = useMotionValue(0);
   const yPoint = useMotionValue(0);
