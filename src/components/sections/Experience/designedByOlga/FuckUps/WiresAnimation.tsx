@@ -6,8 +6,8 @@ import { useScroll, useTransform } from "framer-motion";
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 
 const transition = {
-  duration: 0.7,
-  ease: "ease-in-out",
+  duration: 2,
+  ease: "easeInOut",
 };
 
 export const WiresAnimation = ({ pathLength }: { pathLength: MotionValue; }) => {
