@@ -35,6 +35,7 @@ const FuckUps = () => {
               key={i}
               data-index={i}
               onMouseEnter={toggleHover}
+              onMouseLeave={toggleHover}
               className={clsx(
                 'relative z-10 h-min overflow-hidden rounded-[40px] font-second-family duration-200 ease-in lg:w-[227px] 2xl:w-[364px]',
                 value ? 'border border-white bg-black' : 'bg-white'
