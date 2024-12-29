@@ -3,8 +3,6 @@
 }
 
 .circle {
-  border: 2px;
-  border-color: beige;
   height: 48px;
   min-width: 48px;
   border-radius: 50%;
@@ -20,8 +18,8 @@
 }
 
 .circle1::before {
-  background-color: #5c2222;
+  background-color: #6b6a6a;
 }
 .circle2::before {
-  background-color: #5c2222;
+  background-color: #6b6a6a;
 }
