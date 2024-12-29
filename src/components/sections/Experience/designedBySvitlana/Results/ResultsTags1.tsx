@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './results.module.css';
 import { motion } from "framer-motion";
 import { useFollowPointer } from "./use-follow-pointer";
@@ -10,14 +10,14 @@ const ResultsTags1: React.FC = () => {
 
   const tags_group1 = useRef<HTMLDivElement | null >(null);
  
-  const [hovered, setHovered] = useState<boolean>(false);
+  // const [hovered, setHovered] = useState<boolean>(false);
   const parentElem = tags_group1.current?.parentElement?.parentElement;
   if(!parentElem) return;
    const { x, y } = useFollowPointer(tags_group1, parentElem);
   // const [Xdirection, setXdirection] = useState<string>('');
   // const [Ydirection, setYdirection] = useState<string>('');
-  const [mouseX, setmouseX] = useState<number>(0);
-  const [mouseY, setmouseY] = useState<number>(0);
+  // const [mouseX, setmouseX] = useState<number>(0);
+  // const [mouseY, setmouseY] = useState<number>(0);
   // const [mouseXprev, setmouseXprev] = useState<number>(0);
   // const [mouseYprev, setmouseYprev] = useState<number>(0);
 
@@ -82,7 +82,7 @@ const ResultsTags1: React.FC = () => {
 
 // console.log(XDistance);
     
-  },[hovered, mouseX, mouseY]);
+  },[]);
 
 
   return (

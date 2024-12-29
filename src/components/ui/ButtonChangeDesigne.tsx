@@ -37,11 +37,11 @@ function ButtonChangeDesigne() {
       whileHover={{ width: 210 }}
       transition={{ duration: 1 }}
       animate={{
-        width: animationCircles ? 150 : 88,
+        width: animationCircles ? 210 : 88,
       }}
       onHoverStart={() => setIsOpenButton(true)}
       onHoverEnd={() => setIsOpenButton(false)}
-      className="fixed bottom-14 left-14 z-50 w-max rounded-[50px] border-[1px] border-solid border-white bg-black p-5"
+      className="fixed bottom-14 left-14 z-50 w-max rounded-[50px] p-5"
     >
       <motion.div className="relative h-[48px] w-full min-w-[48px]">
         <DesignButton
@@ -105,24 +105,24 @@ function DesignButton({
       onClick={onClick}
       initial={{ scale: 1 }}
       whileHover={{ scale: 1.2 }}
-      animate={{
-        x: animationCircles
-          ? position === 'left'
-            ? [0, -5, 50, 5, 0]
-            : [0, 5, -50, -5, 0]
-          : 0,
-        y: animationCircles
-          ? position === 'left'
-            ? [0, -60, 0]
-            : [0, -60, 0]
-          : 0,
-      }}
+      // animate={{
+      //   x: animationCircles
+      //     ? position === 'left'
+      //       ? [0, -5, 50, 5, 0]
+      //       : [0, 5, -50, -5, 0]
+      //     : 0,
+      //   y: animationCircles
+      //     ? position === 'left'
+      //       ? [0, -60, 0]
+      //       : [0, -60, 0]
+      //     : 0,
+      // }}
       transition={{
         duration: animationCircles ? durtionAnimationFlyButton : 0.3,
       }}
       aria-label="Змінити дизайн"
       className={cn(
-        'absolute top-[12px] z-50 h-[24px] w-[24px] rounded-full border-[2px] border-solid border-white',
+        'absolute top-[12px] z-50 h-[24px] w-[24px] rounded-full',
         position === 'left' && 'left-[12px]',
         position === 'right' && 'right-[12px]',
         invertDesign
