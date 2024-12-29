@@ -1,21 +1,28 @@
 import { create } from 'zustand';
 
-export type designTypes = 'designByOlga' | 'designBySvitlana' | 'initial';
+export type DesignTypes = 'designByOlga' | 'designBySvitlana' | 'initial';
+
+export type ChangDesign = boolean;
 
 interface DesignStoreState {
-  designType: designTypes;
-  setDesignType: (type: designTypes) => void;
+  isChangingDesign: ChangDesign;
+  designType: DesignTypes;
+  setDesignType: (type: DesignTypes) => void;
   toggleDesignType: () => void;
+  toggleIsChangingDesign: (isChangingDesignProps: ChangDesign) => void;
 }
 
 export const useDesignStore = create<DesignStoreState>((set) => ({
   designType: 'initial',
-  setDesignType: (type: designTypes) => set({ designType: type }),
+  isChangingDesign: false,
+  setDesignType: (type: DesignTypes) => set({ designType: type }),
   toggleDesignType: () =>
     set((state) => ({
       designType:
         state.designType === 'designByOlga'
           ? 'designBySvitlana'
-          : 'designByOlga',////////////////////////////////////////////////////////////////
+          : 'designByOlga', ////////////////////////////////////////////////////////////////
     })),
+  toggleIsChangingDesign: (isChangingDesignProps) =>
+    set(() => ({ isChangingDesign: isChangingDesignProps })),
 }));
