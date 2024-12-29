@@ -22,7 +22,7 @@ function AnimationPageChangeDesign() {
             }}
             exit={{ x: '200%' }}
             transition={{ duration: 2 }}
-            className="fixed top-0 z-[99999999] flex h-screen w-full items-center justify-between bg-black text-olga-green-extra"
+            className="fixed top-0 z-[99999999] flex h-full w-full items-center justify-between bg-black text-olga-green-extra"
           >
             <Image
               className="lg:[700px] fixed left-1/2 top-1/2 w-[300px] -translate-x-1/2 -translate-y-1/2 2xl:w-[1054px]"
@@ -31,7 +31,7 @@ function AnimationPageChangeDesign() {
               height={598}
               width={1054}
             />
-            <div className="fixed right-7 h-screen w-[2px] bg-white" />
+            <div className="fixed right-7 h-full w-[2px] bg-white" />
             <div className="fixed right-7 top-1/2 flex h-12 w-12 -translate-y-1/2 translate-x-1/2 items-center justify-between rounded-full bg-s-purple px-3">
               <svg
                 width="7"
