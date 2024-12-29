@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import styles from './results.module.css';
 import { motion } from "framer-motion";
-import { useFollowPointer } from "./use-follow-pointer";
+// import { useFollowPointer } from "./use-follow-pointer";
 // import clsx from 'clsx';
 
 const ResultsTags1: React.FC = () => {
@@ -13,7 +13,7 @@ const ResultsTags1: React.FC = () => {
   // const [hovered, setHovered] = useState<boolean>(false);
   const parentElem = tags_group1.current?.parentElement?.parentElement;
   if(!parentElem) return;
-   const { x, y } = useFollowPointer(tags_group1, parentElem);
+  //  const { x, y } = useFollowPointer(tags_group1);
   // const [Xdirection, setXdirection] = useState<string>('');
   // const [Ydirection, setYdirection] = useState<string>('');
   // const [mouseX, setmouseX] = useState<number>(0);
@@ -21,7 +21,7 @@ const ResultsTags1: React.FC = () => {
   // const [mouseXprev, setmouseXprev] = useState<number>(0);
   // const [mouseYprev, setmouseYprev] = useState<number>(0);
 
-  useEffect(() => {
+  // useEffect(() => {
     // const tagGroups = document.querySelectorAll(`#${styles.tagGroup}`);
     // if (!tagGroups) return;
 
@@ -82,12 +82,12 @@ const ResultsTags1: React.FC = () => {
 
 // console.log(XDistance);
     
-  },[]);
+  // },[]);
 
 
   return (
 
-    <motion.div id={styles.tagGroup} ref={tags_group1} style={{x,y}}>
+    <motion.div id={styles.tagGroup} ref={tags_group1} >
       <div id={styles.tagGroup1_1} className='inline-block absolute translate-x-[86px] translate-y-[5px] rotate-[4deg]'>
         <div className="pointer-events-auto rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-black duration-300 hover:bg-s-light-purple hover:text-white">
           Взаємодія

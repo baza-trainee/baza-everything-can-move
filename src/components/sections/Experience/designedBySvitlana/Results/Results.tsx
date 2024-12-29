@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import { ICONS } from '@/constants/icons/icons';
 import styles from './results.module.css';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 // import { useFollowPointer } from "./use-follow-pointer";
 import ResultsTags1 from './ResultsTags1';
 // import clsx from 'clsx';
