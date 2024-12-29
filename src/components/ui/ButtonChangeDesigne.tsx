@@ -6,11 +6,13 @@ import { useDesignStore } from '@/useDesignStore';
 import styles from './buttonChangeDesign.module.css';
 
 import { cn } from '@/lib/utils';
+
 const durtionAnimationFlyButton = 3;
 const timeBeetwenAnimation = 20;
 function ButtonChangeDesigne() {
   const [isOpenButton, setIsOpenButton] = useState<boolean>(false);
-  const { designType, toggleDesignType } = useDesignStore();
+  const { designType, toggleDesignType, toggleIsChangingDesign } =
+    useDesignStore();
   const [animationCircles, setAnimationCircles] = useState(false);
   useEffect(() => {
     if (isOpenButton) return;
@@ -23,6 +25,12 @@ function ButtonChangeDesigne() {
     }, timeBeetwenAnimation * 1000);
     return () => clearInterval(interval);
   }, [isOpenButton]);
+
+  const handleButtonChangeDesign = () => {
+    toggleIsChangingDesign(true);
+    setTimeout(() => toggleDesignType(), 2000);
+    setTimeout(() => toggleIsChangingDesign(false), 4000);
+  };
 
   return (
     <motion.div
@@ -38,7 +46,7 @@ function ButtonChangeDesigne() {
       <motion.div className="relative h-[48px] w-full min-w-[48px]">
         <DesignButton
           position="left"
-          onClick={() => toggleDesignType()}
+          onClick={() => handleButtonChangeDesign()}
           designType={designType}
           invertDesign={true}
           animationCircles={animationCircles}
@@ -46,7 +54,7 @@ function ButtonChangeDesigne() {
         <DesignButton
           invertDesign={false}
           position="right"
-          onClick={() => toggleDesignType()}
+          onClick={() => handleButtonChangeDesign()}
           designType={designType}
           animationCircles={animationCircles}
         />

@@ -14,10 +14,12 @@ import OldBaseSection from '../components/sections/Home/designeBySvitlana/OldBas
 import ProjectsSection from '@/components/sections/Home/designeBySvitlana/Projects/Projects';
 import ExperienceSection from '@/components/sections/Home/designeBySvitlana/Experience/Experience';
 import FutureSection from '@/components/sections/Home/designeBySvitlana/Future/Future';
+
 //import NewSection from '@/components/sections/Home/designeByOlga/ProjectsHomeSection/NewSection';
 
 function Home() {
   const { designType } = useDesignStore();
+
   return (
     <>
       {designType === 'designByOlga' && (

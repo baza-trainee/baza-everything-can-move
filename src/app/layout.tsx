@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header/Header';
 import Footer from '@/components/layout/Footer/Footer';
 import ButtonChangeDesigne from '@/components/ui/ButtonChangeDesigne';
 import InitializeDesign from '@/components/ui/InitializeDesign';
+import AnimationPageChangeDesign from '@/components/AnimationPageChangeDesign/AnimationPageChangeDesign';
 
 // import ClientWrapper from './ClientWrapper';
 
@@ -39,6 +40,7 @@ export default function RootLayout({
       <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
       {/* className={`${geistSans.variable} ${geistMono.variable} antialiased`} */}
       <body>
+        <AnimationPageChangeDesign />
         <Header />
         {/* <ClientWrapper>{children}</ClientWrapper> */}
         <main>
