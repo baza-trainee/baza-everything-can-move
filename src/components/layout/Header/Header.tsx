@@ -7,7 +7,9 @@ import { useDesignStore } from '@/useDesignStore';
 import Image from 'next/image';
 
 import HeaderNavigation from './Shared/HeaderNavigation';
-import SceneLogo from './Shared/SceneLogo';
+//import SceneLogo from './Shared/SceneLogo';
+import SceneLogo2 from './Shared/SceneLogo2';
+
 import { NAV_LINKS } from '@/constants/navlinks';
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 
@@ -102,7 +104,7 @@ const Header: React.FC = () => {
                     'h-10 w-10 lg:h-[68px] lg:w-[68px] 2xl:h-[76px] 2xl:w-[76px]'
                   )}
                 >
-                  <SceneLogo />
+                  <SceneLogo2 />
                 </div>
               )}
 

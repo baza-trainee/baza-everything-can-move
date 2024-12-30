@@ -41,13 +41,13 @@ export default function Teams() {
   return (
     <Background text="01 // Команда" bg="white" xl={1142}>
       <section className="teams l mb-[222px] pt-2 text-olga-grid">
-        <div className="container relative">
+        <div className="container relative pl-0">
           <AnimatedTitle
             title="команди"
             colorBg="white"
-            className="lg:text-[76px]"
+            className="lg:text-[76px] mb-"
           />
-          <div className="flex flex-wrap gap-12">
+          <div className="flex flex-wrap justify-between gap-12">
             <div className="text mb-8 2xl:mb-0">
               <div className="mb-6 items-center gap-8 text-lg uppercase lg:flex">
                 ми об&apos;єднуємо
