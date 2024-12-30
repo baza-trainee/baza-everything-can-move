@@ -2,7 +2,7 @@
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import Link from 'next/link';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
-import Scene from './Scene';
+// import Scene from './Scene';
 
 export default function Projects() {
   return (
@@ -57,7 +57,8 @@ export default function Projects() {
           muted
           className="h-[74%] 2xl:w-[50%]"
         /> */}
-        <Scene />
+        
+        {/* <Scene /> */}
       </section>
     </Background>
   );
