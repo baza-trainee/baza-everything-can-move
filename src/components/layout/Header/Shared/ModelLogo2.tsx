@@ -3,12 +3,13 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 import { useRef, useEffect } from 'react';
 import { Group } from 'three';
 
-// useGLTF.preload('/models/trainee11.glb');
-useGLTF.preload('/models/new-logo-baza.glb');
+useGLTF.preload('/models/trainee11.glb');
+//useGLTF.preload('/models/new-logo-baza.glb');
 
 export default function ModelLogo() {
   const group = useRef<Group>(null);
-  const { scene, animations } = useGLTF('/models/new-logo-baza.glb');
+  // const { scene, animations } = useGLTF('/models/new-logo-baza.glb');
+  const { scene, animations } = useGLTF('/models/trainee11.glb');
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
