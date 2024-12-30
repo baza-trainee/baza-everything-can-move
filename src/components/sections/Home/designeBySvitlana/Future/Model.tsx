@@ -34,7 +34,7 @@ const Model = () => {
       object={gltf.scene}
       scale={[25, 25, 26]} // Збільшити модель у 2 рази
       rotation={[0, Math.PI / -21, 0]} // Тільки три значення (X, Y, Z)
-    />
+     />
   );
 };
 
