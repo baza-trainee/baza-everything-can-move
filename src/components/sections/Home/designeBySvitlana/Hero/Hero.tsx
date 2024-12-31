@@ -8,14 +8,18 @@ export default function Hero() {
   return (
     <section className="hero pb-[400px] pt-[104px] 2xl:pb-[280px]">
       <div className="items-top container relative flex flex-wrap">
-        <div  className="max-w-[535px]">
-          <div className='flex items-center '>
-          <AnimatedTitle title="як ми"  className='mr-8 lg:mr-12 text-xl lg:text-2xl 2xl:text-4xl'  wordClasses={['text-white']}/>
-          <SubTitle/>
+        <div className="max-w-[535px]">
+          <div className="flex items-center">
+            <AnimatedTitle
+              title="як ми"
+              className="mr-8 text-xl lg:mr-12 lg:text-2xl 2xl:text-4xl !leading-[150%]"
+              wordClasses={['text-white']}
+            />
+            <SubTitle />
           </div>
           <AnimatedTitle
             title="анімацію робили"
-           className='text-xl lg:text-2xl 2xl:text-4xl'
+            className="text-xl lg:text-2xl 2xl:text-4xl !leading-[150%]"
             wordClasses={['text-s-purple']}
           />
         </div>

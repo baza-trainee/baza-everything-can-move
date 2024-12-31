@@ -105,18 +105,6 @@ function DesignButton({
       onClick={onClick}
       initial={{ scale: 1 }}
       whileHover={{ scale: 1.2 }}
-      // animate={{
-      //   x: animationCircles
-      //     ? position === 'left'
-      //       ? [0, -5, 50, 5, 0]
-      //       : [0, 5, -50, -5, 0]
-      //     : 0,
-      //   y: animationCircles
-      //     ? position === 'left'
-      //       ? [0, -60, 0]
-      //       : [0, -60, 0]
-      //     : 0,
-      // }}
       transition={{
         duration: animationCircles ? durtionAnimationFlyButton : 0.3,
       }}

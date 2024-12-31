@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import '../Marquee/marquee.css';
+import './marquee.css';
 
 const Marquee = () => {
   // Налаштування анімації вліво
