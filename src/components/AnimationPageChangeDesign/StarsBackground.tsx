@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, PropsWithChildren } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -21,12 +21,12 @@ function Stars(props: PropsWithChildren) {
       THREE.Points<THREE.BufferGeometry, THREE.Material | THREE.Material[]>
     >(null);
   const [sphere] = useState(() => generatePointsInSphere(300, 1.5));
-  useFrame((_, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x -= delta / 30;
-      ref.current.rotation.y -= delta / 35;
-    }
-  });
+  // useFrame((_, delta) => {
+  //   if (ref.current) {
+  //     ref.current.rotation.x -= delta / 30;
+  //     ref.current.rotation.y -= delta / 35;
+  //   }
+  // });
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
       <Points
