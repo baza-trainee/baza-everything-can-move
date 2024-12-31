@@ -42,7 +42,7 @@ export const AnimationCompare = ({
     <div className="pointer-events-none fixed bottom-0 top-0 z-[9999999] w-full">
       <div className="relative h-full w-full overflow-hidden">
         <motion.div
-          className="absolute h-0 w-0"
+          className="pointer-events-none absolute h-0 w-0"
           animate={{
             x: isChangingDesign ? [-50, maxRightPosition + 50, -50] : -50,
           }}
