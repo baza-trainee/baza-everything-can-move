@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import ModelLogo2 from './ModelLogo';
+import ModelLogo2 from './ModelLogo2';
 
 import { Suspense } from 'react';
 //import { Center } from '@react-three/drei';

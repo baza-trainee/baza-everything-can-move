@@ -16,6 +16,9 @@ export default function ModelLogo() {
       actions[animations[0].name]?.play();
     }
   }, [animations, actions]);
+  // useEffect(() => {
+  //   // Временно отключите анимацию
+  // }, []);
 
   return (
     <group ref={group} scale={[2, 2, 1]}>
