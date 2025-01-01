@@ -1,65 +1,63 @@
 'use client';
-import clsx from 'clsx';
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
 import { useDesignStore } from '@/useDesignStore';
-import styles from './buttonChangeDesign.module.css';
+// import styles from './buttonChangeDesign.module.css';
 
 import { cn } from '@/lib/utils';
 
-const durtionAnimationFlyButton = 3;
-const timeBeetwenAnimation = 20;
+const durtionAnimationChangeDesign = 4;
+
 function ButtonChangeDesigne() {
   const [isOpenButton, setIsOpenButton] = useState<boolean>(false);
+
   const { designType, toggleDesignType, toggleIsChangingDesign } =
     useDesignStore();
-  const [animationCircles, setAnimationCircles] = useState(false);
-  useEffect(() => {
-    if (isOpenButton) return;
-
-    const interval = setInterval(() => {
-      setAnimationCircles(true);
-      setTimeout(() => {
-        setAnimationCircles(false);
-      }, durtionAnimationFlyButton * 1000);
-    }, timeBeetwenAnimation * 1000);
-    return () => clearInterval(interval);
-  }, [isOpenButton]);
 
   const handleButtonChangeDesign = () => {
     toggleIsChangingDesign(true);
-    setTimeout(() => toggleDesignType(), 2000);
-    setTimeout(() => toggleIsChangingDesign(false), 4000);
+    setTimeout(
+      () => toggleDesignType(),
+      (durtionAnimationChangeDesign * 1000) / 2
+    );
+    setTimeout(
+      () => toggleIsChangingDesign(false),
+      durtionAnimationChangeDesign * 1000
+    );
+    setIsOpenButton(false);
   };
 
   return (
     <motion.div
-      whileHover={{ width: 210 }}
-      transition={{ duration: 1 }}
-      animate={{
-        width: animationCircles ? 210 : 88,
-      }}
       onHoverStart={() => setIsOpenButton(true)}
       onHoverEnd={() => setIsOpenButton(false)}
-      className="fixed bottom-14 left-14 z-50 w-max rounded-[50px] p-5"
+      onTap={() => setIsOpenButton(true)}
+      className="fixed bottom-14 left-14 z-50 rounded-[50px] border-[1px] border-solid border-white bg-black p-[18px]"
     >
-      <motion.div className="relative h-[48px] w-full min-w-[48px]">
+      <motion.div
+        className="relative h-6 w-6"
+        animate={{
+          width: isOpenButton ? 80 : 24,
+        }}
+        transition={{ duration: 0.5 }}
+      >
         <DesignButton
+          isOpenButton={isOpenButton}
           position="left"
-          onClick={() => handleButtonChangeDesign()}
-          designType={designType}
+          onClick={handleButtonChangeDesign}
           invertDesign={true}
-          animationCircles={animationCircles}
+          designType={designType}
         />
         <DesignButton
-          invertDesign={false}
+          isOpenButton={isOpenButton}
           position="right"
-          onClick={() => handleButtonChangeDesign()}
+          onClick={handleButtonChangeDesign}
+          invertDesign={false}
           designType={designType}
-          animationCircles={animationCircles}
         />
 
-        <div className={cn(styles.containerLiquid, 'relative w-full')}>
+        {/* <div className={cn(styles.containerLiquid, 'relative w-full')}>
           <div className="absolute left-0">
             <div className={clsx(styles.circle, styles.circle1)} />
           </div>
@@ -79,7 +77,7 @@ function ButtonChangeDesigne() {
               ></feColorMatrix>
             </filter>
           </svg>
-        </div>
+        </div> */}
       </motion.div>
     </motion.div>
   );
@@ -92,35 +90,73 @@ function DesignButton({
   onClick,
   invertDesign,
   designType,
-  animationCircles,
+  isOpenButton = false,
 }: {
+  isOpenButton: boolean;
   position: 'left' | 'right';
   onClick: () => void;
   invertDesign: boolean;
   designType: string;
-  animationCircles: boolean;
 }) {
   return (
-    <motion.button
-      onClick={onClick}
-      initial={{ scale: 1 }}
-      whileHover={{ scale: 1.2 }}
-      transition={{
-        duration: animationCircles ? durtionAnimationFlyButton : 0.3,
-      }}
-      aria-label="Змінити дизайн"
+    <div
       className={cn(
-        'absolute top-[12px] z-50 h-[24px] w-[24px] rounded-full',
-        position === 'left' && 'left-[12px]',
-        position === 'right' && 'right-[12px]',
-        invertDesign
-          ? designType === 'designBySvitlana'
-            ? 'bg-olga-green'
-            : 'bg-[#8f8ded]'
-          : designType === 'designBySvitlana'
-            ? 'bg-[#8f8ded]'
-            : 'bg-olga-green'
+        'absolute top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full',
+        position === 'left' ? 'left-0' : 'right-0'
       )}
-    />
+    >
+      <AnimatePresence>
+        {isOpenButton ? (
+          <button
+            disabled={!isOpenButton}
+            onClick={onClick}
+            aria-label="Змінити дизайн"
+            className={cn(
+              'h-6 w-6 rounded-full transition-all duration-500 hover:scale-[1.35]',
+              invertDesign
+                ? designType === 'designBySvitlana'
+                  ? 'bg-olga-green'
+                  : 'bg-[#8f8ded]'
+                : designType === 'designBySvitlana'
+                  ? 'bg-[#8f8ded]'
+                  : 'bg-olga-green'
+            )}
+          />
+        ) : (
+          <div className="relative">
+            <motion.div
+              initial={{ scale: 1, opacity: 1 }}
+              animate={{ scale: [1, 2.5, 1], opacity: [1, 0.5, 0, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+              }}
+              className={cn(
+                'flex h-6 w-6 items-center justify-center rounded-full',
+                designType === 'designBySvitlana'
+                  ? 'bg-s-light-purple'
+                  : 'bg-olga-green'
+              )}
+            ></motion.div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <motion.div
+                initial={{ scale: 1, opacity: 1 }}
+                animate={{ scale: [1, 2, 2, 1], opacity: [1, 1, 1, 0] }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                }}
+                className={cn(
+                  'h-3 w-3 rounded-full bg-s-purple',
+                  designType === 'designBySvitlana'
+                    ? 'bg-[#8f8ded]'
+                    : 'bg-olga-green-extra'
+                )}
+              />
+            </div>
+          </div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
