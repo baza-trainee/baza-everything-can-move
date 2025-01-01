@@ -1,7 +1,8 @@
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import React from 'react';
-import SceneRobot from './SceneRobot';
+//import SceneRobot from './SceneRobot';
+import SceneLogo from '@/components/layout/Header/Shared/SceneLogo';
 
 const Exp = () => {
   return (
@@ -12,7 +13,8 @@ const Exp = () => {
           className="mx-auto"
           wordClasses={['text-s-purple']}
         />
-        <SceneRobot />
+        {/* <SceneRobot /> */}
+        <SceneLogo />
       </Container>
     </section>
   );

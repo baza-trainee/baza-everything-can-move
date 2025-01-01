@@ -1,19 +1,18 @@
-import React from 'react'
-import Snow from './Snow/Snow'
+import React from 'react';
+import Snow from './Snow/Snow';
 import Achievements from './Achievements/Achievements';
 import FuckUps from './FuckUps/FuckUps';
-import Results from './Results/Results';
+//import Results from './Results/Results';
 
-
-const ExperienceSectionSvitlana:React.FC = () => {
+const ExperienceSectionSvitlana: React.FC = () => {
   return (
     <div>
-      <Snow/>
+      <Snow />
       <Achievements />
-      <FuckUps/>
-      <Results />
+      <FuckUps />
+      {/* <Results /> doesn't work*/}
     </div>
-  )
-}
+  );
+};
 
-export default ExperienceSectionSvitlana 
+export default ExperienceSectionSvitlana;
