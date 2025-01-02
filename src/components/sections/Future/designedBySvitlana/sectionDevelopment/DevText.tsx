@@ -3,7 +3,7 @@ import React from 'react';
 
 function DevText() {
   return (
-    <div className="flex w-full flex-col gap-[40px] lg:-mt-[250px] lg:gap-[80px] 2xl:-mt-[320px] 2xl:gap-[120px]">
+    <div className="flex w-full flex-col gap-[40px] lg:-mt-[200px] lg:gap-[80px] 2xl:-mt-[220px] 2xl:gap-[120px]">
       {TEXTS.map((item, idx) => (
         <div
           key={item.title}
