@@ -16,7 +16,7 @@ interface CompareProps {
 }
 
 export const AnimationCompare = ({
-  initialSliderPercentage = 50,
+  initialSliderPercentage = 0,
 }: CompareProps) => {
   const [sliderXPercent, setSliderXPercent] = useState(initialSliderPercentage);
   const [maxRightPosition, setMaxRightPosition] = useState(0);
@@ -45,9 +45,9 @@ export const AnimationCompare = ({
       <div className="relative h-full w-full overflow-hidden">
         <motion.div
           className="pointer-events-none absolute h-0 w-0"
-          // animate={{
-          //   x: isChangingDesign ? [-50, maxRightPosition + 50, -50] : -50,
-          // }}
+          animate={{
+            x: isChangingDesign ? [-50, maxRightPosition + 50, -50] : -50,
+          }}
           style={{ x }}
           transition={{ duration: 4, ease: 'linear' }}
         />
@@ -57,7 +57,7 @@ export const AnimationCompare = ({
             style={{ left: `${sliderXPercent}%`, top: '0', zIndex: 40 }}
             transition={{ duration: 0 }}
           >
-            {true ? (
+            {isChangingDesign ? (
               <div className="relative h-full w-px bg-white">
                 <div className="absolute left-1/2 top-1/2 z-30 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-between rounded-full bg-s-purple px-3">
                   <svg
