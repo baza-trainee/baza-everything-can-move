@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 import { HeaderNavigationProps } from '@/components/layout/Header/types';
-import SceneLogo from '@/components/layout/Header/Shared/SceneLogo';
+import SceneLogo from '@/components/sections/Future/designedBySvitlana/sectionDevelopment/SceneLogo';
 import NavigationLinks from '@/components/layout/Header/Shared/NavigationLinks';
 import SocialMedia from '@/components/layout/Header/DesignByOlga/SocialMedia';
 
