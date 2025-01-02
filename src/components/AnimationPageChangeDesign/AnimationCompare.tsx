@@ -59,7 +59,7 @@ export const AnimationCompare = ({
           >
             {isChangingDesign ? (
               <div className="relative h-full w-px bg-white">
-                <div className="absolute left-1/2 top-1/2 z-30 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-between rounded-full bg-s-purple px-3">
+                <div className="absolute left-1/2 top-1/2 z-30 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-between rounded-full bg-white px-3">
                   <svg
                     width="7"
                     height="12"
@@ -90,6 +90,18 @@ export const AnimationCompare = ({
                 <div className={styles.gradient1} />
                 <div className={styles.gradient2} />
                 <div className={styles.sparklesContainer}>
+                  <MemoizedSparklesCore
+                    background="transparent"
+                    minSize={0.4}
+                    maxSize={1}
+                    particleDensity={1200}
+                    className="h-full w-full"
+                    particleColor="#FFFFFF"
+                  />
+                </div>
+                <div className={styles.gradient1L} />
+                <div className={styles.gradient2L} />
+                <div className={styles.sparklesContainerL}>
                   <MemoizedSparklesCore
                     background="transparent"
                     minSize={0.4}
