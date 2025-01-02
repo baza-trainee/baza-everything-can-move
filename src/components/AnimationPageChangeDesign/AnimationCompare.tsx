@@ -2,10 +2,12 @@
 import React, { useState, ReactNode, useEffect } from 'react';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 
-// import { SparklesCore } from './SparklesCore';
+import { SparklesCore } from './SparklesCore';
 import Image from 'next/image';
 import StarsBackground from './StarsBackground';
 import { useDesignStore } from '@/useDesignStore';
+
+import styles from './sparkles.module.css';
 
 interface CompareProps {
   leftComponent?: ReactNode;
@@ -14,7 +16,7 @@ interface CompareProps {
 }
 
 export const AnimationCompare = ({
-  initialSliderPercentage = 0,
+  initialSliderPercentage = 50,
 }: CompareProps) => {
   const [sliderXPercent, setSliderXPercent] = useState(initialSliderPercentage);
   const [maxRightPosition, setMaxRightPosition] = useState(0);
@@ -43,9 +45,9 @@ export const AnimationCompare = ({
       <div className="relative h-full w-full overflow-hidden">
         <motion.div
           className="pointer-events-none absolute h-0 w-0"
-          animate={{
-            x: isChangingDesign ? [-50, maxRightPosition + 50, -50] : -50,
-          }}
+          // animate={{
+          //   x: isChangingDesign ? [-50, maxRightPosition + 50, -50] : -50,
+          // }}
           style={{ x }}
           transition={{ duration: 4, ease: 'linear' }}
         />
@@ -55,7 +57,7 @@ export const AnimationCompare = ({
             style={{ left: `${sliderXPercent}%`, top: '0', zIndex: 40 }}
             transition={{ duration: 0 }}
           >
-            {isChangingDesign ? (
+            {true ? (
               <div className="relative h-full w-px bg-white">
                 <div className="absolute left-1/2 top-1/2 z-30 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-between rounded-full bg-s-purple px-3">
                   <svg
@@ -84,6 +86,18 @@ export const AnimationCompare = ({
                       strokeLinecap="round"
                     />
                   </svg>
+                </div>
+                <div className={styles.gradient1} />
+                <div className={styles.gradient2} />
+                <div className={styles.sparklesContainer}>
+                  <MemoizedSparklesCore
+                    background="transparent"
+                    minSize={0.4}
+                    maxSize={1}
+                    particleDensity={1200}
+                    className="h-full w-full"
+                    particleColor="#FFFFFF"
+                  />
                 </div>
               </div>
             ) : null}
@@ -118,4 +132,4 @@ export const AnimationCompare = ({
     </div>
   );
 };
-// const MemoizedSparklesCore = React.memo(SparklesCore);
+const MemoizedSparklesCore = React.memo(SparklesCore);
