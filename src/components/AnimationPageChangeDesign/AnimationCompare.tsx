@@ -2,10 +2,12 @@
 import React, { useState, ReactNode, useEffect } from 'react';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 
-// import { SparklesCore } from './SparklesCore';
+import { SparklesCore } from './SparklesCore';
 import Image from 'next/image';
 import StarsBackground from './StarsBackground';
 import { useDesignStore } from '@/useDesignStore';
+
+import styles from './sparkles.module.css';
 
 interface CompareProps {
   leftComponent?: ReactNode;
@@ -85,6 +87,18 @@ export const AnimationCompare = ({
                     />
                   </svg>
                 </div>
+                <div className={styles.gradient1} />
+                <div className={styles.gradient2} />
+                <div className={styles.sparklesContainer}>
+                  <MemoizedSparklesCore
+                    background="transparent"
+                    minSize={0.4}
+                    maxSize={1}
+                    particleDensity={1200}
+                    className="h-full w-full"
+                    particleColor="#FFFFFF"
+                  />
+                </div>
               </div>
             ) : null}
           </motion.div>
@@ -118,4 +132,4 @@ export const AnimationCompare = ({
     </div>
   );
 };
-// const MemoizedSparklesCore = React.memo(SparklesCore);
+const MemoizedSparklesCore = React.memo(SparklesCore);
