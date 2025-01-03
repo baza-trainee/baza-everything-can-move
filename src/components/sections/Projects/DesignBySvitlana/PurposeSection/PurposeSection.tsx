@@ -35,7 +35,7 @@ const PurposeSection: React.FC = () => {
         </div>
         {/* ------------------- */}
         {/* */}
-        <div className="flex flex-col gap-6 px-[18px] lg:flex-row lg:justify-center lg:gap-[90px] lg:px-6 2xl:gap-3 2xl:pl-20 2xl:pr-[54px]">
+        <div className="flex flex-col gap-6 px-[18px] lg:mx-auto lg:max-w-[768px] lg:flex-row lg:justify-between lg:gap-[90px] lg:px-6 2xl:max-w-[1440px] 2xl:gap-3 2xl:pl-20 2xl:pr-[54px]">
           <div className="flex w-[280px] gap-[6px] lg:w-[280px] 2xl:mt-[210px] 2xl:w-[300px]">
             <div className="mt-[6px] 2xl:mt-3">
               <ICONS_PURPOSE.RECTANGLE />
