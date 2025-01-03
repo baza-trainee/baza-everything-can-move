@@ -8,7 +8,7 @@ import StarsComponent from './StarsComponent';
 export default function Projects() {
   return (
     <Background text="04 // Майбутнє" bg="s-gray" xl={0}>
-      <section className="mb-32 flex flex-wrap items-center justify-between 2xl:flex-nowrap">
+      <section className="mb-32 flex flex-wrap items-center xl:gap-24 gap-16 2xl:flex-nowrap">
         <div className="title">
           <AnimatedTitle title="Майбутнє" className="mb-5" />
           <div className="mb-6 items-center gap-8 text-lg uppercase lg:flex">
