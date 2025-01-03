@@ -3,11 +3,12 @@ import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import Link from 'next/link';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 // import Scene from './Scene';
+import StarsComponent from './StarsComponent';
 
 export default function Projects() {
   return (
     <Background text="04 // Майбутнє" bg="s-gray" xl={0}>
-      <section className="mb-32 flex flex-wrap items-center gap-12 2xl:flex-nowrap">
+      <section className="mb-32 flex flex-wrap items-center xl:gap-24 gap-16 2xl:flex-nowrap">
         <div className="title">
           <AnimatedTitle title="Майбутнє" className="mb-5" />
           <div className="mb-6 items-center gap-8 text-lg uppercase lg:flex">
@@ -49,6 +50,9 @@ export default function Projects() {
             </div>
           </Link>
         </div>
+        <div className="relative">
+          <StarsComponent/>
+        </div>
         {/* <video
           src="/assets/videos/Baza.mp4" // шлях до твого відеофайлу
           controls
@@ -57,7 +61,7 @@ export default function Projects() {
           muted
           className="h-[74%] 2xl:w-[50%]"
         /> */}
-        
+
         {/* <Scene /> */}
       </section>
     </Background>

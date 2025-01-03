@@ -34,6 +34,8 @@ import o4 from '@/assets/icons/header/designSvitlana/04.svg';
 //---- PURPOSE-----------
 import Star_big from '@/assets/icons/projects/purpose/Star_big.svg';
 import Star_small from '@/assets/icons/projects/purpose/Star_small.svg';
+import Star_oko from '@/assets/images/Home/Oko.svg';
+import Star_oko2 from '@/assets/images/Home/Oko-2.svg';
 import Rectangle from '@/assets/icons/projects/purpose/Rectangle.svg';
 
 //---- stack -----------
@@ -62,7 +64,12 @@ export const ICONS_PURPOSE = {
   STAR_BIG: Star_big,
   STAR_SMALL: Star_small,
   RECTANGLE: Rectangle,
+  STAR_OKO: Star_oko,
+  STAR_OKO2: Star_oko2,
 };
+// export const ICONS_HOME = {
+
+// }
 export const ICONS_SRC = {
   CLOSE_MENU_ICON: CloseMenuIcon,
   OPEN_MENU_ICON: OpenMenuIcon,
