@@ -24,7 +24,7 @@ const StarsComponent = () => {
 
   return (
     <>
-      <div className="absolute h-[440px] w-[440px] bg-[url('/assets/images/HomeImg/Ellipse.svg')] bg-cover bg-center bg-no-repeat"></div>
+      <div className="absolute lg:h-[440px] h-[310px] lg:w-[440px] w-[310px] bg-[url('/assets/images/HomeImg/Ellipse.svg')] bg-cover bg-center bg-no-repeat"></div>
       <motion.div
         animate={{
           x: position.x,
@@ -40,10 +40,9 @@ const StarsComponent = () => {
         }}
         className="relative mx-auto h-[300px] w-[300px] lg:h-[400px] lg:w-[400px]"
       >
-        {/* Голова */}
 
         {/* Очі */}
-        <div className="absolute left-[60px] top-[100px] lg:left-[70px] lg:top-[130px]">
+        <div className="absolute left-[60px] lg:top-[100px] top-[60px] lg:left-[70px] lg:top-[130px]">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{
@@ -67,8 +66,9 @@ const StarsComponent = () => {
             </motion.div>
           </div>
         </div>
-
-        <div className="absolute left-[180px] top-[100px] lg:left-[240px] lg:top-[130px]">
+        
+        {/* Очі */}
+        <div className="absolute left-[180px] lg:top-[100px] top-[60px] lg:left-[240px] lg:top-[130px]">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{
@@ -94,7 +94,7 @@ const StarsComponent = () => {
         </div>
 
         {/* Рот */}
-        <div className="absolute bottom-[50px] left-1/2 -translate-x-1/2">
+        <div className="absolute bottom-[50px] left-1/2 lg:-translate-x-1/2 -translate-x-3">
           <motion.div
             animate={{
               scaleY: [1, 0.5, 1],
