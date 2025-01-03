@@ -8,6 +8,7 @@ import StarsBackground from './StarsBackground';
 import { useDesignStore } from '@/useDesignStore';
 
 import styles from './sparkles.module.css';
+import { useMediaQuery } from 'react-responsive';
 
 interface CompareProps {
   leftComponent?: ReactNode;
@@ -21,7 +22,9 @@ export const AnimationCompare = ({
   const [sliderXPercent, setSliderXPercent] = useState(initialSliderPercentage);
   const [maxRightPosition, setMaxRightPosition] = useState(0);
   const x = useMotionValue(0);
-  const { isChangingDesign } = useDesignStore();
+  const { isChangingDesign, DurationAnimtionChangeDesign } = useDesignStore();
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const isDesctop = useMediaQuery({ query: '(min-width: 1440px)' });
 
   useEffect(() => {
     const updateMaxRightPosition = () => setMaxRightPosition(window.innerWidth);
@@ -46,10 +49,17 @@ export const AnimationCompare = ({
         <motion.div
           className="pointer-events-none absolute h-0 w-0"
           animate={{
-            x: isChangingDesign ? [-50, maxRightPosition + 50, -50] : -50,
+            x: isChangingDesign ? [-100, maxRightPosition + 100, -100] : -100,
           }}
           style={{ x }}
-          transition={{ duration: 4, ease: 'linear' }}
+          transition={{
+            duration: isMobile
+              ? DurationAnimtionChangeDesign.mobile
+              : isDesctop
+                ? DurationAnimtionChangeDesign.desctop
+                : DurationAnimtionChangeDesign.tablet,
+            ease: 'linear',
+          }}
         />
         <AnimatePresence initial={false}>
           <motion.div
