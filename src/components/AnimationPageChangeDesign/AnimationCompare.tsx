@@ -23,7 +23,7 @@ export const AnimationCompare = ({
   const [maxRightPosition, setMaxRightPosition] = useState(0);
   const x = useMotionValue(0);
   const { isChangingDesign, DurationAnimtionChangeDesign } = useDesignStore();
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
   const isDesctop = useMediaQuery({ query: '(min-width: 1440px)' });
 
   useEffect(() => {
@@ -53,11 +53,9 @@ export const AnimationCompare = ({
           }}
           style={{ x }}
           transition={{
-            duration: isMobile
-              ? DurationAnimtionChangeDesign.mobile
-              : isDesctop
-                ? DurationAnimtionChangeDesign.desctop
-                : DurationAnimtionChangeDesign.tablet,
+            duration: isDesctop
+              ? DurationAnimtionChangeDesign.tablet
+              : DurationAnimtionChangeDesign.mobile,
             ease: 'linear',
           }}
         />
