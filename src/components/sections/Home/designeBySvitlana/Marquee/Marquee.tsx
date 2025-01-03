@@ -1,7 +1,8 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import './marquee.css';
+// import './marquee.css';
+//import '../Marquee/marquee.module.css';
 
 const Marquee = () => {
   // Налаштування анімації вліво
@@ -23,11 +24,14 @@ const Marquee = () => {
   };
 
   return (
-    <div className="marquee-container overflow-x-hidden py-3">
+    //marquee-container
+    <div className="overflow-x-hidden py-3">
       {/* Бігучий рядок */}
       <motion.div
         animate={marqueeAnimationLeft}
-        className="marquee-content flex whitespace-nowrap"
+        // marquee-content
+        className="flex whitespace-nowrap"
+        style={{ willChange: 'transform' }}
       >
         {/* Дублюємо контент кілька разів для безперервності */}
         {Array(10)
@@ -38,13 +42,18 @@ const Marquee = () => {
               className="flex shrink-0 grow-0 basis-auto items-center gap-x-6"
             >
               <p
-                id="stroke"
+                // id="stroke"
                 className="font-font3 text-[40px] font-medium leading-[72px]"
+                style={{
+                  WebkitTextFillColor: 'black',
+                  WebkitTextStroke: '1px rgba(255, 255, 255, 1)',
+                }}
               >
                 BAZA TRAINEE UKRAINE
               </p>
               <Image
-                className="images w-[50px] h-[50px]"
+                //images
+                className="h-[50px] w-[50px] shrink-0"
                 src="/assets/images/HomeImg/Star-1.svg"
                 alt="Еліпс"
                 width={50}
@@ -54,7 +63,8 @@ const Marquee = () => {
                 BAZA TRAINEE UKRAINE
               </p>
               <Image
-                className="images mr-6 w-[50px] h-[50px]"
+                //images
+                className="mr-6 h-[50px] w-[50px] shrink-0"
                 src="/assets/images/HomeImg/Star-2.svg"
                 alt="Еліпс"
                 width={50}
@@ -65,7 +75,9 @@ const Marquee = () => {
       </motion.div>
       <motion.div
         animate={marqueeAnimationRight}
-        className="marquee-content flex whitespace-nowrap"
+        //marquee-content
+        className="flex whitespace-nowrap"
+        style={{ willChange: 'transform' }}
       >
         {/* Дублюємо контент кілька разів для безперервності */}
         {Array(10)
@@ -76,13 +88,18 @@ const Marquee = () => {
               className="flex shrink-0 grow-0 basis-auto items-center gap-x-6"
             >
               <p
-                id="stroke"
+                // id="stroke"
                 className="font-font3 text-[40px] font-medium leading-[72px]"
+                style={{
+                  WebkitTextFillColor: 'black',
+                  WebkitTextStroke: '1px rgba(255, 255, 255, 1)',
+                }}
               >
                 BAZA TRAINEE UKRAINE
               </p>
               <Image
-                className="images w-[50px] h-[50px]"
+                // images
+                className="h-[50px] w-[50px] shrink-0"
                 src="/assets/images/HomeImg/Star-1.svg"
                 alt="Еліпс"
                 width={50}
@@ -92,7 +109,8 @@ const Marquee = () => {
                 BAZA TRAINEE UKRAINE
               </p>
               <Image
-                className="images mr-6 w-[50px] h-[50px]"
+                //images
+                className="mr-6 h-[50px] w-[50px] shrink-0"
                 src="/assets/images/HomeImg/Star-2.svg"
                 alt="Еліпс"
                 width={50}

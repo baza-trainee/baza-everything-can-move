@@ -1,0 +1,23 @@
+/* .marquee-container {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+} */
+
+/* .marquee-content {
+  display: flex;
+  will-change: transform;
+} */
+/* 
+.images {
+  flex-shrink: 0;
+} */
+
+/* #stroke {
+  -webkit-text-fill-color: black !important;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
+} */
+
+/* .whitespace-nowrap {
+  white-space: nowrap;
+} */
