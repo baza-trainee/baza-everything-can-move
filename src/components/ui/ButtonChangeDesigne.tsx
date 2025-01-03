@@ -3,28 +3,35 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { useDesignStore } from '@/useDesignStore';
-// import styles from './buttonChangeDesign.module.css';
 
 import { cn } from '@/lib/utils';
-
-const durtionAnimationChangeDesign = 4;
+import { useMediaQuery } from 'react-responsive';
 
 function ButtonChangeDesigne() {
   const [isOpenButton, setIsOpenButton] = useState<boolean>(false);
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const isDesctop = useMediaQuery({ query: '(min-width: 1440px)' });
+  const {
+    designType,
+    toggleDesignType,
+    toggleIsChangingDesign,
+    DurationAnimtionChangeDesign,
+  } = useDesignStore();
 
-  const { designType, toggleDesignType, toggleIsChangingDesign } =
-    useDesignStore();
+  const durationAnimation = () => {
+    const time = isMobile
+      ? DurationAnimtionChangeDesign.mobile
+      : isDesctop
+        ? DurationAnimtionChangeDesign.desctop
+        : DurationAnimtionChangeDesign.tablet;
+
+    return time;
+  };
 
   const handleButtonChangeDesign = () => {
     toggleIsChangingDesign(true);
-    setTimeout(
-      () => toggleDesignType(),
-      (durtionAnimationChangeDesign * 1000) / 2
-    );
-    setTimeout(
-      () => toggleIsChangingDesign(false),
-      durtionAnimationChangeDesign * 1000
-    );
+    setTimeout(() => toggleDesignType(), (durationAnimation() * 1000) / 2);
+    setTimeout(() => toggleIsChangingDesign(false), durationAnimation() * 1000);
     setIsOpenButton(false);
   };
 
@@ -33,7 +40,11 @@ function ButtonChangeDesigne() {
       onHoverStart={() => setIsOpenButton(true)}
       onHoverEnd={() => setIsOpenButton(false)}
       onTap={() => setIsOpenButton((prev) => !prev)}
-      className="fixed bottom-14 left-14 z-50 rounded-[50px] border-[1px] border-solid border-white bg-black p-[18px]"
+      className={cn(
+        'fixed bottom-[5%] left-[16px] z-50 rounded-[50px] border-[1px] border-solid border-white bg-black p-[18px] lg:left-[24px]',
+        designType === 'designBySvitlana' && '2xl:left-[80px]',
+        designType === 'designByOlga' && '2xl:left-[20px]'
+      )}
     >
       <motion.div
         className="relative h-6 w-6"
