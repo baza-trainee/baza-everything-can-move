@@ -9,7 +9,7 @@ import { useMediaQuery } from 'react-responsive';
 
 function ButtonChangeDesigne() {
   const [isOpenButton, setIsOpenButton] = useState<boolean>(false);
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
   const isDesctop = useMediaQuery({ query: '(min-width: 1440px)' });
   const {
     designType,
@@ -19,11 +19,9 @@ function ButtonChangeDesigne() {
   } = useDesignStore();
 
   const durationAnimation = () => {
-    const time = isMobile
-      ? DurationAnimtionChangeDesign.mobile
-      : isDesctop
-        ? DurationAnimtionChangeDesign.desctop
-        : DurationAnimtionChangeDesign.tablet;
+    const time = isDesctop
+      ? DurationAnimtionChangeDesign.tablet
+      : DurationAnimtionChangeDesign.mobile;
 
     return time;
   };
