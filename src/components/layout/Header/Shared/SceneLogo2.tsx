@@ -8,7 +8,7 @@ import { Suspense } from 'react';
 function SceneLogo2() {
   return (
     <Canvas gl={{ antialias: true }} dpr={[1, 1.5]} key="logo-header">
-      <directionalLight position={[-5, -5, 5]} intensity={5} />
+      <directionalLight position={[-5, -5, 5]} intensity={7} color="white" />
       <Suspense fallback={null}>
         {/* <Center position={[-0.5, -0.5, 0]}> */}
         <ModelLogo2 />
