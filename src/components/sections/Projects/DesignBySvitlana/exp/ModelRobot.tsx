@@ -7,7 +7,8 @@ useGLTF.preload('/models/new_robot2.glb');
 
 export default function ModelRobot() {
   const group = useRef<Group>(null);
-  const { scene, animations } = useGLTF('/models/new_robot2.glb');
+  // const { scene, animations } = useGLTF('/models/new_robot2.glb');
+  const { scene, animations } = useGLTF('/models/robot04012025Serhii.glb');
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {

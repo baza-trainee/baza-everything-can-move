@@ -132,27 +132,6 @@ function ButtonChangeDesigne() {
             />
           )}
         </AnimatePresence>
-        {/* <div className={cn(styles.containerLiquid, 'relative w-full')}>
-          <div className="absolute left-0">
-            <div className={clsx(styles.circle, styles.circle1)} />
-          </div>
-          <div className="absolute right-0">
-            <div className={clsx(styles.circle, styles.circle2)} />
-          </div>
-          <svg className="absolute h-0 w-0">
-            <filter id="liquid">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
-              <feColorMatrix
-                values="
-            1 0 0 0 0
-            0 1 0 0 0
-            0 0 1 0 0
-            0 0 0 20 -10
-            "
-              ></feColorMatrix>
-            </filter>
-          </svg>
-        </div> */}
       </motion.div>
     </motion.div>
   );
