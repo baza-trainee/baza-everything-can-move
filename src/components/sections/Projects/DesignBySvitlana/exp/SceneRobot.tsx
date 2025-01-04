@@ -9,7 +9,7 @@ function SceneRobot() {
       <Canvas gl={{ antialias: true }} dpr={[1, 1.5]}>
         {/* <directionalLight position={[-5, -5, 5]} intensity={5} /> */}
         <ambientLight intensity={0.2} />
-        <directionalLight position={[3, 5, 7]} intensity={4} />
+        <directionalLight position={[-3, 5, 7]} intensity={3} />
         {/* <hemisphereLight
           color={'#ffffff'}
           groundColor={'#444444'}
