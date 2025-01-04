@@ -35,7 +35,6 @@ function GloboTeam() {
     <div className="pointer-events-none relative mx-auto mt-10 h-[300px] w-full lg:mt-14 lg:h-[510px] 2xl:-mt-20">
       <Canvas
         className="pointer-events-none absolute left-1/2 h-[300px] w-[300px] -translate-x-1/2 lg:h-[510px] lg:w-[510px]"
-        // style={{ height: sizes.canvasSize, width: sizes.canvasSize }}
         camera={{ position: [0, 0, 8] }}
       >
         <Center position={[0, 0, 0]} scale={1.55}>
