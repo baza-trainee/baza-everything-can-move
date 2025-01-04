@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Meteors } from './Meteors';
 import { ICONS_EXPERIENCE } from '@/constants/icons/iconsSrc';
 import { fuckups } from '@/constants/fuckups';
