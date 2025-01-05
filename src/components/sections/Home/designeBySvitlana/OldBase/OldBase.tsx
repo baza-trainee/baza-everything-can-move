@@ -6,7 +6,7 @@ export default function OldBase() {
       <div className="container relative flex justify-end">
         <div className="text lg:max-w-[500px]">
           <AnimatedTitle title="Старт" className="lg-text-[76px] mb-5" />
-          <div className="z-10 max-w-[320px] font-third-family text-m font-regular leading-o-150 2xl:max-w-[490px] 2xl:text-md">
+          <div className="z-10 max-w-[320px] font-third-family text-m font-regular leading-o-150 2xl:max-w-[750px] 2xl:text-l">
             <p className="text-balance">
               Ми почали робити перші проєкти в квітні 2023р. з метою підтримки й
               професійного розвитку джунів та світчерів до сфери IT.
