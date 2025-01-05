@@ -7,7 +7,7 @@ function SectionFutureHero() {
   return (
     <section className="h-heightMobile lg:h-heightLg 2xl:h-height2xl">
       <Container className="relative h-full">
-        <div className="align-center flex h-full flex-col justify-center pt-[6%] lg:pt-[16%] xl:pt-[8%] lg:justify-start lg:pb-[4.5%] 2xl:flex-row 2xl:items-end 2xl:justify-between">
+        <div className="align-center flex h-full flex-col justify-center pt-[6%] lg:pt-[16%] xl:pt-[8%] lg:justify-start lg:pb-[4.5%] 2xl:flex-row 2xl:items-center 2xl:justify-between">
           <div className="mx-auto max-w-[454px] self-center text-center 2xl:mx-0 2xl:max-w-[547px] 2xl:text-start">
             <AnimatedTitle
               title="Плани на майбутнє"
