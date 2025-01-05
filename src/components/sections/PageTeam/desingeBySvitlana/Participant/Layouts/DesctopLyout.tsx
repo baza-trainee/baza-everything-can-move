@@ -9,7 +9,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import ListCards from './components/ListCards';
 import StarsRow from './components/StarsRow';
 import TextBottom from './components/TextBottom';
-import { debounce } from 'lodash';
 
 interface StateProps {
   widthList: number;
@@ -42,11 +41,14 @@ function DesctopLyout() {
   }, []);
 
   useEffect(() => {
-    const debouncedUpdate = debounce(() => updateValueWidthElement, 100);
+    const handleResize = () => updateValueWidthElement();
+
+    window.addEventListener('resize', handleResize);
+
     updateValueWidthElement();
-    window.addEventListener('resize', debouncedUpdate);
+
     return () => {
-      window.removeEventListener('resize', debouncedUpdate);
+      window.removeEventListener('resize', handleResize);
     };
   }, [updateValueWidthElement]);
 
