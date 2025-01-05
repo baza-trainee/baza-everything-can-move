@@ -50,7 +50,7 @@ export default function Projects() {
         <div className="flex flex-col justify-end gap-6 lg:flex-row lg:items-center 2xl:-mt-16">
           <div className="flex flex-col gap-6">
             <div className="bg-gray-800 group rounded-lg border-2 border-s-gray px-9 py-0 pb-4 transition-all duration-500 hover:bg-s-gray hover:text-white">
-              <div className="font-font5 relative flex items-center space-x-2 lg:hidden">
+              <div className="font-font5 relative flex items-center space-x-2">
                 <svg
                   className="-z-1 absolute -left-9 top-[-25%] w-[133%] lg:hidden"
                   xmlns="http://www.w3.org/2000/svg"
