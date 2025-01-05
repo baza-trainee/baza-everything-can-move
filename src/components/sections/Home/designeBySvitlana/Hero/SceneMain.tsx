@@ -45,9 +45,9 @@ export default function SceneMain() {
     if (screenWidth > 1400) {
       return Math.max(-80, 0 - scrollY / 2); // Для великих екранів
     } else if (screenWidth > 1024) {
-      return Math.max(0, 40 - scrollY / 2); // Для середніх екранів
-    } else if (screenWidth > 768) {
-      return Math.max(0, 20 - scrollY / 2); // Для маленьких екранів
+      return Math.max(-40, 0 - scrollY / 2); // Для середніх екранів
+    } else if (screenWidth >= 768) {
+      return Math.max(-18, 0 - scrollY / 2); // Для маленьких екранів
     }
   };
 
@@ -59,10 +59,12 @@ export default function SceneMain() {
     // } else {
     //   // return Math.min(50, scrollY / 4); // Для маленьких екранів
     // }
-    if (screenWidth > 1200) {
-      return Math.min(150, scrollY / 2); // Для великих екранів
-    } else if (screenWidth > 768) {
-      return Math.min(120, scrollY / 3); // Для середніх екранів
+    if (screenWidth > 1400) {
+      return Math.min(150, scrollY / 2);
+    } else if (screenWidth > 1200) {
+      return Math.min(145, scrollY / 2); // Для великих екранів
+    } else if (screenWidth >= 768) {
+      return Math.min(145, scrollY / 3); // Для середніх екранів
     } else {
       // return Math.min(50, scrollY / 4); // Для маленьких екранів
     }
@@ -81,7 +83,7 @@ export default function SceneMain() {
           transition: 'transform 1.9s ease-out',
         }}
         // className="absolute -top-24 left-[28%] z-10 h-[700px] w-[100%] lg:w-[60%] xl:-top-64 2xl:left-[30%] 2xl:w-[50%]"
-        className="absolute -right-20 -top-24 2xl:h-[572px] 2xl:w-[716px]"
+        className="absolute -right-0 top-4 h-[500px] w-full lg:-right-6 lg:-top-8 lg:h-[520px] lg:w-[716px] 2xl:-right-20 2xl:-top-24 2xl:h-[500px] 2xl:w-[716px]"
       >
         <Canvas gl={{ antialias: true }} dpr={[1, 1.5]}>
           {/* <directionalLight position={[-5, -5, 5]} intensity={5} /> */}

@@ -9,9 +9,9 @@ export default function Hero() {
   return (
     //hero
     <section className="pb-[400px] pt-[104px] 2xl:pb-[280px]">
-      <Container>
-        {/* //items-top */}
-        <div className="relative flex flex-wrap">
+      {/* //items-top */}
+      <div className="relative flex flex-wrap">
+        <Container>
           <div className="max-w-[535px]">
             <div className="flex items-center">
               <AnimatedTitle
@@ -27,15 +27,14 @@ export default function Hero() {
               wordClasses={['text-s-purple']}
             />
           </div>
-
-          <SceneMain />
-          <div className="absolute bottom-[-10rem] left-1/2 z-10 hidden opacity-100 transition-opacity duration-500 lg:block">
-            <div className="icon-scroll scroll-to-second-section mb-6 h-10 w-6 cursor-pointer rounded-[20px] border border-white xl:mb-12">
-              <span className="mx-auto my-2 block h-2 w-0.5 animate-[scroll_3s_ease_infinite] rounded-full bg-white"></span>
-            </div>
+        </Container>
+        <SceneMain />
+        <div className="absolute bottom-[-10rem] left-1/2 z-10 hidden opacity-100 transition-opacity duration-500 lg:block">
+          <div className="icon-scroll scroll-to-second-section mb-6 h-10 w-6 cursor-pointer rounded-[20px] border border-white xl:mb-12">
+            <span className="mx-auto my-2 block h-2 w-0.5 animate-[scroll_3s_ease_infinite] rounded-full bg-white"></span>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
