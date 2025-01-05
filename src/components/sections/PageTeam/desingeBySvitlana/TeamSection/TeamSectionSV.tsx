@@ -17,9 +17,9 @@ function TeamSectionSV({ className }: { className?: string }) {
         <Header />
         <GloboTeam />
       </Container>
-      {/* <div className="relative h-[140px] lg:h-0">
-        <ListTeam />
-      </div>  */}
+      {/* <div className="relative h-[140px] lg:h-0"> */}
+      {/* <ListTeam /> */}
+      {/* </div> */}
       <SliderEmbla />
     </section>
   );
