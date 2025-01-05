@@ -1,10 +1,10 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
-import Link from 'next/link';
+import BtnAnimated from '@/components/ui/DesignBySvitlna/BtnAnimated';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 // import Scene from './Scene';
 import StarsComponent from './StarsComponent';
-
+import SubTitleBtn from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleBtn';
 export default function Projects() {
   return (
     <Background text="04 // Майбутнє" bg="s-gray" xl={0}>
@@ -13,9 +13,16 @@ export default function Projects() {
           <AnimatedTitle title="Майбутнє" className="mb-5" />
           <div className="mb-6 items-center gap-8 text-lg uppercase lg:flex">
             <p className="mb-3 lg:mb-0">Ми пишемо</p>
-            <p className="border-sky-500 max-w-32 rounded-3xl border-2 border-solid px-6 py-1 text-center text-md">
-              сайти
-            </p>
+            <SubTitleBtn
+            color="white"
+            subTitleArr={[
+              'сайти',
+              'лендінги',
+              'crm системи',
+              'календарі',
+              'адмін. панелі',
+            ]}
+          />
           </div>
           <div className="leading-6 lg:lg:w-[575px] lg:leading-9 xl:text-l">
             <p className="mb-4">
@@ -25,7 +32,8 @@ export default function Projects() {
             <p className="mb-4">А чом би і не анімація? - подумали ми.</p>
             <p className="mb-10">І реалізували.</p>
           </div>
-          <Link
+          <BtnAnimated color="white" href="/future" className="mb-8 mr-auto" />
+          {/* <Link
             href="/future"
             className="border-sky-500 hover:bg-sky-700 relative flex max-w-48 rounded-3xl border-2 border-solid bg-s-gray py-2 pb-2 pl-8 text-md uppercase text-white"
           >
@@ -48,7 +56,7 @@ export default function Projects() {
                 ></path>
               </svg>
             </div>
-          </Link>
+          </Link> */}
         </div>
         <div className="relative">
           <StarsComponent/>
