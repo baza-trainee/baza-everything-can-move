@@ -88,9 +88,10 @@ function SliderEmbla() {
               return 1 + tweenValue - 0.4;
             }
           };
-          isMobile
-            ? (tweenNode.style.transform = `scale(${scale})`)
-            : (tweenNode.style.transform = `scale(${newScale()}) translateY(${60 * scale}px)`);
+
+          tweenNode.style.transform = isMobile
+            ? `scale(${scale})`
+            : `scale(${newScale()}) translateY(${60 * scale}px)`;
         });
       });
     },
