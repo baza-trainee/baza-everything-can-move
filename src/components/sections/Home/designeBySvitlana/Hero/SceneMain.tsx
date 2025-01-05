@@ -47,7 +47,7 @@ export default function SceneMain() {
     } else if (screenWidth > 1400) {
       return Math.max(-100, 0 - scrollY / 2); // Для великих екранів
     } else if (screenWidth > 1024) {
-      return Math.max(-40, 0 - scrollY / 2); // Для середніх екранів
+      return Math.max(-50, 0 - scrollY / 2); // Для середніх екранів
     } else if (screenWidth >= 768) {
       return Math.max(-25, 0 - scrollY / 2); // Для маленьких екранів
     }
