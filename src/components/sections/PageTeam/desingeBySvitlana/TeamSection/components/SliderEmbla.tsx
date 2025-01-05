@@ -115,7 +115,7 @@ function SliderEmbla() {
   return (
     <div className="w-full">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex h-[500px] touch-pan-y touch-pinch-zoom items-center">
+        <div className="flex h-[350px] touch-pan-y touch-pinch-zoom items-start">
           {teamsFoto.map((item, index) => (
             <div className="flex-shrink-0 flex-grow-0 basis-1/5" key={index}>
               <div
