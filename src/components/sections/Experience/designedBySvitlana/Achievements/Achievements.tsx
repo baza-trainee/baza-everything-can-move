@@ -34,6 +34,9 @@ const Achievements: React.FC = () => {
                 value={inView ? achievement.numberValue : 0}
                 trend={0}
                 suffix="+"
+                transformTiming={{ duration: 750, easing: 'ease' }}
+                spinTiming={{ duration: 750, easing: 'ease' }}
+                opacityTiming={{ duration: 350, easing: 'ease-out' }}
                 className="p-0 text-center font-second-family text-[76px] font-semibold leading-[91.2px]"
               />
               <p className="inline-block pb-4 text-center font-second-family text-lg font-medium leading-[38.4px] text-s-purple">
