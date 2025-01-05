@@ -2,9 +2,9 @@
 import { Canvas } from '@react-three/fiber';
 import React, { Suspense, useEffect, useState } from 'react';
 import { Center } from '@react-three/drei';
-import Model from './ModelCopy';
+import ModelMain from './ModelMain';
 
-export default function Scene() {
+export default function SceneMain() {
   const [scrollY, setScrollY] = useState(0);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
@@ -33,21 +33,35 @@ export default function Scene() {
   }, []);
 
   // Розрахунок зміщення залежно від ширини екрану та позиції скролу
+  // const calculateTranslateX = () => {
+  //   if (screenWidth > 1400) {
+  //     return Math.max(-40, 70 - scrollY / 2); // Для великих екранів
+  //   } else if (screenWidth > 1024) {
+  //     return Math.max(-40, 40 - scrollY / 2); // Для середніх екранів
+  //   } else if (screenWidth > 768) {
+  //     return Math.max(-40, 20 - scrollY / 2); // Для маленьких екранів
+  //   }
   const calculateTranslateX = () => {
     if (screenWidth > 1400) {
-      return Math.max(-40, 70 - scrollY / 2); // Для великих екранів
+      return Math.max(-80, 0 - scrollY / 2); // Для великих екранів
     } else if (screenWidth > 1024) {
-      return Math.max(-40, 40 - scrollY / 2); // Для середніх екранів
-    }  else if (screenWidth > 768) {
-      return Math.max(-40, 20 - scrollY / 2); // Для маленьких екранів
+      return Math.max(0, 40 - scrollY / 2); // Для середніх екранів
+    } else if (screenWidth > 768) {
+      return Math.max(0, 20 - scrollY / 2); // Для маленьких екранів
     }
   };
 
   const calculateTranslateY = () => {
+    // if (screenWidth > 1200) {
+    //   return Math.min(123, scrollY / 2); // Для великих екранів
+    // } else if (screenWidth > 768) {
+    //   return Math.min(120, scrollY / 3); // Для середніх екранів
+    // } else {
+    //   // return Math.min(50, scrollY / 4); // Для маленьких екранів
+    // }
     if (screenWidth > 1200) {
-      return Math.min(123, scrollY / 2); // Для великих екранів
-    } 
-    else if (screenWidth > 768) {
+      return Math.min(150, scrollY / 2); // Для великих екранів
+    } else if (screenWidth > 768) {
       return Math.min(120, scrollY / 3); // Для середніх екранів
     } else {
       // return Math.min(50, scrollY / 4); // Для маленьких екранів
@@ -56,21 +70,26 @@ export default function Scene() {
 
   const translateX = calculateTranslateX();
   const translateY = calculateTranslateY();
+  // console.log('Y-', translateY);
 
   return (
     <>
       <div
         style={{
           transform: `translate(${translateX}%, ${translateY}%)`,
+          //transform: `translateY(${translateY}px)`,
           transition: 'transform 1.9s ease-out',
         }}
-        className="absolute  -top-24 z-10 h-[700px] w-[100%] lg:w-[60%] xl:-top-64 left-[28%] 2xl:left-[30%] 2xl:w-[50%]"
+        // className="absolute -top-24 left-[28%] z-10 h-[700px] w-[100%] lg:w-[60%] xl:-top-64 2xl:left-[30%] 2xl:w-[50%]"
+        className="absolute -right-20 -top-24 2xl:h-[572px] 2xl:w-[716px]"
       >
         <Canvas gl={{ antialias: true }} dpr={[1, 1.5]}>
-          <directionalLight position={[-5, -5, 5]} intensity={5} />
+          {/* <directionalLight position={[-5, -5, 5]} intensity={5} /> */}
+          <ambientLight intensity={0.2} />
+          <directionalLight position={[-3, 5, 7]} intensity={3} />
           <Suspense fallback={null}>
             <Center position={[-0.5, -0.5, 0]}>
-              <Model />
+              <ModelMain />
             </Center>
           </Suspense>
         </Canvas>
