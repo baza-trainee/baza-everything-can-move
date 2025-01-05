@@ -48,6 +48,8 @@ export default function SceneMain() {
       return Math.max(-100, 0 - scrollY / 2); // Для великих екранів
     } else if (screenWidth > 1024) {
       return Math.max(-50, 0 - scrollY / 2); // Для середніх екранів
+    } else if (screenWidth >= 950) {
+      return Math.max(-35, 0 - scrollY / 2); // Для маленьких екранів
     } else if (screenWidth >= 768) {
       return Math.max(-25, 0 - scrollY / 2); // Для маленьких екранів
     }
@@ -61,10 +63,10 @@ export default function SceneMain() {
     // } else {
     //   // return Math.min(50, scrollY / 4); // Для маленьких екранів
     // }
-    if (screenWidth >= 1400) {
-      return Math.min(150, scrollY / 2);
+    if (screenWidth >= 1440) {
+      return Math.min(160, scrollY / 2);
     } else if (screenWidth >= 1200) {
-      return Math.min(150, scrollY / 2); // Для великих екранів
+      return Math.min(155, scrollY / 2); // Для великих екранів
     } else if (screenWidth >= 768) {
       return Math.min(155, scrollY / 3); // Для середніх екранів
     } else {
