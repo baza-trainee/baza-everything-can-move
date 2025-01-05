@@ -8,6 +8,7 @@ import { teamsFoto } from '../ui/dataFoto';
 import CardTeam from './Card';
 import clsx from 'clsx';
 import { useMediaQuery } from 'react-responsive';
+import { useTeamSectionStore } from '../ui/useTeamSectionStore';
 
 const TWEEN_FACTOR_BASE = 0.52;
 
@@ -33,7 +34,9 @@ function SliderEmbla() {
   );
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
-  const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 1439.5px)' });
+  const { setIsSVG } = useTeamSectionStore();
+
   const setTweenNodes = useCallback((emblaApi: EmblaCarouselType): void => {
     tweenNodes.current = emblaApi.slideNodes().map((slideNode) => {
       return slideNode.querySelector('.teamSlide') as HTMLElement;
@@ -90,7 +93,7 @@ function SliderEmbla() {
           };
 
           tweenNode.style.transform = isMobile
-            ? `scale(${scale})`
+            ? `scale(${numberWithinRange(tweenValue, 0.6, 1)})`
             : `scale(${newScale()}) translateY(${60 * scale}px)`;
         });
       });
@@ -114,15 +117,19 @@ function SliderEmbla() {
   }, [emblaApi, tweenScale]);
 
   return (
-    <div className="w-full">
+    <div
+      onMouseEnter={() => setIsSVG(false)}
+      onMouseLeave={() => setIsSVG(true)}
+      className="absolute bottom-0 w-full cursor-e-resize lg:bottom-[140px]"
+    >
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex h-[350px] touch-pan-y touch-pinch-zoom items-start">
+        <div className="flex touch-pan-y touch-pinch-zoom items-start lg:h-[350px]">
           {teamsFoto.map((item, index) => (
             <div className="flex-shrink-0 flex-grow-0 basis-1/5" key={index}>
               <div
                 className={clsx(
                   'teamSlide',
-                  'flex items-center justify-center'
+                  'flex select-none items-center justify-center outline-none'
                 )}
               >
                 <CardTeam

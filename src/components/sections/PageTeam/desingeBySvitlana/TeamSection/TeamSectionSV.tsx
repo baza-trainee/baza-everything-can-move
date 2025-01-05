@@ -1,7 +1,6 @@
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import Header from './components/Header';
 import GloboTeam from './components/GloboTeam';
-// import ListTeam from './components/ListTeam';
 import { cn } from '@/lib/utils';
 import SliderEmbla from './components/SliderEmbla';
 
@@ -17,9 +16,7 @@ function TeamSectionSV({ className }: { className?: string }) {
         <Header />
         <GloboTeam />
       </Container>
-      {/* <div className="relative h-[140px] lg:h-0">
-        <ListTeam />
-      </div>  */}
+
       <SliderEmbla />
     </section>
   );
