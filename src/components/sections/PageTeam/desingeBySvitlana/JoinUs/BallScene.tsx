@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useBallsState } from './Balls';
-import clsx from 'clsx';
 import { useMediaQuery } from 'react-responsive';
 
 const BallScene = () => {
