@@ -14,7 +14,7 @@ const BirdsSection = () => {
               background:
                 'radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0.6814) 71.6%, rgba(0, 0, 0, 0.4) 100%)',
             }}
-          ></div>{' '}
+          ></div>
           <AnimatedTitle
             title="Наші проєкти"
             className="pb-6 lg:pb-[6px]"
