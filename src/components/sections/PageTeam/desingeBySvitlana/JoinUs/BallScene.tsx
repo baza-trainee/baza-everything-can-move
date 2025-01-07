@@ -3,8 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useBallsState } from './Balls';
-import styles from './Balls.module.css';
-import clsx from 'clsx';
 import { useMediaQuery } from 'react-responsive';
 
 const BallScene = () => {
@@ -218,10 +216,7 @@ const BallScene = () => {
               key={ball.id}
               onMouseDown={() => handlePointerDown(ball.id)}
               onTouchStart={() => handleTouchStart(ball.id)}
-              className={clsx(
-                styles.ball,
-                'absolute flex cursor-grab items-center justify-center rounded-full'
-              )}
+              className="absolute flex cursor-grab select-none items-center justify-center rounded-full outline-none will-change-transform"
               initial={{
                 left: isMobile ? 200 : 1200,
               }}

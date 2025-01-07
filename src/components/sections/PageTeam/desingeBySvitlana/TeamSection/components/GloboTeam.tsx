@@ -5,10 +5,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import Drag from './Drag';
-import { useMouseStore } from '../ui/useMouseStore';
 
 function GloboTeam() {
-  const { mouseX, mouseY } = useMouseStore();
   const generateFibonacciSpherePoints = (numPoints: number, radius: number) => {
     const points = [];
     const goldenRatio = (1 + Math.sqrt(5)) / 2;
@@ -38,7 +36,7 @@ function GloboTeam() {
         camera={{ position: [0, 0, 8] }}
       >
         <Center position={[0, 0, 0]} scale={1.55}>
-          <PointsComponent points={points} mouseX={mouseX} mouseY={mouseY} />
+          <PointsComponent points={points} />
           <OrbitControls
             enableDamping
             dampingFactor={0.1}
@@ -55,21 +53,11 @@ function GloboTeam() {
   );
 }
 
-function PointsComponent({
-  points,
-  mouseX,
-}: {
-  points: number[][];
-  mouseX: number;
-  mouseY: number;
-}) {
+function PointsComponent({ points }: { points: number[][] }) {
   const pointsRef = useRef<THREE.Points>(null);
 
   useFrame(({ clock }) => {
     if (pointsRef.current) {
-      const normalizedX = (mouseX / window.innerWidth) * 2 - 1;
-
-      pointsRef.current.rotation.y = normalizedX * 0.5;
       const elapsedTime = clock.getElapsedTime();
 
       const material = pointsRef.current.material as THREE.ShaderMaterial;

@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import ModelCopy from './ModelCopy';
+import ModelCopy from './ModelMain';
 import { Suspense } from 'react';
 import { Center } from '@react-three/drei';
 

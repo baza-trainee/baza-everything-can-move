@@ -12,7 +12,7 @@ type BgProps = {
   xl?: number;
   text?: string;
   isNoContainer?: boolean;
-  isAlwaysOpen?: boolean; 
+  isAlwaysOpen?: boolean;
 };
 
 function BackgroundComponent({
@@ -31,7 +31,7 @@ function BackgroundComponent({
     180: '2xl:left-[180px]',
     500: '2xl:left-[500px]',
     840: '2xl:left-[840px]',
-    940: '2xl:left-[1050px]',
+    940: '2xl:left-[940px]',
     125: 'lg:left-[125px]',
     463: 'lg:left-[463px]',
   };
@@ -52,9 +52,7 @@ function BackgroundComponent({
     >
       <Container
         className={cn(
-          isNoContainer
-            ? 'relative px-0 lg:max-w-[1440px] lg:px-0 2xl:max-w-[1920px] 2xl:px-0'
-            : 'relative'
+          isNoContainer ? 'relative px-0 lg:px-0 2xl:px-0' : 'relative'
         )}
       >
         <motion.div
@@ -70,9 +68,7 @@ function BackgroundComponent({
             onClick={toggleOpen}
             className={cn(
               'relative h-[36px] w-[132px] cursor-pointer border-[1px] border-solid text-xs transition-colors',
-              isAlwaysOpen
-                ? 'pointer-events-none' 
-                : '',
+              isAlwaysOpen ? 'pointer-events-none' : '',
               bg === 'white'
                 ? 'rotate-[-5deg] border-s-gray text-s-gray hover:bg-s-gray hover:text-white'
                 : 'rotate-[5deg] border-white text-white hover:bg-white hover:text-s-gray'
@@ -109,6 +105,6 @@ export default BackgroundComponent;
 
 // all number of position left for lg and 2xl are in xlClassMap
 
-//  IsContainer = false - there is no container 
+//  IsContainer = false - there is no container
 
 /* <Background text='Плани' bg='s-gray' lg={125} xl={503} isAlwaysOpen={true}/> */
