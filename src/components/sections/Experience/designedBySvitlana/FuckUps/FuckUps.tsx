@@ -5,6 +5,8 @@ import { fuckups } from '@/constants/fuckups';
 import clsx from 'clsx';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 
+
+
 const FuckUps = () => {
   const [isOpen, setIsOpen] = useState([false, false, false]);
 
@@ -25,7 +27,7 @@ const FuckUps = () => {
         <br className="hidden 2xl:block" /> від початку.
         <br className="2xl:hidden" /> І він був правий.
       </p>
-      <div className="relative flex flex-col gap-4 lg:flex-row lg:justify-center 2xl:justify-between">
+      <div className="relative flex flex-col gap-4 lg:flex-row lg:justify-center 2xl:justify-between" >
         {fuckups.map((fuckup, i) => {
           const IndexIcon = ICONS_EXPERIENCE[i];
           const value = isOpen[i];
@@ -35,6 +37,7 @@ const FuckUps = () => {
               key={i}
               data-index={i}
               onMouseEnter={toggleHover}
+              onMouseLeave={toggleHover}
               className={clsx(
                 'relative z-10 h-min overflow-hidden rounded-[40px] font-second-family duration-200 ease-in lg:w-[227px] 2xl:w-[364px]',
                 value ? 'border border-white bg-black' : 'bg-white'

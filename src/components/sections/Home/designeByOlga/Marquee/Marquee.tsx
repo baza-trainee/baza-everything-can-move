@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import '../Marquee/marquee.css';
+import '../Marquee/marquee.module.css';
 
 const Marquee = () => {
   const [animationDuration] = useState(30);
@@ -24,28 +24,33 @@ const Marquee = () => {
     },
   };
 
-
   return (
-    <div className="marquee-container overflow-x-hidden py-3 relative">
-       <div className="no-repeat absolute h-[100%] w-[100%] bg-[url('/assets/images/HomeImg/background.png')] bg-cover bg-center bg-no-repeat"></div>
-      {/* Бігучий рядок */}
+    // marquee-container
+    <div className="relative overflow-hidden py-3">
+      <div className="no-repeat absolute h-[100%] w-[100%] bg-[url('/assets/images/HomeImg/background.png')] bg-cover bg-center bg-no-repeat"></div>
+      {/* Бігучий рядок // upper line*/}
       <div
-          className="decor relative inline-block w-[100%] whitespace-nowrap"
-          style={{
-            animation: `marquee-reverse ${animationDuration}s linear infinite`,
-          }}
-        >
-          <Image
-            src="/assets/images/HomeImg/line.svg"
-            alt="Line Image"
-            width={100}
-            height={20}
-            style={{ width: 'auto', height: 'auto' }}
-          />
-        </div>
+        //decor
+        className="relative inline-block w-[100%] whitespace-nowrap"
+        style={{
+          //
+          animation: `marquee-reverse ${animationDuration}s linear infinite`,
+        }}
+      >
+        <Image
+          src="/assets/images/HomeImg/line.svg"
+          alt="Line Image"
+          width={100}
+          height={20}
+          style={{ width: 'auto', height: 'auto' }}
+        />
+      </div>
+      {/* upper row */}
       <motion.div
         animate={marqueeAnimationLeft}
-        className="marquee-content flex whitespace-nowrap"
+        //marquee-content
+        className="flex whitespace-nowrap"
+        style={{ willChange: 'transform' }}
       >
         {/* Дублюємо контент кілька разів для безперервності */}
         {Array(10)
@@ -56,22 +61,28 @@ const Marquee = () => {
               className="flex shrink-0 grow-0 basis-auto items-center gap-x-6"
             >
               <p
-                id="stroke"
+                // id="stroke"
                 className="font-font3 text-[40px] font-regular leading-[72px]"
+                style={{
+                  WebkitTextFillColor: 'black',
+                  WebkitTextStroke: '1px rgba(255, 255, 255, 1)',
+                }}
               >
-                BAZA TRAINEE UKRAINE 
+                BAZA TRAINEE UKRAINE
               </p>
-              
-              <p className="font-font3 text-[40px] font-regular leading-[72px] text-white mr-4">
-                BAZA TRAINEE UKRAINE 
+
+              <p className="font-font3 mr-4 text-[40px] font-regular leading-[72px] text-white">
+                BAZA TRAINEE UKRAINE
               </p>
-              
             </div>
           ))}
       </motion.div>
+      {/* down row */}
       <motion.div
         animate={marqueeAnimationRight}
-        className="marquee-content flex whitespace-nowrap"
+        //marquee-content
+        className="flex whitespace-nowrap"
+        style={{ willChange: 'transform' }}
       >
         {/* Дублюємо контент кілька разів для безперервності */}
         {Array(10)
@@ -82,33 +93,38 @@ const Marquee = () => {
               className="flex shrink-0 grow-0 basis-auto items-center gap-x-6"
             >
               <p
-                id="stroke"
-                className="font-font3 text-[40px] font-regular leading-[72px] mr-4"
+                // id="stroke"
+                className="font-font3 mr-4 text-[40px] font-regular leading-[72px]"
+                style={{
+                  WebkitTextFillColor: 'black',
+                  WebkitTextStroke: '1px rgba(255, 255, 255, 1)',
+                }}
               >
-                BAZA TRAINEE UKRAINE 
+                BAZA TRAINEE UKRAINE
               </p>
-              
-              <p className="font-font3 text-[40px] font-regular leading-[72px] text-white mr-4">
-                BAZA TRAINEE UKRAINE 
+
+              <p className="font-font3 mr-4 text-[40px] font-regular leading-[72px] text-white">
+                BAZA TRAINEE UKRAINE
               </p>
-              
             </div>
           ))}
       </motion.div>
+      {/*down  line */}
       <div
-          className="decor relative inline-block w-[100%] whitespace-nowrap"
-          style={{
-            animation: `marquee ${animationDuration}s linear infinite`,
-          }}
-        >
-          <Image
-            src="/assets/images/HomeImg/line.svg"
-            alt="Line Image"
-            width={100}
-            height={20}
-            style={{ width: 'auto', height: 'auto' }}
-          />
-        </div>
+        //decor
+        className="relative inline-block w-[100%] whitespace-nowrap"
+        style={{
+          animation: `marquee ${animationDuration}s linear infinite`,
+        }}
+      >
+        <Image
+          src="/assets/images/HomeImg/line.svg"
+          alt="Line Image"
+          width={100}
+          height={20}
+          style={{ width: 'auto', height: 'auto' }}
+        />
+      </div>
     </div>
   );
 };

@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 // import localFont from 'next/font/local';
 import { inter, ibmPlexMono, robotoMono } from '@/app/fonts/fonts';
 import './globals.css';
-import Header from '@/components/layout/Header/Header';
+//import Header from '@/components/layout/Header/Header';
 import Footer from '@/components/layout/Footer/Footer';
 import ButtonChangeDesigne from '@/components/ui/ButtonChangeDesigne';
 import InitializeDesign from '@/components/ui/InitializeDesign';
+import { AnimationCompare } from '@/components/AnimationPageChangeDesign/AnimationCompare';
+import HeaderNew from '@/components/layout/Header/HeaderNew';
 
 // import ClientWrapper from './ClientWrapper';
 
@@ -39,7 +41,10 @@ export default function RootLayout({
       <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
       {/* className={`${geistSans.variable} ${geistMono.variable} antialiased`} */}
       <body>
-        <Header />
+        <AnimationCompare />
+
+        {/* <Header /> */}
+        <HeaderNew />
         {/* <ClientWrapper>{children}</ClientWrapper> */}
         <main>
           <InitializeDesign />

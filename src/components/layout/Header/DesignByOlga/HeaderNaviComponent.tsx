@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 import { HeaderNavigationProps } from '@/components/layout/Header/types';
-import SceneLogo from '@/components/layout/Header/Shared/SceneLogo';
+import SceneLogo2 from '@/components/layout/Header/Shared/SceneLogo2';
 import NavigationLinks from '@/components/layout/Header/Shared/NavigationLinks';
 import SocialMedia from '@/components/layout/Header/DesignByOlga/SocialMedia';
 
@@ -31,7 +31,7 @@ const HeaderNaviComponentOlga: React.FC<HeaderNavigationProps> = ({
             className="py-[18px] lg:py-[10px]"
           >
             <div className={clsx('h-16 w-16 lg:h-20 lg:w-20')}>
-              <SceneLogo />
+              <SceneLogo2 />
             </div>
           </Link>
           <button
@@ -48,7 +48,6 @@ const HeaderNaviComponentOlga: React.FC<HeaderNavigationProps> = ({
         {/* soc media section*/}
         {/* xl:flex-grow-0 */}
         <div className="mb-5 flex flex-grow flex-col justify-end">
-          
           <p className="mb-1 text-center text-s leading-o-130 text-white lg:text-m 2xl:text-sm">
             Слідкуй за нами
           </p>

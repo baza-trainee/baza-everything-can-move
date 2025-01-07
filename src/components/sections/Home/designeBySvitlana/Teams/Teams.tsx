@@ -1,8 +1,8 @@
 'use client'; // Додайте це, якщо використовуєте Next.js
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
-import Link from 'next/link';
-
+import BtnAnimated from '@/components/ui/DesignBySvitlna/BtnAnimated';
+import SubTitleBtn from '@/components/ui/DesignBySvitlna/SubTitle/SubTitleBtn';
 import StarsComponent from './StarsComponent';
 
 // import { Canvas } from '@react-three/fiber';
@@ -41,47 +41,57 @@ export default function Teams() {
   return (
     <Background text="01 // Команда" bg="white" xl={1142}>
       <section className="teams l mb-[222px] pt-2 text-olga-grid">
-        <div className="container relative">
+        <div className="container relative pl-0">
           <AnimatedTitle
             title="команди"
             colorBg="white"
-            className="lg:text-[76px]"
+            className="lg:mb-5 lg:text-[76px]"
           />
-          <div className="flex flex-wrap gap-12">
-            <div className="text mb-8 2xl:mb-0">
-              <div className="mb-6 items-center gap-8 text-lg uppercase lg:flex">
+          <div className="flex flex-wrap">
+            <div className="text mb-8 2xl:mb-0 xl:flex-[0_0_63%]">
+              <div className="items-center gap-8 lg:mb-6 mb-3 lg:text-lg text-md uppercase flex  font-medium">
                 ми об&apos;єднуємо
-                <p className="border-sky-500 rounded-2xl border-2 border-solid px-6 py-1 text-md">
+                <SubTitleBtn
+                  color="black"
+                  subTitleArr={[
+                    'дизайнерів',
+                    'розробнників',
+                    'менторів',
+                    'громади',
+                  ]}
+                />
+                {/* <p className="border-sky-500 rounded-2xl border-2 border-solid px-6 py-1 text-md">
                   дизайнерів
-                </p>
+                </p> */}
               </div>
-              <p className="mb-5 lg:w-[485px]">
-                На початку у нас заходило по 20-25 осіб до команди. Зараз
+              <p className="mb-3 lg:w-[580px] lg:text-l">
+                На початку у нас заходило по <b>20-25</b> осіб до команди. Зараз
                 оптимальний розмір - до десяти людей:
               </p>
-              <ul className="mb-10 gap-8 lg:flex">
+              <ul className="mb-10 lg:gap-24 gap-8 lg:flex lg:text-l">
                 <li>
                   <p className="flex items-center gap-2">
                     <span className="inline-block h-2 w-2 bg-s-light-purple"></span>
-                    2-3 дизайнера
+                   <b>2-3</b> дизайнера
                   </p>
                   <p className="flex items-center gap-2">
                     <span className="inline-block h-2 w-2 bg-s-light-purple"></span>
-                    2-3 фронта
+                    <b>2-3</b> фронта
                   </p>
                 </li>
                 <li>
                   <p className="flex items-center gap-2">
                     <span className="inline-block h-2 w-2 bg-s-light-purple"></span>
-                    3 тестувальника
+                    <b>3</b> тестувальника
                   </p>
                   <p className="flex items-center gap-2">
                     <span className="inline-block h-2 w-2 bg-s-light-purple"></span>
-                    & Іван
+                    <b>&</b> Іван
                   </p>
                 </li>
               </ul>
-              <Link
+              <BtnAnimated color="gray" href="/team" className="mb-8 mr-auto" />
+              {/* <Link
                 href="/team"
                 className="border-sky-500 hover:bg-sky-700 relative z-10 flex max-w-48 rounded-3xl border-2 border-solid bg-s-gray py-2 pb-2 pl-8 text-md uppercase text-white"
               >
@@ -104,7 +114,7 @@ export default function Teams() {
                     ></path>
                   </svg>
                 </div>
-              </Link>
+              </Link> */}
             </div>
             <div className="relative">
               <StarsComponent />

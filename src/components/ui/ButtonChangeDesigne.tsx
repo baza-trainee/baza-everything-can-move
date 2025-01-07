@@ -1,66 +1,138 @@
 'use client';
-import clsx from 'clsx';
+
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { useDesignStore } from '@/useDesignStore';
 
+import { cn } from '@/lib/utils';
+import { useMediaQuery } from 'react-responsive';
+
 function ButtonChangeDesigne() {
   const [isOpenButton, setIsOpenButton] = useState<boolean>(false);
-  const { designType, toggleDesignType } = useDesignStore();
+
+  const isDesctop = useMediaQuery({ query: '(min-width: 1440px)' });
+  const {
+    designType,
+    toggleDesignType,
+    toggleIsChangingDesign,
+    DurationAnimtionChangeDesign,
+  } = useDesignStore();
+
+  const durationAnimation = () => {
+    const time = isDesctop
+      ? DurationAnimtionChangeDesign.tablet
+      : DurationAnimtionChangeDesign.mobile;
+
+    return time;
+  };
+
+  const handleButtonChangeDesign = () => {
+    toggleIsChangingDesign(true);
+    setTimeout(() => toggleDesignType(), (durationAnimation() * 1000) / 2);
+    setTimeout(() => toggleIsChangingDesign(false), durationAnimation() * 1000);
+    setIsOpenButton(false);
+  };
 
   return (
     <motion.div
       onHoverStart={() => setIsOpenButton(true)}
       onHoverEnd={() => setIsOpenButton(false)}
-      initial={{ width: 62 }}
-      whileHover={{
-        width: 120,
-      }}
-      transition={{
-        duration: 0.6,
-        ease: 'easeInOut',
-        when: 'beforeChildren',
-      }}
-      className="fixed bottom-5 left-5 rounded-full border-[1px] border-solid border-white bg-[#363535] p-[18px] z-[9999]"
+      onTap={() => setIsOpenButton((prev) => !prev)}
+      className={cn(
+        'fixed bottom-[5%] left-[16px] z-50 rounded-[50px] border-[1px] border-solid border-white bg-black p-[18px] lg:left-[24px]',
+        designType === 'designBySvitlana' && '2xl:left-[80px]',
+        designType === 'designByOlga' && '2xl:left-[20px]'
+      )}
     >
-      <div className="relative flex items-center justify-start rounded-full">
-        <motion.button
-          onClick={toggleDesignType}
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.2 }}
-          transition={{ duration: 0.3 }}
-          aria-label="Змінити дизайн"
-          className={clsx(
-            'h-6 w-6 rounded-full border-[2px] border-solid border-white',
-            designType === 'designBySvitlana' ? 'bg-[#8f8ded]' : 'bg-olga-green'
+      <motion.div
+        className="relative h-6 w-6"
+        animate={{
+          width: isOpenButton ? 80 : 24,
+        }}
+        transition={{ duration: 0.5 }}
+      >
+        <div
+          className={cn(
+            'pointer-events-none absolute top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full',
+            'left-0 z-10'
           )}
-        ></motion.button>
-
-        <AnimatePresence initial={false}>
+        >
+          <div className="relative">
+            <motion.div
+              initial={{ scale: 1, opacity: 0.7 }}
+              animate={
+                isOpenButton
+                  ? {}
+                  : { scale: [1, 2.5, 1], opacity: [1, 0.5, 0, 0] }
+              }
+              transition={
+                isOpenButton
+                  ? {}
+                  : {
+                      duration: 5,
+                      repeat: Infinity,
+                    }
+              }
+              className={cn(
+                'flex h-6 w-6 items-center justify-center rounded-full',
+                designType === 'designBySvitlana'
+                  ? 'bg-s-light-purple'
+                  : 'bg-olga-green'
+              )}
+            ></motion.div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <motion.div
+                initial={{ scale: 1, opacity: 1 }}
+                animate={
+                  isOpenButton
+                    ? {}
+                    : { scale: [1, 2, 2, 1], opacity: [1, 1, 1, 0] }
+                }
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                }}
+                className={cn(
+                  'h-3 w-3 rounded-full bg-s-purple',
+                  designType === 'designBySvitlana'
+                    ? 'bg-[#8f8ded]'
+                    : 'bg-olga-green-extra'
+                )}
+              />
+            </div>
+          </div>
+        </div>
+        <AnimatePresence>
           {isOpenButton && (
             <motion.button
-              key="animated-button"
-              onClick={toggleDesignType}
-              initial={{ opacity: 0, scale: 0, left: 0, right: 'auto' }}
+              initial={{ scale: 0 }}
               animate={{
-                opacity: 1,
-                scale: 1,
-                left: 'auto',
-                top: 0,
-                right: 0,
+                scale: [1, 1.35, 1],
+                transition: {
+                  duration: 1,
+                  repeat: Infinity,
+                  ease: 'linear',
+                  delay: 0.5,
+                },
               }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              whileHover={{ scale: 1.2 }}
-              transition={{ duration: 0.3, ease: 'easeIn' }}
+              exit={{ scale: 0 }}
+              whileHover={{
+                scale: 1.35,
+              }}
+              disabled={!isOpenButton}
+              onClick={handleButtonChangeDesign}
               aria-label="Змінити дизайн"
-              className={clsx(
-                'absolute h-6 w-6 rounded-full border-[2px] border-solid border-white',
-                designType === 'designByOlga' ? 'bg-[#8f8ded]' : 'bg-olga-green'
+              className={cn(
+                'h-6 w-6 rounded-full',
+                'absolute right-0',
+                designType === 'designBySvitlana'
+                  ? 'bg-olga-green'
+                  : 'bg-[#8f8ded]'
               )}
-            ></motion.button>
+            />
           )}
         </AnimatePresence>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

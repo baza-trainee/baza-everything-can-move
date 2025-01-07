@@ -1,0 +1,45 @@
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* .whitespace-nowrap {
+  white-space: nowrap;
+} */
+
+/* .flex {
+  display: flex;
+} */
+
+/* .marquee-container {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+} */
+
+/* .marquee-content {
+  display: flex;
+  will-change: transform;
+}
+
+.images {
+  flex-shrink: 0;
+} */
+
+/* #stroke {
+  -webkit-text-fill-color: black !important;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
+} */

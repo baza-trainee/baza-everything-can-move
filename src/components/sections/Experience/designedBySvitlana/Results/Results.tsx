@@ -1,16 +1,28 @@
 'use client';
 
-// import Bubbles3D from './Bubbles3D';
-
 import React, { useEffect, useState } from 'react';
-
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import { ICONS } from '@/constants/icons/icons';
 import styles from './results.module.css';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
+// import { motion } from "framer-motion";
+// import { useFollowPointer } from "./use-follow-pointer";
+import ResultsTags1 from './ResultsTags1';
 // import clsx from 'clsx';
 
 const Results: React.FC = () => {
+
+  // const tags_group1 = useRef<HTMLDivElement | null >(null);
+  // const tags_group2 = useRef<HTMLDivElement | null >(null);
+  // const tags_group3 = useRef<HTMLDivElement | null >(null);
+
+  // const { x, y } = useFollowPointer(tags_group1);
+  // const { x, y } = useFollowPointer(tags_group2);
+  // const { x, y } = useFollowPointer(tags_group3);
+
+
+// console.log(x.get());
+
   const [hovered, setHovered] = useState<boolean>(false);
   // const [Xdirection, setXdirection] = useState<string>('');
   // const [Ydirection, setYdirection] = useState<string>('');
@@ -27,8 +39,8 @@ const Results: React.FC = () => {
 
 
     const tagGroup1 = tagGroups[0] as HTMLDivElement;
-    const tagGroup2 = tagGroups[1] as HTMLDivElement;
-    const tagGroup3 = tagGroups[2] as HTMLDivElement;
+    // const tagGroup2 = tagGroups[1] as HTMLDivElement;
+    // const tagGroup3 = tagGroups[2] as HTMLDivElement;
 
     // const handleMouseOver = (event:MouseEvent): void => {
     //   setHovered(true);
@@ -79,10 +91,10 @@ const Results: React.FC = () => {
     // console.log(coeficientArray);
     tagGroup1.style.left = `${mouseX/100*7}px`
     tagGroup1.style.top = `${mouseY/100*7}px`
-    tagGroup2.style.left = `${mouseX/100*5}px`
-    tagGroup2.style.top = `${mouseY/100*8}px`
-    tagGroup3.style.left = `${mouseX/100*4}px`
-    tagGroup3.style.top = `${mouseY/100*10}px`
+    // tagGroup2.style.left = `${mouseX/100*5}px`
+    // tagGroup2.style.top = `${mouseY/100*8}px`
+    // tagGroup3.style.left = `${mouseX/100*4}px`
+    // tagGroup3.style.top = `${mouseY/100*10}px`
 
 // console.log(XDistance);
     
@@ -102,16 +114,7 @@ const Results: React.FC = () => {
 
 
   return (
-    <Background
-      text="РЕЗУЛЬТАТИ"
-      bg="s-gray"
-      xl={0}
-      isAlwaysOpen={true}
-      className="2xl:relative"
-      isNoContainer={true}
-    >
-
-
+    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isAlwaysOpen={true} className="2xl:relative" isNoContainer={true} >
       <div id='resultsBlock' className='flex flex-col 2xl:flex-row gap-[26px] w-full pb-20 lg:pb-[100px] 2xl:pb-[200px]'>
 
         <div className='px-5 lg:px-[26px] 2xl:px-20'>
@@ -123,9 +126,7 @@ const Results: React.FC = () => {
           </div>
           <div className="2xl:relative 2xl:flex 2xl:flex-row 2xl:items-center">
             <p className="w-[318px] pb-1 text-m font-regular leading-6 lg:w-[578px] lg:pb-2 2xl:w-[498px] 2xl:pb-6 2xl:text-l 2xl:leading-s-36 2xl:tracking-tighter">
-              Ми тримаємо фокус на уроках та покращенні процесів. Долаючи
-              <br className="lg:block 2xl:hidden" /> труднощі ми розвивали в
-              собі нові навички й покращували вже надбані.
+              Ми тримаємо фокус на уроках та покращенні процесів. Долаючи <br className="lg:block 2xl:hidden" /> труднощі ми розвивали в собі нові навички й покращували вже надбані.
             </p>
             <ICONS.ARROW_2XL className="hidden 2xl:block 2xl:translate-x-[-170px] 2xl:translate-y-[-15px]" />
           </div>
@@ -138,12 +139,18 @@ const Results: React.FC = () => {
           </div>
         </div>
 
-
         <div id={styles.tags} className='will-change-transform flex justify-start items-center relative w-full h-auto'>
           <div className='h-[355px] w-full relative uppercase'>
 
-            <div id={styles.tagGroup}>
-              <div id={styles.tagGroup1_1} className='inline-block absolute translate-x-[86px] rotate-[8deg]'>
+          <ResultsTags1/>
+        {/* <div id={styles.tags} className='will-change-transform flex justify-start items-center relative w-full h-auto'>
+          <div className='h-[355px] w-full relative uppercase'>
+
+            <motion.div id={styles.tagGroup} ref={tags_group1} style={{x,y}}>
+              <div id={styles.tagGroup1_1} className='inline-block absolute translate-x-[86px] translate-y-[5px] rotate-[4deg]'>
+                <div className="pointer-events-auto rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-black duration-300 hover:bg-s-light-purple hover:text-white">
+                  Взаємодія
+                </div>
               </div>
               <div
                 id={styles.tagGroup1_2}
@@ -161,12 +168,9 @@ const Results: React.FC = () => {
                   Стратегія
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div
-              id={styles.tagGroup}
-              className="pointer-events-none h-full w-full will-change-transform"
-            >
+            <motion.div id={styles.tagGroup} className="pointer-events-none h-full w-full will-change-transform" ref={tags_group2} style={{x,y}}>
               <div
                 id={styles.tagGroup2_1}
                 className="absolute inline-block translate-x-[84px] translate-y-[85px] rotate-[0.04deg]"
@@ -191,12 +195,9 @@ const Results: React.FC = () => {
                   Креативність
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div
-              id={styles.tagGroup}
-              className="pointer-events-none h-full w-full will-change-transform"
-            >
+            <motion.div id={styles.tagGroup} className="pointer-events-none h-full w-full will-change-transform" ref={tags_group3} style={{x,y}}>
               <div
                 id={styles.tagGroup3_1}
                 className="absolute inline-block translate-x-[30px] translate-y-[210px] rotate-[1.56deg]"
@@ -229,7 +230,9 @@ const Results: React.FC = () => {
                   Ефективність
                 </div>
               </div>
-            </div>
+            </motion.div>
+          </div>
+        </div> */}
           </div>
         </div>
       </div>
@@ -238,3 +241,4 @@ const Results: React.FC = () => {
 };
 
 export default Results;
+ 

@@ -1,5 +1,4 @@
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
-//import Link from 'next/link';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 import BtnAnimated from '@/components/ui/DesignBySvitlna/BtnAnimated';
 
@@ -7,50 +6,26 @@ export default function Projects() {
   return (
     <Background text="03 // Досвід" bg="white" xl={500}>
       <section className="mb-32 text-black">
-        <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="teitle">
             <AnimatedTitle title="Досвід" className="mb-5" colorBg="white" />
-            <p className="mb-10 leading-7 lg:max-w-[310px]">
+            <p className="2xl:mb-10 mb-5 lg:leading-9 leading-6 lg:max-w-[400px] lg:text-l ">
               Тут ви можете дізнатись про наші факапи та досягнення
             </p>
           </div>
-          <div className="hidden xl:block">
-            <p className="text-l lg:max-w-[625px]">
+          <div className="hidden xl:block mb-5">
+            <p className="text-l">
               “Досвід – це назва, яку кожен дає своїм помилкам.”
             </p>
             <br />
             <span className="text-l font-medium"> О. Уайльд</span>
           </div>
         </div>
-        {/* <Link
-          href="/experience"
-          className="border-sky-500 hover:bg-sky-700 relative mb-8 flex max-w-48 rounded-3xl border-2 border-solid bg-s-gray py-2 pb-2 pl-8 text-md uppercase text-white"
-        >
-          переглянути
-          <div className="absolute -right-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              fill="none"
-              viewBox="0 0 28 28"
-            >
-              <circle cx="14" cy="14" r="14" fill="#8F8DED"></circle>
-              <path
-                stroke="#fff"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M11.623 7.632c3.332 1.675 7.992 3.304 7.992 3.304m0 0s-1.108 2.789-1.277 8.984m1.277-8.984L8.407 17.37"
-              ></path>
-            </svg>
-          </div>
-        </Link> */}
         <BtnAnimated color="gray" href="/experience" className="mb-8 mr-auto" />
         <div className="flex flex-col justify-end gap-6 lg:flex-row lg:items-center 2xl:-mt-16">
           <div className="flex flex-col gap-6">
             <div className="bg-gray-800 group rounded-lg border-2 border-s-gray px-9 py-0 pb-4 transition-all duration-500 hover:bg-s-gray hover:text-white">
-              <div className="font-font5 relative flex items-center space-x-2 lg:hidden">
+              <div className="font-font5 relative flex items-center space-x-2">
                 <svg
                   className="-z-1 absolute -left-9 top-[-25%] w-[133%] lg:hidden"
                   xmlns="http://www.w3.org/2000/svg"

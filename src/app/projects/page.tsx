@@ -10,6 +10,7 @@ import BirdsSection from '@/components/sections/Projects/DesignBySvitlana/Birds/
 import ProjectsSectionSecond from '@/components/sections/Projects/DesignBySvitlana/ProjectsSection/ProjectsSection';
 import PurposeSection from '@/components/sections/Projects/DesignBySvitlana/PurposeSection/PurposeSection';
 import StackSectionWords from '@/components/sections/Projects/DesignBySvitlana/StackSection/StackSectionWords';
+//import Exp from '@/components/sections/Projects/DesignBySvitlana/exp/Exp';
 
 const Page = (): JSX.Element => {
   const { designType } = useDesignStore();
@@ -28,6 +29,7 @@ const Page = (): JSX.Element => {
           <StackSectionWords />
 
           <PurposeSection />
+          {/* <Exp /> */}
         </>
       )}
     </>
