@@ -1,6 +1,5 @@
 import { SubTitle } from '@/components/ui/DesignBySvitlna/SubTitle/SubTitle';
 import React from 'react';
-import './Hero.css';
 import SceneCopy from './Scene';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 

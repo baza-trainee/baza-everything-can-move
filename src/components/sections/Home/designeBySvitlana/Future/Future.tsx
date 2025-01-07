@@ -10,9 +10,9 @@ export default function Projects() {
     <Background text="04 // Майбутнє" bg="s-gray" xl={0}>
       <section className="mb-32 flex flex-wrap items-center xl:gap-24 gap-16 2xl:flex-nowrap">
         <div className="title">
-          <AnimatedTitle title="Майбутнє" className="mb-5" />
-          <div className="mb-6 items-center gap-8 text-lg uppercase lg:flex">
-            <p className="mb-3 lg:mb-0">Ми пишемо</p>
+          <AnimatedTitle title="Майбутнє" className="lg:mb-5" />
+          <div className="lg:mb-6 mb-3 items-center gap-8 text-lg uppercase lg:flex">
+            <p className="mb-3 lg:mb-0 text-md lg:text-lg">Ми пишемо</p>
             <SubTitleBtn
             color="white"
             subTitleArr={[
@@ -24,7 +24,7 @@ export default function Projects() {
             ]}
           />
           </div>
-          <div className="leading-6 lg:lg:w-[575px] lg:leading-9 xl:text-l">
+          <div className="leading-6 lg:lg:w-[575px] xl:leading-9 xl:text-l">
             <p className="mb-4">
               По мірі розвитку наші проєкти ускладнюються, команди професійно
               розвиваються, а ринок вимагає іновацій.

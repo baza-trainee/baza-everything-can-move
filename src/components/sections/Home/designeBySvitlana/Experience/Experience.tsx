@@ -6,15 +6,15 @@ export default function Projects() {
   return (
     <Background text="03 // Досвід" bg="white" xl={500}>
       <section className="mb-32 text-black">
-        <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="teitle">
             <AnimatedTitle title="Досвід" className="mb-5" colorBg="white" />
-            <p className="mb-10 leading-7 lg:max-w-[310px]">
+            <p className="2xl:mb-10 mb-5 lg:leading-9 leading-6 lg:max-w-[400px] lg:text-l ">
               Тут ви можете дізнатись про наші факапи та досягнення
             </p>
           </div>
-          <div className="hidden xl:block">
-            <p className="text-l lg:max-w-[625px]">
+          <div className="hidden xl:block mb-5">
+            <p className="text-l">
               “Досвід – це назва, яку кожен дає своїм помилкам.”
             </p>
             <br />
