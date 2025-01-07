@@ -193,22 +193,22 @@ const Snow = () => {
       className="relative h-[796px] pt-[54px] lg:h-[924px] lg:pt-0 2xl:h-[742px]"
     >
       {/* <div className='w-full h-20 absolute top-[54px] bg-gradient-to-b from-cyan-500 to-blue-500 z-[1000]'/> */}
-      <div ref={canvasSnow} id={styles.bottomShadow} />
-      <AnimatedTitle
-        title="досвід"
-        className="z-100 absolute inset-x-0 top-[200px] text-center 2xl:container lg:top-[260px] 2xl:top-[132px] 2xl:text-left"
-      />
-      <p className="z-100 absolute inset-x-0 top-[253px] text-center font-sans text-m font-regular leading-6 2xl:container lg:top-[364px] 2xl:top-[245px] 2xl:text-left">
-        Досвід — це шлях, яким проходять наші <br className="block lg:hidden" />
-        трейні, <br className="hidden lg:block" /> здобуваючи практичні навички
-        та <br className="block lg:hidden" /> впевненість у{' '}
-        <br className="hidden lg:block" /> своїх силах. Це можливість{' '}
-        <br className="block lg:hidden" /> втілювати знання в{' '}
-        <br className="hidden lg:block" /> реальні проєкти,
-        <br className="block lg:hidden" /> працювати в команді й{' '}
-        <br className="hidden lg:block" /> відкривати для{' '}
-        <br className="block lg:hidden" /> себе нові горизонти в ІТ-сфері.
-      </p>
+      <div ref={canvasSnow} id={styles.bottomShadow}/>
+        <div style={{ background: ` ` }} className='z-100 bg-radial-gradien'>
+          <AnimatedTitle title="досвід" className="z-100 absolute inset-x-0 top-[200px] text-center 2xl:container lg:top-[260px] 2xl:top-[132px] 2xl:text-left" />
+
+        <p className="z-100 absolute inset-x-0 top-[253px] text-center font-sans text-m font-regular leading-6 2xl:container lg:top-[364px] 2xl:top-[245px] 2xl:text-left">
+          Досвід — це шлях, яким проходять наші <br className="block lg:hidden" />
+          трейні, <br className="hidden lg:block" /> здобуваючи практичні навички
+          та <br className="block lg:hidden" /> впевненість у{' '}
+          <br className="hidden lg:block" /> своїх силах. Це можливість{' '}
+          <br className="block lg:hidden" /> втілювати знання в{' '}
+          <br className="hidden lg:block" /> реальні проєкти,
+          <br className="block lg:hidden" /> працювати в команді й{' '}
+          <br className="hidden lg:block" /> відкривати для{' '}
+          <br className="block lg:hidden" /> себе нові горизонти в ІТ-сфері.
+        </p>
+      </div>
     </div>
   );
 };
