@@ -25,7 +25,7 @@ export default function Projects() {
           />
           </div>
           <div className="leading-6 lg:lg:w-[575px] xl:leading-9 xl:text-l">
-            <p className="mb-4">
+            <p className="mb-4">т счи
               По мірі розвитку наші проєкти ускладнюються, команди професійно
               розвиваються, а ринок вимагає іновацій.
             </p>
