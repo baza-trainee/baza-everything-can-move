@@ -3,7 +3,7 @@
 import React from 'react';
 // import Bubbles3D from './Bubbles3D';
 import Bubbles2D from './Bubbles2D';
-import Bubbles2Dgreen from './Bubbles2DGreen';
+// import Bubbles2Dgreen from './Bubbles2DGreen';
 import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
 import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 
@@ -31,7 +31,7 @@ const BubblesBlock = ({ title, subtitle }: BubblesSectionProps) => {
         <SectionTitle className='mt-[54px] lg:mt-20 2xl:mt-10'>{title}</SectionTitle>
         <SubTitle className='mt-1'>{subtitle}</SubTitle>
         <Bubbles2D />
-        <Bubbles2Dgreen />
+        {/* <Bubbles2Dgreen /> */}
       </div>
       {/* <Bubbles3D /> */}
     </>
