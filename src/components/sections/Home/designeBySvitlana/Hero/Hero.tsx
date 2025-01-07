@@ -3,6 +3,7 @@ import React from 'react';
 // import SceneCopy from './Scene';
 //import styles from './Hero.module.css';
 import SceneMain from './SceneMain';
+// import SceneCopy from './Scene';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 
