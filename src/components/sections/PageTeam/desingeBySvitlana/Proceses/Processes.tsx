@@ -37,14 +37,14 @@ export default function Processes() {
     <section className="m-0 -mt-[1px] bg-black pt-[80px]">
       <Container>
         <AnimatedTitle title="Процеси" />
-        <div className="mt-6 max-w-[543px] font-third-family text-m font-regular leading-o-150 lg:mt-2 2xl:text-l">
+        <div className="mt-6 max-w-[543px] font-third-family text-m font-regular leading-o-150 lg:mt-[6px] 2xl:text-l">
           <p className="text-balance">
             На цьому проєкті наша команда отримала свій перший досвід створення
             анімації.
           </p>
 
           <p className="mt-4">
-            Процес був з викликами, перемогами та приємним спілкувнням.
+            Процес був з викликами, перемогами <br /> та приємним спілкувнням.
           </p>
         </div>
         <div className="relative -mx-5 mt-[70px] w-[375px] lg:-mx-6 lg:mt-[92px] lg:w-[768px] 2xl:mx-auto 2xl:mt-0 2xl:w-[1198px]">

@@ -1,5 +1,6 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
 
 type AnimatedTitleProps = {
@@ -18,7 +19,10 @@ function AnimatedTitle({
   const [charIndex, setCharIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const ref = useRef<HTMLDivElement>(null);
+  const { ref, inView } = useInView({
+    threshold: 1,
+    triggerOnce: true,
+  });
 
   const arrColors = [
     'text-white',
@@ -48,27 +52,10 @@ function AnimatedTitle({
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isAnimating) {
-          setIsAnimating(true);
-        }
-      },
-      { threshold: 1 }
-    );
-
-    const currentRef = ref.current;
-
-    if (currentRef) {
-      observer.observe(currentRef);
+    if (inView && !isAnimating) {
+      setIsAnimating(true);
     }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, [isAnimating]);
+  }, [inView, isAnimating]);
 
   useEffect(() => {
     if (charIndex < title.length && isAnimating) {
@@ -158,7 +145,6 @@ function AnimatedTitle({
     <div ref={ref}>
       <div
         className={cn(
-
           'traking-s-2 font-second-family text-xlg font-semibold uppercase leading-o-150 lg:text-3xl lg:leading-o-120 2xl:text-3xl',
           className
         )}

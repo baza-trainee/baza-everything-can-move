@@ -31,15 +31,16 @@ export const teamsFoto: TeamsFotoType[] = [
     role: 'Frontend // Full Stack',
   },
   {
-    name: 'Viktoria Vonsovych',
-    urlFoto: '/assets/images/PageTeam/DesignSvitlna/ViktoriaVonsovych.webp',
-    role: 'Front // React // NextJS',
-  },
-  {
     name: 'Vitaly Prytula',
     urlFoto: '/assets/images/PageTeam/DesignSvitlna/VitalyPrytula.webp',
     role: 'Frontend // Team Lead',
   },
+  {
+    name: 'Viktoria Vonsovych',
+    urlFoto: '/assets/images/PageTeam/DesignSvitlna/ViktoriaVonsovych.webp',
+    role: 'Front // React // NextJS',
+  },
+
   {
     name: 'Valerii Hrekov',
     urlFoto: '/assets/images/PageTeam/DesignSvitlna/ValeriiHrekov.webp',
