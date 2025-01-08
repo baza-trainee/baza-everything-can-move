@@ -1,4 +1,3 @@
-
 'use client';
 import React, { useRef } from 'react';
 import Slider from 'react-slick';
@@ -6,7 +5,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import { ButtonSlide } from '../../../../ui/SwiperFoto/components/ButtonSlider';
-import './style.css';
+import './slick-overrides.css';
+import Image from 'next/image';
 
 const SliderComponent: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
@@ -20,7 +20,7 @@ const SliderComponent: React.FC = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    autoplay: true,
+    //autoplay: true,
     // autoplaySpeed: 3000,
 
     responsive: [
@@ -28,7 +28,7 @@ const SliderComponent: React.FC = () => {
         breakpoint: 767,
         settings: { slidesToShow: 1 },
       },
-     {
+      {
         breakpoint: 768,
         settings: { slidesToShow: 2.3 },
       },
@@ -41,8 +41,6 @@ const SliderComponent: React.FC = () => {
         breakpoint: 1500,
         settings: { slidesToShow: 3.5 },
       },
- 
-      
     ],
   };
 
@@ -84,6 +82,7 @@ const SliderComponent: React.FC = () => {
       <Slider
         ref={sliderRef}
         {...settings}
+        //center-slider
         className="center-slider mb-16 h-64"
       >
         {slides.map((slide, index) => (
@@ -164,10 +163,12 @@ const SliderComponent: React.FC = () => {
                 </div>
               </div>
               <div className="p-4">
-                <img
+                <Image
                   src={slide.image}
                   alt={slide.title}
                   className="mb-2 h-40 w-full"
+                  width={640}
+                  height={640}
                 />
               </div>
             </div>
