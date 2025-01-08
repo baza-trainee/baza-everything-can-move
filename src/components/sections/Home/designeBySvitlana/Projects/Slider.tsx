@@ -38,7 +38,7 @@ const SliderComponent: React.FC = () => {
       },
 
       {
-        breakpoint: 1400,
+        breakpoint: 1500,
         settings: { slidesToShow: 3.5 },
       },
  
