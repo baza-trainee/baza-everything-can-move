@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import styles from './snow.module.css';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
+import Container from '@/components/ui/DesignBySvitlna/Container';
 // import clsx from 'clsx';
 
 // interface ParametersType {
@@ -192,23 +193,26 @@ const Snow = () => {
       id={styles.snowflakes}
       className="relative h-[796px] pt-[54px] lg:h-[924px] lg:pt-0 2xl:h-[742px]"
     >
-      {/* <div className='w-full h-20 absolute top-[54px] bg-gradient-to-b from-cyan-500 to-blue-500 z-[1000]'/> */}
-      <div ref={canvasSnow} id={styles.bottomShadow}/>
-        <div style={{ background: ` ` }} className='z-100 bg-radial-gradien'>
-          <AnimatedTitle title="досвід" className="z-100 absolute inset-x-0 top-[200px] text-center 2xl:container lg:top-[260px] 2xl:top-[132px] 2xl:text-left" />
+      <div ref={canvasSnow} id={styles.bottomShadow} />
+      <Container className="relative h-full">
+        <div className="z-100 absolute inset-x-0 left-[50%] top-[200px] w-[331px] translate-x-[-50%] text-center lg:top-[260px] lg:w-[448px] 2xl:left-0 2xl:left-20 2xl:top-[132px] 2xl:w-[569px] 2xl:translate-x-0 2xl:text-left">
+          <AnimatedTitle title="досвід" className="mb-4" />
 
-        <p className="z-100 absolute inset-x-0 top-[253px] text-center font-sans text-m font-regular leading-6 2xl:container lg:top-[364px] 2xl:top-[245px] 2xl:text-left">
-          Досвід — це шлях, яким проходять наші <br className="block lg:hidden" />
-          трейні, <br className="hidden lg:block" /> здобуваючи практичні навички
-          та <br className="block lg:hidden" /> впевненість у{' '}
-          <br className="hidden lg:block" /> своїх силах. Це можливість{' '}
-          <br className="block lg:hidden" /> втілювати знання в{' '}
-          <br className="hidden lg:block" /> реальні проєкти,
-          <br className="block lg:hidden" /> працювати в команді й{' '}
-          <br className="hidden lg:block" /> відкривати для{' '}
-          <br className="block lg:hidden" /> себе нові горизонти в ІТ-сфері.
-        </p>
-      </div>
+          <p className="w-full font-third-family text-m font-regular leading-[150%] 2xl:text-l">
+            Досвід — це шлях, яким проходять наші трейні, здобуваючи практичні
+            навички та впевненість у своїх силах. Це можливість втілювати в
+            життя реальні проєкти, працювати в команді й відкривати для себе
+            нові горизонти в ІТ-сфері.
+          </p>
+          <div
+            className="absolute -bottom-10 -left-8 -right-8 -z-10 h-[256px] rounded-[70%] 2xl:-left-10 2xl:-right-10"
+            style={{
+              background:
+                'radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0.6814) 71.6%, rgba(0, 0, 0, 0.4) 100%)',
+            }}
+          ></div>
+        </div>
+      </Container>
     </div>
   );
 };
