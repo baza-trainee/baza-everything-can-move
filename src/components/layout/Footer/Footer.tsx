@@ -1,18 +1,22 @@
 'use client';
 
 import { ICONS } from '@/constants/icons/icons';
-import Image from 'next/image';
+// import SceneLogo2 from '../Header/Shared/SceneLogo2';
 import Marquee from './Marquee/Marquee';
 import Button from '@/components/ui/Button';
+import Image from 'next/image';
 import Link from 'next/link';
 import { SocialMediaData } from '@/constants/data/SocialMediaData';
 import { useDesignStore } from '@/useDesignStore';
 import clsx from 'clsx';
 
+
 const Footer: React.FC = () => {
   const { designType } = useDesignStore();
 
   return (
+    <>
+    {designType !== 'initial' && (
     <footer className="bg-black z-[9000]">
       <div
         className={clsx(
@@ -25,7 +29,7 @@ const Footer: React.FC = () => {
 
       <div
         className={clsx(
-          'container flex w-full flex-col border-b border-white py-[32px] lg:flex-row lg:items-start lg:justify-between',
+          'flex w-full flex-col border-b border-white py-[32px] lg:flex-row lg:items-start lg:justify-between lg:gap-[94px] px-5 lg:px-6 2xl:px-20',
           designType === 'designByOlga' && 'border-opacity-10 2xl:py-16',
           designType === 'designBySvitlana' &&
             'border-opacity-0 lg:py-10 2xl:border-opacity-100 2xl:py-[60px]'
@@ -33,32 +37,20 @@ const Footer: React.FC = () => {
       >
         <div
           className={clsx(
-            'flex flex-row items-center lg:justify-start',
+            'flex flex-row items-center justify-around lg:justify-start',
             designType === 'designByOlga' && 'justify-between',
-            designType === 'designBySvitlana' && 'justify-start gap-8'
+            designType === 'designBySvitlana' && 'justify-start lg:items-start gap-8'
           )}
           >
+          <Link href="/" className={clsx(designType === 'designBySvitlana' && 'h-[74px] w-[74px] lg:h-[60px] lg:w-[60px] 2xl:h-[84px] 2xl:w-[84px]', designType === 'designByOlga' && 'h-[80px] w-[80px]')}>
           <Image
-            src="/assets/images/Logo/logo_baza2.png"
+            src="/assets/images/Experience/Logo_Baza.png"
             alt="logo"
-            width={83}
-            height={83}
-            className={clsx(
-              'h-[83px] w-[83px] grow-0 lg:h-[64px] lg:w-[64px] 2xl:h-[83px] 2xl:w-[83px]',
-              designType === 'designByOlga' && 'hidden'
-            )}
-            />
-          <Image
-            src="/assets/images/Logo/logo_baza.png"
-            alt="logo"
-            width={83}
-            height={83}
-            // priority
-            className={clsx(
-              'h-[80px] w-[80px] grow-0 lg:mr-6 lg:h-[83px] lg:w-[83px] 2xl:mr-10',
-              designType === 'designBySvitlana' && 'hidden'
-            )}
+            width={84}
+            height={84}
+            className="h-[74px] w-[74px] lg:h-[60px] lg:w-[60px] 2xl:h-[84px] 2xl:w-[84px]"
           />
+            </Link>
           <div
             className={clsx(
               designType === 'designBySvitlana' && 'hidden lg:block'
@@ -108,16 +100,16 @@ const Footer: React.FC = () => {
               designType === 'designBySvitlana' && 'block lg:hidden'
             )}
           >
-            <li className="w-[50%] py-2 hover:text-s-light-purple">
+            <li className={clsx("w-[50%] py-2 hover:text-s-light-purple", designType === 'designByOlga' && 'hidden', designType === 'designBySvitlana' && 'lg:hidden')}>
               <Link href="/team">Команди</Link>
             </li>
-            <li className="w-[50%] py-2 hover:text-s-light-purple">
+            <li className={clsx("w-[50%] py-2 hover:text-s-light-purple", designType === 'designByOlga' && 'hidden', designType === 'designBySvitlana' && 'lg:hidden')}>
               <Link href="/projects">Проєкти</Link>
             </li>
-            <li className="w-[50%] py-2 hover:text-s-light-purple">
+            <li className={clsx("w-[50%] py-2 hover:text-s-light-purple", designType === 'designByOlga' && 'hidden', designType === 'designBySvitlana' && 'lg:hidden')}>
               <Link href="/experience">Досвід</Link>
             </li>
-            <li className="w-[50%] py-2 hover:text-s-light-purple">
+            <li className={clsx("w-[50%] py-2 hover:text-s-light-purple", designType === 'designByOlga' && 'hidden', designType === 'designBySvitlana' && 'lg:hidden')}>
               <Link href="/future">Майбутнє</Link>
             </li>
           </ul>
@@ -253,6 +245,8 @@ const Footer: React.FC = () => {
         </p>
       </div>
     </footer>
+    )}
+    </>
   );
 };
 
