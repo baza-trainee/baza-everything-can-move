@@ -20,7 +20,7 @@ const SliderComponent: React.FC = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    //autoplay: true,
+    autoplay: true,
     // autoplaySpeed: 3000,
 
     responsive: [
