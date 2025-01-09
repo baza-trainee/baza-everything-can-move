@@ -38,6 +38,7 @@
 }
 .slick-center .slide-item {
   background-color: #fff;
+  scale: 1.08;
 }
 
 .slick-center h3 {
