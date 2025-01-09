@@ -7,7 +7,13 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 
 export default function Projects() {
   return (
-    <Background text="02 // Проєкти" bg="s-gray" xl={940} isNoContainer={true}>
+    <Background
+      text="02 // Проєкти"
+      bg="s-gray"
+      xl={940}
+      isNoContainer={true}
+      isNoMaxWidth={true}
+    >
       <section className="relative mb-32 overflow-visible px-0">
         <Container>
           <div className="mb-12 flex-wrap items-center justify-between gap-x-20 xl:flex">
