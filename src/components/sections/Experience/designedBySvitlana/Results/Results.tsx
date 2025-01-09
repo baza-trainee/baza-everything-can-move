@@ -38,7 +38,7 @@ const Results: React.FC = () => {
     if (!tagGroups) return;
 
 
-    const tagGroup1 = tagGroups[0] as HTMLDivElement;
+    // const tagGroup1 = tagGroups[0] as HTMLDivElement;
     // const tagGroup2 = tagGroups[1] as HTMLDivElement;
     // const tagGroup3 = tagGroups[2] as HTMLDivElement;
 
