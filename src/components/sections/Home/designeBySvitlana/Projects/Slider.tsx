@@ -12,7 +12,8 @@ const SliderComponent: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
 
   const settings = {
-    slidesToShow: 4.4,
+    className: 'center',
+    slidesToShow: 3.7,
     slidesToScroll: 1,
     centerPadding: '0px', // Змінено на 0px для усунення внутрішніх відступів
     centerMode: true,
@@ -20,26 +21,26 @@ const SliderComponent: React.FC = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    autoplay: true,
+    // autoplay: true,
     // autoplaySpeed: 3000,
 
+    //till not incl
     responsive: [
+      // {
+      //   breakpoint: 1500,
+      //   settings: { slidesToShow: 4.5 },
+      // },
       {
-        breakpoint: 767,
-        settings: { slidesToShow: 1 },
-      },
-      {
-        breakpoint: 768,
+        breakpoint: 1440,
         settings: { slidesToShow: 2.3 },
       },
+      // {
+      //   breakpoint: 769,
+      //   settings: { slidesToShow: 2.3 },
+      // },
       {
-        breakpoint: 1124,
-        settings: { slidesToShow: 2.5 },
-      },
-
-      {
-        breakpoint: 1500,
-        settings: { slidesToShow: 3.5 },
+        breakpoint: 768,
+        settings: { slidesToShow: 1 },
       },
     ],
   };
@@ -86,9 +87,10 @@ const SliderComponent: React.FC = () => {
         className="center-slider mb-16 h-64"
       >
         {slides.map((slide, index) => (
-          <div key={index} className="p-2">
-            <div className="slide-item border-gray-700 bg-gray-800 rounded-lg border-2">
-              <div className="slide-header mb-4 flex justify-between border-b-2 p-4">
+          // <div key={index} className="p-2">
+          <div key={index} className="">
+            <div className="slide-item border-gray-700 bg-gray-800 rounded-lg border-2 lg:mx-4">
+              <div className="slide-header flex justify-between border-b-2 p-4">
                 <h3 className="text-sm font-bold uppercase">
                   {slide.title} <span>{slide.subTitle}</span>
                   <span className="lit1">{slide.s}</span>
@@ -173,6 +175,7 @@ const SliderComponent: React.FC = () => {
               </div>
             </div>
           </div>
+          // {/* </div> */}
         ))}
       </Slider>
 
