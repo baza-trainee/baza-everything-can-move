@@ -1,22 +1,22 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import { ICONS } from '@/constants/icons/icons';
 import styles from './results.module.css';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
-// import { motion } from "framer-motion";
-// import { useFollowPointer } from "./use-follow-pointer";
+import { motion } from "framer-motion";
+import { useFollowPointer } from "./use-follow-pointer";
 import ResultsTags1 from './ResultsTags1';
 // import clsx from 'clsx';
 
 const Results: React.FC = () => {
 
-  // const tags_group1 = useRef<HTMLDivElement | null >(null);
+  const tags_group1 = useRef<HTMLDivElement | null >(null);
   // const tags_group2 = useRef<HTMLDivElement | null >(null);
   // const tags_group3 = useRef<HTMLDivElement | null >(null);
 
-  // const { x, y } = useFollowPointer(tags_group1);
+  const { x, y } = useFollowPointer(tags_group1);
   // const { x, y } = useFollowPointer(tags_group2);
   // const { x, y } = useFollowPointer(tags_group3);
 
@@ -89,8 +89,8 @@ const Results: React.FC = () => {
     // const NegPosCoeficient = Math.random() < 0.5 ? -1 : 1;
     // console.log(coeficient);
     // console.log(coeficientArray);
-    tagGroup1.style.left = `${mouseX/100*7}px`
-    tagGroup1.style.top = `${mouseY/100*7}px`
+    // tagGroup1.style.left = `${mouseX/100*7}px`
+    // tagGroup1.style.top = `${mouseY/100*7}px`
     // tagGroup2.style.left = `${mouseX/100*5}px`
     // tagGroup2.style.top = `${mouseY/100*8}px`
     // tagGroup3.style.left = `${mouseX/100*4}px`
@@ -143,7 +143,7 @@ const Results: React.FC = () => {
           <div className='h-[355px] w-full relative uppercase'>
 
           <ResultsTags1/>
-        {/* <div id={styles.tags} className='will-change-transform flex justify-start items-center relative w-full h-auto'>
+        <div id={styles.tags} className='will-change-transform flex justify-start items-center relative w-full h-auto'>
           <div className='h-[355px] w-full relative uppercase'>
 
             <motion.div id={styles.tagGroup} ref={tags_group1} style={{x,y}}>
@@ -170,7 +170,7 @@ const Results: React.FC = () => {
               </div>
             </motion.div>
 
-            <motion.div id={styles.tagGroup} className="pointer-events-none h-full w-full will-change-transform" ref={tags_group2} style={{x,y}}>
+            {/* <motion.div id={styles.tagGroup} className="pointer-events-none h-full w-full will-change-transform" ref={tags_group2} style={{x,y}}>
               <div
                 id={styles.tagGroup2_1}
                 className="absolute inline-block translate-x-[84px] translate-y-[85px] rotate-[0.04deg]"
@@ -195,9 +195,9 @@ const Results: React.FC = () => {
                   Креативність
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
 
-            <motion.div id={styles.tagGroup} className="pointer-events-none h-full w-full will-change-transform" ref={tags_group3} style={{x,y}}>
+            {/* <motion.div id={styles.tagGroup} className="pointer-events-none h-full w-full will-change-transform" ref={tags_group3} style={{x,y}}>
               <div
                 id={styles.tagGroup3_1}
                 className="absolute inline-block translate-x-[30px] translate-y-[210px] rotate-[1.56deg]"
@@ -230,9 +230,9 @@ const Results: React.FC = () => {
                   Ефективність
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
-        </div> */}
+        </div>
           </div>
         </div>
       </div>
