@@ -39,8 +39,7 @@
 .slick-center .slide-item {
   background-color: #fff;
   transform: scale(1.1);
-  /* width: 420px;
-  height: 280px; */
+  transition: all 0.3s ease 0s;
 }
 /* .slick-active .slick-center div {
 } */
