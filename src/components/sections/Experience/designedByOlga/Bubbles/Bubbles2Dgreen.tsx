@@ -10,43 +10,43 @@ import styles from './bubble2d.module.css'
 const Bubbles2Dgreen:React.FC = () => {
 
     useEffect(() => {
-        const wiggleBlock = document.querySelectorAll(`#${styles.wiggleBlock}`);
+        const bubbles = document.querySelectorAll(`#${styles.bubbles}`);
         const Block2Dgreen = document.getElementById('Block2Dgreen');
         const screenWidth = window.innerWidth;
 
-        for (let i = 0; i < wiggleBlock.length; i++){
+        for (let i = 0; i < bubbles.length; i++){
 
-            const leftAttributeSm = wiggleBlock[i].getAttribute('data-leftsm')
-            const leftAttributeLg = wiggleBlock[i].getAttribute('data-leftlg')
-            const leftAttribute2Xl = wiggleBlock[i].getAttribute('data-left2xl')
-            const topAttributeSm = wiggleBlock[i].getAttribute('data-topsm')
-            const topAttributeLg = wiggleBlock[i].getAttribute('data-toplg')
-            const topAttribute2Xl = wiggleBlock[i].getAttribute('data-top2xl')
+            const leftAttributeSm = bubbles[i].getAttribute('data-leftsm')
+            const leftAttributeLg = bubbles[i].getAttribute('data-leftlg')
+            const leftAttribute2Xl = bubbles[i].getAttribute('data-left2xl')
+            const topAttributeSm = bubbles[i].getAttribute('data-topsm')
+            const topAttributeLg = bubbles[i].getAttribute('data-toplg')
+            const topAttribute2Xl = bubbles[i].getAttribute('data-top2xl')
             const leftCoord = screenWidth > 1440 ? `2xl:left-[${leftAttribute2Xl}px]`: screenWidth > 768 ? `lg:left-[${leftAttributeLg}px]` : `left-[${leftAttributeSm}px]`;
             const topCoord = screenWidth > 1440 ? `2xl:top-[${topAttribute2Xl}px]`: screenWidth > 768 ? `lg:top-[${topAttributeLg}px]` : `top-[${topAttributeSm}px]`;
-            const bubbleStyles = 'bg-[#1D1D1C] rounded-full w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] 2xl:w-[164px] 2xl:h-[164px] flex flex-col items-center justify-center text-olga-green duration-400 absolute z-10';
+            const bubbleStyles = 'bg-[#c3ff0a] rounded-full w-[100px] h-[100px] 2xl:w-[124px] 2xl:h-[124px] flex flex-col items-center justify-center text-olga-green duration-400 absolute z-10';
 
-            wiggleBlock[i].addEventListener('mouseenter', () => {
+            bubbles[i].addEventListener('mouseenter', () => {
                 if(!Block2Dgreen){ return }
                 Block2Dgreen.children[i].classList.remove('hidden'); 
                 Block2Dgreen.children[i].classList.add('block'); 
             });
-             wiggleBlock[i].addEventListener('click', () => {
+             bubbles[i].addEventListener('click', () => {
                 if(!Block2Dgreen){ return }
                  setTimeout(() => 
                  {
                     Block2Dgreen.children[i].classList.remove('hidden'); 
                     Block2Dgreen.children[i].classList.add('block'); 
-                    wiggleBlock[i].className = '';
-                    wiggleBlock[i].className = bubbleStyles;
-                    wiggleBlock[i].classList.add('opacity-0', 'top-[500px]', `${leftCoord}`);
+                    bubbles[i].className = '';
+                    bubbles[i].className = bubbleStyles;
+                    bubbles[i].classList.add('opacity-0', 'top-[500px]', `${leftCoord}`);
                  }, 300);
 
                 setTimeout(() => {                
-                    wiggleBlock[i].className = '';
-                    wiggleBlock[i].className = bubbleStyles;
-                    wiggleBlock[i].classList.remove('opacity-0', 'top-[500px]', `${leftCoord}`);
-                    wiggleBlock[i].classList.add('opacity-100', `${topCoord}`, `${leftCoord}`);
+                    bubbles[i].className = '';
+                    bubbles[i].className = bubbleStyles;
+                    bubbles[i].classList.remove('opacity-0', 'top-[500px]', `${leftCoord}`);
+                    bubbles[i].classList.add('opacity-100', `${topCoord}`, `${leftCoord}`);
                 }, 5000);
 
                 setTimeout(() => {
@@ -54,9 +54,9 @@ const Bubbles2Dgreen:React.FC = () => {
                     Block2Dgreen.children[i].classList.add('hidden'); 
                 }, 5100);
             })
-            wiggleBlock[i].addEventListener('mouseleave', () => {
+            bubbles[i].addEventListener('mouseleave', () => {
                 if(!Block2Dgreen){ return }
-                if(wiggleBlock[i].classList.contains('opacity-100')){
+                if(bubbles[i].classList.contains('opacity-100')){
                     Block2Dgreen.children[i].classList.remove('block'); 
                     Block2Dgreen.children[i].classList.add('hidden'); 
                 }
@@ -66,16 +66,16 @@ const Bubbles2Dgreen:React.FC = () => {
 
 
   return (
-    <div id='Block2Dgreen' className='relative h-[546px] lg:h-[466px] 2xl:h-[526px] w-full px-4 lg:px-6 2xl:px-[120px] mt-[54px] lg:mt-12 2xl:mt-[60px]'>
-        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute left-[117px] top-[332px] lg:left-[-50px] lg:top-[84px] 2xl:top-[90px] 2xl:left-[-90px] rounded-full opacity-100 bg-radial-gradien z-10 hidden'/>
-        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute left-[19px] top-[127px] lg:left-[108px] lg:top-[272px] 2xl:top-[227px] 2xl:left-[166px] rounded-full opacity-100 bg-radial-gradien z-10 hidden'/>
-        <div className='h-[210px] w-[210px] lg:h-[240px] lg:w-[240px] 2xl:h-[350px] 2xl:w-[350px] absolute top-[46px] left-[167px] lg:left-[162px] lg:top-[41px] 2xl:top-[36px] 2xl:left-[441px] rounded-full opacity-100 bg-radial-gradien z-10 hidden'/>
+    <div id='Block2Dgreen' className='absolute bottom-[100px] 2xl:bottom-[50px] h-[546px] lg:h-[466px] 2xl:h-[526px] w-full px-4 lg:px-6 2xl:px-[120px]'>
+        <div className='h-[200px] w-[200px] lg:h-[250px] lg:w-[250px] 2xl:h-[280px] 2xl:w-[280px] absolute left-[110px] -top-[55px] lg:left-[55px] lg:-top-[70px] 2xl:top-[75px] 2xl:left-[205px] rounded-full opacity-100 bg-radial-gradien z-10'/>
+        <div className='h-[200px] w-[200px] lg:h-[250px] lg:w-[250px] 2xl:h-[280px] 2xl:w-[280px] absolute -left-[20px] top-[260px] lg:left-[325px] lg:top-[5px] 2xl:-top-[15px] 2xl:left-[650px] rounded-full opacity-100 bg-radial-gradien z-10'/>
+        <div className='h-[200px] w-[200px] lg:h-[250px] lg:w-[250px] 2xl:h-[280px] 2xl:w-[280px] absolute top-[220px] left-[130px] lg:left-[325px] lg:top-[262px] 2xl:top-[260px] 2xl:left-[500px] rounded-full opacity-100 bg-radial-gradien z-10'/>
 
-        <div id={styles.wiggleBlock} data-leftsm='162' data-leftlg='0' data-left2xl='0' data-topsm='377' data-toplg='134' data-top2xl='183' className='bg-[#1D1D1C] rounded-full w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] 2xl:w-[164px] 2xl:h-[164px] flex flex-col items-center justify-center text-olga-green duration-400 absolute z-10 opacity-100 left-[162px] top-[377px] lg:left-[0px] lg:top-[134px] 2xl:top-[183px] 2xl:left-[0px]'>
+        <div id={styles.bubbles} data-leftsm='162' data-leftlg='124' data-left2xl='290' data-topsm='0' data-toplg='0' data-top2xl='166' className='bg-[#c3ff0a] rounded-full w-[100px] h-[100px] 2xl:w-[124px] 2xl:h-[124px] flex flex-col items-center justify-center text-olga-green duration-400 absolute z-10 opacity-100 left-[162px] top-[0px] lg:left-[124px] lg:top-[0px] 2xl:top-[146px] 2xl:left-[290px]'>
         </div> 
-        <div id={styles.wiggleBlock} data-leftsm='64' data-topsm='167' data-toplg='322' data-leftlg='158' data-top2xl='320' data-left2xl='259' className='bg-[#1D1D1C] rounded-full w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] 2xl:w-[164px] 2xl:h-[164px] flex flex-col items-center justify-center text-olga-green duration-400 absolute z-10 opacity-100 left-[64px] top-[167px] lg:left-[158px] lg:top-[322px] 2xl:top-[320px] 2xl:left-[259px]'>
+        <div id={styles.bubbles} data-leftsm='32' data-topsm='315' data-toplg='67' data-leftlg='398' data-top2xl='62' data-left2xl='730' className='bg-[#c3ff0a] rounded-full w-[100px] h-[100px] 2xl:w-[124px] 2xl:h-[124px] flex flex-col items-center justify-center text-olga-green duration-400 absolute z-10 opacity-100 left-[32px] top-[315px] lg:left-[398px] lg:top-[67px] 2xl:top-[62px] 2xl:left-[730px]'>
         </div>
-        <div id={styles.wiggleBlock} data-leftsm='212' data-topsm='91' data-toplg='91' data-leftlg='212' data-top2xl='129' data-left2xl='534' className='bg-[#1D1D1C] rounded-full w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] 2xl:w-[164px] 2xl:h-[164px] flex flex-col items-center justify-center text-olga-green duration-400 absolute z-10 opacity-100  top-[91px] left-[212px] lg:left-[212px] lg:top-[91px] 2xl:top-[129px] 2xl:left-[534px]'>
+        <div id={styles.bubbles} data-leftsm='187' data-topsm='265' data-toplg='332' data-leftlg='398' data-top2xl='332' data-left2xl='584' className='bg-[#c3ff0a] rounded-full w-[100px] h-[100px] 2xl:w-[124px] 2xl:h-[124px] flex flex-col items-center justify-center text-olga-green duration-400 absolute z-10 opacity-100  top-[265px] left-[187px] lg:left-[398px] lg:top-[332px] 2xl:top-[332px] 2xl:left-[584px]'>
         </div>
     </div>
   )
