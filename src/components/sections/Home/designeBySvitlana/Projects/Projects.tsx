@@ -10,7 +10,7 @@ export default function Projects() {
     <Background
       text="02 // Проєкти"
       bg="s-gray"
-      xl={940}
+      xl={840}
       isNoContainer={true}
       isNoMaxWidth={true}
     >

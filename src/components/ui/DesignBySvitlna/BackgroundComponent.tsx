@@ -23,7 +23,7 @@ function BackgroundComponent({
   lg = 125,
   xl = 1142,
   isNoContainer,
-  isAlwaysOpen = false, // За замовчуванням компонент не завжди відкритий
+  isAlwaysOpen = false,
   className,
   isNoMaxWidth = false,
 }: BgProps) {
@@ -52,12 +52,7 @@ function BackgroundComponent({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <Container
-        isNoMaxWidth={isNoMaxWidth}
-        className={cn(
-          isNoContainer ? 'relative px-0 lg:px-0 2xl:px-0' : 'relative'
-        )}
-      >
+      <Container className="relative">
         <motion.div
           className={cn(
             `z-2 absolute -top-[140px] h-[80px] w-[215px] rounded-t-2xl pt-[26px] shadow-3xl bg-${bg} left-4 ${
@@ -86,7 +81,11 @@ function BackgroundComponent({
             </div>
           </div>
         </motion.div>
-
+      </Container>
+      <Container
+        isNoMaxWidth={isNoMaxWidth}
+        className={cn(isNoContainer ? 'px-0 lg:px-0 2xl:px-0' : '')}
+      >
         <motion.div
           initial={{ height: 0 }}
           animate={{
