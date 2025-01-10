@@ -33,16 +33,14 @@
   opacity: 1;
   transform: scale(1.2);
 }
-/* .slick-center img {
+.slick-center img {
   transform: scale(1.08);
-} */
-.slick-center .slide-item {
-  background-color: #fff;
-  transform: scale(1.1);
-  transition: all 0.3s ease 0s;
 }
-/* .slick-active .slick-center div {
-} */
+.slick-center .slide-item {
+  transform: scale(1.08);
+  background-color: #fff;
+}
+
 .slick-center h3 {
   color: #363535;
 }
@@ -82,7 +80,3 @@
   color: #ffe332;
   transition: color 0.3s ease 0s;
 }
-
-/* .slick-slide {
-  width: 360px;
-} */
