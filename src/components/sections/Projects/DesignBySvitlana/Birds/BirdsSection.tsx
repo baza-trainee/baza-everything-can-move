@@ -6,8 +6,12 @@ const BirdsSection = () => {
   return (
     // <section className="relative m-auto h-[803px] w-full overflow-hidden lg:h-[924px] 2xl:mt-0 2xl:h-[754px]">
     <section className="relative h-[803px] w-full overflow-hidden lg:h-[924px] 2xl:mt-0 2xl:h-[754px]">
+      {/* for mobil to scroll */}
+      <div className="-z-15 bg-transparent absolute inset-0 h-[803px] w-full lg:hidden"></div>
       <Container className="relative">
+        {/* text section  */}
         <div className="absolute left-[50%] top-[254px] w-[340px] translate-x-[-50%] text-center lg:top-[238px] lg:w-[409px] 2xl:left-80 2xl:top-[132px] 2xl:w-[468px] 2xl:text-left">
+          {/* under title */}
           <div
             className="absolute -bottom-[10px] -left-[25px] -z-10 h-[154px] w-[349px] rounded-[70%] lg:-bottom-[30px] lg:-left-[37px] lg:h-[126px] lg:w-[484px] 2xl:-bottom-[40px] 2xl:-left-[80px] 2xl:h-[247px] 2xl:w-[543px] 2xl:rounded-[50%]"
             style={{
