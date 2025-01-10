@@ -12,8 +12,10 @@ const SliderComponent: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
 
   const settings = {
-    className: 'center',
-    slidesToShow: 3.7,
+    className: 'slider variable-width center',
+    variableWidth: true,
+    //slidesToShow: 3.7,
+    slidesToShow: 1,
     slidesToScroll: 1,
     centerPadding: '0px', // Змінено на 0px для усунення внутрішніх відступів
     centerMode: true,
@@ -25,24 +27,18 @@ const SliderComponent: React.FC = () => {
     // autoplaySpeed: 3000,
 
     //till not incl
-    responsive: [
-      // {
-      //   breakpoint: 1500,
-      //   settings: { slidesToShow: 4.5 },
-      // },
-      {
-        breakpoint: 1440,
-        settings: { slidesToShow: 2.3 },
-      },
-      // {
-      //   breakpoint: 769,
-      //   settings: { slidesToShow: 2.3 },
-      // },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 1 },
-      },
-    ],
+    // responsive: [
+    //   {
+    //     //2.3
+    //     breakpoint: 1440,
+    //     settings: { slidesToShow: 3 },
+    //   },
+
+    //   {
+    //     breakpoint: 768,
+    //     settings: { slidesToShow: 1 },
+    //   },
+    // ],
   };
 
   const slides = [
@@ -78,18 +74,20 @@ const SliderComponent: React.FC = () => {
   const handleNext = () => sliderRef.current?.slickNext();
 
   return (
-    <div className="slider-container relative p-0 pb-8 lg:pb-0">
+    <div className="slider-container relative px-4 pb-8 lg:p-0 lg:pb-0">
       {/* Слайдер */}
       <Slider
         ref={sliderRef}
         {...settings}
-        //center-slider
-        className="center-slider mb-16 h-64"
+        //center-slider h-64
+        className="center-slider mb-16"
       >
         {slides.map((slide, index) => (
           // <div key={index} className="p-2">
-          <div key={index} className="">
-            <div className="slide-item border-gray-700 bg-gray-800 rounded-lg border-2 lg:mx-4">
+          // over p
+          <div key={index} className="w-full" style={{ width: 360 }}>
+            {/* my wrapper p*/}
+            <div className="slide-item border-gray-700 bg-gray-800 rounded-lg border-2 py-2 lg:m-4">
               <div className="slide-header flex justify-between border-b-2 p-4">
                 <h3 className="text-sm font-bold uppercase">
                   {slide.title} <span>{slide.subTitle}</span>
@@ -168,7 +166,8 @@ const SliderComponent: React.FC = () => {
                 <Image
                   src={slide.image}
                   alt={slide.title}
-                  className="mb-2 h-40 w-full"
+                  //h-40
+                  className="mb-2 w-full object-cover"
                   width={640}
                   height={640}
                 />

@@ -13,6 +13,7 @@ type BgProps = {
   text?: string;
   isNoContainer?: boolean;
   isAlwaysOpen?: boolean;
+  isNoMaxWidth?: boolean;
 };
 
 function BackgroundComponent({
@@ -24,6 +25,7 @@ function BackgroundComponent({
   isNoContainer,
   isAlwaysOpen = false, // За замовчуванням компонент не завжди відкритий
   className,
+  isNoMaxWidth = false,
 }: BgProps) {
   const xlClassMap: Record<number, string> = {
     276: '2xl:left-[276px]',
@@ -51,6 +53,7 @@ function BackgroundComponent({
       transition={{ duration: 0.8 }}
     >
       <Container
+        isNoMaxWidth={isNoMaxWidth}
         className={cn(
           isNoContainer ? 'relative px-0 lg:px-0 2xl:px-0' : 'relative'
         )}
@@ -105,6 +108,7 @@ export default BackgroundComponent;
 
 // all number of position left for lg and 2xl are in xlClassMap
 
-//  IsContainer = false - there is no container
+//  IsNoContainer = true- there is no padding, but there is max-width
+// isNoMaxWidth = true - there is no max-width
 
 /* <Background text='Плани' bg='s-gray' lg={125} xl={503} isAlwaysOpen={true}/> */
