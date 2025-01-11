@@ -9,7 +9,7 @@ const Exp = () => {
     <section className="w-full pb-[100px]">
       <Container>
         <AnimatedTitle
-          title="Robot"
+          title="Ball"
           className="mx-auto"
           wordClasses={['text-s-purple']}
         />
