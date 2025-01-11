@@ -3,12 +3,12 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 import { useRef, useEffect } from 'react';
 import { Group } from 'three';
 
-useGLTF.preload('/models/robot7.glb');
+useGLTF.preload('/models/ball.glb');
 
 export default function ModelRobot() {
   const group = useRef<Group>(null);
 
-  const { scene, animations } = useGLTF('/models/robot7.glb');
+  const { scene, animations } = useGLTF('/models/ball.glb');
 
   const { actions } = useAnimations(animations, group);
 
