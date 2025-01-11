@@ -37,6 +37,7 @@
   transform: scale(1.08);
 }
 .slick-center .slide-item {
+  transform: scale(1.08);
   background-color: #fff;
 }
 
@@ -79,7 +80,3 @@
   color: #ffe332;
   transition: color 0.3s ease 0s;
 }
-
-/* .slick-slide {
-  width: 360px;
-} */

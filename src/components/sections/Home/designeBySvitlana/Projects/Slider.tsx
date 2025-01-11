@@ -1,19 +1,18 @@
+
 'use client';
 import React, { useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './slick-overrides.css';
 
 import { ButtonSlide } from '../../../../ui/SwiperFoto/components/ButtonSlider';
-import './slick-overrides.css';
-import Image from 'next/image';
 
 const SliderComponent: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
 
   const settings = {
-    className: 'center',
-    slidesToShow: 3.7,
+    slidesToShow: 4.4,
     slidesToScroll: 1,
     centerPadding: '0px', // Змінено на 0px для усунення внутрішніх відступів
     centerMode: true,
@@ -21,26 +20,25 @@ const SliderComponent: React.FC = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    // autoplay: true,
+    autoplay: true,
     // autoplaySpeed: 3000,
 
-    //till not incl
     responsive: [
-      // {
-      //   breakpoint: 1500,
-      //   settings: { slidesToShow: 4.5 },
-      // },
       {
-        breakpoint: 1440,
+        breakpoint: 667,
+        settings: { slidesToShow: 1 },
+      },
+     {
+        breakpoint: 768,
         settings: { slidesToShow: 2.3 },
       },
-      // {
-      //   breakpoint: 769,
-      //   settings: { slidesToShow: 2.3 },
-      // },
       {
-        breakpoint: 768,
-        settings: { slidesToShow: 1 },
+        breakpoint: 1124,
+        settings: { slidesToShow: 2.4 },
+      },
+      {
+        breakpoint: 1400,
+        settings: { slidesToShow: 3.5 },
       },
     ],
   };
@@ -83,14 +81,12 @@ const SliderComponent: React.FC = () => {
       <Slider
         ref={sliderRef}
         {...settings}
-        //center-slider
         className="center-slider mb-16 h-64"
       >
         {slides.map((slide, index) => (
-          // <div key={index} className="p-2">
-          <div key={index} className="">
-            <div className="slide-item border-gray-700 bg-gray-800 rounded-lg border-2 lg:mx-4">
-              <div className="slide-header flex justify-between border-b-2 p-4">
+          <div key={index} className="p-2">
+            <div className="slide-item border-gray-700 bg-gray-800 rounded-lg border-2">
+              <div className="slide-header mb-4 flex justify-between border-b-2 p-4">
                 <h3 className="text-sm font-bold uppercase">
                   {slide.title} <span>{slide.subTitle}</span>
                   <span className="lit1">{slide.s}</span>
@@ -165,17 +161,14 @@ const SliderComponent: React.FC = () => {
                 </div>
               </div>
               <div className="p-4">
-                <Image
+                <img
                   src={slide.image}
                   alt={slide.title}
-                  className="mb-2 h-40 w-full"
-                  width={640}
-                  height={640}
+                  className="mb-2 h-40 w-full lg:w-96"
                 />
               </div>
             </div>
           </div>
-          // {/* </div> */}
         ))}
       </Slider>
 
