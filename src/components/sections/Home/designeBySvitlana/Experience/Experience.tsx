@@ -14,14 +14,14 @@ export default function Projects() {
             </p>
           </div>
           <div className="hidden xl:block mb-5">
-            <p className="text-l">
+            <p className="text-l italic">
               “Досвід – це назва, яку кожен дає своїм помилкам.”
             </p>
             <br />
             <span className="text-l font-medium"> О. Уайльд</span>
           </div>
         </div>
-        <BtnAnimated color="gray" href="/experience" className="mb-8 mr-auto" />
+        <BtnAnimated color="gray" href="/experience" className="2xl:mb-0 mb-8 mr-auto" />
         <div className="flex flex-col justify-end gap-6 lg:flex-row lg:items-center 2xl:-mt-16">
           <div className="flex flex-col gap-6">
             <div className="bg-gray-800 group rounded-lg border-2 border-s-gray px-9 py-0 pb-4 transition-all duration-500 hover:bg-s-gray hover:text-white">

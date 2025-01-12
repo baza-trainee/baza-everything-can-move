@@ -118,7 +118,7 @@ const config: Config = {
         'third-family': ['var(--font-inter)', 'ui-sans-serif', 'sans-serif'], //Svitlana
         //wo do not it any more?
         // font3: ['VG5000', 'ui-sans-serif', 'sans-serif'],
-        // font4: ['Nunito', 'ui-sans-serif', 'sans-serif'],
+        font4: ['Nunito', 'ui-sans-serif', 'sans-serif'],
         // font5: ['IBM Plex Sans', 'ui-sans-serif', 'sans-serif'],
         // font6: ['Urbanist', 'ui-sans-serif', 'sans-serif'],
         // font7: ['Poppins', 'ui-sans-serif', 'sans-serif'],

@@ -6,7 +6,11 @@
   border-radius: 50%;
   /* opacity: 0.6; */
   cursor: pointer;
+  margin: 0 10px;
   transition: all 0.3s;
+}
+.slick-list{
+  overflow: none;
 }
 .slick-dots::before {
   display: none;
@@ -19,6 +23,7 @@
 }
 .slick-dots {
   position: absolute;
+  left: -40px;
   bottom: -79px;
   display: block;
   width: 100%;
@@ -35,6 +40,9 @@
 }
 .slick-center img {
   transform: scale(1.08);
+  width: 386px;
+  transition: width 0.3s ease 0s;
+
 }
 .slick-center .slide-item {
   transform: scale(1.08);
