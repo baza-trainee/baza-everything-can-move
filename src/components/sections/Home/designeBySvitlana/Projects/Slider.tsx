@@ -84,7 +84,7 @@ const SliderComponent: React.FC = () => {
         className="center-slider mb-16 h-64"
       >
         {slides.map((slide, index) => (
-          <div key={index} className="p-2">
+          <div key={index} className="px-4">
             <div className="slide-item border-gray-700 bg-gray-800 rounded-lg border-2">
               <div className="slide-header mb-4 flex justify-between border-b-2 p-4">
                 <h3 className="text-sm font-bold uppercase">
@@ -160,11 +160,11 @@ const SliderComponent: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="p-4">
+              <div className="p-4 flex justify-center">
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="mb-2 h-40 w-full lg:w-96"
+                  className="mb-2 h-40 w-56 lg:w-[324px]"
                 />
               </div>
             </div>
