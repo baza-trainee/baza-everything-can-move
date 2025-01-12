@@ -39,9 +39,13 @@ const Bubbles2D:React.FC = () => {
                     Block2D.children[i].classList.add('block'); 
                     wiggleBlock[i].className = '';
                     wiggleBlock[i].className = bubbleStyles;
-                    wiggleBlock[i].classList.add('opacity-0', 'top-[500px]', `${leftCoord}`);
+                    wiggleBlock[i].classList.add('opacity-0', `${topCoord}`, `${leftCoord}`);
                  }, 300);
-
+                 setTimeout(() => 
+                 {
+                    wiggleBlock[i].classList.remove(`${topCoord}`);
+                    wiggleBlock[i].classList.add('top-[500px]');
+                 }, 1000);
                 setTimeout(() => {                
                     wiggleBlock[i].className = '';
                     wiggleBlock[i].className = bubbleStyles;
