@@ -103,7 +103,7 @@ const Results: React.FC = () => {
     <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isAlwaysOpen={true} className="2xl:relative" isNoContainer={true} isNoMaxWidth={true}>
       <div className='flex flex-col 2xl:flex-row gap-[26px] 2xl:gap-0 w-full pb-20 lg:pb-[100px] 2xl:pb-[200px]'>
 
-        <div className='px-5 lg:px-[26px] 2xl:px-20'>
+        <div className='px-5 lg:px-[26px] 2xl:pl-20'>
           <div className="flex items-center justify-start gap-[14px] pb-8 pt-[22px] lg:gap-[69px] lg:pt-[10px] 2xl:gap-[3px] 2xl:pt-[131px]">
             <AnimatedTitle title="Результати" />
             <ICONS.VIOLET_WHITE_STAR_SM className="lg:hidden" />
