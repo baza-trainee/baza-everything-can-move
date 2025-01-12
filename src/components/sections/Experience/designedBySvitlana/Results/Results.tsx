@@ -49,7 +49,7 @@ const Results: React.FC = () => {
       tags_group1.current.style.top = `${randomIndexY1}${8}%`;
       tags_group2.current.style.left = `${randomIndexX2}${8}%`;
       tags_group2.current.style.top = `${randomIndexY2}${8}%`;
-      tags_group3.current.style.left = `${randomIndexX3}${8}%`;
+      tags_group3.current.style.left = `${randomIndexX3}${3}%`;
       tags_group3.current.style.top = `${randomIndexY3}${8}%`;
       // const XDistance = (mouseX-mouseXprev).toString()
       // const YDistance = (mouseYprev-mouseY).toString()
@@ -101,7 +101,7 @@ const Results: React.FC = () => {
 
   return (
     <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isAlwaysOpen={true} className="2xl:relative" isNoContainer={true} isNoMaxWidth={true}>
-      <div className='flex flex-col 2xl:flex-row gap-[26px] w-full pb-20 lg:pb-[100px] 2xl:pb-[200px]'>
+      <div className='flex flex-col 2xl:flex-row gap-[26px] 2xl:gap-0 w-full pb-20 lg:pb-[100px] 2xl:pb-[200px]'>
 
         <div className='px-5 lg:px-[26px] 2xl:px-20'>
           <div className="flex items-center justify-start gap-[14px] pb-8 pt-[22px] lg:gap-[69px] lg:pt-[10px] 2xl:gap-[3px] 2xl:pt-[131px]">
@@ -125,49 +125,49 @@ const Results: React.FC = () => {
           </div>
         </div>
 
-        <div  className='flex justify-center items-center w-full h-[355px] mt-20 relative overflow-visible'>
+        <div  className='flex justify-center items-center w-full h-[355px] mt-20 relative mx-0'>
           {/* <TagsBlock1 hovered={hovered} mouseX={mouseX} mouseY={mouseY}/> */}
           {/* <TagsBlock2 hovered={hovered} mouseX={mouseX} mouseY={mouseY}/> */}
           {/* <TagsBlock3 hovered={hovered} mouseX={mouseX} mouseY={mouseY}/> */}
 
-          <div id='tags' className='w-full uppercase h-[355px] absolute duration-1000 overflow-visible'>
+          <div id='tags' className='w-full uppercase h-[355px] lg:h-[400px] absolute'>
 
-            <div ref={tags_group1} className='w-full uppercase h-[355px] absolute duration-1000 overflow-visible'>
-              <div className='absolute inline-block top-[0px] left-[calc(50%-80px)] rotate-[4deg]'>
-                <div className="rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-black duration-300 hover:bg-s-light-purple hover:text-white"> Взаємодія </div>
+            <div ref={tags_group1} className='w-full uppercase h-[355px] absolute duration-1000 ease-in-out'>
+              <div className='absolute inline-block top-[0px] left-[calc(50%-80px)] lg:left-[calc(50%-130px)] rotate-[4deg]'>
+                <div className="rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 lg:text-lg lg:leading-s-38 text-black duration-300 hover:bg-s-light-purple hover:text-white"> Взаємодія </div>
               </div>
-              <div className="absolute inline-block left-[calc(50%)]  top-[235px] -rotate-[4deg]" >
-                <div className="rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-black duration-300 hover:bg-s-light-purple hover:text-white"> Лідерство </div>
+              <div className="absolute inline-block left-[calc(50%)] lg:left-[calc(50%+70px)] top-[235px] lg:top-[285px] rotate-[4deg]" >
+                <div className="rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 lg:text-lg lg:leading-s-38 text-black duration-300 hover:bg-s-light-purple hover:text-white"> Лідерство </div>
               </div>
-              <div className="absolute inline-block left-[calc(50%-150px)]  top-[140px] -rotate-[5deg]" >
-                <div className="rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-black duration-300 hover:bg-s-light-purple hover:text-white">Стратегія </div>
+              <div className="absolute inline-block left-[calc(50%-170px)] top-[140px] lg:left-[calc(50%-260px)] lg:top-[195px] -rotate-[8deg]" >
+                <div className="rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 lg:text-lg lg:leading-s-38 text-black duration-300 hover:bg-s-light-purple hover:text-white">Стратегія </div>
               </div>
             </div>
 
-            <div className='w-full uppercase h-[355px] absolute duration-1000 overflow-visible' ref={tags_group2} >
-              <div className="absolute inline-block translate-x-[84px] translate-y-[85px] rotate-[0.04deg]">
-                <div className="pointer-events-auto rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-black duration-300 hover:bg-s-light-purple hover:text-white"> Гнучкість  </div>
+            <div className='w-full uppercase h-[355px] absolute duration-1000 ease-in-out' ref={tags_group2} >
+              <div className="absolute inline-block left-[84px] top-[85px] lg:left-[calc(50%-200px)] lg:top-[125px] rotate-[0.04deg]">
+                <div className="rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 lg:text-lg lg:leading-s-38 text-black duration-300 hover:bg-s-light-purple hover:text-white"> Гнучкість </div>
               </div>
-              <div className="absolute inline-block translate-x-[146px] translate-y-[55px] rotate-[12deg]">
-                <div className="pointer-events-auto rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-black duration-300 hover:bg-s-light-purple hover:text-white"> Колаборація </div>
+              <div className="absolute inline-block left-[146px] top-[55px] lg:left-[calc(50%)] lg:top-[75px] rotate-[12deg]">
+                <div className="rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 lg:text-lg lg:leading-s-38 text-black duration-300 hover:bg-s-light-purple hover:text-white"> Колаборація </div>
               </div>
-              <div className="absolute inline-block translate-x-[63px] translate-y-[270px] rotate-[6deg]">
-                <div className="pointer-events-auto rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-black duration-300 hover:bg-s-light-purple hover:text-white"> Креативність </div>
+              <div className="absolute inline-block left-[63px] top-[270px] lg:left-[calc(50%-150px)] lg:top-[335px] -rotate-[1deg]">
+                <div className="rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 lg:text-lg lg:leading-s-38 text-black duration-300 hover:bg-s-light-purple hover:text-white"> Креативність </div>
               </div>
             </div>
 
-            <div className='w-full uppercase h-[355px] absolute duration-1000 overflow-visible' ref={tags_group3}>
-              <div className="absolute inline-block translate-x-[30px] translate-y-[210px] rotate-[1.56deg]" >
-                <div className="pointer-events-auto rounded border border-white bg-black px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-white duration-300 hover:bg-s-light-purple">  Системність </div>
+            <div className='w-full uppercase h-[355px] absolute duration-1000 ease-in-out' ref={tags_group3}>
+              <div className="absolute inline-block left-[30px] lg:left-[calc(50%-240px)] top-[210px] rotate-[6deg] lg:top-[270px]" >
+                <div className="rounded border border-white bg-black px-[24.5px] py-[9.65px] text-md font-medium leading-5 lg:text-lg lg:leading-s-38 text-white duration-300 hover:bg-s-light-purple"> Системність </div>
               </div>
-              <div className="absolute inline-block translate-x-[155px] translate-y-[172px]" >
-                <div className="pointer-events-auto rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-black duration-300 hover:bg-s-light-purple hover:text-white"> Емпатія </div>
+              <div className="absolute inline-block left-[155px] lg:left-[calc(50%-20px)] top-[172px] lg:top-[220px]" >
+                <div className="rounded bg-white px-[24.5px] py-[9.65px] text-md font-medium leading-5 lg:text-lg lg:leading-s-38 text-black duration-300 hover:bg-s-light-purple hover:text-white"> Емпатія </div>
               </div>
-              <div className="absolute inline-block translate-x-[5px] translate-y-[45px] -rotate-[12deg]" >
-                <div className="pointer-events-auto rounded border border-white bg-black px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-white duration-300 hover:bg-s-light-purple"> Аналітика </div>
+              <div className="absolute inline-block left-[5px] top-[45px] lg:left-[calc(50%-250px)] lg:top-[65px] -rotate-[12deg]" >
+                <div className="rounded border border-white bg-black px-[24.5px] py-[9.65px] text-md font-medium leading-5 lg:text-lg lg:leading-s-38 text-white duration-300 hover:bg-s-light-purple"> Аналітика </div>
               </div>
-              <div className="absolute inline-block translate-x-[175px] translate-y-[125px] rotate-[6deg]" >
-                <div className="pointer-events-auto rounded border border-white bg-black px-[24.5px] py-[9.65px] text-md font-medium leading-5 text-white duration-300 hover:bg-s-light-purple"> Ефективність </div>
+              <div className="absolute inline-block left-[175px] lg:left-[50%] top-[125px] lg:top-[170px] rotate-[6deg]" >
+                <div className="rounded border border-white bg-black px-[24.5px] py-[9.65px] text-md font-medium leading-5 lg:text-lg lg:leading-s-38 text-white duration-300 hover:bg-s-light-purple"> Ефективність </div>
               </div>
             </div>
           </div>
