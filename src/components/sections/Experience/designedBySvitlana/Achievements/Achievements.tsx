@@ -9,8 +9,6 @@ import { useInView } from 'react-intersection-observer';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 
 const Achievements: React.FC = () => {
-  const { ref, inView } = useInView();
-
   return (
     <div className="py-20 pb-[96px] lg:pt-[200px] 2xl:pb-[100px]">
       <Container>
@@ -24,14 +22,16 @@ const Achievements: React.FC = () => {
             className="h-[96px] w-[96px] lg:h-[87px] lg:w-[87px] 2xl:h-[96px] 2xl:w-[96px]"
           />
         </div>
-        <div
-          className="flex flex-col items-center lg:flex-row lg:flex-wrap lg:justify-evenly"
-          ref={ref}
-        >
+        <div className="flex flex-col items-center lg:flex-row lg:flex-wrap lg:justify-evenly">
           {achievementsBySvitlana.map((achievement, i) => {
+            const { ref, inView } = useInView({
+              triggerOnce: true, 
+              threshold: 0.5,
+            });
             return (
               <div
                 key={`p_${i}`}
+                ref={ref}
                 className="flex w-full flex-col items-center justify-start pb-[64px] lg:w-1/2 2xl:w-1/4"
               >
                 <NumberFlow
