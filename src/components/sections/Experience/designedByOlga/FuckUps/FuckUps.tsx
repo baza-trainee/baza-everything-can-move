@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, {useRef} from 'react';
 import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
 import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import WiresAnimationComponent from './WiresAnimation';
@@ -14,17 +14,21 @@ export interface FuckUpsSectionProps {
 
 
 const FuckUpSection = ({ title, subtitle }: FuckUpsSectionProps) => {
+  // const refElement = React.useRef<HTMLDivElement | null >(null);
   return (
-    <div className="relative">
-      <div className="container sticky pb-8">
-        <ICONS_SHARED.CORNER_TOP className="float-right" />
-        <SectionTitle>{title}</SectionTitle>
-        <SubTitle>{subtitle}</SubTitle>
+    <div className="h-[2700px]">
+      <div className="sticky top-[600px] ">
+        <div className='container mb-8'>
+          <ICONS_SHARED.CORNER_TOP className="float-right" />
+          <SectionTitle>{title}</SectionTitle>
+          <SubTitle>{subtitle}</SubTitle>
+        </div>
+        <WiresAnimationComponent />
       </div>
-      <WiresAnimationComponent />
-      <HideWires/>
+
+      {/* <HideWires/> */}
     </div>
   );
 };
 
-export default FuckUpSection;
+export default FuckUpSection; 
