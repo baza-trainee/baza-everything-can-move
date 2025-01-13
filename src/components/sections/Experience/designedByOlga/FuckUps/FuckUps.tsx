@@ -1,11 +1,11 @@
 'use client';
 
-import React, {useRef} from 'react';
+import React from 'react';
 import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
 import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import WiresAnimationComponent from './WiresAnimation';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
-import HideWires from './HideWires';
+// import HideWires from './HideWires';
 
 export interface FuckUpsSectionProps {
   title: string;
