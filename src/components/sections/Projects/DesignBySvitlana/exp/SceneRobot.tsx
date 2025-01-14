@@ -5,7 +5,7 @@ import { Center } from '@react-three/drei';
 
 function SceneRobot() {
   return (
-    <div className="z-10 h-[400px] w-[100%] p-0 lg:w-[80%] 2xl:w-[50%]">
+    <div className="z-10 h-[400px] w-[100%] cursor-pointer p-0 lg:w-[80%] 2xl:w-[50%]">
       <Canvas gl={{ antialias: true }} dpr={[1, 1.5]}>
         {/* <directionalLight position={[-5, -5, 5]} intensity={5} /> */}
         {/* <ambientLight intensity={0.2} /> */}
