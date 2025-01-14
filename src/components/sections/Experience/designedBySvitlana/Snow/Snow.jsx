@@ -194,7 +194,7 @@ const Snow = () => {
       className="relative h-[796px] pt-[54px] lg:h-[924px] lg:pt-0 2xl:h-[742px]"
     >
       <div ref={canvasSnow} id={styles.bottomShadow} />
-      <Container className="relative h-full">
+      <Container className="relative">
         <div className="z-100 absolute inset-x-0 left-[50%] top-[200px] w-[331px] translate-x-[-50%] text-center lg:top-[260px] lg:w-[448px] 2xl:left-0 2xl:left-20 2xl:top-[132px] 2xl:w-[569px] 2xl:translate-x-0 2xl:text-left">
           <AnimatedTitle title="досвід" className="mb-4" />
 
