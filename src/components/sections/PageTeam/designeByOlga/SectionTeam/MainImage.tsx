@@ -31,11 +31,46 @@ function MainImage() {
             strokeWidth="2"
           />
         </motion.svg>
-        <Label text="FRONT-END" className="left-1 top-1/4" />
-        <Label text="BACK-END" className="bottom-0 right-0" />
-        <Label text="DESIGN" className="left-1/3 top-1/2" />
-        <Label text="QA" className="bottom-1/4 left-0" />
-        <Label text="PM" className="right-9 top-0" />
+        <Label
+          text="FRONT-END"
+          className={clsx(
+            '-left-10 bottom-6',
+            'lg:-left-10 lg:bottom-32',
+            '2xl:-left-5 2xl:bottom-28'
+          )}
+        />
+        <Label
+          text="BACK-END"
+          className={clsx(
+            '-left-5 top-7',
+            'lg:left-6 lg:top-2',
+            '2xl:left-20 2xl:top-24'
+          )}
+        />
+        <Label
+          text="DESIGN"
+          className={clsx(
+            '-right-5 bottom-2',
+            'lg:bottom-4 lg:right-28',
+            '2xl:bottom-5 2xl:right-16'
+          )}
+        />
+        <Label
+          text="QA"
+          className={clsx(
+            'right-3 top-[70px]',
+            'lg:right-3 lg:top-36',
+            '2xl:right-16 2xl:top-44'
+          )}
+        />
+        <Label
+          text="PM"
+          className={clsx(
+            '-right-5 top-3',
+            'lg:right-14 lg:top-10',
+            '2xl:-right-4 2xl:top-28'
+          )}
+        />
       </motion.div>
     </div>
   );
