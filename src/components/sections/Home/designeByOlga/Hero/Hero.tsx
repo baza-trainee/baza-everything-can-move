@@ -6,7 +6,7 @@ import './Hero.css';
 
 export default function Hero() {
   return (
-    <section className="hero pb-[350px] pt-[84px] 2xl:pb-[280px]">
+    <section className="hero pb-[550px] pt-[84px] 2xl:pb-[280px]">
       <div className="items-top container relative flex flex-wrap">
         <div className="relative">
           <h1 className="text-animation text-[40px] uppercase leading-[120%] lg:text-[64px] 2xl:text-[86px]">

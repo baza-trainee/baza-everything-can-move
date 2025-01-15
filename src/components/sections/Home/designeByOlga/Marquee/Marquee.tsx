@@ -113,20 +113,16 @@ const Marquee = () => {
           .map((_, index) => (
             <div
               key={index}
-              className="flex shrink-0 grow-0 basis-auto items-center gap-x-6"
+              className="flex shrink-0 grow-0 basis-auto items-center gap-x-6 text-olga-light-grey"
             >
               <p
                 // id="stroke"
-                className="font-font3 text-[40px] font-regular leading-[72px]"
-                style={{
-                  WebkitTextFillColor: 'black',
-                  WebkitTextStroke: '1px rgba(255, 255, 255, 1)',
-                }}
+                className="font-main-family lg:text-[40px] text-[32px] font-light leading-[72px]"
               >
                 BAZA TRAINEE UKRAINE
               </p>
 
-              <p className="font-font3 mr-4 text-[40px] font-regular leading-[72px] text-white">
+              <p className="font-font3 mr-4 lg:text-[40px] text-[32px] font-light leading-[72px]">
                 BAZA TRAINEE UKRAINE
               </p>
             </div>
@@ -145,20 +141,16 @@ const Marquee = () => {
           .map((_, index) => (
             <div
               key={index}
-              className="flex shrink-0 grow-0 basis-auto items-center gap-x-6"
+              className="flex shrink-0 grow-0 basis-auto items-center gap-x-6 text-olga-light-grey"
             >
               <p
                 // id="stroke"
-                className="font-font3 mr-4 text-[40px] font-regular leading-[72px]"
-                style={{
-                  WebkitTextFillColor: 'black',
-                  WebkitTextStroke: '1px rgba(255, 255, 255, 1)',
-                }}
+                className="font-font3 mr-4 lg:text-[40px] text-[32px] font-light leading-[72px]"
               >
                 BAZA TRAINEE UKRAINE
               </p>
 
-              <p className="font-font3 mr-4 text-[40px] font-regular leading-[72px] text-white">
+              <p className="font-font3 mr-4 lg:text-[40px] text-[32px] font-light leading-[72px] ">
                 BAZA TRAINEE UKRAINE
               </p>
             </div>
