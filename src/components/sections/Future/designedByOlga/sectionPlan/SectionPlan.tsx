@@ -8,7 +8,7 @@ function SectionPlan() {
   return (
     <section>
       <div className="container">
-        <ContainerWithCorners className="mb-[100px]">
+        <ContainerWithCorners className="mb-[240px]">
           <SectionTitle>Наші плани</SectionTitle>
           <SubTitle>Планування це База</SubTitle>
           <div className="flex flex-col justify-items-center py-[32px] lg:flex-row lg:items-center">

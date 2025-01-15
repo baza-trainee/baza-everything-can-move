@@ -8,7 +8,7 @@ function SectionFuture() {
   return (
     <section>
       <div className="container">
-        <ContainerWithCorners className="mb-[100px] mt-[54px] lg:mt-[80px] 2xl:mt-[64px]">
+        <ContainerWithCorners className="mb-[240px] mt-[80px] lg:mt-[100px] 2xl:mt-[240px]">
           <SectionTitle>Майбутнє</SectionTitle>
           <SubTitle>Плануй з нами</SubTitle>
           <div className="flex flex-col justify-items-center py-[32px] lg:flex-row lg:items-center">

@@ -12,7 +12,7 @@ function SectionDevelopment() {
   return (
     <section>
       <div className="container">
-        <ContainerWithCorners className="mb-[100px]">
+        <ContainerWithCorners className="mb-[240px]">
           <SectionTitle>Розвиток</SectionTitle>
           <SubTitle>Розвивайся з Базою</SubTitle>
           <div className="overflow-hidden py-[32px]">
