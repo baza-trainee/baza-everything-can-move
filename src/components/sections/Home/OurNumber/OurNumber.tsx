@@ -6,7 +6,7 @@ import Label from './Label';
 
 export default function OurNumber() {
   return (
-    <section className="outnumber relative overflow-hidden py-5">
+    <section className="outnumber relative overflow-hidden pt-5 pb-[120px]">
       {/* Рядок рухається вліво */}
       <div className="animate-marquee-reverse decor relative inline-block w-[100%] whitespace-nowrap">
         <Image

@@ -9,9 +9,10 @@ interface Slide {
 const slides: Slide[] = [
   { id: 1, content: 'сайти' },
   { id: 2, content: 'лендінги' },
-  { id: 3, content: 'CRM системи застосунки' },
-  { id: 4, content: 'сайти для донатів' },
-  { id: 5, content: 'адміністративні панелі' },
+  { id: 3, content: 'CRM системи' },
+  { id: 4, content: 'Мобільні застосунки' },
+  { id: 5, content: 'сайти для донатів' },
+  { id: 6, content: 'адміністративні панелі' },
 ];
 
 const VerticalSlider: React.FC = () => {
@@ -45,7 +46,7 @@ const VerticalSlider: React.FC = () => {
       if (width < 640) {
         setFontSize('25px'); // Small screens
       } else if (width < 1024) {
-        setFontSize('38px'); // Medium screens
+        setFontSize('30px'); // Medium screens
       } else {
         setFontSize('40px'); // Large screens
       }

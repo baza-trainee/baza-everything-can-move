@@ -6,10 +6,10 @@ import './style.css';
 
 export default function OldBase() {
   return (
-    <section className="oldBase pb-[59px] pt-[114px]">
+    <section className="oldBase pb-[120px] pt-[114px]">
       <div className="container relative">
         <Image
-          className="left-15 absolute bottom-0"
+          className="lg:left-15 absolute -bottom-4"
           alt="Низ"
           width={16}
           height={16}
