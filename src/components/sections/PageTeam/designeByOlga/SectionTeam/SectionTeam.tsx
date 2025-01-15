@@ -5,7 +5,7 @@ import ContainerWithCorners from '@/components/ui/DesignByOlga/ContainerWithCorn
 
 function SectionTeam() {
   return (
-    <section className="pb-[240px] pt-[54px] lg:pt-[80px] 2xl:pt-10">
+    <section className="py-[240px]">
       <div className="container">
         <ContainerWithCorners className="pb-12">
           <div className="">
