@@ -16,15 +16,15 @@ export default function Projects() {
     >
       <section className="relative mb-32 overflow-visible px-0">
         <Container>
-          <div className="mb-12 flex-wrap items-center justify-between gap-x-20 xl:flex">
+          <div className="mb-12 flex-wrap items-center justify-between gap-x-32 xl:flex">
             <div className="title">
               <AnimatedTitle title="Проєкти" className="lg-text-[76px]" />
               <p className="mb-4 text-md uppercase lg:text-lg 2xl:mb-0">
                 baza trainee ukraine
               </p>
             </div>
-            <div className="flex max-w-[690px] flex-col xl:-space-y-7 xl:space-x-[456px]">
-              <p className="hidden leading-9 text-white lg:text-l xl:block">
+            <div className="flex max-w-[590px] flex-col xl:-space-y-7 xl:space-x-[380px]">
+              <p className="hidden leading-8 text-white lg:text-l xl:block font-third-family">
                 Усі наші проєкти мають різний рівень складності та контентент.
               </p>
               <BtnAnimated

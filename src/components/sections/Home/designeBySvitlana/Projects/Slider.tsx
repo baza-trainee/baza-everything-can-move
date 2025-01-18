@@ -173,14 +173,14 @@ const SliderComponent: React.FC = () => {
       </Slider>
 
       {/* Кастомні кнопки навігації */}
-      <div className="mr-16 mt-4 hidden flex-row items-center justify-end gap-8 lg:flex">
+      <div className="mr-16 mt-4 hidden group flex-row items-center justify-end gap-8 lg:flex">
         <ButtonSlide
-          className="bg-transparent hover:bg-gray-600 flex h-14 w-12 cursor-pointer items-center justify-center rounded-full transition-all"
+          className="cursor-pointer items-center justify-center rounded-full transition-all"
           onClick={handlePrev}
           ariaLabel="кнопка для переходу до попереднього фото"
         />
         <ButtonSlide
-          className="bg-transparent hover:bg-gray-600 flex h-12 w-12 rotate-180 cursor-pointer items-center justify-center rounded-full transition-all"
+          className="rotate-180 cursor-pointer items-center justify-center rounded-full transition-all"
           onClick={handleNext}
           ariaLabel="кнопка для переходу до наступного фото"
         />
