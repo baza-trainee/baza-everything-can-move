@@ -15,21 +15,26 @@ export const ButtonSlide = ({
 
   // Встановлюємо стилі залежно від типу дизайну
   const buttonStyles =
-    designType === 'designByOlga'
-      ? 'border-olga-green hover:bg-olga-green'
-      : 'border-svitlana-purple hover:bg-svitlana-purple';
+  designType === 'designByOlga'
+    ? 'border-olga-green hover:bg-olga-green'
+    : designType === 'designBySvitlana'
+    ? 'border-svitlana-purple hover:bg-white'
+    : 'border-default hover:bg-default';  // Дефолтний стиль
 
-  const iconStyles =
-    designType === 'designByOlga'
-      ? 'stroke-olga-green hover:fill-olga-green-extra hover:stroke-black'
-      : 'stroke-svitlana-purple hover:fill-svitlana-purple-extra stroke-white';
+const iconStyles =
+  designType === 'designByOlga'
+    ? 'stroke-olga-green hover:fill-olga-green-extra hover:stroke-black'
+    : designType === 'designBySvitlana'
+    ? 'stroke-svitlana-blue hover:fill-svitlana-blue-extra stroke-white hover:stroke-s-gray'  // Стилі для Світлани
+    : 'stroke-default hover:fill-default-extra stroke-black';  // Дефолтні стилі
+
 
   return (
     <button
       className={cn(
-        className,
         buttonStyles,
-        'flex h-8 w-16 items-center justify-center rounded-[40px] border-[1px] border-solid transition-all'
+        'flex h-8 w-16 items-center justify-center rounded-[40px] border-[1px] border-solid transition-all',
+        className,
       )}
       type="button"
       aria-label={ariaLabel}
