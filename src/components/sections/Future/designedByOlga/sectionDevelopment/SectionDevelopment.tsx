@@ -15,10 +15,10 @@ function SectionDevelopment() {
         <ContainerWithCorners className="mb-[240px]">
           <SectionTitle>Розвиток</SectionTitle>
           <SubTitle>Розвивайся з Базою</SubTitle>
-          <div className="overflow-hidden py-[32px]">
+          <div className="py-[32px]">
             <div
               className={clsx(
-                'hidden h-[340px] flex-col overflow-y-auto lg:flex 2xl:h-[376px]',
+                'h-[340px] flex-col overflow-y-auto lg:flex 2xl:h-[376px]',
                 styles.scroll
               )}
             >
