@@ -43,7 +43,7 @@ export default function SceneMain() {
   //   }
   const calculateTranslateX = () => {
     if (screenWidth > 1700) {
-      return Math.max(-120, 0 - scrollY / 2);
+      return Math.max(-120, -10 - scrollY / 2);
     } else if (screenWidth > 1400) {
       return Math.max(-100, 0 - scrollY / 2); // Для великих екранів
     } else if (screenWidth > 1024) {
@@ -64,7 +64,7 @@ export default function SceneMain() {
     //   // return Math.min(50, scrollY / 4); // Для маленьких екранів
     // }
     if (screenWidth >= 1440) {
-      return Math.min(160, scrollY / 2);
+      return Math.min(150, scrollY / 2);
     } else if (screenWidth >= 1200) {
       return Math.min(155, scrollY / 2); // Для великих екранів
     } else if (screenWidth >= 768) {
@@ -87,7 +87,7 @@ export default function SceneMain() {
           transition: 'transform 1.9s ease-out',
         }}
         // className="absolute -top-24 left-[28%] z-10 h-[700px] w-[100%] lg:w-[60%] xl:-top-64 2xl:left-[30%] 2xl:w-[50%]"
-        className="absolute right-0 top-8 h-[500px] w-full lg:top-10 lg:h-[520px] lg:w-[716px] 2xl:-top-24 2xl:h-[573px] 2xl:w-[716px]"
+        className="absolute z-10 right-0 top-8 h-[500px] w-full lg:top-10 lg:h-[520px] lg:w-[716px] 2xl:-top-24 2xl:h-[573px] 2xl:w-[716px]"
       >
         <Canvas gl={{ antialias: true }} dpr={[1, 1.5]}>
           {/* <directionalLight position={[-5, -5, 5]} intensity={5} /> */}
