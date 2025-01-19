@@ -9,7 +9,8 @@ import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
 
 const PartnersSection: React.FC = () => {
   return (
-    <section className="pb-[100px] 2xl:pb-[120px]">
+    //2xl:pb-[120px]
+    <section className="pb-[100px] 2xl:pb-[240px]">
       <div className="container">
         <GoalSectiont />
         <ContainerWithCorners className="pt-8 2xl:pt-0">
