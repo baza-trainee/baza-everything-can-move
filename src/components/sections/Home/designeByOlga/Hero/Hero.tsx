@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="items-top container relative flex flex-wrap">
         <div className="relative">
           <h1 className="text-animation text-[40px] uppercase leading-[120%] lg:text-[64px] 2xl:text-[86px]">
-            створювали ми <br />{' '}
+            створювали ми <br />
             <span style={{ color: '#D3FD50' }}>анімацію</span>
             <br />
             на базі
