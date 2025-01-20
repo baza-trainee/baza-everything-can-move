@@ -1,6 +1,6 @@
 #wiggleBlock{
-   animation: wiggle 0.4s 0s linear infinite none running;
-   transition: all 0.5s ease-in-out;
+   /* animation: wiggle 0.4s 0s linear infinite none running;
+   transition: all 0.5s ease-in-out; */
 }
 #bubbles{
   -webkit-box-shadow: inset -13px -18px 18px 5px rgb(101, 128, 20);
@@ -44,13 +44,13 @@
 }}
 
 #wiggleBlock:nth-of-type(6){
-     animation-direction: reverse;
+     /* animation-direction: reverse; */
 }
 #wiggleBlock:nth-of-type(8){
-     animation-direction: reverse;
+     /* animation-direction: reverse; */
 }
 #wiggleBlock:nth-of-type(10){
-     animation-direction: reverse;
+     /* animation-direction: reverse; */
 }
 
 @keyframes spin { 
