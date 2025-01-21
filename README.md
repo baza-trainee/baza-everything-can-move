@@ -37,8 +37,13 @@ The project stands out for its highly **animated** and **interactive** user expe
 
 ### Screenshots:
 
+**Blue Design**  
 ![Blue Design](./public/assets/screenshots/blueDesign.png)
+
+**Design Transition Moment**  
 ![Design Transition Moment](./public/assets/screenshots/changeDesign.png)
+
+**Green Design**  
 ![Green Design](./public/assets/screenshots/greenDesign.png)
 
 ## Technologies
