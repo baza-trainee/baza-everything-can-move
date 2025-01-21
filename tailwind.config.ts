@@ -158,11 +158,14 @@ const config: Config = {
           '0px 6.65px 5.32px 0px #8C898907, 0px 22.34px 17.87px 0px #8C89890B, 0px 100px 80px 0px #8C898912',
         '3xl': 'inset 0 10px 10px -10px rgba(0, 0, 0, 0.3)',
       },
-      animation: {
+animation: {
         marqueeCustom:
           'marqueeCustom var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
-        'meteor-effect': 'meteor 5s linear infinite',
-        'result-tags_left': 'moveleft 6s ease-in infinite',
+          'meteor-effect': 'meteor 5s linear infinite',
+          'result-tags_left': 'moveleft 6s ease-in infinite',
+          'bubble-wobble': 'bubbleWobble 0.1s ease',
+          'bubble-pop': 'bubblePop 5s ease',
+          'wiggle': 'bubbleWiggle 0.4s 0s linear infinite none running',
       },
       keyframes: {
         marqueeCustom: {
@@ -182,6 +185,39 @@ const config: Config = {
           '50%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-20%)' },
         },
+        bubbleWobble: {
+          '0%': { transform: 'scale(1)' },
+          '10%': { transform: 'scale(.75)' },
+          '20%': { transform: 'scale(1.1)' },
+          '30%': { transform: 'scale(.95)' },
+          '40%': { transform: 'scale(1.05)' },
+          '50%': { transform:'scale(1)' },
+          '60%': { transform:'scale(.5)' },
+          '70%': { transform:'scale(0)' },
+        },
+        bubbleWiggle: {
+          '0%': { transform: 'rotate(0deg) translateX(0px) translateY(0px)' },
+          '25%': { transform: 'rotate(1deg) translateX(0px) translateY(0px)' },
+          '75%': { transform: '-rotate(1deg) -translateX(1px) -translateY(1px)' },
+          '100%': { transform: 'rotate(0deg) translateX(0px) translateY(0px)' },
+        },
+        bubblePop: {
+          '0%': { transform: 'translateY(0px)', opacity: '0' },
+          '50%': { },
+          '100%': { transform: 'translateY(-500px)', opacity: '1'},
+        },
+      },
+      transitionDuration: {
+          DEFAULT: '500ms',
+          75: '75ms',
+          100: '100ms',
+          150: '150ms',
+          200: '200ms',
+          300: '300ms',
+          500: '500ms',
+          700: '700ms',
+          1000: '1000ms',
+          3000: '3000ms',
       },
     },
   },
