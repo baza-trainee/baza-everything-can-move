@@ -27,7 +27,7 @@ const Achievement: React.FC<AchievementProps> = ({
   return (
     <div
       ref={ref}
-      className="flex w-full flex-col items-center justify-start pb-[64px] lg:w-1/2 2xl:w-1/4"
+      className="flex max-w-[308px] flex-col items-center justify-stretch pb-[64px] lg:w-1/2 2xl:w-1/4"
     >
       <NumberFlow
         value={inView ? numberValue : 0}
@@ -38,7 +38,7 @@ const Achievement: React.FC<AchievementProps> = ({
         opacityTiming={{ duration: 350, easing: 'ease-out' }}
         className="p-0 text-center font-second-family text-[76px] font-semibold leading-[91.2px]"
       />
-      <p className="inline-block pb-4 text-center font-second-family text-lg font-medium leading-[38.4px] text-s-purple">
+      <p className="inline-block pb-4 text-center font-second-family text-lg font-medium leading-[38.4px] text-s-purple uppercase">
         {textValue}
       </p>
       <p className="inline-block w-[264px] text-center font-third-family text-m font-regular leading-s-24">
@@ -62,7 +62,7 @@ const Achievements: React.FC = () => {
             className="h-[96px] w-[96px] lg:h-[87px] lg:w-[87px] 2xl:h-[96px] 2xl:w-[96px]"
           />
         </div>
-        <div className="flex flex-col items-center lg:flex-row lg:flex-wrap lg:justify-evenly">
+        <div className="flex flex-col items-center lg:flex-row lg:flex-wrap lg:justify-between ">
           {achievementsBySvitlana.map((achievement, i) => (
             <Achievement
               key={`p_${i}`}
