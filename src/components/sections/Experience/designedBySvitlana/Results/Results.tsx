@@ -4,11 +4,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import Background from '@/components/ui/DesignBySvitlna/BackgroundComponent';
 import { ICONS } from '@/constants/icons/icons';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
-// import ResultsTags1 from './ResultsTags1';
-// import TagsBlock1 from './TagsBlock1';
-// import TagsBlock2 from './TagsBlock2';
-// import TagsBlock3 from './TagsBlock3';
-// import clsx from 'clsx';
 
 const Results: React.FC = () => {
 
@@ -16,13 +11,8 @@ const Results: React.FC = () => {
   const tags_group2 = useRef<HTMLDivElement | null >(null);
   const tags_group3 = useRef<HTMLDivElement | null >(null);
 
-  // const [hovered, setHovered] = useState<boolean>(false);
-  // const [Xdirection, setXdirection] = useState<string>('');
-  // const [Ydirection, setYdirection] = useState<string>('');
   const [mouseX, setmouseX] = useState<number>(0);
   const [mouseY, setmouseY] = useState<number>(0);
-  // const [mouseXprev, setmouseXprev] = useState<number>(0);
-  // const [mouseYprev, setmouseYprev] = useState<number>(0);
 
   useEffect(() => {
     const tags = document.getElementById('tags');
@@ -45,50 +35,13 @@ const Results: React.FC = () => {
       if(!tags_group3.current) return;
       setmouseX(event.clientX)
       setmouseY(event.clientY)
-      tags_group1.current.style.left = `${randomIndexX1}${8}%`;
+      tags_group1.current.style.left = `${randomIndexX1}${6}%`;
       tags_group1.current.style.top = `${randomIndexY1}${8}%`;
-      tags_group2.current.style.left = `${randomIndexX2}${8}%`;
+      tags_group2.current.style.left = `${randomIndexX2}${6}%`;
       tags_group2.current.style.top = `${randomIndexY2}${8}%`;
-      tags_group3.current.style.left = `${randomIndexX3}${3}%`;
+      tags_group3.current.style.left = `${randomIndexX3}${2}%`;
       tags_group3.current.style.top = `${randomIndexY3}${8}%`;
-      // const XDistance = (mouseX-mouseXprev).toString()
-      // const YDistance = (mouseYprev-mouseY).toString()
-      // if (mouseX < mouseXprev) {
-      //   setXdirection('left');
-      // } else if (mouseX > mouseXprev) {
-      //  setXdirection('right');
-      // }
-      // if (mouseY < mouseYprev) {
-      //   setYdirection('top');
-      // } else if (mouseY > mouseYprev) {
-      //   setYdirection('bottom');
-      // }
-      // tagGroup1.style.left = `${mouseX}px`
     }
-      // const screenWidthHalf = window.innerWidth/2;
-      // const screenHeightHalf = window.innerHeight/2;
-      // const XDistance = (mouseX-mouseXprev).toString()
-  // const YDistance = (mouseYprev-mouseY).toString()
-  // if(Xdirection === 'right'){
-  //   tagGroup1.style.left = `${XDistance}px`
-  // }
-  // if(Xdirection === 'left'){
-    // const moveLeft = screenWidthHalf
-
-    // const coeficientArray =[]
-    // for(let i = 0; i < 7; i++) {
-      // const coeficient = Math.ceil(Math.random() * 9);
-    //   coeficientArray.push(coeficient)
-    // }
-    // const coeficientsArray = Array(6).fill(coeficient)
-    // const NegPosCoeficient = Math.random() < 0.5 ? -1 : 1;
-    // tagGroup1.style.left = `${mouseX/100*7}px`
-    // tagGroup1.style.top = `${mouseY/100*7}px`
-    // tagGroup2.style.left = `${mouseX/100*5}px`
-    // tagGroup2.style.top = `${mouseY/100*8}px`
-    // tagGroup3.style.left = `${mouseX/100*4}px`
-    // tagGroup3.style.top = `${mouseY/100*10}px`
-    // const handleMouseOut = (): void => setHovered(false);
 
       if (tags) {
     tags.addEventListener('mouseover', handleMouseOver);
@@ -100,7 +53,7 @@ const Results: React.FC = () => {
 
 
   return (
-    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isAlwaysOpen={true} className="2xl:relative" isNoContainer={true} isNoMaxWidth={true}>
+    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isAlwaysOpen={false} className="2xl:relative" isNoContainer={true} isNoMaxWidth={true}>
       <div className='flex flex-col 2xl:flex-row gap-[26px] 2xl:gap-0 w-full pb-20 lg:pb-[100px] 2xl:pb-[200px]'>
 
         <div className='px-5 lg:px-[26px] 2xl:pl-20'>
@@ -126,11 +79,8 @@ const Results: React.FC = () => {
         </div>
 
         <div  className='flex justify-center items-center w-full h-[355px] mt-20 relative mx-0'>
-          {/* <TagsBlock1 hovered={hovered} mouseX={mouseX} mouseY={mouseY}/> */}
-          {/* <TagsBlock2 hovered={hovered} mouseX={mouseX} mouseY={mouseY}/> */}
-          {/* <TagsBlock3 hovered={hovered} mouseX={mouseX} mouseY={mouseY}/> */}
 
-          <div id='tags' className='w-full uppercase h-[355px] lg:h-[400px] absolute'>
+          <div id='tags' className='w-full uppercase h-[355px] lg:h-[400px] absolute 2xl:translate-x-[-150px]'>
 
             <div ref={tags_group1} className='w-full uppercase h-[355px] absolute duration-1000 ease-in-out'>
               <div className='absolute inline-block top-[0px] left-[calc(50%-80px)] lg:left-[calc(50%-130px)] rotate-[4deg]'>
@@ -156,7 +106,7 @@ const Results: React.FC = () => {
               </div>
             </div>
 
-            <div className='w-full uppercase h-[355px] absolute duration-1000 ease-in-out' ref={tags_group3}>
+            <div className='w-full uppercase h-[355px] absolute duration-1500 ease-in-out' ref={tags_group3}>
               <div className="absolute inline-block left-[30px] lg:left-[calc(50%-240px)] top-[210px] rotate-[6deg] lg:top-[270px]" >
                 <div className="rounded border border-white bg-black px-[24.5px] py-[9.65px] text-md font-medium leading-5 lg:text-lg lg:leading-s-38 text-white duration-300 hover:bg-s-light-purple"> Системність </div>
               </div>
