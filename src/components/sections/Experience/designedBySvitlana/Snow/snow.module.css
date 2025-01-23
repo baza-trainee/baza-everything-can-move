@@ -25,7 +25,7 @@
     height: 742px;
 }}
 
-#snowflakes::before{
+/* #snowflakes::before{
     content: '';
     position: absolute;
     left: 0px;
@@ -52,4 +52,4 @@
 @media (min-width: 768px) {
 #snowflakes::before{
     top: 0;
-}}
+}} */

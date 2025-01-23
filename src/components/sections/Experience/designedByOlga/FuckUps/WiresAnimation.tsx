@@ -21,7 +21,7 @@ export const WiresAnimation = ({ pathLength}: { pathLength: MotionValue }) => {
 
       <div className='w-full h-auto flex items-center justify-center pt-[61px] lg:pt-[64px] 2xl:pt-[58px]'>
         <div className="w-full h-fit flex items-center justify-center bg-transparent absolute">
-          <div className="bg-white rounded-full py-3 px-6 2xl:px-10 2xl:py-3 z-30 text-black w-fit mx-auto uppercase text-lg 2xl:text-[36px] leading-s-48 2xl:leading-[54px] font-medium">Baza trainee</div>
+          <div className="bg-white rounded-full py-3 px-6 2xl:px-10 2xl:py-3 z-10 text-black w-fit mx-auto uppercase text-lg 2xl:text-[36px] leading-s-48 2xl:leading-[54px] font-medium">Baza trainee</div>
         </div>
         <svg viewBox="0 0 375 102" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" className="w-full block lg:hidden">
         <motion.path d="M 0 8.0552 C 33.5308 5.1838 51.9852 7.4763 64.7931 10.47 C 77.601 13.4637 102.835 26.4486 117.749 36.1638 C 124.863 39.6881 181.862 36.8961 238.192 36.1474 C 249.347 36.0397 256.965 35.5578 259.251 34.4252 C 274.165 24.7099 299.399 11.725 312.207 8.7313 C 325.015 5.7376 343.469 3.4452 376 6.3165 M 0 93.9448 C 33.5308 96.8161 51.9852 94.5237 64.7931 91.53 C 77.601 88.5363 102.835 75.5514 117.522 68.886 C 129.71 67.811 181.326 68.886 238.678 68.886 C 250.148 68.528 255.525 69.961 258.751 69.961 C 274.165 77.2901 299.399 90.275 312.207 93.2687 C 325.015 96.2624 343.469 98.5548 376 95.6835 M 0 29.4532 C 33.5308 27.9297 51.9852 29.1461 64.7931 30.7346 C 77.601 32.3231 102.835 39.213 117.749 44.368 C 124.863 46.238 181.862 44.7566 238.192 44.3593 C 249.347 44.3022 256.965 44.0465 259.251 43.4455 C 274.165 38.2905 299.399 31.4005 312.207 29.812 C 325.015 28.2235 343.469 27.0071 376 28.5307 M 0 73.5924 C 33.5308 74.7644 51.9852 73.8287 64.7931 72.6068 C 77.601 71.3848 102.835 66.0849 117.749 62.1195 C 129.71 62.075 181.862 61.8206 238.192 62.1262 C 249.347 62.1701 256.965 62.3668 259.251 62.8292 C 274.165 66.7945 299.399 72.0945 312.207 73.3164 C 325.015 74.5383 343.469 75.474 376 74.3021 M 0 48.5393 C 33.5308 48.0119 51.9852 48.4329 64.7931 48.9828 C 77.601 49.5327 102.835 51.9176 117.749 53.7021 C 124.863 54.3494 181.862 53.8366 238.192 53.6991 C 249.347 53.6793 256.965 53.5908 259.251 53.3827 C 274.165 51.5983 299.399 49.2133 312.207 48.6634 C 325.015 48.1136 343.469 47.6925 376 48.2199" stroke="#c3ff0a" strokeWidth="2" fill="none" initial={{ pathLength: 0 }} style={{ pathLength: pathLength }} transition={transition}/>
@@ -72,8 +72,7 @@ export function WiresAnimationComponent() {
   const pathLength = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
 
   return (
-    <div className="w-full relative overflow-clip h-[2700px]" ref={ref}>
-    
+    <div className="w-full relative h-[2700px] z-10" ref={ref}>
       <WiresAnimation pathLength={pathLength} />   
     </div>
   );

@@ -189,31 +189,44 @@ const Snow = () => {
   }, []);
 
   return (
+    <>
+
     <div
       id={styles.snowflakes}
       className="relative h-[796px] pt-[54px] lg:h-[924px] lg:pt-0 2xl:h-[742px]"
     >
       <div ref={canvasSnow} id={styles.bottomShadow} />
-      <Container className="relative">
-        <div className="z-100 absolute inset-x-0 left-[50%] top-[200px] w-[331px] translate-x-[-50%] text-center lg:top-[260px] lg:w-[448px] 2xl:left-0 2xl:left-20 2xl:top-[132px] 2xl:w-[569px] 2xl:translate-x-0 2xl:text-left">
-          <AnimatedTitle title="досвід" className="mb-4" />
+        <div
+          className="absolute top-0 h-20 w-full z-50"
+          style={{
+            background: ` linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.5) 57.08%, rgba(0, 0, 0, 0.257173) 80.1%, rgba(0, 0, 0, 0) 98.1%)`,
+          }}
+        ></div>
+          <Container className="relative">
+            <div className="z-100 absolute inset-x-0 left-[50%] top-[200px] w-[331px] translate-x-[-50%] text-center lg:top-[260px] lg:w-[448px] 2xl:left-0 2xl:left-20 2xl:top-[132px] 2xl:w-[569px] 2xl:translate-x-0 2xl:text-left">
+              <AnimatedTitle title="досвід" className="mb-4" />
 
-          <p className="w-full font-third-family text-m font-regular leading-[150%] 2xl:text-l">
-            Досвід — це шлях, яким проходять наші трейні, здобуваючи практичні
-            навички та впевненість у своїх силах. Це можливість втілювати в
-            життя реальні проєкти, працювати в команді й відкривати для себе
-            нові горизонти в ІТ-сфері.
-          </p>
-          <div
-            className="absolute -bottom-10 -left-8 -right-8 -z-10 h-[256px] rounded-[70%] 2xl:-left-10 2xl:-right-10"
-            style={{
-              background:
-                'radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0.6814) 71.6%, rgba(0, 0, 0, 0.4) 100%)',
-            }}
-          ></div>
+              <p className="w-full font-third-family text-m font-regular leading-[150%] 2xl:text-l">
+                Досвід — це шлях, яким проходять наші трейні, здобуваючи практичні
+                навички та впевненість у своїх силах. Це можливість втілювати в
+                життя реальні проєкти, працювати в команді й відкривати для себе
+                нові горизонти в ІТ-сфері.
+              </p>
+              <div
+                className="absolute -bottom-10 -left-8 -right-8 -z-10 h-[256px] rounded-[70%] 2xl:-left-10 2xl:-right-10"
+                style={{
+                  background:
+                    'radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0.6814) 71.6%, rgba(0, 0, 0, 0.4) 100%)',
+                }}
+              ></div>
+            </div>
+          </Container>
+        <div
+          className="absolute bottom-0 h-20 w-full z-50"
+          style={{ background: `linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.5) 57.08%, rgba(0, 0, 0, 0.257173) 80.1%, rgba(0, 0, 0, 0) 98.1%)` }}>
         </div>
-      </Container>
-    </div>
+      </div>
+    </>
   );
 };
 

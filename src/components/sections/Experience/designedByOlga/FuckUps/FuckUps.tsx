@@ -5,7 +5,8 @@ import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
 import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 import WiresAnimationComponent from './WiresAnimation';
 import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
-// import HideWires from './HideWires';
+import HideWiresSM from './HideWiresSM';
+import HideWires2XL from './HideWires2XL';
 
 export interface FuckUpsSectionProps {
   title: string;
@@ -16,7 +17,8 @@ export interface FuckUpsSectionProps {
 const FuckUpSection = ({ title, subtitle }: FuckUpsSectionProps) => {
   // const refElement = React.useRef<HTMLDivElement | null >(null);
   return (
-    <div className="h-[2700px]">
+    <>
+    <div className="h-[3305px]">
       <div className="sticky top-[600px] ">
         <div className='container mb-8'>
           <ICONS_SHARED.CORNER_TOP className="float-right" />
@@ -26,8 +28,10 @@ const FuckUpSection = ({ title, subtitle }: FuckUpsSectionProps) => {
         <WiresAnimationComponent />
       </div>
 
-      {/* <HideWires/> */}
+      <HideWires2XL/>
     </div>
+    <HideWiresSM/>
+    </>
   );
 };
 
