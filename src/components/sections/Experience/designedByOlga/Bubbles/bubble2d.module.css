@@ -1,11 +1,30 @@
-#wiggleBlock{
-   /* animation: wiggle 0.4s 0s linear infinite none running;
-   transition: all 0.5s ease-in-out; */
-}
+/* #wiggleBlock{
+   animation: wiggle 0.4s 0s linear infinite none running;
+   transition: all 0.5s ease-in-out;
+} */
 #bubbles{
-  -webkit-box-shadow: inset -13px -18px 18px 5px rgb(101, 128, 20);
-  -moz-box-shadow: inset -13px -18px 18px 5px rgba(101, 128, 20);
-  box-shadow: inset -13px -18px 18px 5px rgb(101, 128, 20);
+  -webkit-box-shadow: inset -13px -18px 18px 5px rgb(110, 139, 22);
+  -moz-box-shadow: inset -13px -18px 18px 5px rgba(110, 139, 22);
+  box-shadow: inset -13px -18px 18px 5px rgb(110, 139, 22);
+  position: absolute;
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(195,255,10,1) 0%, rgba(195,255,10,1) 40%, rgba(210, 246, 102, 1) 100%);
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(195,255,10,1) 0%,rgba(195,255,10,1) 40%,rgba(210, 246, 102, 1) 100%);
+  background: radial-gradient(ellipse at center,  rgba(195,255,10,1) 0%,rgba(195,255,10,1) 40%,rgb(210, 246, 102, 1) 100%);
+  pointer-events: auto;
+}
+#bubbles::after{
+  content: "";
+  position: absolute;
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(195,255,10,1) 50%, rgba(195,255,10,1) 100%);
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(195,255,10,1) 50%,rgba(195,255,10,1) 100%);
+  background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(195,255,10,1) 50%,rgba(255,255,255,0) 100%);
+  width: 60%;
+  height: 60%;
+  top: 11%;
+  right: 35%;
+  border-radius: 50%;	
+  transform: rotateY(30deg) rotateX(30deg);
+  opacity: 0.8;
 }
 
 #wiggleBlock:nth-of-type(6)::before,
@@ -43,15 +62,15 @@
     width: 140px;
 }}
 
-#wiggleBlock:nth-of-type(6){
-     /* animation-direction: reverse; */
+/* #wiggleBlock:nth-of-type(6){
+     animation-direction: reverse;
 }
 #wiggleBlock:nth-of-type(8){
-     /* animation-direction: reverse; */
+     animation-direction: reverse;
 }
 #wiggleBlock:nth-of-type(10){
-     /* animation-direction: reverse; */
-}
+     animation-direction: reverse;
+} */
 
 @keyframes spin { 
     from {
