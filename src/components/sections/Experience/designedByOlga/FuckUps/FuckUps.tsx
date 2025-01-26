@@ -15,11 +15,11 @@ export interface FuckUpsSectionProps {
 
 
 const FuckUpSection = ({ title, subtitle }: FuckUpsSectionProps) => {
-  // const refElement = React.useRef<HTMLDivElement | null >(null);
+
   return (
     <>
     <div className="h-[3305px]">
-      <div className="sticky top-[600px] ">
+      <div className="sticky top-[600px]">
         <div className='container mb-8'>
           <ICONS_SHARED.CORNER_TOP className="float-right" />
           <SectionTitle>{title}</SectionTitle>
@@ -27,10 +27,9 @@ const FuckUpSection = ({ title, subtitle }: FuckUpsSectionProps) => {
         </div>
         <WiresAnimationComponent />
       </div>
-
-      <HideWires2XL/>
     </div>
     <HideWiresSM/>
+    <HideWires2XL/>
     </>
   );
 };

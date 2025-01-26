@@ -14,17 +14,6 @@ export interface BubblesSectionProps {
 }
 
 const BubblesBlock = ({ title, subtitle }: BubblesSectionProps) => {
-  //   const [coordX, setCoordX] = useState<number>(0)
-  //   const [coordY, setCoordY] = useState<number>(0)
-
-  //  useEffect(() => {
-  //   const BubblesBlock = document.getElementById('BubblesBlock');
-  //   BubblesBlock?.addEventListener('click', (event: MouseEvent) => {
-  //     event.preventDefault();
-  //     setCoordX(event.clientX)
-  //     setCoordY(event.clientY)
-  //     })
-  //  })
 
   return (
     <div className='container relative px-4 lg:px-6 2xl:px-[120px] pb-[100px] lg:pb-20 2xl:pb-[64px]'>
