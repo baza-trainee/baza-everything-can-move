@@ -1,25 +1,39 @@
 import React from 'react';
 
-import WhiteGirl from '@/components/Girl/WhiteGirl';
 import Link from 'next/link';
+import Image from 'next/image';
+import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 
 const NotFoundPage = () => {
   return (
-    <section className="flex flex-col items-center py-[200px] lg:py-[150px]">
-      <div className="relative mx-auto mb-2 w-[350px]">
-        <h1 className="text-center text-xl text-white">Ups ...</h1>
-        <div className="absolute -top-14 right-2 h-[200px] w-[200px]">
-          <WhiteGirl />
-        </div>
+    <section className="flex flex-col items-center bg-[url(/assets/images/404/404-background.png)]  bg-center  pb-[190px] pt-[60px]">
+      <div className="mb-10 h-[227px] w-[361px] pt-[27px] leading-o-150">
+        <Image
+          src="/assets/images/404/404.png"
+          alt="404"
+          width={500}
+          height={500}
+        />
       </div>
 
-      <p className="mb-12 text-center text-lg">такої сторінки немає</p>
-      <Link
-        href="/"
-        className="mx-auto rounded-full border-[1px] px-[12.8px] py-[12.5px] text-sm font-regular leading-[23.4px] transition-colors hover:bg-white hover:text-black lg:px-[20px] lg:py-[9px] lg:text-md lg:leading-[26px] 2xl:py-[6.5px] 2xl:text-l 2xl:leading-[31.2px]"
-      >
-        На головну
-      </Link>
+      <p className="text-center text-sm text-white">
+        Сталася якась біда. Сторінку не знайдено.
+      </p>
+      <p className="mb-16 text-center text-sm text-white">
+        Поверніться на головну.
+      </p>
+      <div className="relative h-[60px] w-[330px] border-2 border-white transition-colors hover:bg-white hover:text-black">
+        <Link
+          href="/"
+          className="mx-auto flex h-full w-full items-center justify-center text-l font-regular uppercase leading-o-130"
+        >
+          На головну
+        </Link>
+        <ICONS_SHARED.RECT404 className="absolute -left-[9px] -top-[9px]" />
+        <ICONS_SHARED.RECT404 className="absolute -bottom-[9px] -left-[9px]" />
+        <ICONS_SHARED.RECT404 className="absolute -right-[9px] -top-[9px]" />
+        <ICONS_SHARED.RECT404 className="absolute -bottom-[9px] -right-[9px]" />
+      </div>
     </section>
   );
 };
