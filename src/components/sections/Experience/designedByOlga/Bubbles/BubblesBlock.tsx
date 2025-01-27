@@ -7,6 +7,7 @@ import Bubbles2Dgreen from './Bubbles2Dgreen';
 import SubTitle from '@/components/ui/DesignByOlga/SubTitle';
 import SectionTitle from '@/components/ui/SharedDesigns/SectionTitle';
 // import Bubbles3DModel from './Bubbles3DModel';
+// import Bubbles3DCHatGPT from './ModelBall';
 
 export interface BubblesSectionProps {
   title: string;
@@ -20,8 +21,10 @@ const BubblesBlock = ({ title, subtitle }: BubblesSectionProps) => {
         <SectionTitle className='mt-[54px] lg:mt-20 2xl:mt-10'>{title}</SectionTitle>
         <SubTitle className='mt-1'>{subtitle}</SubTitle>
         <Bubbles2D />
+        {/* <Bubbles3D/> */}
         <Bubbles2Dgreen />
         {/* <Bubbles3DModel/> */}
+        {/* <Bubbles3DCHatGPT /> */}
     </div>
   );
 };
