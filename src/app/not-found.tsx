@@ -6,7 +6,7 @@ import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 
 const NotFoundPage = () => {
   return (
-    <section className="flex flex-col items-center pb-[190px] pt-[60px]">
+    <section className="flex flex-col items-center bg-[url(/assets/images/404/404-background.png)]  bg-center  pb-[190px] pt-[60px]">
       <div className="mb-10 h-[227px] w-[361px] pt-[27px] leading-o-150">
         <Image
           src="/assets/images/404/404.png"
@@ -30,9 +30,9 @@ const NotFoundPage = () => {
           На головну
         </Link>
         <ICONS_SHARED.RECT404 className="absolute -left-[9px] -top-[9px]" />
-        <ICONS_SHARED.RECT404 className="absolute -left-[9px] -bottom-[9px]" />
+        <ICONS_SHARED.RECT404 className="absolute -bottom-[9px] -left-[9px]" />
         <ICONS_SHARED.RECT404 className="absolute -right-[9px] -top-[9px]" />
-        <ICONS_SHARED.RECT404 className="absolute -right-[9px] -bottom-[9px]" />
+        <ICONS_SHARED.RECT404 className="absolute -bottom-[9px] -right-[9px]" />
       </div>
     </section>
   );
