@@ -9,4 +9,5 @@ export interface HeaderNavigationProps {
 export interface NavigationLinksProps {
   headerNav: NavLinksArrType;
   onClickLink: () => void;
+  setIsScroll?: (value: boolean) => void;
 }

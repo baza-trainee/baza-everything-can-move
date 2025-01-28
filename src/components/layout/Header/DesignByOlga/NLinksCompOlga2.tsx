@@ -9,12 +9,14 @@ import { NavigationLinksProps } from '@/components/layout/Header/types';
 const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
   headerNav,
   onClickLink,
+  setIsScroll,
 }) => {
   const pathname = usePathname();
   const [isLayoutChanged, setIsLayoutChanged] = useState<boolean>(false);
+  // const [isScroll, setIsScroll] = useState<boolean>(false);
   const [fontSize, setFontSize] = useState<number>(44);
   const [isClient, setIsClient] = useState(false);
-
+  console.log('fs', fontSize);
   const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
 
   const isTablet = useMediaQuery({
@@ -49,20 +51,39 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
     //////////
     const calculateFontSize = () => {
       const screenHeight = window.innerHeight;
-      //console.log('screenHeight', screenHeight);
+
       let newFontSize;
       if (isMobile) {
+        //big height: normal font, normal layout, no scroll
         if (screenHeight >= mobileMaxHeight) {
           newFontSize = mobileMaxFontSize;
 
           setIsLayoutChanged(false);
-        } else {
+          if (setIsScroll) {
+            setIsScroll(false);
+          }
+        }
+        //very small height: normal font, normal layout, yes scroll
+        else if (screenHeight < mobileMinHeight) {
+          newFontSize = mobileMaxFontSize;
+          setIsLayoutChanged(false);
+
+          if (setIsScroll) {
+            setIsScroll(true);
+          }
+        }
+        //med small height: dynamic font, change layout, no scroll
+        else {
           newFontSize =
             mobileMinFontSize +
             ((screenHeight - mobileMinHeight) *
               (mobileMaxFontSize - mobileMinFontSize)) /
               (mobileMaxHeight - mobileMinHeight);
           setIsLayoutChanged(true);
+
+          if (setIsScroll) {
+            setIsScroll(false);
+          }
         }
 
         setFontSize(newFontSize);
@@ -112,7 +133,7 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
     return () => {
       window.removeEventListener('resize', calculateFontSize);
     };
-  }, [isClient, isDesktop, isMobile, isTablet]);
+  }, [isClient, isDesktop, isMobile, isTablet, setIsScroll]);
 
   return (
     <ul

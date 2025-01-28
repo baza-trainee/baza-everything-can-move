@@ -1,10 +1,9 @@
 'use client';
 // I use it
-
 import { useDesignStore } from '@/useDesignStore';
 import { HeaderNavigationProps } from '@/components/layout/Header/types';
 
-import HeaderNaviComponentOlga from '../DesignByOlga/HeaderNaviComponent';
+import HeaderNaviComponentOlga from '../DesignByOlga/HeaderNaviComponentOlga';
 import HeaderNaviComponentSvitlana from '../DesignBySvitlana/HeaderNaviComponent';
 
 const HeaderNavigation: React.FC<HeaderNavigationProps> = ({

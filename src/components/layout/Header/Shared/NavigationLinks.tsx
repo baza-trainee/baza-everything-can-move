@@ -12,6 +12,7 @@ import NaviLinksComponentOlga2 from '../DesignByOlga/NLinksCompOlga2';
 const NavigationLinks: React.FC<NavigationLinksProps> = ({
   headerNav,
   onClickLink,
+  setIsScroll,
 }) => {
   const { designType } = useDesignStore();
   return (
@@ -26,6 +27,7 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
         <NaviLinksComponentOlga2
           headerNav={headerNav}
           onClickLink={onClickLink}
+          setIsScroll={setIsScroll}
         />
       )}
 
