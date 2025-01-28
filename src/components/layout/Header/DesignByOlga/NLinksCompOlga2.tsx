@@ -58,19 +58,12 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
         if (screenHeight >= mobileMaxHeight) {
           newFontSize = mobileMaxFontSize;
 
-          setIsLayoutChanged(false);
-          if (setIsScroll) {
-            setIsScroll(false);
-          }
+          handleLayoutMode('max');
         }
         //very small height: normal font, normal layout, yes scroll
         else if (screenHeight < mobileMinHeight) {
           newFontSize = mobileMaxFontSize;
-          setIsLayoutChanged(false);
-
-          if (setIsScroll) {
-            setIsScroll(true);
-          }
+          handleLayoutMode('min');
         }
         //med small height: dynamic font, change layout, no scroll
         else {
@@ -79,11 +72,7 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
             ((screenHeight - mobileMinHeight) *
               (mobileMaxFontSize - mobileMinFontSize)) /
               (mobileMaxHeight - mobileMinHeight);
-          setIsLayoutChanged(true);
-
-          if (setIsScroll) {
-            setIsScroll(false);
-          }
+          handleLayoutMode('middle');
         }
 
         setFontSize(newFontSize);
@@ -91,26 +80,35 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
       }
       //-------
       if (isTablet) {
+        //big height: normal font, normal layout, no scroll
         if (screenHeight >= tabletMaxHeight) {
           newFontSize = tabletMaxFontSize;
-          setIsLayoutChanged(false);
-        } else {
+          handleLayoutMode('max');
+        } //very small height: normal font, normal layout, yes scroll
+        else if (screenHeight < tabletMinHeight) {
+          newFontSize = tabletMaxFontSize;
+          handleLayoutMode('min');
+        }
+        //med small height: dynamic font, change layout, no scroll
+        else {
           newFontSize =
             tabletMinFontSize +
             ((screenHeight - tabletMinHeight) *
               (tabletMaxFontSize - tabletMinFontSize)) /
               (tabletMaxHeight - tabletMinHeight);
 
-          setIsLayoutChanged(true);
+          handleLayoutMode('middle');
         }
         setFontSize(newFontSize);
-        // console.log('New Font tablet', newFontSize);
       }
       //-------
       if (isDesktop) {
         if (screenHeight >= desktopMaxHeight) {
           newFontSize = desktopMaxFontSize;
-          setIsLayoutChanged(false);
+          handleLayoutMode('max');
+        } else if (screenHeight < desktopMinHeight) {
+          newFontSize = desktopMaxFontSize;
+          handleLayoutMode('min');
         } else {
           newFontSize =
             desktopMinFontSize +
@@ -118,14 +116,34 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
               (desktopMaxFontSize - desktopMinFontSize)) /
               (desktopMaxHeight - desktopMinHeight);
 
-          setIsLayoutChanged(true);
+          handleLayoutMode('middle');
         }
         setFontSize(newFontSize);
         //console.log('New Font desktop', newFontSize);
       }
     };
-    ////////
-    //const updateFontSize = () => setFontSize(calculateFontSize());
+    // update states setIsScroll, setIsLayoutChanged
+    function handleLayoutMode(option: 'max' | 'min' | 'middle') {
+      if (option === 'max') {
+        setIsLayoutChanged(false);
+        if (setIsScroll) {
+          setIsScroll(false);
+        }
+      }
+      if (option === 'min') {
+        setIsLayoutChanged(false);
+        if (setIsScroll) {
+          setIsScroll(true);
+        }
+      }
+      if (option === 'middle') {
+        setIsLayoutChanged(true);
+        if (setIsScroll) {
+          setIsScroll(false);
+        }
+      }
+    }
+    /////////////////////
 
     calculateFontSize();
     window.addEventListener('resize', calculateFontSize);
