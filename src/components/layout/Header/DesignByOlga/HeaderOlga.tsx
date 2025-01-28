@@ -2,15 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-
 import Image from 'next/image';
-
-import HeaderNavigation from '@/components/layout/Header/Shared/HeaderNavigation';
-//import SceneLogo from './Shared/SceneLogo';
+import { usePathname } from 'next/navigation';
 
 import { NAV_LINKS } from '@/constants/navlinks';
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
+import HeaderNaviComponentOlga from './HeaderNaviComponentOlga';
 
 const HeaderOlga: React.FC = () => {
   const pathname = usePathname();
@@ -59,7 +56,7 @@ const HeaderOlga: React.FC = () => {
   return (
     <header className={clsx('flex justify-between')}>
       {/* If open header   */}
-      <HeaderNavigation
+      <HeaderNaviComponentOlga
         headerNav={NAV_LINKS}
         handleMenuClick={handleMenuClick}
         openMenu={openMenu}

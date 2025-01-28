@@ -4,14 +4,11 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-//import HeaderNavigation from './Shared/HeaderNavigation';
-
-//import SceneLogo from './Shared/SceneLogo';
 import SceneLogo2 from '@/components/layout/Header/Shared/SceneLogo2';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 import { NAV_LINKS } from '@/constants/navlinks';
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
-import HeaderNavigation from '../Shared/HeaderNavigation';
+import HeaderNaviComponentSvitlana from './HeaderNaviComponentSvitlana';
 
 const HeaderSvitlana: React.FC = () => {
   const pathname = usePathname();
@@ -60,7 +57,7 @@ const HeaderSvitlana: React.FC = () => {
   return (
     <header>
       {/* If open header   */}
-      <HeaderNavigation
+      <HeaderNaviComponentSvitlana
         headerNav={NAV_LINKS}
         handleMenuClick={handleMenuClick}
         openMenu={openMenu}

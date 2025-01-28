@@ -6,14 +6,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NavigationLinksProps } from '@/components/layout/Header/types';
 
-const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
+const NavLinksComponentOlga: React.FC<NavigationLinksProps> = ({
   headerNav,
   onClickLink,
   setIsScroll,
 }) => {
   const pathname = usePathname();
   const [isLayoutChanged, setIsLayoutChanged] = useState<boolean>(false);
-  // const [isScroll, setIsScroll] = useState<boolean>(false);
   const [fontSize, setFontSize] = useState<number>(44);
   const [isClient, setIsClient] = useState(false);
 
@@ -134,4 +133,4 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
   );
 };
 
-export default NaviLinksComponentOlga2;
+export default NavLinksComponentOlga;

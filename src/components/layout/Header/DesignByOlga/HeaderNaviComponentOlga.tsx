@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { ICONS_SRC } from '@/constants/icons/iconsSrc';
 import { HeaderNavigationProps } from '@/components/layout/Header/types';
 import SceneLogo2 from '@/components/layout/Header/Shared/SceneLogo2';
-import NavigationLinks from '@/components/layout/Header/Shared/NavigationLinks';
 import SocialMedia from '@/components/layout/Header/DesignByOlga/SocialMedia';
+import NavLinksComponentOlga from './NavLinksComponentOlga';
 
 const HeaderNaviComponentOlga: React.FC<HeaderNavigationProps> = ({
   headerNav,
@@ -28,7 +28,6 @@ const HeaderNaviComponentOlga: React.FC<HeaderNavigationProps> = ({
           { 'overflow-y-auto': isScroll }
         )}
       >
-       
         {/* upper line */}
         <div className="flex items-center justify-between px-4 lg:pl-10 lg:pr-6 2xl:pr-5">
           <Link
@@ -49,7 +48,7 @@ const HeaderNaviComponentOlga: React.FC<HeaderNavigationProps> = ({
         </div>
         {/* end of  upper line flex flex-col justify-between*/}
         {/* nav links section*/}
-        <NavigationLinks
+        <NavLinksComponentOlga
           setIsScroll={setIsScroll}
           headerNav={headerNav}
           onClickLink={handleMenuClick}
