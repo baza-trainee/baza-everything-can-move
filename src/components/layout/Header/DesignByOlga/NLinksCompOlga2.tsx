@@ -16,7 +16,7 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
   // const [isScroll, setIsScroll] = useState<boolean>(false);
   const [fontSize, setFontSize] = useState<number>(44);
   const [isClient, setIsClient] = useState(false);
-  console.log('fs', fontSize);
+
   const isMobile = useMediaQuery({ query: '(max-width: 767.5px)' });
 
   const isTablet = useMediaQuery({
@@ -33,116 +33,62 @@ const NaviLinksComponentOlga2: React.FC<NavigationLinksProps> = ({
     if (!isClient) return;
 
     //-----
-    const mobileMinFontSize = 30;
-    const mobileMaxFontSize = 44;
-    const mobileMinHeight = 500;
-    const mobileMaxHeight = 630;
-    //-----
-    const tabletMinFontSize = 30;
-    const tabletMaxFontSize = 64;
-    const tabletMinHeight = 500;
-    const tabletMaxHeight = 702;
-    //-----
-    const desktopMinFontSize = 44;
-    const desktopMaxFontSize = 86;
-    const desktopMinHeight = 700;
-    const desktopMaxHeight = 848;
+    const layouts = {
+      mobile: {
+        minFontSize: 30,
+        maxFontSize: 44,
+        minHeight: 500,
+        maxHeight: 630,
+      },
+      tablet: {
+        minFontSize: 30,
+        maxFontSize: 64,
+        minHeight: 500,
+        maxHeight: 702,
+      },
+      desktop: {
+        minFontSize: 44,
+        maxFontSize: 86,
+        minHeight: 700,
+        maxHeight: 848,
+      },
+    };
 
     //////////
     const calculateFontSize = () => {
       const screenHeight = window.innerHeight;
 
+      let config;
+      if (isMobile) config = layouts.mobile;
+      else if (isTablet) config = layouts.tablet;
+      else if (isDesktop) config = layouts.desktop;
+      else return;
+
+      const { minFontSize, maxFontSize, minHeight, maxHeight } = config;
+
       let newFontSize;
-      if (isMobile) {
-        //big height: normal font, normal layout, no scroll
-        if (screenHeight >= mobileMaxHeight) {
-          newFontSize = mobileMaxFontSize;
-
-          handleLayoutMode('max');
-        }
-        //very small height: normal font, normal layout, yes scroll
-        else if (screenHeight < mobileMinHeight) {
-          newFontSize = mobileMaxFontSize;
-          handleLayoutMode('min');
-        }
-        //med small height: dynamic font, change layout, no scroll
-        else {
-          newFontSize =
-            mobileMinFontSize +
-            ((screenHeight - mobileMinHeight) *
-              (mobileMaxFontSize - mobileMinFontSize)) /
-              (mobileMaxHeight - mobileMinHeight);
-          handleLayoutMode('middle');
-        }
-
-        setFontSize(newFontSize);
-        // console.log('New Font mobile', newFontSize);
+      if (screenHeight >= maxHeight) {
+        newFontSize = maxFontSize;
+        handleLayoutMode('max');
+      } else if (screenHeight < minHeight) {
+        newFontSize = maxFontSize;
+        handleLayoutMode('min');
+      } else {
+        newFontSize =
+          minFontSize +
+          ((screenHeight - minHeight) * (maxFontSize - minFontSize)) /
+            (maxHeight - minHeight);
+        handleLayoutMode('middle');
       }
-      //-------
-      if (isTablet) {
-        //big height: normal font, normal layout, no scroll
-        if (screenHeight >= tabletMaxHeight) {
-          newFontSize = tabletMaxFontSize;
-          handleLayoutMode('max');
-        } //very small height: normal font, normal layout, yes scroll
-        else if (screenHeight < tabletMinHeight) {
-          newFontSize = tabletMaxFontSize;
-          handleLayoutMode('min');
-        }
-        //med small height: dynamic font, change layout, no scroll
-        else {
-          newFontSize =
-            tabletMinFontSize +
-            ((screenHeight - tabletMinHeight) *
-              (tabletMaxFontSize - tabletMinFontSize)) /
-              (tabletMaxHeight - tabletMinHeight);
-
-          handleLayoutMode('middle');
-        }
-        setFontSize(newFontSize);
-      }
-      //-------
-      if (isDesktop) {
-        if (screenHeight >= desktopMaxHeight) {
-          newFontSize = desktopMaxFontSize;
-          handleLayoutMode('max');
-        } else if (screenHeight < desktopMinHeight) {
-          newFontSize = desktopMaxFontSize;
-          handleLayoutMode('min');
-        } else {
-          newFontSize =
-            desktopMinFontSize +
-            ((screenHeight - desktopMinHeight) *
-              (desktopMaxFontSize - desktopMinFontSize)) /
-              (desktopMaxHeight - desktopMinHeight);
-
-          handleLayoutMode('middle');
-        }
-        setFontSize(newFontSize);
-        //console.log('New Font desktop', newFontSize);
-      }
+      setFontSize(newFontSize);
     };
     // update states setIsScroll, setIsLayoutChanged
-    function handleLayoutMode(option: 'max' | 'min' | 'middle') {
-      if (option === 'max') {
-        setIsLayoutChanged(false);
-        if (setIsScroll) {
-          setIsScroll(false);
-        }
+    const handleLayoutMode = (mode: 'max' | 'min' | 'middle') => {
+      setIsLayoutChanged(mode === 'middle'); // true for middle, false for max and min
+      if (setIsScroll) {
+        setIsScroll(mode === 'min'); // true for min, false for max and middle
       }
-      if (option === 'min') {
-        setIsLayoutChanged(false);
-        if (setIsScroll) {
-          setIsScroll(true);
-        }
-      }
-      if (option === 'middle') {
-        setIsLayoutChanged(true);
-        if (setIsScroll) {
-          setIsScroll(false);
-        }
-      }
-    }
+    };
     /////////////////////
 
     calculateFontSize();
