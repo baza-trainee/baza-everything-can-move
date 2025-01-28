@@ -20,19 +20,16 @@ const Bubbles3D = () => {
 
     const canvas = useRef<HTMLDivElement | null >(null);
 
-    // console.log(coordX, coordY);
-    //to try without using canvas tag
-
     useEffect(() => {
         const screenWidth = window.innerWidth;
         const renderer = new THREE.WebGLRenderer();
 		renderer.setPixelRatio( window.devicePixelRatio );
 		renderer.setSize( window.innerWidth, window.innerHeight);
-        renderer.toneMapping = THREE.NoToneMapping;
-        renderer.setClearColor( 0xffffff, 0);
+        // renderer.toneMapping = THREE.NoToneMapping;
+        // renderer.setClearColor( 0xffffff, 0);
         renderer.domElement.style.width = '100%';
         const scene = new THREE.Scene();
-		const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+		const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 		camera.position.set( 0, 0, 30 );
         const material = new THREE.MeshStandardMaterial( {
 			color: 0xD3FE50,
@@ -46,15 +43,12 @@ const Bubbles3D = () => {
 		scene.add( directionalLight );
         const ambientLight = new THREE.AmbientLight( 0xFFFFFF, API.ambientLightIntensity );
         scene.add( ambientLight );
-        // const raycaster = new THREE.Raycaster();
-        // const pointer = new THREE.Vector2();
-        // const mouse = new THREE.Vector2(1,1)
-        // let intersects = [];
-        // const clickMouse = new THREE.Vector2();
-        // const moveMouse = new THREE.Vector2();
-        // let draggable: THREE.Object3D;
+        camera.position.z = 10;
+
         renderer.domElement.style.position = 'absolute';
         canvas.current?.appendChild(renderer.domElement);
+        const balls: THREE.Mesh[] = [];
+        // const ballMaterial = new THREE.MeshStandardMaterial({ color: 0x0077ff });
         
         if (screenWidth < 768) {
             const geometrySm = new THREE.SphereGeometry( 1.2, 64, 32 );
@@ -63,10 +57,13 @@ const Bubbles3D = () => {
 		    const meshSm3 = new THREE.Mesh( geometrySm, material );
             meshSm1.position.set(-2.5, 1, -1);
             scene.add( meshSm1);
+            balls.push(meshSm1);
             meshSm2.position.set(1.5,2, -1);
             scene.add( meshSm2);
+            balls.push(meshSm2);
             meshSm3.position.set(1, 9, -1);
             scene.add( meshSm3);
+            balls.push(meshSm3);
         } 
         if (screenWidth >= 768 && screenWidth < 1024) {
             const geometryLg = new THREE.SphereGeometry( 1.2, 64, 32 );
@@ -75,10 +72,13 @@ const Bubbles3D = () => {
 		    const meshLg3 = new THREE.Mesh( geometryLg, material );
             meshLg1.position.set(-6, 8, -1);
             scene.add( meshLg1);
+            balls.push(meshLg1);
             meshLg2.position.set(1, 1, -1);
             scene.add( meshLg2);
+            balls.push(meshLg2);
             meshLg3.position.set(1, 7, -1);
             scene.add( meshLg3);
+            balls.push(meshLg3);
         } 
         if (screenWidth >= 1024 && screenWidth < 1440) {
             const geometryXl = new THREE.SphereGeometry( 1.2, 64, 32 );
@@ -88,10 +88,13 @@ const Bubbles3D = () => {
             meshXl1.position.set(-9, 8, -1);
             meshXl1.name='meshXl1';
             scene.add( meshXl1);
+            balls.push(meshXl1);
             meshXl2.position.set(5.5, 4, -1);
             scene.add( meshXl2);
+            balls.push(meshXl2);
             meshXl3.position.set(1, -1, -1);
             scene.add( meshXl3);
+            balls.push(meshXl3);
         } 
         if (screenWidth >= 1440) {
             const geometry2Xl = new THREE.SphereGeometry( 1.5, 64, 32 );
@@ -105,7 +108,7 @@ const Bubbles3D = () => {
             mesh2Xl3.position.set(-1.5, -1, -1);
             scene.add( mesh2Xl3);
         } 
-
+    
         // const meshXl1 = scene.getObjectByName("meshXl1");
         // console.log(meshXl1);
     // function mousemove(event){
@@ -174,6 +177,39 @@ const Bubbles3D = () => {
         //         console.log('hello');
         //     }
         // } );
+            const raycaster = new THREE.Raycaster();
+            const mouse = new THREE.Vector2();
+        
+            function onMouseClick(event: MouseEvent): void {
+
+
+                // Convert mouse coordinates to normalized device coordinates
+                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        
+                // Set raycaster
+                raycaster.setFromCamera(mouse, camera);
+        
+                // Check intersections
+                const intersects = raycaster.intersectObjects(balls);
+                console.log(balls);
+                console.log(intersects);
+                if (intersects.length > 0) {
+                    const clickedBall = intersects[0].object as THREE.Mesh;
+        
+                    // Remove ball from the scene
+                    scene.remove(clickedBall);
+        
+                    // Optional: Remove from the balls array
+                    const index = balls.indexOf(clickedBall);
+                    if (index > -1) {
+                        balls.splice(index, 1);
+                    }
+                }
+            }
+        
+            // Add event listener for clicks
+            window.addEventListener('click', onMouseClick, false);
 
         function render() {
             window.requestAnimationFrame(render);     
@@ -184,7 +220,7 @@ const Bubbles3D = () => {
     			
 
     return (
-        <div id='Block3D' className='h-[546px] absolute top-[210px] lg:top-[250px] 2xl:top-[290px] w-full'>
+        <div id='Block3D' className='h-[546px] top-[210px] lg:top-[250px] 2xl:top-[290px] w-full'>
             <div ref={canvas} className='mx-0 bg-olga-bg w-full'/>           
         </div>
     )

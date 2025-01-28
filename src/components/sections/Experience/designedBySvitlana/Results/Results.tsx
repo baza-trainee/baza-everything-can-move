@@ -39,7 +39,7 @@ const Results: React.FC = () => {
       tags_group1.current.style.top = `${randomIndexY1}${8}%`;
       tags_group2.current.style.left = `${randomIndexX2}${6}%`;
       tags_group2.current.style.top = `${randomIndexY2}${8}%`;
-      tags_group3.current.style.left = `${randomIndexX3}${2}%`;
+      tags_group3.current.style.left = `${randomIndexX3}${3}%`;
       tags_group3.current.style.top = `${randomIndexY3}${8}%`;
     }
 
@@ -53,7 +53,7 @@ const Results: React.FC = () => {
 
 
   return (
-    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isAlwaysOpen={false} className="2xl:relative" isNoContainer={true} isNoMaxWidth={true}>
+    <Background text="РЕЗУЛЬТАТИ" bg="s-gray" xl={0} isAlwaysOpen={true} className="2xl:relative" isNoContainer={true} isNoMaxWidth={true}>
       <div className='flex flex-col 2xl:flex-row gap-[26px] 2xl:gap-0 w-full pb-20 lg:pb-[100px] 2xl:pb-[200px]'>
 
         <div className='px-5 lg:px-[26px] 2xl:pl-20'>
@@ -106,7 +106,7 @@ const Results: React.FC = () => {
               </div>
             </div>
 
-            <div className='w-full uppercase h-[355px] absolute duration-1500 ease-in-out' ref={tags_group3}>
+            <div className='w-full uppercase h-[355px] absolute duration-1000 ease-in-out' ref={tags_group3}>
               <div className="absolute inline-block left-[30px] lg:left-[calc(50%-240px)] top-[210px] rotate-[6deg] lg:top-[270px]" >
                 <div className="rounded border border-white bg-black px-[24.5px] py-[9.65px] text-md font-medium leading-5 lg:text-lg lg:leading-s-38 text-white duration-300 hover:bg-s-light-purple"> Системність </div>
               </div>
@@ -128,4 +128,3 @@ const Results: React.FC = () => {
 };
 
 export default Results;
- 

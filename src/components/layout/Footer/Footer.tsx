@@ -1,7 +1,7 @@
 'use client';
 
 import { ICONS } from '@/constants/icons/icons';
-// import SceneLogo2 from '../Header/Shared/SceneLogo2';
+import React from 'react'
 import Marquee from './Marquee/Marquee';
 import Button from '@/components/ui/Button';
 import Image from 'next/image';
@@ -9,7 +9,6 @@ import Link from 'next/link';
 import { SocialMediaData } from '@/constants/data/SocialMediaData';
 import { useDesignStore } from '@/useDesignStore';
 import clsx from 'clsx';
-
 const Footer: React.FC = () => {
   const { designType } = useDesignStore();
 
@@ -28,15 +27,15 @@ const Footer: React.FC = () => {
 
           <div
             className={clsx(
-              'flex w-full flex-col border-b border-white px-5 py-[32px] lg:flex-row lg:items-start lg:justify-between lg:px-6 2xl:px-20',
-              designType === 'designByOlga' && 'border-opacity-10 2xl:py-16',
+              'flex w-full flex-col border-b border-white px-4 py-[32px] lg:flex-row lg:items-start lg:justify-between lg:px-6 2xl:px-20',
+              designType === 'designByOlga' && 'border-opacity-10 2xl:py-16 2xl:px-[120px]',
               designType === 'designBySvitlana' &&
                 'border-opacity-0 lg:py-10 2xl:border-opacity-100 2xl:py-[60px]'
             )}
           >
             <div
               className={clsx(
-                'flex flex-row items-center justify-around gap-8 lg:justify-start',
+                'flex flex-row items-center gap-8 lg:justify-start',
                 designType === 'designByOlga' && 'justify-between',
                 designType === 'designBySvitlana' &&
                   'justify-start lg:items-start'
@@ -214,8 +213,8 @@ const Footer: React.FC = () => {
                     key={social.link}
                     disabled={false}
                     className={clsx(
-                      designType === 'designByOlga' &&
-                        'mb-4 border-olga-green-extra uppercase visited:border-olga-green-extra hover:bg-olga-green-extra active:bg-olga-green-extra',
+                      designType === 'designByOlga' && 
+                        `mb-4 border-olga-green-extra uppercase visited:border-olga-green-extra hover:bg-olga-green-extra active:bg-olga-green-extra`,
                       designType === 'designBySvitlana' &&
                         'mb-6 font-regular capitalize leading-6 hover:bg-white hover:text-black active:bg-white active:text-black lg:mb-4 lg:px-[43.5px] lg:py-1 2xl:px-[27.5px] 2xl:leading-9'
                     )}
@@ -265,11 +264,11 @@ const Footer: React.FC = () => {
                 'text-center text-s leading-[18.2px] lg:text-m lg:leading-[20.8px] 2xl:py-[32px] 2xl:text-sm 2xl:leading-[23.4px]'
             )}
           >
-            <p className="container">
+            <p className={clsx("container", designType === 'designByOlga' && 'px-10')}>
               Компанія направляє 10% прибутку{' '}
               <br
                 className={clsx(
-                  designType === 'designByOlga' && 'hidden',
+                  designType === 'designByOlga' && 'hidden lg:hidden',
                   designType === 'designBySvitlana' && 'block lg:hidden'
                 )}
               />{' '}

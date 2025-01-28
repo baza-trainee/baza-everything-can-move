@@ -1,7 +1,3 @@
-/* #wiggleBlock{
-   animation: wiggle 0.4s 0s linear infinite none running;
-   transition: all 0.5s ease-in-out;
-} */
 #bubbles{
   -webkit-box-shadow: inset -13px -18px 18px 5px rgb(110, 139, 22);
   -moz-box-shadow: inset -13px -18px 18px 5px rgba(110, 139, 22);
@@ -13,18 +9,30 @@
   pointer-events: auto;
 }
 #bubbles::after{
-  content: "";
-  position: absolute;
-  background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(195,255,10,1) 50%, rgba(195,255,10,1) 100%);
-  background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(195,255,10,1) 50%,rgba(195,255,10,1) 100%);
-  background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(195,255,10,1) 50%,rgba(255,255,255,0) 100%);
-  width: 60%;
-  height: 60%;
-  top: 11%;
-  right: 35%;
-  border-radius: 50%;	
-  transform: rotateY(30deg) rotateX(30deg);
-  opacity: 0.8;
+content: "";
+    position: absolute;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(195, 255, 10, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    width: 60%;
+    height: 20%;
+    top: 20%;
+    right: 35%;
+    border-radius: 50%;
+    transform: rotateY(70deg) rotateX(50deg) skew(10deg);
+    opacity: 0.8;
+    box-shadow: 0 0 5px 10px rgba(195, 255, 10, 1);
+}
+#bubbles::before{
+    content: "";
+    position: absolute;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(195, 255, 10, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    width: 54%;
+    height: 30%;
+    top: 29%;
+    right: 21%;
+    border-radius: 50%;
+    transform: rotateY(70deg) rotateX(50deg) skew(10deg);
+    opacity: 0.8;
+    box-shadow: 0 0 4px 0px rgba(195, 255, 10, 1);
 }
 
 #wiggleBlock:nth-of-type(6)::before,
@@ -61,16 +69,6 @@
     height: 140px;
     width: 140px;
 }}
-
-/* #wiggleBlock:nth-of-type(6){
-     animation-direction: reverse;
-}
-#wiggleBlock:nth-of-type(8){
-     animation-direction: reverse;
-}
-#wiggleBlock:nth-of-type(10){
-     animation-direction: reverse;
-} */
 
 @keyframes spin { 
     from {
