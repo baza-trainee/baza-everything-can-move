@@ -15,7 +15,10 @@ const Bubbles2D:React.FC = () => {
         const screenWidth = window.innerWidth;
         
         for (let i = 0; i < wiggleBlock.length; i++){
-
+            // const newTopCoord = `top-[${(Math.random()*window.innerHeight).toFixed().toString()}px]`;
+            // const newLeftCoord = `left-[${(Math.random()*window.innerWidth).toFixed().toString()}px]`;
+            // console.log(newTopCoord);
+            // console.log(newLeftCoord);
             const leftAttributeSm = wiggleBlock[i].getAttribute('data-leftsm')
             const leftAttributeLg = wiggleBlock[i].getAttribute('data-leftlg')
             const leftAttribute2Xl = wiggleBlock[i].getAttribute('data-left2xl')
@@ -24,16 +27,20 @@ const Bubbles2D:React.FC = () => {
             const topAttribute2Xl = wiggleBlock[i].getAttribute('data-top2xl')
              const leftCoord = screenWidth > 1440 ? `2xl:left-[${leftAttribute2Xl}px]`: screenWidth > 768 ? `lg:left-[${leftAttributeLg}px]` : `left-[${leftAttributeSm}px]`;
             const topCoord = screenWidth > 1440 ? `2xl:top-[${topAttribute2Xl}px]`: screenWidth > 768 ? `lg:top-[${topAttributeLg}px]` : `top-[${topAttributeSm}px]`;
-            const bubbleStyles = 'bg-[#1D1D1C] rounded-full w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] 2xl:w-[164px] 2xl:h-[164px] flex flex-col items-center justify-center text-olga-green absolute z-10 opacity-0';
+            const bubbleStyles = 'bg-[#1D1D1C] rounded-full w-[120px] h-[120px] lg:w-[140px] lg:h-[140px] 2xl:w-[164px] 2xl:h-[164px] flex flex-col items-center justify-center text-olga-green absolute z-10';
             setTimeout(() => {
                 wiggleBlock[i].className = '';
                 wiggleBlock[i].className = bubbleStyles;
-                wiggleBlock[i].classList.add('top-[700px]', `${leftCoord}`);
+                // wiggleBlock[i].classList.remove('opacity-0');
+                wiggleBlock[i].classList.add('top-[700px]', `${leftCoord}`, 'opacity-100');
+                Block2D?.classList.add('translate-x-[-15%]', 'transition-all');
             }, 1);
             setTimeout(() => {
-                wiggleBlock[i].classList.remove('opacity-0', 'top-[700px]');
-                wiggleBlock[i].classList.add('opacity-100', `${topCoord}`, `${leftCoord}`, 'duration-5000', 'transition-all', 'ease-in-out', 'animate-wiggle');
-            }, 2000);
+                wiggleBlock[i].classList.remove('top-[700px]');
+                wiggleBlock[i].classList.add(`${topCoord}`, `${leftCoord}`, 'duration-5000', 'transition-all', 'ease-in-out', 'animate-wiggle');
+                Block2D?.classList.remove('translate-x-[-15%]');
+                Block2D?.classList.add('animate-x-axis', 'transition-all');
+            }, 3900);
             wiggleBlock[i].addEventListener('mouseenter', () => {
                 if(!Block2D){ return }
                 Block2D.children[i].classList.remove('hidden'); 
@@ -41,19 +48,19 @@ const Bubbles2D:React.FC = () => {
             });
              wiggleBlock[i].addEventListener('click', () => {
                 if(!Block2D){ return }
-                setTimeout(() => 
+                setTimeout(() =>  
                  {
                     wiggleBlock[i].classList.remove('animate-wiggle');
                     wiggleBlock[i].classList.add('animate-bubble-wobble', 'transition-all');
-                 }, 10);
+                 }, 5);
                  setTimeout(() => 
                  {
                     Block2D.children[i].classList.remove('hidden'); 
                     Block2D.children[i].classList.add('block'); 
                     wiggleBlock[i].className = '';
                     wiggleBlock[i].className = bubbleStyles;
-                    wiggleBlock[i].classList.add(`${topCoord}`, `${leftCoord}`);
-                 }, 300);
+                    wiggleBlock[i].classList.add(`${topCoord}`, `${leftCoord}`, 'opacity-0');
+                 }, 0);
                  setTimeout(() => 
                  {
                     wiggleBlock[i].classList.remove(`${topCoord}`);
@@ -62,8 +69,8 @@ const Bubbles2D:React.FC = () => {
                 setTimeout(() => {                
                     wiggleBlock[i].className = '';
                     wiggleBlock[i].className = bubbleStyles;
-                    wiggleBlock[i].classList.remove('opacity-0', 'top-[700px]', `${leftCoord}`);
-                    wiggleBlock[i].classList.add('opacity-100', `${topCoord}`, `${leftCoord}`, 'duration-3000', 'transition-all', 'ease-in-out', 'animate-wiggle');
+                    wiggleBlock[i].classList.remove( 'top-[700px]', `${leftCoord}`, 'opacity-0');
+                    wiggleBlock[i].classList.add('opacity-100', `${topCoord}`, `${leftCoord}`, 'duration-5000', 'transition-all', 'ease-in-out', 'animate-wiggle');
                 }, 5000);
 
                 setTimeout(() => {

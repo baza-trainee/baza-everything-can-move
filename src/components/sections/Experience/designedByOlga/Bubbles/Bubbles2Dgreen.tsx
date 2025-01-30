@@ -25,6 +25,18 @@ const Bubbles2Dgreen:React.FC = () => {
             const leftCoord = screenWidth > 1440 ? `2xl:left-[${leftAttribute2Xl}px]`: screenWidth > 768 ? `lg:left-[${leftAttributeLg}px]` : `left-[${leftAttributeSm}px]`;
             const topCoord = screenWidth > 1440 ? `2xl:top-[${topAttribute2Xl}px]`: screenWidth > 768 ? `lg:top-[${topAttributeLg}px]` : `top-[${topAttributeSm}px]`;
             const bubbleStyles = 'bg-[#c3ff0a] rounded-full w-[100px] h-[100px] 2xl:w-[124px] 2xl:h-[124px] flex flex-col items-center justify-center text-olga-green duration-400 absolute z-10';
+            setTimeout(() => {
+                bubbles[i].className = '';
+                bubbles[i].className = bubbleStyles;
+                bubbles[i].classList.add('top-[700px]', `${leftCoord}`);
+                Block2Dgreen?.classList.add('translate-x-[-15%]', 'transition-all');
+            }, 1);
+            setTimeout(() => {
+                bubbles[i].classList.remove('top-[700px]');
+                bubbles[i].classList.add('opacity-100', `${topCoord}`, `${leftCoord}`, 'duration-5000', 'transition-all', 'ease-in-out', 'animate-wiggle');
+                Block2Dgreen?.classList.remove('translate-x-[-15%]');
+                Block2Dgreen?.classList.add('animate-x-axis', 'transition-all');
+            }, 3900);
 
             bubbles[i].addEventListener('mouseenter', () => {
                 if(!Block2Dgreen){ return }
@@ -33,20 +45,25 @@ const Bubbles2Dgreen:React.FC = () => {
             });
              bubbles[i].addEventListener('click', () => {
                 if(!Block2Dgreen){ return }
-                 setTimeout(() => 
-                 {
+                setTimeout(() => 
+                {
                     Block2Dgreen.children[i].classList.remove('hidden'); 
                     Block2Dgreen.children[i].classList.add('block'); 
                     bubbles[i].className = '';
                     bubbles[i].className = bubbleStyles;
-                    bubbles[i].classList.add('opacity-0', 'top-[500px]', `${leftCoord}`);
-                 }, 300);
+                    bubbles[i].classList.add(`${topCoord}`, `${leftCoord}`, 'opacity-0');
+                 }, 0);
+                 setTimeout(() => 
+                 {
+                    bubbles[i].classList.remove(`${topCoord}`);
+                    bubbles[i].classList.add('top-[700px]');
+                 }, 1000);
 
                 setTimeout(() => {                
                     bubbles[i].className = '';
                     bubbles[i].className = bubbleStyles;
-                    bubbles[i].classList.remove('opacity-0', 'top-[500px]', `${leftCoord}`);
-                    bubbles[i].classList.add('opacity-100', `${topCoord}`, `${leftCoord}`);
+                    bubbles[i].classList.remove('top-[700px]', `${leftCoord}`);
+                    bubbles[i].classList.add('opacity-100', `${topCoord}`, `${leftCoord}`, 'duration-5000', 'transition-all', 'ease-in-out');
                 }, 5000);
 
                 setTimeout(() => {

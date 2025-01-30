@@ -166,6 +166,8 @@ animation: {
           'bubble-wobble': 'bubbleWobble 0.1s ease',
           'bubble-pop': 'bubblePop 5s ease',
           'wiggle': 'bubbleWiggle 0.4s 0s linear infinite none running',
+          // 'rise-wiggle': 'bubbleRiseWiggle 0.4s 0s linear infinite none running',
+          'x-axis': 'x_axis 5s 0s ease-in-out none running',
       },
       keyframes: {
         marqueeCustom: {
@@ -187,11 +189,11 @@ animation: {
         },
         bubbleWobble: {
           '0%': { transform: 'scale(1)', opacity: '1' },
-          '20%': { transform: 'scale(0.5)', opacity: '0.8' },
-          '40%': { transform: 'scale(1.1)', opacity: '0.8' },
-          '60%': { transform:'scale(.9)', opacity: '0.6' },
-          '80%': { transform:'scale(.5)', opacity: '0.2' },
-          '100%': { transform:'scale(0)', opacity: '0' },
+          '20%': { transform: 'scale(1.1)', opacity: '0.8' },
+          '40%': { transform: 'scale(1.2)', opacity: '0.8' },
+          '60%': { transform:'scale(1.3)', opacity: '0.6' },
+          '80%': { transform:'scale(1.4)', opacity: '0.2' },
+          '100%': { transform:'scale(1.6)', opacity: '0' },
         },
         bubbleWiggle: {
           '0%': { transform: 'rotate(0deg) translateX(0px) translateY(0px)' },
@@ -204,6 +206,15 @@ animation: {
           '50%': { },
           '100%': { transform: 'translateY(-500px)', opacity: '1'},
         },
+        x_axis: {
+          '50%': { transform: 'translateX(15%)' },
+        },
+        // bubbleRiseWiggle: {
+        //   '0%': { transform: 'rotate(0deg) translateX(0px) translateY(0px)' },
+        //   '25%': { transform: 'rotate(1deg) translateX(0px) translateY(0px)' },
+        //   '75%': { transform: '-rotate(1deg) -translateX(5px) -translateY(5px)' },
+        //   '100%': { transform: 'rotate(0deg) translateX(0px) translateY(0px)' },
+        // },
       },
       transitionDuration: {
           DEFAULT: '500ms',
