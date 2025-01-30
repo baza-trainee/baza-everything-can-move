@@ -85,7 +85,7 @@ const SliderComponent: React.FC = () => {
         {slides.map((slide, index) => (
           // <div key={index} className="p-2">
           // over p
-          <div key={index} className="w-full" style={{ width: 360 }}>
+          <div key={index} className="w-full lg:max-w-[490px] max-w-[320px]">
             {/* my wrapper p*/}
             <div className="slide-item border-gray-700 bg-gray-800 m-4 rounded-lg border-2 py-2 lg:m-4">
               <div className="slide-header flex justify-between border-b-2 p-4">
@@ -181,12 +181,12 @@ const SliderComponent: React.FC = () => {
       {/* Кастомні кнопки навігації */}
       <div className="mr-16 mt-4 hidden flex-row items-center justify-end gap-8 lg:flex">
         <ButtonSlide
-          className="bg-transparent hover:bg-gray-600 flex h-14 w-12 cursor-pointer items-center justify-center rounded-full transition-all"
+          className="bg-transparent hover:bg-gray-600 flex h-10 w-20 cursor-pointer items-center justify-center rounded-full py-0 transition-all"
           onClick={handlePrev}
           ariaLabel="кнопка для переходу до попереднього фото"
         />
         <ButtonSlide
-          className="bg-transparent hover:bg-gray-600 flex h-12 w-12 rotate-180 cursor-pointer items-center justify-center rounded-full transition-all"
+          className="bg-transparent hover:bg-gray-600 flex h-10 w-20 rotate-180 cursor-pointer items-center justify-center rounded-full transition-all"
           onClick={handleNext}
           ariaLabel="кнопка для переходу до наступного фото"
         />
