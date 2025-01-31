@@ -87,8 +87,8 @@ const SliderComponent: React.FC = () => {
           // over p w-[360px] !!!!!!!!!!!!!!!!!! style={{ width: '400px' }}
           <div key={index} style={{ width }}>
             {/* my wrapper p py-2*/}
-            <div className="slide-item border-gray-700 bg-gray-800 m-5 rounded-xl border lg:m-8 2xl:m-5">
-              <div className="slide-header flex justify-between border-b px-3 pb-1 pt-2">
+            <div className="slide-item border-gray-700 bg-gray-800 m-5 rounded-xl border lg:m-8 lg:rounded-2xl 2xl:m-5">
+              <div className="slide-header flex justify-between border-b px-[10px] pb-1 pt-2 lg:px-4 lg:pb-[7px] lg:pt-[14px]">
                 <h3 className="text-xs font-bold uppercase lg:text-sm">
                   {slide.title} <span>{slide.subTitle}</span>
                   <span className="lit1">{slide.s}</span>
@@ -96,13 +96,15 @@ const SliderComponent: React.FC = () => {
                   <span className="lit3">{slide.sub}</span>
                   <span className="lit4">{slide.subTitleDR}</span>
                 </h3>
-                <div className="icons flex gap-2">
+                {/* //gap-2 */}
+                <div className="icons flex">
                   <div className="flex items-center gap-1 lg:gap-[6px]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="26"
                       height="14"
                       fill="none"
+                      //h-2 w-[14px] lg:h-[14px] lg:w-[26px]
                       className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
                     >
                       <rect
@@ -163,7 +165,7 @@ const SliderComponent: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="px-[10px] py-4">
+              <div className="px-[10px] py-3 lg:px-[18px] lg:py-6">
                 <Image
                   src={slide.image}
                   alt={slide.title}
