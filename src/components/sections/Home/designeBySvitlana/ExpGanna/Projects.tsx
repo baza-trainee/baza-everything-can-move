@@ -8,15 +8,15 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 export default function ProjectsGanna() {
   return (
     <Background
-      text="02 // Проєкти Ganna"
+      text="02 // Проєкти"
       bg="s-gray"
       xl={840}
       isNoContainer={true}
       isNoMaxWidth={true}
     >
-      <section className="relative mb-32 overflow-visible px-0">
+      <div className="relative overflow-visible px-0 pb-32 lg:pb-[180px] 2xl:pb-[124px]">
         <Container>
-          <div className="mb-12 flex-wrap items-center justify-between gap-x-20 xl:flex">
+          <div className="mb-[84px] flex-wrap items-center justify-between gap-x-20 lg:mb-[90px] xl:flex 2xl:mb-16">
             <div className="title">
               <AnimatedTitle title="Проєкти" className="lg-text-[76px]" />
               <p className="mb-4 text-md uppercase lg:text-lg 2xl:mb-0">
@@ -30,13 +30,13 @@ export default function ProjectsGanna() {
               <BtnAnimated
                 color="white"
                 href="/experience"
-                className="mb-8 mr-auto"
+                className="mr-auto"
               />
             </div>
           </div>
         </Container>
         <Slider />
-      </section>
+      </div>
     </Background>
   );
 }

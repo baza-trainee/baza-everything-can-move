@@ -11,7 +11,7 @@ import OurNumber from '../components/sections/Home/OurNumber/OurNumber';
 import Today from '../components/sections/Home/Today/Today';
 import Teams from '../components/sections/Home/designeBySvitlana/Teams/Teams';
 import OldBaseSection from '../components/sections/Home/designeBySvitlana/OldBase/OldBase';
-import ProjectsSection from '@/components/sections/Home/designeBySvitlana/Projects/Projects';
+//import ProjectsSection from '@/components/sections/Home/designeBySvitlana/Projects/Projects';
 import ExperienceSection from '@/components/sections/Home/designeBySvitlana/Experience/Experience';
 import FutureSection from '@/components/sections/Home/designeBySvitlana/Future/Future';
 import ProjectsGanna from '@/components/sections/Home/designeBySvitlana/ExpGanna/Projects';
@@ -41,7 +41,7 @@ function Home() {
           <MarqueeSection />
           <OldBaseSection />
           <Teams />
-          <ProjectsSection />
+          {/* <ProjectsSection /> */}
           <ProjectsGanna />
           <ExperienceSection />
           <FutureSection />

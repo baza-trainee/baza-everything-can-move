@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,14 +7,27 @@ import 'slick-carousel/slick/slick-theme.css';
 import { ButtonSlide } from '../../../../ui/SwiperFoto/components/ButtonSlider';
 import './slick-overrides-ganna.css';
 import Image from 'next/image';
+import Container from '@/components/ui/DesignBySvitlna/Container';
 
 const SliderComponent: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
+  const [width, setWidth] = useState(
+    window.innerWidth >= 768 ? '400px' : '240px'
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth >= 768 ? '400px' : '240px');
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const settings = {
-    className: 'slider variable-width center',
+    className: ' variable-width center',
     variableWidth: true,
-    //slidesToShow: 3.7,
+
     slidesToShow: 1,
     slidesToScroll: 1,
     centerPadding: '0px', // Змінено на 0px для усунення внутрішніх відступів
@@ -25,20 +38,6 @@ const SliderComponent: React.FC = () => {
     speed: 500,
     // autoplay: true,
     // autoplaySpeed: 3000,
-
-    //till not incl
-    // responsive: [
-    //   {
-    //     //2.3
-    //     breakpoint: 1440,
-    //     settings: { slidesToShow: 3 },
-    //   },
-
-    //   {
-    //     breakpoint: 768,
-    //     settings: { slidesToShow: 1 },
-    //   },
-    // ],
   };
 
   const slides = [
@@ -74,22 +73,23 @@ const SliderComponent: React.FC = () => {
   const handleNext = () => sliderRef.current?.slickNext();
 
   return (
-    <div className="slider-container relative pb-8 lg:p-0 lg:pb-0">
+    //px-4 pb-8
+    <div className="slider-container relative lg:p-0 lg:pb-0">
       {/* Слайдер */}
       <Slider
         ref={sliderRef}
         {...settings}
         //center-slider h-64
-        className="center-slider mb-16"
+        className="center-slider mb-0 lg:mb-[60px] 2xl:mb-5"
       >
         {slides.map((slide, index) => (
           // <div key={index} className="p-2">
-          // over p
-          <div key={index} className="w-full lg:max-w-[490px] max-w-[320px]">
-            {/* my wrapper p*/}
-            <div className="slide-item border-gray-700 bg-gray-800 m-4 rounded-lg border-2 py-2 lg:m-4">
-              <div className="slide-header flex justify-between border-b-2 p-4">
-                <h3 className="text-sm font-bold uppercase">
+          // over p w-[360px] !!!!!!!!!!!!!!!!!! style={{ width: '400px' }}
+          <div key={index} style={{ width }}>
+            {/* my wrapper p py-2*/}
+            <div className="slide-item border-gray-700 bg-gray-800 m-5 rounded-xl border lg:m-8 2xl:m-5">
+              <div className="slide-header flex justify-between border-b px-3 pb-1 pt-2">
+                <h3 className="text-xs font-bold uppercase lg:text-sm">
                   {slide.title} <span>{slide.subTitle}</span>
                   <span className="lit1">{slide.s}</span>
                   <span className="lit2">{slide.su}</span>
@@ -97,15 +97,16 @@ const SliderComponent: React.FC = () => {
                   <span className="lit4">{slide.subTitleDR}</span>
                 </h3>
                 <div className="icons flex gap-2">
-                  <div className="flex items-center gap-[6px]">
+                  <div className="flex items-center gap-1 lg:gap-[6px]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="26"
                       height="14"
                       fill="none"
-                      className="icon h-[14px] w-[26px]"
+                      className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
                     >
                       <rect
+                        // className="h-[7px] w-[13px] lg:h-[13px] lg:w-[25px]"
                         width="25"
                         height="13"
                         x="0.5"
@@ -123,7 +124,7 @@ const SliderComponent: React.FC = () => {
                       width="26"
                       height="14"
                       fill="none"
-                      className="icon h-[14px] w-[26px]"
+                      className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
                     >
                       <rect
                         width="25"
@@ -144,7 +145,7 @@ const SliderComponent: React.FC = () => {
                       width="26"
                       height="14"
                       fill="none"
-                      className="icon h-[14px] w-[26px]"
+                      className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
                     >
                       <rect
                         width="25"
@@ -162,12 +163,12 @@ const SliderComponent: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="p-4">
+              <div className="px-[10px] py-4">
                 <Image
                   src={slide.image}
                   alt={slide.title}
                   //h-40
-                  className="mb-2 w-full object-cover"
+                  className="w-full object-cover"
                   width={640}
                   height={640}
                 />
@@ -179,18 +180,18 @@ const SliderComponent: React.FC = () => {
       </Slider>
 
       {/* Кастомні кнопки навігації */}
-      <div className="mr-16 mt-4 hidden flex-row items-center justify-end gap-8 lg:flex">
+      <Container className="hidden flex-row items-center justify-end gap-8 lg:flex">
         <ButtonSlide
-          className="bg-transparent hover:bg-gray-600 flex h-10 w-20 cursor-pointer items-center justify-center rounded-full py-0 transition-all"
+          className="bg-transparent flex w-[55px] cursor-pointer items-center justify-center border-white transition-all hover:bg-white hover:text-s-gray"
           onClick={handlePrev}
           ariaLabel="кнопка для переходу до попереднього фото"
         />
         <ButtonSlide
-          className="bg-transparent hover:bg-gray-600 flex h-10 w-20 rotate-180 cursor-pointer items-center justify-center rounded-full transition-all"
+          className="bg-transparent flex w-[55px] rotate-180 cursor-pointer items-center justify-center border-white transition-all hover:bg-white hover:text-s-gray"
           onClick={handleNext}
           ariaLabel="кнопка для переходу до наступного фото"
         />
-      </div>
+      </Container>
     </div>
   );
 };
