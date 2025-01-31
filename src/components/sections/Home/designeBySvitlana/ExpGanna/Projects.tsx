@@ -8,7 +8,7 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 export default function ProjectsGanna() {
   return (
     <Background
-      text="02 // Проєкти Ganna"
+      text="02 // Проєкти"
       bg="s-gray"
       xl={840}
       isNoContainer={true}

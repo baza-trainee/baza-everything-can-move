@@ -32,19 +32,25 @@
 .custom-bullet-active {
   background-color: #ffffff;
   opacity: 1;
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
+  /* width: 420px; */
 }
 /* .slick-center img {
   transform: scale(1.08);
 } */
 .slick-center .slide-item {
   background-color: #fff;
-  transform: scale(1.1);
-  padding-left: 10px;
+  /* transform: scale(1.1); */
+
+  /* padding-left: 10px; */
   transition: all 0.3s ease 0s;
 }
-/* .slick-active .slick-center div {
-} */
+.slick-slide {
+  width: 360px;
+}
+.slick-slide.slick-active.slick-center.slick-current {
+  width: 420px;
+}
 .slick-center h3 {
   color: #363535;
 }

@@ -1,15 +1,15 @@
-.slick-slider li {
+/* .slick-slider li {
   width: 12px;
   height: 12px;
   background-color: transparent;
   border: 1px solid;
   border-radius: 50%;
-  /* opacity: 0.6; */
+
   cursor: pointer;
   margin: 0 10px;
   transition: all 0.3s;
 }
-.slick-list{
+.slick-list {
   overflow: none;
 }
 .slick-dots::before {
@@ -42,7 +42,6 @@
   transform: scale(1.08);
   width: 386px;
   transition: width 0.3s ease 0s;
-
 }
 .slick-center .slide-item {
   transform: scale(1.08);
@@ -87,4 +86,4 @@
 .slick-center .slide-header .lit4 {
   color: #ffe332;
   transition: color 0.3s ease 0s;
-}
+} */

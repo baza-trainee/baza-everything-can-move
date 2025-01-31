@@ -14,7 +14,7 @@ const SliderComponent: React.FC = () => {
   const settings = {
     className: 'slider variable-width center',
     variableWidth: true,
-    //slidesToShow: 3.7,
+
     slidesToShow: 1,
     slidesToScroll: 1,
     centerPadding: '0px', // Змінено на 0px для усунення внутрішніх відступів
@@ -25,20 +25,6 @@ const SliderComponent: React.FC = () => {
     speed: 500,
     // autoplay: true,
     // autoplaySpeed: 3000,
-
-    //till not incl
-    // responsive: [
-    //   {
-    //     //2.3
-    //     breakpoint: 1440,
-    //     settings: { slidesToShow: 3 },
-    //   },
-
-    //   {
-    //     breakpoint: 768,
-    //     settings: { slidesToShow: 1 },
-    //   },
-    // ],
   };
 
   const slides = [
@@ -74,20 +60,20 @@ const SliderComponent: React.FC = () => {
   const handleNext = () => sliderRef.current?.slickNext();
 
   return (
-    <div className="slider-container relative pb-8 lg:p-0 lg:pb-0">
+    <div className="slider-container relative px-4 pb-8 lg:p-0 lg:pb-0">
       {/* Слайдер */}
       <Slider
         ref={sliderRef}
         {...settings}
         //center-slider h-64
-        className="center-slider mb-16"
+        className="center-slider mb-0 lg:mb-[60px] 2xl:mb-5"
       >
         {slides.map((slide, index) => (
           // <div key={index} className="p-2">
-          // over p
-          <div key={index} className="w-full lg:max-w-[490px] max-w-[320px]">
-            {/* my wrapper p*/}
-            <div className="slide-item border-gray-700 bg-gray-800 m-4 rounded-lg border-2 py-2 lg:m-4">
+          // over p w-[360px] style={{ width: '360px' }}
+          <div key={index} className="w-full">
+            {/* my wrapper p py-2*/}
+            <div className="slide-item border-gray-700 bg-gray-800 rounded-lg border-2 lg:m-2 2xl:m-4">
               <div className="slide-header flex justify-between border-b-2 p-4">
                 <h3 className="text-sm font-bold uppercase">
                   {slide.title} <span>{slide.subTitle}</span>
@@ -179,14 +165,14 @@ const SliderComponent: React.FC = () => {
       </Slider>
 
       {/* Кастомні кнопки навігації */}
-      <div className="mr-16 mt-4 hidden flex-row items-center justify-end gap-8 lg:flex">
+      <div className="mr-16 hidden flex-row items-center justify-end gap-8 lg:flex">
         <ButtonSlide
-          className="bg-transparent hover:bg-gray-600 flex h-10 w-20 cursor-pointer items-center justify-center rounded-full py-0 transition-all"
+          className="bg-transparent hover:bg-gray-600 flex h-14 w-12 cursor-pointer items-center justify-center rounded-full transition-all"
           onClick={handlePrev}
           ariaLabel="кнопка для переходу до попереднього фото"
         />
         <ButtonSlide
-          className="bg-transparent hover:bg-gray-600 flex h-10 w-20 rotate-180 cursor-pointer items-center justify-center rounded-full transition-all"
+          className="bg-transparent hover:bg-gray-600 flex h-12 w-12 rotate-180 cursor-pointer items-center justify-center rounded-full transition-all"
           onClick={handleNext}
           ariaLabel="кнопка для переходу до наступного фото"
         />
