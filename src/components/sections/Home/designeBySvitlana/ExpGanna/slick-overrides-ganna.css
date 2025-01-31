@@ -19,7 +19,7 @@
 }
 .slick-dots {
   position: absolute;
-  /* bottom: -79px; */
+  bottom: -50px;
   left: 0px;
   display: block;
   width: 100%;
@@ -28,17 +28,7 @@
   list-style: none;
   text-align: center;
 }
-@media screen and (min-width: 1440px) {
-  .slick-dots {
-    bottom: -55px;
-  }
-}
 
-@media screen and (min-width: 768px) {
-  .slick-dots {
-    bottom: -95px;
-  }
-}
 .custom-bullet-active {
   background-color: #ffffff;
   opacity: 1;
@@ -48,8 +38,10 @@
 /* .slick-center img {
   transform: scale(1.05);
 } */
+/* .cardWrapper{width:240px} */
+
 .slick-list {
-  height: 282px;
+  height: 182px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,4 +99,22 @@
 .slick-center .slide-header .lit4 {
   color: #ffe332;
   transition: color 0.3s ease 0s;
+}
+
+@media screen and (min-width: 1440px) {
+  .slick-dots {
+    bottom: -55px;
+  }
+  .slick-list {
+    height: 282px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439.5px) {
+  .slick-dots {
+    bottom: -95px;
+  }
+  .slick-list {
+    height: 282px;
+  }
 }

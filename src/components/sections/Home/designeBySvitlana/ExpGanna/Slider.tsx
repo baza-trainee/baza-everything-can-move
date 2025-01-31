@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -11,6 +11,18 @@ import Container from '@/components/ui/DesignBySvitlna/Container';
 
 const SliderComponent: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
+  const [width, setWidth] = useState(
+    window.innerWidth >= 768 ? '400px' : '240px'
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth >= 768 ? '400px' : '240px');
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const settings = {
     className: ' variable-width center',
@@ -61,7 +73,8 @@ const SliderComponent: React.FC = () => {
   const handleNext = () => sliderRef.current?.slickNext();
 
   return (
-    <div className="slider-container relative px-4 pb-8 lg:p-0 lg:pb-0">
+    //px-4 pb-8
+    <div className="slider-container relative lg:p-0 lg:pb-0">
       {/* Слайдер */}
       <Slider
         ref={sliderRef}
@@ -71,12 +84,12 @@ const SliderComponent: React.FC = () => {
       >
         {slides.map((slide, index) => (
           // <div key={index} className="p-2">
-          // over p w-[360px]
-          <div key={index} style={{ width: '400px' }}>
+          // over p w-[360px] !!!!!!!!!!!!!!!!!! style={{ width: '400px' }}
+          <div key={index} style={{ width }}>
             {/* my wrapper p py-2*/}
-            <div className="slide-item border-gray-700 bg-gray-800 rounded-xl border lg:m-8 2xl:m-5">
+            <div className="slide-item border-gray-700 bg-gray-800 m-5 rounded-xl border lg:m-8 2xl:m-5">
               <div className="slide-header flex justify-between border-b px-3 pb-1 pt-2">
-                <h3 className="text-sm font-bold uppercase">
+                <h3 className="text-xs font-bold uppercase lg:text-sm">
                   {slide.title} <span>{slide.subTitle}</span>
                   <span className="lit1">{slide.s}</span>
                   <span className="lit2">{slide.su}</span>
@@ -84,15 +97,16 @@ const SliderComponent: React.FC = () => {
                   <span className="lit4">{slide.subTitleDR}</span>
                 </h3>
                 <div className="icons flex gap-2">
-                  <div className="flex items-center gap-[6px]">
+                  <div className="flex items-center gap-1 lg:gap-[6px]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="26"
                       height="14"
                       fill="none"
-                      className="icon h-[14px] w-[26px]"
+                      className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
                     >
                       <rect
+                        // className="h-[7px] w-[13px] lg:h-[13px] lg:w-[25px]"
                         width="25"
                         height="13"
                         x="0.5"
@@ -110,7 +124,7 @@ const SliderComponent: React.FC = () => {
                       width="26"
                       height="14"
                       fill="none"
-                      className="icon h-[14px] w-[26px]"
+                      className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
                     >
                       <rect
                         width="25"
@@ -131,7 +145,7 @@ const SliderComponent: React.FC = () => {
                       width="26"
                       height="14"
                       fill="none"
-                      className="icon h-[14px] w-[26px]"
+                      className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
                     >
                       <rect
                         width="25"
