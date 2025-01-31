@@ -7,12 +7,13 @@ import 'slick-carousel/slick/slick-theme.css';
 import { ButtonSlide } from '../../../../ui/SwiperFoto/components/ButtonSlider';
 import './slick-overrides-ganna.css';
 import Image from 'next/image';
+import Container from '@/components/ui/DesignBySvitlna/Container';
 
 const SliderComponent: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
 
   const settings = {
-    className: 'slider variable-width center',
+    className: ' variable-width center',
     variableWidth: true,
 
     slidesToShow: 1,
@@ -70,11 +71,11 @@ const SliderComponent: React.FC = () => {
       >
         {slides.map((slide, index) => (
           // <div key={index} className="p-2">
-          // over p w-[360px] style={{ width: '360px' }}
-          <div key={index} className="w-full">
+          // over p w-[360px]
+          <div key={index} style={{ width: '400px' }}>
             {/* my wrapper p py-2*/}
-            <div className="slide-item border-gray-700 bg-gray-800 rounded-lg border-2 lg:m-2 2xl:m-4">
-              <div className="slide-header flex justify-between border-b-2 p-4">
+            <div className="slide-item border-gray-700 bg-gray-800 rounded-xl border lg:m-3 2xl:m-5">
+              <div className="slide-header flex justify-between border-b px-3 pb-1 pt-2">
                 <h3 className="text-sm font-bold uppercase">
                   {slide.title} <span>{slide.subTitle}</span>
                   <span className="lit1">{slide.s}</span>
@@ -148,12 +149,12 @@ const SliderComponent: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="p-4">
+              <div className="px-[10px] py-4">
                 <Image
                   src={slide.image}
                   alt={slide.title}
                   //h-40
-                  className="mb-2 w-full object-cover"
+                  className="w-full object-cover"
                   width={640}
                   height={640}
                 />
@@ -165,18 +166,18 @@ const SliderComponent: React.FC = () => {
       </Slider>
 
       {/* Кастомні кнопки навігації */}
-      <div className="mr-16 hidden flex-row items-center justify-end gap-8 lg:flex">
+      <Container className="hidden flex-row items-center justify-end gap-8 lg:flex">
         <ButtonSlide
-          className="bg-transparent hover:bg-gray-600 flex h-14 w-12 cursor-pointer items-center justify-center rounded-full transition-all"
+          className="bg-transparent flex w-[55px] cursor-pointer items-center justify-center border-white transition-all hover:bg-white hover:text-s-gray"
           onClick={handlePrev}
           ariaLabel="кнопка для переходу до попереднього фото"
         />
         <ButtonSlide
-          className="bg-transparent hover:bg-gray-600 flex h-12 w-12 rotate-180 cursor-pointer items-center justify-center rounded-full transition-all"
+          className="bg-transparent flex w-[55px] rotate-180 cursor-pointer items-center justify-center border-white transition-all hover:bg-white hover:text-s-gray"
           onClick={handleNext}
           ariaLabel="кнопка для переходу до наступного фото"
         />
-      </div>
+      </Container>
     </div>
   );
 };
