@@ -33,6 +33,12 @@
     bottom: -55px;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .slick-dots {
+    bottom: -95px;
+  }
+}
 .custom-bullet-active {
   background-color: #ffffff;
   opacity: 1;
