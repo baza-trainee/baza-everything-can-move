@@ -105,16 +105,18 @@
   .slick-dots {
     bottom: -55px;
   }
-  .slick-list {
-    height: 282px;
-  }
+  
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439.5px) {
   .slick-dots {
     bottom: -95px;
   }
+  
+}
+@media screen and (min-width: 768px) {
+  
   .slick-list {
-    height: 282px;
+    height: 298px;
   }
 }
