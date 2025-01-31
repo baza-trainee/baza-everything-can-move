@@ -87,7 +87,7 @@ const SliderComponent: React.FC = () => {
           // over p w-[360px] !!!!!!!!!!!!!!!!!! style={{ width: '400px' }}
           <div key={index} style={{ width }}>
             {/* my wrapper p py-2*/}
-            <div className="slide-item border-gray-700 bg-gray-800 m-5 rounded-xl border lg:m-8 lg:rounded-2xl 2xl:m-5">
+            <div className="slide-item border-gray-700 bg-gray-800 m-5 rounded-xl border lg:m-6 lg:rounded-2xl 2xl:m-5">
               <div className="slide-header flex justify-between border-b px-[10px] pb-1 pt-2 lg:px-4 lg:pb-[7px] lg:pt-[14px]">
                 <h3 className="text-xs font-bold uppercase lg:text-sm">
                   {slide.title} <span>{slide.subTitle}</span>
