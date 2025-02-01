@@ -9,6 +9,8 @@ import './slick-overrides-ganna.css';
 import Image from 'next/image';
 import Container from '@/components/ui/DesignBySvitlna/Container';
 
+// import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
+
 const SliderComponent: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
   const [width, setWidth] = useState(
@@ -89,7 +91,7 @@ const SliderComponent: React.FC = () => {
             {/* my wrapper p py-2*/}
             <div className="slide-item border-gray-700 bg-gray-800 m-5 rounded-xl border lg:m-6 lg:rounded-2xl 2xl:m-5">
               <div className="slide-header flex justify-between border-b px-[10px] pb-1 pt-2 lg:px-4 lg:pb-[7px] lg:pt-[14px]">
-                <h3 className="text-xs font-bold uppercase lg:text-sm">
+                <h3 className="lett text-xs font-medium uppercase tracking-s-2 lg:text-md">
                   {slide.title} <span>{slide.subTitle}</span>
                   <span className="lit1">{slide.s}</span>
                   <span className="lit2">{slide.su}</span>
@@ -100,6 +102,73 @@ const SliderComponent: React.FC = () => {
                 <div className="icons flex">
                   <div className="flex items-center gap-1 lg:gap-[6px]">
                     <svg
+                      viewBox="0 0 26 14"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
+                    >
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="24"
+                        height="12"
+                        rx="5.5"
+                        stroke="#fff"
+                        stroke-width="1"
+                        vector-effect="non-scaling-stroke"
+                      />
+                      <path
+                        d="M13 2L13.7538 3.94153L15.3236 2.57272L15.0888 4.64219L17.1149 4.15968L15.9453 5.88299L17.9635 6.39732L16.127 7.37969L17.6751 8.77302L15.5924 8.7894L16.3156 10.7426L14.4639 9.78919L14.1966 11.8547L13 10.15L11.8034 11.8547L11.5361 9.78919L9.68439 10.7426L10.4076 8.7894L8.32492 8.77302L9.87297 7.37969L8.03646 6.39732L10.0547 5.88299L8.88508 4.15968L10.9112 4.64219L10.6764 2.57272L12.2462 3.94153L13 2Z  "
+                        fill="#fff"
+                      />
+                    </svg>
+                    {/* //----// */}
+                    <svg
+                      viewBox="0 0 26 14"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
+                    >
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="24"
+                        height="12"
+                        rx="5.5"
+                        stroke="#fff"
+                        stroke-width="1"
+                        vector-effect="non-scaling-stroke"
+                      />
+                      <path
+                        d="M13 2L13.7538 3.94153L15.3236 2.57272L15.0888 4.64219L17.1149 4.15968L15.9453 5.88299L17.9635 6.39732L16.127 7.37969L17.6751 8.77302L15.5924 8.7894L16.3156 10.7426L14.4639 9.78919L14.1966 11.8547L13 10.15L11.8034 11.8547L11.5361 9.78919L9.68439 10.7426L10.4076 8.7894L8.32492 8.77302L9.87297 7.37969L8.03646 6.39732L10.0547 5.88299L8.88508 4.15968L10.9112 4.64219L10.6764 2.57272L12.2462 3.94153L13 2Z  "
+                        className="bg"
+                        fill="#fff"
+                      />
+                    </svg>
+                    {/* //----// */}
+                    <svg
+                      viewBox="0 0 26 14"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
+                    >
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="24"
+                        height="12"
+                        rx="5.5"
+                        stroke="#fff"
+                        stroke-width="1"
+                        vector-effect="non-scaling-stroke"
+                      />
+                      <path
+                        d="M13 2L13.7538 3.94153L15.3236 2.57272L15.0888 4.64219L17.1149 4.15968L15.9453 5.88299L17.9635 6.39732L16.127 7.37969L17.6751 8.77302L15.5924 8.7894L16.3156 10.7426L14.4639 9.78919L14.1966 11.8547L13 10.15L11.8034 11.8547L11.5361 9.78919L9.68439 10.7426L10.4076 8.7894L8.32492 8.77302L9.87297 7.37969L8.03646 6.39732L10.0547 5.88299L8.88508 4.15968L10.9112 4.64219L10.6764 2.57272L12.2462 3.94153L13 2Z  "
+                        fill="#fff"
+                      />
+                    </svg>
+                    {/* //-----// */}
+                    {/* <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="26"
                       height="14"
@@ -161,7 +230,7 @@ const SliderComponent: React.FC = () => {
                         fill="#fff"
                         d="m13 2 .754 1.942 1.57-1.37-.235 2.07 2.026-.482-1.17 1.723 2.018.514-1.836.983 1.548 1.393-2.083.016.724 1.954-1.852-.954-.267 2.066L13 10.15l-1.197 1.705-.267-2.066-1.852.954.724-1.954-2.083-.016L9.873 7.38l-1.837-.983 2.019-.514-1.17-1.723 2.026.482-.235-2.07 1.57 1.37z"
                       ></path>
-                    </svg>
+                    </svg> */}
                   </div>
                 </div>
               </div>
