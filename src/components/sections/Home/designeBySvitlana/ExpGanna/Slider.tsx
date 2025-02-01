@@ -82,7 +82,7 @@ const SliderComponent: React.FC = () => {
         ref={sliderRef}
         {...settings}
         //center-slider h-64
-        className="center-slider mb-0 lg:mb-[60px] 2xl:mb-5"
+        className="center-slider mb-12 lg:mb-[60px] 2xl:mb-5"
       >
         {slides.map((slide, index) => (
           // <div key={index} className="p-2">
