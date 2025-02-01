@@ -1,10 +1,10 @@
+/* dots  */
 .slick-slider li {
   width: 12px;
   height: 12px;
   background-color: transparent;
   border: 1px solid;
   border-radius: 50%;
-  /* opacity: 0.6; */
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -28,39 +28,49 @@
   list-style: none;
   text-align: center;
 }
+@media screen and (min-width: 1440px) {
+  .slick-dots {
+    bottom: -55px;
+  }
+}
 
+@media screen and (min-width: 768px) and (max-width: 1439.5px) {
+  .slick-dots {
+    bottom: -95px;
+  }
+}
+/* cards  */
 .custom-bullet-active {
   background-color: #ffffff;
   opacity: 1;
-  /* transform: scale(1.2); */
-  /* width: 420px; */
 }
-/* .slick-center img {
-  transform: scale(1.05);
-} */
-/* .cardWrapper{width:240px} */
 
-.slick-list {
-  height: 182px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 .slick-center .slide-item {
   background-color: #fff;
   transform: scale(1.15);
-  /* margin: 40px; */
 
-  /* padding-left: 10px; */
   transition: all 0.3s ease 0s;
 }
-/* .slick-slide {
-  width: 360px;
-} */
-/* .slick-slide.slick-active.slick-center.slick-current {
-  width: 420px;
-} */
+
+/* icons  */
+.slick-center .icon {
+  fill: #bcbbf9;
+  transition: fill 0.3s ease 0s;
+}
+.slick-center .icon path {
+  fill: #000;
+  transition: fill 0.3s ease 0s;
+}
+.slick-center .icon .bgIcon {
+  fill: #fff;
+  transition: fill 0.3s ease 0s;
+}
+.slick-center .icon .iconRect {
+  stroke: #bcbbf9;
+  transition: fill 0.3s ease 0s;
+}
+
+/* header */
 .slick-center h3 {
   color: #363535;
 }
@@ -70,19 +80,6 @@
 }
 .slick-center .slide-header {
   border-bottom: 1px solid #363535;
-}
-
-.slick-center .icon {
-  fill: #bcbbf9;
-  transition: fill 0.3s ease 0s;
-}
-.slick-center .icon path {
-  fill: #000;
-  transition: fill 0.3s ease 0s;
-}
-.slick-center .icon .bg {
-  fill: #fff;
-  transition: fill 0.3s ease 0s;
 }
 .slick-center .slide-header .lit1 {
   color: #533ba3;
@@ -101,22 +98,17 @@
   transition: color 0.3s ease 0s;
 }
 
-@media screen and (min-width: 1440px) {
-  .slick-dots {
-    bottom: -55px;
-  }
-  
+/* wrappers */
+.slick-track {
+  height: 185px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center;
+  align-items: center; */
 }
 
-@media screen and (min-width: 768px) and (max-width: 1439.5px) {
-  .slick-dots {
-    bottom: -95px;
-  }
-  
-}
 @media screen and (min-width: 768px) {
-  
-  .slick-list {
+  .slick-track {
     height: 298px;
   }
 }
