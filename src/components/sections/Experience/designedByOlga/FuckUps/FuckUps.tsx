@@ -18,7 +18,7 @@ const FuckUpSection = ({ title, subtitle }: FuckUpsSectionProps) => {
 
   return (
     <>
-    <div className="h-[3305px]">
+    <div className="h-[2000px]">
       <div className="sticky top-[600px]">
         <div className='container mb-8'>
           <ICONS_SHARED.CORNER_TOP className="float-right" />

@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-export type designTypes = 'designByOlga' | 'designBySvitlana' | 'initial';
+export type designTypes = 'designByOlga' | 'designByOlga' | 'initial';//////////////
 
 export type ChangDesign = boolean;
 
@@ -30,8 +30,8 @@ export const useDesignStore = create<DesignStoreState>((set) => ({
     set((state) => ({
       designType:
         state.designType === 'designByOlga'
-          ? 'designBySvitlana'
-          : 'designByOlga', ////////////////////////////////////////////////////////////////
+          ? 'designByOlga'//////////////////////
+          : 'designByOlga', 
     })),
   toggleIsChangingDesign: (isChangingDesignProps) =>
     set(() => ({ isChangingDesign: isChangingDesignProps })),

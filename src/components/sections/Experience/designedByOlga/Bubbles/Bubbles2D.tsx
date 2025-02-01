@@ -15,10 +15,7 @@ const Bubbles2D:React.FC = () => {
         const screenWidth = window.innerWidth;
         
         for (let i = 0; i < wiggleBlock.length; i++){
-            // const newTopCoord = `top-[${(Math.random()*window.innerHeight).toFixed().toString()}px]`;
-            // const newLeftCoord = `left-[${(Math.random()*window.innerWidth).toFixed().toString()}px]`;
-            // console.log(newTopCoord);
-            // console.log(newLeftCoord);
+
             const leftAttributeSm = wiggleBlock[i].getAttribute('data-leftsm')
             const leftAttributeLg = wiggleBlock[i].getAttribute('data-leftlg')
             const leftAttribute2Xl = wiggleBlock[i].getAttribute('data-left2xl')
@@ -31,7 +28,6 @@ const Bubbles2D:React.FC = () => {
             setTimeout(() => {
                 wiggleBlock[i].className = '';
                 wiggleBlock[i].className = bubbleStyles;
-                // wiggleBlock[i].classList.remove('opacity-0');
                 wiggleBlock[i].classList.add('top-[700px]', `${leftCoord}`, 'opacity-100');
                 Block2D?.classList.add('translate-x-[-15%]', 'transition-all');
             }, 1);
@@ -41,28 +37,31 @@ const Bubbles2D:React.FC = () => {
                 Block2D?.classList.remove('translate-x-[-15%]');
                 Block2D?.classList.add('animate-x-axis', 'transition-all');
             }, 3900);
-            wiggleBlock[i].addEventListener('mouseenter', () => {
-                if(!Block2D){ return }
-                Block2D.children[i].classList.remove('hidden'); 
-                Block2D.children[i].classList.add('block'); 
-            });
+            setTimeout(() => {
+                wiggleBlock[i].addEventListener('mouseenter', () => {
+                    if(!Block2D){ return }
+                    if(wiggleBlock[i].classList.contains('opacity-100')){
+                        Block2D.children[i].classList.remove('hidden'); 
+                        Block2D.children[i].classList.add('block'); 
+                    }
+                });
+            }, 10000);
+
              wiggleBlock[i].addEventListener('click', () => {
                 if(!Block2D){ return }
-                setTimeout(() =>  
-                 {
-                    wiggleBlock[i].classList.remove('animate-wiggle');
-                    wiggleBlock[i].classList.add('animate-bubble-wobble', 'transition-all');
-                 }, 5);
-                 setTimeout(() => 
-                 {
+                setTimeout(() => {
                     Block2D.children[i].classList.remove('hidden'); 
                     Block2D.children[i].classList.add('block'); 
                     wiggleBlock[i].className = '';
                     wiggleBlock[i].className = bubbleStyles;
                     wiggleBlock[i].classList.add(`${topCoord}`, `${leftCoord}`, 'opacity-0');
                  }, 0);
-                 setTimeout(() => 
-                 {
+                setTimeout(() => {
+                    wiggleBlock[i].classList.remove('animate-wiggle');
+                    wiggleBlock[i].classList.add('animate-bubble-wobble', 'transition-all');
+                 }, 5);
+
+                 setTimeout(() => {
                     wiggleBlock[i].classList.remove(`${topCoord}`);
                     wiggleBlock[i].classList.add('top-[700px]');
                  }, 1000);
@@ -70,13 +69,16 @@ const Bubbles2D:React.FC = () => {
                     wiggleBlock[i].className = '';
                     wiggleBlock[i].className = bubbleStyles;
                     wiggleBlock[i].classList.remove( 'top-[700px]', `${leftCoord}`, 'opacity-0');
-                    wiggleBlock[i].classList.add('opacity-100', `${topCoord}`, `${leftCoord}`, 'duration-5000', 'transition-all', 'ease-in-out', 'animate-wiggle');
+                    wiggleBlock[i].classList.add( `${topCoord}`, `${leftCoord}`, 'duration-5000', 'transition-all', 'ease-in-out', 'animate-wiggle');
                 }, 5000);
 
                 setTimeout(() => {
                     Block2D.children[i].classList.remove('block'); 
                     Block2D.children[i].classList.add('hidden'); 
                 }, 5100);
+                setTimeout(() => {
+                   wiggleBlock[i].classList.add( 'opacity-100');
+                }, 9000);
             })
             wiggleBlock[i].addEventListener('mouseleave', () => {
                 if(!Block2D){ return }
