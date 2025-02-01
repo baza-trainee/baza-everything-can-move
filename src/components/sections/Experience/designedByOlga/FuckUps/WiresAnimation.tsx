@@ -12,7 +12,7 @@ const transition = {
 
 export const WiresAnimation = ({ pathLength}: { pathLength: MotionValue }) => {
   return (
-    <div className={cn("sticky top-10")}>
+    <div className={cn("sticky -top-10")}>
 
       <div className="container">
         <p className="text-s leading-[18.2px] font-regular lg:text-m lg:leading-[20.8px] 2xl:text-sm 2xl:leading-[23.4px] text-left bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300 max-w-[220px] lg:max-w-[320px] 2xl:max-w-[346px]"> Неправильно збілдили проєкт для деплою. Папки завернули через рівень. Довго мучились...</p>
@@ -72,7 +72,7 @@ export function WiresAnimationComponent() {
   const pathLength = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
 
   return (
-    <div className="w-full relative h-[2700px]" ref={ref}>
+    <div className="w-full relative h-[1800px]" ref={ref}>
       <WiresAnimation pathLength={pathLength} />   
     </div>
   );

@@ -166,7 +166,6 @@ animation: {
           'bubble-wobble': 'bubbleWobble 0.1s ease',
           'bubble-pop': 'bubblePop 5s ease',
           'wiggle': 'bubbleWiggle 0.4s 0s linear infinite none running',
-          // 'rise-wiggle': 'bubbleRiseWiggle 0.4s 0s linear infinite none running',
           'x-axis': 'x_axis 5s 0s ease-in-out none running',
       },
       keyframes: {
