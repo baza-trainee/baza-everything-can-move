@@ -40,12 +40,12 @@
 } */
 /* .cardWrapper{width:240px} */
 
-.slick-list {
-  height: 182px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.slick-track {
+  height: 250px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center;
+  align-items: center; */
 }
 .slick-center .slide-item {
   background-color: #fff;
@@ -105,18 +105,15 @@
   .slick-dots {
     bottom: -55px;
   }
-  
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439.5px) {
   .slick-dots {
     bottom: -95px;
   }
-  
 }
 @media screen and (min-width: 768px) {
-  
-  .slick-list {
+  .slick-track {
     height: 298px;
   }
 }
