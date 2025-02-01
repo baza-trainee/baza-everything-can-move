@@ -38,8 +38,8 @@ const SliderComponent: React.FC = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    // autoplay: true,
-    // autoplaySpeed: 3000,
+    autoplay: true,
+    autoplaySpeed: 3000,
   };
 
   const slides = [
@@ -85,8 +85,6 @@ const SliderComponent: React.FC = () => {
         className="center-slider mb-12 lg:mb-[60px] 2xl:mb-5"
       >
         {slides.map((slide, index) => (
-          // <div key={index} className="p-2">
-          // over p w-[360px] !!!!!!!!!!!!!!!!!! style={{ width: '400px' }}
           <div key={index} style={{ width }}>
             {/* my wrapper p py-2*/}
             <div className="slide-item border-gray-700 bg-gray-800 m-5 rounded-xl border lg:m-6 lg:rounded-2xl 2xl:m-5">
@@ -170,70 +168,7 @@ const SliderComponent: React.FC = () => {
                         fill="#fff"
                       />
                     </svg>
-                    {/* //-----// */}
-                    {/* <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="26"
-                      height="14"
-                      fill="none"
-                      //h-2 w-[14px] lg:h-[14px] lg:w-[26px]
-                      className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
-                    >
-                      <rect
-                        // className="h-[7px] w-[13px] lg:h-[13px] lg:w-[25px]"
-                        width="25"
-                        height="13"
-                        x="0.5"
-                        y="0.5"
-                        stroke="#fff"
-                        rx="5.5"
-                      ></rect>
-                      <path
-                        fill="#fff"
-                        d="m13 2 .754 1.942 1.57-1.37-.235 2.07 2.026-.482-1.17 1.723 2.018.514-1.836.983 1.548 1.393-2.083.016.724 1.954-1.852-.954-.267 2.066L13 10.15l-1.197 1.705-.267-2.066-1.852.954.724-1.954-2.083-.016L9.873 7.38l-1.837-.983 2.019-.514-1.17-1.723 2.026.482-.235-2.07 1.57 1.37z"
-                      ></path>
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="26"
-                      height="14"
-                      fill="none"
-                      className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
-                    >
-                      <rect
-                        width="25"
-                        height="13"
-                        x="0.5"
-                        y="0.5"
-                        stroke="#fff"
-                        rx="5.5"
-                      ></rect>
-                      <path
-                        className="bg"
-                        fill="#fff"
-                        d="m13 2 .754 1.942 1.57-1.37-.235 2.07 2.026-.482-1.17 1.723 2.018.514-1.836.983 1.548 1.393-2.083.016.724 1.954-1.852-.954-.267 2.066L13 10.15l-1.197 1.705-.267-2.066-1.852.954.724-1.954-2.083-.016L9.873 7.38l-1.837-.983 2.019-.514-1.17-1.723 2.026.482-.235-2.07 1.57 1.37z"
-                      ></path>
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="26"
-                      height="14"
-                      fill="none"
-                      className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
-                    >
-                      <rect
-                        width="25"
-                        height="13"
-                        x="0.5"
-                        y="0.5"
-                        stroke="#fff"
-                        rx="5.5"
-                      ></rect>
-                      <path
-                        fill="#fff"
-                        d="m13 2 .754 1.942 1.57-1.37-.235 2.07 2.026-.482-1.17 1.723 2.018.514-1.836.983 1.548 1.393-2.083.016.724 1.954-1.852-.954-.267 2.066L13 10.15l-1.197 1.705-.267-2.066-1.852.954.724-1.954-2.083-.016L9.873 7.38l-1.837-.983 2.019-.514-1.17-1.723 2.026.482-.235-2.07 1.57 1.37z"
-                      ></path>
-                    </svg> */}
+                   
                   </div>
                 </div>
               </div>
@@ -241,7 +176,7 @@ const SliderComponent: React.FC = () => {
                 <Image
                   src={slide.image}
                   alt={slide.title}
-                  //h-40
+                
                   className="w-full object-cover"
                   width={640}
                   height={640}
@@ -249,7 +184,7 @@ const SliderComponent: React.FC = () => {
               </div>
             </div>
           </div>
-          // {/* </div> */}
+        
         ))}
       </Slider>
 
