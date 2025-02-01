@@ -108,6 +108,7 @@ const SliderComponent: React.FC = () => {
                       className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
                     >
                       <rect
+                        className="iconRect"
                         x="0.5"
                         y="0.5"
                         width="24"
@@ -130,6 +131,7 @@ const SliderComponent: React.FC = () => {
                       className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
                     >
                       <rect
+                        className="iconRect"
                         x="0.5"
                         y="0.5"
                         width="24"
@@ -141,7 +143,7 @@ const SliderComponent: React.FC = () => {
                       />
                       <path
                         d="M13 2L13.7538 3.94153L15.3236 2.57272L15.0888 4.64219L17.1149 4.15968L15.9453 5.88299L17.9635 6.39732L16.127 7.37969L17.6751 8.77302L15.5924 8.7894L16.3156 10.7426L14.4639 9.78919L14.1966 11.8547L13 10.15L11.8034 11.8547L11.5361 9.78919L9.68439 10.7426L10.4076 8.7894L8.32492 8.77302L9.87297 7.37969L8.03646 6.39732L10.0547 5.88299L8.88508 4.15968L10.9112 4.64219L10.6764 2.57272L12.2462 3.94153L13 2Z  "
-                        className="bg"
+                        className="bgIcon"
                         fill="#fff"
                       />
                     </svg>
@@ -153,6 +155,7 @@ const SliderComponent: React.FC = () => {
                       className="icon h-2 w-[14px] lg:h-[14px] lg:w-[26px]"
                     >
                       <rect
+                        className="iconRect"
                         x="0.5"
                         y="0.5"
                         width="24"

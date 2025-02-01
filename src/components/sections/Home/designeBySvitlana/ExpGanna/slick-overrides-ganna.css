@@ -52,6 +52,25 @@
   transition: all 0.3s ease 0s;
 }
 
+/* icons  */
+.slick-center .icon {
+  fill: #bcbbf9;
+  transition: fill 0.3s ease 0s;
+}
+.slick-center .icon path {
+  fill: #000;
+  transition: fill 0.3s ease 0s;
+}
+.slick-center .icon .bgIcon {
+  fill: #fff;
+  transition: fill 0.3s ease 0s;
+}
+.slick-center .icon .iconRect {
+  stroke: #bcbbf9;
+  transition: fill 0.3s ease 0s;
+}
+
+/* header */
 .slick-center h3 {
   color: #363535;
 }
@@ -61,19 +80,6 @@
 }
 .slick-center .slide-header {
   border-bottom: 1px solid #363535;
-}
-
-.slick-center .icon {
-  fill: #bcbbf9;
-  transition: fill 0.3s ease 0s;
-}
-.slick-center .icon path {
-  fill: #000;
-  transition: fill 0.3s ease 0s;
-}
-.slick-center .icon .bg {
-  fill: #fff;
-  transition: fill 0.3s ease 0s;
 }
 .slick-center .slide-header .lit1 {
   color: #533ba3;
@@ -100,7 +106,6 @@
   /* justify-content: center;
   align-items: center; */
 }
-
 
 @media screen and (min-width: 768px) {
   .slick-track {
