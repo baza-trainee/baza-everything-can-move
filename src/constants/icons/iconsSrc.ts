@@ -24,6 +24,7 @@ import Elipse_SubTitle from '@/assets/icons/shared/ellipse_SubTitle.svg';
 import Stars_btn from '@/assets/icons/shared/stars_btn.svg';
 import ArrowBtnIcon from '@/assets/icons/shared/arrow-btn-icon.svg';
 import rect404 from '@/assets/icons/shared/404-rectangle.svg';
+import arrowSvBtn from '@/assets/icons/shared/arrow-sv-btn.svg';
 
 //---- header -----------
 import o0 from '@/assets/icons/header/designSvitlana/00.svg';
@@ -98,6 +99,7 @@ export const ICONS_SHARED = {
   STARS_BTN: Stars_btn,
   ARROW_BTN_ICON: ArrowBtnIcon,
   RECT404: rect404,
+  ARROW_SV_BTN: arrowSvBtn,
 };
 
 export const ICONS_HEADER_SV = [o0, o1, o2, o3, o4];

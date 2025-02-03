@@ -168,7 +168,6 @@ const SliderComponent: React.FC = () => {
                         fill="#fff"
                       />
                     </svg>
-                   
                   </div>
                 </div>
               </div>
@@ -176,7 +175,6 @@ const SliderComponent: React.FC = () => {
                 <Image
                   src={slide.image}
                   alt={slide.title}
-                
                   className="w-full object-cover"
                   width={640}
                   height={640}
@@ -184,19 +182,19 @@ const SliderComponent: React.FC = () => {
               </div>
             </div>
           </div>
-        
         ))}
       </Slider>
 
       {/* Кастомні кнопки навігації */}
       <Container className="hidden flex-row items-center justify-end gap-8 lg:flex">
         <ButtonSlide
-          className="bg-transparent flex w-[55px] cursor-pointer items-center justify-center border-white transition-all hover:bg-white hover:text-s-gray"
+          // border-white hover:bg-white hover:text-s-gray"
+          className="bg-transparent z-10 border-white text-white hover:bg-white hover:text-s-gray"
           onClick={handlePrev}
           ariaLabel="кнопка для переходу до попереднього фото"
         />
         <ButtonSlide
-          className="bg-transparent flex w-[55px] rotate-180 cursor-pointer items-center justify-center border-white transition-all hover:bg-white hover:text-s-gray"
+          className="bg-transparent z-10 rotate-180 border-white text-white hover:bg-white hover:text-s-gray"
           onClick={handleNext}
           ariaLabel="кнопка для переходу до наступного фото"
         />

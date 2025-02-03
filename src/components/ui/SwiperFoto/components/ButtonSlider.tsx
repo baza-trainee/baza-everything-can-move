@@ -1,3 +1,4 @@
+import { ICONS_SHARED } from '@/constants/icons/iconsSrc';
 import IconRow from '../../../../../public/assets/icons/IconArrowWithoutBorder.svg';
 import { cn } from '@/lib/utils';
 import { useDesignStore } from '@/useDesignStore';
@@ -15,35 +16,39 @@ export const ButtonSlide = ({
 
   // Встановлюємо стилі залежно від типу дизайну
   const buttonStyles =
-    designType === 'designByOlga'
-      ? 'border-olga-green hover:bg-olga-green'
-      : designType === 'designBySvitlana'
-        ? 'border-svitlana-purple hover:bg-white'
-        : 'border-default hover:bg-default'; // Дефолтний стиль
+    designType === 'designByOlga' && 'border-olga-green hover:bg-olga-green';
+  // Дефолтний стиль
 
   const iconStyles =
-    designType === 'designByOlga'
-      ? 'stroke-olga-green hover:fill-olga-green-extra hover:stroke-black h-8 w-16'
-      : designType === 'designBySvitlana'
-        ? 'stroke-svitlana-blue hover:fill-svitlana-blue-extra stroke-white hover:stroke-s-gray' // Стилі для Світлани
-        : 'stroke-default hover:fill-default-extra stroke-black'; // Дефолтні стилі
+    designType === 'designByOlga' &&
+    'stroke-olga-green hover:fill-olga-green-extra hover:stroke-black h-8 w-16';
 
   return (
     <button
       className={cn(
         buttonStyles,
-        'flex h-8 w-16 items-center justify-center rounded-full border border-solid transition-all',
+        'flex items-center justify-center rounded-full border border-solid transition-all',
+        designType === 'designByOlga' && 'h-8 w-16',
+        designType === 'designBySvitlana' && 'h-8 w-[55px]',
         className
       )}
       type="button"
       aria-label={ariaLabel}
       onClick={onClick}
     >
-      <IconRow
-        // width={64}
-        // height={32}
-        className={cn(iconStyles, 'transition-stroke duration-500 ease-in-out')}
-      />
+      {designType === 'designByOlga' && (
+        <IconRow
+          width={64}
+          height={32}
+          className={cn(
+            iconStyles,
+            'transition-stroke duration-500 ease-in-out'
+          )}
+        />
+      )}
+      {designType === 'designBySvitlana' && (
+        <ICONS_SHARED.ARROW_SV_BTN className={cn(iconStyles)} />
+      )}
     </button>
   );
 };
