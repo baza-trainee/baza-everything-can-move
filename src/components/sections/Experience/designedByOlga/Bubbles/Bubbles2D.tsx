@@ -1,10 +1,7 @@
 'use client'
 
 import React, {useEffect} from 'react'
-// import clsx from 'clsx';
 import styles from './bubble2d.module.css'
-// import useSound from 'use-sound';
-// import bubble from '../../../../assets/sounds/bubble.mp3';
 
 
 const Bubbles2D:React.FC = () => {
@@ -36,7 +33,7 @@ const Bubbles2D:React.FC = () => {
                 wiggleBlock[i].classList.add(`${topCoord}`, `${leftCoord}`, 'duration-5000', 'transition-all', 'ease-in-out', 'animate-wiggle');
                 Block2D?.classList.remove('translate-x-[-15%]');
                 Block2D?.classList.add('animate-x-axis', 'transition-all');
-            }, 3900);
+            }, 1900);
             setTimeout(() => {
                 wiggleBlock[i].addEventListener('mouseenter', () => {
                     if(!Block2D){ return }
@@ -45,7 +42,7 @@ const Bubbles2D:React.FC = () => {
                         Block2D.children[i].classList.add('block'); 
                     }
                 });
-            }, 10000);
+            }, 8000);
 
              wiggleBlock[i].addEventListener('click', () => {
                 if(!Block2D){ return }
