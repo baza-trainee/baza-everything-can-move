@@ -1,10 +1,7 @@
 'use client'
 
 import React, {useEffect} from 'react'
-// import clsx from 'clsx';
 import styles from './bubble2d.module.css'
-// import useSound from 'use-sound';
-// import bubble from '../../../../assets/sounds/bubble.mp3';
 
 
 const Bubbles2Dgreen:React.FC = () => {
@@ -37,7 +34,7 @@ const Bubbles2Dgreen:React.FC = () => {
                 bubbles[i].classList.add(`${topCoord}`, `${leftCoord}`, 'duration-5000', 'transition-all', 'ease-in-out');
                 Block2Dgreen?.classList.remove('translate-x-[-15%]');
                 Block2Dgreen?.classList.add('animate-x-axis', 'transition-all');
-            }, 3900);
+            }, 1900);
             setTimeout(() => {
                 bubbles[i].addEventListener('mouseenter', () => {
                     if(!Block2Dgreen){ return }
@@ -46,7 +43,7 @@ const Bubbles2Dgreen:React.FC = () => {
                         Block2Dgreen.children[i].classList.add('block'); 
                     }
                 });
-            }, 10000);
+            }, 8000);
 
              bubbles[i].addEventListener('click', () => {
                 if(!Block2Dgreen){ return }

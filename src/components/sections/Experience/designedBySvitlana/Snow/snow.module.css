@@ -22,34 +22,6 @@
 @media (min-width: 375px) {
 #snowflakes::after{
     top: 1484px;
-    height: 742px;
+    height: 796px;
 }}
 
-/* #snowflakes::before{
-    content: '';
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    z-index: 20;
-    height: 80px;
-   background: linear-gradient(black, transparent);
-}
-#bottomShadow::after{
-    content: '';
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    bottom: 0;
-    z-index: 1;
-    height: 80px;
-   background: linear-gradient(transparent, black);
-}
-
-@media (min-width: 375px) {
-#snowflakes::before{
-    top: 54px;
-}}
-@media (min-width: 768px) {
-#snowflakes::before{
-    top: 0;
-}} */

@@ -1,6 +1,5 @@
 'use client'
 
-// import { useTransform, motion, MotionValue, useScroll } from 'framer-motion';
 import { useTransform, motion, MotionValue } from 'framer-motion';
 import { useRef } from 'react';
 import clsx from 'clsx';

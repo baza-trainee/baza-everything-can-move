@@ -197,7 +197,7 @@ animation: {
         bubbleWiggle: {
           '0%': { transform: 'rotate(0deg) translateX(0px) translateY(0px)' },
           '25%': { transform: 'rotate(1deg) translateX(0px) translateY(0px)' },
-          '75%': { transform: '-rotate(1deg) -translateX(1px) -translateY(1px)' },
+          '75%': { transform: '-rotate(1deg) -translateX(2px) -translateY(2px)' },
           '100%': { transform: 'rotate(0deg) translateX(0px) translateY(0px)' },
         },
         bubblePop: {
@@ -208,12 +208,6 @@ animation: {
         x_axis: {
           '50%': { transform: 'translateX(15%)' },
         },
-        // bubbleRiseWiggle: {
-        //   '0%': { transform: 'rotate(0deg) translateX(0px) translateY(0px)' },
-        //   '25%': { transform: 'rotate(1deg) translateX(0px) translateY(0px)' },
-        //   '75%': { transform: '-rotate(1deg) -translateX(5px) -translateY(5px)' },
-        //   '100%': { transform: 'rotate(0deg) translateX(0px) translateY(0px)' },
-        // },
       },
       transitionDuration: {
           DEFAULT: '500ms',
