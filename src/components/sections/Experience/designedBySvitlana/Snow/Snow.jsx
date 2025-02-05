@@ -4,22 +4,13 @@ import * as THREE from 'three';
 import styles from './snow.module.css';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 import Container from '@/components/ui/DesignBySvitlna/Container';
-// import clsx from 'clsx';
-
-// interface ParametersType {
-//   HSL: number[];
-//   texture:THREE.Texture;
-//   size: number;
-// }
 
 const Snow = () => {
   let mouseX = 0,
     mouseY = 0;
   let windowHalfX = window.innerWidth / 2;
   let windowHalfY = window.innerHeight / 2;
-  // const materials:THREE.PointsMaterial[] = [];
   const materials = [];
-  // const canvasSnow = useRef<HTMLDivElement | null >(null);
   const canvasSnow = useRef(null);
   const screenWidth = window.innerWidth;
 
@@ -36,15 +27,9 @@ const Snow = () => {
     const geometry = new THREE.BufferGeometry();
     const vertices = [];
     const textureLoader = new THREE.TextureLoader();
-    // const assignSRGB = ( texture:THREE.Texture ) => {
     const assignSRGB = (texture) => {
       texture.colorSpace = THREE.SRGBColorSpace;
     };
-    // const sprite1:THREE.Texture = textureLoader.load( '/assets/images/Experience/snowflake1.png', assignSRGB );
-    // const sprite2:THREE.Texture = textureLoader.load( '/assets/images/Experience/snowflake2.png', assignSRGB );
-    // const sprite3:THREE.Texture = textureLoader.load( '/assets/images/Experience/snowflake3.png', assignSRGB );
-    // const sprite4:THREE.Texture = textureLoader.load( '/assets/images/Experience/snowflake4.png', assignSRGB );
-    // const sprite5:THREE.Texture = textureLoader.load( '/assets/images/Experience/snowflake5.png', assignSRGB );
     const sprite1 = textureLoader.load(
       '/assets/images/Experience/snowflake1.png',
       assignSRGB
@@ -82,20 +67,6 @@ const Snow = () => {
       [[0.6667, 0.88, 0.84], sprite5, 8],
       [[0.6667, 0.88, 0.84], sprite4, 5],
     ];
-    // const initialColors = [
-    //       [1.0, 0.2, 0.5], // almost white
-    //       [0.95, 0.1, 0.5],
-    //       [0.9, 0.05, 0.5],
-    //       [0.85, 0, 0.5],
-    //       [0.8, 0, 0.5],
-    //     ];
-    //     parameters = [
-    //       [initialColors[0], sprite2, 20],
-    //       [initialColors[1], sprite3, 15],
-    //       [initialColors[2], sprite1, 10],
-    //       [initialColors[3], sprite5, 8],
-    //       [initialColors[4], sprite4, 5],
-    //     ];
 
     for (let i = 0; i < parameters.length; i++) {
       const color = parameters[i][0];
@@ -114,7 +85,6 @@ const Snow = () => {
         color[2],
         THREE.SRGBColorSpace
       );
-      // console.log(materials[ i ].color);
       const particles = new THREE.Points(geometry, materials[i]);
       particles.rotation.x = Math.random() * 6;
       particles.rotation.y = Math.random() * 6;
@@ -128,7 +98,6 @@ const Snow = () => {
     canvasSnow.current?.appendChild(renderer.domElement);
     renderer.domElement.style.position = 'absolute';
     renderer.domElement.style.width = '100%';
-    // console.log(renderer.domElement.style);
     if (screenWidth < 768) {
       renderer.domElement.style.height = '742px';
     }
@@ -138,8 +107,6 @@ const Snow = () => {
     if (screenWidth >= 1440) {
       renderer.domElement.style.height = '742px';
     }
-
-    // document.body.style.touchAction = 'none';
     canvasSnow.current?.addEventListener('pointermove', onPointerMove);
     window.addEventListener('resize', onWindowResize);
     function onWindowResize() {
@@ -150,7 +117,6 @@ const Snow = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
     }
 
-    // function onPointerMove( event:PointerEvent ) {
     function onPointerMove(event) {
       if (event.isPrimary === false) return;
       mouseX = event.clientX - windowHalfX;
@@ -175,7 +141,6 @@ const Snow = () => {
         const color = parameters[i][0];
         const lighteningAdj =
           (((360 * (0.84 + time * 0.16)) % 360) / 360) * 0.16;
-        // console.log(lighteningAdj);
         const lighteningAfterAdj = color[2] + lighteningAdj;
         materials[i].color.setHSL(
           color[0],
