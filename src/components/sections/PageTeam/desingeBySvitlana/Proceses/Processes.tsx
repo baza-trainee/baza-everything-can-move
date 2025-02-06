@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 import { messagesDiscord } from './dataProcesses';
-import { cn } from '@/lib/utils';
 
 const durationAnimation = messagesDiscord.length * 2;
 const durationShowDiscord = 4;
@@ -59,8 +58,8 @@ export default function Processes() {
             <div className="absolute left-1/2 top-0 h-[368px] w-[368px] -translate-x-1/2 rounded-full border-[1px] border-solid border-white lg:h-[1198px] lg:w-[1198px]" />
             <div className="absolute left-1/2 top-6 h-[320px] w-[320px] -translate-x-1/2 rounded-full border-[1px] border-solid border-s-purple lg:top-[80px] lg:h-[1000px] lg:w-[1000px]" />
             <div className="absolute left-1/2 top-[50px] h-[268px] w-[268px] -translate-x-1/2 rounded-full border-[1px] border-solid border-white lg:top-[160px] lg:h-[828px] lg:w-[828px]" />
-            <img
-              className="absolute left-1/2 top-[62px] h-[708x] w-[326px] -translate-x-1/2 lg:top-[80px] lg:h-[1232px] lg:w-[568px]"
+            <Image
+              className="absolute left-1/2 top-[62px] h-[708px] w-auto max-w-[326px] -translate-x-1/2 lg:top-[80px] lg:h-[1232px] lg:max-w-[568px]"
               width={568}
               height={1232}
               alt="мобільний телефон"
@@ -81,7 +80,7 @@ export default function Processes() {
                         transition: { staggerChildren: 2 },
                       },
                     }}
-                    className="flex w-full flex-col"
+                    className="flex h-auto w-full flex-col"
                   >
                     {messagesDiscord.map((item, index) => {
                       return (
@@ -102,21 +101,26 @@ export default function Processes() {
                               filter: 'blur(0px)',
                             },
                           }}
-                          className="flex justify-center"
+                          className="flex h-auto justify-center"
                           key={index}
                         >
-                          <Image
-                            src={item.url}
-                            alt={'discord повідомлення'}
-                            className={cn(
-                              'h-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[24px]',
-                              index === 3 && 'w-[202px] lg:w-[360px]',
-                              index === 6 && 'w-[202px] lg:w-[360px]',
-                              index === 8 && 'w-[202px] lg:w-[360px]'
-                            )}
-                            width={498}
-                            height={50}
-                          />
+                          {index === 3 || index === 6 || index === 8 ? (
+                            <Image
+                              src={item.url}
+                              alt={'discord повідомлення'}
+                              className="aspect-auto w-[202px] rounded-xl lg:w-[360px] lg:rounded-[24px]"
+                              width={360}
+                              height={50}
+                            />
+                          ) : (
+                            <Image
+                              src={item.url}
+                              alt={'discord повідомлення'}
+                              className="aspect-auto w-[302px] rounded-xl lg:w-[498px] lg:rounded-[24px]"
+                              width={498}
+                              height={50}
+                            />
+                          )}
                         </motion.li>
                       );
                     })}
