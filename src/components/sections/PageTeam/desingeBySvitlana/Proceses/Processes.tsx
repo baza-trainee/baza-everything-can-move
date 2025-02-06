@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import AnimatedTitle from '@/components/ui/DesignBySvitlna/AnimatedTitle';
 import { messagesDiscord } from './dataProcesses';
-import { cn } from '@/lib/utils';
 
 const durationAnimation = messagesDiscord.length * 2;
 const durationShowDiscord = 4;
