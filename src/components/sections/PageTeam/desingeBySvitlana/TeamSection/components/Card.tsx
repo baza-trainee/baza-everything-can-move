@@ -19,7 +19,7 @@ function CardTeam({ name, urlFoto, role, className }: CardsProps) {
     >
       <Image
         src={urlFoto}
-        className="pointer-events-none mb-6 rounded-full"
+        className="pointer-events-none mb-6 h-auto w-auto rounded-full"
         alt={name}
         width={100}
         height={100}

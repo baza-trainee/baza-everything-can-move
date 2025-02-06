@@ -205,11 +205,11 @@ const BallScene = () => {
   }, []);
 
   return (
-    <div className="absolute -top-[100px] left-0 right-0 z-0 2xl:-top-[100px]">
+    <div className="absolute -top-[0px] left-0 right-0 z-0 2xl:-top-[0px]">
       <div
         ref={containerRef}
         // Ganna added mx-auto
-        className="relative mx-auto h-[772px] w-[375px] overflow-hidden lg:h-[975px] lg:w-[768px] 2xl:h-[788px] 2xl:w-[1440px]"
+        className="relative mx-auto h-[772px] overflow-hidden lg:h-[975px] 2xl:h-[788px]"
       >
         {isInView &&
           balls.map((ball) => (

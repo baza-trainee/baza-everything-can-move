@@ -21,9 +21,13 @@ function Participant({ className }: ParticipantProps) {
         </Container>
       )}
       {!isMobile && (
-        <Container className="lg:max-w-[1440px] lg:px-0 lg:pl-6 2xl:max-w-[1920px] 2xl:px-0 2xl:pl-20">
+        <div
+          className={cn(
+            'ml-auto mr-auto w-full lg:max-w-[1440px] lg:pl-6 2xl:max-w-[1920px] 2xl:px-0'
+          )}
+        >
           <DesctopLyout />
-        </Container>
+        </div>
       )}
     </section>
   );

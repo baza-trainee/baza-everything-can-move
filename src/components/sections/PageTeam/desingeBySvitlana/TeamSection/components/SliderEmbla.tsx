@@ -32,6 +32,7 @@ function SliderEmbla() {
       }),
     ]
   );
+
   const tweenFactor = useRef(0);
   const tweenNodes = useRef<HTMLElement[]>([]);
   const isMobile = useMediaQuery({ query: '(max-width: 1439.5px)' });

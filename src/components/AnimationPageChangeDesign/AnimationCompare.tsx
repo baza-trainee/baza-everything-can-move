@@ -135,6 +135,7 @@ export const AnimationCompare = ({
               >
                 <div className="absolute inset-0 z-20 flex h-full w-full flex-shrink-0 select-none items-center justify-center bg-black">
                   <Image
+                    className="w-auto"
                     src={'/assets/icons/Frame.svg'}
                     width={1054}
                     height={580}
