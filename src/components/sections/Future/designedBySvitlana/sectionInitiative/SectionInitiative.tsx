@@ -19,7 +19,9 @@ function SectionInitiative() {
             src="/assets/videos/video.mov"
             loop
             autoPlay
+            muted
             controls
+            playsInline
             webkit-playsinline
           />
           <div className="font-third-family text-m leading-o-150 2xl:order-3 2xl:text-l">
