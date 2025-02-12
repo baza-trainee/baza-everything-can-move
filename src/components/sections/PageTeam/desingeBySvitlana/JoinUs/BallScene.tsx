@@ -111,7 +111,7 @@ const BallScene = () => {
     };
 
     updatePositions();
-  }, []);
+  }, [setBalls]);
 
   const handlePointerMove = (e: MouseEvent) => {
     setBalls((prevBalls) =>
