@@ -43,6 +43,7 @@ function GloboTeam() {
             minPolarAngle={Math.PI / 2}
             maxPolarAngle={Math.PI / 2}
             enableZoom={false}
+            enablePan={false}
             autoRotate
             autoRotateSpeed={0.5}
           />

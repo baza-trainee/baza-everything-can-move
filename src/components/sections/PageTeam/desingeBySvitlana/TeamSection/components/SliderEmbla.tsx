@@ -99,7 +99,7 @@ function SliderEmbla() {
         });
       });
     },
-    []
+    [isMobile]
   );
 
   useEffect(() => {
@@ -115,7 +115,7 @@ function SliderEmbla() {
       .on('reInit', tweenScale)
       .on('scroll', tweenScale)
       .on('slideFocus', tweenScale);
-  }, [emblaApi, tweenScale]);
+  }, [emblaApi, tweenScale, setTweenFactor, setTweenNodes]);
 
   return (
     <div

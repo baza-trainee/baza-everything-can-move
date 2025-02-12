@@ -29,8 +29,8 @@ const BallScene = () => {
     return () => clearTimeout(timer);
   }, [isInView]);
 
-  const gravity = 0.01; // Сила гравітації
-  const bounce = 0.3; // Сила відскоку
+  const gravity = 0.01;
+  const bounce = 0.3;
   const dragSpeedRef = useRef<{ vx: number; vy: number }>({ vx: 0, vy: 0 });
 
   useEffect(() => {
@@ -42,50 +42,41 @@ const BallScene = () => {
           const ball = updatedBalls[i];
 
           if (!ball.isDragging) {
-            // Гравітація
             ball.vy += gravity;
 
-            // Обмеження межами контейнера
             const container = containerRef.current;
             if (container) {
               const rect = container.getBoundingClientRect();
 
-              // Зіткнення з нижньою межею
               if (ball.y + ball.radius >= rect.height) {
                 ball.y = rect.height - ball.radius;
                 ball.vy = -ball.vy * bounce;
-                ball.vx *= 0.95; // Зменшення горизонтальної швидкості (тертя)
+                ball.vx *= 0.95;
               }
 
-              // Зіткнення з верхньою межею
               if (ball.y - ball.radius <= 0) {
                 ball.y = ball.radius;
                 ball.vy = -ball.vy * bounce;
               }
 
-              // Зіткнення з лівою межею
               if (ball.x - ball.radius <= 0) {
                 ball.x = ball.radius;
                 ball.vx = -ball.vx * bounce;
               }
 
-              // Зіткнення з правою межею
               if (ball.x + ball.radius >= rect.width) {
                 ball.x = rect.width - ball.radius;
                 ball.vx = -ball.vx * bounce;
               }
             }
 
-            // Оновлення позиції
             ball.x += ball.vx;
             ball.y += ball.vy;
 
-            // Оновлення кута обертання на основі швидкості
             const speed = Math.sqrt(ball.vx ** 2 + ball.vy ** 2);
-            ball.angle += (speed / ball.radius) * 5; // Коефіцієнт масштабу для обертання
+            ball.angle += (speed / ball.radius) * 5;
           }
 
-          // Відштовхування від інших куль
           for (let j = i + 1; j < updatedBalls.length; j++) {
             const otherBall = updatedBalls[j];
 
@@ -119,16 +110,8 @@ const BallScene = () => {
       requestAnimationFrame(updatePositions);
     };
 
-    updatePositions(); // Запуск циклу оновлення
-  }, []);
-
-  const handlePointerDown = (id: number) => {
-    setBalls((prevBalls) =>
-      prevBalls.map((ball) =>
-        ball.id === id ? { ...ball, isDragging: true, vx: 0, vy: 0 } : ball
-      )
-    );
-  };
+    updatePositions();
+  }, [setBalls]);
 
   const handlePointerMove = (e: MouseEvent) => {
     setBalls((prevBalls) =>
@@ -157,6 +140,30 @@ const BallScene = () => {
     );
   };
 
+  // const randomHit = () => {
+  //   const angle = Math.random() * Math.PI * 2;
+  //   const force = 5;
+  //   return {
+  //     vx: Math.cos(angle) * force,
+  //     vy: Math.sin(angle) * force,
+  //   };
+  // };
+
+  const handlePointerDown = (
+    e: React.MouseEvent | React.TouchEvent,
+    id: number
+  ) => {
+    if ((e.target as HTMLElement).closest('a')) {
+      return;
+    }
+
+    setBalls((prevBalls) =>
+      prevBalls.map((ball) =>
+        ball.id === id ? { ...ball, isDragging: true, vx: 0, vy: 0 } : ball
+      )
+    );
+  };
+
   const handlePointerUp = () => {
     setBalls((prevBalls) =>
       prevBalls.map((ball) =>
@@ -166,29 +173,6 @@ const BallScene = () => {
               isDragging: false,
               vx: dragSpeedRef.current.vx * 0.2,
               vy: dragSpeedRef.current.vy * 0.2,
-            }
-          : ball
-      )
-    );
-  };
-  // Функція для генерації випадкової зміни позиції
-  const randomHit = () => {
-    const angle = Math.random() * Math.PI * 2; // Випадковий кут
-    const force = 3; // Сила удару
-    return {
-      vx: Math.cos(angle) * force,
-      vy: Math.sin(angle) * force,
-    };
-  };
-
-  // Оновлений метод для обробки кліку на сенсорному екрані
-  const handleTouchStart = (id: number) => {
-    setBalls((prevBalls) =>
-      prevBalls.map((ball) =>
-        ball.id === id
-          ? {
-              ...ball,
-              ...randomHit(), // Додаємо випадкову зміну швидкості
             }
           : ball
       )
@@ -208,15 +192,16 @@ const BallScene = () => {
     <div className="absolute -top-[0px] left-0 right-0 z-0 2xl:-top-[0px]">
       <div
         ref={containerRef}
-        // Ganna added mx-auto
         className="relative mx-auto h-[772px] overflow-hidden lg:h-[975px] 2xl:h-[788px]"
       >
         {isInView &&
           balls.map((ball) => (
             <motion.div
               key={ball.id}
-              onMouseDown={() => handlePointerDown(ball.id)}
-              onTouchStart={() => handleTouchStart(ball.id)}
+              onMouseDown={(e) => handlePointerDown(e, ball.id)}
+              onMouseUp={() => handlePointerUp()}
+              onTouchStart={(e) => handlePointerDown(e, ball.id)}
+              onTouchEnd={() => handlePointerUp()}
               className="absolute flex cursor-grab select-none items-center justify-center rounded-full outline-none will-change-transform"
               initial={{
                 left: isMobile ? 200 : 1200,
@@ -235,8 +220,9 @@ const BallScene = () => {
               }}
             >
               {ball.link && (
-                <a href={ball.link} className="cursor-pointer">
+                <a href={ball.link} className="cursor-pointer outline-none">
                   <img
+                    className="pointer-events-none outline-none"
                     src={ball.src}
                     alt="куля"
                     width={ball.imgeSize}
@@ -246,7 +232,7 @@ const BallScene = () => {
               )}
               {!ball.link && (
                 <img
-                  className="pointer-events-none"
+                  className="pointer-events-none outline-none"
                   src={ball.src}
                   alt="куля"
                   width={ball.imgeSize}
