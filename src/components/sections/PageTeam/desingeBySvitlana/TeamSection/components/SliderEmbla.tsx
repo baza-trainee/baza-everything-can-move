@@ -115,7 +115,7 @@ function SliderEmbla() {
       .on('reInit', tweenScale)
       .on('scroll', tweenScale)
       .on('slideFocus', tweenScale);
-  }, [emblaApi, tweenScale, setTweenFactor]);
+  }, [emblaApi, tweenScale, setTweenFactor, setTweenNodes]);
 
   return (
     <div
