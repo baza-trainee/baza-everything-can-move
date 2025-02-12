@@ -16,9 +16,11 @@ function GalaxySvitlana() {
           range={0.8}
           rangeY={0.8}
         />
-        <OrbitControls enableDamping={true} 
+        <OrbitControls 
+        enableDamping={true} 
         minDistance={8} 
         maxDistance={20}
+        enablePan={false}
          />
       </Canvas>
     </div>

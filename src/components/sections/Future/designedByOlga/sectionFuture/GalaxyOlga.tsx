@@ -13,10 +13,15 @@ function GalaxyOlga() {
           radius={5}
           colors={{ insideColor: '#283001', outsideColor: '#c3ff0a' }}
         />
-        <OrbitControls enableDamping={true} />
+        <OrbitControls
+          enableDamping={true}
+          enablePan={false}
+          maxDistance={20}
+          minDistance={2}
+        />
       </Canvas>
     </div>
   );
 }
 
-export default GalaxyOlga
+export default GalaxyOlga;
