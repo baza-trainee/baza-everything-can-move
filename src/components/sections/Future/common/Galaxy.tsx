@@ -68,7 +68,7 @@ function Galaxy({
         depthWrite: false,
       });
     }
-  }, [radius, spinMultiplier, colors, size, range]);
+  }, [radius, spinMultiplier, colors, size, range, rangeY]);
 
   useFrame((state, delta) => {
     if (pointsRef.current) {
