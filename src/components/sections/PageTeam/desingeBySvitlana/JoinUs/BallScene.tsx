@@ -140,14 +140,14 @@ const BallScene = () => {
     );
   };
 
-  const randomHit = () => {
-    const angle = Math.random() * Math.PI * 2;
-    const force = 5;
-    return {
-      vx: Math.cos(angle) * force,
-      vy: Math.sin(angle) * force,
-    };
-  };
+  // const randomHit = () => {
+  //   const angle = Math.random() * Math.PI * 2;
+  //   const force = 5;
+  //   return {
+  //     vx: Math.cos(angle) * force,
+  //     vy: Math.sin(angle) * force,
+  //   };
+  // };
 
   const handlePointerDown = (
     e: React.MouseEvent | React.TouchEvent,
