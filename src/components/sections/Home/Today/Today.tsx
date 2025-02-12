@@ -7,7 +7,7 @@ function Today() {
     <section className="taday">
       <div className="container">
         <SectionTitle className="mb-1">Сьогодні</SectionTitle>
-        <SubTitle className="mb-8">2024</SubTitle>
+        <SubTitle className="mb-8">2025</SubTitle>
         <div className="flex flex-wrap items-center justify-between lg:flex-nowrap">
           <div className="text max-w-80">
             <p className="mb-[20px]">
