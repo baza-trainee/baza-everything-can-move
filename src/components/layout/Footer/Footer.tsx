@@ -107,6 +107,28 @@ const Footer: React.FC = () => {
                     info@baza-trainee.tech
                   </a>
                 </div>
+                  <p
+                    className={clsx(
+                      designType === 'designByOlga' && 'lg:w-[245px] xl:w-auto text-s font-regular leading-[18.2px] lg:text-m lg:leading-[20.8px] 2xl:text-sm 2xl:leading-[23.4px] pb-2',
+                      designType === 'designBySvitlana' &&
+                        'lg:w-[212px] xl:w-auto text-m font-regular leading-6 2xl:text-l 2xl:leading-9 pb-2'
+                    )}>
+                    <a
+                    href='/files/Privacy_Policy.pdf'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >Політика Конфіденційності</a></p>
+                  <p
+                    className={clsx(
+                      designType === 'designByOlga' && 'lg:w-[245px] xl:w-auto text-s font-regular leading-[18.2px] lg:text-m lg:leading-[20.8px] 2xl:text-sm 2xl:leading-[23.4px] pb-4',
+                      designType === 'designBySvitlana' &&
+                        'lg:w-[212px] xl:w-auto text-m font-regular leading-6 2xl:text-l 2xl:leading-9 pb-2'
+                    )}
+                  ><a
+                    href='/files/Privacy_Policy.pdf'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >Правила користування сайтом</a></p>
               </div>
               <ul
                 className={clsx(
@@ -252,6 +274,28 @@ const Footer: React.FC = () => {
                   info@baza-trainee.tech
                 </a>
               </div>
+                  <p
+                    className={clsx(
+                      designType === 'designByOlga' && 'lg:w-[245px] xl:w-auto text-s font-regular leading-[18.2px] lg:text-m lg:leading-[20.8px] 2xl:text-sm 2xl:leading-[23.4px] pb-2',
+                      designType === 'designBySvitlana' &&
+                        'lg:w-[212px] xl:w-auto text-m font-regular leading-6 2xl:text-l 2xl:leading-9 pb-2'
+                    )}>
+                    <a
+                    href='/files/Privacy_Policy.pdf'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >Політика Конфіденційності</a></p>
+                  <p
+                    className={clsx(
+                      designType === 'designByOlga' && 'lg:w-[245px] xl:w-auto text-s font-regular leading-[18.2px] lg:text-m lg:leading-[20.8px] 2xl:text-sm 2xl:leading-[23.4px] pb-4',
+                      designType === 'designBySvitlana' &&
+                        'lg:w-[212px] xl:w-auto text-m font-regular leading-6 2xl:text-l 2xl:leading-9 pb-2'
+                    )}
+                  ><a
+                    href='/files/Privacy_Policy.pdf'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >Правила користування сайтом</a></p>
             </div>
           </div>
 
